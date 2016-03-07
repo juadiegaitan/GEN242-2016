@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Ring Perception and Aromaticity Assignment  | GEN242</title>
+<title>Syllabus GEN242  | GEN242</title>
 <link rel="stylesheet" type="text/css" href="../css/syntax.css">
 <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
@@ -161,7 +161,7 @@
 <script>
 function SendLinkByMail(href) {
 var subject= "GEN242 feedback";
-var body = "I have some feedback about the Ring Perception and Aromaticity Assignment page: ";
+var body = "I have some feedback about the Syllabus GEN242 page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:?subject=";
@@ -188,7 +188,7 @@ window.location.href = uri;
                             searchInput: document.getElementById('search-input'),
                             resultsContainer: document.getElementById('results-container'),
                             dataSource: '../search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="Ring Perception and Aromaticity Assignment">{title}</a></li>',
+                            searchResultTemplate: '<li><a href="{url}" title="Syllabus GEN242">{title}</a></li>',
                         noResultsText: 'No results found.',
                                 limit: 10,
                                 fuzzy: true,
@@ -282,7 +282,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    <li class="active"><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
                     
 
                     
@@ -512,7 +512,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li class="active"><a href="../mydoc/mydoc_ChemmineR_15.html">15. Ring Perception and Aromaticity Assignment</a></li>
+                    <li><a href="../mydoc/mydoc_ChemmineR_15.html">15. Ring Perception and Aromaticity Assignment</a></li>
                     
 
                     
@@ -760,7 +760,7 @@ window.location.href = uri;
             <div class="col-md-9">
                 
                 <div class="post-header">
-   <h1 class="post-title-main">Ring Perception and Aromaticity Assignment</h1>
+   <h1 class="post-title-main">Syllabus GEN242</h1>
 </div>
 
 <div class="post-content">
@@ -795,85 +795,284 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<p>The function <code class="highlighter-rouge">rings</code> identifies all possible rings in one
-or many molecules (here <code class="highlighter-rouge">sdfset[1]</code>) using the exhaustive
-ring perception algorithm from Hanser et al. (1996). In addition, the function can 
-return all smallest possible rings as well as aromaticity information.</p>
+<h2 id="title">Title</h2>
 
-<p>The following example returns all possible rings in a
-<code class="highlighter-rouge">list</code>. The argument <code class="highlighter-rouge">upper</code> allows to
-specify an upper length limit for rings. Choosing smaller length limits
-will reduce the search space resulting in shortened compute times. Note:
-each ring is represented by a character vector of atom symbols that are
-numbered by their position in the atom block of the corresponding
-<code class="highlighter-rouge">SDF/SDFset</code> object.</p>
+<p>Data Analysis in Genome Biology
+GEN242 - Spring 2015</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">ringatoms</span> <span class="o">&lt;-</span> <span class="n">rings</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">upper</span><span class="o">=</span><span class="n">Inf</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"all"</span><span class="p">,</span> <span class="n">arom</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span></code></pre></figure>
+<h2 id="instructor">Instructor</h2>
+<p>Name: Thomas Girke <br /> 
+Email: thomas.girke@ucr.edu <br />
+Office location: 1207F Genomics <br />
+Office hours: Tue &amp; Fri 4:00 - 5:00PM</p>
 
-<p>For visual inspection, the corresponding compound structure can be
-plotted with the ring bonds highlighted in color:</p>
+<h2 id="course-description">Course Description</h2>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">atomindex</span> <span class="o">&lt;-</span> <span class="n">as.numeric</span><span class="p">(</span><span class="n">gsub</span><span class="p">(</span><span class="s2">".*_"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="n">unique</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">ringatoms</span><span class="p">))))</span>
- <span class="n">plot</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">print</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">colbonds</span><span class="o">=</span><span class="n">atomindex</span><span class="p">)</span> </code></pre></figure>
+<p>Introduction to algorithms, statistical methods and data analysis skills
+required for genome biology research. The lecture topics cover databases,
+general/next generation sequence analysis, phylogenetics, comparative genomics
+and network biology. The hands-on data analysis components include homework
+assignments and course projects focusing on data analysis programming of “next
+generation genome data” using Linux command-line tools and the programming
+environment R.</p>
 
-<p><img src="ChemmineR_files/unnamed-chunk-90-1.png" alt="" /></p>
+<h2 id="course-objectives">Course objectives</h2>
 
-<p>Alternatively, one can include the atom numbers in the plot:</p>
+<ul>
+  <li>Acquire understanding of algorithms used in bioinformatics</li>
+  <li>Obtain hands-on experience in large scale data analysis.</li>
+</ul>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">plot</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">print</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">atomnum</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">no_print_atoms</span><span class="o">=</span><span class="s2">"H"</span><span class="p">)</span> </code></pre></figure>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>The main prerequisite for this course is a strong interest in acquiring the
+skills required for mastering the computational aspects of modern genome
+research.</p>
 
-<p><img src="ChemmineR_files/unnamed-chunk-91-1.png" alt="" /></p>
+<h2 id="course-structure">Course Structure</h2>
+<p>Two lectures per week (2 hours each) plus one discussion section (1 hour).
+During the first weeks the discussion section will be used for data analysis
+tutorials using Linux command-line tools and R.</p>
 
-<p>Aromaticity information of the rings can be returned in a logical vector
-by setting <code class="highlighter-rouge">arom=TRUE</code>:</p>
+<h2 id="time">Time</h2>
+<p>Lecture: Tue/Thu 2:10-3:30 PM
+Discussion: Thu 3:40-4:30 PM</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">rings</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">upper</span><span class="o">=</span><span class="n">Inf</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"all"</span><span class="p">,</span> <span class="n">arom</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> </code></pre></figure>
+<h2 id="location">Location</h2>
+<p>2130 CHASS Interdisciplinary Bldg-South (INST)</p>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## $RINGS
-## $RINGS$ring1
-## [1] "N_10" "O_6"  "C_32" "C_31" "C_30"
-## 
-## $RINGS$ring2
-## [1] "C_12" "C_14" "C_15" "C_13" "C_11"
-## 
-## $RINGS$ring3
-## [1] "C_23" "O_2"  "C_27" "C_28" "O_3"  "C_25"
-## 
-## $RINGS$ring4
-## [1] "C_23" "C_21" "C_18" "C_22" "C_26" "C_25"
-## 
-## $RINGS$ring5
-##  [1] "O_3"  "C_28" "C_27" "O_2"  "C_23" "C_21" "C_18" "C_22" "C_26" "C_25"
-## 
-## 
-## $AROMATIC
-## ring1 ring2 ring3 ring4 ring5 
-##  TRUE FALSE FALSE  TRUE FALSE</code></pre></figure>
+<h2 id="grading">Grading</h2>
+<ol>
+  <li>Homework assignments: 40%</li>
+  <li>Scientific paper presentation: 20%</li>
+  <li>Course project presentations: 20%</li>
+  <li>Final project report: 20%</li>
+</ol>
 
-<p>Return rings with no more than 6 atoms that are also aromatic:</p>
+<h2 id="materials-needed">Materials Needed</h2>
+<p>Laptop with access to internet.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">rings</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">upper</span><span class="o">=</span><span class="m">6</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"arom"</span><span class="p">,</span> <span class="n">arom</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> </code></pre></figure>
+<h2 id="schedule">Schedule</h2>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## $AROMATIC_RINGS
-## $AROMATIC_RINGS$ring1
-## [1] "N_10" "O_6"  "C_32" "C_31" "C_30"
-## 
-## $AROMATIC_RINGS$ring4
-## [1] "C_23" "C_21" "C_18" "C_22" "C_26" "C_25"</code></pre></figure>
+<table>
+  <thead>
+    <tr>
+      <th>Week</th>
+      <th>Topic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Week 1</td>
+      <td>1. Assignment of data analysis projects</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2. Bioinformatics databases and software</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>3. Data analysis/programming environments</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>4. Discussion: Linux/cluster basics</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Week 2</td>
+      <td>1. Sequence alignment algorithms</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2. Sequence search algorithms</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>3. Discussion: Introduction to R</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Week 3</td>
+      <td>1. Sequence family analysis</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2. Hidden Markov Models</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>3. Phylogenetics</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>4. Discussion: Data visualization in R</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Week 4</td>
+      <td>1. Next generation sequence (NGS) analysis</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2. NGS alignment algorithms</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>3. NGS assembly algorithms</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>4. Discussion: Reproducible data analysis strategies</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Week 5</td>
+      <td>1. Students present publication related to their chosen course project</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2. Discussion: Sequence analysis programming</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Week 6</td>
+      <td>1. Gene expression analysis using microarray or RNA-Seq data</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2. Analysis methods of ChIP-Seq, VAR-Seq and other NGS applications</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>3. Discussion: RNA-Seq/ChIP-Seq analysis</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Week 7</td>
+      <td>1. Clustering algorithms</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2. Ontology and pathway annotations</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>3. Gene set enrichment and network analysis</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>4. Discussion: VAR-Seq analysis</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Week 8</td>
+      <td>1. Clustering algorithms</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2. Ontology and pathway annotations</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>3. Gene set enrichment and network analysis</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>4. Discussion: tips and tricks for data analysis</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Week 9</td>
+      <td>1. Data visualization</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>2. Genome browsers</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>3. Cheminformatics and drug discovery</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>4. Discussion: tips and tricks for data analysis</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td>Week 10</td>
+      <td>1. Final presentations of student data analysis projects</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Count shortest possible rings and their aromaticity assignments by
-setting <code class="highlighter-rouge">type=count</code> and <code class="highlighter-rouge">inner=TRUE</code>. The
-inner (smallest possible) rings are identified by first computing all
-possible rings and then selecting only the inner rings. For more
-details, consult the help documentation with <code class="highlighter-rouge">?rings</code>.</p>
+<h2 id="reading-list">Reading List</h2>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">rings</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">upper</span><span class="o">=</span><span class="n">Inf</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"count"</span><span class="p">,</span> <span class="n">arom</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">inner</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span> </code></pre></figure>
+<h3 id="journal-articles">Journal Articles</h3>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##      RINGS AROMATIC
-## CMP1     4        2
-## CMP2     3        3
-## CMP3     4        2
-## CMP4     3        3</code></pre></figure>
+<p>Alkan, C, Sajjadian, S, Eichler, E E (2011) Limitations of next-generation genome sequence assembly. Nat Methods, 8: 61-65. http://www.hubmed.org/display.cgi?uids=21102452</p>
+
+<p>Anders, S, Reyes, A, Huber, W (2012) Detecting differential usage of exons from RNA-seq data. Genome Res, 22: 2008-2017. http://www.hubmed.org/display.cgi?uids=22722343</p>
+
+<p>DePristo, M A, Banks, E, Poplin, R, Garimella, K V, Maguire, J R, Hartl, C, Philippakis, A A, del Angel, G, Rivas, M A, Hanna, M, McKenna, A, Fennell, T J, Kernytsky, A M, Sivachenko, A Y, Cibulskis, K, Gabriel, S B, Altshuler, D, Daly, M J (2011) A framework for variation discovery and genotyping using next-generation DNA sequencing data. Nat Genet, 43: 491-498.
+http://www.hubmed.org/display.cgi?uids=21478889</p>
+
+<p>Dobin, A., Davis, C.A., Schlesinger, F., Drenkow, J., Zaleski, C., Jha, S., Batut, P., Chaisson, M., Gingeras, T.R., 2012. STAR: ultrafast universal RNA-seq aligner. Bioinformatics 29, 15–21.
+http://www.hubmed.org/display.cgi?uids=23104886</p>
+
+<p>Grabherr, M G, Haas, B J, Yassour, M, Levin, J Z, Thompson, D A, Amit, I, Adiconis, X, Fan, L, Raychowdhury, R, Zeng, Q, Chen, Z, Mauceli, E, Hacohen, N, Gnirke, A, Rhind, N, di Palma, F, Birren, B W, Nusbaum, C, Lindblad-Toh, K, Friedman, N, Regev, A (2011) Full-length transcriptome assembly from RNA-Seq data without a reference genome. Nat Biotechnol, 29: 644-652.
+http://www.hubmed.org/display.cgi?uids=21572440</p>
+
+<p>Langmead, B, Salzberg, S L (2012) Fast gapped-read alignment with Bowtie 2. Nat Methods, 9: 357-359. http://www.hubmed.org/display.cgi?uids=22388286</p>
+
+<p>Landt et al. (2012) ChIP-seq guidelines and practices of the ENCODE and modENCODE consortia. Genome Res, 22: 1813-1831. http://www.hubmed.org/display.cgi?uids=22955991</p>
+
+<p>Li, H, Durbin, R (2009) Fast and accurate short read alignment with Burrows-Wheeler transform. Bioinformatics, 25: 1754-1760. http://www.hubmed.org/display.cgi?uids=19451168</p>
+
+<p>Machanick, P, Bailey, T L (2011) MEME-ChIP: motif analysis of large DNA datasets. Bioinformatics, 27: 1696-1697.http://www.hubmed.org/display.cgi?uids=21486936</p>
+
+<p>Soneson, C, Delorenzi, M (2013) A comparison of methods for differential expression analysis of RNA-seq data. BMC Bioinformatics, 14: 91-91. http://www.hubmed.org/display.cgi?uids=23497356</p>
+
+<p>Tompa, M, Li, N, Bailey, T L, Church, G M, De Moor, B, Eskin, E, Favorov, A V, Frith, M C, Fu, Y, Kent, W J, Makeev, V J, Mironov, A A, Noble, W S, Pavesi, G, Pesole, G, R{'e}gnier, M, Simonis, N, Sinha, S, Thijs, G, van Helden, J, Vandenbogaert, M, Weng, Z, Workman, C, Ye, C, Zhu, Z (2005) Assessing computational tools for the discovery of transcription factor binding sites. Nat Biotechnol, 23: 137-144.
+http://www.hubmed.org/display.cgi?uids=15637633</p>
+
+<p>Trapnell, C, Hendrickson, D G, Sauvageau, M, Goff, L, Rinn, J L, Pachter, L (2013) Differential analysis of gene regulation at transcript resolution with RNA-seq. Nat Biotechnol, 31: 46-53. 
+http://www.hubmed.org/display.cgi?uids=23222703</p>
+
+<p>Wilbanks, E G, Facciotti, M T (2010) Evaluation of algorithm performance in ChIP-seq peak detection. PLoS One, 5. http://www.hubmed.org/display.cgi?uids=20628599</p>
+
+<p>Zeitouni, B, Boeva, V, Janoueix-Lerosey, I, Loeillet, S, Legoix-n{'e}, P, Nicolas, A, Delattre, O, Barillot, E (2010) SVDetect: a tool to identify genomic structural variations from paired-end and mate-pair sequencing data. Bioinformatics, 26: 1895-1896. http://www.hubmed.org/display.cgi?uids=20639544</p>
+
+<h3 id="books">Books</h3>
+
+<p>Note: there is no need to purchase any books for this course as most reading material will be based on journal articles!</p>
+
+<p>General
+Jonathan Pevsner (2009) Bioinformatics and Functional Genomics. Wiley-Blackwell; 2nd Edition, 992 pages.</p>
+
+<p>Algorithms
+Jones N and Pevzner P (2004) An Introduction to Bioinformatics Algorithms. MIT Press, Massachusetts, 435 pages.</p>
+
+<p>Sequence Analysis
+Durbin, R, Eddy, S, Krogh, A, Mitchison, G. (1998) Biological Sequence Analysis: Probabilistic Models of Proteins and Nucleic Acids. Cambridge University Press, UK, 356 pages.</p>
+
+<p>Parida L (2008) Pattern Discovery in Bioinformatics: Theory &amp; Algorithms. CRC Press, London, 526 pages.</p>
+
+<p>Profiling Bioinformatics
+Gentleman, R, Carey, V, Dudoit, S, Irizarry, R, Huber, W (2005) Bioinformatics and Computational Biology Solutions Using R and Bioconductor. Springer, New York, 473 pages.</p>
+
+<p>Phylogenetics 
+Felsenstein, J (2004) Inferring Phylogenies. Sinauer, Massachusetts, 664 pages.</p>
+
+<p>Paradis (2006) Analysis of Phylogenetics and Evolution with R. Springer, New York, 211 pages.</p>
 
 
 
@@ -891,7 +1090,7 @@ details, consult the help documentation with <code class="highlighter-rouge">?ri
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sun Mar  6 19:34:18 2016<br/> Site last generated: Mar 7, 2016 <br />
+ Site last generated: Mar 7, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

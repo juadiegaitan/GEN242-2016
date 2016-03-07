@@ -668,28 +668,6 @@
 
 
 {
-"title": "Class Teaching",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_classes.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Class Teaching",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/01_Home/mydoc_classes.html",
-"summary": ""
-},
-
-
-
-
-{
 "title": "Administration of site",
 "tags": "",
 "keywords": "navigation tabs, hide sections, tabbers, interface tabs",
@@ -706,6 +684,28 @@
 "keywords": "navigation tabs, hide sections, tabbers, interface tabs",
 "url": "../mydoc/mydoc_internal_notes.html",
 "summary": "Internal notes for maintaining this site."
+},
+
+
+
+
+{
+"title": "Syllabus GEN242",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_syllabus.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Syllabus GEN242",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/01_Home/mydoc_syllabus.html",
+"summary": ""
 },
 
 
