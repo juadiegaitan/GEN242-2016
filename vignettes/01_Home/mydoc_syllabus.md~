@@ -3,7 +3,7 @@ title: Syllabus GEN242
 ast_updated: 07-Mar-16
 ---
 
-## Title
+## Course Title
 
 Data Analysis in Genome Biology
 GEN242 - Spring 2015
@@ -25,7 +25,7 @@ assignments and course projects focusing on data analysis programming of “next
 generation genome data” using Linux command-line tools and the programming
 environment R. 
 
-## Course objectives
+## Objectives of Course
 
 - Acquire understanding of algorithms used in bioinformatics
 - Obtain hands-on experience in large scale data analysis.
