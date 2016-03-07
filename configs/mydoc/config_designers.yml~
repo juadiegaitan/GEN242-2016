@@ -6,9 +6,9 @@ platform: all
 version: all
 output: web
 destination: ../doc_outputs/mydoc/designers
-topnav_title: Data Analysis Tutorials 
+topnav_title: Data Analysis in Genome Biology 
 homepage_title: Introduction
-site_title: Manuals
+site_title: GEN242
 project_folder: mydoc
 company_name: UC Riverside
 footer_image_location: ../common_images/company_logo.png
@@ -21,7 +21,7 @@ kramdown:
   auto_ids: true
 
 
-sidebar_tagline: Manuals
+sidebar_tagline: GEN242
 #sidebar_tagline: <img src="../common_images/logo.png">
 sidebar_version: Under Construction!
 theme_file: theme-blue.css
@@ -52,6 +52,11 @@ host: 127.0.0.1
 feedback_email: thomas.girke@ucr.edu
 
 highlighter: rouge
+# ThG_note: when adding the follwing lines then paragraph formatting changes
+# markdown: kramdown
+# kramdown:
+#  input: GFM
+#  auto_ids: true
 
 collections:
   tooltips:
