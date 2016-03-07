@@ -77,16 +77,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -167,8 +157,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +249,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -855,18 +833,18 @@ further investigate these data.</p>
 
 <p>The R software for running bioassayR can be downloaded from CRAN (<a href="http://cran.at.r-project.org/">http://cran.at.r-project.org/</a>). The <em>bioassayR</em> package can be installed from R using the <em>bioLite</em> install command.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 source("http://bioconductor.org/biocLite.R") # Sources the biocLite.R installation script
 biocLite("bioassayR") # Installs the package
 </code></p>
 
 <h2 id="loading-the-package-and-documentation">Loading the Package and Documentation</h2>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(bioassayR) # Loads the package
 </code></p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(help="bioassayR") # Lists all functions and classes 
 vignette("bioassayR") # Opens this manual from R
 </code></p>
@@ -881,7 +859,7 @@ These data were published as assay identifier (aid) 1000 in the NCBI PubChem Bio
 
 <p>First, create a new database. For purposes of this manual a temporary file is used, but you can replace the <em>tempfile</em> function call with a filename of your choice if you wish to save the resulting database for later.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(bioassayR)
 myDatabaseFilename &lt;- tempfile() 
 mydb &lt;- newBioassayDB(myDatabaseFilename, indexed=F)
@@ -889,7 +867,7 @@ mydb &lt;- newBioassayDB(myDatabaseFilename, indexed=F)
 
 <p>Next, specify the source and version of the data you plan to load. This is a required step, which makes it easier to track the origin of your data later. Feel free to use the current date for a version number, if your data isn’t versioned.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 addDataSource(mydb, description="PubChem BioAssay", version="unknown")
 </code></p>
 
@@ -897,12 +875,12 @@ addDataSource(mydb, description="PubChem BioAssay", version="unknown")
 This <em>data.frame</em> must contain three columns which includes a cid (unique compound identifier) for each compound, a binary activity score (1=active, 0=inactive, NA=inconclusive), and a numeric activity score.
 Consult the <em>bioassay</em> man page for more details on formatting this <em>data.frame</em>. The <em>bioassayR</em> package contains an example activity score data frame that can be accessed as follows:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 data(samplebioassay)
 samplebioassay[1:10,] # print the first 10 scores
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##         cid activity score
 ## 1    730195        0     0
 ## 2  16749973        1    80
@@ -919,14 +897,14 @@ samplebioassay[1:10,] # print the first 10 scores
 <p>All bioactivity data is loaded into the database, or retrieved from the database as an <em>bioassay</em> object which contains details on the assay experimental design, molecular targets, and the activity scores. A bioassay object which incorporates activity scores can be created as follows.
 The source id value must exactly match that loaded earlier by <em>addDataSource</em>. The molecular target(s) for the assay are optional, and an unlimited number can be specified for a single assay as a vector passed to the targets option. The target types field should be a vector of equal length, describing the type of each target in the same order.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 myAssay &lt;- new("bioassay",aid="1000", source_id="PubChem BioAssay",
     assay_type="confirmatory", organism="unknown", scoring="activity rank", 
     targets="116516899", target_types="protein", scores=samplebioassay)
 myAssay
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## class:		 bioassay 
 ## aid:		 1000 
 ## source_id:	 PubChem BioAssay 
@@ -940,7 +918,7 @@ myAssay
 
 <p>The <em>bioassay</em> object can be loaded into the database with the <em>loadBioassay</em> function. By repeating this step with different data, a large number of distinct assays can be loaded into the database.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 loadBioassay(mydb, myAssay)
 </code></p>
 
@@ -955,14 +933,14 @@ can also be used to store annotation data for targets. For example, if you
 have sequence level clustering data on your targets you could store them
 in category “sequenceClustering” and store the cluster number as the identifier.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 loadIdMapping(mydb, target="116516899", category="UniProt", identifier="Q8DR51")
 </code></p>
 
 <p>Wait a minute! We accidentally labeled that assay as organism “unknown” when we know that it’s actually a screen against a protein from <em>Streptococcus pneumonia</em>. 
 After loading an assay into the database, you can later retrieve these data with the <em>getAssay</em> function. By combining this with the ability to delete an assay (the <em>dropBioassay</em> function) one can edit the database by (1) pulling an assay out, (2) deleting it from the database, (3) modifying the pulled out object, and (4) reloading the assay. For example, we can update the species annotation for our assay as follows:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 tempAssay &lt;- getAssay(mydb, "1000") # get assay from database
 dropBioassay(mydb, "1000") # delete assay from database
 organism(tempAssay) &lt;- "Streptococcus pneumonia" # update organism
@@ -971,21 +949,21 @@ loadBioassay(mydb, tempAssay)
 
 <p>It is recommended to index your database after loading all of your data. This significantly speeds up access to the database, but can also slow down loading of data if indexing is performed before loading.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 addBioassayIndex(mydb)
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## Creating index: note this may take a long time for a large database
 </code></p>
 
 <p>After indexing, you can query the database. Here are some example queries. First view the database summary provided by <em>bioassayR</em>:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 mydb
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## class:		 BioassayDB 
 ## assays:		 1 
 ## sources:	 PubChem BioAssay 
@@ -996,11 +974,11 @@ mydb
 When using the pre-built PubChem BioAssay database, these targets are returned
 as NCBI Protein identifiers.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 activeTargets(mydb, 16749979)
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##           fraction_active total_screens
 ## 116516899               1             1
 </code></p>
@@ -1014,17 +992,17 @@ when the database contains a large number for some targets.</p>
 <p>Here we request the UniProt identifiers for GI 116516899, as stored earlier with
 the <em>loadIdMapping</em> function.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 translateTargetId(mydb, target="116516899", category="UniProt")
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## [1] "Q8DR51"
 </code></p>
 
 <p>Lastly, disconnecting from the database after analysis reduces the chances of data corruption. If you are using a pre-built database in read only mode (as demonstrated in the Prebuilt Database Example section) you can optionally skip this step, as only writable databases are prone to corruption from failure to disconnect.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 disconnectBioassayDB(mydb)
 </code></p>
 
@@ -1036,7 +1014,7 @@ disconnectBioassayDB(mydb)
 
 <p>First, get two files from PubChem BioAssay for the assay of interest: an XML file containing details on how the experiment was performed, and a CSV (comma separated value) file which contains the actual activity scores. For the purposes of this example, we will use the data from assay 1000, which is a confirmatory assay (titration assay) of 57 small molecules against a mevalonate kinase protein. More details on this assay were provided in the  “Quick Tutorial,” where the same data is used. These files can be downloaded from PubChem BioAssay at <a href="http://pubchem.ncbi.nlm.nih.gov/">http://pubchem.ncbi.nlm.nih.gov/</a> or loaded from the example data repository included in this package as follows:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(bioassayR)
 extdata_dir &lt;- system.file("extdata", package="bioassayR")
 assayDescriptionFile &lt;- file.path(extdata_dir, "exampleAssay.xml")
@@ -1045,14 +1023,14 @@ activityScoresFile &lt;- file.path(extdata_dir, "exampleScores.csv")
 
 <p>Next, create a new empty database for loading these data into. This example uses the R <em>tempfile</em> function to create the database in a random location. If you would like to keep your resulting database, replace <em>myDatabaseFilename</em> with your desired path and filename.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 myDatabaseFilename &lt;- tempfile()
 mydb &lt;- newBioassayDB(myDatabaseFilename, indexed=F)
 </code></p>
 
 <p>We will also add a data source to this database, specifying that our data here mirrors an assay provided by PubChem BioAssay.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 addDataSource(mydb, description="PubChem BioAssay", version="unknown")
 </code></p>
 
@@ -1060,12 +1038,12 @@ addDataSource(mydb, description="PubChem BioAssay", version="unknown")
 The <em>parsePubChemBioassay</em> function also requires a .csv file which contains the activity scores for each assay, in the standard CSV format provided by PubChem BioAssay.
 For data from sources other than PubChem BioAssay, you may need to write your own code to parse out the assay details- or type them in manually.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 myAssay &lt;- parsePubChemBioassay("1000", activityScoresFile, assayDescriptionFile)
 myAssay
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## class:		 bioassay 
 ## aid:		 1000 
 ## source_id:	 PubChem BioAssay 
@@ -1079,27 +1057,27 @@ myAssay
 
 <p>Next, load the resulting data parsed from the XML and CSV files into the database. This creates records in the database for both the assay itself, and it’s molecular targets.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 loadBioassay(mydb, myAssay)
 </code></p>
 
 <p>To load additional assays, repeat the above steps. After all data is loaded, you can significantly improve subsequent query performance by adding an index to the database.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 addBioassayIndex(mydb)
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## Creating index: note this may take a long time for a large database
 </code></p>
 
 <p>After indexing, perform a test query on your database to confirm that the data loaded correctly.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 activeAgainst(mydb,"116516899")
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##          fraction_active total_assays
 ## 16749973               1            1
 ## 16749974               1            1
@@ -1141,7 +1119,7 @@ activeAgainst(mydb,"116516899")
 
 <p>Lastly, disconnect from the database to prevent data corruption.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 disconnectBioassayDB(mydb)
 </code></p>
 
@@ -1159,7 +1137,7 @@ database.</p>
 <p>To get started first connect to the database. The variable <em>sampleDatabasePath</em> can be replaced with the filename of the full test database you downloaded, if you would like to use
 that instead of the small example version included with this software package.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(bioassayR)
 extdata_dir &lt;- system.file("extdata", package="bioassayR")
 sampleDatabasePath &lt;- file.path(extdata_dir, "sampleDatabase.sqlite")
@@ -1170,12 +1148,12 @@ pubChemDatabase &lt;- connectBioassayDB(sampleDatabasePath)
 These target IDs are NCBI Protein identifiers as provided by PubChem BioAssay (Tatusova, et al., 2014). In which cases do these results agree with or disagree
 with the annotated targets from DrugBank?</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 drugTargets &lt;- activeTargets(pubChemDatabase, "2244")
 drugTargets
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##           fraction_active total_screens
 ## 116241312            1.00             2
 ## 117144               1.00             1
@@ -1218,7 +1196,7 @@ target that is a <em>Homo sapiens</em> gene. For more information,
 consult the <em>biomaRt</em> documentation. After retrieving these data, we call the
 <em>match</em> function to ensure they are in the same order as the query data.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(biomaRt)
 ensembl &lt;- useEnsembl(biomart="ensembl",dataset="hsapiens_gene_ensembl")
 proteinDetails &lt;- getBM(attributes=c("description","uniprot_swissprot","external_gene_name"), filters=c("uniprot_swissprot"), mart=ensembl, values=uniProtIds)
@@ -1228,11 +1206,11 @@ proteinDetails &lt;- proteinDetails[match(uniProtIds, proteinDetails$uniprot_swi
 <p>Now we can view this annotation data. NAs represent proteins not found
 on the <em>Homo sapiens</em> Ensembl, which may be from other species.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 proteinDetails
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##                                                                                                                   description
 ## 2                                    cytochrome P450, family 3, subfamily A, polypeptide 4 [Source:HGNC Symbol;Acc:HGNC:2637]
 ## 1                                    cytochrome P450, family 1, subfamily A, polypeptide 2 [Source:HGNC Symbol;Acc:HGNC:2596]
@@ -1260,13 +1238,13 @@ Note, these only match up in length and order because in the above code
 we removed all but one UniProt ID for each target protein, and then reordered
 the biomaRt results with the <em>match</em> function to get them in the correct order.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 drugTargets &lt;- drugTargets[! is.na(proteinDetails[,1]),]
 proteinDetails &lt;- proteinDetails[!is.na(proteinDetails[,1]),]
 cbind(proteinDetails, drugTargets)
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##                                                                                                                description
 ## 2                                 cytochrome P450, family 3, subfamily A, polypeptide 4 [Source:HGNC Symbol;Acc:HGNC:2637]
 ## 1                                 cytochrome P450, family 1, subfamily A, polypeptide 2 [Source:HGNC Symbol;Acc:HGNC:2596]
@@ -1296,7 +1274,7 @@ discovery of small molecule drugs and molecular probes.</p>
 Once again, the variable <em>sampleDatabasePath</em> can be replaced with the filename of the full PubChem BioAssay database (downloadable from <a href="http://chemmine.ucr.edu/bioassayr">http://chemmine.ucr.edu/bioassayr</a>), if you would like to use
 that instead of the small example version included with this software package.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(bioassayR)
 extdata_dir &lt;- system.file("extdata", package="bioassayR") 
 sampleDatabasePath &lt;- file.path(extdata_dir, "sampleDatabase.sqlite")
@@ -1307,12 +1285,12 @@ pubChemDatabase &lt;- connectBioassayDB(sampleDatabasePath)
 Each row name represents a small molecule cid. The column labeled “total assays” shows the total number of times each small molecule has been screened against the target of interest. The column labeled “fraction active” shows the portion of these which were annotated as active as a number between 0 and 1.
 This function allows users to consider different binding assays from distinct sources as replicates, to assist in distinguishing potentially spurious binding results from those with demonstrated reproducibility.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 activeCompounds &lt;- activeAgainst(pubChemDatabase, "166897622")
 activeCompounds[1:10,] # look at the first 10 compounds
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##        fraction_active total_assays
 ## 2244                 1            1
 ## 2662                 1            3
@@ -1332,13 +1310,13 @@ indiscriminately to a large number of distinct protein targets. The R function <
 <p>The <em>maxCompounds</em> option limits the maximum number of results returned, and the <em>minimumTargets</em>
 option limits returned compounds to those screened against a specified minimum of distinct targets. Results are formatted as a <em>data.frame</em> whereby each row name represents a distinct compound. The first column shows the number of distinct targets this compound shows activity against, and the second shows the total number of targets it was screened against.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 selectiveCompounds &lt;- selectiveAgainst(pubChemDatabase, "166897622", 
     maxCompounds = 10, minimumTargets = 1)
 selectiveCompounds
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##          active_targets tested_targets
 ## 2662                  1              1
 ## 3033                  1              1
@@ -1359,14 +1337,14 @@ selectiveCompounds
 <p>The <em>ChemmineR</em> software library can be used to download structural data for any of these compounds, and to visualize these structures as follows  (Cao, et al., 2008).
 This example requires an active internet connection, as the compound structures are obtained from a remote server.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(ChemmineR)
 structures &lt;- getIds(as.numeric(row.names(selectiveCompounds)))
 </code></p>
 
 <p>Here we visualize just the first four compounds found with <em>selectiveAgainst</em>. Consult the vignette supplied with <em>ChemmineR</em> for numerous examples of visualizing and analyzing these structures further.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 plot(structures[1:4], print=FALSE) # Plots structures to R graphics device
 </code></p>
 
@@ -1380,7 +1358,7 @@ The function <em>getBioassaySetByCids</em> extracts the activity data for a give
 
 <p>First, connect to the included sample database:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(bioassayR)
 extdata_dir &lt;- system.file("extdata", package="bioassayR") 
 sampleDatabasePath &lt;- file.path(extdata_dir, "sampleDatabase.sqlite")
@@ -1389,13 +1367,13 @@ sampleDB &lt;- connectBioassayDB(sampleDatabasePath)
 
 <p>Next, select data from just 3 compounds to extract into a <em>bioassaySet</em> object for subsequent analysis.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 compoundsOfInterest &lt;- c("2244", "2662", "3715")
 selectedAssayData &lt;- getBioassaySetByCids(sampleDB, compoundsOfInterest)
 selectedAssayData
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## class:		 bioassaySet 
 ## assays:		 1176 
 ## compounds:	 3 
@@ -1414,19 +1392,19 @@ taking extra space in memory.</p>
 
 <p>Here we create an activity matrix, choosing to include inactive values, and summarize replicates according to the statistical mode:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 myActivityMatrix &lt;- perTargetMatrix(selectedAssayData, inactives=TRUE, summarizeReplicates = "mode")
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## Note: in this version active scores now use a 2 instead of a 1
 </code></p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 myActivityMatrix[1:15,] # print the first 15 rows
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## 15 x 3 sparse Matrix of class "dgCMatrix"
 ##           2244 2662 3715
 ## 548481       2    .    .
@@ -1459,12 +1437,12 @@ to specify which assays are treated as replicates to be merged, so first we can
 obtain these data, and then replace them with a custom merge criteria formatted
 in the same manner.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 myAssayTargets &lt;- assaySetTargets(selectedAssayData)
 myAssayTargets[1:5] # print the first 5 targets
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##        410        411     624030        422        436 
 ## "73915100"   "160794"   "160794" "21464101" "68565074"
 </code></p>
@@ -1478,39 +1456,39 @@ These clustering results are stored in the database as target
 translations under category “kClust”. Now we will access these
 traslations, and make a compound vs. target cluster matrix as follows.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 # get kClust protein cluster number for a single target
 translateTargetId(database = sampleDB, target = "166897622", category = "kClust")
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## [1] NA
 </code></p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 # get kClust protein cluster numbers for all targets in myAssayTargets
 customMerge &lt;- sapply(myAssayTargets, translateTargetId, database = sampleDB, category = "kClust")
 customMerge[1:5]
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##    410    411 624030    422    436 
 ##     NA     NA     NA     NA     NA
 </code></p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 mergedActivityMatrix &lt;- perTargetMatrix(selectedAssayData, inactives=TRUE, assayTargets=customMerge)
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## Note: in this version active scores now use a 2 instead of a 1
 </code></p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 mergedActivityMatrix[1:15,] # print the first 15 rows
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## 15 x 3 sparse Matrix of class "dgCMatrix"
 ##           2244 2662 3715
 ## 548481       2    .    .
@@ -1533,21 +1511,21 @@ mergedActivityMatrix[1:15,] # print the first 15 rows
 <p>Note that the merged matrix is smaller, because several similar protein targets
 have been collapsed into single clusters.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 # get number of rows and columns for unmerged matrix
 dim(myActivityMatrix) 
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## [1] 298   3
 </code></p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 # get number of rows and columns for merged matrix
 dim(mergedActivityMatrix)
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## [1] 298   3
 </code></p>
 
@@ -1555,12 +1533,12 @@ dim(mergedActivityMatrix)
 into a binary matrix where “1” represents active, and “0” represents either inactive
 or untested combinations. We caution the user to carefully consider if this makes sense within the context of the specific experiments being analyzed.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 binaryMatrix &lt;- 1*(mergedActivityMatrix &gt; 1)
 binaryMatrix[1:15,] # print the first 15 rows
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## 15 x 3 sparse Matrix of class "dgCMatrix"
 ##           2244 2662 3715
 ## 548481       1    .    .
@@ -1585,7 +1563,7 @@ binaryMatrix[1:15,] # print the first 15 rows
 <p>Cluster using the built in euclidean clustering functions within R to cluster.
 This provides a dendrogram which indicates the similarity amongst compounds according to their activity profiles.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 transposedMatrix &lt;- t(binaryMatrix)
 distanceMatrix &lt;- dist(transposedMatrix)
 clusterResults &lt;- hclust(distanceMatrix, method="average")
@@ -1602,43 +1580,43 @@ the full set of targets these compounds have shown activity against. This allows
 of the bioactivity profile among compounds.
 See the <em>ChemmineR</em> documentation at http://bioconductor.org/packages/ChemmineR/ for additional examples and details.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(ChemmineR)
 fpset &lt;- bioactivityFingerprint(selectedAssayData)
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## Note: in this version active scores now use a 2 instead of a 1
 </code></p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 fpset
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## An instance of a 453 bit "FPset" of type "bioactivity" with 3 molecules
 </code></p>
 
 <p>Perform activity profile similarity searching with the FPset object, by comparing
 the first compound to all compounds.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 fpSim(fpset[1], fpset, method="Tanimoto") 
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## 2244 2662 3715 
 ##  1.0  0.2  0.2
 </code></p>
 
 <p>Compute an all-against-all bioactivity fingerprint similarity matrix for these compounds.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 simMA &lt;- sapply(cid(fpset), function(x) fpSim(fpset[x], fpset, sorted=FALSE, method="Tanimoto"))
 simMA
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##      2244 2662 3715
 ## 2244  1.0  0.2  0.2
 ## 2662  0.2  1.0  1.0
@@ -1647,7 +1625,7 @@ simMA
 
 <p>Convert similarity matrix to a distance matrix and perform hierarcheal clustering.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 clusterResults &lt;- hclust(as.dist(1-simMA), method="single")
 plot(clusterResults)
 </code></p>
@@ -1656,7 +1634,7 @@ plot(clusterResults)
 
 <p>Finally, disconnect from the database.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 disconnectBioassayDB(sampleDB)
 </code></p>
 
@@ -1698,27 +1676,27 @@ x &lt;- readPlateList(“Platelist.txt”,
 
 <p>Next, score and summarize the replicates.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 xsc &lt;- scoreReplicates(xn, sign="-", method="zscore")
 xsc &lt;- summarizeReplicates(xsc, summary="mean")
 </code></p>
 
 <p>Parse the annotation data.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 xsc &lt;- annotate(xsc, geneIDFile="GeneIDs_Dm_HFA_1.1.txt", path=dataPath)
 </code></p>
 
 <p>Apply a sigmoidal transformation to generate binary calls.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 y &lt;- scores2calls(xsc, z0=1.5, lambda=2)
 binaryCalls &lt;- round(Data(y))
 </code></p>
 
 <p>Convert the binary calls into an activity table that <em>bioassayR</em> can parse.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 scoreDataFrame &lt;- cbind(geneAnno(y), binaryCalls)
 rawScores &lt;- as.vector(Data(xsc))
 rawScores &lt;- rawScores[wellAnno(y) == "sample"]
@@ -1729,7 +1707,7 @@ activityTable &lt;- as.data.frame(activityTable)
 activityTable[1:10,]
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##        cid activity              score
 ## 1  CG11371        1     2.147814893189
 ## 2  CG31671        1   4.00105151825918
@@ -1745,7 +1723,7 @@ activityTable[1:10,]
 
 <p>Create a new (temporary in this case) <em>bioassayR</em> database to load these data into.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 myDatabaseFilename &lt;- tempfile() 
 mydb &lt;- newBioassayDB(myDatabaseFilename, indexed=F)
 addDataSource(mydb, description="other", version="unknown")
@@ -1753,7 +1731,7 @@ addDataSource(mydb, description="other", version="unknown")
 
 <p>Create an assay object for the new assay.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 myAssay &lt;- new("bioassay",aid="1", source_id="other",
      assay_type="confirmatory", organism="unknown", scoring="activity rank", 
      targets="2224444", target_types="protein", scores=activityTable)
@@ -1761,12 +1739,12 @@ myAssay &lt;- new("bioassay",aid="1", source_id="other",
 
 <p>Load this assay object into the <em>bioassayR</em> database.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 loadBioassay(mydb, myAssay)
 mydb
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ## class:		 BioassayDB 
 ## assays:		 1 
 ## sources:	 other 
@@ -1777,7 +1755,7 @@ mydb
 
 <p>Lastly, for the purposes of this example, disconnect from the example database.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 disconnectBioassayDB(mydb)
 </code></p>
 
@@ -1792,7 +1770,7 @@ We also reccomend the book “Using SQLite” (Kreibich, 2010).</p>
 database from the authors website, the variable <em>sampleDatabasePath</em> can be replaced with the filename of the database you downloaded, if you would like to use
 that instead of the small example version included with this software package.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 library(bioassayR)
 extdata_dir &lt;- system.file("extdata", package="bioassayR")
 sampleDatabasePath &lt;- file.path(extdata_dir, "sampleDatabase.sqlite")
@@ -1802,11 +1780,11 @@ pubChemDatabase &lt;- connectBioassayDB(sampleDatabasePath)
 <p>First you will want to see the structure
 of the database as follows:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 queryBioassayDB(pubChemDatabase, "SELECT * FROM sqlite_master WHERE type='table'")
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##    type               name           tbl_name rootpage
 ## 1 table           activity           activity        2
 ## 2 table             assays             assays        3
@@ -1825,11 +1803,11 @@ queryBioassayDB(pubChemDatabase, "SELECT * FROM sqlite_master WHERE type='table'
 
 <p>For example, you can find the first 10 assays a given compound has participated in as follows:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 queryBioassayDB(pubChemDatabase, "SELECT DISTINCT(aid) FROM activity WHERE cid = '2244' LIMIT 10")
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##    aid
 ## 1    1
 ## 2  103
@@ -1845,11 +1823,11 @@ queryBioassayDB(pubChemDatabase, "SELECT DISTINCT(aid) FROM activity WHERE cid =
 
 <p>This example prints the activity scores from a specified assay:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 queryBioassayDB(pubChemDatabase, "SELECT * FROM activity WHERE aid = '393818'")
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##      aid      cid       sid activity score
 ## 1 393818     3672 103174500        1    NA
 ## 2 393818     2662 103181002        1    NA
@@ -1864,11 +1842,11 @@ it easier to parse data spread across many tables. Here we merge the activity
 table (raw scores), with the assay table (assay annotation details) and the
 protein targets table:</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 queryBioassayDB(pubChemDatabase, "SELECT * FROM activity NATURAL JOIN assays NATURAL JOIN targets WHERE cid = '2244' LIMIT 10")
 </code></p>
 
-<p><code>
+<p><code class="highlighter-rouge">
 ##    aid  cid      sid activity score source_id   assay_type organism
 ## 1  410 2244 11110749        0     0         1 confirmatory     &lt;NA&gt;
 ## 2  411 2244 11110749        0     0         1 confirmatory     &lt;NA&gt;
@@ -1895,7 +1873,7 @@ queryBioassayDB(pubChemDatabase, "SELECT * FROM activity NATURAL JOIN assays NAT
 
 <p>Lastly, disconnecting from the database after analysis reduces the chances of data corruption. If you are using a pre-built database in read only mode (as demonstrated in the Prebuilt Database Example section) you can optionally skip this step, as only writable databases are prone to corruption from failure to disconnect.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
 disconnectBioassayDB(pubChemDatabase)
 </code></p>
 
@@ -1912,7 +1890,7 @@ to allow it to run on other platforms.</p>
 <p>This document was compiled in an R session with the following 
 configuration.</p>
 
-<p><code>r
+<p><code class="highlighter-rouge">r
  sessionInfo()
 </code></p>
 
