@@ -41,7 +41,7 @@ During the first weeks the discussion section will be used for data analysis
 tutorials using Linux command-line tools and R. 
 
 ## Time
-Lecture: Tue/Thu 2:10-3:30 PM
+Lecture: Tue/Thu 2:10-3:30 PM <br>
 Discussion: Thu 3:40-4:30 PM
 
 ## Location
