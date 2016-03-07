@@ -5,8 +5,8 @@ home:
 
 mydoc_classes:
   title: "Class Teaching"
-  url: "../mydoc_syllabus.html"
-  link: "<a href='../mydoc_syllabus.html'>Support</a>"
+  url: "../mydoc_classes.html"
+  link: "<a href='../mydoc_classes.html'>Support</a>"
 
 mydoc_internal_notes:
   title: "Internal Notes"
