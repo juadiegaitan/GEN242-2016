@@ -29,7 +29,7 @@ entries:
       output: pdf
       type: frontmatter
 
-  - title: Overview
+  - title: Home
     audience: writers, designers
     platform: all
     product: all

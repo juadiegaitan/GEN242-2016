@@ -7,7 +7,7 @@ version: all
 output: web
 destination: ../doc_outputs/mydoc/designers
 topnav_title: Data Analysis in Genome Biology 
-homepage_title: Introduction
+homepage_title: Data Analysis in Genome Biology
 site_title: GEN242
 project_folder: mydoc
 company_name: UC Riverside
