@@ -24,8 +24,8 @@ lecture topics cover databases, sequence (NGS) analysis, phylogenetics,
 comparative genomics, genome-wide profiling methods, network biology and more.
 The hands-on practicals include homework assignments and course projects
 focusing on data analysis programming of next generation genome data using
-command-line tools and the programming environment R. Credit: 4 units (4 hours 
-lecture, 2 hours discussion)
+command-line tools on a computer cluster and the programming environment R.
+Credit: 4 units (4 hours lecture, 2 hours discussion)
 
 ## Objectives of course
 
