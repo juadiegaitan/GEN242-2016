@@ -25,7 +25,7 @@ the computational aspects of modern genome research. The class is mainly
 targeting graduate students but senior undergraduate students are welcome to
 enroll as well. The main audience of this class are usually students from
 bioscience, biomedical and bioengineering programs as well as CS and statistics
-students with interest computational biology.
+students with interest in computational biology.
 
 ## Can I audit this class?
 
