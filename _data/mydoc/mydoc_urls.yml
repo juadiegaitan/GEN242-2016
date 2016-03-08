@@ -13,6 +13,11 @@ mydoc_classes:
   url: "../mydoc_schedule.html"
   link: "<a href='../mydoc_schedule.html'>Course Schedule</a>"
 
+mydoc_classes:
+  title: "Slide Tests"
+  url: "../mydoc_slide_tests.html"
+  link: "<a href='../mydoc_schedule.html'>Slide Tests</a>"
+
 mydoc_internal_notes:
   title: "Internal Notes"
   url: "../mydoc_internal_notes.html"

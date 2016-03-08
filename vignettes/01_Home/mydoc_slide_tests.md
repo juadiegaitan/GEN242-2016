@@ -1,13 +1,7 @@
 ---
-title: Course Schedule
-last_updated: 07-Mar-16
+title: Slide Tests
+last_updated: 08-Mar-16
 ---
-
-## Detailed course schedule
-
-Note: this schedule is preliminary and subject to changes.
-
-<iframe width='85%' height='775' src="https://docs.google.com/spreadsheets/d/1OkmYxBt7SZp4Pba8LlRtMRB0JoTie4OJZmo9X-KtQqo/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
 
 ## Test: slide embedding 1 for Google Slides
 
@@ -21,4 +15,59 @@ Note: this schedule is preliminary and subject to changes.
 ## Test: slide embedding 3 for PDF slides (e.g. Beamer or anything)
 
 <iframe src="http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_5_8_2014/Rbasics/Introduction_into_R.pdf" frameborder="0" width="600" height="400" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
+## Code could go here
+
+General R command syntax
+
+
+{% highlight r %}
+object <- function_name(arguments) 
+object <- object[arguments] 
+{% endhighlight %}
+
+Finding help
+
+
+{% highlight r %}
+?function_name
+{% endhighlight %}
+
+Load a library/package
+
+
+{% highlight r %}
+library("my_library") 
+{% endhighlight %}
+
+List functions defined by a library
+
+
+{% highlight r %}
+library(help="my_library")
+{% endhighlight %}
+
+Load library manual (PDF or HTML file)
+
+
+{% highlight r %}
+vignette("my_library") 
+{% endhighlight %}
+
+Execute an R script from within R
+
+
+{% highlight r %}
+source("my_script.R")
+{% endhighlight %}
+
+Execute an R script from command-line (the first of the three options is preferred)
+
+
+{% highlight sh %}
+$ Rscript my_script.R
+$ R CMD BATCH my_script.R 
+$ R --slave < my_script.R 
+{% endhighlight %}
 

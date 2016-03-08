@@ -9,9 +9,14 @@ mydoc_classes:
   link: "<a href='../mydoc_syllabus.html'>Syllabus - GEN242</a>"
 
 mydoc_classes:
-  title: "Schedule"
+  title: "Course Schedule"
   url: "../mydoc_schedule.html"
-  link: "<a href='../mydoc_schedule.html'>Schedule</a>"
+  link: "<a href='../mydoc_schedule.html'>Course Schedule</a>"
+
+mydoc_classes:
+  title: "Slide Tests"
+  url: "../mydoc_schedule.html"
+  link: "<a href='../mydoc_schedule.html'>Slide Tests</a>"
 
 mydoc_internal_notes:
   title: "Internal Notes"
