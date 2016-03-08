@@ -4,9 +4,14 @@ home:
   link: "<a href='../mydoc/home.html'>Introduction</a>"
 
 mydoc_classes:
-  title: "Class Teaching"
+  title: "Syllabus - GEN242"
   url: "../mydoc_syllabus.html"
-  link: "<a href='../mydoc_syllabus.html'>Support</a>"
+  link: "<a href='../mydoc_syllabus.html'>Syllabus - GEN242</a>"
+
+mydoc_classes:
+  title: "Course Schedule"
+  url: "../mydoc_schedule.html"
+  link: "<a href='../mydoc_schedule.html'>Course Schedule</a>"
 
 mydoc_internal_notes:
   title: "Internal Notes"

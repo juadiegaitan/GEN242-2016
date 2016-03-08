@@ -45,7 +45,15 @@ entries:
       output: web, pdf
 
     - title: Syllabus
-      url: /mydoc/mydoc_classes.html
+      url: /mydoc/mydoc_syllabus.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: Schedule
+      url: /mydoc/mydoc_schedule.html
       audience: writers, designers
       platform: all
       product: all
