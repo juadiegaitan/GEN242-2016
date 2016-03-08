@@ -5,7 +5,7 @@ ast_updated: 07-Mar-16
 
 ## Course title
 
-Data Analysis in Genome Biology
+Data Analysis in Genome Biology <br>
 GEN242 - Spring 2016
 
 ## Instructor
@@ -17,13 +17,15 @@ Office hours: Tue & Fri 4:00 - 5:00PM
 
 ## Description
 
-Introduction to algorithms, statistical methods and data analysis skills
-required for genome biology research. The lecture topics cover databases,
-general/next generation sequence analysis, phylogenetics, comparative genomics
-and network biology. The hands-on data analysis components include homework
-assignments and course projects focusing on data analysis programming of “next
-generation genome data” using Linux command-line tools and the programming
-environment R. 
+Introduction to algorithms, statistical methods and data analysis programming
+routines relevant for genome biology research. The class is composed of three
+main components: lectures, hands-on practicals and student course projects. The
+lecture topics cover databases, sequence (NGS) analysis, phylogenetics,
+comparative genomics, genome-wide profiling methods, network biology and more.
+The hands-on practicals include homework assignments and course projects
+focusing on data analysis programming of next generation genome data using
+command-line tools and the programming environment R. Credit: 4 units (4 hours 
+lecture, 2 hours discussion)
 
 ## Objectives of course
 
@@ -54,7 +56,11 @@ Discussion: Thu 3:40-4:30 PM
 4. Final project report: 20%
 
 ## Materials needed
-Laptop with access to internet.
+Students are expected to bring to class a laptop with a functional wireless
+connection and a recent internet browser version (e.g. Firefox, Chrome or
+Safari) preinstalled. Tablet computers with mobile operating systems are not
+suitable for running the required software. Wireless guest accounts will be
+provided for non-UCR participants. 
 
 ## Schedule
 
