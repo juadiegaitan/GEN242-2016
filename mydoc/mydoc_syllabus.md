@@ -5,7 +5,7 @@ ast_updated: 07-Mar-16
 
 ## Course title
 
-Data Analysis in Genome Biology
+Data Analysis in Genome Biology <br>
 GEN242 - Spring 2016
 
 ## Instructor

@@ -1,5 +1,5 @@
 ---
-title: Syllabus GEN242
+title: Syllabus - GEN242
 ast_updated: 07-Mar-16
 ---
 
