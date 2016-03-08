@@ -3,10 +3,10 @@ title: Syllabus GEN242
 ast_updated: 07-Mar-16
 ---
 
-## Course Title
+## Course title
 
 Data Analysis in Genome Biology
-GEN242 - Spring 2015
+GEN242 - Spring 2016
 
 ## Instructor
 Name: Thomas Girke <br> 
@@ -15,7 +15,7 @@ Office location: 1207F Genomics <br>
 Office hours: Tue & Fri 4:00 - 5:00PM 
 
 
-## Course Description
+## Description
 
 Introduction to algorithms, statistical methods and data analysis skills
 required for genome biology research. The lecture topics cover databases,
@@ -25,7 +25,7 @@ assignments and course projects focusing on data analysis programming of “next
 generation genome data” using Linux command-line tools and the programming
 environment R. 
 
-## Objectives of Course
+## Objectives of course
 
 - Acquire understanding of algorithms used in bioinformatics
 - Obtain hands-on experience in large scale data analysis.
@@ -35,7 +35,7 @@ The main prerequisite for this course is a strong interest in acquiring the
 skills required for mastering the computational aspects of modern genome
 research.
 
-## Course Structure
+## Structure of course
 Two lectures per week (2 hours each) plus one discussion section (1 hour).
 During the first weeks the discussion section will be used for data analysis
 tutorials using Linux command-line tools and R. 
@@ -53,7 +53,7 @@ Discussion: Thu 3:40-4:30 PM
 3. Course project presentations: 20%
 4. Final project report: 20%
 
-## Materials Needed
+## Materials needed
 Laptop with access to internet.
 
 ## Schedule
@@ -104,9 +104,9 @@ Laptop with access to internet.
 | Week 10 | 1. Final presentations of student data analysis projects |
 |--------|-------------------------------------------|
 
-## Reading List
+## Reading list
 
-### Journal Articles
+### Journal articles
 
 Alkan, C, Sajjadian, S, Eichler, E E (2011) Limitations of next-generation genome sequence assembly. Nat Methods, 8: 61-65. http://www.hubmed.org/display.cgi?uids=21102452
 
