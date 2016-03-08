@@ -29,5 +29,7 @@ students with interest in computational biology.
 
 ## Can I audit this class?
 
-It is possible to audit this class. However, due to the emphasis on course projects, auditing this class is not recommended. 
+It is possible to audit this class. However, due to the emphasis on active participation
+in practicals and course projects, students usually learn much more if they enroll into the
+class rather than auditing it in a passive manner. 
 
