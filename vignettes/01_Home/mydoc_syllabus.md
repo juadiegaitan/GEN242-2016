@@ -47,6 +47,7 @@ Lecture: Tue/Thu 2:10-3:30 PM <br>
 Discussion: Thu 3:40-4:30 PM
 
 ## Location
+[Humanities and Social Sciences (HMNSS)](http://classrooms.cmsdev.ucr.edu/buildings/humanities/1403.html) <br>
 2130 CHASS Interdisciplinary Bldg-South (INST)
 
 ## Grading
