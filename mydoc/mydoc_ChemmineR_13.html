@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -258,6 +270,16 @@ window.location.href = uri;
 
 
 
+
+
+
+
+
+
+
+
+
+
         <ul id="mysidebar" class="nav">
 
             <span class="siteTagline">GEN242</span>
@@ -283,6 +305,15 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_schedule.html">Course Schedule</a></li>
                     
 
                     
@@ -796,19 +827,19 @@ $('#toc').on('click', 'a', function() {
     
 -->
 <p>Bond matrices provide an efficient data structure for many basic
-computations on small molecules. The function <code class="highlighter-rouge">conMA</code>
-creates this data structure from <code class="highlighter-rouge">SDF</code> and
-<code class="highlighter-rouge">SDFset</code> objects. The resulting bond matrix contains the
+computations on small molecules. The function <code>conMA</code>
+creates this data structure from <code>SDF</code> and
+<code>SDFset</code> objects. The resulting bond matrix contains the
 atom labels in the row/column titles and the bond types in the data
 part. The labels are defined as follows: 0 is no connection, 1 is a
 single bond, 2 is a double bond and 3 is a triple bond.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">conMA</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">conMA</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span>
  <span class="n">exclude</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"H"</span><span class="p">))</span> <span class="c1"># Create bond matrix for first two molecules in sdfset
 </span>
  <span class="n">conMA</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">exclude</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"H"</span><span class="p">))</span> <span class="c1"># Return bond matrix for first molecule 
 </span> <span class="n">plot</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">atomnum</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">noHbonds</span><span class="o">=</span><span class="n">FALSE</span> <span class="p">,</span> <span class="n">no_print_atoms</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">atomcex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span> <span class="c1"># Plot its structure with atom numbering 
-</span> <span class="n">rowSums</span><span class="p">(</span><span class="n">conMA</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">exclude</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"H"</span><span class="p">)))</span> <span class="err">#</span> <span class="n">Return</span> <span class="n">number</span> <span class="n">of</span> <span class="n">non</span><span class="o">-</span><span class="n">H</span> <span class="n">bonds</span> <span class="k">for</span> <span class="n">each</span> <span class="n">atom</span></code></pre></figure>
+</span> <span class="n">rowSums</span><span class="p">(</span><span class="n">conMA</span><span class="p">(</span><span class="n">sdfset</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">exclude</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"H"</span><span class="p">)))</span> <span class="err">#</span> <span class="n">Return</span> <span class="n">number</span> <span class="n">of</span> <span class="n">non</span><span class="o">-</span><span class="n">H</span> <span class="n">bonds</span> <span class="k">for</span> <span class="n">each</span> <span class="n">atom</span></code></pre></div>
 
 
 

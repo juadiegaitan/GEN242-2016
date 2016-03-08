@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -258,6 +270,16 @@ window.location.href = uri;
 
 
 
+
+
+
+
+
+
+
+
+
+
         <ul id="mysidebar" class="nav">
 
             <span class="siteTagline">GEN242</span>
@@ -283,6 +305,15 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_schedule.html">Course Schedule</a></li>
                     
 
                     
@@ -835,7 +866,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <h1 id="introduction">Introduction</h1>
 
-<p><code class="highlighter-rouge">ChemmineR</code> is a cheminformatics package for analyzing
+<p><code>ChemmineR</code> is a cheminformatics package for analyzing
 drug-like small molecule data in R. Its latest version contains
 functions for efficient processing of large numbers of small molecules,
 physicochemical/structural property predictions, structural similarity
@@ -844,7 +875,7 @@ wide spectrum of algorithms.</p>
 
 <p><img src="overview.png" alt="Figure: `ChemmineR` environment with its add-on packages and selected functionalities" /></p>
 
-<p>In addition, <code class="highlighter-rouge">ChemmineR</code> offers visualization functions
+<p>In addition, <code>ChemmineR</code> offers visualization functions
 for compound clustering results and chemical structures. The integration
 of chemoinformatic tools with the R programming environment has many
 advantages, such as easy access to a wide spectrum of statistical
@@ -859,12 +890,12 @@ many more are under development for future releases [@Backman_2011; @Wang_2013].
 
 <ul>
   <li>
-    <p>Improved SMILES support via new <code class="highlighter-rouge">SMIset</code> object class
+    <p>Improved SMILES support via new <code>SMIset</code> object class
 and SMILES import/export functions</p>
   </li>
   <li>
     <p>Integration of a subset of OpenBabel functionalities via new
-<code class="highlighter-rouge">ChemmineOB</code> add-on package [@Cao_2008]</p>
+<code>ChemmineOB</code> add-on package [@Cao_2008]</p>
   </li>
   <li>
     <p>Streaming functionality for processing millions of molecules on a
@@ -887,9 +918,9 @@ or PubChem fingerprints</p>
 
 <p>The R software for running ChemmineR can be downloaded from CRAN
 (<a href="http://cran.at.r-project.org/">http://cran.at.r-project.org/</a>). The ChemmineR package can be
-installed from R using the <code class="highlighter-rouge">bioLite</code> install command.</p>
+installed from R using the <code>bioLite</code> install command.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  source("http://bioconductor.org/biocLite.R") # Sources the biocLite.R installation script. 
  biocLite("ChemmineR") # Installs the package. 
 </code></p>
@@ -898,11 +929,11 @@ installed from R using the <code class="highlighter-rouge">bioLite</code> instal
 
 <h2 id="loading-the-package-and-documentation">Loading the Package and Documentation</h2>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  library("ChemmineR") # Loads the package
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  library(help="ChemmineR") # Lists all functions and classes 
  vignette("ChemmineR") # Opens this PDF manual from R 
 </code></p>
@@ -912,34 +943,34 @@ installed from R using the <code class="highlighter-rouge">bioLite</code> instal
 <h2 id="five-minute-tutorial">Five Minute Tutorial</h2>
 
 <p>The following code gives an overview of the most important
-functionalities provided by <code class="highlighter-rouge">ChemmineR</code>. Copy and paste
+functionalities provided by <code>ChemmineR</code>. Copy and paste
 of the commands into the R console will demonstrate their utilities.</p>
 
-<p>Create Instances of <code class="highlighter-rouge">SDFset</code> class:</p>
+<p>Create Instances of <code>SDFset</code> class:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(sdfsample) 
  sdfset &lt;- sdfsample
  sdfset # Returns summary of SDFset 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "SDFset" with 100 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfset[1:4] # Subsetting of object
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "SDFset" with 4 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfset[[1]] # Returns summarized content of one SDF
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "SDF"
 ## 
 ## &lt;&lt;header&gt;&gt;
@@ -971,43 +1002,43 @@ of the commands into the R console will demonstrate their utilities.</p>
 ##                            "7"                          "..."
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  view(sdfset[1:4]) # Returns summarized content of many SDFs, not printed here 
  as(sdfset[1:4], "list") # Returns complete content of many SDFs, not printed here 
 </code></p>
 
-<p>An <code class="highlighter-rouge">SDFset</code> is created during the import of an SD file:</p>
+<p>An <code>SDFset</code> is created during the import of an SD file:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfset &lt;- read.SDFset("http://faculty.ucr.edu/ tgirke/Documents/R_BioCond/Samples/sdfsample.sdf") 
 </code></p>
 
-<p>Miscellaneous accessor methods for <code class="highlighter-rouge">SDFset</code> container:</p>
+<p>Miscellaneous accessor methods for <code>SDFset</code> container:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  header(sdfset[1:4]) # Not printed here
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  header(sdfset[[1]])
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##                             Molecule_Name                                    Source 
 ##                                  "650001"                  "  -OEChem-07071010512D" 
 ##                                   Comment                               Counts_Line 
 ##                                        "" " 61 64  0     0  0  0  0  0  0999 V2000"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  atomblock(sdfset[1:4]) # Not printed here 
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 atomblock(sdfset[[1]])[1:4,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##          C1     C2 C3 C5 C6 C7 C8 C9 C10 C11 C12 C13 C14 C15 C16
 ## O_1  7.0468 0.0839  0  0  0  0  0  0   0   0   0   0   0   0   0
 ## O_2 12.2708 1.0492  0  0  0  0  0  0   0   0   0   0   0   0   0
@@ -1015,15 +1046,15 @@ atomblock(sdfset[[1]])[1:4,]
 ## O_4  7.9128 2.5839  0  0  0  0  0  0   0   0   0   0   0   0   0
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 bondblock(sdfset[1:4]) # Not printed here 
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  bondblock(sdfset[[1]])[1:4,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   C1 C2 C3 C4 C5 C6 C7
 ## 1  1 16  2  0  0  0  0
 ## 2  2 23  1  0  0  0  0
@@ -1031,15 +1062,15 @@ bondblock(sdfset[1:4]) # Not printed here
 ## 4  3 25  1  0  0  0  0
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  datablock(sdfset[1:4]) # Not printed here 
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  datablock(sdfset[[1]])[1:4] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##           PUBCHEM_COMPOUND_CID PUBCHEM_COMPOUND_CANONICALIZED      PUBCHEM_CACTVS_COMPLEXITY 
 ##                       "650001"                            "1"                          "700" 
 ##  PUBCHEM_CACTVS_HBOND_ACCEPTOR 
@@ -1048,53 +1079,53 @@ bondblock(sdfset[1:4]) # Not printed here
 
 <p>Assigning compound IDs and keeping them unique:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cid(sdfset)[1:4] # Returns IDs from SDFset object
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "CMP1" "CMP2" "CMP3" "CMP4"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfid(sdfset)[1:4] # Returns IDs from SD file header block
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "650001" "650002" "650003" "650004"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  unique_ids &lt;- makeUnique(sdfid(sdfset))
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "No duplicates detected!"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cid(sdfset) &lt;- unique_ids 
 </code></p>
 
-<p>Converting the data blocks in an <code class="highlighter-rouge">SDFset</code> to a matrix:</p>
+<p>Converting the data blocks in an <code>SDFset</code> to a matrix:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  blockmatrix &lt;- datablock2ma(datablocklist=datablock(sdfset)) # Converts data block to matrix 
  numchar &lt;- splitNumChar(blockmatrix=blockmatrix) # Splits to numeric and character matrix 
  numchar[[1]][1:2,1:2] # Slice of numeric matrix 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##        PUBCHEM_COMPOUND_CID PUBCHEM_COMPOUND_CANONICALIZED
 ## 650001               650001                              1
 ## 650002               650002                              1
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  numchar[[2]][1:2,10:11] # Slice of character matrix 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##        PUBCHEM_MOLECULAR_FORMULA PUBCHEM_OPENEYE_CAN_SMILES                                     
 ## 650001 "C23H28N4O6"              "CC1=CC(=NO1)NC(=O)CCC(=O)N(CC(=O)NC2CCCC2)C3=CC4=C(C=C3)OCCO4"
 ## 650002 "C18H23N5O3"              "CN1C2=C(C(=O)NC1=O)N(C(=N2)NCCCO)CCCC3=CC=CC=C3"
@@ -1102,12 +1133,12 @@ bondblock(sdfset[1:4]) # Not printed here
 
 <p>Compute atom frequency matrix, molecular weight and formula:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  propma &lt;- data.frame(MF=MF(sdfset), MW=MW(sdfset), atomcountMA(sdfset))
  propma[1:4, ] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##                 MF       MW  C  H N O S F Cl
 ## 650001  C23H28N4O6 456.4916 23 28 4 6 0 0  0
 ## 650002  C18H23N5O3 357.4069 18 23 5 3 0 0  0
@@ -1117,12 +1148,12 @@ bondblock(sdfset[1:4]) # Not printed here
 
 <p>Assign matrix data to data block:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  datablock(sdfset) &lt;- propma 
  datablock(sdfset[1]) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $`650001`
 ##           MF           MW            C            H            N            O            S 
 ## "C23H28N4O6"   "456.4916"         "23"         "28"          "4"          "6"          "0" 
@@ -1130,36 +1161,36 @@ bondblock(sdfset[1:4]) # Not printed here
 ##          "0"          "0"
 </code></p>
 
-<p>String searching in <code class="highlighter-rouge">SDFset</code>:</p>
+<p>String searching in <code>SDFset</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  grepSDFset("650001", sdfset, field="datablock", mode="subset") # Returns summary view of matches. Not printed here.
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  grepSDFset("650001", sdfset, field="datablock", mode="index") 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 1 1 1 1 1 1 1 1 1 
 ## 1 2 3 4 5 6 7 8 9
 </code></p>
 
 <p>Export SDFset to SD file:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  write.SDF(sdfset[1:4], file="sub.sdf", sig=TRUE) 
 </code></p>
 
 <p>Plot molecule structure of one or many SDFs:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  plot(sdfset[1:4], print=FALSE) # Plots structures to R graphics device 
 </code></p>
 
 <p><img src="ChemmineR_files/figure-html/plotstruct-1.png" alt="" />\</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdf.visualize(sdfset[1:4]) # Compound viewing in web browser 
 </code></p>
 
@@ -1167,16 +1198,16 @@ bondblock(sdfset[1:4]) # Not printed here
 
 <p>Structure similarity searching and clustering:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  apset &lt;- sdf2ap(sdfset) # Generate atom pair descriptor database for searching 
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(apset) # Load sample apset data provided by library. 
  cmp.search(apset, apset[1], type=3, cutoff = 0.3, quiet=TRUE) # Search apset database with single compound. 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   index    cid    scores
 ## 1     1 650001 1.0000000
 ## 2    96 650102 0.3516643
@@ -1185,16 +1216,16 @@ bondblock(sdfset[1:4]) # Not printed here
 ## 5    15 650015 0.3010753
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cmp.cluster(db=apset, cutoff = c(0.65, 0.5), quiet=TRUE)[1:4,] # Binning clustering using variable similarity cutoffs. 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 
 ## sorting result...
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##       ids CLSZ_0.65 CLID_0.65 CLSZ_0.5 CLID_0.5
 ## 48 650049         2        48        2       48
 ## 49 650050         2        48        2       48
@@ -1206,12 +1237,12 @@ bondblock(sdfset[1:4]) # Not printed here
 
 <h1 id="openbabel-functions">OpenBabel Functions</h1>
 
-<p><code class="highlighter-rouge">ChemmineR</code> integrates now a subset of cheminformatics
+<p><code>ChemmineR</code> integrates now a subset of cheminformatics
 functionalities implemented in the OpenBabel C++ library [@greycite13432; @Cao_2008]. These
-utilities can be accessed by installing the <code class="highlighter-rouge">ChemmineOB</code>
-package and the OpenBabel software itself. <code class="highlighter-rouge">ChemmineR</code>
+utilities can be accessed by installing the <code>ChemmineOB</code>
+package and the OpenBabel software itself. <code>ChemmineR</code>
 will automatically detect the availability of
-<code class="highlighter-rouge">ChemmineOB</code> and make use of the additional utilities.
+<code>ChemmineOB</code> and make use of the additional utilities.
 The following lists the functions and methods that make use of
 OpenBabel. References are included to locate the sections in the manual
 where the utility and usage of these functions is described.</p>
@@ -1220,32 +1251,32 @@ where the utility and usage of these functions is described.</p>
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">smiles2sdf</code>: converts from SMILES to SDF object</p>
+    <p><code>smiles2sdf</code>: converts from SMILES to SDF object</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">sdf2smiles</code>: converts from SDF to SMILES object</p>
+    <p><code>sdf2smiles</code>: converts from SDF to SMILES object</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">convertFormat</code>: converts strings between two formats</p>
+    <p><code>convertFormat</code>: converts strings between two formats</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">convertFormatFile</code>: converts files between two formats. This function can be used to enable ChemmineR to read in any
+    <p><code>convertFormatFile</code>: converts files between two formats. This function can be used to enable ChemmineR to read in any
 format supported by Open Babel. For example, if you had an SML file you could do:</p>
   </li>
 </ul>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 convertFormatFile("SML","SDF","mycompound.sml","mycompound.sdf")
 sdfset=read.SDFset("mycompound.sdf")
 </code></p>
 
-<p><code class="highlighter-rouge">propOB</code>: generates several compound properties. See the man page for a current list of properties computed.</p>
+<p><code>propOB</code>: generates several compound properties. See the man page for a current list of properties computed.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 propOB(sdfset[1])
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##                                                          cansmi
 ## 650001 O=C(Nc1noc(c1)C)CCC(=O)N(c1ccc2c(c1)OCCO2)CC(=O)NC1CCCC1
 ##                                                        cansmiNS    formula  title
@@ -1256,42 +1287,42 @@ propOB(sdfset[1])
 ## 650001   37   10   2 3.0288 119.9234 456.4916  0  123
 </code></p>
 
-<p><code class="highlighter-rouge">fingerprintOB</code>: generates fingerprints for compounds. The fingerprint name can be anything supported by OpenBabel. See the man page
+<p><code>fingerprintOB</code>: generates fingerprints for compounds. The fingerprint name can be anything supported by OpenBabel. See the man page
 for a current list.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 fingerprintOB(sdfset,"FP2")
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of a 1024 bit "FPset" of type "FP2" with 100 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">smartsSearchOB</code>: find matches of SMARTS patterns in compounds</p>
+<p><code>smartsSearchOB</code>: find matches of SMARTS patterns in compounds</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 #count rotable bonds
 smartsSearchOB(sdfset[1:5],"[!$(*#*)&amp;!D1]-!@[!$(*#*)&amp;!D1]",uniqueMatches=FALSE)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 650001 650002 650003 650004 650005 
 ##     24     20     14     30     10
 </code></p>
 
-<p><code class="highlighter-rouge">exactMassOB</code>: Compute the monoisotopic (exact) mass of a set of compounds</p>
+<p><code>exactMassOB</code>: Compute the monoisotopic (exact) mass of a set of compounds</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 exactMassOB(sdfset[1:5])
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   650001   650002   650003   650004   650005 
 ## 456.2009 357.1801 370.1100 461.1733 318.1943
 </code></p>
 
-<p><code class="highlighter-rouge">regenerateCoords</code>: Re-compute the 2D coordinates of a compound using Open Babel. This can sometimes
-improve the quality of the compounds plot. See also the <code class="highlighter-rouge">regenCoords</code> option of the plot function.</p>
+<p><code>regenerateCoords</code>: Re-compute the 2D coordinates of a compound using Open Babel. This can sometimes
+improve the quality of the compounds plot. See also the <code>regenCoords</code> option of the plot function.</p>
 
 <p>```r
 sdfset2 = regenerateCoords(sdfset[1:5])</p>
@@ -1301,23 +1332,23 @@ sdfset2 = regenerateCoords(sdfset[1:5])</p>
 
 <p><img src="ChemmineR_files/figure-html/unnamed-chunk-30-1.png" alt="" />\</p>
 
-<p><code class="highlighter-rouge">generate3DCoords</code>: Generate 3D coordinates for compounds with only 2D coordinates.</p>
+<p><code>generate3DCoords</code>: Generate 3D coordinates for compounds with only 2D coordinates.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 sdf3D = generate3DCoords(sdfset[1])
 </code></p>
 
-<p><code class="highlighter-rouge">canonicalize</code>: Compute a canonicalized atom numbering. This allows compounds with the same molecular
+<p><code>canonicalize</code>: Compute a canonicalized atom numbering. This allows compounds with the same molecular
 structure but different atom numberings to be compared properly.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 canonicalSdf= canonicalize(sdfset[1])
 </code></p>
 
-<p><code class="highlighter-rouge">canonicalNumbering</code>: Return a mapping from the original atom numbering to the 
+<p><code>canonicalNumbering</code>: Return a mapping from the original atom numbering to the 
 canonical atom number.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 mapping = canonicalNumbering(sdfset[1])
 </code></p>
 
@@ -1329,9 +1360,9 @@ mapping = canonicalNumbering(sdfset[1])
 methods and functions available in the ChemmineR package. The help
 documents of the package provide much more detailed information on each
 utility. The standard R help documents for these utilities can be
-accessed with this syntax: <code class="highlighter-rouge">?function\_name</code> (<em>e.g.</em>
-<code class="highlighter-rouge">?cid</code>) and <code class="highlighter-rouge">?class\_name-class</code> (<em>e.g</em>.
-<code class="highlighter-rouge">?"SDFset-class"</code>).</p>
+accessed with this syntax: <code>?function\_name</code> (<em>e.g.</em>
+<code>?cid</code>) and <code>?class\_name-class</code> (<em>e.g</em>.
+<code>?"SDFset-class"</code>).</p>
 
 <div align="right">[Back to Table of Contents]()</div>
 
@@ -1341,47 +1372,47 @@ accessed with this syntax: <code class="highlighter-rouge">?function\_name</code
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">SDFstr</code>: intermediate string class to facilitate SD
+    <p><code>SDFstr</code>: intermediate string class to facilitate SD
 file import; not important for end user</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">SDF</code>: container for single molecule imported from an
+    <p><code>SDF</code>: container for single molecule imported from an
 SD file</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">SDFset</code>: container for many SDF objects; most
+    <p><code>SDFset</code>: container for many SDF objects; most
 important structure container for end user</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">SMI</code>: container for a single SMILES string</p>
+    <p><code>SMI</code>: container for a single SMILES string</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">SMIset</code>: container for many SMILES strings</p>
+    <p><code>SMIset</code>: container for many SMILES strings</p>
   </li>
 </ul>
 
-<p>Functions/Methods (mainly for <code class="highlighter-rouge">SDFset</code> container,
-<code class="highlighter-rouge">SMIset</code> should be coerced with
-<code class="highlighter-rouge">smiles2sd</code> to <code class="highlighter-rouge">SDFset</code>)</p>
+<p>Functions/Methods (mainly for <code>SDFset</code> container,
+<code>SMIset</code> should be coerced with
+<code>smiles2sd</code> to <code>SDFset</code>)</p>
 
 <ul>
   <li>
-    <p>Accessor methods for <code class="highlighter-rouge">SDF/SDFset</code></p>
+    <p>Accessor methods for <code>SDF/SDFset</code></p>
 
     <ul>
       <li>
-        <p>Object slots: <code class="highlighter-rouge">cid</code>, <code class="highlighter-rouge">header</code>, <code class="highlighter-rouge">atomblock</code>, <code class="highlighter-rouge">bondblock</code>,
-<code class="highlighter-rouge">datablock</code> (<code class="highlighter-rouge">sdfid</code>, <code class="highlighter-rouge">datablocktag</code>)</p>
+        <p>Object slots: <code>cid</code>, <code>header</code>, <code>atomblock</code>, <code>bondblock</code>,
+<code>datablock</code> (<code>sdfid</code>, <code>datablocktag</code>)</p>
       </li>
       <li>
-        <p>Summary of <code class="highlighter-rouge">SDFset</code>: <code class="highlighter-rouge">view</code></p>
+        <p>Summary of <code>SDFset</code>: <code>view</code></p>
       </li>
       <li>
-        <p>Matrix conversion of data block: <code class="highlighter-rouge">datablock2ma</code>,
-<code class="highlighter-rouge">splitNumChar</code></p>
+        <p>Matrix conversion of data block: <code>datablock2ma</code>,
+<code>splitNumChar</code></p>
       </li>
       <li>
-        <p>String search in SDFset: <code class="highlighter-rouge">grepSDFset</code></p>
+        <p>String search in SDFset: <code>grepSDFset</code></p>
       </li>
     </ul>
   </li>
@@ -1389,9 +1420,9 @@ important structure container for end user</p>
     <p>Coerce one class to another</p>
 
     <ul>
-      <li>Standard syntax <code class="highlighter-rouge">as(..., "...")</code> works in most
+      <li>Standard syntax <code>as(..., "...")</code> works in most
 cases. For details see R help with
-   <code class="highlighter-rouge">?"SDFset-class"</code>.</li>
+   <code>?"SDFset-class"</code>.</li>
     </ul>
   </li>
   <li>
@@ -1399,13 +1430,13 @@ cases. For details see R help with
 
     <ul>
       <li>
-        <p>Atom frequencies: <code class="highlighter-rouge">atomcountMA</code>, <code class="highlighter-rouge">atomcount</code></p>
+        <p>Atom frequencies: <code>atomcountMA</code>, <code>atomcount</code></p>
       </li>
       <li>
-        <p>Molecular weight: <code class="highlighter-rouge">MW</code></p>
+        <p>Molecular weight: <code>MW</code></p>
       </li>
       <li>
-        <p>Molecular formula: <code class="highlighter-rouge">MF</code></p>
+        <p>Molecular formula: <code>MF</code></p>
       </li>
       <li>
         <p>…</p>
@@ -1417,10 +1448,10 @@ cases. For details see R help with
 
     <ul>
       <li>
-        <p>R graphics device: <code class="highlighter-rouge">plot</code>, <code class="highlighter-rouge">plotStruc</code></p>
+        <p>R graphics device: <code>plot</code>, <code>plotStruc</code></p>
       </li>
       <li>
-        <p>Online: <code class="highlighter-rouge">cmp.visualize</code></p>
+        <p>Online: <code>cmp.visualize</code></p>
       </li>
     </ul>
   </li>
@@ -1434,18 +1465,18 @@ cases. For details see R help with
 
 <ul>
   <li>
-    <p><code class="highlighter-rouge">AP</code>: container for atom pair descriptors of a single
+    <p><code>AP</code>: container for atom pair descriptors of a single
 molecule</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">APset</code>: container for many AP objects; most
+    <p><code>APset</code>: container for many AP objects; most
 important structure descriptor container for end user</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">FP</code>: container for fingerprint of a single molecule</p>
+    <p><code>FP</code>: container for fingerprint of a single molecule</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">FPset</code>: container for fingerprints of many
+    <p><code>FPset</code>: container for fingerprints of many
 molecules, most important structure descriptor container for end
 user</p>
   </li>
@@ -1455,18 +1486,18 @@ user</p>
 
 <ul>
   <li>
-    <p>Create <code class="highlighter-rouge">AP/APset</code> instances</p>
+    <p>Create <code>AP/APset</code> instances</p>
 
     <ul>
       <li>
-        <p>From <code class="highlighter-rouge">SDFset</code>: <code class="highlighter-rouge">sdf2ap</code></p>
+        <p>From <code>SDFset</code>: <code>sdf2ap</code></p>
       </li>
       <li>
-        <p>From SD file: <code class="highlighter-rouge">cmp.parse</code></p>
+        <p>From SD file: <code>cmp.parse</code></p>
       </li>
       <li>
-        <p>Summary of <code class="highlighter-rouge">AP/APset</code>: <code class="highlighter-rouge">view</code>,
-<code class="highlighter-rouge">db.explain</code></p>
+        <p>Summary of <code>AP/APset</code>: <code>view</code>,
+<code>db.explain</code></p>
       </li>
     </ul>
   </li>
@@ -1474,16 +1505,16 @@ user</p>
     <p>Accessor methods for AP/APset</p>
 
     <ul>
-      <li>Object slots: <code class="highlighter-rouge">ap</code>, <code class="highlighter-rouge">cid</code></li>
+      <li>Object slots: <code>ap</code>, <code>cid</code></li>
     </ul>
   </li>
   <li>
     <p>Coerce one class to another</p>
 
     <ul>
-      <li>Standard syntax <code class="highlighter-rouge">as(..., "...")</code> works in most
+      <li>Standard syntax <code>as(..., "...")</code> works in most
 cases. For details see R help with
-<code class="highlighter-rouge">?"APset-class"</code>.</li>
+<code>?"APset-class"</code>.</li>
     </ul>
   </li>
   <li>
@@ -1491,11 +1522,11 @@ cases. For details see R help with
 
     <ul>
       <li>
-        <p>Compute pairwise similarities : <code class="highlighter-rouge">cmp.similarity</code>,
-<code class="highlighter-rouge">fpSim</code></p>
+        <p>Compute pairwise similarities : <code>cmp.similarity</code>,
+<code>fpSim</code></p>
       </li>
       <li>
-        <p>Search APset database: <code class="highlighter-rouge">cmp.search</code>, <code class="highlighter-rouge">fpSim</code></p>
+        <p>Search APset database: <code>cmp.search</code>, <code>fpSim</code></p>
       </li>
     </ul>
   </li>
@@ -1504,24 +1535,24 @@ cases. For details see R help with
 
     <ul>
       <li>
-        <p>Single-linkage binning clustering: <code class="highlighter-rouge">cmp.cluster</code></p>
+        <p>Single-linkage binning clustering: <code>cmp.cluster</code></p>
       </li>
       <li>
         <p>Visualize clustering result with MDS:
-<code class="highlighter-rouge">cluster.visualize</code></p>
+<code>cluster.visualize</code></p>
       </li>
       <li>
-        <p>Size distribution of clusters: <code class="highlighter-rouge">cluster.sizestat</code></p>
+        <p>Size distribution of clusters: <code>cluster.sizestat</code></p>
       </li>
     </ul>
   </li>
   <li>
     <p>Folding</p>
     <ul>
-      <li>Fold a descriptor with <code class="highlighter-rouge">fold</code></li>
+      <li>Fold a descriptor with <code>fold</code></li>
       <li>Query the number of times a descriptor has been folded:
- <code class="highlighter-rouge">foldCount</code></li>
-      <li>Query the number of bits in a descriptor: <code class="highlighter-rouge">numBits</code></li>
+ <code>foldCount</code></li>
+      <li>Query the number of bits in a descriptor: <code>numBits</code></li>
     </ul>
   </li>
 </ul>
@@ -1534,47 +1565,47 @@ cases. For details see R help with
 
 <p>The following gives an overview of the most important import/export
 functionalities for small molecules provided by
-<code class="highlighter-rouge">ChemmineR</code>. The given example creates an instance of the
-<code class="highlighter-rouge">SDFset</code> class using as sample data set the first 100
+<code>ChemmineR</code>. The given example creates an instance of the
+<code>SDFset</code> class using as sample data set the first 100
 compounds from this PubChem SD file (SDF):
 Compound_00650001_00675000.sdf.gz
 (<a href="ftp://ftp.ncbi.nih.gov/pubchem/Compound/CURRENT-Full/SDF/">ftp://ftp.ncbi.nih.gov/pubchem/Compound/CURRENT-Full/SDF/</a>).</p>
 
-<p>SDFs can be imported with the <code class="highlighter-rouge">read.SDFset</code> function:</p>
+<p>SDFs can be imported with the <code>read.SDFset</code> function:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfset &lt;- read.SDFset("http://faculty.ucr.edu/ tgirke/Documents/R_BioCond/Samples/sdfsample.sdf") 
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(sdfsample) # Loads the same SDFset provided by the library 
  sdfset &lt;- sdfsample
  valid &lt;- validSDF(sdfset) # Identifies invalid SDFs in SDFset objects 
  sdfset &lt;- sdfset[valid] # Removes invalid SDFs, if there are any 
 </code></p>
 
-<p>Import SD file into <code class="highlighter-rouge">SDFstr</code> container:</p>
+<p>Import SD file into <code>SDFstr</code> container:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfstr &lt;- read.SDFstr("http://faculty.ucr.edu/ tgirke/Documents/R_BioCond/Samples/sdfsample.sdf") 
 </code>
 Create
-<code class="highlighter-rouge">SDFset</code> from <code class="highlighter-rouge">SDFstr</code> class:</p>
+<code>SDFset</code> from <code>SDFstr</code> class:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfstr &lt;- as(sdfset, "SDFstr") 
  sdfstr
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "SDFstr" with 100 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  as(sdfstr, "SDFset") 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "SDFset" with 100 molecules
 </code></p>
 
@@ -1582,37 +1613,37 @@ Create
 
 <h2 id="smiles-import">SMILES Import</h2>
 
-<p>The <code class="highlighter-rouge">read.SMIset</code> function imports one or many molecules
-from a SMILES file and stores them in a <code class="highlighter-rouge">SMIset</code>
+<p>The <code>read.SMIset</code> function imports one or many molecules
+from a SMILES file and stores them in a <code>SMIset</code>
 container. The input file is expected to contain one SMILES string per
 row with tab-separated compound identifiers at the end of each line. The
 compound identifiers are optional.</p>
 
 <p>Create sample SMILES file and then import it:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(smisample); smiset &lt;- smisample
  write.SMI(smiset[1:4], file="sub.smi") 
  smiset &lt;- read.SMIset("sub.smi")
 </code></p>
 
-<p>Inspect content of <code class="highlighter-rouge">SMIset</code>:</p>
+<p>Inspect content of <code>SMIset</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(smisample) # Loads the same SMIset provided by the library 
  smiset &lt;- smisample
  smiset 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "SMIset" with 100 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  view(smiset[1:2]) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $`650001`
 ## An instance of "SMI"
 ## [1] "O=C(NC1CCCC1)CN(c1cc2OCCOc2cc1)C(=O)CCC(=O)Nc1noc(c1)C"
@@ -1624,25 +1655,25 @@ compound identifiers are optional.</p>
 
 <p>Accessor functions:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cid(smiset[1:4]) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "650001" "650002" "650003" "650004"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  smi &lt;- as.character(smiset[1:2])
 </code></p>
 
-<p>Create <code class="highlighter-rouge">SMIset</code> from named character vector:</p>
+<p>Create <code>SMIset</code> from named character vector:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  as(smi, "SMIset") 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "SMIset" with 2 molecules
 </code></p>
 
@@ -1652,40 +1683,40 @@ compound identifiers are optional.</p>
 
 <h2 id="sdf-export">SDF Export</h2>
 
-<p>Write objects of classes <code class="highlighter-rouge">SDFset/SDFstr/SDF</code> to SD file:</p>
+<p>Write objects of classes <code>SDFset/SDFstr/SDF</code> to SD file:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  write.SDF(sdfset[1:4], file="sub.sdf") 
 </code></p>
 
-<p>Writing customized <code class="highlighter-rouge">SDFset</code> to file containing
-<code class="highlighter-rouge">ChemmineR</code> signature, IDs from <code class="highlighter-rouge">SDFset</code>
+<p>Writing customized <code>SDFset</code> to file containing
+<code>ChemmineR</code> signature, IDs from <code>SDFset</code>
 and no data block:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  write.SDF(sdfset[1:4], file="sub.sdf", sig=TRUE, cid=TRUE, db=NULL) 
 </code></p>
 
 <p>Example for injecting a custom matrix/data frame into the data block of
-an <code class="highlighter-rouge">SDFset</code> and then writing it to an SD file:</p>
+an <code>SDFset</code> and then writing it to an SD file:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  props &lt;- data.frame(MF=MF(sdfset), MW=MW(sdfset), atomcountMA(sdfset)) 
  datablock(sdfset) &lt;- props
  write.SDF(sdfset[1:4], file="sub.sdf", sig=TRUE, cid=TRUE) 
 </code></p>
 
-<p>Indirect export via <code class="highlighter-rouge">SDFstr</code> object:</p>
+<p>Indirect export via <code>SDFstr</code> object:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdf2str(sdf=sdfset[[1]], sig=TRUE, cid=TRUE) # Uses default components 
  sdf2str(sdf=sdfset[[1]], head=letters[1:4], db=NULL) # Uses custom components for header and data block 
 </code></p>
 
-<p>Write <code class="highlighter-rouge">SDF</code>, <code class="highlighter-rouge">SDFset</code> or
-<code class="highlighter-rouge">SDFstr</code> classes to file:</p>
+<p>Write <code>SDF</code>, <code>SDFset</code> or
+<code>SDFstr</code> classes to file:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  write.SDF(sdfset[1:4], file="sub.sdf", sig=TRUE, cid=TRUE, db=NULL)
  write.SDF(sdfstr[1:4], file="sub.sdf") 
  cat(unlist(as(sdfstr[1:4], "list")), file="sub.sdf", sep="") 
@@ -1695,7 +1726,7 @@ an <code class="highlighter-rouge">SDFset</code> and then writing it to an SD fi
 
 <h2 id="smiles-export">SMILES Export</h2>
 
-<p>Write objects of class <code class="highlighter-rouge">SMIset</code> to SMILES file with and
+<p>Write objects of class <code>SMIset</code> to SMILES file with and
 without compound identifiers:</p>
 
 <p>```r
@@ -1708,43 +1739,43 @@ without compound identifiers:</p>
 
 <h1 id="format-interconversions">Format Interconversions</h1>
 
-<p>The <code class="highlighter-rouge">sdf2smiles</code> and <code class="highlighter-rouge">smiles2sdf</code>
+<p>The <code>sdf2smiles</code> and <code>smiles2sdf</code>
 functions provide format interconversion between SMILES strings
 (Simplified Molecular Input Line Entry Specification) and
-<code class="highlighter-rouge">SDFset</code> containers.</p>
+<code>SDFset</code> containers.</p>
 
-<p>Convert an <code class="highlighter-rouge">SDFset</code> container to a SMILES
-<code class="highlighter-rouge">character</code> string:</p>
+<p>Convert an <code>SDFset</code> container to a SMILES
+<code>character</code> string:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(sdfsample);
  sdfset &lt;- sdfsample[1] 
  smiles &lt;- sdf2smiles(sdfset) 
  smiles 
 </code></p>
 
-<p>Convert a SMILES <code class="highlighter-rouge">character</code> string to an
-<code class="highlighter-rouge">SDFset</code> container:</p>
+<p>Convert a SMILES <code>character</code> string to an
+<code>SDFset</code> container:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdf &lt;- smiles2sdf("CC(=O)OC1=CC=CC=C1C(=O)O")
  view(sdf) 
 </code></p>
 
-<p>When the <code class="highlighter-rouge">ChemineOB</code> package is installed these
+<p>When the <code>ChemineOB</code> package is installed these
 conversions are performed with the OpenBabel Open Source Chemistry
 Toolbox. Otherwise the functions will fall back to using the ChemMine
 Tools web service for this operation. The latter will require internet
 connectivity and is limited to only the first compound given.
-<code class="highlighter-rouge">ChemmineOB</code> provides access to the compound format
+<code>ChemmineOB</code> provides access to the compound format
 conversion functions of OpenBabel. Currently, over 160 formats are
-supported by OpenBabel. The functions <code class="highlighter-rouge">convertFormat</code> and
-<code class="highlighter-rouge">convertFormatFile</code> can be used to convert files or
+supported by OpenBabel. The functions <code>convertFormat</code> and
+<code>convertFormatFile</code> can be used to convert files or
 strings between any two formats supported by OpenBabel. For example, to
 convert a SMILES string to an SDF string, one can use the
-<code class="highlighter-rouge">convertFormat</code> function.</p>
+<code>convertFormat</code> function.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfStr &lt;- convertFormat("SMI","SDF","CC(=O)OC1=CC=CC=C1C(=O)O_name") 
 </code></p>
 
@@ -1752,10 +1783,10 @@ convert a SMILES string to an SDF string, one can use the
 coordinates are also computed and included in the resulting SDF string.</p>
 
 <p>To convert a file with compounds encoded in one format to another
-format, the <code class="highlighter-rouge">convertFormatFile</code> function can be used
+format, the <code>convertFormatFile</code> function can be used
 instead.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  convertFormatFile("SMI","SDF","test.smiles","test.sdf") 
 </code></p>
 
@@ -1766,7 +1797,7 @@ run from the command-line “obabel -L formats”.</p>
 
 <h1 id="splitting-sd-files">Splitting SD Files</h1>
 
-<p>The following <code class="highlighter-rouge">write.SDFsplit</code> function allows to split
+<p>The following <code>write.SDFsplit</code> function allows to split
 SD Files into any number of smaller SD Files. This can become important
 when working with very big SD Files. Users should note that this
 function can output many files, thus one should run it in a dedicated
@@ -1774,26 +1805,26 @@ directory!</p>
 
 <p>Create sample SD File with 100 molecules:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  write.SDF(sdfset, "test.sdf") 
 </code></p>
 
 <p>Read in sample SD File. Note: reading file into SDFstr is much faster
 than into SDFset:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfstr &lt;- read.SDFstr("test.sdf") 
 </code></p>
 
-<p>Run export on <code class="highlighter-rouge">SDFstr</code> object:</p>
+<p>Run export on <code>SDFstr</code> object:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  write.SDFsplit(x=sdfstr, filetag="myfile", nmol=10) # 'nmol' defines the number of molecules to write to each file 
 </code></p>
 
-<p>Run export on <code class="highlighter-rouge">SDFset</code> object:</p>
+<p>Run export on <code>SDFset</code> object:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  write.SDFsplit(x=sdfset, filetag="myfile", nmol=10) 
 </code></p>
 
@@ -1801,28 +1832,28 @@ than into SDFset:</p>
 
 <h1 id="streaming-through-large-sd-files">Streaming Through Large SD Files</h1>
 
-<p>The <code class="highlighter-rouge">sdfStream</code> function allows to stream through SD
+<p>The <code>sdfStream</code> function allows to stream through SD
 Files with millions of molecules without consuming much memory. During
 this process any set of descriptors, supported by
-<code class="highlighter-rouge">ChemmineR</code>, can be computed (<em>e.g.</em> atom pairs,
+<code>ChemmineR</code>, can be computed (<em>e.g.</em> atom pairs,
 molecular properties, etc.), as long as they can be returned in tabular
 format. In addition to descriptor values, the function returns a line
 index that gives the start and end positions of each molecule in the
 source SD File. This line index can be used by the downstream
-<code class="highlighter-rouge">read.SDFindex</code> function to retrieve specific molecules
+<code>read.SDFindex</code> function to retrieve specific molecules
 of interest from the source SD File without reading the entire file into
 R. The following outlines the typical workflow of this streaming
-functionality in <code class="highlighter-rouge">ChemmineR</code>.</p>
+functionality in <code>ChemmineR</code>.</p>
 
 <p>Create sample SD File with 100 molecules:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  write.SDF(sdfset, "test.sdf") 
 </code></p>
 
 <p>Define descriptor set in a simple function:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  desc &lt;- function(sdfset) 
  cbind(SDFID=sdfid(sdfset), 
 	# datablock2ma(datablocklist=datablock(sdfset)), 
@@ -1832,26 +1863,26 @@ functionality in <code class="highlighter-rouge">ChemmineR</code>.</p>
 	type="count", upper=6, arom=TRUE) )  
 </code></p>
 
-<p>Run <code class="highlighter-rouge">sdfStream</code> with <code class="highlighter-rouge">desc</code> function and
-write results to a file called <code class="highlighter-rouge">matrix.xls</code>:</p>
+<p>Run <code>sdfStream</code> with <code>desc</code> function and
+write results to a file called <code>matrix.xls</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfStream(input="test.sdf", output="matrix.xls", fct=desc, Nlines=1000) # 'Nlines': number of lines to read from input SD File at a time 
 </code></p>
 
 <p>One can also start reading from a specific line number in the SD file.
 The following example starts at line number 950. This is useful for
-restarting and debugging the process. With <code class="highlighter-rouge">append=TRUE</code>
+restarting and debugging the process. With <code>append=TRUE</code>
 the result can be appended to an existing file.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfStream(input="test.sdf", output="matrix2.xls", append=FALSE, fct=desc, Nlines=1000, startline=950) 
 </code></p>
 
 <p>Select molecules meeting certain property criteria from SD File using
-line index generated by previous <code class="highlighter-rouge">sdfStream</code> step:</p>
+line index generated by previous <code>sdfStream</code> step:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  indexDF &lt;- read.delim("matrix.xls", row.names=1)[,1:4] 
  indexDFsub &lt;- indexDF[indexDF$MW &lt; 400, ] # Selects molecules with MW &lt; 400 
  sdfset &lt;- read.SDFindex(file="test.sdf", index=indexDFsub, type="SDFset") # Collects results in 'SDFset' container 
@@ -1860,15 +1891,15 @@ line index generated by previous <code class="highlighter-rouge">sdfStream</code
 <p>Write results directly to SD file without storing larger numbers of
 molecules in memory:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  read.SDFindex(file="test.sdf", index=indexDFsub, type="file",
  outfile="sub.sdf") 
 </code></p>
 
-<p>Read AP/APFP strings from file into <code class="highlighter-rouge">APset</code> or
-<code class="highlighter-rouge">FP</code> object:</p>
+<p>Read AP/APFP strings from file into <code>APset</code> or
+<code>FP</code> object:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  apset &lt;- read.AP(x="matrix.xls", type="ap", colid="AP") 
  apfp &lt;- read.AP(x="matrix.xls", type="fp", colid="APFP") 
 </code></p>
@@ -1876,7 +1907,7 @@ molecules in memory:</p>
 <p>Alternatively, one can provide the AP/APFP strings in a named character
 vector:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  apset &lt;- read.AP(x=sdf2ap(sdfset[1:20], type="character"), type="ap") 
  fpchar &lt;- desc2fp(sdf2ap(sdfset[1:20]), descnames=1024, type="character")
  fpset &lt;- as(fpchar, "FPset") 
@@ -1903,7 +1934,7 @@ quickly because of the database index, no need to scan a large compound
 file. In addition to user defined features, descriptors can also be
 computed and stored for each compound.</p>
 
-<p>A new database can be created with the <code class="highlighter-rouge">initDb</code> function.
+<p>A new database can be created with the <code>initDb</code> function.
 This takes either an existing database connection, or a filename. If a
 filename is given then an SQLite database connection is created. It then
 ensures that the required tables exist and creates them if not. The
@@ -1915,29 +1946,29 @@ data.</p>
 
 <h2 id="loading-data">Loading Data</h2>
 
-<p>The functions <code class="highlighter-rouge">loadSdf</code> and <code class="highlighter-rouge">loadSmiles</code> can be used to load
-compound data from either a file (both) or an <code class="highlighter-rouge">SDFset</code> (<code class="highlighter-rouge">loadSdf</code>
-only).  The <code class="highlighter-rouge">fct</code> parameter should be a function to
+<p>The functions <code>loadSdf</code> and <code>loadSmiles</code> can be used to load
+compound data from either a file (both) or an <code>SDFset</code> (<code>loadSdf</code>
+only).  The <code>fct</code> parameter should be a function to
 extract features from the data. It will be handed an
-<code class="highlighter-rouge">SDFset</code> generated from the data being loaded. This may
+<code>SDFset</code> generated from the data being loaded. This may
 be done in batches, so there is no guarantee that the given SDFSset will
 contain the whole dataset. This function should return a data frame with
 a column for each feature and a row for each compound given. The order
 of the final data frame should be the same as that of the
-<code class="highlighter-rouge">SDFset</code>. The column names will become the feature names.
+<code>SDFset</code>. The column names will become the feature names.
 Each of these features will become a new, indexed, table in the database
 which can be used later to search for compounds.</p>
 
-<p>The <code class="highlighter-rouge">descriptors</code> parameter can be a function which
+<p>The <code>descriptors</code> parameter can be a function which
 computes descriptors. This function will also be given an
-<code class="highlighter-rouge">SDFset</code> object, which may be done in batches. It should
+<code>SDFset</code> object, which may be done in batches. It should
 return a data frame with the following two columns: “descriptor” and
 “descriptor_type”. The “descriptor” column should contain a string
 representation of the descriptor, and “descriptor_type” is the type of
 the descriptor. Our convention for atom pair is “ap” and “fp” for finger
 print. The order should also be maintained.</p>
 
-<p>When the data has been loaded, <code class="highlighter-rouge">loadSdf</code> will return the
+<p>When the data has been loaded, <code>loadSdf</code> will return the
 compound id numbers of each compound loaded. These compound id numbers
 are computed by the database and are not extracted from the compound
 data itself. They can be used to quickly retrieve compounds later.</p>
@@ -1945,22 +1976,22 @@ data itself. They can be used to quickly retrieve compounds later.</p>
 <p>New features can also be added using this function. However, all
 compounds must have all features so if new features are added to a new
 set of compounds, all existing features must be computable by the
-<code class="highlighter-rouge">fct</code> function given. If new features are detected, all
-existing compounds will be run through <code class="highlighter-rouge">fct</code> in order to
+<code>fct</code> function given. If new features are detected, all
+existing compounds will be run through <code>fct</code> in order to
 compute the new features for them as well.</p>
 
 <p>For example, if dataset X is loaded with features F1 and F2, and then at
 a later time we load dataset Y with new feature F3, the
-<code class="highlighter-rouge">fct</code> function used to load dataset Y must compute and
-return features F1, F2, and F3. <code class="highlighter-rouge">loadSdf</code> will call
-<code class="highlighter-rouge">fct</code> with both datasets X and Y so that all features are
+<code>fct</code> function used to load dataset Y must compute and
+return features F1, F2, and F3. <code>loadSdf</code> will call
+<code>fct</code> with both datasets X and Y so that all features are
 available for all compounds. If any features are missing an error will
 be raised. If just new features are being added, but no new compounds,
-use the <code class="highlighter-rouge">addNewFeatures</code> function.</p>
+use the <code>addNewFeatures</code> function.</p>
 
 <p>In this example, we create a new database called “test.db” and load it
-with data from an <code class="highlighter-rouge">SDFset</code>. We also define
-<code class="highlighter-rouge">fct</code> to compute the molecular weight, “MW”, and the
+with data from an <code>SDFset</code>. We also define
+<code>fct</code> to compute the molecular weight, “MW”, and the
 number of rings and aromatic rings. The rings function actually returns
 a data frame with columns “RINGS” and “AROMATIC”, which will be merged
 into the data frame being created which will also contain the “MW”
@@ -1975,11 +2006,11 @@ stored in the “ids” variable.</p>
  conn &lt;- initDb(“test.db”)
 ```</p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## Loading required package: RSQLite
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## Loading required package: DBI
 </code></p>
 
@@ -1994,7 +2025,7 @@ stored in the “ids” variable.</p>
  print(listFeatures(conn))
 ```</p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##  [1] "aromatic" "cansmi"   "cansmins" "formula"  "hba1"     "hba2"     "hbd"      "inchi"   
 ##  [9] "logp"     "mr"       "mw"       "nf"       "rings"    "title"    "tpsa"
 </code></p>
@@ -2002,7 +2033,7 @@ stored in the “ids” variable.</p>
 <div align="right">[Back to Table of Contents]()</div>
 
 <h2 id="updates">Updates</h2>
-<p>By default the <code class="highlighter-rouge">loadSdf</code> / <code class="highlighter-rouge">loadSmiles</code> functions will detect duplicate
+<p>By default the <code>loadSdf</code> / <code>loadSmiles</code> functions will detect duplicate
 compound entries and only insert one of them. This means it is safe
 to run these functions on the same data set several times and you
 won’t end up with duplicates. This allows the functions to be re-run
@@ -2011,7 +2042,7 @@ Duplicate compounds are detected by compouting the MD5 checksum on
 the textual representation of it.</p>
 
 <p>It can also update existing compounds with new versions of the same
-compound. To enable this, set <code class="highlighter-rouge">updateByName</code> to true. It will then
+compound. To enable this, set <code>updateByName</code> to true. It will then
 consider two compounds with the same name to be the same, even if the
 definition is different. Then, if the name of a compound exists in
 the database and it is trying to insert another compound with the
@@ -2024,33 +2055,33 @@ computation are available at the time the update is performed).</p>
 
 <h2 id="duplicate-descriptors">Duplicate Descriptors</h2>
 <p>It is often the case when loading a large set of compounds that
-several compounds will produce the same descriptor. <code class="highlighter-rouge">ChemmineR</code> 
+several compounds will produce the same descriptor. <code>ChemmineR</code> 
 detects this case and only stores one copy of the descriptor for
 every compound it is for. This feature saves some space and some
 time for processes that need to be applied to every descriptor.
 It also highlights a new problem. If you have a descriptor in hand
 and you want to find a single compound to represent it, which
 compound should be used if the descriptor was produced from multiple
-compounds? To address this problem, <code class="highlighter-rouge">ChemmineR</code> allows you to set
+compounds? To address this problem, <code>ChemmineR</code> allows you to set
 priority values for each compound-descriptor mapping. Then, in
 contexts where a single compound is required, the highest priority
 compound will be chosen. Highest priority corresponds to the lowest
 numerical value. So mapping with priority 0 would be used first.</p>
 
-<p>To set these priorities there is the function <code class="highlighter-rouge">setPriorities</code>.
-It takes a function, <code class="highlighter-rouge">priorityFn</code>, for computing these priority values.
-The <code class="highlighter-rouge">setPriorities</code> function should be run after loading a complete set of data.
+<p>To set these priorities there is the function <code>setPriorities</code>.
+It takes a function, <code>priorityFn</code>, for computing these priority values.
+The <code>setPriorities</code> function should be run after loading a complete set of data.
 It will find each group of compounds which share the same
-descriptor and call the given function, <code class="highlighter-rouge">priorityFn</code>, 
+descriptor and call the given function, <code>priorityFn</code>, 
 with the compound_id numbers of the group. This function should
 then assign priorities to each compound-descriptor pair, however
 it wishes.</p>
 
-<p>One built in priority function is <code class="highlighter-rouge">forestSizePriorities</code>. This simply
+<p>One built in priority function is <code>forestSizePriorities</code>. This simply
 prefers compounds with fewer disconnected components over compounds with
 more dissconnected components.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 setPriorities(conn,forestSizePriorities)
 </code></p>
 
@@ -2058,45 +2089,45 @@ setPriorities(conn,forestSizePriorities)
 
 <h2 id="searching">Searching</h2>
 
-<p>Compounds can be searched for using the <code class="highlighter-rouge">findCompounds</code>
+<p>Compounds can be searched for using the <code>findCompounds</code>
 function. This function takes a connection object, a vector of feature
 names used in the tests, and finally, a vector of tests that must all
 pass for a compound to be included in the result set. Each test should
-be a boolean expression. For example: <code class="highlighter-rouge">c("MW &lt;= 400","RINGS \&gt; 3")</code>
+be a boolean expression. For example: <code>c("MW &lt;= 400","RINGS \&gt; 3")</code>
 would return all compounds with a molecular weight of 400 or less and
 more than 3 rings, assuming these features exist in the database. The
-syntax for each test is <code class="highlighter-rouge">'\&lt;feature name\&gt; \&lt;SQL operator\&gt; \&lt;value\&gt;'</code>.
+syntax for each test is <code>'\&lt;feature name\&gt; \&lt;SQL operator\&gt; \&lt;value\&gt;'</code>.
 If you know SQL you can go beyond this basic syntax. These tests will
 simply be concatenated together with “AND” in-between them and tacked on
 the end of a WHERE clause of an SQL statement. So any SQL that will work
 in that context is fine. The function will return a list of compound
 ids, the actual compounds can be fetched with
-<code class="highlighter-rouge">getCompounds</code>. If just the names are needed, the
-<code class="highlighter-rouge">getCompoundNames</code> function can be used. Compounds can
-also be fetched by name using the <code class="highlighter-rouge">findCompoundsByName</code>
+<code>getCompounds</code>. If just the names are needed, the
+<code>getCompoundNames</code> function can be used. Compounds can
+also be fetched by name using the <code>findCompoundsByName</code>
 function.</p>
 
 <p>In this example we search for compounds with molecular weight less than
 300.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 results = findCompounds(conn,"mw",c("mw &lt; 300"))
 message("found ",length(results))
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## found 23
 </code></p>
 
 <p>If more than one test is given, only compounds which satisfy all tests are found. So if we wanted
 to further restrict our search to compounds with 2 or more aromatic rings we could do:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 results = findCompounds(conn,c("mw","aromatic"),c("mw &lt; 300","aromatic &gt;= 2"))
 message("found ",length(results))
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## found 9
 </code></p>
 
@@ -2105,12 +2136,12 @@ message("found ",length(results))
 <p>String patterns can also be used. So if we wanted to match a substring of the molecular formula, say
 to find compounds with 21 carbon atoms, we could do:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 results = findCompounds(conn,"formula",c("formula like '%C21%'"))
 message("found ",length(results))
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## found 12
 </code></p>
 
@@ -2127,21 +2158,21 @@ will match any single character. So the above expression would match a formula l
 
 <p>The boolean operators “AND” and “OR” can also be used to create more complex expressions within a single test.</p>
 
-<p>If you just want to fetch every compound in the database you can use the <code class="highlighter-rouge">getAllCompoundIds</code> function:</p>
+<p>If you just want to fetch every compound in the database you can use the <code>getAllCompoundIds</code> function:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 allIds = getAllCompoundIds(conn)
 message("found ",length(allIds))
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## found 100
 </code></p>
 
 <div align="right">[Back to Table of Contents]()</div>
 
 <h2 id="using-search-results">Using Search Results</h2>
-<p>Once you have a list of compound ids from the <code class="highlighter-rouge">findCompounds</code> function, you can either
+<p>Once you have a list of compound ids from the <code>findCompounds</code> function, you can either
 fetch the compound names, or the whole set of compounds as an SDFset.</p>
 
 <p>```r
@@ -2160,14 +2191,14 @@ compounds = getCompounds(conn,results,keepOrder=TRUE)
 compounds = getCompounds(conn,results,filename=file.path(tempdir(),”results.sdf”))
 ```</p>
 
-<p>Using the <code class="highlighter-rouge">getCompoundFeatures</code> function, you can get a set of feature values 
+<p>Using the <code>getCompoundFeatures</code> function, you can get a set of feature values 
 as a data frame:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 getCompoundFeatures(conn,results[1:5],c("mw","logp","formula"))
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   compound_id       mw   logp       formula
 ## 1         204 461.5346 1.3127   C21H27N5O5S
 ## 2         208 438.4780 3.5492  C21H19FN6O2S
@@ -2184,15 +2215,15 @@ getCompoundFeatures(conn,results[1:5],c(“mw”,”logp”,”formula”),filen
 <p>print(results[1:5])
 ```</p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 204 208 221 238 243
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 getCompoundFeatures(conn,results[1:5],c("mw","logp","formula"),keepOrder=TRUE)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##     compound_id       mw   logp       formula
 ## 204         204 461.5346 1.3127   C21H27N5O5S
 ## 208         208 438.4780 3.5492  C21H19FN6O2S
@@ -2206,7 +2237,7 @@ getCompoundFeatures(conn,results[1:5],c("mw","logp","formula"),keepOrder=TRUE)
 <h2 id="pre-built-databases">Pre-Built Databases</h2>
 <p>We have pre-built SQLite databases for the Drug Bank and DUD datasets. They can be found in 
 the ChemmineDrugs annotation package. Connections to these databases can be fetched from the
-functions <code class="highlighter-rouge">DrugBank</code> and <code class="highlighter-rouge">DUD</code> to get the corresponding database. Any of the above functions can
+functions <code>DrugBank</code> and <code>DUD</code> to get the corresponding database. Any of the above functions can
 then be used to query the database.</p>
 
 <p>The DUD dataset was downloaded from <a href="http://dude.docking.org/db/subsets/all/all.tar.gz">here</a>. A description
@@ -2259,7 +2290,7 @@ can be found <a href="http://dude.docking.org/">here</a>.</p>
 <h1 id="working-with-sdfsdfset-classes">Working with SDF/SDFset Classes</h1>
 
 <p>Several methods are available to return the different data components of
-<code class="highlighter-rouge">SDF/SDFset</code> containers in batches. The following
+<code>SDF/SDFset</code> containers in batches. The following
 examples list the most important ones. To save space their content is
 not printed in the manual.</p>
 
@@ -2275,19 +2306,19 @@ not printed in the manual.</p>
  c(sdfset[1:4], sdfset[5:8]) # Concatenation of several SDFsets 
 ```</p>
 
-<p>The <code class="highlighter-rouge">grepSDFset</code> function allows string
+<p>The <code>grepSDFset</code> function allows string
 matching/searching on the different data components in
-<code class="highlighter-rouge">SDFset</code>. By default the function returns a SDF summary
+<code>SDFset</code>. By default the function returns a SDF summary
 of the matching entries. Alternatively, an index of the matches can be
-returned with the setting <code class="highlighter-rouge">mode="index"</code>.</p>
+returned with the setting <code>mode="index"</code>.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  grepSDFset("650001", sdfset, field="datablock", mode="subset") # To return index, set mode="index") 
 </code></p>
 
 <p>Utilities to maintain unique compound IDs:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfid(sdfset[1:4]) # Retrieves CMP IDs from Molecule Name field in header block. 
  cid(sdfset[1:4]) # Retrieves CMP IDs from ID slot in SDFset. 
  unique_ids &lt;- makeUnique(sdfid(sdfset)) # Creates unique IDs by appending a counter to duplicates. 
@@ -2296,14 +2327,14 @@ returned with the setting <code class="highlighter-rouge">mode="index"</code>.</
 
 <p>Subsetting by character, index and logical vectors:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  view(sdfset[c("650001", "650012")])
  view(sdfset[4:1])
  mylog &lt;- cid(sdfset)
  view(sdfset[mylog]) 
 </code></p>
 
-<p>Accessing <code class="highlighter-rouge">SDF/SDFset</code> components: header, atom, bond and
+<p>Accessing <code>SDF/SDFset</code> components: header, atom, bond and
 data blocks:</p>
 
 <p>```r
@@ -2322,7 +2353,7 @@ data blocks:</p>
 
 <p>Replacement Methods:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfset[[1]][[2]][1,1] &lt;- 999 
  atomblock(sdfset)[1] &lt;- atomblock(sdfset)[2] 
  datablock(sdfset)[1] &lt;- datablock(sdfset)[2] 
@@ -2330,33 +2361,33 @@ data blocks:</p>
 
 <p>Assign matrix data to data block:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  datablock(sdfset) &lt;- as.matrix(iris[1:100,])
  view(sdfset[1:4]) 
 </code></p>
 
-<p>Class coercions from <code class="highlighter-rouge">SDFstr</code> to <code class="highlighter-rouge">list</code>,
-<code class="highlighter-rouge">SDF</code> and <code class="highlighter-rouge">SDFset</code>:</p>
+<p>Class coercions from <code>SDFstr</code> to <code>list</code>,
+<code>SDF</code> and <code>SDFset</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  as(sdfstr[1:2], "list") as(sdfstr[[1]], "SDF")
  as(sdfstr[1:2], "SDFset") 
 </code></p>
 
-<p>Class coercions from <code class="highlighter-rouge">SDF</code> to <code class="highlighter-rouge">SDFstr</code>,
-<code class="highlighter-rouge">SDFset</code>, list with SDF sub-components:</p>
+<p>Class coercions from <code>SDF</code> to <code>SDFstr</code>,
+<code>SDFset</code>, list with SDF sub-components:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdfcomplist &lt;- as(sdf, "list") sdfcomplist &lt;-
  as(sdfset[1:4], "list"); as(sdfcomplist[[1]], "SDF") sdflist &lt;-
  as(sdfset[1:4], "SDF"); as(sdflist, "SDFset") as(sdfset[[1]], "SDFstr")
  as(sdfset[[1]], "SDFset") 
 </code></p>
 
-<p>Class coercions from <code class="highlighter-rouge">SDFset</code> to lists with components
+<p>Class coercions from <code>SDFset</code> to lists with components
 consisting of SDF or sub-components:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  as(sdfset[1:4], "SDF") as(sdfset[1:4], "list") as(sdfset[1:4], "SDFstr")
 </code></p>
 
@@ -2367,29 +2398,29 @@ consisting of SDF or sub-components:</p>
 <p>Several methods and functions are available to compute basic compound
 descriptors, such as molecular formula (MF), molecular weight (MW), and
 frequencies of atoms and functional groups. In many of these functions,
-it is important to set <code class="highlighter-rouge">addH=TRUE</code> in order to
+it is important to set <code>addH=TRUE</code> in order to
 include/add hydrogens that are often not specified in an SD file.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  propma &lt;- atomcountMA(sdfset, addH=FALSE) 
  boxplot(propma, col="blue", main="Atom Frequency") 
 </code></p>
 
 <p><img src="ChemmineR_files/figure-html/boxplot-1.png" alt="" />\</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  boxplot(rowSums(propma), main="All Atom Frequency") 
 </code></p>
 
 <p>Data frame provided by library containing atom names, atom symbols,
 standard atomic weights, group and period numbers:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(atomprop)
  atomprop[1:4,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   Number      Name Symbol Atomic_weight Group Period
 ## 1      1  hydrogen      H      1.007940     1      1
 ## 2      2    helium     He      4.002602    18      1
@@ -2399,31 +2430,31 @@ standard atomic weights, group and period numbers:</p>
 
 <p>Compute MW and formula:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  MW(sdfset[1:4], addH=FALSE)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##     CMP1     CMP2     CMP3     CMP4 
 ## 456.4916 357.4069 370.4255 461.5346
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  MF(sdfset[1:4], addH=FALSE) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##          CMP1          CMP2          CMP3          CMP4 
 ##  "C23H28N4O6"  "C18H23N5O3" "C18H18N4O3S" "C21H27N5O5S"
 </code></p>
 
 <p>Enumerate functional groups:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  groups(sdfset[1:4], groups="fctgroup", type="countMA") 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##      RNH2 R2NH R3N ROPO3 ROH RCHO RCOR RCOOH RCOOR ROR RCCH RCN
 ## CMP1    0    2   1     0   0    0    0     0     0   2    0   0
 ## CMP2    0    2   2     0   1    0    0     0     0   0    0   0
@@ -2434,7 +2465,7 @@ standard atomic weights, group and period numbers:</p>
 <p>Combine MW, MF, charges, atom counts, functional group counts and ring
 counts in one data frame:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  propma &lt;- data.frame(MF=MF(sdfset, addH=FALSE), MW=MW(sdfset, addH=FALSE),
 							 Ncharges=sapply(bonds(sdfset, type="charge"), length),
 							 atomcountMA(sdfset, addH=FALSE), 
@@ -2443,7 +2474,7 @@ counts in one data frame:</p>
  propma[1:4,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##               MF       MW Ncharges  C  H N O S F Cl RNH2 R2NH R3N ROPO3 ROH RCHO RCOR RCOOH RCOOR
 ## CMP1  C23H28N4O6 456.4916        0 23 28 4 6 0 0  0    0    2   1     0   0    0    0     0     0
 ## CMP2  C18H23N5O3 357.4069        0 18 23 5 3 0 0  0    0    2   2     0   1    0    0     0     0
@@ -2458,10 +2489,10 @@ counts in one data frame:</p>
 
 <p>The following shows an example for assigning the values stored in a
 matrix (<em>e.g.</em> property descriptors) to the data block components in an
-<code class="highlighter-rouge">SDFset</code>. Each matrix row will be assigned to the
-corresponding slot position in the <code class="highlighter-rouge">SDFset</code>.</p>
+<code>SDFset</code>. Each matrix row will be assigned to the
+corresponding slot position in the <code>SDFset</code>.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  datablock(sdfset) &lt;- propma # Works with all SDF components 
  datablock(sdfset)[1:4] 
  test &lt;- apply(propma[1:4,], 1, function(x) 
@@ -2469,15 +2500,15 @@ corresponding slot position in the <code class="highlighter-rouge">SDFset</code>
 </code></p>
 
 <p>The data blocks in SDFs contain often important annotation information
-about compounds. The <code class="highlighter-rouge">datablock2ma</code> function returns this
+about compounds. The <code>datablock2ma</code> function returns this
 information as matrix for all compounds stored in an
-<code class="highlighter-rouge">SDFset</code> container. The <code class="highlighter-rouge">splitNumChar</code>
+<code>SDFset</code> container. The <code>splitNumChar</code>
 function can then be used to organize all numeric columns in a
-<code class="highlighter-rouge">numeric matrix</code> and the character columns in a
-<code class="highlighter-rouge">character matrix</code> as components of a
-<code class="highlighter-rouge">list</code> object.</p>
+<code>numeric matrix</code> and the character columns in a
+<code>character matrix</code> as components of a
+<code>list</code> object.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  datablocktag(sdfset, tag="PUBCHEM_NIST_INCHI")
  datablocktag(sdfset,
  tag="PUBCHEM_OPENEYE_CAN_SMILES") 
@@ -2485,7 +2516,7 @@ function can then be used to organize all numeric columns in a
 
 <p>Convert entire data block to matrix:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  blockmatrix &lt;- datablock2ma(datablocklist=datablock(sdfset)) # Converts data block to matrix 
  numchar &lt;- splitNumChar(blockmatrix=blockmatrix) # Splits matrix to numeric matrix and character matrix 
  numchar[[1]][1:4,]; numchar[[2]][1:4,]
@@ -2497,9 +2528,9 @@ function can then be used to organize all numeric columns in a
 <h1 id="bond-matrices">Bond Matrices</h1>
 
 <p>Bond matrices provide an efficient data structure for many basic
-computations on small molecules. The function <code class="highlighter-rouge">conMA</code>
-creates this data structure from <code class="highlighter-rouge">SDF</code> and
-<code class="highlighter-rouge">SDFset</code> objects. The resulting bond matrix contains the
+computations on small molecules. The function <code>conMA</code>
+creates this data structure from <code>SDF</code> and
+<code>SDFset</code> objects. The resulting bond matrix contains the
 atom labels in the row/column titles and the bond types in the data
 part. The labels are defined as follows: 0 is no connection, 1 is a
 single bond, 2 is a double bond and 3 is a triple bond.</p>
@@ -2517,19 +2548,19 @@ single bond, 2 is a double bond and 3 is a triple bond.</p>
 
 <h1 id="charges-and-missing-hydrogens">Charges and Missing Hydrogens</h1>
 
-<p>The function <code class="highlighter-rouge">bonds</code> returns information about the number
-of bonds, charges and missing hydrogens in <code class="highlighter-rouge">SDF</code> and
-<code class="highlighter-rouge">SDFset</code> objects. It is used by many other functions
-(<em>e.g.</em> <code class="highlighter-rouge">MW</code>, <code class="highlighter-rouge">MF</code>,
-<code class="highlighter-rouge">atomcount</code>, <code class="highlighter-rouge">atomcuntMA</code> and
-<code class="highlighter-rouge">plot</code>) to correct for missing hydrogens that are often
+<p>The function <code>bonds</code> returns information about the number
+of bonds, charges and missing hydrogens in <code>SDF</code> and
+<code>SDFset</code> objects. It is used by many other functions
+(<em>e.g.</em> <code>MW</code>, <code>MF</code>,
+<code>atomcount</code>, <code>atomcuntMA</code> and
+<code>plot</code>) to correct for missing hydrogens that are often
 not specified in SD files.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  bonds(sdfset[[1]], type="bonds")[1:4,]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   atom Nbondcount Nbondrule charge
 ## 1    O          2         2      0
 ## 2    O          2         2      0
@@ -2537,11 +2568,11 @@ not specified in SD files.</p>
 ## 4    O          2         2      0
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  bonds(sdfset[1:2], type="charge")
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $CMP1
 ## NULL
 ## 
@@ -2549,11 +2580,11 @@ not specified in SD files.</p>
 ## NULL
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  bonds(sdfset[1:2], type="addNH") 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## CMP1 CMP2 
 ##    0    0
 </code></p>
@@ -2562,27 +2593,27 @@ not specified in SD files.</p>
 
 <h1 id="ring-perception-and-aromaticity-assignment">Ring Perception and Aromaticity Assignment</h1>
 
-<p>The function <code class="highlighter-rouge">rings</code> identifies all possible rings in one
-or many molecules (here <code class="highlighter-rouge">sdfset[1]</code>) using the exhaustive
+<p>The function <code>rings</code> identifies all possible rings in one
+or many molecules (here <code>sdfset[1]</code>) using the exhaustive
 ring perception algorithm from Hanser et al. [-@Hanser_1996]. In addition, the function can 
 return all smallest possible rings as well as aromaticity information.</p>
 
 <p>The following example returns all possible rings in a
-<code class="highlighter-rouge">list</code>. The argument <code class="highlighter-rouge">upper</code> allows to
+<code>list</code>. The argument <code>upper</code> allows to
 specify an upper length limit for rings. Choosing smaller length limits
 will reduce the search space resulting in shortened compute times. Note:
 each ring is represented by a character vector of atom symbols that are
 numbered by their position in the atom block of the corresponding
-<code class="highlighter-rouge">SDF/SDFset</code> object.</p>
+<code>SDF/SDFset</code> object.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  ringatoms &lt;- rings(sdfset[1], upper=Inf, type="all", arom=FALSE, inner=FALSE)
 </code></p>
 
 <p>For visual inspection, the corresponding compound structure can be
 plotted with the ring bonds highlighted in color:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  atomindex &lt;- as.numeric(gsub(".*_", "", unique(unlist(ringatoms))))
  plot(sdfset[1], print=FALSE, colbonds=atomindex) 
 </code></p>
@@ -2591,20 +2622,20 @@ plotted with the ring bonds highlighted in color:</p>
 
 <p>Alternatively, one can include the atom numbers in the plot:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  plot(sdfset[1], print=FALSE, atomnum=TRUE, no_print_atoms="H") 
 </code></p>
 
 <p><img src="ChemmineR_files/figure-html/unnamed-chunk-91-1.png" alt="" />\</p>
 
 <p>Aromaticity information of the rings can be returned in a logical vector
-by setting <code class="highlighter-rouge">arom=TRUE</code>:</p>
+by setting <code>arom=TRUE</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  rings(sdfset[1], upper=Inf, type="all", arom=TRUE, inner=FALSE) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $RINGS
 ## $RINGS$ring1
 ## [1] "N_10" "O_6"  "C_32" "C_31" "C_30"
@@ -2629,11 +2660,11 @@ by setting <code class="highlighter-rouge">arom=TRUE</code>:</p>
 
 <p>Return rings with no more than 6 atoms that are also aromatic:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  rings(sdfset[1], upper=6, type="arom", arom=TRUE, inner=FALSE) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $AROMATIC_RINGS
 ## $AROMATIC_RINGS$ring1
 ## [1] "N_10" "O_6"  "C_32" "C_31" "C_30"
@@ -2643,16 +2674,16 @@ by setting <code class="highlighter-rouge">arom=TRUE</code>:</p>
 </code></p>
 
 <p>Count shortest possible rings and their aromaticity assignments by
-setting <code class="highlighter-rouge">type=count</code> and <code class="highlighter-rouge">inner=TRUE</code>. The
+setting <code>type=count</code> and <code>inner=TRUE</code>. The
 inner (smallest possible) rings are identified by first computing all
 possible rings and then selecting only the inner rings. For more
-details, consult the help documentation with <code class="highlighter-rouge">?rings</code>.</p>
+details, consult the help documentation with <code>?rings</code>.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  rings(sdfset[1:4], upper=Inf, type="count", arom=TRUE, inner=TRUE) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##      RINGS AROMATIC
 ## CMP1     4        2
 ## CMP2     3        3
@@ -2671,13 +2702,13 @@ package recently. This function uses the native R graphics device for
 generating compound depictions. At this point this function is still in
 an experimental developmental stage but should become stable soon.</p>
 
-<p>If you have <code class="highlighter-rouge">ChemmineOB</code> available you can use the <code class="highlighter-rouge">regenCoords</code>
+<p>If you have <code>ChemmineOB</code> available you can use the <code>regenCoords</code>
 option to have OpenBabel regenerate the coordinates for the compound.
 This can sometimes produce better looking plots.</p>
 
 <p>Plot compound Structures with R’s graphics device:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(sdfsample)
  sdfset &lt;- sdfsample
  plot(sdfset[1:4], regenCoords=TRUE,print=FALSE) # 'print=TRUE' returns SDF summaries
@@ -2687,17 +2718,17 @@ This can sometimes produce better looking plots.</p>
 
 <p>Customized plots:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  plot(sdfset[1:4], griddim=c(2,2), print_cid=letters[1:4], print=FALSE, 
 		noHbonds=FALSE) 
 </code></p>
 
 <p>In the following plot, the atom block position numbers in the SDF are
-printed next to the atom symbols (<code class="highlighter-rouge">atomnum = TRUE</code>). For
+printed next to the atom symbols (<code>atomnum = TRUE</code>). For
 more details, consult help documentation with
-<code class="highlighter-rouge">?plotStruc</code> or <code class="highlighter-rouge">?plot</code>.</p>
+<code>?plotStruc</code> or <code>?plot</code>.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  plot(sdfset["CMP1"], atomnum = TRUE, noHbonds=F , no_print_atoms = "",
 	  	atomcex=0.8, sub=paste("MW:", MW(sdfsample["CMP1"])), print=FALSE) 
 </code></p>
@@ -2706,7 +2737,7 @@ more details, consult help documentation with
 
 <p>Substructure highlighting by atom numbers:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  plot(sdfset[1], print=FALSE, colbonds=c(22,26,25,3,28,27,2,23,21,18,8,19,20,24)) 
 </code></p>
 
@@ -2721,7 +2752,7 @@ browser using the online ChemMine Tools service.</p>
 
 <p>Plot structures using web service ChemMine Tools:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sdf.visualize(sdfset[1:4]) 
 </code></p>
 
@@ -2733,8 +2764,8 @@ browser using the online ChemMine Tools service.</p>
 
 <h2 id="maximum-common-substructure-mcs-searching">Maximum Common Substructure (MCS) Searching</h2>
 
-<p>The <code class="highlighter-rouge">ChemmineR</code> add-on package
-<a href="http://www.bioconductor.org/packages/devel/bioc/html/fmcsR.html"><code class="highlighter-rouge">fmcsR</code></a>
+<p>The <code>ChemmineR</code> add-on package
+<a href="http://www.bioconductor.org/packages/devel/bioc/html/fmcsR.html"><code>fmcsR</code></a>
 provides support for identifying maximum common substructures (MCSs) and
 flexible MCSs among compounds. The algorithm can be used for pairwise
 compound comparisons, structure similarity searching and clustering. The
@@ -2742,9 +2773,9 @@ manual describing this functionality is available
 <a href="http://www.bioconductor.org/packages/devel/bioc/vignettes/fmcsR/inst/doc/fmcsR.html">here</a>
 and the associated publication is Wang et al. [-@Wang_2013]. The following gives a
 short preview of some functionalities provided by the
-<code class="highlighter-rouge">fmcsR</code> package.</p>
+<code>fmcsR</code> package.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  library(fmcsR)
  data(fmcstest) # Loads test sdfset object 
  test &lt;- fmcs(fmcstest[1], fmcstest[2], au=2, bu=1) # Searches for MCS with mismatches 
@@ -2757,41 +2788,41 @@ short preview of some functionalities provided by the
 
 <h2 id="apapset-classes-for-storing-atom-pair-descriptors">AP/APset Classes for Storing Atom Pair Descriptors</h2>
 
-<p>The function <code class="highlighter-rouge">sdf2ap</code> computes atom pair descriptors for
+<p>The function <code>sdf2ap</code> computes atom pair descriptors for
 one or many compounds [@Carhart_1985; @Chen_2002]. It returns a searchable atom pair database
-stored in a container of class <code class="highlighter-rouge">APset</code>, which can be used
+stored in a container of class <code>APset</code>, which can be used
 for structural similarity searching and clustering. As similarity
 measure, the Tanimoto coefficient or related coefficients can be used.
-An <code class="highlighter-rouge">APset</code> object consists of one or many
-<code class="highlighter-rouge">AP</code> entries each storing the atom pairs of a single
-compound. Note: the deprecated <code class="highlighter-rouge">cmp.parse</code> function is
+An <code>APset</code> object consists of one or many
+<code>AP</code> entries each storing the atom pairs of a single
+compound. Note: the deprecated <code>cmp.parse</code> function is
 still available which also generates atom pair descriptor databases, but
 directly from an SD file. Since the latter function is less flexible it
 may be discontinued in the future.</p>
 
 <p>Generate atom pair descriptor database for searching:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  ap &lt;- sdf2ap(sdfset[[1]]) # For single compound
  ap 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "AP"
 ## &lt;&lt;atom pairs&gt;&gt;
 ## 52614450304 52615497856 52615514112 52616547456 52616554624 ... length: 528
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  apset &lt;- sdf2ap(sdfset)
  # For many compounds. 
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 view(apset[1:4]) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $`650001`
 ## An instance of "AP"
 ## &lt;&lt;atom pairs&gt;&gt;
@@ -2815,7 +2846,7 @@ view(apset[1:4])
 
 <p>Return main components of APset objects:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cid(apset[1:4]) # Compound IDs 
  ap(apset[1:4]) # Atom pair
  descriptors 
@@ -2824,7 +2855,7 @@ view(apset[1:4])
 
 <p>Coerce APset to other objects:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  apset2descdb(apset) # Returns old list-style AP database 
  tmp &lt;- as(apset, "list") # Returns list 
  as(tmp, "APset") # Converts list back to APset 
@@ -2835,15 +2866,15 @@ view(apset[1:4])
 <h2 id="large-sdf-and-atom-pair-databases">Large SDF and Atom Pair Databases</h2>
 
 <p>When working with large data sets it is often desirable to save the
-<code class="highlighter-rouge">SDFset</code> and <code class="highlighter-rouge">APset</code> containers as binary
+<code>SDFset</code> and <code>APset</code> containers as binary
 R objects to files for later use. This way they can be loaded very
 quickly into a new R session without recreating them every time from
 scratch.</p>
 
-<p>Save and load of <code class="highlighter-rouge">SDFset</code> and <code class="highlighter-rouge">APset</code>
+<p>Save and load of <code>SDFset</code> and <code>APset</code>
 containers:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  save(sdfset, file = "sdfset.rda", compress = TRUE) 
  load("sdfset.rda") save(apset, file = "apset.rda", compress = TRUE)
  load("apset.rda") 
@@ -2853,7 +2884,7 @@ containers:</p>
 
 <h2 id="pairwise-compound-comparisons-with-atom-pairs">Pairwise Compound Comparisons with Atom Pairs</h2>
 
-<p>The <code class="highlighter-rouge">cmp.similarity</code> function computes the atom pair
+<p>The <code>cmp.similarity</code> function computes the atom pair
 similarity between two compounds using the Tanimoto coefficient as
 similarity measure. The coefficient is defined as <em>c/(a+b+c)</em>, which
 is the proportion of the atom pairs shared among two compounds divided
@@ -2861,20 +2892,20 @@ by their union. The variable <em>c</em> is the number of atom pairs common in
 both compounds, while <em>a</em> and <em>b</em> are the numbers of their unique
 atom pairs.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cmp.similarity(apset[1],
  apset[2])
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 0.2637037
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cmp.similarity(apset[1], apset[1]) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 1
 </code></p>
 
@@ -2882,7 +2913,7 @@ atom pairs.</p>
 
 <h2 id="similarity-searching-with-atom-pairs">Similarity Searching with Atom Pairs</h2>
 
-<p>The <code class="highlighter-rouge">cmp.search</code> function searches an atom pair database
+<p>The <code>cmp.search</code> function searches an atom pair database
 for compounds that are similar to a query compound. The following
 example returns a data frame where the rows are sorted by the Tanimoto
 similarity score (best to worst). The first column contains the indices
@@ -2893,12 +2924,12 @@ restricting how many compounds will be returned. When supplying a cutoff
 of 0, the function will return the similarity values for every compound
 in the database.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cmp.search(apset,
  apset["650065"], type=3, cutoff = 0.3, quiet=TRUE) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   index    cid    scores
 ## 1    61 650066 1.0000000
 ## 2    60 650065 1.0000000
@@ -2910,22 +2941,22 @@ in the database.</p>
 </code>
 Alternatively, the
 function can return the matches in form of an index or a named vector if
-the <code class="highlighter-rouge">type</code> argument is set to <code class="highlighter-rouge">1</code> or
-<code class="highlighter-rouge">2</code>, respectively.</p>
+the <code>type</code> argument is set to <code>1</code> or
+<code>2</code>, respectively.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cmp.search(apset, apset["650065"], type=1, cutoff = 0.3, quiet=TRUE)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 61 60 67 11 15 86 64
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cmp.search(apset, apset["650065"], type=2, cutoff = 0.3, quiet=TRUE) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##    650066    650065    650072    650011    650015    650092    650069 
 ## 1.0000000 1.0000000 0.3389831 0.3190608 0.3184524 0.3154270 0.3010279
 </code></p>
@@ -2934,28 +2965,28 @@ the <code class="highlighter-rouge">type</code> argument is set to <code class="
 
 <h2 id="fpfpset-classes-for-storing-fingerprints">FP/FPset Classes for Storing Fingerprints</h2>
 
-<p>The <code class="highlighter-rouge">FPset</code> class stores fingerprints of small molecules
+<p>The <code>FPset</code> class stores fingerprints of small molecules
 in a matrix-like representation where every molecule is encoded as a
-fingerprint of the same type and length. The <code class="highlighter-rouge">FPset</code>
+fingerprint of the same type and length. The <code>FPset</code>
 container acts as a searchable database that contains the fingerprints
-of many molecules. The <code class="highlighter-rouge">FP</code> container holds only one
+of many molecules. The <code>FP</code> container holds only one
 fingerprint. Several constructor and coerce methods are provided to
-populate <code class="highlighter-rouge">FP/FPset</code> containers with fingerprints, while
+populate <code>FP/FPset</code> containers with fingerprints, while
 supporting any type and length of fingerprints. For instance, the
-function <code class="highlighter-rouge">desc2fp</code> generates fingerprints from an atom
-pair database stored in an <code class="highlighter-rouge">APset</code>, and
-<code class="highlighter-rouge">as(matrix, "FPset")</code> and <code class="highlighter-rouge">as(character, "FPset")</code> construct an <code class="highlighter-rouge">FPset</code> database from
+function <code>desc2fp</code> generates fingerprints from an atom
+pair database stored in an <code>APset</code>, and
+<code>as(matrix, "FPset")</code> and <code>as(character, "FPset")</code> construct an <code>FPset</code> database from
 objects where the fingerprints are represented as
-<code class="highlighter-rouge">matrix</code> or <code class="highlighter-rouge">character</code> objects,
+<code>matrix</code> or <code>character</code> objects,
 respectively.</p>
 
-<p>Show slots of <code class="highlighter-rouge">FPset</code> class:</p>
+<p>Show slots of <code>FPset</code> class:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  showClass("FPset") 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## Class "FPset" [package "ChemmineR"]
 ## 
 ## Slots:
@@ -2964,15 +2995,15 @@ respectively.</p>
 ## Class:    matrix character   numeric
 </code></p>
 
-<p>Instance of <code class="highlighter-rouge">FPset</code> class:</p>
+<p>Instance of <code>FPset</code> class:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(apset) 
  fpset &lt;- desc2fp(apset)
  view(fpset[1:2]) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $`650001`
 ## An instance of "FP" of type "unknown-4721"
 ## &lt;&lt;fingerprint&gt;&gt;
@@ -2984,39 +3015,39 @@ respectively.</p>
 ## 1 1 1 1 1 1 1 1 1 1 0 1 1 1 1 0 0 0 1 1 ... length: 1024
 </code></p>
 
-<p><code class="highlighter-rouge">FPset</code> class usage:</p>
+<p><code>FPset</code> class usage:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpset[1:4] # behaves like a list 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of a 1024 bit "FPset" of type "apfp" with 4 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpset[[1]] # returns FP object 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "FP" of type "unknown-2986"
 ## &lt;&lt;fingerprint&gt;&gt;
 ## 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ... length: 1024
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  length(fpset) # number of compounds ENDCOMMENT
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 100
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cid(fpset) # returns compound ids 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   [1] "650001" "650002" "650003" "650004" "650005" "650006" "650007" "650008" "650009" "650010"
 ##  [11] "650011" "650012" "650013" "650014" "650015" "650016" "650017" "650019" "650020" "650021"
 ##  [21] "650022" "650023" "650024" "650025" "650026" "650027" "650028" "650029" "650030" "650031"
@@ -3029,106 +3060,106 @@ respectively.</p>
 ##  [91] "650097" "650098" "650099" "650100" "650101" "650102" "650103" "650104" "650105" "650106"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpset[10] &lt;- 0 # replacement of 10th fingerprint to all zeros 
  cid(fpset) &lt;- 1:length(fpset) # replaces compound ids 
  c(fpset[1:4], fpset[11:14]) # concatenation of several FPset objects 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of a 1024 bit "FPset" of type "apfp" with 8 molecules
 </code></p>
 
-<p>Construct <code class="highlighter-rouge">FPset</code> class form <code class="highlighter-rouge">matrix</code>:</p>
+<p>Construct <code>FPset</code> class form <code>matrix</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpma &lt;- as.matrix(fpset) # coerces FPset to matrix 
  as(fpma, "FPset") 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of a 1024 bit "FPset" of type "unknown-6312" with 100 molecules
 </code></p>
 
-<p>Construct <code class="highlighter-rouge">FPset</code> class form <code class="highlighter-rouge">character vector</code>:</p>
+<p>Construct <code>FPset</code> class form <code>character vector</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpchar &lt;- as.character(fpset) # coerces FPset to character strings 
  as(fpchar, "FPset") # construction of FPset class from character vector
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of a 1024 bit "FPset" of type "apfp" with 100 molecules
 </code></p>
 
-<p>Compound similarity searching with <code class="highlighter-rouge">FPset</code>:</p>
+<p>Compound similarity searching with <code>FPset</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpSim(fpset[1], fpset, method="Tanimoto", cutoff=0.4, top=4) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##         1        96        67        15 
 ## 1.0000000 0.4719101 0.4288499 0.4275229
 </code></p>
 
 <p>Folding fingerprints:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fold(fpset) # fold each FP once
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of a 512 bit "FPset" of type "apfp" with 100 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fold(fpset, count=2) #fold each FP twice
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of a 256 bit "FPset" of type "apfp" with 100 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fold(fpset, bits=128) #fold each FP down to 128 bits
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of a 128 bit "FPset" of type "apfp" with 100 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fold(fpset[[1]])  # fold an individual FP
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "FP" of type "unknown-2996"
 ## &lt;&lt;fingerprint&gt;&gt;
 ## 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 ... length: 512
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fptype(fpset) # get type of FPs
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "apfp"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  numBits(fpset) # get the number of bits of each FP
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 1024
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  foldCount(fold(fpset)) # the number of times an FP or FPset has been folded
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 1
 </code></p>
 
@@ -3139,15 +3170,15 @@ respectively.</p>
 <p>Atom pairs can be converted into binary atom pair fingerprints of fixed
 length. Computations on this compact data structure are more time and
 memory efficient than on their relatively complex atom pair
-counterparts. The function <code class="highlighter-rouge">desc2fp</code> generates
+counterparts. The function <code>desc2fp</code> generates
 fingerprints from descriptor vectors of variable length such as atom
-pairs stored in <code class="highlighter-rouge">APset</code> or <code class="highlighter-rouge">list</code>
+pairs stored in <code>APset</code> or <code>list</code>
 containers. The obtained fingerprints can be used for structure
 similarity comparisons, searching and clustering.</p>
 
 <p>Create atom pair sample data set:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(sdfsample)
  sdfset &lt;- sdfsample[1:10] 
  apset &lt;- sdf2ap(sdfset) 
@@ -3155,62 +3186,62 @@ similarity comparisons, searching and clustering.</p>
 
 <p>Compute atom pair fingerprint database using internal atom pair
 selection containing the 4096 most common atom pairs identified in
-DrugBank’s compound collection. For details see <code class="highlighter-rouge">?apfp</code>.
+DrugBank’s compound collection. For details see <code>?apfp</code>.
 The following example uses from this set the 1024 most frequent atom
 pairs:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpset &lt;- desc2fp(apset, descnames=1024, type="FPset") 
 </code></p>
 
 <p>Alternatively, one can provide any custom atom pair selection. Here, the
-1024 most common ones in <code class="highlighter-rouge">apset</code>:</p>
+1024 most common ones in <code>apset</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpset1024 &lt;- names(rev(sort(table(unlist(as(apset, "list")))))[1:1024]) 
  fpset &lt;- desc2fp(apset, descnames=fpset1024, type="FPset") 
 </code></p>
 
 <p>A more compact way of storing fingerprints is as character values:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpchar &lt;- desc2fp(x=apset,
  descnames=1024, type="character") fpchar &lt;- as.character(fpset) 
 </code></p>
 
 <p>Converting a fingerprint database to a matrix and vice versa:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpma &lt;- as.matrix(fpset)
  fpset &lt;- as(fpma, "FPset") 
 </code></p>
 
 <p>Similarity searching and returning Tanimoto similarity coefficients:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpSim(fpset[1], fpset, method="Tanimoto") 
 </code></p>
 
-<p>Under <code class="highlighter-rouge">method</code> one can choose from several predefined
+<p>Under <code>method</code> one can choose from several predefined
 similarity measures including <em>Tanimoto</em> (default),
 <em>Euclidean</em>, <em>Tversky</em> or
 <em>Dice</em>. Alternatively, one can pass on custom similarity
 functions.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpSim(fpset[1], fpset, method="Tversky", cutoff=0.4, top=4, alpha=0.5, beta=1) 
 </code></p>
 
 <p>Example for using a custom similarity function:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  myfct &lt;- function(a, b, c, d) c/(a+b+c+d)
  fpSim(fpset[1], fpset, method=myfct) 
 </code></p>
 
 <p>Clustering example:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  simMAap &lt;- sapply(cid(apfpset), function(x) fpSim(x=apfpset[x], apfpset, sorted=FALSE)) 
  hc &lt;- hclust(as.dist(1-simMAap), method="single")
  plot(as.dendrogram(hc), edgePar=list(col=4, lwd=2), horiz=TRUE) 
@@ -3219,11 +3250,11 @@ functions.</p>
 <div align="right">[Back to Table of Contents]()</div>
 
 <h2 id="fingerprint-e-values">Fingerprint E-values</h2>
-<p>The <code class="highlighter-rouge">fpSim</code> function can also return Z-scores, E-values, and p-values
+<p>The <code>fpSim</code> function can also return Z-scores, E-values, and p-values
 if given a set of score distribution parameters. These parameters can
-be computed over an <code class="highlighter-rouge">fpSet</code> with the <code class="highlighter-rouge">genParameters</code> function.</p>
+be computed over an <code>fpSet</code> with the <code>genParameters</code> function.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
     params &lt;- genParameters(fpset)
 </code>
 This function will compute all pairwise distances between the given
@@ -3231,20 +3262,20 @@ fingerprints and then fit a Beta distribution to the resulting
 Tanimoto scores, conditioned on the number of set bits in each
 fingerprint. For large data sets where you would not want to compute
 all pairwise distances, you can set what fraction to sample with the
-<code class="highlighter-rouge">sampleFraction</code> argument. This step only needs to be done once for
-each database of <code class="highlighter-rouge">fpSet</code> objects. Alternatively, if you have a large
+<code>sampleFraction</code> argument. This step only needs to be done once for
+each database of <code>fpSet</code> objects. Alternatively, if you have a large
 database of fingerprints, or you believe that the parameters computed
 on a single database are more generally applicable, you can use the
 resulting parameters for other databases as well.</p>
 
-<p>Once you have a set of parameters, you can pass them to <code class="highlighter-rouge">fpSim</code> with
-the <code class="highlighter-rouge">parameters</code> argument.</p>
+<p>Once you have a set of parameters, you can pass them to <code>fpSim</code> with
+the <code>parameters</code> argument.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 	fpSim(fpset[[1]], fpset, top=10, parameters=params)	
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##    similarity    zscore    evalue    pvalue
 ## 1   1.0000000 6.2418215  0.000000 0.0000000
 ## 96  0.4719101 1.6075792  6.748413 0.9988273
@@ -3260,15 +3291,15 @@ the <code class="highlighter-rouge">parameters</code> argument.</p>
 
 <p>This will then return a data frame with the similarity, Z-score,
 E-value, and p-value. You can change which value will be used as a
-cutoff and to sort by by setting the argument <code class="highlighter-rouge">scoreType</code> to one of
+cutoff and to sort by by setting the argument <code>scoreType</code> to one of
 these scores. In this way you could set an E-value cutoff of 0.04 for
 example.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 	fpSim(fpset[[1]], fpset, cutoff=0.04, scoreType="evalue", parameters=params)	
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   similarity   zscore evalue pvalue
 ## 1          1 6.241822      0      0
 </code></p>
@@ -3277,20 +3308,20 @@ example.</p>
 
 <h2 id="pairwise-compound-comparisons-with-pubchem-fingerprints">Pairwise Compound Comparisons with PubChem Fingerprints</h2>
 
-<p>The <code class="highlighter-rouge">fpSim</code> function computes the similarity coefficients
+<p>The <code>fpSim</code> function computes the similarity coefficients
 (<em>e.g.</em> Tanimoto) for pairwise comparisons of binary fingerprints. For
 this data type, <em>c</em> is the number of “on-bits” common in both
 compounds, and <em>a</em> and <em>b</em> are the numbers of their unique
 “on-bits”. Currently, the PubChem fingerprints need to be provided (here
 PubChem’s SD files) and cannot be computed from scratch in
-<code class="highlighter-rouge">ChemmineR</code>. The PubChem fingerprint specifications can
-be loaded with <code class="highlighter-rouge">data(pubchemFPencoding)</code>.</p>
+<code>ChemmineR</code>. The PubChem fingerprint specifications can
+be loaded with <code>data(pubchemFPencoding)</code>.</p>
 
 <p>Convert base 64 encoded PubChem fingerprints to
-<code class="highlighter-rouge">character</code> vector, <code class="highlighter-rouge">matrix</code> or
-<code class="highlighter-rouge">FPset</code> object:</p>
+<code>character</code> vector, <code>matrix</code> or
+<code>FPset</code> object:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cid(sdfset) &lt;- sdfid(sdfset)
  fpset &lt;- fp2bit(sdfset, type=1) 
  fpset &lt;- fp2bit(sdfset, type=2) 
@@ -3298,17 +3329,17 @@ be loaded with <code class="highlighter-rouge">data(pubchemFPencoding)</code>.</
  fpset 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of a 881 bit "FPset" of type "pubchem" with 100 molecules
 </code></p>
 
 <p>Pairwise compound structure comparisons:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpSim(fpset[1], fpset[2]) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##    650002 
 ## 0.5364807
 </code></p>
@@ -3317,14 +3348,14 @@ be loaded with <code class="highlighter-rouge">data(pubchemFPencoding)</code>.</
 
 <h2 id="similarity-searching-with-pubchem-fingerprints">Similarity Searching with PubChem Fingerprints</h2>
 
-<p>Similarly, the <code class="highlighter-rouge">fpSim</code> function provides search
+<p>Similarly, the <code>fpSim</code> function provides search
 functionality for PubChem fingerprints:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpSim(fpset["650065"], fpset, method="Tanimoto", cutoff=0.6, top=6) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##    650065    650066    650035    650019    650012    650046 
 ## 1.0000000 0.9944751 0.7435897 0.7432432 0.7230047 0.7142857
 </code></p>
@@ -3333,13 +3364,13 @@ functionality for PubChem fingerprints:</p>
 
 <h2 id="visualize-similarity-search-results">Visualize Similarity Search Results</h2>
 
-<p>The <code class="highlighter-rouge">cmp.search</code> function allows to visualize the
+<p>The <code>cmp.search</code> function allows to visualize the
 chemical structures for the search results. Similar but more flexible
-chemical structure rendering functions are <code class="highlighter-rouge">plot</code> and
-<code class="highlighter-rouge">sdf.visualize</code> described above. By setting the visualize
-argument in <code class="highlighter-rouge">cmp.search</code> to <code class="highlighter-rouge">TRUE</code>, the
+chemical structure rendering functions are <code>plot</code> and
+<code>sdf.visualize</code> described above. By setting the visualize
+argument in <code>cmp.search</code> to <code>TRUE</code>, the
 matching compounds and their scores can be visualized with a standard
-web browser. Depending on the <code class="highlighter-rouge">visualize.browse</code>
+web browser. Depending on the <code>visualize.browse</code>
 argument, an URL will be printed or a webpage will be opened showing the
 structures of the matching compounds.</p>
 
@@ -3356,7 +3387,7 @@ structures of the matching compounds.</p>
 
 <p>View results online with Chemmine Tools:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  similarities &lt;- cmp.search(apset, apset[1], type=3, cutoff = 10)
  sdf.visualize(sdfset[similarities[,1]]) 
 </code></p>
@@ -3368,25 +3399,25 @@ structures of the matching compounds.</p>
 <h2 id="clustering-identical-or-very-similar-compounds">Clustering Identical or Very Similar Compounds</h2>
 
 <p>Often it is of interest to identify very similar or identical compounds
-in a compound set. The <code class="highlighter-rouge">cmp.duplicated</code> function can be
+in a compound set. The <code>cmp.duplicated</code> function can be
 used to quickly identify very similar compounds in atom pair sets, which
 will be frequently, but not necessarily, identical compounds.</p>
 
 <p>Identify compounds with identical AP sets:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cmp.duplicated(apset, type=1)[1:4] # Returns AP duplicates as logical vector 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] FALSE FALSE FALSE FALSE
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cmp.duplicated(apset, type=2)[1:4,] # Returns AP duplicates as data frame 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##      ids CLSZ_100 CLID_100
 ## 1 650082        1        1
 ## 2 650059        2        2
@@ -3396,7 +3427,7 @@ will be frequently, but not necessarily, identical compounds.</p>
 
 <p>Plot the structure of two pairs of duplicates:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  plot(sdfset[c("650059","650060", "650065", "650066")], print=FALSE) 
 </code></p>
 
@@ -3404,16 +3435,16 @@ will be frequently, but not necessarily, identical compounds.</p>
 
 <p>Remove AP duplicates from SDFset and APset objects:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  apdups &lt;- cmp.duplicated(apset, type=1)
  sdfset[which(!apdups)]; apset[which(!apdups)] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "SDFset" with 96 molecules
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## An instance of "APset" with 96 molecules
 </code></p>
 
@@ -3424,7 +3455,7 @@ molecular representations. The following examples show how to enumerate
 by identical InChI strings, SMILES strings and molecular formula,
 respectively.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  count &lt;- table(datablocktag(sdfset,
  tag="PUBCHEM_NIST_INCHI"))
  count &lt;- table(datablocktag(sdfset, tag="PUBCHEM_OPENEYE_CAN_SMILES")) 
@@ -3432,7 +3463,7 @@ respectively.</p>
  count[1:4] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 
 ##  C10H9FN2O2S   C11H12N4OS    C11H13NO4 C12H11ClN2OS 
 ##            1            1            1            1
@@ -3443,52 +3474,52 @@ respectively.</p>
 <h2 id="binning-clustering">Binning Clustering</h2>
 
 <p>Compound libraries can be clustered into discrete similarity groups with
-the binning clustering function <code class="highlighter-rouge">cmp.cluster</code>. The
-function accepts as input an atom pair (<code class="highlighter-rouge">APset</code>) or a
-fingerprint (<code class="highlighter-rouge">FPset</code>) descriptor database as well as a
+the binning clustering function <code>cmp.cluster</code>. The
+function accepts as input an atom pair (<code>APset</code>) or a
+fingerprint (<code>FPset</code>) descriptor database as well as a
 similarity threshold. The binning clustering result is returned in form
 of a data frame. Single linkage is used for cluster joining. The
 function calculates the required compound-to-compound distance
 information on the fly, while a memory-intensive distance matrix is only
-created upon user request via the <code class="highlighter-rouge">save.distances</code>
+created upon user request via the <code>save.distances</code>
 argument (see below).</p>
 
 <p>Because an optimum similarity threshold is often not known, the
-<code class="highlighter-rouge">cmp.cluster</code> function can calculate cluster results for
+<code>cmp.cluster</code> function can calculate cluster results for
 multiple cutoffs in one step with almost the same speed as for a single
 cutoff. This can be achieved by providing several cutoffs under the
 cutoff argument. The clustering results for the different cutoffs will
 be stored in one data frame.</p>
 
-<p>One may force the <code class="highlighter-rouge">cmp.cluster</code> function to calculate and
+<p>One may force the <code>cmp.cluster</code> function to calculate and
 store the distance matrix by supplying a file name to the
-<code class="highlighter-rouge">save.distances</code> argument. The generated distance matrix
+<code>save.distances</code> argument. The generated distance matrix
 can be loaded and passed on to many other clustering methods available
 in R, such as the hierarchical clustering function
-<code class="highlighter-rouge">hclust</code> (see below).</p>
+<code>hclust</code> (see below).</p>
 
 <p>If a distance matrix is available, it may also be supplied to
-<code class="highlighter-rouge">cmp.cluster</code> via the <code class="highlighter-rouge">use.distances</code>
+<code>cmp.cluster</code> via the <code>use.distances</code>
 argument. This is useful when one has a pre-computed distance matrix
-either from a previous call to <code class="highlighter-rouge">cmp.cluster</code> or from
+either from a previous call to <code>cmp.cluster</code> or from
 other distance calculation subroutines.</p>
 
 <p>Single-linkage binning clustering with one or multiple cutoffs:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  clusters &lt;- cmp.cluster(db=apset, cutoff = c(0.7, 0.8, 0.9), quiet = TRUE)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 
 ## sorting result...
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  clusters[1:12,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##       ids CLSZ_0.7 CLID_0.7 CLSZ_0.8 CLID_0.8 CLSZ_0.9 CLID_0.9
 ## 48 650049        2       48        2       48        2       48
 ## 49 650050        2       48        2       48        2       48
@@ -3504,26 +3535,26 @@ other distance calculation subroutines.</p>
 ## 2  650002        1        2        1        2        1        2
 </code></p>
 
-<p>Clustering of <code class="highlighter-rouge">FPset</code> objects with multiple cutoffs. This
+<p>Clustering of <code>FPset</code> objects with multiple cutoffs. This
 method allows to call various similarity methods provided by the
-<code class="highlighter-rouge">fpSim</code> function. For details consult
-<code class="highlighter-rouge">?fpSim</code>.</p>
+<code>fpSim</code> function. For details consult
+<code>?fpSim</code>.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  fpset &lt;- desc2fp(apset)
  clusters2 &lt;- cmp.cluster(fpset, cutoff=c(0.5, 0.7, 0.9), method="Tanimoto", quiet=TRUE)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 
 ## sorting result...
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  clusters2[1:12,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##       ids CLSZ_0.5 CLID_0.5 CLSZ_0.7 CLID_0.7 CLSZ_0.9 CLID_0.9
 ## 69 650074       14       11        2       69        1       69
 ## 79 650085       14       11        2       69        1       79
@@ -3541,43 +3572,43 @@ method allows to call various similarity methods provided by the
 
 <p>Sames as above, but using Tversky similarity measure:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  clusters3 &lt;- cmp.cluster(fpset, cutoff=c(0.5, 0.7, 0.9), 
 								  method="Tversky", alpha=0.3, beta=0.7, quiet=TRUE) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 
 ## sorting result...
 </code></p>
 
 <p>Return cluster size distributions for each cutoff:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cluster.sizestat(clusters, cluster.result=1)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   cluster size count
 ## 1            1    90
 ## 2            2     5
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cluster.sizestat(clusters, cluster.result=2)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   cluster size count
 ## 1            1    90
 ## 2            2     5
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cluster.sizestat(clusters, cluster.result=3) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   cluster size count
 ## 1            1    90
 ## 2            2     5
@@ -3585,7 +3616,7 @@ method allows to call various similarity methods provided by the
 
 <p>Enforce calculation of distance matrix:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  clusters &lt;- cmp.cluster(db=apset, cutoff = c(0.65, 0.5, 0.3),
  save.distances="distmat.rda") # Saves distance matrix to file "distmat.rda" in current working directory. 
  load("distmat.rda") # Loads distance matrix. 
@@ -3603,38 +3634,38 @@ they meet the following requirements: (a) they are contained in each
 other’s neighbor list and (b) they share at least <em>k</em>
 nearest neighbors. The values for <em>j</em> and
 <em>k</em> are user-defined parameters. The
-<code class="highlighter-rouge">jarvisPatrick</code> function implemented in
-<code class="highlighter-rouge">ChemmineR</code> takes a nearest neighbor table generated by
-<code class="highlighter-rouge">nearestNeighbors</code>, which works for
-<code class="highlighter-rouge">APset</code> and <code class="highlighter-rouge">FPset</code> objects. This function
+<code>jarvisPatrick</code> function implemented in
+<code>ChemmineR</code> takes a nearest neighbor table generated by
+<code>nearestNeighbors</code>, which works for
+<code>APset</code> and <code>FPset</code> objects. This function
 takes either the standard Jarvis-Patrick <em>j</em> parameter
-(as the <code class="highlighter-rouge">numNbrs</code> parameter), or else a
-<code class="highlighter-rouge">cutoff</code> value, which is an extension to the basic
+(as the <code>numNbrs</code> parameter), or else a
+<code>cutoff</code> value, which is an extension to the basic
 algorithm that we have added. Given a cutoff value, the nearest neighbor
 table returned contains every neighbor with a similarity greater than
 the cutoff value, for each item. This allows one to generate tighter
 clusters and to minimize certain limitations of this method, such as
 false joins of completely unrelated items when operating on small data
-sets. The <code class="highlighter-rouge">trimNeighbors</code> function can also be used to
+sets. The <code>trimNeighbors</code> function can also be used to
 take an existing nearest neighbor table and remove all neighbors whose
 similarity value is below a given cutoff value. This allows one to
 compute a very relaxed nearest neighbor table initially, and then
 quickly try different refinements later.</p>
 
 <p>In case an existing nearest neighbor matrix needs to be used, the
-<code class="highlighter-rouge">fromNNMatrix</code> function can be used to transform it into
-the list structure that <code class="highlighter-rouge">jarvisPatrick</code> requires. The
+<code>fromNNMatrix</code> function can be used to transform it into
+the list structure that <code>jarvisPatrick</code> requires. The
 input matrix must have a row for each compound, and each row should be
 the index values of the neighbors of compound represented by that row.
 The names of each compound can also be given through the
-<code class="highlighter-rouge">names</code> argument. If not given, it will attempt to use
-the <code class="highlighter-rouge">rownames</code> of the given matrix.</p>
+<code>names</code> argument. If not given, it will attempt to use
+the <code>rownames</code> of the given matrix.</p>
 
-<p>The <code class="highlighter-rouge">jarvisPatrick</code> function also allows one to relax
+<p>The <code>jarvisPatrick</code> function also allows one to relax
 some of the requirements of the algorithm through the
-<code class="highlighter-rouge">mode</code> parameter. When set to “a1a2b”, then all
+<code>mode</code> parameter. When set to “a1a2b”, then all
 requirements are used. If set to “a1b”, then (a) is relaxed to a
-unidirectional requirement. Lastly, if <code class="highlighter-rouge">mode</code> is set to
+unidirectional requirement. Lastly, if <code>mode</code> is set to
 “b”, then only requirement (b) is used, which means that all pairs of
 items will be checked to see if (b) is satisfied between them. The size
 of the clusters generated by the different methods increases in this
@@ -3645,7 +3676,7 @@ for clustering very large data sets (e.g. &gt;50,000 items) in a
 reasonable amount of time.</p>
 
 <p>An additional extension to the algorithm is the ability to set the
-linkage mode. The <code class="highlighter-rouge">linkage</code> parameter can be one of
+linkage mode. The <code>linkage</code> parameter can be one of
 “single”, “average”, or “complete”, for single linkage, average linkage
 and complete linkage merge requirements, respectively. In the context of
 Jarvis-Patrick, average linkage means that at least half of the pairs
@@ -3654,30 +3685,30 @@ Similarly, for complete linkage, all pairs must requirement (b). Single
 linkage is the normal case for Jarvis-Patrick and just means that at
 least one pair must meet requirement (b).</p>
 
-<p>The output is a cluster <code class="highlighter-rouge">vector</code> with the item labels in
+<p>The output is a cluster <code>vector</code> with the item labels in
 the name slot and the cluster IDs in the data slot. There is a utility
-function called <code class="highlighter-rouge">byCluster</code>, which takes out cluster
-vector output by <code class="highlighter-rouge">jarvisPatrick</code> and transforms it into a
+function called <code>byCluster</code>, which takes out cluster
+vector output by <code>jarvisPatrick</code> and transforms it into a
 list of vectors. Each slot of the list is named with a cluster id and
 the vector contains the cluster members. By default the function
 excludes singletons from the output, but they can be included by setting
-<code class="highlighter-rouge">excludeSingletons</code>=FALSE`.</p>
+<code>excludeSingletons</code>=FALSE`.</p>
 
-<p>Load/create sample <code class="highlighter-rouge">APset</code> and <code class="highlighter-rouge">FPset</code>:</p>
+<p>Load/create sample <code>APset</code> and <code>FPset</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(apset) 
  fpset &lt;- desc2fp(apset) 
 </code></p>
 
-<p>Standard Jarvis-Patrick clustering on <code class="highlighter-rouge">APset</code> and
-<code class="highlighter-rouge">FPset</code> objects:</p>
+<p>Standard Jarvis-Patrick clustering on <code>APset</code> and
+<code>FPset</code> objects:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  jarvisPatrick(nearestNeighbors(apset,numNbrs=6), k=5, mode="a1a2b")
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 650001 650002 650003 650004 650005 650006 650007 650008 650009 650010 650011 650012 650013 650014 
 ##      1      2      3      4      5      6      7      8      9     10     11     12     13     14 
 ## 650015 650016 650017 650019 650020 650021 650022 650023 650024 650025 650026 650027 650028 650029 
@@ -3702,7 +3733,7 @@ excludes singletons from the output, but they can be included by setting
 <p>jarvisPatrick(nearestNeighbors(fpset,numNbrs=6), k=5, mode=”a1a2b”)
 ```</p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 650001 650002 650003 650004 650005 650006 650007 650008 650009 650010 650011 650012 650013 650014 
 ##      1      2      3      4      5      6      7      8      9     10     11     12     13     14 
 ## 650015 650016 650017 650019 650020 650021 650022 650023 650024 650025 650026 650027 650028 650029 
@@ -3721,24 +3752,24 @@ excludes singletons from the output, but they can be included by setting
 ##     97     98
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  #Using "FPset" 
 </code></p>
 
 <p>The following example runs Jarvis-Patrick clustering with a minimum
-similarity <code class="highlighter-rouge">cutoff</code> value (here Tanimoto coefficient). In
-addition, it uses the much more exhaustive <code class="highlighter-rouge">"b"</code> method
+similarity <code>cutoff</code> value (here Tanimoto coefficient). In
+addition, it uses the much more exhaustive <code>"b"</code> method
 that generates larger cluster sizes, but significantly increased the run
 time. For more details, consult the corresponding help file with
-<code class="highlighter-rouge">?jarvisPatrick</code>.</p>
+<code>?jarvisPatrick</code>.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cl&lt;-jarvisPatrick(nearestNeighbors(fpset,cutoff=0.6,
  method="Tanimoto"), k=2 ,mode="b")
  byCluster(cl) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $`11`
 ## [1] "650011" "650092"
 ## 
@@ -3767,30 +3798,30 @@ time. For more details, consult the corresponding help file with
 ## [1] "650074" "650085"
 </code></p>
 
-<p>Output nearest neighbor table (<code class="highlighter-rouge">matrix</code>):</p>
+<p>Output nearest neighbor table (<code>matrix</code>):</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  nnm &lt;- nearestNeighbors(fpset,numNbrs=6)
  nnm$names[1:4] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "650001" "650002" "650003" "650004"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  nnm$ids[1:4,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## NULL
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  nnm$similarities[1:4,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##     650001    650102    650072    650015    650094    650069
 ## sim      1 0.4719101 0.4288499 0.4275229 0.4247423 0.4187380
 ## sim      1 0.4343891 0.4246575 0.4216867 0.3939394 0.3922078
@@ -3800,12 +3831,12 @@ time. For more details, consult the corresponding help file with
 
 <p>Trim nearest neighbor table:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  nnm &lt;- trimNeighbors(nnm,cutoff=0.4) 
  nnm$similarities[1:4,]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##     650001    650102    650072    650015    650094    650069
 ## sim      1 0.4719101 0.4288499 0.4275229 0.4247423 0.4187380
 ## sim      1 0.4343891 0.4246575 0.4216867        NA        NA
@@ -3815,11 +3846,11 @@ time. For more details, consult the corresponding help file with
 
 <p>Perform clustering on precomputed nearest neighbor table:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  jarvisPatrick(nnm, k=5,mode="b") 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 650001 650002 650003 650004 650005 650006 650007 650008 650009 650010 650011 650012 650013 650014 
 ##      1      2      3      4      5      6      7      8      9     10     11     12     13     14 
 ## 650015 650016 650017 650019 650020 650021 650022 650023 650024 650025 650026 650027 650028 650029 
@@ -3840,22 +3871,22 @@ time. For more details, consult the corresponding help file with
 
 <p>Using a user defined nearest neighbor matrix:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  nn &lt;- matrix(c(1,2,2,1),2,2,dimnames=list(c('one','two'))) 
  nn
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##     [,1] [,2]
 ## one    1    2
 ## two    2    1
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  byCluster(jarvisPatrick(fromNNMatrix(nn),k=1)) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $`1`
 ## [1] "one" "two"
 </code></p>
@@ -3865,24 +3896,24 @@ time. For more details, consult the corresponding help file with
 <h2 id="multi-dimensional-scaling-mds">Multi-Dimensional Scaling (MDS)</h2>
 
 <p>To visualize and compare clustering results, the
-<code class="highlighter-rouge">cluster.visualize</code> function can be used. The function
+<code>cluster.visualize</code> function can be used. The function
 performs Multi-Dimensional Scaling (MDS) and visualizes the results in
-form of a scatter plot. It requires as input an <code class="highlighter-rouge">APset</code>,
-a clustering result from <code class="highlighter-rouge">cmp.cluster</code>, and a cutoff for
+form of a scatter plot. It requires as input an <code>APset</code>,
+a clustering result from <code>cmp.cluster</code>, and a cutoff for
 the minimum cluster size to consider in the plot. To help determining a
-proper cutoff size, the <code class="highlighter-rouge">cluster.sizestat</code> function is
+proper cutoff size, the <code>cluster.sizestat</code> function is
 provided to generate cluster size statistics.</p>
 
 <p>MDS clustering and scatter plot:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  cluster.visualize(apset, clusters, size.cutoff=2, quiet = TRUE) # Color codes clusters with at least two members. 
  cluster.visualize(apset, clusters, quiet = TRUE) # Plots all items.
 </code></p>
 
 <p>Create a 3D scatter plot of MDS result:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  library(scatterplot3d) 
  coord &lt;- cluster.visualize(apset, clusters, size.cutoff=1, dimensions=3, quiet=TRUE) 
  scatterplot3d(coord) 
@@ -3892,7 +3923,7 @@ provided to generate cluster size statistics.</p>
 
 <p>Interactive 3D scatter plot with Open GL (graphics not evaluated here):</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  library(rgl) rgl.open(); offset &lt;- 50;
  par3d(windowRect=c(offset, offset, 640+offset, 640+offset)) 
  rm(offset)
@@ -3909,29 +3940,29 @@ provided to generate cluster size statistics.</p>
 
 <h2 id="clustering-with-other-algorithms">Clustering with Other Algorithms</h2>
 
-<p><code class="highlighter-rouge">ChemmineR</code> allows the user to take advantage of the wide
+<p><code>ChemmineR</code> allows the user to take advantage of the wide
 spectrum of clustering utilities available in R. An example on how to
 perform hierarchical clustering with the hclust function is given
 below.</p>
 
 <p>Create atom pair distance matrix:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  dummy &lt;- cmp.cluster(db=apset, cutoff=0, save.distances="distmat.rda", quiet=TRUE) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 
 ## sorting result...
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  load("distmat.rda") 
 </code></p>
 
-<p>Hierarchical clustering with <code class="highlighter-rouge">hclust</code>:</p>
+<p>Hierarchical clustering with <code>hclust</code>:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  hc &lt;- hclust(as.dist(distmat), method="single") 
  hc[["labels"]] &lt;- cid(apset) # Assign correct item labels 
  plot(as.dendrogram(hc), edgePar=list(col=4, lwd=2), horiz=T) 
@@ -3941,7 +3972,7 @@ below.</p>
 
 <p>Instead of atom pairs one can use PubChem’s fingerprints for clustering:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  simMA &lt;- sapply(cid(fpset), function(x) fpSim(fpset[x], fpset, sorted=FALSE))
  hc &lt;- hclust(as.dist(1-simMA), method="single") 
  plot(as.dendrogram(hc), edgePar=list(col=4, lwd=2), horiz=TRUE) 
@@ -3949,22 +3980,22 @@ below.</p>
 
 <p>Plot dendrogram with heatmap (here similarity matrix):</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  library(gplots) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## 
 ## Attaching package: 'gplots'
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## The following object is masked from 'package:stats':
 ## 
 ##     lowess
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  heatmap.2(1-distmat, Rowv=as.dendrogram(hc), Colv=as.dendrogram(hc), 
 			  col=colorpanel(40, "darkblue", "yellow", "white"), 
 			  density.info="none", trace="none") 
@@ -3978,15 +4009,15 @@ below.</p>
 
 <h2 id="get-compounds-from-pubchem-by-id">Get Compounds from PubChem by Id</h2>
 
-<p>The function <code class="highlighter-rouge">getIds</code> accepts one or more numeric PubChem
+<p>The function <code>getIds</code> accepts one or more numeric PubChem
 compound ids and downloads the corresponding compounds from PubChem
-Power User Gateway (PUG) returning results in an <code class="highlighter-rouge">SDFset</code>
+Power User Gateway (PUG) returning results in an <code>SDFset</code>
 container. The ChemMine Tools web service is used as an intermediate, to
 translate queries from plain HTTP POST to a PUG SOAP query.</p>
 
 <p>Fetch 2 compounds from PubChem:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  compounds &lt;- getIds(c(111,123))
  compounds 
 </code></p>
@@ -3995,16 +4026,16 @@ translate queries from plain HTTP POST to a PUG SOAP query.</p>
 
 <h2 id="search-a-smiles-query-in-pubchem">Search a SMILES Query in PubChem</h2>
 
-<p>The function <code class="highlighter-rouge">searchString</code> accepts one SMILES string
+<p>The function <code>searchString</code> accepts one SMILES string
 (Simplified Molecular Input Line Entry Specification) and performs a
 &gt;0.95 similarity PubChem fingerprint search, returning the hits in an
-<code class="highlighter-rouge">SDFset</code> container. The ChemMine Tools web service is
+<code>SDFset</code> container. The ChemMine Tools web service is
 used as an intermediate, to translate queries from plain HTTP POST to a
 PubChem Power User Gateway (PUG) query.</p>
 
 <p>Search a SMILES string on PubChem:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  compounds &lt;- searchString("CC(=O)OC1=CC=CC=C1C(=O)O") compounds 
 </code></p>
 
@@ -4012,14 +4043,14 @@ PubChem Power User Gateway (PUG) query.</p>
 
 <h2 id="search-an-sdf-query-in-pubchem">Search an SDF Query in PubChem</h2>
 
-<p>The function <code class="highlighter-rouge">searchSim</code> performs a PubChem similarity
-search just like <code class="highlighter-rouge">searchString</code>, but accepts a query in
-an <code class="highlighter-rouge">SDFset</code> container. If the query contains more than
+<p>The function <code>searchSim</code> performs a PubChem similarity
+search just like <code>searchString</code>, but accepts a query in
+an <code>SDFset</code> container. If the query contains more than
 one compound, only the first is searched.</p>
 
-<p>Search an <code class="highlighter-rouge">SDFset</code> container on PubChem:</p>
+<p>Search an <code>SDFset</code> container on PubChem:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  data(sdfsample); 
  sdfset &lt;- sdfsample[1] 
  compounds &lt;- searchSim(sdfset) 
@@ -4030,16 +4061,16 @@ one compound, only the first is searched.</p>
 
 <h1 id="chemmine-tools-r-interface">ChemMine Tools R Interface</h1>
 
-<p>ChemMine Web Tools is an online service for analyzing and clustering small molecules. It provides numerous cheminformatics tools which can be used directly on the website, or called remotely from within R. When called within R jobs are sent remotely to a queue on a compute cluster at UC Riverside, which is a free service offered to <code class="highlighter-rouge">ChemmineR</code> users.
-The website is free and open to all users and is available at <a href="http://chemmine.ucr.edu">http://chemmine.ucr.edu</a>. When new tools are added to the service, they automatically become availiable within <code class="highlighter-rouge">ChemmineR</code> without updating your local R package.</p>
+<p>ChemMine Web Tools is an online service for analyzing and clustering small molecules. It provides numerous cheminformatics tools which can be used directly on the website, or called remotely from within R. When called within R jobs are sent remotely to a queue on a compute cluster at UC Riverside, which is a free service offered to <code>ChemmineR</code> users.
+The website is free and open to all users and is available at <a href="http://chemmine.ucr.edu">http://chemmine.ucr.edu</a>. When new tools are added to the service, they automatically become availiable within <code>ChemmineR</code> without updating your local R package.</p>
 
 <p>List all available tools:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 listCMTools()
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##      Category                           Name      Input     Output
 ## 1      Upload                Upload CSV Data  character data.frame
 ## 2      Upload      Upload Tab Delimited Data  character data.frame
@@ -4060,11 +4091,11 @@ listCMTools()
 <p>Show options and description for a tool. This also provides an example function call which can be copied
 verbatim, and changed as necessary:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 toolDetails("Fingerprint Search")
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## Category:		Search
 ## Name:			Fingerprint Search
 ## Input R Object:		SDFset
@@ -4091,11 +4122,11 @@ toolDetails("Fingerprint Search")
 
 <h2 id="launch-a-job">Launch a Job</h2>
 
-<p>When a job is launched it returns a job token which refers to the running job on the UC Riverside cluster. You can check the status of a job or obtain the results as follows. If <code class="highlighter-rouge">result</code> is called on a job that is still running, it will loop internally until the job is completed, and then return the result.</p>
+<p>When a job is launched it returns a job token which refers to the running job on the UC Riverside cluster. You can check the status of a job or obtain the results as follows. If <code>result</code> is called on a job that is still running, it will loop internally until the job is completed, and then return the result.</p>
 
-<p>Launch the tool <code class="highlighter-rouge">pubchemID2SDF</code> to obtain the structure for PubChem cid 2244:</p>
+<p>Launch the tool <code>pubchemID2SDF</code> to obtain the structure for PubChem cid 2244:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 job1 &lt;- launchCMTool("pubchemID2SDF", 2244)
 status(job1)
 result1 &lt;- result(job1)
@@ -4103,7 +4134,7 @@ result1 &lt;- result(job1)
 
 <p>Use the previous result to search PubChem for similar compounds:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 job2 &lt;- launchCMTool('Fingerprint Search', result1, 'Similarity Cutoff'=0.95, 'Max Compounds Returned'=200)
 result2 &lt;- result(job2)
 job3 &lt;- launchCMTool("pubchemID2SDF", result2)
@@ -4112,13 +4143,13 @@ result3 &lt;- result(job3)
 
 <p>Compute OpenBabel descriptors for these search results:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 job4 &lt;- launchCMTool("OpenBabel Descriptors", result3)
 result4 &lt;- result(job4)
 result4[1:10,] # show first 10 lines of result
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##         cid abonds atoms bonds dbonds HBA1 HBA2 HBD   logP      MR       MW nF sbonds tbonds  TPSA
 ## 1      2244      6    21    21      2   12    4   1 1.3101 44.9003 180.1574  0     13      0 63.60
 ## 2      5161     12    29    30      2   15    5   2 2.3096 66.8248 258.2262  0     16      0 83.83
@@ -4136,22 +4167,22 @@ result4[1:10,] # show first 10 lines of result
 
 <h2 id="view-job-result-in-browser">View Job Result in Browser</h2>
 
-<p>The function <code class="highlighter-rouge">browseJob</code> launches a web browser to view the results of a job online, just as if they
+<p>The function <code>browseJob</code> launches a web browser to view the results of a job online, just as if they
 had been run from the ChemMine Tools website itself. If you also want the result data within R, you must first call
-the <code class="highlighter-rouge">result</code> object from within R before calling <code class="highlighter-rouge">browseJob</code>. Once <code class="highlighter-rouge">browseJob</code> has been called on a job token,
+the <code>result</code> object from within R before calling <code>browseJob</code>. Once <code>browseJob</code> has been called on a job token,
 the results are no longer accessible within R.</p>
 
-<p>If you have an account on ChemMine Tools and would like to save the web results from your job, you must first login to your account within the default web browser on your system before you launch <code class="highlighter-rouge">browseJob</code>. The job will then be assigned automatically to the currently logged in account.</p>
+<p>If you have an account on ChemMine Tools and would like to save the web results from your job, you must first login to your account within the default web browser on your system before you launch <code>browseJob</code>. The job will then be assigned automatically to the currently logged in account.</p>
 
 <p>View OpenBabel descriptors online:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 browseJob(job4)
 </code></p>
 
 <p>Perform binning clustering and visualize result online:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 job5 &lt;- launchCMTool("Binning Clustering", result3, 'Similarity Cutoff'=0.9)
 browseJob(job5)
 </code></p>
@@ -4160,7 +4191,7 @@ browseJob(job5)
 
 <h1 id="version-information">Version Information</h1>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
  sessionInfo()
 </code></p>
 

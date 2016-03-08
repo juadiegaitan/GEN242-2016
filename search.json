@@ -690,10 +690,21 @@
 
 
 {
-"title": "Syllabus - GEN242",
+"title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_syllabus.html",
+"url": "../vignettes/01_Home/mydoc_schedule.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Course Schedule",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -705,6 +716,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/01_Home/mydoc_syllabus.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Syllabus - GEN242",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_syllabus.html",
 "summary": ""
 },
 

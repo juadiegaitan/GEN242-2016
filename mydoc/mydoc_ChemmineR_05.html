@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -258,6 +270,16 @@ window.location.href = uri;
 
 
 
+
+
+
+
+
+
+
+
+
+
         <ul id="mysidebar" class="nav">
 
             <span class="siteTagline">GEN242</span>
@@ -283,6 +305,15 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_schedule.html">Course Schedule</a></li>
                     
 
                     
@@ -799,82 +830,82 @@ $('#toc').on('click', 'a', function() {
 
 <p>The following gives an overview of the most important import/export
 functionalities for small molecules provided by
-<code class="highlighter-rouge">ChemmineR</code>. The given example creates an instance of the
-<code class="highlighter-rouge">SDFset</code> class using as sample data set the first 100
+<code>ChemmineR</code>. The given example creates an instance of the
+<code>SDFset</code> class using as sample data set the first 100
 compounds from this PubChem SD file (SDF):
 Compound_00650001_00675000.sdf.gz
 (<a href="ftp://ftp.ncbi.nih.gov/pubchem/Compound/CURRENT-Full/SDF/">ftp://ftp.ncbi.nih.gov/pubchem/Compound/CURRENT-Full/SDF/</a>).</p>
 
-<p>SDFs can be imported with the <code class="highlighter-rouge">read.SDFset</code> function:</p>
+<p>SDFs can be imported with the <code>read.SDFset</code> function:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">sdfset</span> <span class="o">&lt;-</span> <span class="n">read.SDFset</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/ tgirke/Documents/R_BioCond/Samples/sdfsample.sdf"</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sdfset</span> <span class="o">&lt;-</span> <span class="n">read.SDFset</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/ tgirke/Documents/R_BioCond/Samples/sdfsample.sdf"</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">data</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">)</span> <span class="c1"># Loads the same SDFset provided by the library 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">data</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">)</span> <span class="c1"># Loads the same SDFset provided by the library 
 </span> <span class="n">sdfset</span> <span class="o">&lt;-</span> <span class="n">sdfsample</span>
  <span class="n">valid</span> <span class="o">&lt;-</span> <span class="n">validSDF</span><span class="p">(</span><span class="n">sdfset</span><span class="p">)</span> <span class="c1"># Identifies invalid SDFs in SDFset objects 
-</span> <span class="n">sdfset</span> <span class="o">&lt;-</span> <span class="n">sdfset</span><span class="p">[</span><span class="n">valid</span><span class="p">]</span> <span class="err">#</span> <span class="n">Removes</span> <span class="n">invalid</span> <span class="n">SDFs</span><span class="p">,</span> <span class="k">if</span> <span class="n">there</span> <span class="n">are</span> <span class="n">any</span> </code></pre></figure>
+</span> <span class="n">sdfset</span> <span class="o">&lt;-</span> <span class="n">sdfset</span><span class="p">[</span><span class="n">valid</span><span class="p">]</span> <span class="err">#</span> <span class="n">Removes</span> <span class="n">invalid</span> <span class="n">SDFs</span><span class="p">,</span> <span class="k">if</span> <span class="n">there</span> <span class="n">are</span> <span class="n">any</span></code></pre></div>
 
-<p>Import SD file into <code class="highlighter-rouge">SDFstr</code> container:</p>
+<p>Import SD file into <code>SDFstr</code> container:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">sdfstr</span> <span class="o">&lt;-</span> <span class="n">read.SDFstr</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/ tgirke/Documents/R_BioCond/Samples/sdfsample.sdf"</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sdfstr</span> <span class="o">&lt;-</span> <span class="n">read.SDFstr</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/ tgirke/Documents/R_BioCond/Samples/sdfsample.sdf"</span><span class="p">)</span></code></pre></div>
 
 <p>Create
-<code class="highlighter-rouge">SDFset</code> from <code class="highlighter-rouge">SDFstr</code> class:</p>
+<code>SDFset</code> from <code>SDFstr</code> class:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">sdfstr</span> <span class="o">&lt;-</span> <span class="n">as</span><span class="p">(</span><span class="n">sdfset</span><span class="p">,</span> <span class="s2">"SDFstr"</span><span class="p">)</span> 
- <span class="n">sdfstr</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sdfstr</span> <span class="o">&lt;-</span> <span class="n">as</span><span class="p">(</span><span class="n">sdfset</span><span class="p">,</span> <span class="s2">"SDFstr"</span><span class="p">)</span> 
+ <span class="n">sdfstr</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## An instance of "SDFstr" with 100 molecules</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## An instance of "SDFstr" with 100 molecules</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">as</span><span class="p">(</span><span class="n">sdfstr</span><span class="p">,</span> <span class="s2">"SDFset"</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">as</span><span class="p">(</span><span class="n">sdfstr</span><span class="p">,</span> <span class="s2">"SDFset"</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## An instance of "SDFset" with 100 molecules</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## An instance of "SDFset" with 100 molecules</code></pre></div>
 
 <h2 id="smiles-import">SMILES Import</h2>
 
-<p>The <code class="highlighter-rouge">read.SMIset</code> function imports one or many molecules
-from a SMILES file and stores them in a <code class="highlighter-rouge">SMIset</code>
+<p>The <code>read.SMIset</code> function imports one or many molecules
+from a SMILES file and stores them in a <code>SMIset</code>
 container. The input file is expected to contain one SMILES string per
 row with tab-separated compound identifiers at the end of each line. The
 compound identifiers are optional.</p>
 
 <p>Create sample SMILES file and then import it:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">data</span><span class="p">(</span><span class="n">smisample</span><span class="p">);</span> <span class="n">smiset</span> <span class="o">&lt;-</span> <span class="n">smisample</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">data</span><span class="p">(</span><span class="n">smisample</span><span class="p">);</span> <span class="n">smiset</span> <span class="o">&lt;-</span> <span class="n">smisample</span>
  <span class="n">write.SMI</span><span class="p">(</span><span class="n">smiset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">file</span><span class="o">=</span><span class="s2">"sub.smi"</span><span class="p">)</span> 
- <span class="n">smiset</span> <span class="o">&lt;-</span> <span class="n">read.SMIset</span><span class="p">(</span><span class="s2">"sub.smi"</span><span class="p">)</span></code></pre></figure>
+ <span class="n">smiset</span> <span class="o">&lt;-</span> <span class="n">read.SMIset</span><span class="p">(</span><span class="s2">"sub.smi"</span><span class="p">)</span></code></pre></div>
 
-<p>Inspect content of <code class="highlighter-rouge">SMIset</code>:</p>
+<p>Inspect content of <code>SMIset</code>:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">data</span><span class="p">(</span><span class="n">smisample</span><span class="p">)</span> <span class="c1"># Loads the same SMIset provided by the library 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">data</span><span class="p">(</span><span class="n">smisample</span><span class="p">)</span> <span class="c1"># Loads the same SMIset provided by the library 
 </span> <span class="n">smiset</span> <span class="o">&lt;-</span> <span class="n">smisample</span>
- <span class="n">smiset</span> </code></pre></figure>
+ <span class="n">smiset</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## An instance of "SMIset" with 100 molecules</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## An instance of "SMIset" with 100 molecules</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">view</span><span class="p">(</span><span class="n">smiset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">view</span><span class="p">(</span><span class="n">smiset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## $`650001`
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## $`650001`
 ## An instance of "SMI"
 ## [1] "O=C(NC1CCCC1)CN(c1cc2OCCOc2cc1)C(=O)CCC(=O)Nc1noc(c1)C"
 ## 
 ## $`650002`
 ## An instance of "SMI"
-## [1] "O=c1[nH]c(=O)n(c2nc(n(CCCc3ccccc3)c12)NCCCO)C"</code></pre></figure>
+## [1] "O=c1[nH]c(=O)n(c2nc(n(CCCc3ccccc3)c12)NCCCO)C"</code></pre></div>
 
 <p>Accessor functions:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">cid</span><span class="p">(</span><span class="n">smiset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">cid</span><span class="p">(</span><span class="n">smiset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "650001" "650002" "650003" "650004"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "650001" "650002" "650003" "650004"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">smi</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">smiset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">smi</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">smiset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
 
-<p>Create <code class="highlighter-rouge">SMIset</code> from named character vector:</p>
+<p>Create <code>SMIset</code> from named character vector:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">as</span><span class="p">(</span><span class="n">smi</span><span class="p">,</span> <span class="s2">"SMIset"</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">as</span><span class="p">(</span><span class="n">smi</span><span class="p">,</span> <span class="s2">"SMIset"</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## An instance of "SMIset" with 2 molecules</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## An instance of "SMIset" with 2 molecules</code></pre></div>
 
 
 

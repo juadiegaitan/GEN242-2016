@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -258,6 +270,16 @@ window.location.href = uri;
 
 
 
+
+
+
+
+
+
+
+
+
+
         <ul id="mysidebar" class="nav">
 
             <span class="siteTagline">GEN242</span>
@@ -283,6 +305,15 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_schedule.html">Course Schedule</a></li>
                     
 
                     
@@ -797,43 +828,43 @@ $('#toc').on('click', 'a', function() {
 -->
 <h2 id="get-compounds-from-pubchem-by-id">Get Compounds from PubChem by Id</h2>
 
-<p>The function <code class="highlighter-rouge">getIds</code> accepts one or more numeric PubChem
+<p>The function <code>getIds</code> accepts one or more numeric PubChem
 compound ids and downloads the corresponding compounds from PubChem
-Power User Gateway (PUG) returning results in an <code class="highlighter-rouge">SDFset</code>
+Power User Gateway (PUG) returning results in an <code>SDFset</code>
 container. The ChemMine Tools web service is used as an intermediate, to
 translate queries from plain HTTP POST to a PUG SOAP query.</p>
 
 <p>Fetch 2 compounds from PubChem:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">compounds</span> <span class="o">&lt;-</span> <span class="n">getIds</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="m">111</span><span class="p">,</span><span class="m">123</span><span class="p">))</span>
- <span class="n">compounds</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">compounds</span> <span class="o">&lt;-</span> <span class="n">getIds</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="m">111</span><span class="p">,</span><span class="m">123</span><span class="p">))</span>
+ <span class="n">compounds</span></code></pre></div>
 
 <h2 id="search-a-smiles-query-in-pubchem">Search a SMILES Query in PubChem</h2>
 
-<p>The function <code class="highlighter-rouge">searchString</code> accepts one SMILES string
+<p>The function <code>searchString</code> accepts one SMILES string
 (Simplified Molecular Input Line Entry Specification) and performs a
 &gt;0.95 similarity PubChem fingerprint search, returning the hits in an
-<code class="highlighter-rouge">SDFset</code> container. The ChemMine Tools web service is
+<code>SDFset</code> container. The ChemMine Tools web service is
 used as an intermediate, to translate queries from plain HTTP POST to a
 PubChem Power User Gateway (PUG) query.</p>
 
 <p>Search a SMILES string on PubChem:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">compounds</span> <span class="o">&lt;-</span> <span class="n">searchString</span><span class="p">(</span><span class="s2">"CC(=O)OC1=CC=CC=C1C(=O)O"</span><span class="p">)</span> <span class="n">compounds</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">compounds</span> <span class="o">&lt;-</span> <span class="n">searchString</span><span class="p">(</span><span class="s2">"CC(=O)OC1=CC=CC=C1C(=O)O"</span><span class="p">)</span> <span class="n">compounds</span></code></pre></div>
 
 <h2 id="search-an-sdf-query-in-pubchem">Search an SDF Query in PubChem</h2>
 
-<p>The function <code class="highlighter-rouge">searchSim</code> performs a PubChem similarity
-search just like <code class="highlighter-rouge">searchString</code>, but accepts a query in
-an <code class="highlighter-rouge">SDFset</code> container. If the query contains more than
+<p>The function <code>searchSim</code> performs a PubChem similarity
+search just like <code>searchString</code>, but accepts a query in
+an <code>SDFset</code> container. If the query contains more than
 one compound, only the first is searched.</p>
 
-<p>Search an <code class="highlighter-rouge">SDFset</code> container on PubChem:</p>
+<p>Search an <code>SDFset</code> container on PubChem:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"> <span class="n">data</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">);</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">data</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">);</span> 
  <span class="n">sdfset</span> <span class="o">&lt;-</span> <span class="n">sdfsample</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> 
  <span class="n">compounds</span> <span class="o">&lt;-</span> <span class="n">searchSim</span><span class="p">(</span><span class="n">sdfset</span><span class="p">)</span> 
- <span class="n">compounds</span> </code></pre></figure>
+ <span class="n">compounds</span></code></pre></div>
 
 
 
