@@ -47,8 +47,8 @@ Lecture: Tue/Thu 2:10-3:30 PM <br>
 Discussion: Thu 3:40-4:30 PM
 
 ## Location
-[Humanities and Social Sciences (HMNSS)](http://classrooms.cmsdev.ucr.edu/buildings/humanities/1403.html) <br>
-2130 CHASS Interdisciplinary Bldg-South (INST)
+[1403 Humanities and Social Sciences (HMNSS)](http://classrooms.cmsdev.ucr.edu/buildings/humanities/1403.html) <br>
+[2130 CHASS Interdisciplinary Bldg-South (INST)](http://classrooms.cmsdev.ucr.edu/buildings/chassINTS/2130.html)
 
 ## Grading
 1. Homework assignments: 40%
