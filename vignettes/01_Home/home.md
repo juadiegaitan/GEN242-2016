@@ -11,7 +11,7 @@ summary: GEN242 is a graduate class taught at the University of California, Rive
 ## Overview
 
 This course introduces algorithms, statistical methods and data analysis programming 
-routines relevant for genome biology. It is composed of three main components:
+routines relevant for genome biology. It consists of three main components:
 lectures, hands-on practicals and student course projects. The lecture topics cover databases, sequence 
 (NGS) analysis, phylogenetics, comparative genomics, genome-wide profiling methods, 
 network biology and more. The hands-on practicals include homework assignments and 

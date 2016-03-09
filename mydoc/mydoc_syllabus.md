@@ -18,7 +18,7 @@ Office hours: Tue & Fri 4:00 - 5:00PM
 ## Description
 
 Introduction to algorithms, statistical methods and data analysis programming
-routines relevant for genome biology. The class is composed of three
+routines relevant for genome biology. The class consists of three
 main components: lectures, hands-on practicals and student course projects. The
 lecture topics cover databases, sequence (NGS) analysis, phylogenetics,
 comparative genomics, genome-wide profiling methods, network biology and more.
