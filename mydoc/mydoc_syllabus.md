@@ -47,7 +47,6 @@ Lecture: Tue/Thu 2:10-3:30 PM <br>
 Discussion: Thu 3:40-4:30 PM
 
 ## Location
-[1403 Humanities and Social Sciences (HMNSS)](http://classrooms.cmsdev.ucr.edu/buildings/humanities/1403.html) <br>
 [2130 CHASS Interdisciplinary Bldg-South (INST)](http://classrooms.cmsdev.ucr.edu/buildings/chassINTS/2130.html)
 
 ## Grading
@@ -60,8 +59,7 @@ Discussion: Thu 3:40-4:30 PM
 Students are expected to bring to class a laptop with a functional wireless
 connection and a recent internet browser version (e.g. Firefox, Chrome or
 Safari) preinstalled. Tablet computers with mobile operating systems are not
-suitable for running the required software. Wireless guest accounts will be
-provided for non-UCR participants. 
+suitable for running the required software. 
 
 ## Schedule
 
