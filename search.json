@@ -8,7 +8,7 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/home.html",
+"url": "../vignettes/01_Home/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
@@ -19,23 +19,12 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/home.html",
+"url": "../mydoc/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
 
 
-
-
-
-
-{
-"title": "Homework 1",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_homework_01.html",
-"summary": ""
-},
 
 
 
@@ -52,10 +41,10 @@
 
 
 {
-"title": "Project 1",
+"title": "Homework 1",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_01.html",
+"url": "../mydoc/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -67,6 +56,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/05_Projects/mydoc_project_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Project 1",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -110,7 +110,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides.html",
+"url": "../vignettes/02_Slides/mydoc_slides.html",
 "summary": ""
 },
 
@@ -121,18 +121,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Slides/mydoc_slides.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Syllabus - GEN242",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_syllabus.html",
+"url": "../mydoc/mydoc_slides.html",
 "summary": ""
 },
 
@@ -144,6 +133,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/01_Home/mydoc_syllabus.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Syllabus - GEN242",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_syllabus.html",
 "summary": ""
 },
 
