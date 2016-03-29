@@ -71,7 +71,7 @@ topnav_dropdowns:
           output: web
         
         - title: Jekyll Doc Theme
-          external_url: http://idratherbewriting.com/documentation-theme-jekyll
+          external_url: http://idratherbewriting.com/documentation-theme-jekyll/mydoc/home.html
           audience: writers, designers
           platform: all
           product: all
