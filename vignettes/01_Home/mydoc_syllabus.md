@@ -73,7 +73,7 @@ addition, a recent version of [R](http://www.r-project.org) and
 
 | Week   | Topic                                     |
 |--------|-------------------------------------------|
-| Week 1 | 1. Assignment of data analysis projects   |
+| Week 1 | 1. Course Introduction                    |
 |        | 2. Bioinformatics databases and software  |
 |        | 3. Data analysis/programming environments |
 |        | 4. Discussion: Linux/cluster basics       |

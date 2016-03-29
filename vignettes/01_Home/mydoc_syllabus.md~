@@ -12,7 +12,7 @@ GEN242 - Spring 2016
 Name: Thomas Girke <br> 
 Email: thomas.girke@ucr.edu <br>
 Office location: 1207F Genomics <br>
-Office hours: Tue & Fri 4:30 - 5:30 PM 
+Office hours: Tue & Thu 4:30 - 5:30 PM 
 
 
 ## Description
