@@ -21,12 +21,17 @@ mydoc_classes:
 mydoc_classes:
   title: "Tutorials"
   url: "../mydoc_tutorial_01.html"
-  link: "<a href='../mydoc_tutorial.html'>Slides</a>"
+  link: "<a href='../mydoc_tutorial_01.html'>Slides</a>"
 
 mydoc_classes:
   title: "Homework"
   url: "../mydoc_homework_01.html"
-  link: "<a href='../mydoc_homework.html'>Slides</a>"
+  link: "<a href='../mydoc_homework_01.html'>Slides</a>"
+
+mydoc_classes:
+  title: "Projects"
+  url: "../mydoc_project_01.html"
+  link: "<a href='../mydoc_project_01.html'>Slides</a>"
 
 
 

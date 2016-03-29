@@ -19,6 +19,11 @@ mydoc_classes:
   link: "<a href='../mydoc_slides.html'>Slides</a>"
 
 mydoc_classes:
+  title: "Internal"
+  url: "../mydoc_internal.html"
+  link: "<a href='../mydoc_internal.html'>Internal</a>"
+
+mydoc_classes:
   title: "Tutorials"
   url: "../mydoc_tutorial_01.html"
   link: "<a href='../mydoc_tutorial_01.html'>Slides</a>"
