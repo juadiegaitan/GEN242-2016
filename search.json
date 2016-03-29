@@ -33,7 +33,7 @@
 "title": "Homework 1",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Homework/mydoc_homework_01.html",
+"url": "../vignettes/05_Homework/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -52,10 +52,32 @@
 
 
 {
+"title": "Internal Resources",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
+"summary": "This page provides a link to password protected resources that are only accessible to students of this class."
+},
+
+
+
+
+{
+"title": "Internal Resources",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_internal.html",
+"summary": "This page provides a link to password protected resources that are only accessible to students of this class."
+},
+
+
+
+
+{
 "title": "Project 1",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Projects/mydoc_project_01.html",
+"url": "../vignettes/06_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -99,7 +121,7 @@
 "title": "Slide Tests",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Slides/mydoc_slide_tests.html",
+"url": "../vignettes/03_Slides/mydoc_slide_tests.html",
 "summary": ""
 },
 
@@ -110,7 +132,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Slides/mydoc_slides.html",
+"url": "../vignettes/03_Slides/mydoc_slides.html",
 "summary": ""
 },
 
@@ -154,7 +176,7 @@
 "title": "Tutorial 1",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/03_Tutorials/mydoc_tutorial_01.html",
+"url": "../vignettes/04_Tutorials/mydoc_tutorial_01.html",
 "summary": ""
 },
 
