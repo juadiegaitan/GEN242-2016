@@ -6,22 +6,7 @@
     <url>
       <loc>/404.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>/vignettes/01_Home/home.html</loc>
-      
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -36,7 +21,22 @@
     <url>
       <loc>/mydoc/home.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/01_Home/home.html</loc>
+      
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -51,7 +51,7 @@
     <url>
       <loc>/</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -66,7 +66,7 @@
     <url>
       <loc>/mydoc/mydoc_homework_01.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -81,7 +81,7 @@
     <url>
       <loc>/vignettes/05_Homework/mydoc_homework_01.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -96,7 +96,7 @@
     <url>
       <loc>/vignettes/02_Internal/mydoc_internal.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -111,22 +111,7 @@
     <url>
       <loc>/mydoc/mydoc_internal.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>/vignettes/06_Projects/mydoc_project_01.html</loc>
-      
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -141,7 +126,22 @@
     <url>
       <loc>/mydoc/mydoc_project_01.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/06_Projects/mydoc_project_01.html</loc>
+      
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -156,7 +156,7 @@
     <url>
       <loc>/vignettes/01_Home/mydoc_schedule.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -171,7 +171,7 @@
     <url>
       <loc>/mydoc/mydoc_schedule.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -184,24 +184,9 @@
   
     
     <url>
-      <loc>/vignettes/03_Slides/mydoc_slide_tests.html</loc>
+      <loc>/vignettes/03_Slides/01_Course_Introduction/mydoc_slide_tests.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>/vignettes/03_Slides/mydoc_slides.html</loc>
-      
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -214,9 +199,9 @@
   
     
     <url>
-      <loc>/mydoc/mydoc_slides.html</loc>
+      <loc>/mydoc/mydoc_slides_01.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -229,9 +214,54 @@
   
     
     <url>
-      <loc>/vignettes/01_Home/mydoc_syllabus.html</loc>
+      <loc>/vignettes/03_Slides/01_Course_Introduction/mydoc_slides_01.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/03_Slides/02_Molbiol_for_Bioinfo/mydoc_slides_02.html</loc>
+      
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/03_Slides/mydoc_slides_02.html</loc>
+      
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_slides_02.html</loc>
+      
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -246,7 +276,22 @@
     <url>
       <loc>/mydoc/mydoc_syllabus.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/01_Home/mydoc_syllabus.html</loc>
+      
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -261,7 +306,7 @@
     <url>
       <loc>/vignettes/04_Tutorials/mydoc_tutorial_01.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -276,7 +321,7 @@
     <url>
       <loc>/mydoc/mydoc_tutorial_01.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -291,7 +336,7 @@
     <url>
       <loc>/prince-file-list.txt</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -306,7 +351,7 @@
     <url>
       <loc>/search.json</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -321,7 +366,7 @@
     <url>
       <loc>/sitemap.xml</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -336,7 +381,7 @@
     <url>
       <loc>/title-checker.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -351,7 +396,7 @@
     <url>
       <loc>/titlepage.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -366,7 +411,7 @@
     <url>
       <loc>/tocpage.html</loc>
       
-        <last_updated>2016-03-29T15:51:30-07:00</last_updated>
+        <last_updated>2016-03-29T19:16:12-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
