@@ -14,14 +14,19 @@ mydoc_classes:
   link: "<a href='../mydoc_schedule.html'>Course Schedule</a>"
 
 mydoc_classes:
+  title: "Internal"
+  url: "../mydoc_internal.html"
+  link: "<a href='../mydoc_internal.html'>Internal</a>"
+
+mydoc_classes:
   title: "Course Introduction"
   url: "../mydoc_slides_01.html"
   link: "<a href='../mydoc_slides_01.html'>Course Introduction</a>"
 
 mydoc_classes:
-  title: "Internal"
-  url: "../mydoc_internal.html"
-  link: "<a href='../mydoc_internal.html'>Internal</a>"
+  title: "Molbiol for Bioinformatics"
+  url: "../mydoc_slides_02.html"
+  link: "<a href='../mydoc_slides_02.html'>Molbiol for Bioinformatics</a>"
 
 mydoc_classes:
   title: "Tutorials"

@@ -52,14 +52,6 @@ entries:
       version: all
       output: web
     
-    - title: Course Schedule
-      url: /mydoc/mydoc_schedule.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-    
   - title: Internal
     audience: writers, designers
     platform: all
@@ -70,6 +62,22 @@ entries:
     
     - title: Internal Resources
       url: /mydoc/mydoc_internal.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+  
+  - title: Schedule
+    audience: writers, designers
+    platform: all
+    product: all
+    version: all
+    output: web
+    items:
+    
+    - title: Course Schedule
+      url: /mydoc/mydoc_schedule.html
       audience: writers, designers
       platform: all
       product: all
@@ -86,6 +94,14 @@ entries:
 
     - title: Course Introduction
       url: /mydoc/mydoc_slides_01.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: Molbiol for Bioinformatics
+      url: /mydoc/mydoc_slides_02.html
       audience: writers, designers
       platform: all
       product: all
