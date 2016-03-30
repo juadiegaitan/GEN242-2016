@@ -118,17 +118,6 @@
 
 
 {
-"title": "Slide Tests",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slide_tests.html",
-"summary": ""
-},
-
-
-
-
-{
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
@@ -151,7 +140,7 @@
 
 
 {
-"title": "Molecular Biology Essentials for Bioinformatics",
+"title": "Molecular Biology Essentials",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_02.html",
@@ -166,6 +155,39 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Databases and Software for Genome Biology",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Databases and Software for Genome Biology",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Slide Tests",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_tests.html",
 "summary": ""
 },
 
