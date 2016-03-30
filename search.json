@@ -33,7 +33,7 @@
 "title": "Homework 1",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Homework/mydoc_homework_01.html",
+"url": "../vignettes/06_Homework/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -77,7 +77,7 @@
 "title": "Project 1",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Projects/mydoc_project_01.html",
+"url": "../vignettes/07_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -99,7 +99,7 @@
 "title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/mydoc_schedule.html",
+"url": "../vignettes/03_Schedule/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -121,7 +121,7 @@
 "title": "Slide Tests",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/03_Slides/mydoc_slide_tests.html",
+"url": "../vignettes/04_Slides/mydoc_slide_tests.html",
 "summary": ""
 },
 
@@ -132,7 +132,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/03_Slides/mydoc_slides_01.html",
+"url": "../vignettes/04_Slides/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -154,7 +154,7 @@
 "title": "Molecular Biology Essentials for Bioinformatics",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/03_Slides/mydoc_slides_02.html",
+"url": "../vignettes/04_Slides/mydoc_slides_02.html",
 "summary": ""
 },
 
@@ -198,7 +198,7 @@
 "title": "Tutorial 1",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Tutorials/mydoc_tutorial_01.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
 "summary": ""
 },
 
