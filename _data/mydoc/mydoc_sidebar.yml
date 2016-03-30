@@ -85,7 +85,15 @@ entries:
     items:
 
     - title: Course Introduction
-      url: /mydoc/mydoc_slides.html
+      url: /mydoc/mydoc_slides_01.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: Molbiol for Bioinformatics
+      url: /mydoc/mydoc_slides_02.html
       audience: writers, designers
       platform: all
       product: all
