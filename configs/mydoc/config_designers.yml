@@ -22,7 +22,7 @@ kramdown:
 
 
 sidebar_tagline: GEN242
-#sidebar_tagline: <img src="../common_images/logo.png">
+# sidebar_tagline: <img src="../common_images/logo.png">
 sidebar_version: Spring 2016
 theme_file: theme-blue.css
 pdf_file_name: mydoc_designers_pdf.pdf

@@ -34,14 +34,24 @@ mydoc_classes:
   link: "<a href='../mydoc_slides_03.html'>Databases and Software</a>"
 
 mydoc_classes:
-  title: "Tutorials"
+  title: "GitHub"
   url: "../mydoc_tutorial_01.html"
-  link: "<a href='../mydoc_tutorial_01.html'>Slides</a>"
+  link: "<a href='../mydoc_tutorial_01.html'>GitHub</a>"
 
 mydoc_classes:
-  title: "Homework"
+  title: "Biocluster"
+  url: "../mydoc_tutorial_02.html"
+  link: "<a href='../mydoc_tutorial_02.html'>Biocluster</a>"
+
+mydoc_classes:
+  title: "Homework 1"
   url: "../mydoc_homework_01.html"
-  link: "<a href='../mydoc_homework_01.html'>Slides</a>"
+  link: "<a href='../mydoc_homework_01.html'>Homework 1</a>"
+
+mydoc_classes:
+  title: "Homework 2"
+  url: "../mydoc_homework_02.html"
+  link: "<a href='../mydoc_homework_02.html'>Homework 2</a>"
 
 mydoc_classes:
   title: "Projects"
