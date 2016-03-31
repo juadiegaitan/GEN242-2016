@@ -29,6 +29,11 @@ mydoc_classes:
   link: "<a href='../mydoc_slides_02.html'>Molbiol for Bioinformatics</a>"
 
 mydoc_classes:
+  title: "Databases and Software"
+  url: "../mydoc_slides_03.html"
+  link: "<a href='../mydoc_slides_03.html'>Databases and Software</a>"
+
+mydoc_classes:
   title: "Tutorials"
   url: "../mydoc_tutorial_01.html"
   link: "<a href='../mydoc_tutorial_01.html'>Slides</a>"
