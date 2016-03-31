@@ -5,9 +5,9 @@ last_updated: 29-Mar-16
 
 ## What are Git and GitHub?
 
-+ Git/GitHub: Version Control System and Social Coding
-+ Git is a distributed version control system similar to SVN.
-+ GitHub is an online social coding service based on Git. 
++ Git is a distributed version control system similar to SVN
++ GitHub is an online social coding service based on Git 
++ Combined Git/GitHub: environment for version control and social coding
 
 ## Installing Git
 + [Install](http://git-scm.com/book/en/Getting-Started-Installing-Git) on Windows, OS X and Linux
