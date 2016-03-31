@@ -7,7 +7,7 @@ last_updated: 07-Mar-16
 
 This is an easy warm-up homework exposing students to a variety of online databases and software tools.
 
-1. Go to [http://www.ncbi.nlm.nih.gov](href{http://www.ncbi.nlm.nih.gov), select protein DB, run query: `P450 & hydroxylase & human [organism]`, select under _Source_ databases UniProtKB/Swiss-Prot 
+1. Go to [http://www.ncbi.nlm.nih.gov](http://www.ncbi.nlm.nih.gov), select protein DB, run query: `P450 & hydroxylase & human [organism]`, select under _Source_ databases UniProtKB/Swiss-Prot 
 
     1. Report final query syntax from _Details_ page. 
 
