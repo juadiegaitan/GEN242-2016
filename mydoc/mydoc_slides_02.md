@@ -1,5 +1,5 @@
 ---
-title: Molecular Biology Essentials for Bioinformatics
+title: Molecular Biology Essentials
 last_updated: 22-Mar-16
 ---
 
