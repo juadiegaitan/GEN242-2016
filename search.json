@@ -33,7 +33,7 @@
 "title": "Homework 1 - HW1",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_01.html",
+"url": "../mydoc/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -44,7 +44,29 @@
 "title": "Homework 1 - HW1",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_01.html",
+"url": "../vignettes/06_Homework/mydoc_homework_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Homework 2 - HW2",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Homework 2 - HW2",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -77,7 +99,7 @@
 "title": "Project 1",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/07_Projects/mydoc_project_01.html",
+"url": "../mydoc/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -88,7 +110,7 @@
 "title": "Project 1",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_01.html",
+"url": "../vignettes/07_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -198,7 +220,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_syllabus.html",
+"url": "../vignettes/01_Home/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -209,7 +231,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/mydoc_syllabus.html",
+"url": "../mydoc/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -217,7 +239,7 @@
 
 
 {
-"title": "Tutorial 1",
+"title": "Tutorial 1 - Introduction to Biocluster",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_tutorial_01.html",
@@ -228,7 +250,7 @@
 
 
 {
-"title": "Tutorial 1",
+"title": "Tutorial 1 - Introduction to Biocluster",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
