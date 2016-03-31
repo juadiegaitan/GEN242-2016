@@ -142,4 +142,4 @@ grep pattern nonexistingfile 2 > mystderr # prints STDERR to file
 
 ## Homework Assignment (HW2)
 
-See HW2 page [here](http://127.0.0.1:4009/mydoc/mydoc_homework_02.html).
+See HW2 page [here](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_homework_02.html).
