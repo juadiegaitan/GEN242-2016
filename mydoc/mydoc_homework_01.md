@@ -14,14 +14,14 @@ This is an easy warm-up homework exposing students to a variety of online databa
 2. Save GIs from this final query to file (select GI List format under display) 
     1. Report the number of retrieved GIs.
 
-3. Retrieve the corresponding sequences through Batch-Entrez ([http://www.ncbi.nlm.nih.gov/sites/batchentrez](http://www.ncbi.nlm.nih.gov/sites/batchentrez) using GI list file as query input -> save sequences in FASTA format
+3. Retrieve the corresponding sequences through [Batch-Entrez](http://www.ncbi.nlm.nih.gov/sites/batchentrez) using GI list file as query input -> save sequences in FASTA format
 
-4. Generate multiple alignment and tree of these sequences using MultAalin [http://bioinfo.genotoul.fr/multalin](http://bioinfo.genotoul.fr/multalin)
+4. Generate multiple alignment and tree of these sequences using [MultAalin](http://bioinfo.genotoul.fr/multalin)
 
     1. Save multiple alignment and tree to file
     2. Identify putative heme binding cysteine
 
-5. Open corresponding UniProt page [http://www.uniprot.org/](http://www.uniprot.org) for first P450 sequence in your list 
+5. Open corresponding [UniProt page](http://www.uniprot.org) and search for first P450 sequence in your list.
 
     1. Compare putative heme binding cysteine with consensus pattern from Prosite database ([Syntax](\href{http://prosite.expasy.org/scanprosite/scanprosite-doc.html\#pattern\_syntax))
 	2. Report corresponding Pfam ID
