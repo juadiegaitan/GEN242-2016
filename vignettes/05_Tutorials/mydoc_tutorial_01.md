@@ -8,9 +8,9 @@ last_updated: 29-Mar-16
 + Note, this class will make heavy use of GitHub 
 + Homework assignments and course projects will be submitted to private GitHub accounts (one for each student)
 + Each student will need a personal GitHub account. They can be created [here](https://github.com/personal).
-+ GitHub provides free public repositories (unlimited number)
-+ GitHub Education also provides free private GitHub accounts for students, see [here](https://education.github.com)
-+ For beginners see quick [guide here](https://guides.github.com/activities/hello-world/)
++ GitHub provides an unlimited number of free public repositories to each user. Via GitHub Education students can sign up for free private GitHub accounts (see [here](https://education.github.com)).
++ For this class private GitHub accounts will be provided by the instructor via [GitHub Classroom](https://classroom.github.com/)
++ For beginners this [quick guide](https://guides.github.com/activities/hello-world/) may be useful
 
 ## What are Git and GitHub?
 
