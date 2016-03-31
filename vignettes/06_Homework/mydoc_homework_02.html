@@ -77,16 +77,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -161,8 +151,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -255,16 +243,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -498,47 +476,47 @@ $('#toc').on('click', 'a', function() {
 
 <p>(1) Download Halobacterium proteome and inspect it</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">wget http://biocluster.ucr.edu/~tgirke/Linux.sh <span class="c"># downloads code from this slide</span>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">wget http://biocluster.ucr.edu/~tgirke/Linux.sh <span class="c"># downloads code from this slide</span>
 wget ftp://ftp.ncbi.nih.gov/genbank/genomes/Bacteria/Halobacterium_sp_uid217/AE004437.faa
-less AE004437.faa <span class="c"># press q to quit</span></code></pre></div>
+less AE004437.faa <span class="c"># press q to quit</span></code></pre></figure>
 
 <p>(2) How many protein sequences are stored in the downloaded file?</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">grep <span class="s1">'&gt;'</span> AE004437.faa | wc
-grep <span class="s1">'^&gt;'</span> AE004437.faa --count</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">grep <span class="s1">'&gt;'</span> AE004437.faa | wc
+grep <span class="s1">'^&gt;'</span> AE004437.faa --count</code></pre></figure>
 
-<p>(3) How many proteins contain the pattern <code>WxHxxH</code> or <code>WxHxxHH</code>?</p>
+<p>(3) How many proteins contain the pattern <code class="highlighter-rouge">WxHxxH</code> or <code class="highlighter-rouge">WxHxxHH</code>?</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">egrep <span class="s1">'W.H..H{1,2}'</span> AE004437.faa --count</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">egrep <span class="s1">'W.H..H{1,2}'</span> AE004437.faa --count</code></pre></figure>
 
-<p>(4) Use <code>less</code> to find IDs for pattern matches or use <code>awk</code></p>
+<p>(4) Use <code class="highlighter-rouge">less</code> to find IDs for pattern matches or use <code class="highlighter-rouge">awk</code></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> AE004437.faa | less
-awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> AE004437.faa | grep <span class="s1">'^&gt;'</span> | cut -c 2- | cut -f 1 -d<span class="se">\ </span>&gt; myIDs</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> AE004437.faa | less
+awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> AE004437.faa | grep <span class="s1">'^&gt;'</span> | cut -c 2- | cut -f 1 -d<span class="se">\ </span>&gt; myIDs</code></pre></figure>
 
-<p>(5) Create a BLASTable database with <code>formatdb</code></p>
+<p>(5) Create a BLASTable database with <code class="highlighter-rouge">formatdb</code></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">formatdb -i AE004437.faa -p T -o</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">formatdb -i AE004437.faa -p T -o</code></pre></figure>
 
-<p>(6) Query BLASTable database by IDs stored in a file (<em>e.g.</em> <code>myIDs</code>)</p>
+<p>(6) Query BLASTable database by IDs stored in a file (<em>e.g.</em> <code class="highlighter-rouge">myIDs</code>)</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">fastacmd -d AE004437.faa -i myIDs &gt; myseq.fasta</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">fastacmd -d AE004437.faa -i myIDs &gt; myseq.fasta</code></pre></figure>
 
-<p>(7) Run BLAST search for sequences stored in <code>myseq.fasta</code></p>
+<p>(7) Run BLAST search for sequences stored in <code class="highlighter-rouge">myseq.fasta</code></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">blastall -p blastp -i myseq.fasta -d AE004437.faa -o blastp.out -e 1e-6 -v 10 -b 10
-blastall -p blastp -i myseq.fasta -d AE004437.faa -m 8 -e 1e-6 &gt; blastp.tab</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">blastall -p blastp -i myseq.fasta -d AE004437.faa -o blastp.out -e 1e-6 -v 10 -b 10
+blastall -p blastp -i myseq.fasta -d AE004437.faa -m 8 -e 1e-6 &gt; blastp.tab</code></pre></figure>
 
 <p>Additional exercise material in <a href="http://manuals.bioinformatics.ucr.edu/home/linux-basics#TOC-Exercises">Linux Manual</a></p>
 
 <h2 id="homework-assignment">Homework assignment</h2>
 
 <p>Perform above analysis on <em>Escherichia coli</em> HS uid13959: ftp.ncbi.nih.gov/genbank/genomes/Bacteria/Escherichia_coli_HS_uid13959/CP000802.faa. 
-Record result from final BLAST command (with <code>-m 8</code>) in text file.</p>
+Record result from final BLAST command (with <code class="highlighter-rouge">-m 8</code>) in text file.</p>
 
 <h2 id="homework-submission">Homework submission</h2>
 
-<p>Upload result file to your private course GitHub repository under <code>Homework/HW2/HW2.txt</code>.</p>
+<p>Upload result file to your private course GitHub repository under <code class="highlighter-rouge">Homework/HW2/HW2.txt</code>.</p>
 
 <h2 id="due-date">Due date</h2>
 

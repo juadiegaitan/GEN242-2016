@@ -8,7 +8,7 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/home.html",
+"url": "../mydoc/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
@@ -19,7 +19,7 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/home.html",
+"url": "../vignettes/01_Home/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
@@ -55,7 +55,7 @@
 "title": "Homework 2 - HW2",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
+"url": "../mydoc/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -66,7 +66,7 @@
 "title": "Homework 2 - HW2",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -121,7 +121,7 @@
 "title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/03_Schedule/mydoc_schedule.html",
+"url": "../mydoc/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -132,7 +132,7 @@
 "title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_schedule.html",
+"url": "../vignettes/03_Schedule/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -165,17 +165,6 @@
 "title": "Molecular Biology Essentials",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_02.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Molecular Biology Essentials for Bioinformatics",
-"tags": "",
-"keywords": "",
 "url": "../mydoc/mydoc_slides_02.html",
 "summary": ""
 },
@@ -184,10 +173,10 @@
 
 
 {
-"title": "Databases and Software for Genome Biology",
+"title": "Molecular Biology Essentials",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_03.html",
+"url": "../vignettes/04_Slides/mydoc_slides_02.html",
 "summary": ""
 },
 
@@ -199,6 +188,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Databases and Software for Genome Biology",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_03.html",
 "summary": ""
 },
 
@@ -220,7 +220,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/mydoc_syllabus.html",
+"url": "../mydoc/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -231,18 +231,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_syllabus.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "GitHub Introduction",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
+"url": "../vignettes/01_Home/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -261,10 +250,10 @@
 
 
 {
-"title": "Introduction to Biocluster",
+"title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -276,6 +265,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_tutorial_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to Biocluster",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
 "summary": ""
 },
 
