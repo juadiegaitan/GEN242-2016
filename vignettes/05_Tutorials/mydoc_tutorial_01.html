@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Tutorial 1 - Introduction to Biocluster  | GEN242</title>
+<title>GitHub Introduction  | GEN242</title>
 <link rel="stylesheet" type="text/css" href="../css/syntax.css">
 <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
@@ -68,6 +68,16 @@
                 <!-- entries without drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -151,11 +161,13 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
 var subject= "GEN242 feedback";
-var body = "I have some feedback about the Tutorial 1 - Introduction to Biocluster page: ";
+var body = "I have some feedback about the GitHub Introduction page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:?subject=";
@@ -182,7 +194,7 @@ window.location.href = uri;
                             searchInput: document.getElementById('search-input'),
                             resultsContainer: document.getElementById('results-container'),
                             dataSource: '../search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="Tutorial 1 - Introduction to Biocluster">{title}</a></li>',
+                            searchResultTemplate: '<li><a href="{url}" title="GitHub Introduction">{title}</a></li>',
                         noResultsText: 'No results found.',
                                 limit: 10,
                                 fuzzy: true,
@@ -243,6 +255,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -358,7 +380,16 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_tutorial_01.html">Tutorial 1</a></li>
+                    <li><a href="../mydoc/mydoc_tutorial_01.html">GitHub</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_02.html">Biocluster</a></li>
                     
 
                     
@@ -428,7 +459,7 @@ window.location.href = uri;
             <div class="col-md-9">
                 
                 <div class="post-header">
-   <h1 class="post-title-main">Tutorial 1 - Introduction to Biocluster</h1>
+   <h1 class="post-title-main">GitHub Introduction</h1>
 </div>
 
 <div class="post-content">
@@ -463,147 +494,105 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<h2 id="hardware-infrastructure">Hardware Infrastructure</h2>
-
-<h3 id="compute-nodes">Compute nodes</h3>
+<h2 id="what-are-git-and-github">What are Git and GitHub?</h2>
 
 <ul>
-  <li>Over 3,000 CPU cores</li>
-  <li>50 batch compute nodes, each with 64 CPU cores and 512GB RAM</li>
-  <li>4 high-memory nodes, each 32 CPU cores and 1024GB RAM</li>
-  <li>4 GPU nodes, each with 10,000 cuda cores</li>
+  <li>Git/GitHub: Version Control System and Social Coding</li>
+  <li>Git is a distributed version control system similar to SVN.</li>
+  <li>GitHub is an online social coding service based on Git.</li>
 </ul>
 
-<h3 id="interconnect">Interconnect</h3>
+<h2 id="installing-git">Installing Git</h2>
 <ul>
-  <li>FDR IB @56Gbs</li>
+  <li><a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Install</a> on Windows, OS X and Linux</li>
+  <li>When using it from RStudio, it needs to find the Git executable</li>
 </ul>
 
-<h3 id="storage">Storage</h3>
+<h2 id="git-basics-from-command-line">Git Basics from Command-Line</h2>
 
 <ul>
-  <li>Parallel GPFS storage system with 1.2PB usable space</li>
-  <li>Backup of same architecture and similar amount</li>
+  <li>Finding help from command-line</li>
 </ul>
 
-<h3 id="user-traffic">User traffic</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git &lt;<span class="nb">command</span>&gt; --help</code></pre></div>
 
 <ul>
-  <li>Compute tasks need to be submitted via <code class="highlighter-rouge">qsub</code></li>
-  <li>Biocluster headnode only for login, not for compute tasks!</li>
-  <li>Monitor cluster activity: <code class="highlighter-rouge">qstat</code> or <code class="highlighter-rouge">qstatMonitor</code></li>
+  <li>Initialize a directory as a Git repository</li>
 </ul>
 
-<h3 id="manuals">Manuals</h3>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git init</code></pre></div>
 
 <ul>
-  <li><a href="http://manuals.bioinformatics.ucr.edu/home/hpc">Biocluster Manual</a></li>
-  <li><a href="http://manuals.bioinformatics.ucr.edu/home/linux-basics#TOC-Exercises">Linux Manual</a></li>
+  <li>Add files to Git repository (staging area)</li>
 </ul>
 
-<h2 id="log-into-biocluster">Log into Biocluster</h2>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git add myfile</code></pre></div>
+
+<p>After editing file(s) in your repos, record a snapshot of the staging area</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git commit -am <span class="s2">"some edits"</span></code></pre></div>
+
+<h2 id="github-basics-from-command-line">GitHub Basics from Command-Line</h2>
 
 <ul>
-  <li>Login command on OS X or Linux</li>
+  <li>Generate a new remote repository</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ssh -X user@biocluster.ucr.edu</code></pre></figure>
-
-<p>Type password</p>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git remote add origin https://github.com/tgirke/myrepos.git</code></pre></div>
 
 <ul>
+  <li>Push updates to remote. Next time one can just use <code>git push</code></li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git push -u origin master</code></pre></div>
+
+<ul>
+  <li>Clone existing remote repository</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone git@github.com:tgirke/myrepos.git</code></pre></div>
+
+<ul>
+  <li>Before working on project, update local git repos</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git pull</code></pre></div>
+
+<ul>
+  <li>Make changes and recommit local to remote</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">git commit -am <span class="s2">"some edits"</span>; git push -u origin master</code></pre></div>
+
+<h2 id="using-github-from-rstudio">Using GitHub from RStudio</h2>
+<ul>
+  <li>After installing Git, set path to Git executable in Rstudio:
+    <ul>
+      <li>Tools <code>&gt;</code> Global Options <code>&gt;</code> Git/SVN</li>
+    </ul>
+  </li>
   <li>
-    <p>Windows: provide same information in <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a></p>
-
+    <p>If needed, login to GitHub account and create repository. Use option <code>Initialize this repository with a README</code>.</p>
+  </li>
+  <li>Clone repository by copying \&amp; pasting URL from repository into RStudio’s ‘Clone Git Repository’ window:
     <ul>
-      <li>Host name: <code class="highlighter-rouge">biocluster.ucr.edu</code></li>
-      <li>User name: …</li>
-      <li>Password: …</li>
+      <li>File <code>&gt;</code> New Project <code>&gt;</code> Version Control <code>&gt;</code> Git <code>&gt;</code> Provide URL</li>
     </ul>
   </li>
-</ul>
-
-<h2 id="important-linux-commands">Important Linux Commands</h2>
-
-<p>Finding help</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">man &lt;program_name&gt;</code></pre></figure>
-
-<p>List content of current directory</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ls</code></pre></figure>
-
-<p>Print current working directory</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">pwd</span></code></pre></figure>
-
-<p>Search in files and directories</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">grep</code></pre></figure>
-
-<p>Word count</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">wc</code></pre></figure>
-
-<p>Create directory</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">mkdir</code></pre></figure>
-
-<p>Delete files and directories</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">rm</code></pre></figure>
-
-<p>Move and rename files</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">mv</code></pre></figure>
-
-<p>Copy files from internet to <code class="highlighter-rouge">pwd</code></p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">wget</code></pre></figure>
-
-<p>Viewing files</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">less</code></pre></figure>
-
-<p>Powerful text/code editors</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">vim or emacs</code></pre></figure>
-
-<p>Less sophisticated text editors</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">pico or nano</code></pre></figure>
-
-<h2 id="file-exchange">File Exchange</h2>
-
-<ul>
-  <li>GUI applications
+  <li>Now do some work (<em>e.g.</em> add an R script), commit and push changes as follows:
     <ul>
-      <li>Windows: <a href="http://winscp.net/eng/index.php">WinSCP</a></li>
-      <li>Mac OS X: <a href="http://cyberduck.en.softonic.com/mac">CyberDuck</a></li>
-      <li>Win/OS X/Linux: <a href="https://filezilla-project.org/">FileZilla</a></li>
+      <li>Tools <code>&gt;</code> Version Control <code>&gt;</code> Commit</li>
     </ul>
   </li>
-  <li>SCP command line tool</li>
+  <li>
+    <p>Check files in staging area and press <code>Commit Button</code></p>
+  </li>
+  <li>
+    <p>To commit changes to GitHub, press <code>Push Button</code></p>
+  </li>
+  <li>Shortcuts to automate above routines are <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">here</a></li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">scp file user@remotehost:/home/user/ <span class="c"># From local to remote </span>
-scp user@remotehost:/home/user/file . <span class="c"># From remote to local </span></code></pre></figure>
-
-<h2 id="std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</h2>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">file.<span class="k">*</span>                        <span class="c"># * wildcard to specify many files</span>
-ls &gt; file                     <span class="c"># prints ls output into specified file</span>
-<span class="nb">command</span> &lt; myfile              <span class="c"># uses file after '&lt;' as STDIN</span>
-<span class="nb">command</span> &gt;&gt; myfile             <span class="c"># appends output of one command to file</span>
-<span class="nb">command</span> | tee myfile          <span class="c"># writes STDOUT to file and prints it to screen</span>
-<span class="nb">command</span> &gt; myfile; cat myfile  <span class="c"># writes STDOUT to file and prints it to screen</span>
-<span class="nb">command</span> &gt; /dev/null           <span class="c"># turns off progress info </span>
-grep pattern file | wc        <span class="c"># Pipes (|) output of 'grep' into 'wc'</span>
-grep pattern nonexistingfile 2 &gt; mystderr <span class="c"># prints STDERR to file</span></code></pre></figure>
-
-<h2 id="homework-assignment-hw2">Homework Assignment (HW2)</h2>
-
-<p>See HW2 page <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_homework_02.html">here</a>.</p>
 
 
 <div class="tags">
@@ -620,7 +609,7 @@ grep pattern nonexistingfile 2 &gt; mystderr <span class="c"># prints STDERR to 
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> 29-Mar-16<br/> Site last generated: Mar 30, 2016 <br />
+<p>Page last updated:</span> 29-Mar-16<br/> Site last generated: Mar 31, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
