@@ -19,11 +19,11 @@ This is an easy warm-up homework exposing students to a variety of online databa
 4. Generate multiple alignment and tree of these sequences using [MultAalin](http://bioinfo.genotoul.fr/multalin)
 
     1. Save multiple alignment and tree to file
-    2. Identify putative heme binding cysteine
+    2. Identify putative heme binding cysteine in multiple alignment
 
 5. Open corresponding [UniProt page](http://www.uniprot.org) and search for first P450 sequence in your list.
 
-    1. Compare putative heme binding cysteine with consensus pattern from Prosite database ([Syntax](\href{http://prosite.expasy.org/scanprosite/scanprosite-doc.html\#pattern\_syntax))
+    1. Compare putative heme binding cysteine with consensus pattern from Prosite database ([Syntax](http://prosite.expasy.org/scanprosite/scanprosite_doc.html#mo_motifs))
 	2. Report corresponding Pfam ID
 	3. How many mouse (Mus musculus) sequences are in this family (use species tree from Pfam db)
 
