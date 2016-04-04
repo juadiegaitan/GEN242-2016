@@ -34,11 +34,6 @@ mydoc_classes:
   link: "<a href='../mydoc_slides_03.html'>Databases and Software</a>"
 
 mydoc_classes:
-  title: "DNA Sequencing Technologies"
-  url: "../mydoc_slides_04.html"
-  link: "<a href='../mydoc_slides_04.html'>DNA Sequencing Technologies</a>"
-
-mydoc_classes:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
   link: "<a href='../mydoc_tutorial_01.html'>GitHub</a>"
