@@ -148,7 +148,7 @@ entries:
     output: web
     items:
 
-    - title: Homework 1
+    - title: HW1 - Online
       url: /mydoc/mydoc_homework_01.html
       audience: writers, designers
       platform: all
@@ -156,7 +156,7 @@ entries:
       version: all
       output: web
     
-    - title: Homework 2
+    - title: HW2 - Biocluster
       url: /mydoc/mydoc_homework_02.html
       audience: writers, designers
       platform: all
