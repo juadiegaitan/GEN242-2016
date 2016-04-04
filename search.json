@@ -77,7 +77,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -88,19 +88,8 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Internal/mydoc_internal.html",
+"url": "../mydoc/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
-},
-
-
-
-
-{
-"title": "Project 1",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/07_Projects/mydoc_project_01.html",
-"summary": ""
 },
 
 
@@ -118,10 +107,10 @@
 
 
 {
-"title": "Course Schedule",
+"title": "Project 1",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_schedule.html",
+"url": "../vignettes/07_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -133,6 +122,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/03_Schedule/mydoc_schedule.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Course Schedule",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -165,7 +165,7 @@
 "title": "Molecular Biology Essentials",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_02.html",
+"url": "../vignettes/04_Slides/mydoc_slides_02.html",
 "summary": ""
 },
 
@@ -176,7 +176,7 @@
 "title": "Molecular Biology Essentials",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_02.html",
+"url": "../mydoc/mydoc_slides_02.html",
 "summary": ""
 },
 
@@ -199,6 +199,28 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "DNA Sequencing Technologies",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_04.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "DNA Sequencing Technologies",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_04.html",
 "summary": ""
 },
 
@@ -264,7 +286,7 @@
 "title": "Introduction to Biocluster",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_tutorial_02.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
 "summary": ""
 },
 
@@ -275,7 +297,7 @@
 "title": "Introduction to Biocluster",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
+"url": "../mydoc/mydoc_tutorial_02.html",
 "summary": ""
 },
 
