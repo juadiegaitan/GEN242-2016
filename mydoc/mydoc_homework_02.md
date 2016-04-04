@@ -1,5 +1,5 @@
 ---
-title: Homework 2 - HW2
+title: HW2 - Introduction to Biocluster and Linux
 last_updated: 07-Mar-16
 ---
 

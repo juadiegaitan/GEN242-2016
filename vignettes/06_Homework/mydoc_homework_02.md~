@@ -1,5 +1,5 @@
 ---
-title: Homework 2 - HW2
+title: HW2 - Introduction to Biocluster
 last_updated: 07-Mar-16
 ---
 
@@ -11,7 +11,7 @@ wget http://biocluster.ucr.edu/~tgirke/Linux.sh # downloads code from this slide
 module load ncbi-blast/2.2.26
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/archaea/Halobacterium_salinarum/representative/GCA_000069025.1_ASM6902v1/GCA_000069025.1_ASM6902v1_protein.faa.gz
 gunzip GCA_000069025.1_ASM6902v1_protein.faa.gz
-mv GCA_69026.1_ASM6902v1_protein.faa halobacterium.faa
+mv GCA_000069025.1_ASM6902v1_protein.faa halobacterium.faa
 less halobacterium.faa # press q to quit
 {% endhighlight %}
 
