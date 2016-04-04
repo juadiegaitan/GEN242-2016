@@ -30,7 +30,7 @@
 
 
 {
-"title": "Homework 1 - HW1",
+"title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/06_Homework/mydoc_homework_01.html",
@@ -41,7 +41,7 @@
 
 
 {
-"title": "Homework 1 - HW1",
+"title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_homework_01.html",
@@ -52,7 +52,7 @@
 
 
 {
-"title": "Homework 2 - HW2",
+"title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/06_Homework/mydoc_homework_02.html",
@@ -63,7 +63,7 @@
 
 
 {
-"title": "Homework 2 - HW2",
+"title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_homework_02.html",
@@ -77,7 +77,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Internal/mydoc_internal.html",
+"url": "../mydoc/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -88,7 +88,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -121,7 +121,7 @@
 "title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/03_Schedule/mydoc_schedule.html",
+"url": "../mydoc/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -132,18 +132,7 @@
 "title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_schedule.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Course Introduction",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_01.html",
+"url": "../vignettes/03_Schedule/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -162,10 +151,10 @@
 
 
 {
-"title": "Molecular Biology Essentials",
+"title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_02.html",
+"url": "../vignettes/04_Slides/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -177,6 +166,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Molecular Biology Essentials",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_02.html",
 "summary": ""
 },
 
@@ -242,7 +242,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
+"url": "../mydoc/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -253,18 +253,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_tutorial_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Introduction to Biocluster",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -276,6 +265,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_tutorial_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to Biocluster",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
 "summary": ""
 },
 
