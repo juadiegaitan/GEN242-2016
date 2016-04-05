@@ -51,9 +51,7 @@ git commit -am "some edits"
 
 ## GitHub Basics from Command-Line
 
-+ Generate a new remote repository 
-
-If the following doesn't work then create the repository on the GitHub site.
++ Generate a new remote repository. Alternatively, create the repository online on the GitHub site.
 
 {% highlight sh %}
 git remote add origin https://github.com/tgirke/myrepos.git
