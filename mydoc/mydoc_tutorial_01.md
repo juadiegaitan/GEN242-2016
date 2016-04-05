@@ -53,6 +53,8 @@ git commit -am "some edits"
 
 + Generate a new remote repository 
 
+If the following doesn't work then create the repository on the GitHub site.
+
 {% highlight sh %}
 git remote add origin https://github.com/tgirke/myrepos.git
 {% endhighlight %}
@@ -66,7 +68,7 @@ git push -u origin master
 + Clone existing remote repository
     
 {% highlight sh %}
-git clone git@github.com:tgirke/myrepos.git
+git clone git@github.com:<user_name>/<repos_name>.git
 {% endhighlight %}
 
 + Before working on project, update local git repos 
