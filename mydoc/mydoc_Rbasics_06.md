@@ -1,10 +1,12 @@
 ---
 title: Data Types 
 keywords: 
-last_updated: Wed Apr  6 21:12:24 2016
+last_updated: Thu Apr  7 06:48:52 2016
 ---
 
-__Numeric data__: `1, 2, 3, ...`
+## Numeric data
+
+Example: `1, 2, 3, ...`
 
 
 {% highlight r %}
@@ -32,7 +34,9 @@ as.character(x)
 ## [1] "1" "2" "3"
 {% endhighlight %}
 
-__Character data__: `"a", "b", "c", ...`
+## Character data
+
+Example: `"a", "b", "c", ...`
 
 
 {% highlight r %}
@@ -60,7 +64,9 @@ as.numeric(x)
 ## [1] 1 2 3
 {% endhighlight %}
 
-__Complex data__: mix of both
+## Complex data
+
+Example: mix of both
 
 
 {% highlight r %}
@@ -71,7 +77,9 @@ c(1, "b", 3)
 ## [1] "1" "b" "3"
 {% endhighlight %}
 
-__Logical data__: `TRUE` of `FALSE`
+## Logical data
+
+Example: `TRUE` of `FALSE`
 
 
 {% highlight r %}

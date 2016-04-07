@@ -104,17 +104,22 @@ mydoc_Rbasics_07:
   link: "<a href='../mydoc/mydoc_Rbasics_07.html'>Data objects</a>"
 
 mydoc_Rbasics_08:
-  title: "Graphics example"
+  title: "Important Utilities"
   url: "../mydoc/mydoc_Rbasics_08.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_08.html'>Graphics example</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_08.html'>Important Utilities</a>"
 
 mydoc_Rbasics_09:
-  title: "Session Info"
+  title: "Graphics example"
   url: "../mydoc/mydoc_Rbasics_09.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_09.html'>Session Info</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_09.html'>Graphics example</a>"
 
 mydoc_Rbasics_10:
-  title: "References"
+  title: "Session Info"
   url: "../mydoc/mydoc_Rbasics_10.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_10.html'>References</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_10.html'>Session Info</a>"
+
+mydoc_Rbasics_11:
+  title: "References"
+  url: "../mydoc/mydoc_Rbasics_11.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>References</a>"
 

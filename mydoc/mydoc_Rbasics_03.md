@@ -1,14 +1,14 @@
 ---
 title: Installation of R and Add-on Packages
 keywords: 
-last_updated: Wed Apr  6 21:12:24 2016
+last_updated: Thu Apr  7 06:48:52 2016
 ---
 
-1. Install R for your operating system from [CRAN](http://cran.at.r-project.org/).
+(1.) Install R for your operating system from [CRAN](http://cran.at.r-project.org/).
 
-2. Install RStudio from [RStudio](http://www.rstudio.com/ide/download).
+(2.) Install RStudio from [RStudio](http://www.rstudio.com/ide/download).
 
-3. Install CRAN Packages from R console like this:
+(3.) Install CRAN Packages from R console like this:
 
 
 {% highlight r %}
@@ -16,7 +16,7 @@ install.packages(c("pkg1", "pkg2"))
 install.packages("pkg.zip", repos=NULL)
 {% endhighlight %}
 
-4. Install Bioconductor packages as follows:
+(4.) Install Bioconductor packages as follows:
 
 
 {% highlight r %}
@@ -27,6 +27,6 @@ biocLite()
 biocLite(c("pkg1", "pkg2"))
 {% endhighlight %}
 
-5. For more details consult the [Bioc Install page](http://www.bioconductor.org/install/)
+(5.) For more details consult the [Bioc Install page](http://www.bioconductor.org/install/)
 and [BiocInstaller](http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html) package.
 

@@ -1,7 +1,7 @@
 ---
 title: "Introduction_to_R" 
 author: "Author: Thomas Girke"
-date: "Last update: 06 April, 2016" 
+date: "Last update: 07 April, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -111,11 +111,11 @@ Terminal-based Working Environment for R: [Vim-R-Tmux](http://manuals.bioinforma
 
 # Installation of R and Add-on Packages
 
-1. Install R for your operating system from [CRAN](http://cran.at.r-project.org/).
+(1.) Install R for your operating system from [CRAN](http://cran.at.r-project.org/).
 
-2. Install RStudio from [RStudio](http://www.rstudio.com/ide/download).
+(2.) Install RStudio from [RStudio](http://www.rstudio.com/ide/download).
 
-3. Install CRAN Packages from R console like this:
+(3.) Install CRAN Packages from R console like this:
 
 
 ```r
@@ -123,7 +123,7 @@ install.packages(c("pkg1", "pkg2"))
 install.packages("pkg.zip", repos=NULL)
 ```
 
-4. Install Bioconductor packages as follows:
+(4.) Install Bioconductor packages as follows:
 
 
 ```r
@@ -134,7 +134,7 @@ biocLite()
 biocLite(c("pkg1", "pkg2"))
 ```
 
-5. For more details consult the [Bioc Install page](http://www.bioconductor.org/install/)
+(5.) For more details consult the [Bioc Install page](http://www.bioconductor.org/install/)
 and [BiocInstaller](http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html) package.
 
 # Getting Around
@@ -256,7 +256,9 @@ $ R --slave < my_script.R
 
 # Data Types 
 
-__Numeric data__: `1, 2, 3, ...`
+## Numeric data
+
+Example: `1, 2, 3, ...`
 
 
 ```r
@@ -284,7 +286,9 @@ as.character(x)
 ## [1] "1" "2" "3"
 ```
 
-__Character data__: `"a", "b", "c", ...`
+## Character data
+
+Example: `"a", "b", "c", ...`
 
 
 ```r
@@ -312,7 +316,9 @@ as.numeric(x)
 ## [1] 1 2 3
 ```
 
-__Complex data__: mix of both
+## Complex data
+
+Example: mix of both
 
 
 ```r
@@ -323,7 +329,9 @@ c(1, "b", 3)
 ## [1] "1" "b" "3"
 ```
 
-__Logical data__: `TRUE` of `FALSE`
+## Logical data
+
+Example: `TRUE` of `FALSE`
 
 
 ```r
@@ -355,7 +363,9 @@ which(x) # Returns index for the 'TRUE' values in logical vector
 
 ## Object types
 
-__Vectors (1D)__: `numeric` or `character`
+## Vectors (1D)
+
+Example: `numeric` or `character`
 
 
 ```r
@@ -386,7 +396,9 @@ myVec[c("b", "d", "f")]
 ## 2 4 6
 ```
 
-__Factors (1D)__: vectors with grouping information
+## Factors (1D)
+
+Example: vectors with grouping information
 
 
 ```r
@@ -398,7 +410,9 @@ factor(c("dog", "cat", "mouse", "dog", "dog", "cat"))
 ## Levels: cat dog mouse
 ```
 
-__Matrices (2D)__: two dimensional structures with data of same type
+## Matrices (2D)
+
+Example: two dimensional structures with data of same type
 
 
 ```r
@@ -429,7 +443,9 @@ myMA[1, , drop=FALSE]
 ## [1,]    1    2    3    4    5    6    7    8    9    10
 ```
 
-__Data Frames (2D)__: two dimensional objects with data of variable types
+## Data Frames (2D)
+
+Example: two dimensional objects with data of variable types
 
 
 ```r
@@ -443,10 +459,14 @@ myDF[1:2, ]
 ## 2    2    9
 ```
 
-__Arrays__: data structure with one, two or more dimensions
+## Arrays
+
+Example: data structure with one, two or more dimensions
 
 
-__Lists__: containers for any object type
+## Lists
+
+Example: containers for any object type
 
 
 ```r
@@ -476,7 +496,9 @@ myL[[4]][1:2]
 ## [1] 4 7
 ```
 
-__Functions__: piece of code
+## Functions
+
+Example: piece of code
 
 
 ```r
@@ -487,7 +509,7 @@ myfct <- function(arg1, arg2, ...) {
 
 ## Subsetting of data objects
 
-__Subsetting by positive or negative index/position numbers__
+__(1.) Subsetting by positive or negative index/position numbers__
 
 
 ```r
@@ -500,7 +522,7 @@ myVec[1:4]
 ## 1 2 3 4
 ```
 
-__Subsetting by same length logical vectors__
+__(2.) Subsetting by same length logical vectors__
 
 
 ```r
@@ -513,7 +535,7 @@ myVec[myLog]
 ## 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
 ```
 
-__Subsetting by field names__
+__(3.) Subsetting by field names__
 
 
 ```r
@@ -525,7 +547,7 @@ myVec[c("B", "K", "M")]
 ##  2 11 13
 ```
 
-__Subset with `$` sign__: references a single column or list component by its name 
+__(4.) Subset with `$` sign__: references a single column or list component by its name 
 
 
 ```r
@@ -536,6 +558,130 @@ iris$Species[1:8]
 ## [1] setosa setosa setosa setosa setosa setosa setosa setosa
 ## Levels: setosa versicolor virginica
 ```
+
+# Important Utilities
+	
+## Combining Objects
+
+The `c` function combines vectors and lists
+
+
+```r
+c(1, 2, 3)
+```
+
+```
+## [1] 1 2 3
+```
+
+```r
+x <- 1:3; y <- 101:103
+c(x, y)
+```
+
+```
+## [1]   1   2   3 101 102 103
+```
+
+```r
+iris$Species[1:8]
+```
+
+```
+## [1] setosa setosa setosa setosa setosa setosa setosa setosa
+## Levels: setosa versicolor virginica
+```
+
+The `cbind` and `rbind` functions can be used to append columns and rows, respecively.
+
+```r
+ma <- cbind(x, y)
+ma
+```
+
+```
+##      x   y
+## [1,] 1 101
+## [2,] 2 102
+## [3,] 3 103
+```
+
+```r
+rbind(ma, ma)
+```
+
+```
+##      x   y
+## [1,] 1 101
+## [2,] 2 102
+## [3,] 3 103
+## [4,] 1 101
+## [5,] 2 102
+## [6,] 3 103
+```
+
+## Accessing Dimensions of Objects
+
+Length and dimension information of objects
+
+
+```r
+length(iris$Species)
+```
+
+```
+## [1] 150
+```
+
+```r
+dim(iris)
+```
+
+```
+## [1] 150   5
+```
+
+## Accessing Name Slots of Objects
+
+Accessing row and column names of 2D objects
+
+```r
+rownames(iris)[1:8]
+```
+
+```
+## [1] "1" "2" "3" "4" "5" "6" "7" "8"
+```
+
+```r
+colnames(iris)
+```
+
+```
+## [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"
+```
+
+Return name field of vectors and lists
+
+```r
+names(myVec)
+```
+
+```
+##  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X"
+## [25] "Y" "Z"
+```
+
+```r
+names(myL)
+```
+
+```
+## [1] "name"        "wife"        "no.children" "child.ages"
+```
+
+
+
 
 # Graphics example
 

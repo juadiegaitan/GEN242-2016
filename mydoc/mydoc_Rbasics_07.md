@@ -1,12 +1,14 @@
 ---
 title: Data objects
 keywords: 
-last_updated: Wed Apr  6 21:12:24 2016
+last_updated: Thu Apr  7 06:48:52 2016
 ---
 
 ## Object types
 
-__Vectors (1D)__: `numeric` or `character`
+## Vectors (1D)
+
+Example: `numeric` or `character`
 
 
 {% highlight r %}
@@ -37,7 +39,9 @@ myVec[c("b", "d", "f")]
 ## 2 4 6
 {% endhighlight %}
 
-__Factors (1D)__: vectors with grouping information
+## Factors (1D)
+
+Example: vectors with grouping information
 
 
 {% highlight r %}
@@ -49,7 +53,9 @@ factor(c("dog", "cat", "mouse", "dog", "dog", "cat"))
 ## Levels: cat dog mouse
 {% endhighlight %}
 
-__Matrices (2D)__: two dimensional structures with data of same type
+## Matrices (2D)
+
+Example: two dimensional structures with data of same type
 
 
 {% highlight r %}
@@ -80,7 +86,9 @@ myMA[1, , drop=FALSE]
 ## [1,]    1    2    3    4    5    6    7    8    9    10
 {% endhighlight %}
 
-__Data Frames (2D)__: two dimensional objects with data of variable types
+## Data Frames (2D)
+
+Example: two dimensional objects with data of variable types
 
 
 {% highlight r %}
@@ -94,10 +102,14 @@ myDF[1:2, ]
 ## 2    2    9
 {% endhighlight %}
 
-__Arrays__: data structure with one, two or more dimensions
+## Arrays
+
+Example: data structure with one, two or more dimensions
 
 
-__Lists__: containers for any object type
+## Lists
+
+Example: containers for any object type
 
 
 {% highlight r %}
@@ -127,7 +139,9 @@ myL[[4]][1:2]
 ## [1] 4 7
 {% endhighlight %}
 
-__Functions__: piece of code
+## Functions
+
+Example: piece of code
 
 
 {% highlight r %}
@@ -138,7 +152,7 @@ myfct <- function(arg1, arg2, ...) {
 
 ## Subsetting of data objects
 
-__Subsetting by positive or negative index/position numbers__
+__(1.) Subsetting by positive or negative index/position numbers__
 
 
 {% highlight r %}
@@ -151,7 +165,7 @@ myVec[1:4]
 ## 1 2 3 4
 {% endhighlight %}
 
-__Subsetting by same length logical vectors__
+__(2.) Subsetting by same length logical vectors__
 
 
 {% highlight r %}
@@ -164,7 +178,7 @@ myVec[myLog]
 ## 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
 {% endhighlight %}
 
-__Subsetting by field names__
+__(3.) Subsetting by field names__
 
 
 {% highlight r %}
@@ -176,7 +190,7 @@ myVec[c("B", "K", "M")]
 ##  2 11 13
 {% endhighlight %}
 
-__Subset with `$` sign__: references a single column or list component by its name 
+__(4.) Subset with `$` sign__: references a single column or list component by its name 
 
 
 {% highlight r %}
