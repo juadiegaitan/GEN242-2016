@@ -196,7 +196,7 @@ entries:
       version: all
       output: web
   
-  - title: IntroductiontoR
+  - title: Introduction to R
     audience: writers, designers
     platform: all
     product: all

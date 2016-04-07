@@ -61,6 +61,10 @@ barplot(mMA, beside=TRUE, legend=rownames(mMA))
 {% endhighlight %}
 -->
 
+## D-H. Analysis Worflow
+
+The instructions for these homework assignments are [here](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_Rbasics_13.html).
+
 ## Homework submission
 
 Upload R script solving the homework assignemts to your private course GitHub repository under `Homework/HW3/HW3.R`.
