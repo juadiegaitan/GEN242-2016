@@ -8,6 +8,76 @@ mydoc_classes:
   url: "../mydoc_syllabus.html"
   link: "<a href='../mydoc_syllabus.html'>Syllabus - GEN242</a>"
 
+mydoc_classes:
+  title: "Internal"
+  url: "../mydoc_internal.html"
+  link: "<a href='../mydoc_internal.html'>Internal</a>"
+
+mydoc_classes:
+  title: "Course Schedule"
+  url: "../mydoc_schedule.html"
+  link: "<a href='../mydoc_schedule.html'>Course Schedule</a>"
+
+mydoc_classes:
+  title: "Course Introduction"
+  url: "../mydoc_slides_01.html"
+  link: "<a href='../mydoc_slides_01.html'>Course Introduction</a>"
+
+mydoc_classes:
+  title: "Molbiol for Bioinformatics"
+  url: "../mydoc_slides_02.html"
+  link: "<a href='../mydoc_slides_02.html'>Molbiol for Bioinformatics</a>"
+
+mydoc_classes:
+  title: "Databases and Software"
+  url: "../mydoc_slides_03.html"
+  link: "<a href='../mydoc_slides_03.html'>Databases and Software</a>"
+
+mydoc_classes:
+  title: "DNA Sequencing"
+  url: "../mydoc_slides_04.html"
+  link: "<a href='../mydoc_slides_04.html'>DNA Sequencing</a>"
+
+mydoc_classes:
+  title: "Introduction to R"
+  url: "../mydoc_slides_05.html"
+  link: "<a href='../mydoc_slides_05.html'>Introduction to R</a>"
+
+mydoc_classes:
+  title: "GitHub"
+  url: "../mydoc_tutorial_01.html"
+  link: "<a href='../mydoc_tutorial_01.html'>GitHub</a>"
+
+mydoc_classes:
+  title: "Biocluster"
+  url: "../mydoc_tutorial_02.html"
+  link: "<a href='../mydoc_tutorial_02.html'>Biocluster</a>"
+
+mydoc_classes:
+  title: "Homework 1"
+  url: "../mydoc_homework_01.html"
+  link: "<a href='../mydoc_homework_01.html'>Homework 1</a>"
+
+mydoc_classes:
+  title: "Homework 2"
+  url: "../mydoc_homework_02.html"
+  link: "<a href='../mydoc_homework_02.html'>Homework 2</a>"
+
+mydoc_classes:
+  title: "Projects"
+  url: "../mydoc_project_01.html"
+  link: "<a href='../mydoc_project_01.html'>Slides</a>"
+
+
+
+
+
+
+
+
+
+
+
 mydoc_Rbasics_01:
   title: "Overview"
   url: "../mydoc/mydoc_Rbasics_01.html"

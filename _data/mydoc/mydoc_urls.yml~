@@ -34,6 +34,16 @@ mydoc_classes:
   link: "<a href='../mydoc_slides_03.html'>Databases and Software</a>"
 
 mydoc_classes:
+  title: "DNA Sequencing"
+  url: "../mydoc_slides_04.html"
+  link: "<a href='../mydoc_slides_04.html'>DNA Sequencing</a>"
+
+mydoc_classes:
+  title: "Introduction to R"
+  url: "../mydoc_slides_05.html"
+  link: "<a href='../mydoc_slides_05.html'>Introduction to R</a>"
+
+mydoc_classes:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
   link: "<a href='../mydoc_tutorial_01.html'>GitHub</a>"
@@ -64,4 +74,57 @@ mydoc_classes:
 
 
 
+
+
+
+
+mydoc_Rbasics_01:
+  title: "Overview"
+  url: "../mydoc/mydoc_Rbasics_01.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_01.html'>Overview</a>"
+
+mydoc_Rbasics_02:
+  title: "R Package Repositories"
+  url: "../mydoc/mydoc_Rbasics_02.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_02.html'>R Package Repositories</a>"
+
+mydoc_Rbasics_03:
+  title: "Installation of R and Add-on Packages"
+  url: "../mydoc/mydoc_Rbasics_03.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_03.html'>Installation of R and Add-on Packages</a>"
+
+mydoc_Rbasics_04:
+  title: "Getting Around"
+  url: "../mydoc/mydoc_Rbasics_04.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_04.html'>Getting Around</a>"
+
+mydoc_Rbasics_05:
+  title: "Basic Syntax"
+  url: "../mydoc/mydoc_Rbasics_05.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_05.html'>Basic Syntax</a>"
+
+mydoc_Rbasics_06:
+  title: "Data Types "
+  url: "../mydoc/mydoc_Rbasics_06.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_06.html'>Data Types </a>"
+
+mydoc_Rbasics_07:
+  title: "Data objects"
+  url: "../mydoc/mydoc_Rbasics_07.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_07.html'>Data objects</a>"
+
+mydoc_Rbasics_08:
+  title: "Graphics example"
+  url: "../mydoc/mydoc_Rbasics_08.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_08.html'>Graphics example</a>"
+
+mydoc_Rbasics_09:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Rbasics_09.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_09.html'>Session Info</a>"
+
+mydoc_Rbasics_10:
+  title: "References"
+  url: "../mydoc/mydoc_Rbasics_10.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_10.html'>References</a>"
 

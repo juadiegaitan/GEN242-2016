@@ -123,25 +123,9 @@ entries:
       product: all
       version: all
       output: web
-  
-  - title: Tutorials
-    audience: writers, designers
-    platform: all
-    product: all
-    version: all
-    output: web
-    items:
-
-    - title: GitHub
-      url: /mydoc/mydoc_tutorial_01.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
     
-    - title: Biocluster
-      url: /mydoc/mydoc_tutorial_02.html
+    - title: Introduction to R
+      url: /mydoc/mydoc_slides_05.html
       audience: writers, designers
       platform: all
       product: all
@@ -187,8 +171,8 @@ entries:
       product: all
       version: all
       output: web
-
-  - title: IntroductiontoR
+    
+  - title: GitHub
     audience: writers, designers
     platform: all
     product: all
@@ -196,85 +180,30 @@ entries:
     output: web, pdf
     items:
 
-    - title: 1. Overview
-      url: /mydoc/mydoc_Rbasics_01.html
+    - title: GitHub
+      url: /mydoc/mydoc_tutorial_01.html
       audience: writers, designers
       platform: all
       product: all
       version: all
       output: web
 
-    - title: 2. R Package Repositories
-      url: /mydoc/mydoc_Rbasics_02.html
+  - title: Biocluster
+    audience: writers, designers
+    platform: all
+    product: all
+    version: all
+    output: web, pdf
+    items:
+    
+    - title: Biocluster
+      url: /mydoc/mydoc_tutorial_02.html
       audience: writers, designers
       platform: all
       product: all
       version: all
       output: web
-
-    - title: 3. Installation of R and Add-on Packages
-      url: /mydoc/mydoc_Rbasics_03.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 4. Getting Around
-      url: /mydoc/mydoc_Rbasics_04.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 5. Basic Syntax
-      url: /mydoc/mydoc_Rbasics_05.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 6. Data Types 
-      url: /mydoc/mydoc_Rbasics_06.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 7. Data objects
-      url: /mydoc/mydoc_Rbasics_07.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 8. Graphics example
-      url: /mydoc/mydoc_Rbasics_08.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 9. Session Info
-      url: /mydoc/mydoc_Rbasics_09.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 10. References
-      url: /mydoc/mydoc_Rbasics_10.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
+  
 
   - title: Introduction to R
     audience: writers, designers
