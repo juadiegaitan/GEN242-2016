@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Graphics example  | GEN242</title>
+<title>Useful R Functions  | GEN242</title>
 <link rel="stylesheet" type="text/css" href="../css/syntax.css">
 <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
@@ -167,7 +167,7 @@
 <script>
 function SendLinkByMail(href) {
 var subject= "GEN242 feedback";
-var body = "I have some feedback about the Graphics example page: ";
+var body = "I have some feedback about the Useful R Functions page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:?subject=";
@@ -194,7 +194,7 @@ window.location.href = uri;
                             searchInput: document.getElementById('search-input'),
                             resultsContainer: document.getElementById('results-container'),
                             dataSource: '../search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="Graphics example">{title}</a></li>',
+                            searchResultTemplate: '<li><a href="{url}" title="Useful R Functions">{title}</a></li>',
                         noResultsText: 'No results found.',
                                 limit: 10,
                                 fuzzy: true,
@@ -554,7 +554,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li class="active"><a href="../mydoc/mydoc_Rbasics_11.html">11. Graphics example</a></li>
+                    <li class="active"><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
                     
 
                     
@@ -563,7 +563,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Session Info</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
                     
 
                     
@@ -572,7 +572,25 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
                     
 
                     
@@ -617,7 +635,7 @@ window.location.href = uri;
             <div class="col-md-9">
                 
                 <div class="post-header">
-   <h1 class="post-title-main">Graphics example</h1>
+   <h1 class="post-title-main">Useful R Functions</h1>
 </div>
 
 <div class="post-content">
@@ -652,11 +670,66 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<p>Plotting example</p>
+<h2 id="unique-entries">Unique entries</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">barplot</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">"green"</span><span class="p">)</span></code></pre></div>
+<p>Make vector entries unique with <code>unique</code></p>
 
-<p><img src="Rbasics_files/plot_example-1.png" alt="" /></p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">length</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 35</code></pre></div>
+
+<h2 id="count-occurrences">Count occurrences</h2>
+
+<p>Count occurrences of entries with <code>table</code></p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## 
+##     setosa versicolor  virginica 
+##         50         50         50</code></pre></div>
+
+<h2 id="aggregate-data">Aggregate data</h2>
+
+<p>Compute aggregate statistics with <code>aggregate</code></p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">aggregate</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">by</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">),</span> <span class="n">FUN</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##      Group.1 Sepal.Length Sepal.Width Petal.Length Petal.Width
+## 1     setosa        5.006       3.428        1.462       0.246
+## 2 versicolor        5.936       2.770        4.260       1.326
+## 3  virginica        6.588       2.974        5.552       2.026</code></pre></div>
+
+<h2 id="intersect-data">Intersect data</h2>
+
+<p>Compute intersect between two vectors with <code>%in%</code></p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">month.name</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">c</span><span class="p">(</span><span class="s2">"May"</span><span class="p">,</span> <span class="s2">"July"</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre></div>
+
+<h2 id="merge-data-frames">Merge data frames</h2>
+
+<p>Join two data frames by common field entries with <code>merge</code> (here row names <code>by.x=0</code>). To obtain only the common rows, change <code>all=TRUE</code> to <code>all=FALSE</code>. To merge on specific columns, refer to them by their position numbers or their column names.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">frame1</span> <span class="o">&lt;-</span> <span class="n">iris</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="p">]),</span> <span class="m">30</span><span class="p">),</span> <span class="p">]</span>
+<span class="n">frame1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 3          4.7         3.2          1.3         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dim</span><span class="p">(</span><span class="n">frame1</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 30  5</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_result</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">frame1</span><span class="p">,</span> <span class="n">iris</span><span class="p">,</span> <span class="n">by.x</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">by.y</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">all</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="n">dim</span><span class="p">(</span><span class="n">my_result</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150  11</code></pre></div>
 
 
 
@@ -674,7 +747,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Thu Apr  7 10:17:06 2016<br/> Site last generated: Apr 7, 2016 <br />
+<p>Page last updated:</span> Thu Apr  7 12:39:14 2016<br/> Site last generated: Apr 7, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

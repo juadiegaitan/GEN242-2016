@@ -196,8 +196,191 @@ apply(iris[1:6,1:3], 1, mean)
 ## write.table(iris, zz, sep="\t", col.names=NA, quote=F)
 ## close(zz)
 
+## ----unique, eval=TRUE---------------------------------------------------
+length(iris$Sepal.Length)
+length(unique(iris$Sepal.Length))
+
+## ----table, eval=TRUE----------------------------------------------------
+table(iris$Species)
+
+## ----aggregate, eval=TRUE------------------------------------------------
+aggregate(iris[,1:4], by=list(iris$Species), FUN=mean, na.rm=TRUE)
+
+## ----intersect, eval=TRUE------------------------------------------------
+month.name %in% c("May", "July")
+
+## ----merge, eval=TRUE----------------------------------------------------
+frame1 <- iris[sample(1:length(iris[,1]), 30), ]
+frame1[1:2,]
+dim(frame1)
+my_result <- merge(frame1, iris, by.x = 0, by.y = 0, all = TRUE)
+dim(my_result)
+
+## ----sample_data, eval=TRUE----------------------------------------------
+set.seed(1410)
+y <- matrix(runif(30), ncol=3, dimnames=list(letters[1:10], LETTERS[1:3]))
+
+## ----basic_scatter_plot, eval=TRUE---------------------------------------
+plot(y[,1], y[,2]) 
+
+## ----pairs_scatter_plot, eval=TRUE---------------------------------------
+pairs(y) 
+
+## ----labels_scatter_plot, eval=TRUE--------------------------------------
+plot(y[,1], y[,2], pch=20, col="red", main="Symbols and Labels")
+text(y[,1]+0.03, y[,2], rownames(y))
+
+## ----row_scatter_plot, eval=TRUE-----------------------------------------
+plot(y[,1], y[,2], type="n", main="Plot of Labels")
+text(y[,1], y[,2], rownames(y)) 
+
+## ----plot_usage, eval=FALSE----------------------------------------------
+## grid(5, 5, lwd = 2)
+## op <- par(mar=c(8,8,8,8), bg="lightblue")
+## plot(y[,1], y[,2], type="p", col="red", cex.lab=1.2, cex.axis=1.2,
+##      cex.main=1.2, cex.sub=1, lwd=4, pch=20, xlab="x label",
+##      ylab="y label", main="My Main", sub="My Sub")
+## par(op)
+
+## ----plot_regression, eval=TRUE------------------------------------------
+plot(y[,1], y[,2])
+myline <- lm(y[,2]~y[,1]); abline(myline, lwd=2) 
+summary(myline) 
+
+## ----plot_regression_log, eval=TRUE--------------------------------------
+plot(y[,1], y[,2], log="xy") 
+
+## ----plot_regression_math, eval=TRUE-------------------------------------
+plot(y[,1], y[,2]); text(y[1,1], y[1,2], expression(sum(frac(1,sqrt(x^2*pi)))), cex=1.3) 
+
+## ----plot_line_single, eval=TRUE-----------------------------------------
+plot(y[,1], type="l", lwd=2, col="blue") 
+
+## ----plot_line_many, eval=TRUE-------------------------------------------
+split.screen(c(1,1)) 
+plot(y[,1], ylim=c(0,1), xlab="Measurement", ylab="Intensity", type="l", lwd=2, col=1)
+for(i in 2:length(y[1,])) { 
+	screen(1, new=FALSE)
+	plot(y[,i], ylim=c(0,1), type="l", lwd=2, col=i, xaxt="n", yaxt="n", ylab="", xlab="", main="", bty="n") 
+}
+close.screen(all=TRUE) 
+
+## ----plot_bar_simple, eval=TRUE------------------------------------------
+barplot(y[1:4,], ylim=c(0, max(y[1:4,])+0.3), beside=TRUE, legend=letters[1:4]) 
+text(labels=round(as.vector(as.matrix(y[1:4,])),2), x=seq(1.5, 13, by=1) + sort(rep(c(0,1,2), 4)), y=as.vector(as.matrix(y[1:4,]))+0.04) 
+
+## ----plot_bar_error, eval=TRUE-------------------------------------------
+bar <- barplot(m <- rowMeans(y) * 10, ylim=c(0, 10))
+stdev <- sd(t(y))
+arrows(bar, m, bar, m + stdev, length=0.15, angle = 90)
+
+## ----plot_hist, eval=TRUE------------------------------------------------
+hist(y, freq=TRUE, breaks=10)
+
+## ----plot_dens, eval=TRUE------------------------------------------------
+plot(density(y), col="red")
+
+## ----plot_pie, eval=TRUE-------------------------------------------------
+pie(y[,1], col=rainbow(length(y[,1]), start=0.1, end=0.8), clockwise=TRUE)
+legend("topright", legend=row.names(y), cex=1.3, bty="n", pch=15, pt.cex=1.8, 
+col=rainbow(length(y[,1]), start=0.1, end=0.8), ncol=1) 
+
+## ----color_palette, eval=TRUE--------------------------------------------
+palette()
+palette(rainbow(5, start=0.1, end=0.2))
+palette()
+palette("default")
+
+## ----color_grey, eval=TRUE-----------------------------------------------
+gray(seq(0.1, 1, by= 0.2))
+
+## ----color_gradient, eval=TRUE-------------------------------------------
+library(gplots)
+colorpanel(5, "darkblue", "yellow", "white")
+
+## ----save_graphics, eval=FALSE-------------------------------------------
+## pdf("test.pdf")
+## plot(1:10, 1:10)
+## dev.off()
+
+## ----save_graphics_svg, eval=FALSE---------------------------------------
+## library("RSvgDevice")
+## devSVG("test.svg")
+## plot(1:10, 1:10)
+## dev.off()
+
+## ----import_data1, eval=FALSE--------------------------------------------
+## my_mw <- read.delim(file="MolecularWeight_tair7.xls", header=T, sep="\t")
+## my_mw[1:2,]
+
+## ----import_data2, eval=FALSE--------------------------------------------
+## my_target <- read.delim(file="TargetP_analysis_tair7.xls", header=T, sep="\t")
+## my_target[1:2,]
+
+## ----import_data1b, eval=TRUE--------------------------------------------
+my_mw <- read.delim(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/MolecularWeight_tair7.xls", header=T, sep="\t") 
+my_mw[1:2,]
+
+## ----import_data2b, eval=TRUE--------------------------------------------
+my_target <- read.delim(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/TargetP_analysis_tair7.xls", header=T, sep="\t") 
+my_target[1:2,]
+
+## ----col_names_uni, eval=TRUE--------------------------------------------
+colnames(my_target)[1] <- "ID"
+colnames(my_mw)[1] <- "ID" 
+
+## ----merge_tables, eval=TRUE---------------------------------------------
+my_mw_target <- merge(my_mw, my_target, by.x="ID", by.y="ID", all.x=T)
+
+## ----merge_tables_shorten, eval=TRUE-------------------------------------
+my_mw_target2a <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all.x=T)  # To remove non-matching rows, use the argument setting 'all=F'.
+my_mw_target2 <- na.omit(my_mw_target2a) # Removes rows containing "NAs" (non-matching rows).
+
+## ----homework3D_solutions, eval=FALSE, echo=FALSE------------------------
+## my_mw_target_tmp <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all=FALSE)
+## all(my_mw_target2 == my_mw_target_tmp)
+## my_mw_target2a <- as.matrix(my_mw_target2a)
+## my_mw_target2a[is.na(my_mw_target2a)] <- 0
+## my_mw_target2a <- as.data.frame(my_mw_target2a)
+
+## ----filter_tables1, eval=TRUE-------------------------------------------
+query <- my_mw_target[my_mw_target[, 2] > 100000 & my_mw_target[, 4] == "C", ] 
+query[1:4, ]
+dim(query)
+
+## ----filter_tables2, eval=TRUE-------------------------------------------
+query2 <- my_mw_target[my_mw_target[, 2] > 4000 & my_mw_target[, 2] < 5000, ] 
+dim(query2)
+query2[order(query2[,2]),] 
+
+## ----string_sub, eval=TRUE-----------------------------------------------
+my_mw_target3 <- data.frame(loci=gsub("\\..*", "", as.character(my_mw_target[,1]), perl = TRUE), my_mw_target)
+my_mw_target3[1:3,1:8]
+
+## ----homework solution, eval=FALSE, echo=FALSE---------------------------
+## index <- my_mw_target3[,2] %in%  c("AT5G52930.1", "AT4G18950.1", "AT1G15385.1", "AT4G36500.1", "AT1G67530.1")
+## my_mw_target3[index, ]
+
+## ----calcul_1, eval=TRUE-------------------------------------------------
+mycounts <- table(my_mw_target3[,1])[my_mw_target3[,1]]
+my_mw_target4 <- cbind(my_mw_target3, Freq=mycounts[as.character(my_mw_target3[,1])]) 
+
+## ----calcul_2, eval=TRUE-------------------------------------------------
+data.frame(my_mw_target4, avg_AA_WT=(my_mw_target4[,3] / my_mw_target4[,4]))[1:2,5:11] 
+
+## ----calcul_3, eval=TRUE-------------------------------------------------
+mymean <- apply(my_mw_target4[,6:9], 1, mean)
+mystdev <- apply(my_mw_target4[,6:9], 1, sd, na.rm=TRUE)
+data.frame(my_mw_target4, mean=mymean, stdev=mystdev)[1:2,5:12] 
+
 ## ----plot_example, eval=TRUE---------------------------------------------
-barplot(1:10, col="green")
+plot(my_mw_target4[1:500,3:4], col="red")
+
+## ----export_example, eval=TRUE-------------------------------------------
+write.table(my_mw_target4, file="my_file.xls", quote=F, sep="\t", col.names = NA) 
+
+## ----source_example, eval=FALSE------------------------------------------
+## source("exerciseRbasics.R")
 
 ## ----sessionInfo---------------------------------------------------------
 sessionInfo()

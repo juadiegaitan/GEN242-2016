@@ -173,7 +173,7 @@
 
 
 {
-"title": "Graphics example",
+"title": "Useful R Functions",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_11.html",
@@ -184,7 +184,7 @@
 
 
 {
-"title": "Session Info",
+"title": "Graphics in R",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_12.html",
@@ -195,10 +195,32 @@
 
 
 {
-"title": "References",
+"title": "Analysis Routine",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_13.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Session Info",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_14.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_15.html",
 "summary": ""
 },
 
