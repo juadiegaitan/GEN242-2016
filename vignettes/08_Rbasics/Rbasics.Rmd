@@ -649,12 +649,6 @@ suppressPackageStartupMessages({
     library(ggplot2) }) 
 ```
 
-Alternative formats of this tutorial:
-[`.Rmd HTML`](http://girke.bioinformatics.ucr.edu/manuals/vignettes/Rbasics/Rbasics.html), 
-[`.Rmd Source`](http://girke.bioinformatics.ucr.edu/manuals/vignettes/Rbasics/Rbasics.Rmd), 
-[`.R Source`](http://girke.bioinformatics.ucr.edu/manuals/vignettes/Rbasics/Rbasics.R), 
-[`PDF Slides`](http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_5_8_2014/Rbasics/Introduction_into_R.pdf)
-
 # Overview
 
 ## What is R?
@@ -676,9 +670,9 @@ common operating systems.
 * Technical advantages: free, open-source, available for all OSs
 
 ## Books and Documentation
-* simpleR - Using R for Introductory Statistics (John Verzani, 2004) \href{http://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf}}
-* Bioinformatics and Computational Biology Solutions Using R and Bioconductor (Gentleman et al., 2005) \href{http://www.bioconductor.org/help/publications/books/bioinformatics-and-computational-biology-solutions/}}
-* More on this see "Finding Help" section in UCR Manual \href{http://manuals.bioinformatics.ucr.edu/home/R\_BioCondManual\#TOC-Finding-Help}}
+* simpleR - Using R for Introductory Statistics (John Verzani, 2004) - [URL](http://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf)
+* Bioinformatics and Computational Biology Solutions Using R and Bioconductor (Gentleman et al., 2005) - [URL](http://www.bioconductor.org/help/publications/books/bioinformatics-and-computational-biology-solutions/)
+* More on this see "Finding Help" section in UCR Manual - [URL](http://manuals.bioinformatics.ucr.edu/home/R\_BioCondManual\#TOC-Finding-Help)
 
 ## R Working Environments
 
@@ -714,9 +708,9 @@ Terminal-based Working Environment for R: [Vim-R-Tmux](http://manuals.bioinforma
 
 # R Package Repositories
 
-* CRAN (>8,000 packages) general data analysis \href{http://cran.at.r-project.org/}}
-* Bioconductor (>1,100 packages) bioscience data analysis \href{http://www.bioconductor.org/}}
-* Omegahat (>90 packages) programming interfaces \href{http://www.omegahat.org/}}
+* CRAN (>8,000 packages) general data analysis - [URL](http://cran.at.r-project.org/)
+* Bioconductor (>1,100 packages) bioscience data analysis - [URL](http://www.bioconductor.org/)
+* Omegahat (>90 packages) programming interfaces - [URL](https://github.com/omegahat?tab=repositories)
 
 # Installation of R and Add-on Packages
 
