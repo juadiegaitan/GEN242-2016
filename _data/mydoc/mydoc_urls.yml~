@@ -63,6 +63,11 @@ mydoc_homework_02:
   url: "../mydoc_homework_02.html"
   link: "<a href='../mydoc_homework_02.html'>Homework 2</a>"
 
+mydoc_homework_03:
+  title: "Homework 3"
+  url: "../mydoc_homework_03.html"
+  link: "<a href='../mydoc_homework_02.html'>Homework 3</a>"
+
 mydoc_project_01:
   title: "Projects"
   url: "../mydoc_project_01.html"
@@ -104,17 +109,32 @@ mydoc_Rbasics_07:
   link: "<a href='../mydoc/mydoc_Rbasics_07.html'>Data objects</a>"
 
 mydoc_Rbasics_08:
-  title: "Graphics example"
+  title: "Important Utilities"
   url: "../mydoc/mydoc_Rbasics_08.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_08.html'>Graphics example</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_08.html'>Important Utilities</a>"
 
 mydoc_Rbasics_09:
-  title: "Session Info"
+  title: "Operators and Calculations"
   url: "../mydoc/mydoc_Rbasics_09.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_09.html'>Session Info</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_09.html'>Operators and Calculations</a>"
 
 mydoc_Rbasics_10:
-  title: "References"
+  title: "Reading and Writing External Data"
   url: "../mydoc/mydoc_Rbasics_10.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_10.html'>References</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_10.html'>Reading and Writing External Data</a>"
+
+mydoc_Rbasics_11:
+  title: "Graphics example"
+  url: "../mydoc/mydoc_Rbasics_11.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>Graphics example</a>"
+
+mydoc_Rbasics_12:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Rbasics_12.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_12.html'>Session Info</a>"
+
+mydoc_Rbasics_13:
+  title: "References"
+  url: "../mydoc/mydoc_Rbasics_13.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_13.html'>References</a>"
 

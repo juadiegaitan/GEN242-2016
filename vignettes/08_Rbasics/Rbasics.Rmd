@@ -287,7 +287,7 @@ which(x) # Returns index for the 'TRUE' values in logical vector
 
 ## Vectors (1D)
 
-Example: `numeric` or `character`
+Definition: `numeric` or `character`
 
 ```{r r_vector_object, eval=TRUE}
 myVec <- 1:10; names(myVec) <- letters[1:10]  
@@ -298,7 +298,7 @@ myVec[c("b", "d", "f")]
 
 ## Factors (1D)
 
-Example: vectors with grouping information
+Definition: vectors with grouping information
 
 ```{r r_factor_object, eval=TRUE}
 factor(c("dog", "cat", "mouse", "dog", "dog", "cat"))
@@ -306,7 +306,7 @@ factor(c("dog", "cat", "mouse", "dog", "dog", "cat"))
 
 ## Matrices (2D)
 
-Example: two dimensional structures with data of same type
+Definition: two dimensional structures with data of same type
 
 ```{r r_matrix_object, eval=TRUE}
 myMA <- matrix(1:30, 3, 10, byrow = TRUE) 
@@ -317,7 +317,7 @@ myMA[1, , drop=FALSE]
 
 ## Data Frames (2D)
 
-Example: two dimensional objects with data of variable types
+Definition: two dimensional objects with data of variable types
 
 ```{r r_dataframe_object, eval=TRUE}
 myDF <- data.frame(Col1=1:10, Col2=10:1) 
@@ -326,12 +326,12 @@ myDF[1:2, ]
 
 ## Arrays
 
-Example: data structure with one, two or more dimensions
+Definition: data structure with one, two or more dimensions
 
 
 ## Lists
 
-Example: containers for any object type
+Definition: containers for any object type
 
 ```{r r_list_object, eval=TRUE}
 myL <- list(name="Fred", wife="Mary", no.children=3, child.ages=c(4,7,9)) 
@@ -341,7 +341,7 @@ myL[[4]][1:2]
 
 ## Functions
 
-Example: piece of code
+Definition: piece of code
 
 ```{r r_function_object, eval=FALSE}
 myfct <- function(arg1, arg2, ...) { 
@@ -420,7 +420,89 @@ names(myVec)
 names(myL)
 ```
 
+## Sorting Objects
 
+The function `sort` returns a vector in ascending or descending order
+```{r sort_objects, eval=TRUE}
+sort(10:1)
+```
+
+The function `order` returns a sorting index for sorting an object
+```{r order_objects, eval=TRUE}
+sortindex <- order(iris[,1], decreasing = FALSE)
+sortindex[1:12]
+iris[sortindex,][1:2,]
+sortindex <- order(-iris[,1]) # Same as decreasing=TRUE
+```
+Sorting multiple columns
+```{r order_columns, eval=TRUE}
+iris[order(iris$Sepal.Length, iris$Sepal.Width),][1:2,]
+```
+
+# Operators and Calculations
+
+## Comparison Operators
+
+Comparison operators: `==`, `!=`, `<`, `>`, `<=`, `>=`
+```{r comparison_operators, eval=TRUE}
+1==1
+```
+Logical operators: AND: `&`, OR: `|`, NOT: `!`
+```{r logical_operators, eval=TRUE}
+x <- 1:10; y <- 10:1
+x > y & x > 5
+```
+
+## Basic Calculations
+
+To look up math functions, see Function Index [here](http://cran.at.r-project.org/doc/manuals/R-intro.html\#Function-and-variable-index)
+```{r logical_calculations, eval=TRUE}
+x + y
+sum(x)
+mean(x)
+apply(iris[1:6,1:3], 1, mean) 
+```
+
+# Reading and Writing External Data
+## Import data from tabular files into R
+
+```{r read_delim, eval=FALSE}
+myDF <- read.delim("myData.xls", sep="\t")
+```
+
+## Export data from R to tabular files
+```{r write_table, eval=FALSE}
+write.table(myDF, file="myfile.xls", sep="\t", quote=FALSE, col.names=NA)
+```
+
+## Copy and paste into R
+
+On Windows/Linux systems
+```{r paste_windows, eval=FALSE}
+read.delim("clipboard") 
+```
+On Mac OS X systems
+```{r paste_osx, eval=FALSE}
+read.delim(pipe("pbpaste")) 
+```
+
+## Copy and paste from R 
+
+On Windows/Linux systems
+```{r copy_windows, eval=FALSE}
+write.table(iris, "clipboard", sep="\t", col.names=NA, quote=F) 
+```
+
+On Mac OS X systems
+```{r copy_osx, eval=FALSE}
+zz <- pipe('pbcopy', 'w')
+write.table(iris, zz, sep="\t", col.names=NA, quote=F)
+close(zz) 
+```
+
+## Homework 3A 
+
+Homework 3A: [Object Subsetting Routines and Import/Export](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_homework_03.html)
 
 
 # Graphics example

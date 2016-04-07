@@ -1,7 +1,7 @@
 ---
 title: Important Utilities
 keywords: 
-last_updated: Thu Apr  7 06:48:52 2016
+last_updated: Thu Apr  7 10:17:06 2016
 ---
 	
 ## Combining Objects
@@ -123,6 +123,51 @@ names(myL)
 ## [1] "name"        "wife"        "no.children" "child.ages"
 {% endhighlight %}
 
+## Sorting Objects
 
+The function `sort` returns a vector in ascending or descending order
 
+{% highlight r %}
+sort(10:1)
+{% endhighlight %}
+
+{% highlight txt %}
+##  [1]  1  2  3  4  5  6  7  8  9 10
+{% endhighlight %}
+
+The function `order` returns a sorting index for sorting an object
+
+{% highlight r %}
+sortindex <- order(iris[,1], decreasing = FALSE)
+sortindex[1:12]
+{% endhighlight %}
+
+{% highlight txt %}
+##  [1] 14  9 39 43 42  4  7 23 48  3 30 12
+{% endhighlight %}
+
+{% highlight r %}
+iris[sortindex,][1:2,]
+{% endhighlight %}
+
+{% highlight txt %}
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 14          4.3         3.0          1.1         0.1  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+{% endhighlight %}
+
+{% highlight r %}
+sortindex <- order(-iris[,1]) # Same as decreasing=TRUE
+{% endhighlight %}
+Sorting multiple columns
+
+{% highlight r %}
+iris[order(iris$Sepal.Length, iris$Sepal.Width),][1:2,]
+{% endhighlight %}
+
+{% highlight txt %}
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 14          4.3         3.0          1.1         0.1  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+{% endhighlight %}
 

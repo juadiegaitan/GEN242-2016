@@ -1,14 +1,14 @@
 ---
 title: Data objects
 keywords: 
-last_updated: Thu Apr  7 06:48:52 2016
+last_updated: Thu Apr  7 10:17:06 2016
 ---
 
 ## Object types
 
 ## Vectors (1D)
 
-Example: `numeric` or `character`
+Definition: `numeric` or `character`
 
 
 {% highlight r %}
@@ -41,7 +41,7 @@ myVec[c("b", "d", "f")]
 
 ## Factors (1D)
 
-Example: vectors with grouping information
+Definition: vectors with grouping information
 
 
 {% highlight r %}
@@ -55,7 +55,7 @@ factor(c("dog", "cat", "mouse", "dog", "dog", "cat"))
 
 ## Matrices (2D)
 
-Example: two dimensional structures with data of same type
+Definition: two dimensional structures with data of same type
 
 
 {% highlight r %}
@@ -88,7 +88,7 @@ myMA[1, , drop=FALSE]
 
 ## Data Frames (2D)
 
-Example: two dimensional objects with data of variable types
+Definition: two dimensional objects with data of variable types
 
 
 {% highlight r %}
@@ -104,12 +104,12 @@ myDF[1:2, ]
 
 ## Arrays
 
-Example: data structure with one, two or more dimensions
+Definition: data structure with one, two or more dimensions
 
 
 ## Lists
 
-Example: containers for any object type
+Definition: containers for any object type
 
 
 {% highlight r %}
@@ -141,7 +141,7 @@ myL[[4]][1:2]
 
 ## Functions
 
-Example: piece of code
+Definition: piece of code
 
 
 {% highlight r %}

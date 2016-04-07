@@ -365,7 +365,7 @@ which(x) # Returns index for the 'TRUE' values in logical vector
 
 ## Vectors (1D)
 
-Example: `numeric` or `character`
+Definition: `numeric` or `character`
 
 
 ```r
@@ -398,7 +398,7 @@ myVec[c("b", "d", "f")]
 
 ## Factors (1D)
 
-Example: vectors with grouping information
+Definition: vectors with grouping information
 
 
 ```r
@@ -412,7 +412,7 @@ factor(c("dog", "cat", "mouse", "dog", "dog", "cat"))
 
 ## Matrices (2D)
 
-Example: two dimensional structures with data of same type
+Definition: two dimensional structures with data of same type
 
 
 ```r
@@ -445,7 +445,7 @@ myMA[1, , drop=FALSE]
 
 ## Data Frames (2D)
 
-Example: two dimensional objects with data of variable types
+Definition: two dimensional objects with data of variable types
 
 
 ```r
@@ -461,12 +461,12 @@ myDF[1:2, ]
 
 ## Arrays
 
-Example: data structure with one, two or more dimensions
+Definition: data structure with one, two or more dimensions
 
 
 ## Lists
 
-Example: containers for any object type
+Definition: containers for any object type
 
 
 ```r
@@ -498,7 +498,7 @@ myL[[4]][1:2]
 
 ## Functions
 
-Example: piece of code
+Definition: piece of code
 
 
 ```r
@@ -680,7 +680,161 @@ names(myL)
 ## [1] "name"        "wife"        "no.children" "child.ages"
 ```
 
+## Sorting Objects
 
+The function `sort` returns a vector in ascending or descending order
+
+```r
+sort(10:1)
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10
+```
+
+The function `order` returns a sorting index for sorting an object
+
+```r
+sortindex <- order(iris[,1], decreasing = FALSE)
+sortindex[1:12]
+```
+
+```
+##  [1] 14  9 39 43 42  4  7 23 48  3 30 12
+```
+
+```r
+iris[sortindex,][1:2,]
+```
+
+```
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 14          4.3         3.0          1.1         0.1  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+```
+
+```r
+sortindex <- order(-iris[,1]) # Same as decreasing=TRUE
+```
+Sorting multiple columns
+
+```r
+iris[order(iris$Sepal.Length, iris$Sepal.Width),][1:2,]
+```
+
+```
+##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 14          4.3         3.0          1.1         0.1  setosa
+## 9           4.4         2.9          1.4         0.2  setosa
+```
+
+# Operators and Calculations
+
+## Comparison Operators
+
+Comparison operators: `==`, `!=`, `<`, `>`, `<=`, `>=`
+
+```r
+1==1
+```
+
+```
+## [1] TRUE
+```
+Logical operators: AND: `&`, OR: `|`, NOT: `!`
+
+```r
+x <- 1:10; y <- 10:1
+x > y & x > 5
+```
+
+```
+##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+```
+
+## Basic Calculations
+
+To look up math functions, see Function Index [here](http://cran.at.r-project.org/doc/manuals/R-intro.html\#Function-and-variable-index)
+
+```r
+x + y
+```
+
+```
+##  [1] 11 11 11 11 11 11 11 11 11 11
+```
+
+```r
+sum(x)
+```
+
+```
+## [1] 55
+```
+
+```r
+mean(x)
+```
+
+```
+## [1] 5.5
+```
+
+```r
+apply(iris[1:6,1:3], 1, mean) 
+```
+
+```
+##        1        2        3        4        5        6 
+## 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667
+```
+
+# Reading and Writing External Data
+## Import data from tabular files into R
+
+
+```r
+myDF <- read.delim("myData.xls", sep="\t")
+```
+
+## Export data from R to tabular files
+
+```r
+write.table(myDF, file="myfile.xls", sep="\t", quote=FALSE, col.names=NA)
+```
+
+## Copy and paste into R
+
+On Windows/Linux systems
+
+```r
+read.delim("clipboard") 
+```
+On Mac OS X systems
+
+```r
+read.delim(pipe("pbpaste")) 
+```
+
+## Copy and paste from R 
+
+On Windows/Linux systems
+
+```r
+write.table(iris, "clipboard", sep="\t", col.names=NA, quote=F) 
+```
+
+On Mac OS X systems
+
+```r
+zz <- pipe('pbcopy', 'w')
+write.table(iris, zz, sep="\t", col.names=NA, quote=F)
+close(zz) 
+```
+
+## Homework 3A 
+
+Homework 3A: [Object Subsetting Routines and Import/Export](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_homework_03.html)
 
 
 # Graphics example
