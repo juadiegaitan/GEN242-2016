@@ -26,6 +26,41 @@ irisimport <- read.delim(file="irismod.xls", sep="\t")
 {% endhighlight %}
 -->
 
+## B. Scatter Plots
+       
+- __Task 1__: Generate scatter plot for first two columns in `iris` data frame and color dots by its `Species` column.
+- __Task 2__: Use the `xlim/ylim` arguments to set limits on the x- and y-axes so that all data points are restricted to the left bottom quadrant of the plot. 
+
+Again before you start evaluate the structure of iris data set. The following commands are useful:
+
+{% highlight r %}
+class(iris)
+iris[1:4,]
+table(iris$Species)
+{% endhighlight %}
+
+<!---
+Solution
+{% highlight r %}
+plot(iris[,1], iris[,2], col=iris$Species, lwd=2, pch=19)
+plot(iris[,1], iris[,2], col=iris$Species, lwd=2, pch=19, xlim=c(4,16), ylim=c(2,8))
+{% endhighlight %}
+-->
+
+## C. Bar Plots
+        
+- __Task 1__: Calculate the mean values for the `Species` components of the first four columns in the `iris` data set. Organize the results in a matrix where the row names are the unique values from the `iris Species` column and the column names are the same as in the first four `iris` columns. 
+- __Task 2__: Generate two bar plots: one with stacked bars and one with horizontally arranged bars. 
+
+<!---
+Solution
+{% highlight r %}
+mMA <- sapply(colnames(iris[,1:4]), function(x) tapply(iris[,x], iris[,5], mean))
+barplot(mMA, beside=FALSE, legend=rownames(mMA))
+barplot(mMA, beside=TRUE, legend=rownames(mMA))
+{% endhighlight %}
+-->
+
 ## Homework submission
 
 Upload R script solving the homework assignemts to your private course GitHub repository under `Homework/HW3/HW3.R`.

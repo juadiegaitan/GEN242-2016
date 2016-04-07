@@ -124,17 +124,27 @@ mydoc_Rbasics_10:
   link: "<a href='../mydoc/mydoc_Rbasics_10.html'>Reading and Writing External Data</a>"
 
 mydoc_Rbasics_11:
-  title: "Graphics example"
+  title: "Useful R Functions"
   url: "../mydoc/mydoc_Rbasics_11.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>Graphics example</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>Useful R Functions</a>"
 
 mydoc_Rbasics_12:
-  title: "Session Info"
+  title: "Graphics in R"
   url: "../mydoc/mydoc_Rbasics_12.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_12.html'>Session Info</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_12.html'>Graphics in R</a>"
 
 mydoc_Rbasics_13:
-  title: "References"
+  title: "Analysis Routine"
   url: "../mydoc/mydoc_Rbasics_13.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_13.html'>References</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_13.html'>Analysis Routine</a>"
+
+mydoc_Rbasics_14:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Rbasics_14.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_14.html'>Session Info</a>"
+
+mydoc_Rbasics_15:
+  title: "References"
+  url: "../mydoc/mydoc_Rbasics_15.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_15.html'>References</a>"
 
