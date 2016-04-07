@@ -5,11 +5,33 @@
 
 
 {
-"title": "Introduction",
+"title": "Introduction_to_R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/home.html",
-"summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
+"url": "../vignettes/08_Rbasics/Rbasics.Rmd",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction_to_R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/08_Rbasics/Rbasics.knit.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction_to_R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/08_Rbasics/Rbasics.utf8.html",
+"summary": ""
 },
 
 
@@ -25,6 +47,127 @@
 
 
 
+
+{
+"title": "Introduction",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/01_Home/home.html",
+"summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
+},
+
+
+
+
+
+
+
+{
+"title": "IntroductiontoR",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "R Package Repositories",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Installation of R and Add-on Packages",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Getting Around",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_04.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Basic Syntax",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_05.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Data Types",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_06.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Data objects",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_07.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Graphics example",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_08.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Session Info",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_10.html",
+"summary": ""
+},
 
 
 
@@ -55,7 +198,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
+"url": "../mydoc/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -66,7 +209,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -77,7 +220,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Internal/mydoc_internal.html",
+"url": "../mydoc/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -88,7 +231,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -121,7 +264,7 @@
 "title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/03_Schedule/mydoc_schedule.html",
+"url": "../mydoc/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -132,18 +275,7 @@
 "title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_schedule.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Course Introduction",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_01.html",
+"url": "../vignettes/03_Schedule/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -155,6 +287,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Course Introduction",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -242,7 +385,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/mydoc_syllabus.html",
+"url": "../mydoc/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -253,7 +396,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_syllabus.html",
+"url": "../vignettes/01_Home/mydoc_syllabus.html",
 "summary": ""
 },
 

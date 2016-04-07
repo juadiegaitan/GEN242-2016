@@ -6,7 +6,7 @@
     <url>
       <loc>/404.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -19,9 +19,39 @@
   
     
     <url>
-      <loc>/vignettes/01_Home/home.html</loc>
+      <loc>/vignettes/08_Rbasics/Rbasics.Rmd</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>1969-12-31T16:00:00-08:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/08_Rbasics/Rbasics.knit.html</loc>
+      
+        <last_updated>2016-04-06T00:00:00-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/08_Rbasics/Rbasics.utf8.html</loc>
+      
+        <last_updated>2016-04-06T00:00:00-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -36,7 +66,22 @@
     <url>
       <loc>/mydoc/home.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/01_Home/home.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -51,7 +96,157 @@
     <url>
       <loc>/</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_01.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_02.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_03.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_04.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_05.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_06.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_07.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_08.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_09.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_Rbasics_10.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -66,7 +261,7 @@
     <url>
       <loc>/vignettes/06_Homework/mydoc_homework_01.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -81,22 +276,7 @@
     <url>
       <loc>/mydoc/mydoc_homework_01.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>/vignettes/06_Homework/mydoc_homework_02.html</loc>
-      
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -111,7 +291,7 @@
     <url>
       <loc>/mydoc/mydoc_homework_02.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -124,9 +304,9 @@
   
     
     <url>
-      <loc>/vignettes/02_Internal/mydoc_internal.html</loc>
+      <loc>/vignettes/06_Homework/mydoc_homework_02.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -141,7 +321,22 @@
     <url>
       <loc>/mydoc/mydoc_internal.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/02_Internal/mydoc_internal.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -156,7 +351,7 @@
     <url>
       <loc>/mydoc/mydoc_project_01.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -171,22 +366,7 @@
     <url>
       <loc>/vignettes/07_Projects/mydoc_project_01.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>/vignettes/03_Schedule/mydoc_schedule.html</loc>
-      
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -201,7 +381,7 @@
     <url>
       <loc>/mydoc/mydoc_schedule.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -214,9 +394,9 @@
   
     
     <url>
-      <loc>/mydoc/mydoc_slides_01.html</loc>
+      <loc>/vignettes/03_Schedule/mydoc_schedule.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -231,7 +411,22 @@
     <url>
       <loc>/vignettes/04_Slides/mydoc_slides_01.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/mydoc/mydoc_slides_01.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -246,7 +441,7 @@
     <url>
       <loc>/vignettes/04_Slides/mydoc_slides_02.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -261,7 +456,7 @@
     <url>
       <loc>/mydoc/mydoc_slides_02.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -276,7 +471,7 @@
     <url>
       <loc>/vignettes/04_Slides/mydoc_slides_03.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -291,7 +486,7 @@
     <url>
       <loc>/mydoc/mydoc_slides_03.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -306,7 +501,7 @@
     <url>
       <loc>/mydoc/mydoc_slides_04.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -321,7 +516,7 @@
     <url>
       <loc>/vignettes/04_Slides/mydoc_slides_04.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -336,22 +531,7 @@
     <url>
       <loc>/vignettes/04_Slides/mydoc_slides_tests.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>/vignettes/01_Home/mydoc_syllabus.html</loc>
-      
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -366,7 +546,22 @@
     <url>
       <loc>/mydoc/mydoc_syllabus.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>/vignettes/01_Home/mydoc_syllabus.html</loc>
+      
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -381,7 +576,7 @@
     <url>
       <loc>/mydoc/mydoc_tutorial_01.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -396,7 +591,7 @@
     <url>
       <loc>/vignettes/05_Tutorials/mydoc_tutorial_01.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -411,7 +606,7 @@
     <url>
       <loc>/vignettes/05_Tutorials/mydoc_tutorial_02.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -426,7 +621,7 @@
     <url>
       <loc>/mydoc/mydoc_tutorial_02.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -441,7 +636,7 @@
     <url>
       <loc>/prince-file-list.txt</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -456,7 +651,7 @@
     <url>
       <loc>/search.json</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -471,7 +666,7 @@
     <url>
       <loc>/sitemap.xml</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -486,7 +681,7 @@
     <url>
       <loc>/title-checker.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -501,7 +696,7 @@
     <url>
       <loc>/titlepage.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
@@ -516,7 +711,7 @@
     <url>
       <loc>/tocpage.html</loc>
       
-        <last_updated>2016-04-05T16:53:56-07:00</last_updated>
+        <last_updated>2016-04-06T17:59:07-07:00</last_updated>
       
       
         <changefreq>monthly</changefreq>
