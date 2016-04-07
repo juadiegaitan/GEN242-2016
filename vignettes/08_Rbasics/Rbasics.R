@@ -151,6 +151,51 @@ colnames(iris)
 names(myVec)
 names(myL)
 
+## ----sort_objects, eval=TRUE---------------------------------------------
+sort(10:1)
+
+## ----order_objects, eval=TRUE--------------------------------------------
+sortindex <- order(iris[,1], decreasing = FALSE)
+sortindex[1:12]
+iris[sortindex,][1:2,]
+sortindex <- order(-iris[,1]) # Same as decreasing=TRUE
+
+## ----order_columns, eval=TRUE--------------------------------------------
+iris[order(iris$Sepal.Length, iris$Sepal.Width),][1:2,]
+
+## ----comparison_operators, eval=TRUE-------------------------------------
+1==1
+
+## ----logical_operators, eval=TRUE----------------------------------------
+x <- 1:10; y <- 10:1
+x > y & x > 5
+
+## ----logical_calculations, eval=TRUE-------------------------------------
+x + y
+sum(x)
+mean(x)
+apply(iris[1:6,1:3], 1, mean) 
+
+## ----read_delim, eval=FALSE----------------------------------------------
+## myDF <- read.delim("myData.xls", sep="\t")
+
+## ----write_table, eval=FALSE---------------------------------------------
+## write.table(myDF, file="myfile.xls", sep="\t", quote=FALSE, col.names=NA)
+
+## ----paste_windows, eval=FALSE-------------------------------------------
+## read.delim("clipboard")
+
+## ----paste_osx, eval=FALSE-----------------------------------------------
+## read.delim(pipe("pbpaste"))
+
+## ----copy_windows, eval=FALSE--------------------------------------------
+## write.table(iris, "clipboard", sep="\t", col.names=NA, quote=F)
+
+## ----copy_osx, eval=FALSE------------------------------------------------
+## zz <- pipe('pbcopy', 'w')
+## write.table(iris, zz, sep="\t", col.names=NA, quote=F)
+## close(zz)
+
 ## ----plot_example, eval=TRUE---------------------------------------------
 barplot(1:10, col="green")
 

@@ -151,7 +151,7 @@
 
 
 {
-"title": "Graphics example",
+"title": "Operators and Calculations",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_09.html",
@@ -162,7 +162,7 @@
 
 
 {
-"title": "Session Info",
+"title": "Reading and Writing External Data",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_10.html",
@@ -173,10 +173,32 @@
 
 
 {
-"title": "References",
+"title": "Graphics example",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_11.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Session Info",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_12.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_13.html",
 "summary": ""
 },
 
@@ -221,6 +243,28 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_homework_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "HW3 - Introduction to R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/06_Homework/mydoc_homework_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "HW3 - Introduction to R",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_homework_03.html",
 "summary": ""
 },
 

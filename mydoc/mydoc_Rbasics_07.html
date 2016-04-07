@@ -414,6 +414,15 @@ window.location.href = uri;
 
                     
                     
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_03.html">HW3 - Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
                 </ul>
                 
                 
@@ -450,7 +459,7 @@ window.location.href = uri;
                 
                 
             
-            <li><a href="#">Introduction to R</a>
+            <li><a href="#">IntroductiontoR</a>
                 <ul>
                     
                     
@@ -527,7 +536,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Graphics example</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
                     
 
                     
@@ -536,7 +545,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Session Info</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
                     
 
                     
@@ -545,7 +554,25 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Graphics example</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. References</a></li>
                     
 
                     
@@ -629,7 +656,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="vectors-1d">Vectors (1D)</h2>
 
-<p>Example: <code>numeric</code> or <code>character</code></p>
+<p>Definition: <code>numeric</code> or <code>character</code></p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myVec</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">;</span> <span class="n">names</span><span class="p">(</span><span class="n">myVec</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">letters</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>  
 <span class="n">myVec</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]</span></code></pre></div>
@@ -649,7 +676,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="factors-1d">Factors (1D)</h2>
 
-<p>Example: vectors with grouping information</p>
+<p>Definition: vectors with grouping information</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">factor</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"mouse"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"cat"</span><span class="p">))</span></code></pre></div>
 
@@ -658,7 +685,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="matrices-2d">Matrices (2D)</h2>
 
-<p>Example: two dimensional structures with data of same type</p>
+<p>Definition: two dimensional structures with data of same type</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myMA</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">30</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">byrow</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span> 
 <span class="n">class</span><span class="p">(</span><span class="n">myMA</span><span class="p">)</span></code></pre></div>
@@ -678,7 +705,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="data-frames-2d">Data Frames (2D)</h2>
 
-<p>Example: two dimensional objects with data of variable types</p>
+<p>Definition: two dimensional objects with data of variable types</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myDF</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">Col1</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">Col2</span><span class="o">=</span><span class="m">10</span><span class="o">:</span><span class="m">1</span><span class="p">)</span> 
 <span class="n">myDF</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,</span> <span class="p">]</span></code></pre></div>
@@ -689,11 +716,11 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="arrays">Arrays</h2>
 
-<p>Example: data structure with one, two or more dimensions</p>
+<p>Definition: data structure with one, two or more dimensions</p>
 
 <h2 id="lists">Lists</h2>
 
-<p>Example: containers for any object type</p>
+<p>Definition: containers for any object type</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myL</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"Fred"</span><span class="p">,</span> <span class="n">wife</span><span class="o">=</span><span class="s2">"Mary"</span><span class="p">,</span> <span class="n">no.children</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">child.ages</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">,</span><span class="m">9</span><span class="p">))</span> 
 <span class="n">myL</span></code></pre></div>
@@ -716,7 +743,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="functions">Functions</h2>
 
-<p>Example: piece of code</p>
+<p>Definition: piece of code</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span> <span class="p">{</span> 
 	<span class="n">function_body</span> 
@@ -770,7 +797,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Thu Apr  7 06:48:52 2016<br/> Site last generated: Apr 7, 2016 <br />
+<p>Page last updated:</span> Thu Apr  7 10:17:06 2016<br/> Site last generated: Apr 7, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
