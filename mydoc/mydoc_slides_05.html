@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>GitHub Introduction  | GEN242</title>
+<title>Introduction to R  | GEN242</title>
 <link rel="stylesheet" type="text/css" href="../css/syntax.css">
 <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
@@ -167,7 +167,7 @@
 <script>
 function SendLinkByMail(href) {
 var subject= "GEN242 feedback";
-var body = "I have some feedback about the GitHub Introduction page: ";
+var body = "I have some feedback about the Introduction to R page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:?subject=";
@@ -194,7 +194,7 @@ window.location.href = uri;
                             searchInput: document.getElementById('search-input'),
                             resultsContainer: document.getElementById('results-container'),
                             dataSource: '../search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="GitHub Introduction">{title}</a></li>',
+                            searchResultTemplate: '<li><a href="{url}" title="Introduction to R">{title}</a></li>',
                         noResultsText: 'No results found.',
                                 limit: 10,
                                 fuzzy: true,
@@ -382,7 +382,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_slides_05.html">Introduction to R</a></li>
+                    <li class="active"><a href="../mydoc/mydoc_slides_05.html">Introduction to R</a></li>
                     
 
                     
@@ -581,7 +581,7 @@ window.location.href = uri;
             <div class="col-md-9">
                 
                 <div class="post-header">
-   <h1 class="post-title-main">GitHub Introduction</h1>
+   <h1 class="post-title-main">Introduction to R</h1>
 </div>
 
 <div class="post-content">
@@ -616,116 +616,7 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<h2 id="gen242-and-github">GEN242 and GitHub</h2>
-
-<ul>
-  <li>Note, this class will make heavy use of GitHub</li>
-  <li>Homework assignments and course projects will be submitted to private GitHub accounts (one for each student)</li>
-  <li>Each student will need a personal GitHub account. They can be created <a href="https://github.com/personal">here</a>.</li>
-  <li>GitHub provides an unlimited number of free public repositories to each user. Via GitHub Education students can sign up for free private GitHub accounts (see <a href="https://education.github.com">here</a>).</li>
-  <li>For this class private GitHub accounts will be provided by the instructor via <a href="https://classroom.github.com/">GitHub Classroom</a></li>
-  <li>For beginners this <a href="https://guides.github.com/activities/hello-world/">quick guide</a> may be useful</li>
-</ul>
-
-<h2 id="what-are-git-and-github">What are Git and GitHub?</h2>
-
-<ul>
-  <li>Git is a distributed version control system similar to SVN</li>
-  <li>GitHub is an online social coding service based on Git</li>
-  <li>Combined Git/GitHub: environment for version control and social coding</li>
-</ul>
-
-<h2 id="installing-git">Installing Git</h2>
-<ul>
-  <li><a href="http://git-scm.com/book/en/Getting-Started-Installing-Git">Install</a> on Windows, OS X and Linux</li>
-  <li>When using it from RStudio, it needs to find the Git executable</li>
-</ul>
-
-<h2 id="git-basics-from-command-line">Git Basics from Command-Line</h2>
-
-<ul>
-  <li>Finding help from command-line</li>
-</ul>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git &lt;<span class="nb">command</span>&gt; --help</code></pre></div>
-
-<ul>
-  <li>Initialize a directory as a Git repository</li>
-</ul>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git init</code></pre></div>
-
-<ul>
-  <li>Add files to Git repository (staging area)</li>
-</ul>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git add myfile</code></pre></div>
-
-<p>After editing file(s) in your repos, record a snapshot of the staging area</p>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git commit -am <span class="s2">"some edits"</span></code></pre></div>
-
-<h2 id="github-basics-from-command-line">GitHub Basics from Command-Line</h2>
-
-<ul>
-  <li>Generate a new remote repository. Alternatively, create the repository online on the GitHub site.</li>
-</ul>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git remote add origin https://github.com/tgirke/myrepos.git</code></pre></div>
-
-<ul>
-  <li>Push updates to remote. Next time one can just use <code>git push</code></li>
-</ul>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git push -u origin master</code></pre></div>
-
-<ul>
-  <li>Clone existing remote repository</li>
-</ul>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git clone git@github.com:&lt;user_name&gt;/&lt;repos_name&gt;.git</code></pre></div>
-
-<ul>
-  <li>Before working on project, update local git repos</li>
-</ul>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git pull</code></pre></div>
-
-<ul>
-  <li>Make changes and recommit local to remote</li>
-</ul>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">git commit -am <span class="s2">"some edits"</span>; git push -u origin master</code></pre></div>
-
-<h2 id="using-github-from-rstudio">Using GitHub from RStudio</h2>
-<ul>
-  <li>After installing Git, set path to Git executable in Rstudio:
-    <ul>
-      <li>Tools <code>&gt;</code> Global Options <code>&gt;</code> Git/SVN</li>
-    </ul>
-  </li>
-  <li>
-    <p>If needed, login to GitHub account and create repository. Use option <code>Initialize this repository with a README</code>.</p>
-  </li>
-  <li>Clone repository by copying \&amp; pasting URL from repository into RStudio’s ‘Clone Git Repository’ window:
-    <ul>
-      <li>File <code>&gt;</code> New Project <code>&gt;</code> Version Control <code>&gt;</code> Git <code>&gt;</code> Provide URL</li>
-    </ul>
-  </li>
-  <li>Now do some work (<em>e.g.</em> add an R script), commit and push changes as follows:
-    <ul>
-      <li>Tools <code>&gt;</code> Version Control <code>&gt;</code> Commit</li>
-    </ul>
-  </li>
-  <li>
-    <p>Check files in staging area and press <code>Commit Button</code></p>
-  </li>
-  <li>
-    <p>To commit changes to GitHub, press <code>Push Button</code></p>
-  </li>
-  <li>Shortcuts to automate above routines are <a href="https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts">here</a></li>
-</ul>
-
+<iframe src="https://docs.google.com/presentation/d/1HDdQNECX2ILdT2bvfd7f6jZmy4DF1aEMNh--0I4-5SY/embed?start=false&amp;loop=false&amp;delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
 <div class="tags">
@@ -742,7 +633,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> 29-Mar-16<br/> Site last generated: Apr 6, 2016 <br />
+<p>Page last updated:</span> 07-Apr-16<br/> Site last generated: Apr 6, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

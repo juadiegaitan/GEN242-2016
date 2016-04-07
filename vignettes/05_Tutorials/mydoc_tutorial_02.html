@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -151,6 +161,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -243,6 +255,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -358,25 +380,9 @@ window.location.href = uri;
 
                     
                     
-                </ul>
-                
-                
-            
-            <li><a href="#">Tutorials</a>
-                <ul>
                     
                     
-                    
-                    <li><a href="../mydoc/mydoc_tutorial_01.html">GitHub</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_tutorial_02.html">Biocluster</a></li>
+                    <li><a href="../mydoc/mydoc_slides_05.html">Introduction to R</a></li>
                     
 
                     
@@ -412,12 +418,28 @@ window.location.href = uri;
                 
                 
             
-            <li><a href="#">Projects</a>
+            <li><a href="#">GitHub</a>
                 <ul>
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_project_01.html">Project 1</a></li>
+                    <li><a href="../mydoc/mydoc_tutorial_01.html">GitHub</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Biocluster</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_02.html">Biocluster</a></li>
                     
 
                     
@@ -524,6 +546,22 @@ window.location.href = uri;
                 </ul>
                 
                 
+            
+            <li><a href="#">Projects</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_01.html">Project 1</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
                 
 
 
@@ -604,9 +642,9 @@ $('#toc').on('click', 'a', function() {
 <h3 id="user-traffic">User traffic</h3>
 
 <ul>
-  <li>Compute tasks need to be submitted via <code class="highlighter-rouge">qsub</code></li>
+  <li>Compute tasks need to be submitted via <code>qsub</code></li>
   <li>Biocluster headnode only for login, not for compute tasks!</li>
-  <li>Monitor cluster activity: <code class="highlighter-rouge">qstat</code> or <code class="highlighter-rouge">qstatMonitor</code></li>
+  <li>Monitor cluster activity: <code>qstat</code> or <code>qstatMonitor</code></li>
 </ul>
 
 <h3 id="manuals">Manuals</h3>
@@ -622,7 +660,7 @@ $('#toc').on('click', 'a', function() {
   <li>Login command on OS X or Linux</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ssh -X user@biocluster.ucr.edu</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ssh -X user@biocluster.ucr.edu</code></pre></div>
 
 <p>Type password</p>
 
@@ -631,7 +669,7 @@ $('#toc').on('click', 'a', function() {
     <p>Windows: provide same information in <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a></p>
 
     <ul>
-      <li>Host name: <code class="highlighter-rouge">biocluster.ucr.edu</code></li>
+      <li>Host name: <code>biocluster.ucr.edu</code></li>
       <li>User name: …</li>
       <li>Password: …</li>
     </ul>
@@ -642,51 +680,51 @@ $('#toc').on('click', 'a', function() {
 
 <p>Finding help</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">man &lt;program_name&gt;</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">man &lt;program_name&gt;</code></pre></div>
 
 <p>List content of current directory</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ls</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ls</code></pre></div>
 
 <p>Print current working directory</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">pwd</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">pwd</span></code></pre></div>
 
 <p>Search in files and directories</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">grep</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">grep</code></pre></div>
 
 <p>Word count</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">wc</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">wc</code></pre></div>
 
 <p>Create directory</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">mkdir</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">mkdir</code></pre></div>
 
 <p>Delete files and directories</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">rm</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">rm</code></pre></div>
 
 <p>Move and rename files</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">mv</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">mv</code></pre></div>
 
-<p>Copy files from internet to <code class="highlighter-rouge">pwd</code></p>
+<p>Copy files from internet to <code>pwd</code></p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">wget</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">wget</code></pre></div>
 
 <p>Viewing files</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">less</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">less</code></pre></div>
 
 <p>Powerful text/code editors</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">vim or emacs</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">vim or emacs</code></pre></div>
 
 <p>Less sophisticated text editors</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">pico or nano</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">pico or nano</code></pre></div>
 
 <h2 id="file-exchange">File Exchange</h2>
 
@@ -701,12 +739,12 @@ $('#toc').on('click', 'a', function() {
   <li>SCP command line tool</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">scp file user@remotehost:/home/user/ <span class="c"># From local to remote </span>
-scp user@remotehost:/home/user/file . <span class="c"># From remote to local </span></code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">scp file user@remotehost:/home/user/ <span class="c"># From local to remote </span>
+scp user@remotehost:/home/user/file . <span class="c"># From remote to local</span></code></pre></div>
 
 <h2 id="std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</h2>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">file.<span class="k">*</span>                        <span class="c"># * wildcard to specify many files</span>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">file.<span class="k">*</span>                        <span class="c"># * wildcard to specify many files</span>
 ls &gt; file                     <span class="c"># prints ls output into specified file</span>
 <span class="nb">command</span> &lt; myfile              <span class="c"># uses file after '&lt;' as STDIN</span>
 <span class="nb">command</span> &gt;&gt; myfile             <span class="c"># appends output of one command to file</span>
@@ -714,7 +752,7 @@ ls &gt; file                     <span class="c"># prints ls output into specifi
 <span class="nb">command</span> &gt; myfile; cat myfile  <span class="c"># writes STDOUT to file and prints it to screen</span>
 <span class="nb">command</span> &gt; /dev/null           <span class="c"># turns off progress info </span>
 grep pattern file | wc        <span class="c"># Pipes (|) output of 'grep' into 'wc'</span>
-grep pattern nonexistingfile 2 &gt; mystderr <span class="c"># prints STDERR to file</span></code></pre></figure>
+grep pattern nonexistingfile 2 &gt; mystderr <span class="c"># prints STDERR to file</span></code></pre></div>
 
 <h2 id="homework-assignment-hw2">Homework Assignment (HW2)</h2>
 
