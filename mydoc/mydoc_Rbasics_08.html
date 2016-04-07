@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Graphics example  | GEN242</title>
+<title>Important Utilities  | GEN242</title>
 <link rel="stylesheet" type="text/css" href="../css/syntax.css">
 <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
@@ -167,7 +167,7 @@
 <script>
 function SendLinkByMail(href) {
 var subject= "GEN242 feedback";
-var body = "I have some feedback about the Graphics example page: ";
+var body = "I have some feedback about the Important Utilities page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:?subject=";
@@ -194,7 +194,7 @@ window.location.href = uri;
                             searchInput: document.getElementById('search-input'),
                             resultsContainer: document.getElementById('results-container'),
                             dataSource: '../search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="Graphics example">{title}</a></li>',
+                            searchResultTemplate: '<li><a href="{url}" title="Important Utilities">{title}</a></li>',
                         noResultsText: 'No results found.',
                                 limit: 10,
                                 fuzzy: true,
@@ -518,7 +518,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li class="active"><a href="../mydoc/mydoc_Rbasics_08.html">8. Graphics example</a></li>
+                    <li class="active"><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
                     
 
                     
@@ -527,7 +527,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Session Info</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Graphics example</a></li>
                     
 
                     
@@ -536,7 +536,16 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. References</a></li>
                     
 
                     
@@ -581,7 +590,7 @@ window.location.href = uri;
             <div class="col-md-9">
                 
                 <div class="post-header">
-   <h1 class="post-title-main">Graphics example</h1>
+   <h1 class="post-title-main">Important Utilities</h1>
 </div>
 
 <div class="post-content">
@@ -616,11 +625,78 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<p>Plotting example</p>
+<h2 id="combining-objects">Combining Objects</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">barplot</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">"green"</span><span class="p">)</span></code></pre></div>
+<p>The <code>c</code> function combines vectors and lists</p>
 
-<p><img src="Rbasics_files/plot_example-1.png" alt="" /></p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 2 3</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="m">101</span><span class="o">:</span><span class="m">103</span>
+<span class="n">c</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1]   1   2   3 101 102 103</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] setosa setosa setosa setosa setosa setosa setosa setosa
+## Levels: setosa versicolor virginica</code></pre></div>
+
+<p>The <code>cbind</code> and <code>rbind</code> functions can be used to append columns and rows, respecively.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ma</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">ma</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##      x   y
+## [1,] 1 101
+## [2,] 2 102
+## [3,] 3 103</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">rbind</span><span class="p">(</span><span class="n">ma</span><span class="p">,</span> <span class="n">ma</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##      x   y
+## [1,] 1 101
+## [2,] 2 102
+## [3,] 3 103
+## [4,] 1 101
+## [5,] 2 102
+## [6,] 3 103</code></pre></div>
+
+<h2 id="accessing-dimensions-of-objects">Accessing Dimensions of Objects</h2>
+
+<p>Length and dimension information of objects</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">length</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dim</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150   5</code></pre></div>
+
+<h2 id="accessing-name-slots-of-objects">Accessing Name Slots of Objects</h2>
+
+<p>Accessing row and column names of 2D objects</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">rownames</span><span class="p">(</span><span class="n">iris</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "1" "2" "3" "4" "5" "6" "7" "8"</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">colnames</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"</code></pre></div>
+
+<p>Return name field of vectors and lists</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">names</span><span class="p">(</span><span class="n">myVec</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X"
+## [25] "Y" "Z"</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">names</span><span class="p">(</span><span class="n">myL</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "name"        "wife"        "no.children" "child.ages"</code></pre></div>
 
 
 
@@ -638,7 +714,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed Apr  6 21:12:24 2016<br/> Site last generated: Apr 6, 2016 <br />
+<p>Page last updated:</span> Thu Apr  7 06:48:52 2016<br/> Site last generated: Apr 7, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

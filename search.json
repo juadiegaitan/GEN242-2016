@@ -140,7 +140,7 @@
 
 
 {
-"title": "Graphics example",
+"title": "Important Utilities",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_08.html",
@@ -151,7 +151,7 @@
 
 
 {
-"title": "Session Info",
+"title": "Graphics example",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_09.html",
@@ -162,10 +162,21 @@
 
 
 {
-"title": "References",
+"title": "Session Info",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_10.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_11.html",
 "summary": ""
 },
 

@@ -128,6 +128,29 @@ myVec[c("B", "K", "M")]
 ## ----r_subset_by_dollar, eval=TRUE---------------------------------------
 iris$Species[1:8]
 
+## ----r_combine_vectors, eval=TRUE----------------------------------------
+c(1, 2, 3)
+x <- 1:3; y <- 101:103
+c(x, y)
+iris$Species[1:8]
+
+## ----r_cbind_rbind, eval=TRUE--------------------------------------------
+ma <- cbind(x, y)
+ma
+rbind(ma, ma)
+
+## ----r_length_dim, eval=TRUE---------------------------------------------
+length(iris$Species)
+dim(iris)
+
+## ----col_row_names, eval=TRUE--------------------------------------------
+rownames(iris)[1:8]
+colnames(iris)
+
+## ----name_slots, eval=TRUE-----------------------------------------------
+names(myVec)
+names(myL)
+
 ## ----plot_example, eval=TRUE---------------------------------------------
 barplot(1:10, col="green")
 

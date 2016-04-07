@@ -518,7 +518,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Graphics example</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
                     
 
                     
@@ -527,7 +527,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Session Info</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Graphics example</a></li>
                     
 
                     
@@ -536,7 +536,16 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. References</a></li>
                     
 
                     
@@ -616,7 +625,9 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<p><strong>Numeric data</strong>: <code>1, 2, 3, ...</code></p>
+<h2 id="numeric-data">Numeric data</h2>
+
+<p>Example: <code>1, 2, 3, ...</code></p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
 <span class="n">x</span></code></pre></div>
@@ -631,7 +642,9 @@ $('#toc').on('click', 'a', function() {
 
 <div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "1" "2" "3"</code></pre></div>
 
-<p><strong>Character data</strong>: <code>"a", "b", "c", ...</code></p>
+<h2 id="character-data">Character data</h2>
+
+<p>Example: <code>"a", "b", "c", ...</code></p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">)</span>
 <span class="n">x</span></code></pre></div>
@@ -646,13 +659,17 @@ $('#toc').on('click', 'a', function() {
 
 <div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 2 3</code></pre></div>
 
-<p><strong>Complex data</strong>: mix of both</p>
+<h2 id="complex-data">Complex data</h2>
+
+<p>Example: mix of both</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span></code></pre></div>
 
 <div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "1" "b" "3"</code></pre></div>
 
-<p><strong>Logical data</strong>: <code>TRUE</code> of <code>FALSE</code></p>
+<h2 id="logical-data">Logical data</h2>
+
+<p>Example: <code>TRUE</code> of <code>FALSE</code></p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span> <span class="o">&lt;</span> <span class="m">5</span>
 <span class="n">x</span></code></pre></div>
@@ -683,7 +700,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed Apr  6 21:12:24 2016<br/> Site last generated: Apr 6, 2016 <br />
+<p>Page last updated:</span> Thu Apr  7 06:48:52 2016<br/> Site last generated: Apr 7, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
