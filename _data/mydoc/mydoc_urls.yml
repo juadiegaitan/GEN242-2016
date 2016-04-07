@@ -3,80 +3,70 @@ home:
   url: "../mydoc/home.html"
   link: "<a href='../mydoc/home.html'>Introduction</a>"
 
-mydoc_classes:
+mydoc_syllabus:
   title: "Syllabus - GEN242"
   url: "../mydoc_syllabus.html"
   link: "<a href='../mydoc_syllabus.html'>Syllabus - GEN242</a>"
 
-mydoc_classes:
+mydoc_internal:
   title: "Internal"
   url: "../mydoc_internal.html"
   link: "<a href='../mydoc_internal.html'>Internal</a>"
 
-mydoc_classes:
+mydoc_schedule:
   title: "Course Schedule"
   url: "../mydoc_schedule.html"
   link: "<a href='../mydoc_schedule.html'>Course Schedule</a>"
 
-mydoc_classes:
+mydoc_slides_01:
   title: "Course Introduction"
   url: "../mydoc_slides_01.html"
   link: "<a href='../mydoc_slides_01.html'>Course Introduction</a>"
 
-mydoc_classes:
+mydoc_slides_02:
   title: "Molbiol for Bioinformatics"
   url: "../mydoc_slides_02.html"
   link: "<a href='../mydoc_slides_02.html'>Molbiol for Bioinformatics</a>"
 
-mydoc_classes:
+mydoc_slides_03:
   title: "Databases and Software"
   url: "../mydoc_slides_03.html"
   link: "<a href='../mydoc_slides_03.html'>Databases and Software</a>"
 
-mydoc_classes:
+mydoc_slides_04:
   title: "DNA Sequencing"
   url: "../mydoc_slides_04.html"
   link: "<a href='../mydoc_slides_04.html'>DNA Sequencing</a>"
 
-mydoc_classes:
+mydoc_slides_05:
   title: "Introduction to R"
   url: "../mydoc_slides_05.html"
   link: "<a href='../mydoc_slides_05.html'>Introduction to R</a>"
 
-mydoc_classes:
+mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
   link: "<a href='../mydoc_tutorial_01.html'>GitHub</a>"
 
-mydoc_classes:
+mydoc_tutorial_02:
   title: "Biocluster"
   url: "../mydoc_tutorial_02.html"
   link: "<a href='../mydoc_tutorial_02.html'>Biocluster</a>"
 
-mydoc_classes:
+mydoc_homework_01:
   title: "Homework 1"
   url: "../mydoc_homework_01.html"
   link: "<a href='../mydoc_homework_01.html'>Homework 1</a>"
 
-mydoc_classes:
+mydoc_homework_02:
   title: "Homework 2"
   url: "../mydoc_homework_02.html"
   link: "<a href='../mydoc_homework_02.html'>Homework 2</a>"
 
-mydoc_classes:
+mydoc_project_01:
   title: "Projects"
   url: "../mydoc_project_01.html"
   link: "<a href='../mydoc_project_01.html'>Slides</a>"
-
-
-
-
-
-
-
-
-
-
 
 mydoc_Rbasics_01:
   title: "Overview"

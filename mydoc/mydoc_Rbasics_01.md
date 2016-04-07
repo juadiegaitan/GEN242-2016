@@ -1,13 +1,16 @@
 ---
 title: IntroductiontoR 
 keywords: 
-last_updated: Wed Apr  6 17:52:34 2016
+last_updated: Wed Apr  6 21:12:24 2016
 ---
 Author: Thomas Girke
 
 Last update: 06 April, 2016 
 
-
+Alternative formats of this vignette:
+[`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/08_Rbasics/Rbasics.html),
+[`.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/08_Rbasics/Rbasics.Rmd),
+[`.R`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/08_Rbasics/Rbasics.R)
 
 ## Overview
 
@@ -30,9 +33,9 @@ common operating systems.
 * Technical advantages: free, open-source, available for all OSs
 
 ## Books and Documentation
-* simpleR - Using R for Introductory Statistics (John Verzani, 2004) \href{http://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf}{{\beamerbutton{Link}}}
-* Bioinformatics and Computational Biology Solutions Using R and Bioconductor (Gentleman et al., 2005) \href{http://www.bioconductor.org/help/publications/books/bioinformatics-and-computational-biology-solutions/}{{\beamerbutton{Link}}}
-* More on this see "Finding Help" section in UCR Manual \href{http://manuals.bioinformatics.ucr.edu/home/R\_BioCondManual\#TOC-Finding-Help}{{\beamerbutton{Link}}}
+* simpleR - Using R for Introductory Statistics (John Verzani, 2004) - [URL](http://cran.r-project.org/doc/contrib/Verzani-SimpleR.pdf)
+* Bioinformatics and Computational Biology Solutions Using R and Bioconductor (Gentleman et al., 2005) - [URL](http://www.bioconductor.org/help/publications/books/bioinformatics-and-computational-biology-solutions/)
+* More on this see "Finding Help" section in UCR Manual - [URL](http://manuals.bioinformatics.ucr.edu/home/R\_BioCondManual\#TOC-Finding-Help)
 
 ## R Working Environments
 

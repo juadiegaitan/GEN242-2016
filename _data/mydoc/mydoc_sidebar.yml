@@ -188,7 +188,6 @@ entries:
       version: all
       output: web
   
-
   - title: Introduction to R
     audience: writers, designers
     platform: all
@@ -276,7 +275,7 @@ entries:
       product: all
       version: all
       output: web
-  
+
   - title: Projects
     audience: writers, designers
     platform: all

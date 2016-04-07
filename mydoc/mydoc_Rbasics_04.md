@@ -1,7 +1,7 @@
 ---
 title: Getting Around
 keywords: 
-last_updated: Wed Apr  6 17:52:34 2016
+last_updated: Wed Apr  6 21:12:24 2016
 ---
 
 ## Startup and Closing Behavior

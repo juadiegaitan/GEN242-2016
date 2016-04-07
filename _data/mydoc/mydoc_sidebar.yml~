@@ -156,22 +156,6 @@ entries:
       version: all
       output: web
   
-  - title: Projects
-    audience: writers, designers
-    platform: all
-    product: all
-    version: all
-    output: web
-    items:
-
-    - title: Project 1
-      url: /mydoc/mydoc_project_01.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-    
   - title: GitHub
     audience: writers, designers
     platform: all
@@ -204,7 +188,6 @@ entries:
       version: all
       output: web
   
-
   - title: Introduction to R
     audience: writers, designers
     platform: all
@@ -292,4 +275,21 @@ entries:
       product: all
       version: all
       output: web
+
+  - title: Projects
+    audience: writers, designers
+    platform: all
+    product: all
+    version: all
+    output: web
+    items:
+
+    - title: Project 1
+      url: /mydoc/mydoc_project_01.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
 
