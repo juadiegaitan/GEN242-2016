@@ -77,16 +77,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -161,8 +151,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -255,16 +243,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -672,64 +650,64 @@ $('#toc').on('click', 'a', function() {
 -->
 <h2 id="unique-entries">Unique entries</h2>
 
-<p>Make vector entries unique with <code>unique</code></p>
+<p>Make vector entries unique with <code class="highlighter-rouge">unique</code></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">length</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">length</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">))</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">))</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 35</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 35</code></pre></figure>
 
 <h2 id="count-occurrences">Count occurrences</h2>
 
-<p>Count occurrences of entries with <code>table</code></p>
+<p>Count occurrences of entries with <code class="highlighter-rouge">table</code></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## 
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## 
 ##     setosa versicolor  virginica 
-##         50         50         50</code></pre></div>
+##         50         50         50</code></pre></figure>
 
 <h2 id="aggregate-data">Aggregate data</h2>
 
-<p>Compute aggregate statistics with <code>aggregate</code></p>
+<p>Compute aggregate statistics with <code class="highlighter-rouge">aggregate</code></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">aggregate</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">by</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">),</span> <span class="n">FUN</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">aggregate</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">by</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">),</span> <span class="n">FUN</span><span class="o">=</span><span class="n">mean</span><span class="p">,</span> <span class="n">na.rm</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##      Group.1 Sepal.Length Sepal.Width Petal.Length Petal.Width
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##      Group.1 Sepal.Length Sepal.Width Petal.Length Petal.Width
 ## 1     setosa        5.006       3.428        1.462       0.246
 ## 2 versicolor        5.936       2.770        4.260       1.326
-## 3  virginica        6.588       2.974        5.552       2.026</code></pre></div>
+## 3  virginica        6.588       2.974        5.552       2.026</code></pre></figure>
 
 <h2 id="intersect-data">Intersect data</h2>
 
-<p>Compute intersect between two vectors with <code>%in%</code></p>
+<p>Compute intersect between two vectors with <code class="highlighter-rouge">%in%</code></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">month.name</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">c</span><span class="p">(</span><span class="s2">"May"</span><span class="p">,</span> <span class="s2">"July"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">month.name</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">c</span><span class="p">(</span><span class="s2">"May"</span><span class="p">,</span> <span class="s2">"July"</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE</code></pre></figure>
 
 <h2 id="merge-data-frames">Merge data frames</h2>
 
-<p>Join two data frames by common field entries with <code>merge</code> (here row names <code>by.x=0</code>). To obtain only the common rows, change <code>all=TRUE</code> to <code>all=FALSE</code>. To merge on specific columns, refer to them by their position numbers or their column names.</p>
+<p>Join two data frames by common field entries with <code class="highlighter-rouge">merge</code> (here row names <code class="highlighter-rouge">by.x=0</code>). To obtain only the common rows, change <code class="highlighter-rouge">all=TRUE</code> to <code class="highlighter-rouge">all=FALSE</code>. To merge on specific columns, refer to them by their position numbers or their column names.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">frame1</span> <span class="o">&lt;-</span> <span class="n">iris</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="p">]),</span> <span class="m">30</span><span class="p">),</span> <span class="p">]</span>
-<span class="n">frame1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">frame1</span> <span class="o">&lt;-</span> <span class="n">iris</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="p">]),</span> <span class="m">30</span><span class="p">),</span> <span class="p">]</span>
+<span class="n">frame1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 3          4.7         3.2          1.3         0.2  setosa
-## 5          5.0         3.6          1.4         0.2  setosa</code></pre></div>
+## 5          5.0         3.6          1.4         0.2  setosa</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dim</span><span class="p">(</span><span class="n">frame1</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dim</span><span class="p">(</span><span class="n">frame1</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 30  5</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 30  5</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_result</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">frame1</span><span class="p">,</span> <span class="n">iris</span><span class="p">,</span> <span class="n">by.x</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">by.y</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">all</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
-<span class="n">dim</span><span class="p">(</span><span class="n">my_result</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_result</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">frame1</span><span class="p">,</span> <span class="n">iris</span><span class="p">,</span> <span class="n">by.x</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">by.y</span> <span class="o">=</span> <span class="m">0</span><span class="p">,</span> <span class="n">all</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span>
+<span class="n">dim</span><span class="p">(</span><span class="n">my_result</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150  11</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150  11</code></pre></figure>
 
 
 
@@ -747,7 +725,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Thu Apr  7 12:39:14 2016<br/> Site last generated: Apr 7, 2016 <br />
+<p>Page last updated:</span> Thu Apr  7 17:52:19 2016<br/> Site last generated: Apr 7, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
