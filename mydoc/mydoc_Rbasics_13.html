@@ -88,6 +88,20 @@
 
 
                 
+                
+                
+                
+                <li><a href="https://piazza.com/class/ilbslqb3j2ovy" target="_blank">Piazza</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/tgirke/GEN242" target="_blank">Github Repo</a></li>
+                
+                
+                
+                
 
 
                 <!-- entries with drop-downs appear here -->
@@ -95,6 +109,53 @@
 
                 <li class="dropdown">
                     
+                    
+                    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        
+                        <li><a href="https://cran.r-project.org/" target="_blank">CRAN</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://bioconductor.org/" target="_blank">Bioconductor</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/" target="_blank">Jekyll</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://girke.bioinformatics.ucr.edu/" target="_blank">Girke Lab</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/documentation-theme-jekyll" target="_blank">Jekyll Doc Theme</a></li>
+                        
+                        
+                        
+                        
+
+                    </ul>
+                </li>
+                
+                
 
 
                 <!-- special insertion -->
@@ -398,148 +459,6 @@ window.location.href = uri;
                 
                 
             
-            <li><a href="#">IntroductiontoR</a>
-                <ul>
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li class="active"><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
-                    
-
-                    
-
-                    
-                    
-                </ul>
-                
-                
-            
             <li><a href="#">Introduction to R</a>
                 <ul>
                     
@@ -759,7 +678,7 @@ $('#toc').on('click', 'a', function() {
 
 <ul>
   <li>
-    <p><strong>Step 1</strong>: To get started with this exercise, create a dedicated <code>workshop</code> directory and save into this directory the following sample tables. To inspect the content of the files, one can load them in a spreadsheet program or a text editor.</p>
+    <p><strong>Step 1</strong>: To get started with this exercise, direct your R session to a dedicated workshop directory and download into this directory the following sample tables. Then import the files into Excel and save them as tab delimited text files.</p>
 
     <ul>
       <li><a href="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/MolecularWeight_tair7.xls">MolecularWeight_tair7.xls</a></li>
@@ -769,11 +688,6 @@ $('#toc').on('click', 'a', function() {
 </ul>
 
 <p><strong>Import the tables into R</strong></p>
-
-<p>Set the working directory of your R session to the <code>workshop</code> directory generated in the previous step.</p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">setwd</span><span class="p">(</span><span class="s2">"workshop"</span><span class="p">)</span> <span class="c1"># Note, if this gives an error then you have to change the path to your environment.
-</span><span class="n">dir</span><span class="p">()</span> <span class="err">#</span> <span class="n">This</span> <span class="n">command</span> <span class="n">should</span> <span class="k">return</span> <span class="n">the</span> <span class="n">names</span> <span class="n">of</span> <span class="n">the</span> <span class="n">files</span> <span class="n">you</span> <span class="n">downloaded</span> <span class="n">above.</span></code></pre></div>
 
 <p>Import molecular weight table</p>
 
@@ -785,7 +699,7 @@ $('#toc').on('click', 'a', function() {
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_target</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"TargetP_analysis_tair7.xls"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span> 
 <span class="n">my_target</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span></code></pre></div>
 
-<p>Alternative online import of molecular weight table</p>
+<p>Online import of molecular weight table</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_mw</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/MolecularWeight_tair7.xls"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span> 
 <span class="n">my_mw</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span></code></pre></div>
@@ -794,7 +708,7 @@ $('#toc').on('click', 'a', function() {
 ## 1 AT1G08520.1                83285      760
 ## 2 AT1G08530.1                27015      257</code></pre></div>
 
-<p>Alternative online import of subcelluar targeting table</p>
+<p>Online import of subcelluar targeting table</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_target</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/TargetP_analysis_tair7.xls"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span> 
 <span class="n">my_target</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span></code></pre></div>
@@ -806,7 +720,7 @@ $('#toc').on('click', 'a', function() {
 <h2 id="merging-data-frames">Merging Data Frames</h2>
 
 <ul>
-  <li><strong>Step 2</strong>: Assign uniform name (here <code>ID</code>) to the column containing the gene/transcript IDs</li>
+  <li><strong>Step 2</strong>: Assign uniform gene ID column titles</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">colnames</span><span class="p">(</span><span class="n">my_target</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">"ID"</span>
@@ -816,24 +730,24 @@ $('#toc').on('click', 'a', function() {
   <li><strong>Step 3</strong>: Merge the two tables based on common ID field</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_mw_target</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">my_mw</span><span class="p">,</span> <span class="n">my_target</span><span class="p">,</span> <span class="n">by.x</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span> <span class="n">by.y</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span> <span class="n">all.x</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_mw_target</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">my_mw</span><span class="p">,</span> <span class="n">my_target</span><span class="p">,</span> <span class="n">by.x</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span> <span class="n">by.y</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span> <span class="n">all.x</span><span class="o">=</span><span class="n">T</span><span class="p">)</span></code></pre></div>
 
 <ul>
   <li><strong>Step 4</strong>: Shorten one table before the merge and then remove the non-matching rows (NAs) in the merged file</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_mw_target2a</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">my_mw</span><span class="p">,</span> <span class="n">my_target</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">40</span><span class="p">,],</span> <span class="n">by.x</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span> <span class="n">by.y</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span> <span class="n">all.x</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>  <span class="c1"># To remove non-matching rows, use the argument setting 'all=FALSE'.
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">my_mw_target2a</span> <span class="o">&lt;-</span> <span class="n">merge</span><span class="p">(</span><span class="n">my_mw</span><span class="p">,</span> <span class="n">my_target</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">40</span><span class="p">,],</span> <span class="n">by.x</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span> <span class="n">by.y</span><span class="o">=</span><span class="s2">"ID"</span><span class="p">,</span> <span class="n">all.x</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>  <span class="c1"># To remove non-matching rows, use the argument setting 'all=F'.
 </span><span class="n">my_mw_target2</span> <span class="o">&lt;-</span> <span class="n">na.omit</span><span class="p">(</span><span class="n">my_mw_target2a</span><span class="p">)</span> <span class="err">#</span> <span class="n">Removes</span> <span class="n">rows</span> <span class="n">containing</span> <span class="s2">"NAs"</span> <span class="p">(</span><span class="n">non</span><span class="o">-</span><span class="n">matching</span> <span class="n">rows</span><span class="p">)</span><span class="err">.</span></code></pre></div>
 
 <ul>
   <li><strong>Homework 3D</strong>: How can the merge function in the previous step be executed so that only the common rows among the two data frames are returned? Prove that both methods - the two step version with <code>na.omit</code> and your method - return identical results.</li>
-  <li><strong>Homework 3E</strong>: Replace all <code>NAs</code> in the data frame <code>my_mw_target2a</code> with zeros. Note, for this replacement operation it will be necessary to temporarliy coerce the <code>data.frame</code> to a <code>matrix</code> using the command <code>as.matrix</code>. Subsequently, the <code>NAs</code> values can be replaced by zeros with <code>my_mw_target2a[is.na(my_mw_target2a)] &lt;- 0</code>. Finally, the resulting matrix can be converted back to a <code>data.frame</code> with <code>as.data.frame</code>.</li>
+  <li><strong>Homework 3E</strong>: Replace all <code>NAs</code> in the data frame <code>my_mw_target2a</code> with zeros.</li>
 </ul>
 
 <h2 id="filtering-data">Filtering Data</h2>
 
 <ul>
-  <li><strong>Step 5</strong>: Retrieve all records (rows) with a value of greater than 100,000 in the <code>MW</code> column and a ‘C’ value in the <code>Loc</code> column (targeted to chloroplast).</li>
+  <li><strong>Step 5</strong>: Retrieve all records with a value of greater than 100,000 in ‘MW’ column and ‘C’ value in ‘Loc’ column (targeted to chloroplast).</li>
 </ul>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">query</span> <span class="o">&lt;-</span> <span class="n">my_mw_target</span><span class="p">[</span><span class="n">my_mw_target</span><span class="p">[,</span> <span class="m">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="m">100000</span> <span class="o">&amp;</span> <span class="n">my_mw_target</span><span class="p">[,</span> <span class="m">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"C"</span><span class="p">,</span> <span class="p">]</span> 
@@ -850,8 +764,55 @@ $('#toc').on('click', 'a', function() {
 <div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 170   8</code></pre></div>
 
 <ul>
-  <li><strong>Homework 3F</strong>: How many protein entries in the <code>my_mw_target</code> data frame have a MW of greater than 4,000 and less than 5,000. Subset the data frame accordingly and sort it by MW to check that your result is correct.</li>
+  <li><strong>Homework 3F</strong>: How many protein entries in the <code>my</code>_mw<code>_target</code> data frame have a MW of greater then 4,000 and less then 5,000. Subset the data frame accordingly and sort it by MW to check that your result is correct.</li>
 </ul>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">query2</span> <span class="o">&lt;-</span> <span class="n">my_mw_target</span><span class="p">[</span><span class="n">my_mw_target</span><span class="p">[,</span> <span class="m">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="m">4000</span> <span class="o">&amp;</span> <span class="n">my_mw_target</span><span class="p">[,</span> <span class="m">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="m">5000</span><span class="p">,</span> <span class="p">]</span> 
+<span class="n">dim</span><span class="p">(</span><span class="n">query2</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 38  8</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">query2</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">query2</span><span class="p">[,</span><span class="m">2</span><span class="p">]),]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##                ID Molecular.Weight.Da. Residues Loc   cTP   mTP    SP other
+## 13211 AT2G47660.1                 4043       35   _ 0.153 0.099 0.140 0.909
+## 13808 AT3G05080.1                 4068       35   * 0.091 0.200 0.231 0.704
+## 17007 AT3G42090.1                 4113       37   * 0.089 0.071 0.345 0.825
+## 31743 ATCG00550.1                 4117       40   S 0.003 0.065 0.953 0.366
+## 24539 AT5G02502.1                 4133       35   S 0.006 0.013 0.995 0.106
+## 31739 ATCG00510.1                 4134       37   S 0.005 0.025 0.992 0.066
+## 31713 ATCG00080.1                 4168       36   S 0.012 0.030 0.991 0.044
+## 31748 ATCG00600.1                 4204       37   S 0.010 0.054 0.981 0.058
+## 27714 AT5G35480.1                 4298       38   * 0.049 0.157 0.398 0.672
+## 192   AT1G02490.1                 4337       38   * 0.094 0.085 0.438 0.695
+## 30410 AT5G57567.1                 4356       41   S 0.066 0.044 0.843 0.331
+## 14816 AT3G13240.1                 4366       40   * 0.216 0.075 0.261 0.784
+## 24276 AT4G39403.1                 4390       36   * 0.009 0.713 0.363 0.101
+## 5668  AT1G59535.1                 4404       39   _ 0.122 0.132 0.135 0.895
+## 31745 ATCG00570.1                 4424       39   S 0.005 0.309 0.718 0.213
+## 31762 ATCG00760.1                 4461       37   * 0.110 0.542 0.074 0.334
+## 31744 ATCG00560.1                 4470       38   S 0.016 0.148 0.737 0.321
+## 823   AT1G07610.1                 4495       45   * 0.656 0.044 0.248 0.589
+## 288   AT1G03200.1                 4573       41   * 0.089 0.358 0.119 0.647
+## 822   AT1G07600.1                 4580       45   * 0.545 0.046 0.234 0.713
+## 16351 AT3G25717.1                 4620       40   M 0.022 0.890 0.039 0.208
+## 292   AT1G03240.1                 4644       42   * 0.114 0.317 0.132 0.597
+## 25923 AT5G14560.1                 4681       40   * 0.091 0.268 0.122 0.779
+## 1568  AT1G13245.1                 4719       41   * 0.024 0.746 0.067 0.306
+## 31756 ATCG00700.1                 4722       43   S 0.011 0.048 0.972 0.099
+## 6552  AT1G67148.1                 4734       45   _ 0.203 0.096 0.126 0.897
+## 6566  AT1G67265.1                 4738       40   * 0.059 0.283 0.098 0.738
+## 26710 AT5G21020.2                 4744       42   S 0.032 0.069 0.951 0.079
+## 30432 AT5G57730.1                 4763       42   * 0.103 0.308 0.126 0.511
+## 14906 AT3G13857.1                 4778       42   * 0.244 0.476 0.303 0.018
+## 27114 AT5G24980.1                 4839       42   S 0.004 0.030 0.991 0.076
+## 13050 AT2G46390.1                 4884       46   S 0.003 0.155 0.957 0.075
+## 16657 AT3G28120.1                 4897       41   S 0.006 0.075 0.970 0.145
+## 3797  AT1G32670.1                 4926       44   * 0.233 0.607 0.129 0.103
+## 13470 AT3G02390.1                 4933       43   _ 0.135 0.118 0.147 0.877
+## 9128  AT2G14460.1                 4950       41   * 0.143 0.165 0.139 0.784
+## 1389  AT1G11785.1                 4983       46   _ 0.142 0.110 0.146 0.901
+## 23211 AT4G31030.1                 4983       44   * 0.041 0.133 0.352 0.795</code></pre></div>
 
 <h2 id="string-substitutions">String Substitutions</h2>
 
@@ -943,7 +904,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Fri Apr  8 11:14:57 2016<br/> Site last generated: Apr 8, 2016 <br />
+<p>Page last updated:</span> Thu Apr  7 17:52:19 2016<br/> Site last generated: Apr 8, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

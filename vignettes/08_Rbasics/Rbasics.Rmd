@@ -88,6 +88,20 @@
 
 
                 
+                
+                
+                
+                <li><a href="https://piazza.com/class/ilbslqb3j2ovy" target="_blank">Piazza</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/tgirke/GEN242" target="_blank">Github Repo</a></li>
+                
+                
+                
+                
 
 
                 <!-- entries with drop-downs appear here -->
@@ -95,6 +109,53 @@
 
                 <li class="dropdown">
                     
+                    
+                    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        
+                        <li><a href="https://cran.r-project.org/" target="_blank">CRAN</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://bioconductor.org/" target="_blank">Bioconductor</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/" target="_blank">Jekyll</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://girke.bioinformatics.ucr.edu/" target="_blank">Girke Lab</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/documentation-theme-jekyll" target="_blank">Jekyll Doc Theme</a></li>
+                        
+                        
+                        
+                        
+
+                    </ul>
+                </li>
+                
+                
 
 
                 <!-- special insertion -->
@@ -388,148 +449,6 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_tutorial_02.html">Biocluster</a></li>
-                    
-
-                    
-
-                    
-                    
-                </ul>
-                
-                
-            
-            <li><a href="#">IntroductiontoR</a>
-                <ul>
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
                     
 
                     
@@ -1558,19 +1477,12 @@ The following exercise introduces a variety of useful data analysis utilities in
 
 ## Analysis Routine: Data Import
 
-- __Step 1__: To get started with this exercise, create a dedicated `workshop` directory and save into this directory the following sample tables. To inspect the content of the files, one can load them in a spreadsheet program or a text editor.
+- __Step 1__: To get started with this exercise, direct your R session to a dedicated workshop directory and download into this directory the following sample tables. Then import the files into Excel and save them as tab delimited text files.
 
     - [MolecularWeight_tair7.xls](http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/MolecularWeight_tair7.xls)
     - [TargetP_analysis_tair7.xls](http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/TargetP_analysis_tair7.xls)
 
 __Import the tables into R__
-
-Set the working directory of your R session to the `workshop` directory generated in the previous step.
-
-```{r set_wd, eval=FALSE}
-setwd("workshop") # Note, if this gives an error then you have to change the path to your environment.
-dir() # This command should return the names of the files you downloaded above. 
-```
 
 Import molecular weight table
 
@@ -1585,13 +1497,13 @@ my_target <- read.delim(file="TargetP_analysis_tair7.xls", header=T, sep="\t")
 my_target[1:2,]
 ```
 
-Alternative online import of molecular weight table
+Online import of molecular weight table
 ```{r import_data1b, eval=TRUE}
 my_mw <- read.delim(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/MolecularWeight_tair7.xls", header=T, sep="\t") 
 my_mw[1:2,]
 ``` 
 
-Alternative online import of subcelluar targeting table
+Online import of subcelluar targeting table
 ```{r import_data2b, eval=TRUE}
 my_target <- read.delim(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/TargetP_analysis_tair7.xls", header=T, sep="\t") 
 my_target[1:2,]
@@ -1599,7 +1511,7 @@ my_target[1:2,]
 
 ## Merging Data Frames
 
-- __Step 2__: Assign uniform name (here `ID`) to the column containing the gene/transcript IDs
+- __Step 2__: Assign uniform gene ID column titles
 
 ```{r col_names_uni, eval=TRUE}
 colnames(my_target)[1] <- "ID"
@@ -1609,18 +1521,18 @@ colnames(my_mw)[1] <- "ID"
 - __Step 3__: Merge the two tables based on common ID field
 
 ```{r merge_tables, eval=TRUE}
-my_mw_target <- merge(my_mw, my_target, by.x="ID", by.y="ID", all.x=TRUE)
+my_mw_target <- merge(my_mw, my_target, by.x="ID", by.y="ID", all.x=T)
 ```
 
 - __Step 4__: Shorten one table before the merge and then remove the non-matching rows (NAs) in the merged file
 
 ```{r merge_tables_shorten, eval=TRUE}
-my_mw_target2a <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all.x=TRUE)  # To remove non-matching rows, use the argument setting 'all=FALSE'.
+my_mw_target2a <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all.x=T)  # To remove non-matching rows, use the argument setting 'all=F'.
 my_mw_target2 <- na.omit(my_mw_target2a) # Removes rows containing "NAs" (non-matching rows).
 ```
 
 - __Homework 3D__: How can the merge function in the previous step be executed so that only the common rows among the two data frames are returned? Prove that both methods - the two step version with `na.omit` and your method - return identical results. 
-- __Homework 3E__: Replace all `NAs` in the data frame `my_mw_target2a` with zeros. Note, for this replacement operation it will be necessary to temporarliy coerce the `data.frame` to a `matrix` using the command `as.matrix`. Subsequently, the `NAs` values can be replaced by zeros with `my_mw_target2a[is.na(my_mw_target2a)] <- 0`. Finally, the resulting matrix can be converted back to a `data.frame` with `as.data.frame`.
+- __Homework 3E__: Replace all `NAs` in the data frame `my_mw_target2a` with zeros.
 
 ```{r homework3D_solutions, eval=FALSE, echo=FALSE}
 my_mw_target_tmp <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all=FALSE) 
@@ -1632,7 +1544,7 @@ my_mw_target2a <- as.data.frame(my_mw_target2a)
 
 ## Filtering Data
 
-- __Step 5__: Retrieve all records (rows) with a value of greater than 100,000 in the `MW` column and a 'C' value in the `Loc` column (targeted to chloroplast).
+- __Step 5__: Retrieve all records with a value of greater than 100,000 in 'MW' column and 'C' value in 'Loc' column (targeted to chloroplast).
 
 ```{r filter_tables1, eval=TRUE}
 query <- my_mw_target[my_mw_target[, 2] > 100000 & my_mw_target[, 4] == "C", ] 
@@ -1640,9 +1552,9 @@ query[1:4, ]
 dim(query)
 ```
 
-- __Homework 3F__: How many protein entries in the `my_mw_target` data frame have a MW of greater than 4,000 and less than 5,000. Subset the data frame accordingly and sort it by MW to check that your result is correct.
+- __Homework 3F__: How many protein entries in the `my`_mw`_target` data frame have a MW of greater then 4,000 and less then 5,000. Subset the data frame accordingly and sort it by MW to check that your result is correct.
 
-```{r homework3F_solutions, eval=FALSE, echo=FALSE}
+```{r filter_tables2, eval=TRUE}
 query2 <- my_mw_target[my_mw_target[, 2] > 4000 & my_mw_target[, 2] < 5000, ] 
 dim(query2)
 query2[order(query2[,2]),] 
