@@ -1,7 +1,7 @@
 ---
 title: Operators and Calculations
 keywords: 
-last_updated: Thu Apr  7 12:39:14 2016
+last_updated: Thu Apr  7 17:52:19 2016
 ---
 
 ## Comparison Operators
@@ -28,7 +28,7 @@ x > y & x > 5
 
 ## Basic Calculations
 
-To look up math functions, see Function Index [here](http://cran.at.r-project.org/doc/manuals/R-intro.html\#Function-and-variable-index)
+To look up math functions, see Function Index [here](http://cran.at.r-project.org/doc/manuals/R-intro.html#Function-and-variable-index)
 
 {% highlight r %}
 x + y

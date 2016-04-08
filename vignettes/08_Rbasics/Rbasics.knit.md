@@ -754,7 +754,7 @@ x > y & x > 5
 
 ## Basic Calculations
 
-To look up math functions, see Function Index [here](http://cran.at.r-project.org/doc/manuals/R-intro.html\#Function-and-variable-index)
+To look up math functions, see Function Index [here](http://cran.at.r-project.org/doc/manuals/R-intro.html#Function-and-variable-index)
 
 ```r
 x + y
@@ -1309,6 +1309,10 @@ devSVG("test.svg")
 plot(1:10, 1:10)
 dev.off() 
 ```
+
+## Homework 3C
+
+Homework 3C: [Bar Plots](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_homework_03.html)
 
 # Analysis Routine
 

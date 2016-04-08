@@ -1,7 +1,7 @@
 ---
 title: Graphics in R
 keywords: 
-last_updated: Thu Apr  7 12:39:14 2016
+last_updated: Thu Apr  7 17:52:19 2016
 ---
 
 ## Advantages
@@ -379,4 +379,8 @@ devSVG("test.svg")
 plot(1:10, 1:10)
 dev.off() 
 {% endhighlight %}
+
+## Homework 3C
+
+Homework 3C: [Bar Plots](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_homework_03.html)
 
