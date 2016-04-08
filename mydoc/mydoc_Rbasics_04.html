@@ -77,20 +77,16 @@
 
 
 
-                
-                
-                
-                
-                <li><a href="https://piazza.com/class/ilbslqb3j2ovy" target="_blank">Piazza</a></li>
-                
-                
-                
-                
-                
-                <li><a href="https://github.com/tgirke/GEN242" target="_blank">Github Repo</a></li>
-                
-                
-                
+
+
+
+
+
+
+
+
+
+
                 
 
 
@@ -99,58 +95,13 @@
 
                 <li class="dropdown">
                     
-                    
-                    
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        
-                        <li><a href="https://cran.r-project.org/" target="_blank">CRAN</a></li>
-                        
-                        
-                        
-                        
-                        
-                        <li><a href="http://bioconductor.org/" target="_blank">Bioconductor</a></li>
-                        
-                        
-                        
-                        
-                        
-                        <li><a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub</a></li>
-                        
-                        
-                        
-                        
-                        
-                        <li><a href="http://jekyllrb.com/" target="_blank">Jekyll</a></li>
-                        
-                        
-                        
-                        
-                        
-                        <li><a href="http://girke.bioinformatics.ucr.edu/" target="_blank">Girke Lab</a></li>
-                        
-                        
-                        
-                        
-                        
-                        <li><a href="http://idratherbewriting.com/documentation-theme-jekyll" target="_blank">Jekyll Doc Theme</a></li>
-                        
-                        
-                        
-                        
-
-                    </ul>
-                </li>
-                
-                
 
 
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -243,6 +194,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -655,51 +616,51 @@ $('#toc').on('click', 'a', function() {
     <p><strong>Starting R</strong>:
   The R GUI versions, including RStudio, under Windows and Mac OS X can be
   opened by double-clicking their icons. Alternatively, one can start it by
-  typing <code class="highlighter-rouge">R</code> in a terminal (default under Linux).</p>
+  typing <code>R</code> in a terminal (default under Linux).</p>
   </li>
   <li>
     <p><strong>Startup/Closing Behavior</strong>:
   The R environment is controlled by hidden files in the startup directory:
-  <code class="highlighter-rouge">.RData</code>, <code class="highlighter-rouge">.Rhistory</code> and <code class="highlighter-rouge">.Rprofile</code> (optional).</p>
+  <code>.RData</code>, <code>.Rhistory</code> and <code>.Rprofile</code> (optional).</p>
   </li>
   <li>
     <p><strong>Closing R</strong>:</p>
   </li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">q</span><span class="p">()</span>  </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">q</span><span class="p">()</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">Save workspace image? [y/n/c]:</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">Save workspace image? [y/n/c]:</code></pre></div>
 
 <ul>
   <li><strong>Note</strong>:
-  When responding with <code class="highlighter-rouge">y</code>, then the entire R workspace will be written to
-  the <code class="highlighter-rouge">.RData</code> file which can become very large. Often it is sufficient to just
+  When responding with <code>y</code>, then the entire R workspace will be written to
+  the <code>.RData</code> file which can become very large. Often it is sufficient to just
   save an analysis protocol in an R source file. This way one can quickly
   regenerate all data sets and objects.</li>
 </ul>
 
 <h2 id="navigating-directories">Navigating directories</h2>
 
-<p>Create an object with the assignment operator <code class="highlighter-rouge">&lt;-</code> or <code class="highlighter-rouge">=</code></p>
+<p>Create an object with the assignment operator <code>&lt;-</code> or <code>=</code></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">object</span> <span class="o">&lt;-</span> <span class="k">...</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">object</span> <span class="o">&lt;-</span> <span class="k">...</span></code></pre></div>
 
 <p>List objects in current R session</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ls</span><span class="p">()</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ls</span><span class="p">()</span></code></pre></div>
 
 <p>Return content of current working directory</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dir</span><span class="p">()</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dir</span><span class="p">()</span></code></pre></div>
 
 <p>Return path of current working directory</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">getwd</span><span class="p">()</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">getwd</span><span class="p">()</span></code></pre></div>
 
 <p>Change current working directory</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">setwd</span><span class="p">(</span><span class="s2">"/home/user"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">setwd</span><span class="p">(</span><span class="s2">"/home/user"</span><span class="p">)</span></code></pre></div>
 
 
 
@@ -717,7 +678,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Thu Apr  7 17:52:19 2016<br/> Site last generated: Apr 7, 2016 <br />
+<p>Page last updated:</span> Thu Apr  7 17:52:19 2016<br/> Site last generated: Apr 8, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
