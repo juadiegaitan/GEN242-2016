@@ -223,6 +223,9 @@ y <- matrix(runif(30), ncol=3, dimnames=list(letters[1:10], LETTERS[1:3]))
 ## ----basic_scatter_plot, eval=TRUE---------------------------------------
 plot(y[,1], y[,2]) 
 
+## ----basic_scatter_plot_color, eval=TRUE---------------------------------
+plot(y[,1], y[,2], pch=19, col=c("red", "blue")) 
+
 ## ----pairs_scatter_plot, eval=TRUE---------------------------------------
 pairs(y) 
 
