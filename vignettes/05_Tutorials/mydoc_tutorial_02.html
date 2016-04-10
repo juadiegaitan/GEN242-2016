@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Introduction to Biocluster  | GEN242</title>
+<link rel="stylesheet" type="text/css" href="../css/syntax.css">
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
+<link rel="stylesheet" type="text/css" href="../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../css/lavish-bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="../css/theme-blue.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="../js/toc.js"></script>
+<script src="../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../common_images/favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+  </head>
+
+<body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="fa fa-home fa-lg navbar-brand" href="home.html">&nbsp;<span class="projectTitle"> Data Analysis in Genome Biology</span></a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                
+                
+                
+                <li><a href="https://piazza.com/class/ilbslqb3j2ovy" target="_blank">Piazza</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/tgirke/GEN242" target="_blank">Github Repo</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+                    
+                    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        
+                        <li><a href="https://cran.r-project.org/" target="_blank">CRAN</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://bioconductor.org/" target="_blank">Bioconductor</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/" target="_blank">Jekyll</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://girke.bioinformatics.ucr.edu/" target="_blank">Girke Lab</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/documentation-theme-jekyll" target="_blank">Jekyll Doc Theme</a></li>
+                        
+                        
+                        
+                        
+
+                    </ul>
+                </li>
+                
+                
+
+
+                <!-- special insertion -->
+
+               
+                
+                
+                <!-- Send feedback function -->
+<script>
+function SendLinkByMail(href) {
+var subject= "GEN242 feedback";
+var body = "I have some feedback about the Introduction to Biocluster page: ";
+body += window.location.href;
+body += "";
+var uri = "mailto:?subject=";
+uri += encodeURIComponent(subject);
+uri += "&body=";
+uri += encodeURIComponent(body);
+window.location.href = uri;
+}
+</script>
+
+<li><a href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B" target="_blank"><i class="fa fa-envelope-o"></i> Feedback</a></li>
+
+
+                <!--uncomment this block if you want simple search instead of algolia-->
+                <li>
+                     <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="../js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        SimpleJekyllSearch.init({
+                            searchInput: document.getElementById('search-input'),
+                            resultsContainer: document.getElementById('results-container'),
+                            dataSource: '../search.json',
+                            searchResultTemplate: '<li><a href="{url}" title="Introduction to Biocluster">{title}</a></li>',
+                        noResultsText: 'No results found.',
+                                limit: 10,
+                                fuzzy: true,
+                        })
+                    </script>
+                     <!--end search-->
+                </li>
+
+            
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+
+<!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav highlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <span class="siteTagline">GEN242</span>
+            <span class="versionTagline">Spring 2016</span>
+
+            
+            
+            
+                
+            
+            <li><a href="#">Home</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/home.html">Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Internal</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_internal.html">Internal Resources</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Schedule</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_schedule.html">Course Schedule</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Slides</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_01.html">Course Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_02.html">Molbiol for Bioinformatics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_03.html">Databases and Software</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_04.html">DNA Sequencing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_05.html">Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_06.html">Sequence Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Homework</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_01.html">HW1 - Online Tools</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_02.html">HW2 - Biocluster/Linux</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_03.html">HW3 - Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">GitHub</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_01.html">GitHub</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Biocluster</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_02.html">Biocluster</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Introduction to R</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Projects</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_01.html">Project 1</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+                
+
+
+                <!-- if you aren't using the accordion, uncomment this block:
+
+                     <p class="external">
+                         <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+                     </p>
+                 -->
+
+    </div>
+    <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            <!-- Content Column -->
+            <div class="col-md-9">
+                
+                <div class="post-header">
+   <h1 class="post-title-main">Introduction to Biocluster</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+
+<div id="toc"></div>
+
+
+<!--
+    
+    <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    
+-->
+<h2 id="hardware-infrastructure">Hardware Infrastructure</h2>
+
+<h3 id="compute-nodes">Compute nodes</h3>
+
+<ul>
+  <li>Over 3,000 CPU cores</li>
+  <li>50 batch compute nodes, each with 64 CPU cores and 512GB RAM</li>
+  <li>4 high-memory nodes, each 32 CPU cores and 1024GB RAM</li>
+  <li>4 GPU nodes, each with 10,000 cuda cores</li>
+</ul>
+
+<h3 id="interconnect">Interconnect</h3>
+<ul>
+  <li>FDR IB @56Gbs</li>
+</ul>
+
+<h3 id="storage">Storage</h3>
+
+<ul>
+  <li>Parallel GPFS storage system with 1.2PB usable space</li>
+  <li>Backup of same architecture and similar amount</li>
+</ul>
+
+<h3 id="user-traffic">User traffic</h3>
+
+<ul>
+  <li>Compute tasks need to be submitted via <code>qsub</code></li>
+  <li>Biocluster headnode only for login, not for compute tasks!</li>
+  <li>Monitor cluster activity: <code>qstat</code> or <code>qstatMonitor</code></li>
+</ul>
+
+<h3 id="manuals">Manuals</h3>
+
+<ul>
+  <li><a href="http://manuals.bioinformatics.ucr.edu/home/hpc">Biocluster Manual</a></li>
+  <li><a href="http://manuals.bioinformatics.ucr.edu/home/linux-basics#TOC-Exercises">Linux Manual</a></li>
+</ul>
+
+<h2 id="log-into-biocluster">Log into Biocluster</h2>
+
+<ul>
+  <li>Login command on OS X or Linux</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ssh -X user@biocluster.ucr.edu</code></pre></div>
+
+<p>Type password</p>
+
+<ul>
+  <li>
+    <p>Windows: provide same information in <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a></p>
+
+    <ul>
+      <li>Host name: <code>biocluster.ucr.edu</code></li>
+      <li>User name: …</li>
+      <li>Password: …</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="important-linux-commands">Important Linux Commands</h2>
+
+<p>Finding help</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">man &lt;program_name&gt;</code></pre></div>
+
+<p>List content of current directory</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">ls</code></pre></div>
+
+<p>Print current working directory</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">pwd</span></code></pre></div>
+
+<p>Search in files and directories</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">grep</code></pre></div>
+
+<p>Word count</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">wc</code></pre></div>
+
+<p>Create directory</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">mkdir</code></pre></div>
+
+<p>Delete files and directories</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">rm</code></pre></div>
+
+<p>Move and rename files</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">mv</code></pre></div>
+
+<p>Copy files from internet to <code>pwd</code></p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">wget</code></pre></div>
+
+<p>Viewing files</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">less</code></pre></div>
+
+<p>Powerful text/code editors</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">vim or emacs</code></pre></div>
+
+<p>Less sophisticated text editors</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">pico or nano</code></pre></div>
+
+<h2 id="file-exchange">File Exchange</h2>
+
+<ul>
+  <li>GUI applications
+    <ul>
+      <li>Windows: <a href="http://winscp.net/eng/index.php">WinSCP</a></li>
+      <li>Mac OS X: <a href="http://cyberduck.en.softonic.com/mac">CyberDuck</a></li>
+      <li>Win/OS X/Linux: <a href="https://filezilla-project.org/">FileZilla</a></li>
+    </ul>
+  </li>
+  <li>SCP command line tool</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">scp file user@remotehost:/home/user/ <span class="c"># From local to remote </span>
+scp user@remotehost:/home/user/file . <span class="c"># From remote to local</span></code></pre></div>
+
+<h2 id="std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</h2>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">file.<span class="k">*</span>                        <span class="c"># * wildcard to specify many files</span>
+ls &gt; file                     <span class="c"># prints ls output into specified file</span>
+<span class="nb">command</span> &lt; myfile              <span class="c"># uses file after '&lt;' as STDIN</span>
+<span class="nb">command</span> &gt;&gt; myfile             <span class="c"># appends output of one command to file</span>
+<span class="nb">command</span> | tee myfile          <span class="c"># writes STDOUT to file and prints it to screen</span>
+<span class="nb">command</span> &gt; myfile; cat myfile  <span class="c"># writes STDOUT to file and prints it to screen</span>
+<span class="nb">command</span> &gt; /dev/null           <span class="c"># turns off progress info </span>
+grep pattern file | wc        <span class="c"># Pipes (|) output of 'grep' into 'wc'</span>
+grep pattern nonexistingfile 2 &gt; mystderr <span class="c"># prints STDERR to file</span></code></pre></div>
+
+<h2 id="homework-assignment-hw2">Homework Assignment (HW2)</h2>
+
+<p>See HW2 page <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_homework_02.html">here</a>.</p>
+
+
+<div class="tags">
+    
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 UC Riverside. All rights reserved. <br />
+<p>Page last updated:</span> 29-Mar-16<br/> Site last generated: Apr 10, 2016 <br />
+<p><img src="../common_images/company_logo.png/></p>
+                </div>
+            </div>
+</footer>
+
+            </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+</body>
+
+
+</html>
+
