@@ -43,6 +43,11 @@ mydoc_slides_05:
   url: "../mydoc_slides_05.html"
   link: "<a href='../mydoc_slides_05.html'>Introduction to R</a>"
 
+mydoc_slides_06:
+  title: "Sequence Alignments and Searching"
+  url: "../mydoc_slides_06.html"
+  link: "<a href='../mydoc_slides_06.html'>Sequence Alignments and Searching</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"

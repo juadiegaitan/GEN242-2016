@@ -43,6 +43,11 @@ mydoc_slides_05:
   url: "../mydoc_slides_05.html"
   link: "<a href='../mydoc_slides_05.html'>Introduction to R</a>"
 
+mydoc_slides_06:
+  title: "Sequence Alignments and Searching"
+  url: "../mydoc_slides_06.html"
+  link: "<a href='../mydoc_slides_06.html'>Sequence Alignments and Searching</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
@@ -66,7 +71,7 @@ mydoc_homework_02:
 mydoc_homework_03:
   title: "Homework 3"
   url: "../mydoc_homework_03.html"
-  link: "<a href='../mydoc_homework_02.html'>Homework 3</a>"
+  link: "<a href='../mydoc_homework_03.html'>Homework 3</a>"
 
 mydoc_project_01:
   title: "Projects"
@@ -124,17 +129,27 @@ mydoc_Rbasics_10:
   link: "<a href='../mydoc/mydoc_Rbasics_10.html'>Reading and Writing External Data</a>"
 
 mydoc_Rbasics_11:
-  title: "Graphics example"
+  title: "Useful R Functions"
   url: "../mydoc/mydoc_Rbasics_11.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>Graphics example</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>Useful R Functions</a>"
 
 mydoc_Rbasics_12:
-  title: "Session Info"
+  title: "Graphics in R"
   url: "../mydoc/mydoc_Rbasics_12.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_12.html'>Session Info</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_12.html'>Graphics in R</a>"
 
 mydoc_Rbasics_13:
-  title: "References"
+  title: "Analysis Routine"
   url: "../mydoc/mydoc_Rbasics_13.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_13.html'>References</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_13.html'>Analysis Routine</a>"
+
+mydoc_Rbasics_14:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Rbasics_14.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_14.html'>Session Info</a>"
+
+mydoc_Rbasics_15:
+  title: "References"
+  url: "../mydoc/mydoc_Rbasics_15.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_15.html'>References</a>"
 
