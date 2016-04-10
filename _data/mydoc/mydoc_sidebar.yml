@@ -132,7 +132,7 @@ entries:
       version: all
       output: web
     
-    - title: Sequence Alignments and Searching
+    - title: Sequence Alignments
       url: /mydoc/mydoc_slides_06.html
       audience: writers, designers
       platform: all
