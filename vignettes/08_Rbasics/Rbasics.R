@@ -223,9 +223,6 @@ y <- matrix(runif(30), ncol=3, dimnames=list(letters[1:10], LETTERS[1:3]))
 ## ----basic_scatter_plot, eval=TRUE---------------------------------------
 plot(y[,1], y[,2]) 
 
-## ----basic_scatter_plot_color, eval=TRUE---------------------------------
-plot(y[,1], y[,2], pch=19, col=c("red", "blue")) 
-
 ## ----pairs_scatter_plot, eval=TRUE---------------------------------------
 pairs(y) 
 
@@ -312,10 +309,6 @@ colorpanel(5, "darkblue", "yellow", "white")
 ## plot(1:10, 1:10)
 ## dev.off()
 
-## ----set_wd, eval=FALSE--------------------------------------------------
-## setwd("workshop") # Note, if this gives an error then you have to change the path to your environment.
-## dir() # This command should return the names of the files you downloaded above.
-
 ## ----import_data1, eval=FALSE--------------------------------------------
 ## my_mw <- read.delim(file="MolecularWeight_tair7.xls", header=T, sep="\t")
 ## my_mw[1:2,]
@@ -337,10 +330,10 @@ colnames(my_target)[1] <- "ID"
 colnames(my_mw)[1] <- "ID" 
 
 ## ----merge_tables, eval=TRUE---------------------------------------------
-my_mw_target <- merge(my_mw, my_target, by.x="ID", by.y="ID", all.x=TRUE)
+my_mw_target <- merge(my_mw, my_target, by.x="ID", by.y="ID", all.x=T)
 
 ## ----merge_tables_shorten, eval=TRUE-------------------------------------
-my_mw_target2a <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all.x=TRUE)  # To remove non-matching rows, use the argument setting 'all=FALSE'.
+my_mw_target2a <- merge(my_mw, my_target[1:40,], by.x="ID", by.y="ID", all.x=T)  # To remove non-matching rows, use the argument setting 'all=F'.
 my_mw_target2 <- na.omit(my_mw_target2a) # Removes rows containing "NAs" (non-matching rows).
 
 ## ----homework3D_solutions, eval=FALSE, echo=FALSE------------------------
@@ -355,10 +348,10 @@ query <- my_mw_target[my_mw_target[, 2] > 100000 & my_mw_target[, 4] == "C", ]
 query[1:4, ]
 dim(query)
 
-## ----homework3F_solutions, eval=FALSE, echo=FALSE------------------------
-## query2 <- my_mw_target[my_mw_target[, 2] > 4000 & my_mw_target[, 2] < 5000, ]
-## dim(query2)
-## query2[order(query2[,2]),]
+## ----filter_tables2, eval=TRUE-------------------------------------------
+query2 <- my_mw_target[my_mw_target[, 2] > 4000 & my_mw_target[, 2] < 5000, ] 
+dim(query2)
+query2[order(query2[,2]),] 
 
 ## ----string_sub, eval=TRUE-----------------------------------------------
 my_mw_target3 <- data.frame(loci=gsub("\\..*", "", as.character(my_mw_target[,1]), perl = TRUE), my_mw_target)
