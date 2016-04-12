@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>HW3 - Introduction to R  | GEN242</title>
+<title>HW4 - Pairwise Alignments  | GEN242</title>
 <link rel="stylesheet" type="text/css" href="../css/syntax.css">
 <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
@@ -167,7 +167,7 @@
 <script>
 function SendLinkByMail(href) {
 var subject= "GEN242 feedback";
-var body = "I have some feedback about the HW3 - Introduction to R page: ";
+var body = "I have some feedback about the HW4 - Pairwise Alignments page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:?subject=";
@@ -194,7 +194,7 @@ window.location.href = uri;
                             searchInput: document.getElementById('search-input'),
                             resultsContainer: document.getElementById('results-container'),
                             dataSource: '../search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="HW3 - Introduction to R">{title}</a></li>',
+                            searchResultTemplate: '<li><a href="{url}" title="HW4 - Pairwise Alignments">{title}</a></li>',
                         noResultsText: 'No results found.',
                                 limit: 10,
                                 fuzzy: true,
@@ -653,7 +653,7 @@ window.location.href = uri;
             <div class="col-md-9">
                 
                 <div class="post-header">
-   <h1 class="post-title-main">HW3 - Introduction to R</h1>
+   <h1 class="post-title-main">HW4 - Pairwise Alignments</h1>
 </div>
 
 <div class="post-content">
@@ -688,77 +688,54 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<h2 id="a-object-subsetting-import-and-export">A. Object Subsetting, Import and Export</h2>
+<h2 id="a-choice-of-sequence-type">A. Choice of Sequence Type</h2>
 
 <ul>
-  <li><strong>Task 1</strong>: Sort the rows of the <code>iris</code> data frame by its first column and sort its columns alphabetically by column names.</li>
-  <li><strong>Task 2</strong>: Subset the first 12 rows, export the result to a text file and view it in a spreadsheet program like Excel or Google Sheets.</li>
-  <li><strong>Task 3</strong>: Change some column titles in your spreadsheet program, save the result to a tab delimited text file and import it back into R. Note, for this task you only want to include the <code>read.table</code> command in the homework result (here R script).</li>
+  <li><strong>Task 1</strong>: Which sequence type - amino acid or nucleotide - is more appropriate to search databases for remotely related sequences? Provide at least three reasons for your decision.</li>
 </ul>
 
-<p>Before you start it can be helpful to evaluate the structure of the <code>iris</code> data set with the following commands:</p>
+<h2 id="b-dynamic-programming-for-pairwise-alignments">B. Dynamic Programming for Pairwise Alignments</h2>
+<ul>
+  <li><strong>Task 2</strong>: Create manually (or write an R script for it) one global and one local alignment for the following two protein sequences using the Needleman-Wusch and Smith-Waterman algorithms:</li>
+</ul>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
-<span class="n">dim</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
-<span class="n">colnames</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">O15528: PFGFGKRSCMGRRLA
+P98187: FIPFSAGPRNCIGQK</code></pre></div>
 
-<!---
-Solution
+<p>Use in each case BLOSUM50 as substitution matrix and 8 as gap opening and extension penalties. 
+Your answers should contain the following components:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">irismod</span> <span class="o">&lt;-</span> <span class="n">iris</span><span class="p">[</span><span class="n">order</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="p">]),</span> <span class="n">order</span><span class="p">(</span><span class="n">colnames</span><span class="p">(</span><span class="n">iris</span><span class="p">))]</span>
-<span class="n">irismod</span> <span class="o">&lt;-</span> <span class="n">irismod</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,]</span>
-<span class="n">write.table</span><span class="p">(</span><span class="n">irismod</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"irismod.xls"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
-<span class="n">irisimport</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"irismod.xls"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span></code></pre></div>
+<ol>
+  <li>Manually populated dynamic programming matrices</li>
+  <li>The optimal pairwise alignments created by traceback</li>
+  <li>The final scores of the alignments</li>
+</ol>
 
--->
-
-<h2 id="b-scatter-plots">B. Scatter Plots</h2>
+<h2 id="c-alignments-with-different-substitution-matrices">C. Alignments with Different Substitution Matrices</h2>
 
 <ul>
-  <li><strong>Task 1</strong>: Generate a scatter plot for the first two columns of the <code>iris</code> data frame and color the dots by the <code>Species</code> column.</li>
-  <li><strong>Task 2</strong>: Use the <code>xlim/ylim</code> arguments to set limits on the x- and y-axes so that all data points are restricted to the bottom left quadrant of the plot.</li>
+  <li><strong>Task 1</strong>: Load the <code>Biostrings</code> package in R, import the following two cytochrome P450 sequences <code>O15528</code> and <code>P98187</code> from <a href="http://www.ncbi.nlm.nih.gov/protein/O15528,P98187">NCBI</a> (save as <code>myseq.fasta</code>), and create a global alignment with the <code>pairwiseAlignment</code> function from <code>Biostrings</code> as follows:</li>
 </ul>
 
-<p>Again before you start, evaluate the structure of iris data set. The following commands are useful:</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
+<span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">readAAStringSet</span><span class="p">(</span><span class="s2">"myseq.fasta"</span><span class="p">,</span> <span class="s2">"fasta"</span><span class="p">)</span>
+<span class="p">(</span><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">pairwiseAlignment</span><span class="p">(</span><span class="n">myseq</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">myseq</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"global"</span><span class="p">,</span> <span class="n">substitutionMatrix</span><span class="o">=</span><span class="s2">"BLOSUM50"</span><span class="p">))</span>
+<span class="n">writePairwiseAlignments</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
-<span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></div>
+<p>Your answers should address the following items:</p>
 
-<!---
-Solution
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="n">iris</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">col</span><span class="o">=</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="m">19</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="n">iris</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">col</span><span class="o">=</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="m">19</span><span class="p">,</span> <span class="n">xlim</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">16</span><span class="p">),</span> <span class="n">ylim</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">8</span><span class="p">))</span></code></pre></div>
-
--->
-
-<h2 id="c-bar-plots">C. Bar Plots</h2>
-
-<ul>
-  <li><strong>Task 1</strong>: Calculate the mean values for the <code>Species</code> components of the first four columns in the <code>iris</code> data frame. Organize the results in a matrix where the row names are the unique values from the <code>iris Species</code> column and the column names are the names of the first four <code>iris</code> columns.</li>
-  <li><strong>Task 2</strong>: Generate two bar plots for the matrix generated in the previous step: one with stacked bars and one with horizontally arranged bars.</li>
-</ul>
-
-<!---
-Solution
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mMA</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">colnames</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">tapply</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="n">x</span><span class="p">],</span> <span class="n">iris</span><span class="p">[,</span><span class="m">5</span><span class="p">],</span> <span class="n">mean</span><span class="p">))</span>
-<span class="n">barplot</span><span class="p">(</span><span class="n">mMA</span><span class="p">,</span> <span class="n">beside</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="n">rownames</span><span class="p">(</span><span class="n">mMA</span><span class="p">))</span>
-<span class="n">barplot</span><span class="p">(</span><span class="n">mMA</span><span class="p">,</span> <span class="n">beside</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="n">rownames</span><span class="p">(</span><span class="n">mMA</span><span class="p">))</span></code></pre></div>
-
--->
-
-<h2 id="d-h-analysis-worflow">D-H. Analysis Worflow</h2>
-
-<p>The instructions for these homework assignments are <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_Rbasics_13.html">here</a>.</p>
+<ol>
+  <li>Record the scores for the scoring matrices BLOSUM50, BLOSUM62 and BLOSUM80</li>
+  <li>How and why do the scores differ for the three scoring matrices?</li>
+</ol>
 
 <h2 id="homework-submission">Homework submission</h2>
 
-<p>Assemble the results from homework assignments A-H in a single R script (<code>HW3.R</code>) and upload it to your private GitHub repository under <code>Homework/HW3/HW3.R</code>.</p>
+<p>Assemble the results from this homework in one PDF file (<code>HW4.pdf</code>) and upload it to your private GitHub repository under <code>Homework/HW4/HW4.pdf</code>.</p>
 
 <h2 id="due-date">Due date</h2>
 
-<p>This homework is due on Thu, April 14th at 6:00 PM.</p>
+<p>This homework is due in two weeks on Tue, April 26th at 6:00 PM.</p>
 
 
 <div class="tags">
@@ -775,7 +752,7 @@ Solution
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> 07-April-16<br/> Site last generated: Apr 12, 2016 <br />
+<p>Page last updated:</span> 12-April-16<br/> Site last generated: Apr 12, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
