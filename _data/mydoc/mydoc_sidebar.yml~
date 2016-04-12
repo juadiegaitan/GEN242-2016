@@ -132,7 +132,7 @@ entries:
       version: all
       output: web
     
-    - title: Sequence Alignments and Searching
+    - title: Sequence Alignments
       url: /mydoc/mydoc_slides_06.html
       audience: writers, designers
       platform: all
@@ -165,6 +165,14 @@ entries:
       output: web
     
     - title: HW3 - Introduction to R
+      url: /mydoc/mydoc_homework_03.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: HW4 - Pairwise Alignments
       url: /mydoc/mydoc_homework_03.html
       audience: writers, designers
       platform: all

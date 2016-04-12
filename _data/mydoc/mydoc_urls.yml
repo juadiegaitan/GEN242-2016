@@ -73,6 +73,11 @@ mydoc_homework_03:
   url: "../mydoc_homework_03.html"
   link: "<a href='../mydoc_homework_03.html'>Homework 3</a>"
 
+mydoc_homework_04:
+  title: "Homework 4"
+  url: "../mydoc_homework_04.html"
+  link: "<a href='../mydoc_homework_04.html'>Pairwise Alignments</a>"
+
 mydoc_project_01:
   title: "Projects"
   url: "../mydoc_project_01.html"
