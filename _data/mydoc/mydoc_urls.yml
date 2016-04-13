@@ -48,6 +48,11 @@ mydoc_slides_06:
   url: "../mydoc_slides_06.html"
   link: "<a href='../mydoc_slides_06.html'>Sequence Alignments</a>"
 
+mydoc_slides_07:
+  title: "Programming in R"
+  url: "../mydoc_slides_07.html"
+  link: "<a href='../mydoc_slides_07.html'>Programming in R</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
@@ -157,4 +162,34 @@ mydoc_Rbasics_15:
   title: "References"
   url: "../mydoc/mydoc_Rbasics_15.html"
   link: "<a href='../mydoc/mydoc_Rbasics_15.html'>References</a>"
+
+mydoc_Programming_in_R_1:
+  title: "Overview"
+  url: "../mydoc/mydoc_Programming_in_R_1.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_1.html'>Overview</a>"
+
+mydoc_Programming_in_R_2:
+  title: "Control Structures"
+  url: "../mydoc/mydoc_Programming_in_R_2.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_2.html'>Control Structures</a>"
+
+mydoc_Programming_in_R_3:
+  title: "Basic Syntax"
+  url: "../mydoc/mydoc_Programming_in_R_3.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_3.html'>Basic Syntax</a>"
+
+mydoc_Programming_in_R_4:
+  title: "Data Types "
+  url: "../mydoc/mydoc_Programming_in_R_4.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_4.html'>Data Types </a>"
+
+mydoc_Programming_in_R_5:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Programming_in_R_5.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_5.html'>Session Info</a>"
+
+mydoc_Programming_in_R_6:
+  title: "References"
+  url: "../mydoc/mydoc_Programming_in_R_6.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_6.html'>References</a>"
 
