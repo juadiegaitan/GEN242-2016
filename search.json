@@ -5,6 +5,39 @@
 
 
 {
+"title": "Programming in R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/09_Programming_in_R/Programming_in_R.Rmd",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Programming in R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/09_Programming_in_R/Programming_in_R.knit.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Programming in R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/09_Programming_in_R/Programming_in_R.utf8.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "Introduction_to_R",
 "tags": "",
 "keywords": "",
@@ -58,6 +91,72 @@
 
 
 
+
+
+
+
+{
+"title": "Programming in R",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_1.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Control Structures",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_2.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Basic Syntax",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_3.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Data Types",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_4.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Session Info",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_5.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_6.html",
+"summary": ""
+},
 
 
 
@@ -507,6 +606,28 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_06.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Programming in R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_07.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Programming in R",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_07.html",
 "summary": ""
 },
 
