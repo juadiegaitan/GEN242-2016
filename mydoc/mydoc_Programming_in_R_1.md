@@ -1,17 +1,17 @@
 ---
 title: Programming in R 
 keywords: 
-last_updated: Wed Apr 13 13:54:52 2016
+last_updated: Wed Apr 13 13:58:28 2016
 ---
 author: "Author: Thomas Girke"
 
 Last update: 13 April, 2016 
 
 Alternative formats of this vignette:
-[`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/08_Rbasics/Rbasics.html),
-[`.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/08_Rbasics/Rbasics.Rmd),
-[`.R`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/08_Rbasics/Rbasics.R)
-[Old Slides `.pdf`](https://drive.google.com/file/d/0B-lLYVUOliJFWERSVEg3M2Z2cWs/view?usp=sharing)
+[`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/09_Programming_in_R/Programming_in_R.html),
+[`.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/09_Programming_in_R/Programming_in_R.Rmd),
+[`.R`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/09_Programming_in_R/Programming_in_R.R)
+[Old Slides `.pdf`](https://drive.google.com/file/d/0B-lLYVUOliJFSnplWlZWcllYY0E/view?usp=sharing)
 
 ## Overview
 
