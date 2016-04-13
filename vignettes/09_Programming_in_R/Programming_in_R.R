@@ -10,71 +10,91 @@ suppressPackageStartupMessages({
     library(limma) 
     library(ggplot2) }) 
 
-## ----install_cran, eval=FALSE--------------------------------------------
-## install.packages(c("pkg1", "pkg2"))
-## install.packages("pkg.zip", repos=NULL)
+## ----if_statement, eval=FALSE--------------------------------------------
+## if(TRUE) {
+## 	statements_1
+## } else {
+## 	statements_2
+## }
 
-## ----install_bioc, eval=FALSE--------------------------------------------
-## source("http://www.bioconductor.org/biocLite.R")
-## library(BiocInstaller)
-## BiocVersion()
-## biocLite()
-## biocLite(c("pkg1", "pkg2"))
+## ----if_statement_example, eval=TRUE-------------------------------------
+if(1==0) { 
+	print(1) 
+} else { 
+	print(2) 
+}
 
-## ----closing_r, eval=FALSE-----------------------------------------------
-## q()
+## ----ifelse_statement, eval=FALSE----------------------------------------
+## ifelse(test, true_value, false_value)
 
-## ----r_assignment, eval=FALSE--------------------------------------------
-## object <- ...
+## ----ifelse_statement_example, eval=TRUE---------------------------------
+x <- 1:10 
+ifelse(x<5, x, 0)
 
-## ----r_ls, eval=FALSE----------------------------------------------------
-## ls()
+## ----for_loop, eval=FALSE------------------------------------------------
+## for(variable in sequence) {
+## 	statements
+## }
 
-## ----r_dirshow, eval=FALSE-----------------------------------------------
-## dir()
+## ----for_loop_example, eval=TRUE-----------------------------------------
+mydf <- iris
+myve <- NULL
+for(i in seq(along=mydf[,1])) {
+	myve <- c(myve, mean(as.numeric(mydf[i,1:3])))
+}
+myve[1:8]
 
-## ----r_dirpath, eval=FALSE-----------------------------------------------
-## getwd()
+## ----for_loop_inject_example, eval=TRUE----------------------------------
+myve <- numeric(length(mydf[,1]))
+for(i in seq(along=myve)) {
+	myve[i] <- mean(as.numeric(mydf[i,1:3]))
+}
+myve[1:8]
 
-## ----r_setwd, eval=FALSE-------------------------------------------------
-## setwd("/home/user")
+## ----for_loop_stop_example, eval=FALSE-----------------------------------
+## x <- 1:10
+## z <- NULL
+## for(i in seq(along=x)) {
+## 	if(x[i] < 5) {
+## 		z <- c(z, x[i]-1)
+## 	} else {
+## 		stop("values need to be < 5")
+## 	}
+## }
 
-## ----r_syntax, eval=FALSE------------------------------------------------
-## object <- function_name(arguments)
-## object <- object[arguments]
+## ----while_loop, eval=FALSE----------------------------------------------
+## while(condition) {
+## 	statements
+## }
 
-## ----r_find_help, eval=FALSE---------------------------------------------
-## ?function_name
+## ----while_loop_example, eval=TRUE---------------------------------------
+z <- 0
+while(z<5) { 
+	z <- z + 2
+	print(z)  
+}
 
-## ----r_package_load, eval=FALSE------------------------------------------
-## library("my_library")
+## ----apply_loop, eval=FALSE----------------------------------------------
+## apply(X, MARGIN, FUN, ARGs)
 
-## ----r_package_functions, eval=FALSE-------------------------------------
-## library(help="my_library")
+## ----apply_loop_example, eval=TRUE---------------------------------------
+apply(iris[1:8,1:3], 1, mean)
 
-## ----r_load_vignette, eval=FALSE-----------------------------------------
-## vignette("my_library")
+## ----tapply_loop, eval=FALSE---------------------------------------------
+## tapply(vector, factor, FUN)
 
-## ----r_execute_script, eval=FALSE----------------------------------------
-## source("my_script.R")
+## ----tapply_loop_example, eval=TRUE--------------------------------------
+iris[1:2,]
+tapply(iris$Sepal.Length, iris$Species, mean)
 
-## ----sh_execute_script, eval=FALSE, engine="sh"--------------------------
-## $ Rscript my_script.R
-## $ R CMD BATCH my_script.R
-## $ R --slave < my_script.R
+## ----lapply_loop_example, eval=TRUE--------------------------------------
+x <- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+lapply(x, mean)
+sapply(x, mean)
 
-## ----r_numeric_data, eval=TRUE-------------------------------------------
-
-x <- c(1, 2, 3)
-x
-is.numeric(x)
-as.character(x)
-
-## ----r_character_data, eval=TRUE-----------------------------------------
-x <- c("1", "2", "3")
-x
-is.character(x)
-as.numeric(x)
+## ----lapply_loop_fct_example, eval=TRUE----------------------------------
+lapply(names(x), function(x) mean(x))
+sapply(names(x), function(x) mean(x))
 
 ## ----sessionInfo---------------------------------------------------------
 sessionInfo()

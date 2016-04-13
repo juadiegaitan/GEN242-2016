@@ -63,15 +63,25 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><a href="#finding-help"><span class="toc-section-number">1.4</span> Finding Help</a></li>
 </ul></li>
 <li><a href="#control-structures"><span class="toc-section-number">2</span> Control Structures</a><ul>
-<li><a href="#startup-and-closing-behavior"><span class="toc-section-number">2.1</span> Startup and Closing Behavior</a></li>
-<li><a href="#navigating-directories"><span class="toc-section-number">2.2</span> Navigating directories</a></li>
+<li><a href="#important-operators"><span class="toc-section-number">2.1</span> Important Operators</a><ul>
+<li><a href="#comparison-operators"><span class="toc-section-number">2.1.1</span> Comparison operators</a></li>
+<li><a href="#logical-operators"><span class="toc-section-number">2.1.2</span> Logical operators</a></li>
 </ul></li>
-<li><a href="#basic-syntax"><span class="toc-section-number">3</span> Basic Syntax</a></li>
-<li><a href="#data-types"><span class="toc-section-number">4</span> Data Types</a><ul>
-<li><a href="#numeric-data"><span class="toc-section-number">4.1</span> Numeric data</a></li>
-<li><a href="#character-data"><span class="toc-section-number">4.2</span> Character data</a></li>
+<li><a href="#conditional-executions-if-statements"><span class="toc-section-number">2.2</span> Conditional Executions: <code>if</code> Statements</a></li>
+<li><a href="#conditional-executions-ifelse-statements"><span class="toc-section-number">2.3</span> Conditional Executions: <code>ifelse</code> Statements`</a></li>
 </ul></li>
-<li><a href="#session-info"><span class="toc-section-number">5</span> Session Info</a></li>
+<li><a href="#loops"><span class="toc-section-number">3</span> Loops</a><ul>
+<li><a href="#for-loop"><span class="toc-section-number">3.1</span> <code>for</code> loop</a><ul>
+<li><a href="#conditional-stop-of-loops"><span class="toc-section-number">3.1.1</span> Conditional Stop of Loops</a></li>
+</ul></li>
+<li><a href="#while-loop"><span class="toc-section-number">3.2</span> <code>while</code> loop</a></li>
+<li><a href="#the-apply-function-family"><span class="toc-section-number">3.3</span> The <code>apply</code> Function Family</a><ul>
+<li><a href="#apply"><span class="toc-section-number">3.3.1</span> <code>apply</code></a></li>
+<li><a href="#tapply"><span class="toc-section-number">3.3.2</span> <code>tapply</code></a></li>
+<li><a href="#sapply-and-lapply"><span class="toc-section-number">3.3.3</span> <code>sapply</code> and <code>lapply</code></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#session-info"><span class="toc-section-number">4</span> Session Info</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
@@ -85,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function() {
 -->
 <!---
 - Compile from command-line
-echo "rmarkdown::render('Programming_in_R.Rmd', clean=F)" | R -slave; R CMD Stangle Programming_in_R.Rmd; Rscript ../md2jekyll.R Programming_in_R.knit.md sidebartitle='Programming in R' 9
+echo "rmarkdown::render('Programming_in_R.Rmd', clean=F)" | R -slave; R CMD Stangle Programming_in_R.Rmd; Rscript ../md2jekyll.R Programming_in_R.knit.md 9
 
 - Commit to github
 git commit -am "some edits"; git push -u origin master
@@ -169,88 +179,194 @@ Programming in R using RStudio
 <li><a href="http://www.statistik.uni-dortmund.de/useR-2008/tutorials/useR2008introhighperfR.pdf">High-Performance R</a>, Dirk Eddelbuettel tutorial presented at useR-2008</li>
 <li><a href="http://www.stat.harvard.edu/ccr2005/index.html">C/C++ level programming for R</a>, Gopi Goswami</li>
 </ul>
-<pre class="r"><code>install.packages(c(&quot;pkg1&quot;, &quot;pkg2&quot;)) 
-install.packages(&quot;pkg.zip&quot;, repos=NULL)</code></pre>
-<p>(4.) Install Bioconductor packages as follows:</p>
-<pre class="r"><code>source(&quot;http://www.bioconductor.org/biocLite.R&quot;)
-library(BiocInstaller)
-BiocVersion()
-biocLite()
-biocLite(c(&quot;pkg1&quot;, &quot;pkg2&quot;))</code></pre>
-<p>(5.) For more details consult the <a href="http://www.bioconductor.org/install/">Bioc Install page</a> and <a href="http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html">BiocInstaller</a> package.</p>
 </div>
 </div>
 <div id="control-structures" class="section level1">
 <h1><span class="header-section-number">2</span> Control Structures</h1>
-<div id="startup-and-closing-behavior" class="section level2">
-<h2><span class="header-section-number">2.1</span> Startup and Closing Behavior</h2>
-<pre class="r"><code>q()  </code></pre>
-<pre><code>Save workspace image? [y/n/c]:</code></pre>
+<div id="important-operators" class="section level2">
+<h2><span class="header-section-number">2.1</span> Important Operators</h2>
+<div id="comparison-operators" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Comparison operators</h3>
 <ul>
-<li><strong>Note</strong>: When responding with <code>y</code>, then the entire R workspace will be written to the <code>.RData</code> file which can become very large. Often it is sufficient to just save an analysis protocol in an R source file. This way one can quickly regenerate all data sets and objects.</li>
+<li><code>==</code> (equal)</li>
+<li><code>!=</code> (not equal)</li>
+<li><code>&gt;</code> (greater than)</li>
+<li><code>&gt;=</code> (greater than or equal)</li>
+<li><code>&lt;</code> (less than)</li>
+<li><code>&lt;=</code> (less than or equal)</li>
 </ul>
 </div>
-<div id="navigating-directories" class="section level2">
-<h2><span class="header-section-number">2.2</span> Navigating directories</h2>
-<p>Create an object with the assignment operator <code>&lt;-</code> or <code>=</code></p>
-<pre class="r"><code>object &lt;- ...</code></pre>
-<p>List objects in current R session</p>
-<pre class="r"><code>ls()</code></pre>
-<p>Return content of current working directory</p>
-<pre class="r"><code>dir()</code></pre>
-<p>Return path of current working directory</p>
-<pre class="r"><code>getwd()</code></pre>
-<p>Change current working directory</p>
-<pre class="r"><code>setwd(&quot;/home/user&quot;)</code></pre>
+<div id="logical-operators" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Logical operators</h3>
+<ul>
+<li><code>&amp;</code> (and)</li>
+<li><code>|</code> (or)</li>
+<li><code>!</code> (not)</li>
+</ul>
 </div>
 </div>
-<div id="basic-syntax" class="section level1">
-<h1><span class="header-section-number">3</span> Basic Syntax</h1>
-<p>General R command syntax</p>
-<pre class="r"><code>object &lt;- function_name(arguments) 
-object &lt;- object[arguments] </code></pre>
-<p>Finding help</p>
-<pre class="r"><code>?function_name</code></pre>
-<p>Load a library/package</p>
-<pre class="r"><code>library(&quot;my_library&quot;) </code></pre>
-<p>List functions defined by a library</p>
-<pre class="r"><code>library(help=&quot;my_library&quot;)</code></pre>
-<p>Load library manual (PDF or HTML file)</p>
-<pre class="r"><code>vignette(&quot;my_library&quot;) </code></pre>
-<p>Execute an R script from within R</p>
-<pre class="r"><code>source(&quot;my_script.R&quot;)</code></pre>
-<p>Execute an R script from command-line (the first of the three options is preferred)</p>
-<pre class="sh"><code>$ Rscript my_script.R
-$ R CMD BATCH my_script.R 
-$ R --slave &lt; my_script.R </code></pre>
+<div id="conditional-executions-if-statements" class="section level2">
+<h2><span class="header-section-number">2.2</span> Conditional Executions: <code>if</code> Statements</h2>
+<p>An <code>if</code> statement operates on length-one logical vectors.</p>
+<p><strong>Syntax</strong></p>
+<pre class="r"><code>if(TRUE) { 
+    statements_1 
+} else { 
+    statements_2 
+}</code></pre>
+<p><strong>Example</strong></p>
+<pre class="r"><code>if(1==0) { 
+    print(1) 
+} else { 
+    print(2) 
+}</code></pre>
+<pre><code>## [1] 2</code></pre>
 </div>
-<div id="data-types" class="section level1">
-<h1><span class="header-section-number">4</span> Data Types</h1>
-<div id="numeric-data" class="section level2">
-<h2><span class="header-section-number">4.1</span> Numeric data</h2>
-<p>Example: <code>1, 2, 3, ...</code></p>
-<pre class="r"><code>x &lt;- c(1, 2, 3)
-x</code></pre>
-<pre><code>## [1] 1 2 3</code></pre>
-<pre class="r"><code>is.numeric(x)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>as.character(x)</code></pre>
-<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
+<div id="conditional-executions-ifelse-statements" class="section level2">
+<h2><span class="header-section-number">2.3</span> Conditional Executions: <code>ifelse</code> Statements`</h2>
+<p>The <code>ifelse</code> statement operates on vectors.</p>
+<p><strong>Syntax</strong></p>
+<pre class="r"><code>ifelse(test, true_value, false_value)</code></pre>
+<p><strong>Example</strong></p>
+<pre class="r"><code>x &lt;- 1:10 
+ifelse(x&lt;5, x, 0)</code></pre>
+<pre><code>##  [1] 1 2 3 4 0 0 0 0 0 0</code></pre>
 </div>
-<div id="character-data" class="section level2">
-<h2><span class="header-section-number">4.2</span> Character data</h2>
-<p>Example: <code>&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, ...</code></p>
-<pre class="r"><code>x &lt;- c(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;)
-x</code></pre>
-<pre><code>## [1] &quot;1&quot; &quot;2&quot; &quot;3&quot;</code></pre>
-<pre class="r"><code>is.character(x)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>as.numeric(x)</code></pre>
-<pre><code>## [1] 1 2 3</code></pre>
+</div>
+<div id="loops" class="section level1">
+<h1><span class="header-section-number">3</span> Loops</h1>
+<div id="for-loop" class="section level2">
+<h2><span class="header-section-number">3.1</span> <code>for</code> loop</h2>
+<p><code>for</code> loops iterate over elements of a looping vector.</p>
+<p><strong>Syntax</strong></p>
+<pre class="r"><code>for(variable in sequence) { 
+    statements 
+}</code></pre>
+<p><strong>Example</strong></p>
+<pre class="r"><code>mydf &lt;- iris
+myve &lt;- NULL
+for(i in seq(along=mydf[,1])) {
+    myve &lt;- c(myve, mean(as.numeric(mydf[i,1:3])))
+}
+myve[1:8]</code></pre>
+<pre><code>## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000</code></pre>
+<p><strong>Note:</strong> Inject into objecs is much faster than append approach with <code>c</code>, <code>cbind</code>, etc.</p>
+<p><strong>Example</strong></p>
+<pre class="r"><code>myve &lt;- numeric(length(mydf[,1]))
+for(i in seq(along=myve)) {
+    myve[i] &lt;- mean(as.numeric(mydf[i,1:3]))
+}
+myve[1:8]</code></pre>
+<pre><code>## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000</code></pre>
+<div id="conditional-stop-of-loops" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Conditional Stop of Loops</h3>
+<p>The <code>stop</code> function can be used to break out of a loop (or a function) when a condition becomes <code>TRUE</code>. In addition, an error message will be printed.</p>
+<p><strong>Example</strong></p>
+<pre class="r"><code>x &lt;- 1:10
+z &lt;- NULL
+for(i in seq(along=x)) { 
+    if(x[i] &lt; 5) { 
+        z &lt;- c(z, x[i]-1)  
+    } else { 
+        stop(&quot;values need to be &lt; 5&quot;) 
+    }
+}</code></pre>
+</div>
+</div>
+<div id="while-loop" class="section level2">
+<h2><span class="header-section-number">3.2</span> <code>while</code> loop</h2>
+<p>Iterates as long as a condition is true.</p>
+<p><strong>Syntax</strong></p>
+<pre class="r"><code>while(condition) {
+    statements
+}</code></pre>
+<p><strong>Example</strong></p>
+<pre class="r"><code>z &lt;- 0
+while(z&lt;5) { 
+    z &lt;- z + 2
+    print(z)  
+}</code></pre>
+<pre><code>## [1] 2
+## [1] 4
+## [1] 6</code></pre>
+</div>
+<div id="the-apply-function-family" class="section level2">
+<h2><span class="header-section-number">3.3</span> The <code>apply</code> Function Family</h2>
+<div id="apply" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> <code>apply</code></h3>
+<p><strong>Syntax</strong></p>
+<pre class="r"><code>apply(X, MARGIN, FUN, ARGs)</code></pre>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><code>X</code>: <code>array</code>, <code>matrix</code> or <code>data.frame</code></li>
+<li><code>MARGIN</code>: <code>1</code> for rows, <code>2</code> for columns</li>
+<li><code>FUN</code>: one or more functions</li>
+<li><code>ARGs</code>: possible arguments for functions</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre class="r"><code>apply(iris[1:8,1:3], 1, mean)</code></pre>
+<pre><code>##        1        2        3        4        5        6        7        8 
+## 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000</code></pre>
+</div>
+<div id="tapply" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> <code>tapply</code></h3>
+<p>Applies a function to vector components that are defined by a factor.</p>
+<p><strong>Syntax</strong></p>
+<pre class="r"><code>tapply(vector, factor, FUN)</code></pre>
+<p><strong>Example</strong></p>
+<pre class="r"><code>iris[1:2,]</code></pre>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa</code></pre>
+<pre class="r"><code>tapply(iris$Sepal.Length, iris$Species, mean)</code></pre>
+<pre><code>##     setosa versicolor  virginica 
+##      5.006      5.936      6.588</code></pre>
+</div>
+<div id="sapply-and-lapply" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> <code>sapply</code> and <code>lapply</code></h3>
+<p>Both apply a function to vector or list objects. The <code>lapply</code> function always returns a list object, while <code>sapply</code> returns <code>vector</code> or <code>matrix</code> objects when it is possible.</p>
+<p><strong>Examples</strong></p>
+<pre class="r"><code>x &lt;- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+lapply(x, mean)</code></pre>
+<pre><code>## $a
+## [1] 5.5
+## 
+## $beta
+## [1] 4.535125
+## 
+## $logic
+## [1] 0.5</code></pre>
+<pre class="r"><code>sapply(x, mean)</code></pre>
+<pre><code>##        a     beta    logic 
+## 5.500000 4.535125 0.500000</code></pre>
+<p>Often used in combination with a function definition:</p>
+<pre class="r"><code>lapply(names(x), function(x) mean(x))</code></pre>
+<pre><code>## Warning in mean.default(x): argument is not numeric or logical: returning NA
+
+## Warning in mean.default(x): argument is not numeric or logical: returning NA
+
+## Warning in mean.default(x): argument is not numeric or logical: returning NA</code></pre>
+<pre><code>## [[1]]
+## [1] NA
+## 
+## [[2]]
+## [1] NA
+## 
+## [[3]]
+## [1] NA</code></pre>
+<pre class="r"><code>sapply(names(x), function(x) mean(x))</code></pre>
+<pre><code>## Warning in mean.default(x): argument is not numeric or logical: returning NA
+
+## Warning in mean.default(x): argument is not numeric or logical: returning NA
+
+## Warning in mean.default(x): argument is not numeric or logical: returning NA</code></pre>
+<pre><code>##     a  beta logic 
+##    NA    NA    NA</code></pre>
+</div>
 </div>
 </div>
 <div id="session-info" class="section level1">
-<h1><span class="header-section-number">5</span> Session Info</h1>
+<h1><span class="header-section-number">4</span> Session Info</h1>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 3.2.4 Revised (2016-03-16 r70336)
 ## Platform: x86_64-pc-linux-gnu (64-bit)

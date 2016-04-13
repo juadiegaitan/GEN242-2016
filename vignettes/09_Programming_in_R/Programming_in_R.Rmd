@@ -651,7 +651,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Programming_in_R_3.html">3. Basic Syntax</a></li>
+                    <li><a href="../mydoc/mydoc_Programming_in_R_3.html">3. Loops</a></li>
                     
 
                     
@@ -660,7 +660,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Programming_in_R_4.html">4. Data Types</a></li>
+                    <li><a href="../mydoc/mydoc_Programming_in_R_4.html">4. Session Info</a></li>
                     
 
                     
@@ -669,16 +669,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Programming_in_R_5.html">5. Session Info</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Programming_in_R_6.html">6. References</a></li>
+                    <li><a href="../mydoc/mydoc_Programming_in_R_5.html">5. References</a></li>
                     
 
                     
@@ -856,141 +847,183 @@ Reference list on R programming (selection)
 * [C/C++ level programming for R](http://www.stat.harvard.edu/ccr2005/index.html), Gopi Goswami
 
 
-```{r install_cran, eval=FALSE}
-install.packages(c("pkg1", "pkg2")) 
-install.packages("pkg.zip", repos=NULL)
-```
-
-(4.) Install Bioconductor packages as follows:
-
-```{r install_bioc, eval=FALSE}
-source("http://www.bioconductor.org/biocLite.R")
-library(BiocInstaller)
-BiocVersion()
-biocLite()
-biocLite(c("pkg1", "pkg2"))
-```
-
-(5.) For more details consult the [Bioc Install page](http://www.bioconductor.org/install/)
-and [BiocInstaller](http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html) package.
-
 # Control Structures
 
-## Startup and Closing Behavior
+## Important Operators
 
-```{r closing_r, eval=FALSE}
-q()  
-```
-```
-Save workspace image? [y/n/c]:
-```
-        
-* __Note__:
-    When responding with `y`, then the entire R workspace will be written to
-    the `.RData` file which can become very large. Often it is sufficient to just
-    save an analysis protocol in an R source file. This way one can quickly
-    regenerate all data sets and objects. 
+### Comparison operators
 
+* `==` (equal)
+* `!=` (not equal)
+* `>` (greater than)
+* `>=` (greater than or equal)
+* `<` (less than)
+* `<=` (less than or equal)
 
-## Navigating directories
+### Logical operators
+		
+* `&` (and)
+* `|` (or) 
+* `!` (not)
 
-Create an object with the assignment operator `<-` or `=`
-```{r r_assignment, eval=FALSE}
-object <- ...
-```
+## Conditional Executions: `if` Statements
 
-List objects in current R session
-```{r r_ls, eval=FALSE}
-ls()
-```
+An `if` statement operates on length-one logical vectors.
 
-Return content of current working directory
-```{r r_dirshow, eval=FALSE}
-dir()
+__Syntax__
+```{r if_statement, eval=FALSE}
+if(TRUE) { 
+	statements_1 
+} else { 
+	statements_2 
+}
 ```
 
-Return path of current working directory
-```{r r_dirpath, eval=FALSE}
-getwd()
+__Example__
+```{r if_statement_example, eval=TRUE}
+if(1==0) { 
+	print(1) 
+} else { 
+	print(2) 
+}
 ```
 
-Change current working directory
-```{r r_setwd, eval=FALSE}
-setwd("/home/user")
+## Conditional Executions: `ifelse` Statements`
+
+The `ifelse` statement operates on vectors.
+
+__Syntax__
+```{r ifelse_statement, eval=FALSE}
+ifelse(test, true_value, false_value)
+```
+__Example__
+```{r ifelse_statement_example, eval=TRUE}
+x <- 1:10 
+ifelse(x<5, x, 0)
 ```
 
-# Basic Syntax
+# Loops
 
-General R command syntax
+## `for` loop
 
-```{r r_syntax, eval=FALSE}
-object <- function_name(arguments) 
-object <- object[arguments] 
+`for` loops iterate over elements of a looping vector.
+
+__Syntax__
+```{r for_loop, eval=FALSE}
+for(variable in sequence) { 
+	statements 
+}
+```
+__Example__
+```{r for_loop_example, eval=TRUE}
+mydf <- iris
+myve <- NULL
+for(i in seq(along=mydf[,1])) {
+	myve <- c(myve, mean(as.numeric(mydf[i,1:3])))
+}
+myve[1:8]
 ```
 
-Finding help
+__Note:__ Inject into objecs is much faster than append approach with `c`, `cbind`, etc.
 
-```{r r_find_help, eval=FALSE}
-?function_name
+__Example__
+```{r for_loop_inject_example, eval=TRUE}
+myve <- numeric(length(mydf[,1]))
+for(i in seq(along=myve)) {
+	myve[i] <- mean(as.numeric(mydf[i,1:3]))
+}
+myve[1:8]
 ```
 
-Load a library/package
+### Conditional Stop of Loops
 
-```{r r_package_load, eval=FALSE}
-library("my_library") 
+The `stop` function can be used to break out of a loop (or a function) when a condition becomes `TRUE`. In addition, an error message will be printed.
+
+__Example__
+```{r for_loop_stop_example, eval=FALSE}
+x <- 1:10
+z <- NULL
+for(i in seq(along=x)) { 
+	if(x[i] < 5) { 
+		z <- c(z, x[i]-1)  
+	} else { 
+		stop("values need to be < 5") 
+	}
+}
 ```
 
-List functions defined by a library
+## `while` loop
 
-```{r r_package_functions, eval=FALSE}
-library(help="my_library")
+Iterates as long as a condition is true.
+
+__Syntax__
+```{r while_loop, eval=FALSE}
+while(condition) {
+	statements
+}
 ```
 
-Load library manual (PDF or HTML file)
-
-```{r r_load_vignette, eval=FALSE}
-vignette("my_library") 
+__Example__
+```{r while_loop_example, eval=TRUE}
+z <- 0
+while(z<5) { 
+	z <- z + 2
+	print(z)  
+}
 ```
 
-Execute an R script from within R
+## The `apply` Function Family
 
-```{r r_execute_script, eval=FALSE}
-source("my_script.R")
+### `apply`
+
+__Syntax__
+```{r apply_loop, eval=FALSE}
+apply(X, MARGIN, FUN, ARGs)
 ```
 
-Execute an R script from command-line (the first of the three options is preferred)
+__Arguments__
 
-```{sh sh_execute_script, eval=FALSE}
-$ Rscript my_script.R
-$ R CMD BATCH my_script.R 
-$ R --slave < my_script.R 
+* `X`: `array`, `matrix` or `data.frame`
+* `MARGIN`: `1` for rows, `2` for columns
+* `FUN`: one or more functions
+* `ARGs`: possible arguments for functions
+
+__Example__
+```{r apply_loop_example, eval=TRUE}
+apply(iris[1:8,1:3], 1, mean)
 ```
 
-# Data Types 
+### `tapply`
 
-## Numeric data
+Applies a function to vector components that are defined by a factor.
 
-Example: `1, 2, 3, ...`
-
-```{r r_numeric_data, eval=TRUE}
-
-x <- c(1, 2, 3)
-x
-is.numeric(x)
-as.character(x)
+__Syntax__
+```{r tapply_loop, eval=FALSE}
+tapply(vector, factor, FUN)
 ```
 
-## Character data
-
-Example: `"a", "b", "c", ...`
-
-```{r r_character_data, eval=TRUE}
-x <- c("1", "2", "3")
-x
-is.character(x)
-as.numeric(x)
+__Example__
+```{r tapply_loop_example, eval=TRUE}
+iris[1:2,]
+tapply(iris$Sepal.Length, iris$Species, mean)
 ```
 
+### `sapply` and `lapply`
+
+Both apply a function to vector or list objects. The `lapply` function always returns a list object, while `sapply` returns `vector` or `matrix` objects when it is possible. 
+
+__Examples__
+```{r lapply_loop_example, eval=TRUE}
+x <- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+lapply(x, mean)
+sapply(x, mean)
+```
+
+Often used in combination with a function definition:
+```{r lapply_loop_fct_example, eval=TRUE}
+lapply(names(x), function(x) mean(x))
+sapply(names(x), function(x) mean(x))
+```
 
 # Session Info
 

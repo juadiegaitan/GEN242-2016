@@ -651,7 +651,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Programming_in_R_3.html">3. Basic Syntax</a></li>
+                    <li><a href="../mydoc/mydoc_Programming_in_R_3.html">3. Loops</a></li>
                     
 
                     
@@ -660,7 +660,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Programming_in_R_4.html">4. Data Types</a></li>
+                    <li><a href="../mydoc/mydoc_Programming_in_R_4.html">4. Session Info</a></li>
                     
 
                     
@@ -669,16 +669,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Programming_in_R_5.html">5. Session Info</a></li>
-                    
-
-                    
-
-                    
-                    
-                    
-                    
-                    <li><a href="../mydoc/mydoc_Programming_in_R_6.html">6. References</a></li>
+                    <li><a href="../mydoc/mydoc_Programming_in_R_5.html">5. References</a></li>
                     
 
                     
@@ -768,7 +759,7 @@ $('#toc').on('click', 'a', function() {
 
 <!---
 - Compile from command-line
-echo "rmarkdown::render('Programming_in_R.Rmd', clean=F)" | R -slave; R CMD Stangle Programming_in_R.Rmd; Rscript ../md2jekyll.R Programming_in_R.knit.md sidebartitle='Programming in R' 9
+echo "rmarkdown::render('Programming_in_R.Rmd', clean=F)" | R -slave; R CMD Stangle Programming_in_R.Rmd; Rscript ../md2jekyll.R Programming_in_R.knit.md 9
 
 - Commit to github
 git commit -am "some edits"; git push -u origin master
@@ -860,180 +851,299 @@ More details can be found R &amp; BioConductor manual <a href="http://manuals.bi
   <li><a href="http://www.stat.harvard.edu/ccr2005/index.html">C/C++ level programming for R</a>, Gopi Goswami</li>
 </ul>
 
-<p><code>r
-install.packages(c("pkg1", "pkg2")) 
-install.packages("pkg.zip", repos=NULL)
-</code></p>
-
-<p>(4.) Install Bioconductor packages as follows:</p>
-
-<p><code>r
-source("http://www.bioconductor.org/biocLite.R")
-library(BiocInstaller)
-BiocVersion()
-biocLite()
-biocLite(c("pkg1", "pkg2"))
-</code></p>
-
-<p>(5.) For more details consult the <a href="http://www.bioconductor.org/install/">Bioc Install page</a>
-and <a href="http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html">BiocInstaller</a> package.</p>
-
 <h1 id="control-structures">Control Structures</h1>
 
-<h2 id="startup-and-closing-behavior">Startup and Closing Behavior</h2>
+<h2 id="important-operators">Important Operators</h2>
 
-<p><code>r
-q()  
-</code>
-<code>
-Save workspace image? [y/n/c]:
-</code></p>
+<h3 id="comparison-operators">Comparison operators</h3>
 
 <ul>
-  <li><strong>Note</strong>:
-  When responding with <code>y</code>, then the entire R workspace will be written to
-  the <code>.RData</code> file which can become very large. Often it is sufficient to just
-  save an analysis protocol in an R source file. This way one can quickly
-  regenerate all data sets and objects.</li>
+  <li><code>==</code> (equal)</li>
+  <li><code>!=</code> (not equal)</li>
+  <li><code>&gt;</code> (greater than)</li>
+  <li><code>&gt;=</code> (greater than or equal)</li>
+  <li><code>&lt;</code> (less than)</li>
+  <li><code>&lt;=</code> (less than or equal)</li>
 </ul>
 
-<h2 id="navigating-directories">Navigating directories</h2>
+<h3 id="logical-operators">Logical operators</h3>
 
-<p>Create an object with the assignment operator <code>&lt;-</code> or <code>=</code></p>
+<ul>
+  <li><code>&amp;</code> (and)</li>
+  <li><code>|</code> (or)</li>
+  <li><code>!</code> (not)</li>
+</ul>
 
-<p><code>r
-object &lt;- ...
-</code></p>
+<h2 id="conditional-executions-if-statements">Conditional Executions: <code>if</code> Statements</h2>
 
-<p>List objects in current R session</p>
+<p>An <code>if</code> statement operates on length-one logical vectors.</p>
 
-<p><code>r
-ls()
-</code></p>
-
-<p>Return content of current working directory</p>
+<p><strong>Syntax</strong></p>
 
 <p><code>r
-dir()
+if(TRUE) { 
+	statements_1 
+} else { 
+	statements_2 
+}
 </code></p>
 
-<p>Return path of current working directory</p>
+<p><strong>Example</strong></p>
 
 <p><code>r
-getwd()
-</code></p>
-
-<p>Change current working directory</p>
-
-<p><code>r
-setwd("/home/user")
-</code></p>
-
-<h1 id="basic-syntax">Basic Syntax</h1>
-
-<p>General R command syntax</p>
-
-<p><code>r
-object &lt;- function_name(arguments) 
-object &lt;- object[arguments] 
-</code></p>
-
-<p>Finding help</p>
-
-<p><code>r
-?function_name
-</code></p>
-
-<p>Load a library/package</p>
-
-<p><code>r
-library("my_library") 
-</code></p>
-
-<p>List functions defined by a library</p>
-
-<p><code>r
-library(help="my_library")
-</code></p>
-
-<p>Load library manual (PDF or HTML file)</p>
-
-<p><code>r
-vignette("my_library") 
-</code></p>
-
-<p>Execute an R script from within R</p>
-
-<p><code>r
-source("my_script.R")
-</code></p>
-
-<p>Execute an R script from command-line (the first of the three options is preferred)</p>
-
-<p><code>sh
-$ Rscript my_script.R
-$ R CMD BATCH my_script.R 
-$ R --slave &lt; my_script.R 
-</code></p>
-
-<h1 id="data-types">Data Types</h1>
-
-<h2 id="numeric-data">Numeric data</h2>
-
-<p>Example: <code>1, 2, 3, ...</code></p>
-
-<p><code>r
-x &lt;- c(1, 2, 3)
-x
+if(1==0) { 
+	print(1) 
+} else { 
+	print(2) 
+}
 </code></p>
 
 <p><code>
-## [1] 1 2 3
+## [1] 2
 </code></p>
 
+<h2 id="conditional-executions-ifelse-statements">Conditional Executions: <code>ifelse</code> Statements`</h2>
+
+<p>The <code>ifelse</code> statement operates on vectors.</p>
+
+<p><strong>Syntax</strong></p>
+
 <p><code>r
-is.numeric(x)
+ifelse(test, true_value, false_value)
+</code>
+<strong>Example</strong></p>
+
+<p><code>r
+x &lt;- 1:10 
+ifelse(x&lt;5, x, 0)
 </code></p>
 
 <p><code>
-## [1] TRUE
+##  [1] 1 2 3 4 0 0 0 0 0 0
 </code></p>
 
+<h1 id="loops">Loops</h1>
+
+<h2 id="for-loop"><code>for</code> loop</h2>
+
+<p><code>for</code> loops iterate over elements of a looping vector.</p>
+
+<p><strong>Syntax</strong></p>
+
 <p><code>r
-as.character(x)
+for(variable in sequence) { 
+	statements 
+}
+</code>
+<strong>Example</strong></p>
+
+<p><code>r
+mydf &lt;- iris
+myve &lt;- NULL
+for(i in seq(along=mydf[,1])) {
+	myve &lt;- c(myve, mean(as.numeric(mydf[i,1:3])))
+}
+myve[1:8]
 </code></p>
 
 <p><code>
-## [1] "1" "2" "3"
+## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
 </code></p>
 
-<h2 id="character-data">Character data</h2>
+<p><strong>Note:</strong> Inject into objecs is much faster than append approach with <code>c</code>, <code>cbind</code>, etc.</p>
 
-<p>Example: <code>"a", "b", "c", ...</code></p>
+<p><strong>Example</strong></p>
 
 <p><code>r
-x &lt;- c("1", "2", "3")
-x
+myve &lt;- numeric(length(mydf[,1]))
+for(i in seq(along=myve)) {
+	myve[i] &lt;- mean(as.numeric(mydf[i,1:3]))
+}
+myve[1:8]
 </code></p>
 
 <p><code>
-## [1] "1" "2" "3"
+## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
 </code></p>
 
+<h3 id="conditional-stop-of-loops">Conditional Stop of Loops</h3>
+
+<p>The <code>stop</code> function can be used to break out of a loop (or a function) when a condition becomes <code>TRUE</code>. In addition, an error message will be printed.</p>
+
+<p><strong>Example</strong></p>
+
 <p><code>r
-is.character(x)
+x &lt;- 1:10
+z &lt;- NULL
+for(i in seq(along=x)) { 
+	if(x[i] &lt; 5) { 
+		z &lt;- c(z, x[i]-1)  
+	} else { 
+		stop("values need to be &lt; 5") 
+	}
+}
+</code></p>
+
+<h2 id="while-loop"><code>while</code> loop</h2>
+
+<p>Iterates as long as a condition is true.</p>
+
+<p><strong>Syntax</strong></p>
+
+<p><code>r
+while(condition) {
+	statements
+}
+</code></p>
+
+<p><strong>Example</strong></p>
+
+<p><code>r
+z &lt;- 0
+while(z&lt;5) { 
+	z &lt;- z + 2
+	print(z)  
+}
 </code></p>
 
 <p><code>
-## [1] TRUE
+## [1] 2
+## [1] 4
+## [1] 6
 </code></p>
 
+<h2 id="the-apply-function-family">The <code>apply</code> Function Family</h2>
+
+<h3 id="apply"><code>apply</code></h3>
+
+<p><strong>Syntax</strong></p>
+
 <p><code>r
-as.numeric(x)
+apply(X, MARGIN, FUN, ARGs)
+</code></p>
+
+<p><strong>Arguments</strong></p>
+
+<ul>
+  <li><code>X</code>: <code>array</code>, <code>matrix</code> or <code>data.frame</code></li>
+  <li><code>MARGIN</code>: <code>1</code> for rows, <code>2</code> for columns</li>
+  <li><code>FUN</code>: one or more functions</li>
+  <li><code>ARGs</code>: possible arguments for functions</li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<p><code>r
+apply(iris[1:8,1:3], 1, mean)
 </code></p>
 
 <p><code>
-## [1] 1 2 3
+##        1        2        3        4        5        6        7        8 
+## 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
+</code></p>
+
+<h3 id="tapply"><code>tapply</code></h3>
+
+<p>Applies a function to vector components that are defined by a factor.</p>
+
+<p><strong>Syntax</strong></p>
+
+<p><code>r
+tapply(vector, factor, FUN)
+</code></p>
+
+<p><strong>Example</strong></p>
+
+<p><code>r
+iris[1:2,]
+</code></p>
+
+<p><code>
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+</code></p>
+
+<p><code>r
+tapply(iris$Sepal.Length, iris$Species, mean)
+</code></p>
+
+<p><code>
+##     setosa versicolor  virginica 
+##      5.006      5.936      6.588
+</code></p>
+
+<h3 id="sapply-and-lapply"><code>sapply</code> and <code>lapply</code></h3>
+
+<p>Both apply a function to vector or list objects. The <code>lapply</code> function always returns a list object, while <code>sapply</code> returns <code>vector</code> or <code>matrix</code> objects when it is possible.</p>
+
+<p><strong>Examples</strong></p>
+
+<p><code>r
+x &lt;- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+lapply(x, mean)
+</code></p>
+
+<p><code>
+## $a
+## [1] 5.5
+## 
+## $beta
+## [1] 4.535125
+## 
+## $logic
+## [1] 0.5
+</code></p>
+
+<p><code>r
+sapply(x, mean)
+</code></p>
+
+<p><code>
+##        a     beta    logic 
+## 5.500000 4.535125 0.500000
+</code></p>
+
+<p>Often used in combination with a function definition:</p>
+
+<p><code>r
+lapply(names(x), function(x) mean(x))
+</code></p>
+
+<p>```
+## Warning in mean.default(x): argument is not numeric or logical: returning NA</p>
+
+<h2 id="warning-in-meandefaultx-argument-is-not-numeric-or-logical-returning-na">Warning in mean.default(x): argument is not numeric or logical: returning NA</h2>
+
+<h2 id="warning-in-meandefaultx-argument-is-not-numeric-or-logical-returning-na-1">Warning in mean.default(x): argument is not numeric or logical: returning NA</h2>
+<p>```</p>
+
+<p><code>
+## [[1]]
+## [1] NA
+## 
+## [[2]]
+## [1] NA
+## 
+## [[3]]
+## [1] NA
+</code></p>
+
+<p><code>r
+sapply(names(x), function(x) mean(x))
+</code></p>
+
+<p>```
+## Warning in mean.default(x): argument is not numeric or logical: returning NA</p>
+
+<h2 id="warning-in-meandefaultx-argument-is-not-numeric-or-logical-returning-na-2">Warning in mean.default(x): argument is not numeric or logical: returning NA</h2>
+
+<h2 id="warning-in-meandefaultx-argument-is-not-numeric-or-logical-returning-na-3">Warning in mean.default(x): argument is not numeric or logical: returning NA</h2>
+<p>```</p>
+
+<p><code>
+##     a  beta logic 
+##    NA    NA    NA
 </code></p>
 
 <h1 id="session-info">Session Info</h1>
