@@ -92,9 +92,9 @@ x <- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
 lapply(x, mean)
 sapply(x, mean)
 
-## ----lapply_loop_fct_example, eval=TRUE----------------------------------
-lapply(names(x), function(x) mean(x))
-sapply(names(x), function(x) mean(x))
+## ----lapply_loop_fct_example, eval=FALSE---------------------------------
+## lapply(names(x), function(x) mean(x))
+## sapply(names(x), function(x) mean(x))
 
 ## ----sessionInfo---------------------------------------------------------
 sessionInfo()
