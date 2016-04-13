@@ -57,7 +57,7 @@ structures are understood, users can use the R language as a powerful
 environment to perform complex custom analyses of almost any type of data [@Gentleman2008-xo].
 
 
-## Why Programmin in R?
+## Why Programming in R?
 
 * Powerful statistical environment and programming language
 * Facilitates reproducible research
@@ -362,42 +362,7 @@ Often used in combination with a function definition:
 
 ```r
 lapply(names(x), function(x) mean(x))
-```
-
-```
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-```
-
-```
-## [[1]]
-## [1] NA
-## 
-## [[2]]
-## [1] NA
-## 
-## [[3]]
-## [1] NA
-```
-
-```r
 sapply(names(x), function(x) mean(x))
-```
-
-```
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-```
-
-```
-##     a  beta logic 
-##    NA    NA    NA
 ```
 
 # Session Info

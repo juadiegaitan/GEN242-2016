@@ -1,7 +1,7 @@
 ---
 title: Loops
 keywords: 
-last_updated: Wed Apr 13 13:58:28 2016
+last_updated: Wed Apr 13 14:47:48 2016
 ---
 
 ## `for` loop
@@ -186,41 +186,6 @@ Often used in combination with a function definition:
 
 {% highlight r %}
 lapply(names(x), function(x) mean(x))
-{% endhighlight %}
-
-{% highlight txt %}
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-{% endhighlight %}
-
-{% highlight txt %}
-## [[1]]
-## [1] NA
-## 
-## [[2]]
-## [1] NA
-## 
-## [[3]]
-## [1] NA
-{% endhighlight %}
-
-{% highlight r %}
 sapply(names(x), function(x) mean(x))
-{% endhighlight %}
-
-{% highlight txt %}
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-
-## Warning in mean.default(x): argument is not numeric or logical: returning NA
-{% endhighlight %}
-
-{% highlight txt %}
-##     a  beta logic 
-##    NA    NA    NA
 {% endhighlight %}
 

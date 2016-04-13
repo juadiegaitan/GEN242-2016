@@ -1,7 +1,7 @@
 ---
 title: Programming in R 
 keywords: 
-last_updated: Wed Apr 13 13:58:28 2016
+last_updated: Wed Apr 13 14:47:48 2016
 ---
 author: "Author: Thomas Girke"
 
@@ -24,7 +24,7 @@ structures are understood, users can use the R language as a powerful
 environment to perform complex custom analyses of almost any type of data (Gentleman , 2008).
 
 
-## Why Programmin in R?
+## Why Programming in R?
 
 * Powerful statistical environment and programming language
 * Facilitates reproducible research
