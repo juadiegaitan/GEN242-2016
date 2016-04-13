@@ -21,7 +21,7 @@ bibliography: bibtex.bib
 
 <!---
 - Compile from command-line
-echo "rmarkdown::render('Programming_in_R.Rmd', clean=F)" | R -slave; R CMD Stangle Programming_in_R.Rmd; Rscript ../md2jekyll.R Programming_in_R.knit.md sidebartitle='Programming in R' 9
+echo "rmarkdown::render('Programming_in_R.Rmd', clean=F)" | R -slave; R CMD Stangle Programming_in_R.Rmd; Rscript ../md2jekyll.R Programming_in_R.knit.md 9
 
 - Commit to github
 git commit -am "some edits"; git push -u origin master
@@ -111,193 +111,294 @@ Reference list on R programming (selection)
 * [C/C++ level programming for R](http://www.stat.harvard.edu/ccr2005/index.html), Gopi Goswami
 
 
-
-```r
-install.packages(c("pkg1", "pkg2")) 
-install.packages("pkg.zip", repos=NULL)
-```
-
-(4.) Install Bioconductor packages as follows:
-
-
-```r
-source("http://www.bioconductor.org/biocLite.R")
-library(BiocInstaller)
-BiocVersion()
-biocLite()
-biocLite(c("pkg1", "pkg2"))
-```
-
-(5.) For more details consult the [Bioc Install page](http://www.bioconductor.org/install/)
-and [BiocInstaller](http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html) package.
-
 # Control Structures
 
-## Startup and Closing Behavior
+## Important Operators
 
+### Comparison operators
 
-```r
-q()  
-```
-```
-Save workspace image? [y/n/c]:
-```
-        
-* __Note__:
-    When responding with `y`, then the entire R workspace will be written to
-    the `.RData` file which can become very large. Often it is sufficient to just
-    save an analysis protocol in an R source file. This way one can quickly
-    regenerate all data sets and objects. 
+* `==` (equal)
+* `!=` (not equal)
+* `>` (greater than)
+* `>=` (greater than or equal)
+* `<` (less than)
+* `<=` (less than or equal)
 
+### Logical operators
+		
+* `&` (and)
+* `|` (or) 
+* `!` (not)
 
-## Navigating directories
+## Conditional Executions: `if` Statements
 
-Create an object with the assignment operator `<-` or `=`
+An `if` statement operates on length-one logical vectors.
 
-```r
-object <- ...
-```
-
-List objects in current R session
+__Syntax__
 
 ```r
-ls()
+if(TRUE) { 
+	statements_1 
+} else { 
+	statements_2 
+}
 ```
 
-Return content of current working directory
+__Example__
 
 ```r
-dir()
+if(1==0) { 
+	print(1) 
+} else { 
+	print(2) 
+}
 ```
 
-Return path of current working directory
+```
+## [1] 2
+```
+
+## Conditional Executions: `ifelse` Statements`
+
+The `ifelse` statement operates on vectors.
+
+__Syntax__
 
 ```r
-getwd()
+ifelse(test, true_value, false_value)
 ```
-
-Change current working directory
+__Example__
 
 ```r
-setwd("/home/user")
+x <- 1:10 
+ifelse(x<5, x, 0)
 ```
 
-# Basic Syntax
+```
+##  [1] 1 2 3 4 0 0 0 0 0 0
+```
 
-General R command syntax
+# Loops
 
+## `for` loop
+
+`for` loops iterate over elements of a looping vector.
+
+__Syntax__
 
 ```r
-object <- function_name(arguments) 
-object <- object[arguments] 
+for(variable in sequence) { 
+	statements 
+}
 ```
-
-Finding help
-
+__Example__
 
 ```r
-?function_name
+mydf <- iris
+myve <- NULL
+for(i in seq(along=mydf[,1])) {
+	myve <- c(myve, mean(as.numeric(mydf[i,1:3])))
+}
+myve[1:8]
 ```
 
-Load a library/package
+```
+## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
+```
 
+__Note:__ Inject into objecs is much faster than append approach with `c`, `cbind`, etc.
+
+__Example__
 
 ```r
-library("my_library") 
+myve <- numeric(length(mydf[,1]))
+for(i in seq(along=myve)) {
+	myve[i] <- mean(as.numeric(mydf[i,1:3]))
+}
+myve[1:8]
 ```
 
-List functions defined by a library
+```
+## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
+```
 
+### Conditional Stop of Loops
+
+The `stop` function can be used to break out of a loop (or a function) when a condition becomes `TRUE`. In addition, an error message will be printed.
+
+__Example__
 
 ```r
-library(help="my_library")
+x <- 1:10
+z <- NULL
+for(i in seq(along=x)) { 
+	if(x[i] < 5) { 
+		z <- c(z, x[i]-1)  
+	} else { 
+		stop("values need to be < 5") 
+	}
+}
 ```
 
-Load library manual (PDF or HTML file)
+## `while` loop
 
+Iterates as long as a condition is true.
+
+__Syntax__
 
 ```r
-vignette("my_library") 
+while(condition) {
+	statements
+}
 ```
 
-Execute an R script from within R
-
+__Example__
 
 ```r
-source("my_script.R")
+z <- 0
+while(z<5) { 
+	z <- z + 2
+	print(z)  
+}
 ```
 
-Execute an R script from command-line (the first of the three options is preferred)
-
-
-```sh
-$ Rscript my_script.R
-$ R CMD BATCH my_script.R 
-$ R --slave < my_script.R 
+```
+## [1] 2
+## [1] 4
+## [1] 6
 ```
 
-# Data Types 
+## The `apply` Function Family
 
-## Numeric data
+### `apply`
 
-Example: `1, 2, 3, ...`
-
+__Syntax__
 
 ```r
-x <- c(1, 2, 3)
-x
+apply(X, MARGIN, FUN, ARGs)
 ```
 
-```
-## [1] 1 2 3
-```
+__Arguments__
 
-```r
-is.numeric(x)
-```
+* `X`: `array`, `matrix` or `data.frame`
+* `MARGIN`: `1` for rows, `2` for columns
+* `FUN`: one or more functions
+* `ARGs`: possible arguments for functions
 
-```
-## [1] TRUE
-```
+__Example__
 
 ```r
-as.character(x)
+apply(iris[1:8,1:3], 1, mean)
 ```
 
 ```
-## [1] "1" "2" "3"
+##        1        2        3        4        5        6        7        8 
+## 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
 ```
 
-## Character data
+### `tapply`
 
-Example: `"a", "b", "c", ...`
+Applies a function to vector components that are defined by a factor.
 
-
-```r
-x <- c("1", "2", "3")
-x
-```
-
-```
-## [1] "1" "2" "3"
-```
+__Syntax__
 
 ```r
-is.character(x)
+tapply(vector, factor, FUN)
+```
+
+__Example__
+
+```r
+iris[1:2,]
 ```
 
 ```
-## [1] TRUE
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
 ```
 
 ```r
-as.numeric(x)
+tapply(iris$Sepal.Length, iris$Species, mean)
 ```
 
 ```
-## [1] 1 2 3
+##     setosa versicolor  virginica 
+##      5.006      5.936      6.588
 ```
 
+### `sapply` and `lapply`
+
+Both apply a function to vector or list objects. The `lapply` function always returns a list object, while `sapply` returns `vector` or `matrix` objects when it is possible. 
+
+__Examples__
+
+```r
+x <- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
+lapply(x, mean)
+```
+
+```
+## $a
+## [1] 5.5
+## 
+## $beta
+## [1] 4.535125
+## 
+## $logic
+## [1] 0.5
+```
+
+```r
+sapply(x, mean)
+```
+
+```
+##        a     beta    logic 
+## 5.500000 4.535125 0.500000
+```
+
+Often used in combination with a function definition:
+
+```r
+lapply(names(x), function(x) mean(x))
+```
+
+```
+## Warning in mean.default(x): argument is not numeric or logical: returning NA
+
+## Warning in mean.default(x): argument is not numeric or logical: returning NA
+
+## Warning in mean.default(x): argument is not numeric or logical: returning NA
+```
+
+```
+## [[1]]
+## [1] NA
+## 
+## [[2]]
+## [1] NA
+## 
+## [[3]]
+## [1] NA
+```
+
+```r
+sapply(names(x), function(x) mean(x))
+```
+
+```
+## Warning in mean.default(x): argument is not numeric or logical: returning NA
+
+## Warning in mean.default(x): argument is not numeric or logical: returning NA
+
+## Warning in mean.default(x): argument is not numeric or logical: returning NA
+```
+
+```
+##     a  beta logic 
+##    NA    NA    NA
+```
 
 # Session Info
 

@@ -163,6 +163,11 @@ mydoc_Rbasics_15:
   url: "../mydoc/mydoc_Rbasics_15.html"
   link: "<a href='../mydoc/mydoc_Rbasics_15.html'>References</a>"
 
+mydoc_Programming_in_R_6:
+  title: "References"
+  url: "../mydoc/mydoc_Programming_in_R_6.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_6.html'>References</a>"
+
 mydoc_Programming_in_R_1:
   title: "Overview"
   url: "../mydoc/mydoc_Programming_in_R_1.html"
@@ -174,22 +179,17 @@ mydoc_Programming_in_R_2:
   link: "<a href='../mydoc/mydoc_Programming_in_R_2.html'>Control Structures</a>"
 
 mydoc_Programming_in_R_3:
-  title: "Basic Syntax"
+  title: "Loops"
   url: "../mydoc/mydoc_Programming_in_R_3.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_3.html'>Basic Syntax</a>"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_3.html'>Loops</a>"
 
 mydoc_Programming_in_R_4:
-  title: "Data Types "
+  title: "Session Info"
   url: "../mydoc/mydoc_Programming_in_R_4.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_4.html'>Data Types </a>"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_4.html'>Session Info</a>"
 
 mydoc_Programming_in_R_5:
-  title: "Session Info"
-  url: "../mydoc/mydoc_Programming_in_R_5.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_5.html'>Session Info</a>"
-
-mydoc_Programming_in_R_6:
   title: "References"
-  url: "../mydoc/mydoc_Programming_in_R_6.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_6.html'>References</a>"
+  url: "../mydoc/mydoc_Programming_in_R_5.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_5.html'>References</a>"
 

@@ -1,7 +1,7 @@
 ---
 title: Programming in R 
 keywords: 
-last_updated: Wed Apr 13 12:24:22 2016
+last_updated: Wed Apr 13 13:39:49 2016
 ---
 author: "Author: Thomas Girke"
 
@@ -77,24 +77,4 @@ Reference list on R programming (selection)
 * [High-Performance R](http://www.statistik.uni-dortmund.de/useR-2008/tutorials/useR2008introhighperfR.pdf), Dirk Eddelbuettel tutorial presented at useR-2008
 * [C/C++ level programming for R](http://www.stat.harvard.edu/ccr2005/index.html), Gopi Goswami
 
-
-
-{% highlight r %}
-install.packages(c("pkg1", "pkg2")) 
-install.packages("pkg.zip", repos=NULL)
-{% endhighlight %}
-
-(4.) Install Bioconductor packages as follows:
-
-
-{% highlight r %}
-source("http://www.bioconductor.org/biocLite.R")
-library(BiocInstaller)
-BiocVersion()
-biocLite()
-biocLite(c("pkg1", "pkg2"))
-{% endhighlight %}
-
-(5.) For more details consult the [Bioc Install page](http://www.bioconductor.org/install/)
-and [BiocInstaller](http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html) package.
 

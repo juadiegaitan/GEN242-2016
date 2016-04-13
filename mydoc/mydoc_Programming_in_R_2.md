@@ -1,55 +1,71 @@
 ---
 title: Control Structures
 keywords: 
-last_updated: Wed Apr 13 12:24:22 2016
+last_updated: Wed Apr 13 13:39:49 2016
 ---
 
-## Startup and Closing Behavior
+## Important Operators
 
+### Comparison operators
+
+* `==` (equal)
+* `!=` (not equal)
+* `>` (greater than)
+* `>=` (greater than or equal)
+* `<` (less than)
+* `<=` (less than or equal)
+
+### Logical operators
+		
+* `&` (and)
+* `|` (or) 
+* `!` (not)
+
+## Conditional Executions: `if` Statements
+
+An `if` statement operates on length-one logical vectors.
+
+__Syntax__
 
 {% highlight r %}
-q()  
+if(TRUE) { 
+	statements_1 
+} else { 
+	statements_2 
+}
 {% endhighlight %}
+
+__Example__
+
+{% highlight r %}
+if(1==0) { 
+	print(1) 
+} else { 
+	print(2) 
+}
+{% endhighlight %}
+
 {% highlight txt %}
-Save workspace image? [y/n/c]:
-{% endhighlight %}
-        
-* __Note__:
-    When responding with `y`, then the entire R workspace will be written to
-    the `.RData` file which can become very large. Often it is sufficient to just
-    save an analysis protocol in an R source file. This way one can quickly
-    regenerate all data sets and objects. 
-
-
-## Navigating directories
-
-Create an object with the assignment operator `<-` or `=`
-
-{% highlight r %}
-object <- ...
+## [1] 2
 {% endhighlight %}
 
-List objects in current R session
+## Conditional Executions: `ifelse` Statements`
+
+The `ifelse` statement operates on vectors.
+
+__Syntax__
 
 {% highlight r %}
-ls()
+ifelse(test, true_value, false_value)
+{% endhighlight %}
+__Example__
+
+{% highlight r %}
+x <- 1:10 
+ifelse(x<5, x, 0)
 {% endhighlight %}
 
-Return content of current working directory
-
-{% highlight r %}
-dir()
-{% endhighlight %}
-
-Return path of current working directory
-
-{% highlight r %}
-getwd()
-{% endhighlight %}
-
-Change current working directory
-
-{% highlight r %}
-setwd("/home/user")
+{% highlight txt %}
+##  [1] 1 2 3 4 0 0 0 0 0 0
 {% endhighlight %}
 
