@@ -1,7 +1,7 @@
 ---
 title: Programming in R 
 keywords: 
-last_updated: Wed Apr 13 13:39:49 2016
+last_updated: Wed Apr 13 13:54:52 2016
 ---
 author: "Author: Thomas Girke"
 
@@ -21,7 +21,7 @@ the ease with which users can write their own programs and custom functions.
 The R programming syntax is extremely easy to learn, even for users with no
 previous programming experience. Once the basic R programming control
 structures are understood, users can use the R language as a powerful
-environment to perform complex custom analyses of almost any type of data.
+environment to perform complex custom analyses of almost any type of data (Gentleman , 2008).
 
 
 ## Why Programmin in R?
