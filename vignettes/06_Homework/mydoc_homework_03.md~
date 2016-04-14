@@ -49,7 +49,7 @@ plot(iris[,1], iris[,2], col=iris$Species, lwd=2, pch=19, xlim=c(4,16), ylim=c(2
 ## C. Bar Plots
         
 - __Task 1__: Calculate the mean values for the `Species` components of the first four columns in the `iris` data frame. Organize the results in a matrix where the row names are the unique values from the `iris Species` column and the column names are the names of the first four `iris` columns. 
-- __Task 2__: Generate for the matrix generated in the previous step two bar plots: one with stacked bars and one with horizontally arranged bars. 
+- __Task 2__: Generate two bar plots for the matrix generated in the previous step: one with stacked bars and one with horizontally arranged bars. 
 
 <!---
 Solution
@@ -70,4 +70,4 @@ Assemble the results from homework assignments A-H in a single R script (`HW3.R`
 
 ## Due date
 
-This homework is due on Thu, April 14th at 6:00 PM.
+This homework is due on Thu, April 19th at 6:00 PM.

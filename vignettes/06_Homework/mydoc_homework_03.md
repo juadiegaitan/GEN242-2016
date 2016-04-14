@@ -70,4 +70,4 @@ Assemble the results from homework assignments A-H in a single R script (`HW3.R`
 
 ## Due date
 
-This homework is due on Thu, April 14th at 6:00 PM.
+This homework is due on Thu, April 19th at 6:00 PM.
