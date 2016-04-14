@@ -88,7 +88,7 @@ git commit -am "some edits"; git push -u origin master
 
 + If needed, login to GitHub account and create repository. Use option `Initialize this repository with a README`. 
 
-+ Clone repository by copying \& pasting URL from repository into RStudio's 'Clone Git Repository' window: 
++ Clone repository by copying & pasting URL from repository into RStudio's 'Clone Git Repository' window: 
     + File `>` New Project `>` Version Control `>` Git `>` Provide URL
 
 + Now do some work (_e.g._ add an R script), commit and push changes as follows: 
