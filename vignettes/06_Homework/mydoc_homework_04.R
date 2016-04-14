@@ -1,3 +1,7 @@
+#############################################################
+## R code for creating dynamic programming matrix for HW4B ##
+#############################################################
+
 ## Define and vectorize Input sequences
 x <- "FIPFSAGPRNCIGQK"
 x <- substring(x, 1:nchar(x), 1:nchar(x))
