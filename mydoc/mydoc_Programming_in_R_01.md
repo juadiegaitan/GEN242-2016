@@ -1,7 +1,7 @@
 ---
 title: Programming in R 
 keywords: 
-last_updated: Wed Apr 13 17:35:30 2016
+last_updated: Wed Apr 13 22:20:52 2016
 ---
 author: "Author: Thomas Girke"
 
@@ -39,8 +39,8 @@ environment to perform complex custom analyses of almost any type of data (Gentl
 
 ## R Basics 
 
-The previous [Rbasics](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_Rbasics_01.html) provides a general introduction to the usage of the R environment and its basic command syntax.
-More details can be found R & BioConductor manual [here](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual).
+The previous [Rbasics](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_Rbasics_01.html) tutorial provides a general introduction to the usage of the R environment and its basic command syntax.
+More details can be found in the R & BioConductor manual [here](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual).
 
 ## Code Editors for R
 
@@ -55,11 +55,11 @@ Several excellent code editors are available that provide functionalities like R
 * [Tinn-R](http://jekyll.math.byuh.edu/other/howto/tinnr/install.shtml)
 * [Notepad++ (NppToR)](https://sourceforge.net/projects/npptor/)
 
-<center> Programming in R using Vim or Emacs</center>
-<center><img title="vim-r" src="Programming_in_R_files/vimR.png"/></center>
-
 <center>Programming in R using RStudio</center>
 <center><img title="R_Interfaces" src="Programming_in_R_files/rstudio.png"/></center>
+
+<center> Programming in R using Vim or Emacs</center>
+<center><img title="vim-r" src="Programming_in_R_files/vimR.png"/></center>
 
 ## Finding Help
 

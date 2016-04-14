@@ -1,7 +1,7 @@
 ---
 title: Control Structures
 keywords: 
-last_updated: Wed Apr 13 17:35:30 2016
+last_updated: Wed Apr 13 22:20:52 2016
 ---
 
 ## Important Operators
@@ -49,7 +49,7 @@ if(1==0) {
 ## [1] 2
 {% endhighlight %}
 
-## Conditional Executions: `ifelse` Statements`
+## Conditional Executions: `ifelse` Statements
 
 The `ifelse` statement operates on vectors.
 

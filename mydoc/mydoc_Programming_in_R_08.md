@@ -1,7 +1,7 @@
 ---
 title: Programming Exercises
 keywords: 
-last_updated: Wed Apr 13 17:35:30 2016
+last_updated: Wed Apr 13 22:20:52 2016
 ---
 
 ## Exercise 1
@@ -80,7 +80,7 @@ myResult[1:4, -c(1,2)]
 ## 4  0.6664631  0.12316103 -0.1726270  0.0237048  0.0237048  0.0237048
 {% endhighlight %}
 
-### avoiding loops
+### Avoiding loops
 
 __Task 1.5__: When operating on large data sets it is much faster to use the rowMeans function
 
@@ -173,7 +173,7 @@ setlist[1:6]
 ##  [1] "c" "l" "h" "v" "e" "a" "i" "u" "g" "h" "s" "f" "u" "b" "e" "y"
 {% endhighlight %}
 
-__Task 3.2__: Compute the length for all pairwise intersects of the vectors stored in `setlist. The intersects can be determined with the `%in%` function like this: `sum(setlist[[1]] %in% setlist[[2]])`
+__Task 3.2__: Compute the length for all pairwise intersects of the vectors stored in `setlist`. The intersects can be determined with the `%in%` function like this: `sum(setlist[[1]] %in% setlist[[2]])`
 
 
 {% highlight r %}

@@ -1,7 +1,7 @@
 ---
 title: Useful Utilities
 keywords: 
-last_updated: Wed Apr 13 17:35:30 2016
+last_updated: Wed Apr 13 22:20:52 2016
 ---
 
 ## Debugging Utilities
@@ -20,6 +20,8 @@ The [Debugging in R page](http://www.stats.uwo.ca/faculty/murdoch/software/debug
 
 R's regular expression utilities work similar as in other languages. To learn how to use them in R, one can consult the main help page on this topic with `?regexp`.
 
+### String matching with `grep`
+
 The grep function can be used for finding patterns in strings, here letter `A` in vector `month.name`.
 
 {% highlight r %}
@@ -29,6 +31,9 @@ month.name[grep("A", month.name)]
 {% highlight txt %}
 ## [1] "April"  "August"
 {% endhighlight %}
+
+### String substitution with `gsub`
+
 Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes `\` need to be double escaped `\\` in R.
 
 
@@ -174,7 +179,7 @@ t(as.data.frame(strsplit(x, "u")))
 {% endhighlight %}
 ## Calling External Software
 
-How to run External command-line software. Here example for running `blastall` from R
+External command-line software can be called with `system`. The following example calls `blastall` from R
 
 {% highlight r %}
 system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")

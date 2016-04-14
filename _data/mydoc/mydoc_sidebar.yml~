@@ -187,7 +187,15 @@ entries:
       product: all
       version: all
       output: web
-  
+    
+    - title: HW5 - Programming in R
+      url: /mydoc/mydoc_Programming_in_R_09.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+      
   - title: GitHub
     audience: writers, designers
     platform: all
@@ -348,7 +356,7 @@ entries:
       version: all
       output: web
 
-  - title: Programming in R
+  - title: Programming
     audience: writers, designers
     platform: all
     product: all

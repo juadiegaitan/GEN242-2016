@@ -72,8 +72,8 @@ environment to perform complex custom analyses of almost any type of data [@Gent
 
 ## R Basics 
 
-The previous [Rbasics](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_Rbasics_01.html) provides a general introduction to the usage of the R environment and its basic command syntax.
-More details can be found R & BioConductor manual [here](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual).
+The previous [Rbasics](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_Rbasics_01.html) tutorial provides a general introduction to the usage of the R environment and its basic command syntax.
+More details can be found in the R & BioConductor manual [here](http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual).
 
 ## Code Editors for R
 
@@ -88,11 +88,11 @@ Several excellent code editors are available that provide functionalities like R
 * [Tinn-R](http://jekyll.math.byuh.edu/other/howto/tinnr/install.shtml)
 * [Notepad++ (NppToR)](https://sourceforge.net/projects/npptor/)
 
-<center> Programming in R using Vim or Emacs</center>
-<center><img title="vim-r" src="images/vimR.png"/></center>
-
 <center>Programming in R using RStudio</center>
 <center><img title="R_Interfaces" src="images/rstudio.png"/></center>
+
+<center> Programming in R using Vim or Emacs</center>
+<center><img title="vim-r" src="images/vimR.png"/></center>
 
 ## Finding Help
 
@@ -158,7 +158,7 @@ if(1==0) {
 ## [1] 2
 ```
 
-## Conditional Executions: `ifelse` Statements`
+## Conditional Executions: `ifelse` Statements
 
 The `ifelse` statement operates on vectors.
 
@@ -400,7 +400,7 @@ __Naming__
 	
 __Arguments__ 
 
-* It is often useful to provide default values for arguments (_e.g._: `arg1=1:10`). This way they don't need to be provided in a function call. The argument list can also be left empty (`myfct <- function() { fct_body }`) when a function is expected to return always the same value(s). The argument `...` can be used to allow one function to pass on argument settings to another.
+* It is often useful to provide default values for arguments (_e.g._: `arg1=1:10`). This way they don't need to be provided in a function call. The argument list can also be left empty (`myfct <- function() { fct_body }`) if a function is expected to return always the same value(s). The argument `...` can be used to allow one function to pass on argument settings to another.
 
 __Body__
 
@@ -431,7 +431,7 @@ myfct <- function(x1, x2=5) {
 __Function usage__
 
 
-Apply function to values 2 and 5
+Apply function to values `2` and `5`
 
 ```r
 myfct(x1=2, x2=5) 
@@ -451,7 +451,7 @@ myfct(2, 5)
 ## [1]  1 25
 ```
 
-Makes use of default value '5'
+Makes use of default value `5`
 
 ```r
 myfct(x1=2) 
@@ -493,6 +493,8 @@ The [Debugging in R page](http://www.stats.uwo.ca/faculty/murdoch/software/debug
 
 R's regular expression utilities work similar as in other languages. To learn how to use them in R, one can consult the main help page on this topic with `?regexp`.
 
+### String matching with `grep`
+
 The grep function can be used for finding patterns in strings, here letter `A` in vector `month.name`.
 
 ```r
@@ -502,6 +504,9 @@ month.name[grep("A", month.name)]
 ```
 ## [1] "April"  "August"
 ```
+
+### String substitution with `gsub`
+
 Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes `\` need to be double escaped `\\` in R.
 
 
@@ -647,7 +652,7 @@ t(as.data.frame(strsplit(x, "u")))
 ```
 ## Calling External Software
 
-How to run External command-line software. Here example for running `blastall` from R
+External command-line software can be called with `system`. The following example calls `blastall` from R
 
 ```r
 system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
@@ -693,7 +698,7 @@ In the given example the number `10` is passed on from the command-line as an ar
 
 ## Short Overview of Package Building Process
 
-Automatic package building with the package.skeleton function. The given example will create a directory named `mypackage` containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the `code_files` argument. The basic structure of the package directory is described [here](http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack). The package directory will also contain a file named `Read-and-delete-me` with instructions for completing the package:
+R packages can be built with the `package.skeleton` function. The given example will create a directory named `mypackage` containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the `code_files` argument. The basic structure of the package directory is described [here](http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack). The package directory will also contain a file named `Read-and-delete-me` with instructions for completing the package:
 
 
 ```r
@@ -794,7 +799,7 @@ myResult[1:4, -c(1,2)]
 ## 4  0.6664631  0.12316103 -0.1726270  0.0237048  0.0237048  0.0237048
 ```
 
-### avoiding loops
+### Avoiding loops
 
 __Task 1.5__: When operating on large data sets it is much faster to use the rowMeans function
 
@@ -887,7 +892,7 @@ setlist[1:6]
 ##  [1] "c" "l" "h" "v" "e" "a" "i" "u" "g" "h" "s" "f" "u" "b" "e" "y"
 ```
 
-__Task 3.2__: Compute the length for all pairwise intersects of the vectors stored in `setlist. The intersects can be determined with the `%in%` function like this: `sum(setlist[[1]] %in% setlist[[2]])`
+__Task 3.2__: Compute the length for all pairwise intersects of the vectors stored in `setlist`. The intersects can be determined with the `%in%` function like this: `sum(setlist[[1]] %in% setlist[[2]])`
 
 
 ```r
@@ -956,10 +961,46 @@ __Task 1__: Write a `RevComp` function that returns the reverse and complement o
 
 ```r
 x <- c("ATGCATTGGACGTTAG")  
+x
+```
+
+```
+## [1] "ATGCATTGGACGTTAG"
+```
+
+```r
 x <- substring(x, 1:nchar(x), 1:nchar(x)) 
+x
+```
+
+```
+##  [1] "A" "T" "G" "C" "A" "T" "T" "G" "G" "A" "C" "G" "T" "T" "A" "G"
+```
+
+```r
 x <- rev(x) 
+x
+```
+
+```
+##  [1] "G" "A" "T" "T" "G" "C" "A" "G" "G" "T" "T" "A" "C" "G" "T" "A"
+```
+
+```r
 x <- paste(x, collapse="")
+x
+```
+
+```
+## [1] "GATTGCAGGTTACGTA"
+```
+
+```r
 chartr("ATGC", "TACG", x) 
+```
+
+```
+## [1] "CTAACGTCCAATGCAT"
 ```
 
 __Task 2__: Write a function that applies the `RevComp` function to many sequences stored in a vector.
@@ -971,14 +1012,50 @@ __Task 3__: Write a function that will translate one or many DNA sequences in al
 
 ```r
 AAdf <- read.table(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt", header=TRUE, sep="\t") 
+AAdf[1:4,]
+```
+
+```
+##   Codon AA_1 AA_3 AA_Full AntiCodon
+## 1   TCA    S  Ser  Serine       TGA
+## 2   TCG    S  Ser  Serine       CGA
+## 3   TCC    S  Ser  Serine       GGA
+## 4   TCT    S  Ser  Serine       AGA
+```
+
+```r
 AAv <- as.character(AAdf[,2]) 
 names(AAv) <- AAdf[,1] 
+AAv
+```
+
+```
+## TCA TCG TCC TCT TTT TTC TTA TTG TAT TAC TAA TAG TGT TGC TGA TGG CTA CTG CTC CTT CCA CCG CCC CCT CAT 
+## "S" "S" "S" "S" "F" "F" "L" "L" "Y" "Y" "*" "*" "C" "C" "*" "W" "L" "L" "L" "L" "P" "P" "P" "P" "H" 
+## CAC CAA CAG CGA CGG CGC CGT ATT ATC ATA ATG ACA ACG ACC ACT AAT AAC AAA AAG AGT AGC AGA AGG GTA GTG 
+## "H" "Q" "Q" "R" "R" "R" "R" "I" "I" "I" "M" "T" "T" "T" "T" "N" "N" "K" "K" "S" "S" "R" "R" "V" "V" 
+## GTC GTT GCA GCG GCC GCT GAT GAC GAA GAG GGA GGG GGC GGT 
+## "V" "V" "A" "A" "A" "A" "D" "D" "E" "E" "G" "G" "G" "G"
+```
+
+```r
 y <- gsub("(...)", "\\1_", x) 
 y <- unlist(strsplit(y, "_")) 
-y <- y[grep("^...\$", y)] 
+y <- y[grep("^...$", y)] 
 AAv[y] 
 ```
+
+```
+## GAT TGC AGG TTA CGT 
+## "D" "C" "R" "L" "R"
+```
+
+## Homework submission
 Submit the 3 functions in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.
+
+## Due date
+
+This homework is due on Thu, April 21th at 6:00 PM.
 
 
 # Session Info

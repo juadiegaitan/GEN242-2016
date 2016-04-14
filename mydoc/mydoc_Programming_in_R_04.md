@@ -1,7 +1,7 @@
 ---
 title: Functions
 keywords: 
-last_updated: Wed Apr 13 17:35:30 2016
+last_updated: Wed Apr 13 22:20:52 2016
 ---
 
 ## Function Overview
@@ -37,7 +37,7 @@ __Naming__
 	
 __Arguments__ 
 
-* It is often useful to provide default values for arguments (_e.g._: `arg1=1:10`). This way they don't need to be provided in a function call. The argument list can also be left empty (`myfct <- function() { fct_body }`) when a function is expected to return always the same value(s). The argument `...` can be used to allow one function to pass on argument settings to another.
+* It is often useful to provide default values for arguments (_e.g._: `arg1=1:10`). This way they don't need to be provided in a function call. The argument list can also be left empty (`myfct <- function() { fct_body }`) if a function is expected to return always the same value(s). The argument `...` can be used to allow one function to pass on argument settings to another.
 
 __Body__
 
@@ -68,7 +68,7 @@ myfct <- function(x1, x2=5) {
 __Function usage__
 
 
-Apply function to values 2 and 5
+Apply function to values `2` and `5`
 
 {% highlight r %}
 myfct(x1=2, x2=5) 
@@ -88,7 +88,7 @@ myfct(2, 5)
 ## [1]  1 25
 {% endhighlight %}
 
-Makes use of default value '5'
+Makes use of default value `5`
 
 {% highlight r %}
 myfct(x1=2) 
