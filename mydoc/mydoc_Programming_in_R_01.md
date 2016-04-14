@@ -1,9 +1,9 @@
 ---
 title: Programming in R 
 keywords: 
-last_updated: Wed Apr 13 22:20:52 2016
+last_updated: Wed Apr 13 22:25:57 2016
 ---
-author: "Author: Thomas Girke"
+Author: Thomas Girke
 
 Last update: 13 April, 2016 
 

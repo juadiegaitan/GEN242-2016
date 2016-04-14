@@ -1,7 +1,7 @@
 ---
 title: Useful Utilities
 keywords: 
-last_updated: Wed Apr 13 22:20:52 2016
+last_updated: Wed Apr 13 22:25:57 2016
 ---
 
 ## Debugging Utilities

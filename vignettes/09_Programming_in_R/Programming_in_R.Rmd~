@@ -672,7 +672,6 @@ library(mypackage)
 ?myMAcomp # Opens help for function defined by mypackage
 ```
 
-<!---
 # Homework 5
 
 ## Reverse and complement of DNA
@@ -715,7 +714,7 @@ Submit the 3 functions in one well structured and annotated R script to the inst
 ## Due date
 
 This homework is due on Thu, April 21th at 6:00 PM.
--->
+
 
 # Session Info
 

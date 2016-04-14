@@ -24,7 +24,7 @@ md2Jekyll <- function(mdfile="Rbasics.knit.md", sidebartitle=NULL, sidebarpos, o
     mymaindoctitle <- gsub("(^.*? )|_|\\*|\"", "", mymaindoctitle)
     mymaindoctitle <- gsub(":", " -", mymaindoctitle)
     myauthor <- md[1:20][grepl("^author:", tolower(md[1:20]))]
-    #myauthor <- gsub("(^.*? )|_|\\*|\"", "", myauthor)
+    myauthor <- gsub("(^.*? )|_|\\*|\"", "", myauthor)
     mydate <- md[1:20][grepl("^date:", tolower(md[1:20]))]
     mydate <- gsub("(^.*? )|_|\\*|\"", "", mydate)
     mybibliography <- gsub("(^.* )|( .*)", "", md[1:20][grepl("bibliography:", md[1:20])])
