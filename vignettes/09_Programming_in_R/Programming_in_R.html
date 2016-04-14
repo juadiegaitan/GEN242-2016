@@ -81,7 +81,51 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><a href="#sapply-and-lapply"><span class="toc-section-number">3.3.3</span> <code>sapply</code> and <code>lapply</code></a></li>
 </ul></li>
 </ul></li>
-<li><a href="#session-info"><span class="toc-section-number">4</span> Session Info</a></li>
+<li><a href="#functions"><span class="toc-section-number">4</span> Functions</a><ul>
+<li><a href="#function-overview"><span class="toc-section-number">4.1</span> Function Overview</a></li>
+<li><a href="#function-syntax-rules"><span class="toc-section-number">4.2</span> Function Syntax Rules</a></li>
+<li><a href="#examples"><span class="toc-section-number">4.3</span> Examples</a></li>
+</ul></li>
+<li><a href="#useful-utilities"><span class="toc-section-number">5</span> Useful Utilities</a><ul>
+<li><a href="#debugging-utilities"><span class="toc-section-number">5.1</span> Debugging Utilities</a></li>
+<li><a href="#regular-expressions"><span class="toc-section-number">5.2</span> Regular Expressions</a></li>
+<li><a href="#interpreting-a-character-string-as-expression"><span class="toc-section-number">5.3</span> Interpreting a Character String as Expression</a></li>
+<li><a href="#replacement-split-and-paste-functions-for-strings"><span class="toc-section-number">5.4</span> Replacement, Split and Paste Functions for Strings</a></li>
+<li><a href="#time-date-and-sleep"><span class="toc-section-number">5.5</span> Time, Date and Sleep</a><ul>
+<li><a href="#example"><span class="toc-section-number">5.5.1</span> Example</a></li>
+</ul></li>
+<li><a href="#calling-external-software"><span class="toc-section-number">5.6</span> Calling External Software</a></li>
+</ul></li>
+<li><a href="#running-r-scripts"><span class="toc-section-number">6</span> Running R Scripts</a><ul>
+<li><a href="#possibilities-for-executing-r-scripts"><span class="toc-section-number">6.1</span> Possibilities for Executing R Scripts</a><ul>
+<li><a href="#r-console"><span class="toc-section-number">6.1.1</span> R console</a></li>
+<li><a href="#command-line"><span class="toc-section-number">6.1.2</span> Command-line</a></li>
+<li><a href="#passing-arguments-from-command-line-to-r"><span class="toc-section-number">6.1.3</span> Passing arguments from command-line to R</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#building-r-packages"><span class="toc-section-number">7</span> Building R Packages</a><ul>
+<li><a href="#short-overview-of-package-building-process"><span class="toc-section-number">7.1</span> Short Overview of Package Building Process</a></li>
+</ul></li>
+<li><a href="#programming-exercises"><span class="toc-section-number">8</span> Programming Exercises</a><ul>
+<li><a href="#exercise-1"><span class="toc-section-number">8.1</span> Exercise 1</a><ul>
+<li><a href="#for-loop-1"><span class="toc-section-number">8.1.1</span> <code>for</code> loop</a></li>
+<li><a href="#while-loop-1"><span class="toc-section-number">8.1.2</span> <code>while</code> loop</a></li>
+<li><a href="#apply-loop"><span class="toc-section-number">8.1.3</span> <code>apply</code> loop</a></li>
+<li><a href="#avoiding-loops"><span class="toc-section-number">8.1.4</span> avoiding loops</a></li>
+</ul></li>
+<li><a href="#exercise-2"><span class="toc-section-number">8.2</span> Exercise 2</a><ul>
+<li><a href="#custom-functions"><span class="toc-section-number">8.2.1</span> Custom functions</a></li>
+</ul></li>
+<li><a href="#exercise-3"><span class="toc-section-number">8.3</span> Exercise 3</a><ul>
+<li><a href="#nested-loops-to-generate-similarity-matrices"><span class="toc-section-number">8.3.1</span> Nested loops to generate similarity matrices</a></li>
+<li><a href="#build-your-own-r-package"><span class="toc-section-number">8.3.2</span> Build your own R package</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#homework-5"><span class="toc-section-number">9</span> Homework 5</a><ul>
+<li><a href="#reverse-and-complement-of-dna"><span class="toc-section-number">9.1</span> Reverse and complement of DNA</a></li>
+<li><a href="#translate-dna-into-protein"><span class="toc-section-number">9.2</span> Translate DNA into Protein</a></li>
+</ul></li>
+<li><a href="#session-info"><span class="toc-section-number">10</span> Session Info</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
@@ -345,8 +389,389 @@ sapply(names(x), function(x) mean(x))</code></pre>
 </div>
 </div>
 </div>
+<div id="functions" class="section level1">
+<h1><span class="header-section-number">4</span> Functions</h1>
+<div id="function-overview" class="section level2">
+<h2><span class="header-section-number">4.1</span> Function Overview</h2>
+<p>A very useful feature of the R environment is the possibility to expand existing functions and to easily write custom functions. In fact, most of the R software can be viewed as a series of R functions.</p>
+<p><strong>Syntax</strong> to define function</p>
+<pre class="r"><code>myfct &lt;- function(arg1, arg2, ...) { 
+    function_body 
+}</code></pre>
+<p><strong>Syntax</strong> to call functions</p>
+<pre class="r"><code>myfct(arg1=..., arg2=...)</code></pre>
+<p>The value returned by a function is the value of the function body, which is usually an unassigned final expression, <em>e.g.</em>: <code>return()</code></p>
+</div>
+<div id="function-syntax-rules" class="section level2">
+<h2><span class="header-section-number">4.2</span> Function Syntax Rules</h2>
+<p><strong>General</strong></p>
+<ul>
+<li>Functions are defined by
+<ol style="list-style-type: decimal">
+<li>The assignment with the keyword <code>function</code></li>
+<li>The declaration of arguments/variables (<code>arg1, arg2, ...</code>)</li>
+<li>The definition of operations (<code>function_body</code>) that perform computations on the provided arguments. A function name needs to be assigned to call the function.</li>
+</ol></li>
+</ul>
+<p><strong>Naming</strong></p>
+<ul>
+<li>Function names can be almost anything. However, the usage of names of existing functions should be avoided.</li>
+</ul>
+<p><strong>Arguments</strong></p>
+<ul>
+<li>It is often useful to provide default values for arguments (<em>e.g.</em>: <code>arg1=1:10</code>). This way they don’t need to be provided in a function call. The argument list can also be left empty (<code>myfct &lt;- function() { fct_body }</code>) when a function is expected to return always the same value(s). The argument <code>...</code> can be used to allow one function to pass on argument settings to another.</li>
+</ul>
+<p><strong>Body</strong></p>
+<ul>
+<li>The actual expressions (commands/operations) are defined in the function body which should be enclosed by braces. The individual commands are separated by semicolons or new lines (preferred).</li>
+</ul>
+<p><strong>Usage</strong></p>
+<ul>
+<li>Functions are called by their name followed by parentheses containing possible argument names. Empty parenthesis after the function name will result in an error message when a function requires certain arguments to be provided by the user. The function name alone will print the definition of a function.</li>
+</ul>
+<p><strong>Scope</strong></p>
+<ul>
+<li>Variables created inside a function exist only for the life time of a function. Thus, they are not accessible outside of the function. To force variables in functions to exist globally, one can use the double assignment operator: <code>&lt;&lt;-</code></li>
+</ul>
+</div>
+<div id="examples" class="section level2">
+<h2><span class="header-section-number">4.3</span> Examples</h2>
+<p><strong>Define sample function</strong></p>
+<pre class="r"><code>myfct &lt;- function(x1, x2=5) { 
+    z1 &lt;- x1 / x1
+    z2 &lt;- x2 * x2
+        myvec &lt;- c(z1, z2) 
+        return(myvec)
+} </code></pre>
+<p><strong>Function usage</strong></p>
+<p>Apply function to values 2 and 5</p>
+<pre class="r"><code>myfct(x1=2, x2=5) </code></pre>
+<pre><code>## [1]  1 25</code></pre>
+<p>Run without argument names</p>
+<pre class="r"><code>myfct(2, 5) </code></pre>
+<pre><code>## [1]  1 25</code></pre>
+<p>Makes use of default value ‘5’</p>
+<pre class="r"><code>myfct(x1=2) </code></pre>
+<pre><code>## [1]  1 25</code></pre>
+<p>Print function definition (often unintended)</p>
+<pre class="r"><code>myfct </code></pre>
+<pre><code>## function(x1, x2=5) { 
+##  z1 &lt;- x1 / x1
+##  z2 &lt;- x2 * x2
+##         myvec &lt;- c(z1, z2) 
+##         return(myvec)
+## }</code></pre>
+</div>
+</div>
+<div id="useful-utilities" class="section level1">
+<h1><span class="header-section-number">5</span> Useful Utilities</h1>
+<div id="debugging-utilities" class="section level2">
+<h2><span class="header-section-number">5.1</span> Debugging Utilities</h2>
+<p>Several debugging utilities are available for R. They include:</p>
+<ul>
+<li><code>traceback</code></li>
+<li><code>browser</code></li>
+<li><code>options(error=recover)</code></li>
+<li><code>options(error=NULL)</code></li>
+<li><code>debug</code></li>
+</ul>
+<p>The <a href="http://www.stats.uwo.ca/faculty/murdoch/software/debuggingR/">Debugging in R page</a> provides an overview of the available resources.</p>
+</div>
+<div id="regular-expressions" class="section level2">
+<h2><span class="header-section-number">5.2</span> Regular Expressions</h2>
+<p>R’s regular expression utilities work similar as in other languages. To learn how to use them in R, one can consult the main help page on this topic with <code>?regexp</code>.</p>
+<p>The grep function can be used for finding patterns in strings, here letter <code>A</code> in vector <code>month.name</code>.</p>
+<pre class="r"><code>month.name[grep(&quot;A&quot;, month.name)] </code></pre>
+<pre><code>## [1] &quot;April&quot;  &quot;August&quot;</code></pre>
+<p>Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes <code>\</code> need to be double escaped <code>\\</code> in R.</p>
+<pre class="r"><code>gsub('(i.*a)', 'xxx_\\1', &quot;virginica&quot;, perl = TRUE) </code></pre>
+<pre><code>## [1] &quot;vxxx_irginica&quot;</code></pre>
+</div>
+<div id="interpreting-a-character-string-as-expression" class="section level2">
+<h2><span class="header-section-number">5.3</span> Interpreting a Character String as Expression</h2>
+<p>Some useful examples</p>
+<p>Generates vector of object names in session</p>
+<pre class="r"><code>mylist &lt;- ls()
+mylist[1] </code></pre>
+<pre><code>## [1] &quot;i&quot;</code></pre>
+<p>Executes 1st entry as expression</p>
+<pre class="r"><code>get(mylist[1])</code></pre>
+<pre><code>## [1] 150</code></pre>
+<p>Alternative approach</p>
+<pre class="r"><code>eval(parse(text=mylist[1])) </code></pre>
+<pre><code>## [1] 150</code></pre>
+</div>
+<div id="replacement-split-and-paste-functions-for-strings" class="section level2">
+<h2><span class="header-section-number">5.4</span> Replacement, Split and Paste Functions for Strings</h2>
+<p><strong>Selected examples</strong></p>
+<p>Substitution with back reference which inserts in this example <code>_</code> character</p>
+<pre class="r"><code>x &lt;- gsub(&quot;(a)&quot;,&quot;\\1_&quot;, month.name[1], perl=T) 
+x</code></pre>
+<pre><code>## [1] &quot;Ja_nua_ry&quot;</code></pre>
+<p>Split string on inserted character from above</p>
+<pre class="r"><code>strsplit(x,&quot;_&quot;)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;Ja&quot;  &quot;nua&quot; &quot;ry&quot;</code></pre>
+<p>Reverse a character string by splitting first all characters into vector fields</p>
+<pre class="r"><code>paste(rev(unlist(strsplit(x, NULL))), collapse=&quot;&quot;) </code></pre>
+<pre><code>## [1] &quot;yr_aun_aJ&quot;</code></pre>
+</div>
+<div id="time-date-and-sleep" class="section level2">
+<h2><span class="header-section-number">5.5</span> Time, Date and Sleep</h2>
+<p><strong>Selected examples</strong></p>
+<p>Return CPU (and other) times that an expression used (here ls)</p>
+<pre class="r"><code>system.time(ls()) </code></pre>
+<pre><code>##    user  system elapsed 
+##       0       0       0</code></pre>
+<p>Return the current system date and time</p>
+<pre class="r"><code>date() </code></pre>
+<pre><code>## [1] &quot;Wed Apr 13 16:06:06 2016&quot;</code></pre>
+<p>Pause execution of R expressions for a given number of seconds (e.g. in loop)</p>
+<pre class="r"><code>Sys.sleep(1) </code></pre>
+<div id="example" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> Example</h3>
+<div id="import-of-specific-file-lines-with-regular-expression" class="section level4">
+<h4><span class="header-section-number">5.5.1.1</span> Import of Specific File Lines with Regular Expression</h4>
+<p>The following example demonstrates the retrieval of specific lines from an external file with a regular expression. First, an external file is created with the <code>cat</code> function, all lines of this file are imported into a vector with <code>readLines</code>, the specific elements (lines) are then retieved with the <code>grep</code> function, and the resulting lines are split into vector fields with <code>strsplit</code>.</p>
+<pre class="r"><code>cat(month.name, file=&quot;zzz.txt&quot;, sep=&quot;\n&quot;)
+x &lt;- readLines(&quot;zzz.txt&quot;)
+x[1:6] </code></pre>
+<pre><code>## [1] &quot;January&quot;  &quot;February&quot; &quot;March&quot;    &quot;April&quot;    &quot;May&quot;      &quot;June&quot;</code></pre>
+<pre class="r"><code>x &lt;- x[c(grep(&quot;^J&quot;, as.character(x), perl = TRUE))]
+t(as.data.frame(strsplit(x, &quot;u&quot;)))</code></pre>
+<pre><code>##                 [,1]  [,2] 
+## c..Jan....ary.. &quot;Jan&quot; &quot;ary&quot;
+## c..J....ne..    &quot;J&quot;   &quot;ne&quot; 
+## c..J....ly..    &quot;J&quot;   &quot;ly&quot;</code></pre>
+</div>
+</div>
+</div>
+<div id="calling-external-software" class="section level2">
+<h2><span class="header-section-number">5.6</span> Calling External Software</h2>
+<p>How to run External command-line software. Here example for running <code>blastall</code> from R</p>
+<pre class="r"><code>system(&quot;blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp&quot;)</code></pre>
+</div>
+</div>
+<div id="running-r-scripts" class="section level1">
+<h1><span class="header-section-number">6</span> Running R Scripts</h1>
+<div id="possibilities-for-executing-r-scripts" class="section level2">
+<h2><span class="header-section-number">6.1</span> Possibilities for Executing R Scripts</h2>
+<div id="r-console" class="section level3">
+<h3><span class="header-section-number">6.1.1</span> R console</h3>
+<pre class="r"><code>source(&quot;my_script.R&quot;)</code></pre>
+</div>
+<div id="command-line" class="section level3">
+<h3><span class="header-section-number">6.1.2</span> Command-line</h3>
+<pre class="sh"><code>Rscript my_script.R # or just ./myscript.R after making it executable
+R CMD BATCH my_script.R # Alternative way 1 
+R --slave &lt; my_script.R # Alternative way 2</code></pre>
+</div>
+<div id="passing-arguments-from-command-line-to-r" class="section level3">
+<h3><span class="header-section-number">6.1.3</span> Passing arguments from command-line to R</h3>
+<p>Create an R script named <code>test.R</code> with the following content:</p>
+<pre class="sh"><code>myarg &lt;- commandArgs()
+print(iris[1:myarg[6], ])</code></pre>
+<p>Then run it from the command-line like this:</p>
+<pre class="sh"><code>Rscript test.R 10</code></pre>
+<p>In the given example the number <code>10</code> is passed on from the command-line as an argument to the R script which is used to return to <code>STDOUT</code> the first 10 rows of the <code>iris</code> sample data. If several arguments are provided, they will be interpreted as one string and need to be split in R with the strsplit function. A more detailed example can be found <a href="http://manuals.bioinformatics.ucr.edu/home/ht-seq#TOC-Quality-Reports-of-FASTQ-Files-">here</a>.</p>
+</div>
+</div>
+</div>
+<div id="building-r-packages" class="section level1">
+<h1><span class="header-section-number">7</span> Building R Packages</h1>
+<div id="short-overview-of-package-building-process" class="section level2">
+<h2><span class="header-section-number">7.1</span> Short Overview of Package Building Process</h2>
+<p>Automatic package building with the package.skeleton function. The given example will create a directory named <code>mypackage</code> containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the <code>code_files</code> argument. The basic structure of the package directory is described <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack">here</a>. The package directory will also contain a file named <code>Read-and-delete-me</code> with instructions for completing the package:</p>
+<pre class="r"><code>package.skeleton(name=&quot;mypackage&quot;, code_files=c(&quot;script1.R&quot;, &quot;script2.R&quot;))</code></pre>
+<p>Once a package skeleton is available one can build the package from the command-line (Linux/OS X). This will create a tarball of the package with its version number encoded in the file name. Subequently, the package tarball needs to be checked for errors with:</p>
+<pre class="r"><code>R CMD build mypackage
+R CMD check mypackage_1.0.tar.gz</code></pre>
+<p>Install package from source</p>
+<pre class="r"><code>install.packages(&quot;mypackage_1.0.tar.gz&quot;, repos=NULL) </code></pre>
+<p>For more details see <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#TOC-Building-R-Packages">here</a></p>
+</div>
+</div>
+<div id="programming-exercises" class="section level1">
+<h1><span class="header-section-number">8</span> Programming Exercises</h1>
+<div id="exercise-1" class="section level2">
+<h2><span class="header-section-number">8.1</span> Exercise 1</h2>
+<div id="for-loop-1" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> <code>for</code> loop</h3>
+<p><strong>Task 1.1</strong>: Compute the mean of each row in <code>myMA</code> by applying the mean function in a <code>for</code> loop.</p>
+<pre class="r"><code>myMA &lt;- matrix(rnorm(500), 100, 5, dimnames=list(1:100, paste(&quot;C&quot;, 1:5, sep=&quot;&quot;)))
+myve_for &lt;- NULL
+for(i in seq(along=myMA[,1])) {
+    myve_for &lt;- c(myve_for, mean(as.numeric(myMA[i, ])))
+}
+myResult &lt;- cbind(myMA, mean_for=myve_for)
+myResult[1:4, ]</code></pre>
+<pre><code>##           C1         C2         C3          C4         C5   mean_for
+## 1 -0.9832766  0.8446066  0.4196481  0.23814667  0.3493797  0.1737009
+## 2  1.2980835  0.6924483  0.5996748 -0.51642965  0.6701380  0.5487830
+## 3 -1.1466949  0.6752775 -0.9384848  0.07464206 -0.7651351 -0.4200791
+## 4  0.8122978 -1.3107710  0.6664631  0.12316103 -0.1726270  0.0237048</code></pre>
+</div>
+<div id="while-loop-1" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> <code>while</code> loop</h3>
+<p><strong>Task 1.2</strong>: Compute the mean of each row in <code>myMA</code> by applying the mean function in a <code>while</code> loop.</p>
+<pre class="r"><code>z &lt;- 1
+myve_while &lt;- NULL
+while(z &lt;= length(myMA[,1])) {
+    myve_while &lt;- c(myve_while, mean(as.numeric(myMA[z, ])))
+    z &lt;- z + 1
+}
+myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while)
+myResult[1:4, -c(1,2)]</code></pre>
+<pre><code>##           C3          C4         C5   mean_for mean_while
+## 1  0.4196481  0.23814667  0.3493797  0.1737009  0.1737009
+## 2  0.5996748 -0.51642965  0.6701380  0.5487830  0.5487830
+## 3 -0.9384848  0.07464206 -0.7651351 -0.4200791 -0.4200791
+## 4  0.6664631  0.12316103 -0.1726270  0.0237048  0.0237048</code></pre>
+<p><strong>Task 1.3</strong>: Confirm that the results from both mean calculations are identical</p>
+<pre class="r"><code>all(myResult[,6] == myResult[,7])</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="apply-loop" class="section level3">
+<h3><span class="header-section-number">8.1.3</span> <code>apply</code> loop</h3>
+<p><strong>Task 1.4</strong>: Compute the mean of each row in myMA by applying the mean function in an <code>apply</code> loop</p>
+<pre class="r"><code>myve_apply &lt;- apply(myMA, 1, mean)
+myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply)
+myResult[1:4, -c(1,2)]</code></pre>
+<pre><code>##           C3          C4         C5   mean_for mean_while mean_apply
+## 1  0.4196481  0.23814667  0.3493797  0.1737009  0.1737009  0.1737009
+## 2  0.5996748 -0.51642965  0.6701380  0.5487830  0.5487830  0.5487830
+## 3 -0.9384848  0.07464206 -0.7651351 -0.4200791 -0.4200791 -0.4200791
+## 4  0.6664631  0.12316103 -0.1726270  0.0237048  0.0237048  0.0237048</code></pre>
+</div>
+<div id="avoiding-loops" class="section level3">
+<h3><span class="header-section-number">8.1.4</span> avoiding loops</h3>
+<p><strong>Task 1.5</strong>: When operating on large data sets it is much faster to use the rowMeans function</p>
+<pre class="r"><code>mymean &lt;- rowMeans(myMA)
+myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply, mean_int=mymean)
+myResult[1:4, -c(1,2,3)]</code></pre>
+<pre><code>##            C4         C5   mean_for mean_while mean_apply   mean_int
+## 1  0.23814667  0.3493797  0.1737009  0.1737009  0.1737009  0.1737009
+## 2 -0.51642965  0.6701380  0.5487830  0.5487830  0.5487830  0.5487830
+## 3  0.07464206 -0.7651351 -0.4200791 -0.4200791 -0.4200791 -0.4200791
+## 4  0.12316103 -0.1726270  0.0237048  0.0237048  0.0237048  0.0237048</code></pre>
+</div>
+</div>
+<div id="exercise-2" class="section level2">
+<h2><span class="header-section-number">8.2</span> Exercise 2</h2>
+<div id="custom-functions" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Custom functions</h3>
+<p><strong>Task 2.1</strong>: Use the following code as basis to implement a function that allows the user to compute the mean for any combination of columns in a matrix or data frame. The first argument of this function should specify the input data set, the second the mathematical function to be passed on (<em>e.g.</em> <code>mean</code>, <code>sd</code>, <code>max</code>) and the third one should allow the selection of the columns by providing a grouping vector.</p>
+<pre class="r"><code>myMA &lt;- matrix(rnorm(100000), 10000, 10, dimnames=list(1:10000, paste(&quot;C&quot;, 1:10, sep=&quot;&quot;)))
+myMA[1:2,]</code></pre>
+<pre><code>##           C1         C2         C3        C4         C5        C6         C7         C8         C9
+## 1 0.17958477 -0.5714262 -0.8866647  2.463907 -0.8126814 -0.933438 -0.8118745 -0.5546591 -0.9026947
+## 2 0.04191538  1.2456075  0.4953736 -2.703100  0.2055566 -1.945671 -2.8696620 -1.5043589 -1.8783809
+##          C10
+## 1 -0.5698361
+## 2 -1.6321152</code></pre>
+<pre class="r"><code>myList &lt;- tapply(colnames(myMA), c(1,1,1,2,2,2,3,3,4,4), list) 
+names(myList) &lt;- sapply(myList, paste, collapse=&quot;_&quot;)
+myMAmean &lt;- sapply(myList, function(x) apply(myMA[,x], 1, mean))
+myMAmean[1:4,] </code></pre>
+<pre><code>##     C1_C2_C3   C4_C5_C6      C7_C8     C9_C10
+## 1 -0.4261687  0.2392626 -0.6832668 -0.7362654
+## 2  0.5942988 -1.4810715 -2.1870104 -1.7552480
+## 3  0.1217488 -0.7225502 -0.6295343  0.4990018
+## 4 -0.9118941 -0.3107419  0.3284317 -0.5693107</code></pre>
+<!---
+Solution
+
+-->
+</div>
+</div>
+<div id="exercise-3" class="section level2">
+<h2><span class="header-section-number">8.3</span> Exercise 3</h2>
+<div id="nested-loops-to-generate-similarity-matrices" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Nested loops to generate similarity matrices</h3>
+<p><strong>Task 3.1</strong>: Create a sample list populated with character vectors of different lengths</p>
+<pre class="r"><code>setlist &lt;- lapply(11:30, function(x) sample(letters, x, replace=TRUE))
+names(setlist) &lt;- paste(&quot;S&quot;, seq(along=setlist), sep=&quot;&quot;) 
+setlist[1:6]</code></pre>
+<pre><code>## $S1
+##  [1] &quot;x&quot; &quot;r&quot; &quot;j&quot; &quot;n&quot; &quot;l&quot; &quot;z&quot; &quot;b&quot; &quot;o&quot; &quot;v&quot; &quot;j&quot; &quot;i&quot;
+## 
+## $S2
+##  [1] &quot;k&quot; &quot;b&quot; &quot;p&quot; &quot;c&quot; &quot;z&quot; &quot;f&quot; &quot;v&quot; &quot;u&quot; &quot;e&quot; &quot;d&quot; &quot;c&quot; &quot;f&quot;
+## 
+## $S3
+##  [1] &quot;l&quot; &quot;e&quot; &quot;p&quot; &quot;j&quot; &quot;i&quot; &quot;k&quot; &quot;y&quot; &quot;i&quot; &quot;w&quot; &quot;l&quot; &quot;w&quot; &quot;x&quot; &quot;p&quot;
+## 
+## $S4
+##  [1] &quot;d&quot; &quot;e&quot; &quot;v&quot; &quot;o&quot; &quot;h&quot; &quot;q&quot; &quot;i&quot; &quot;e&quot; &quot;d&quot; &quot;y&quot; &quot;o&quot; &quot;m&quot; &quot;q&quot; &quot;y&quot;
+## 
+## $S5
+##  [1] &quot;s&quot; &quot;q&quot; &quot;r&quot; &quot;j&quot; &quot;o&quot; &quot;z&quot; &quot;q&quot; &quot;g&quot; &quot;s&quot; &quot;v&quot; &quot;w&quot; &quot;j&quot; &quot;l&quot; &quot;r&quot; &quot;d&quot;
+## 
+## $S6
+##  [1] &quot;c&quot; &quot;l&quot; &quot;h&quot; &quot;v&quot; &quot;e&quot; &quot;a&quot; &quot;i&quot; &quot;u&quot; &quot;g&quot; &quot;h&quot; &quot;s&quot; &quot;f&quot; &quot;u&quot; &quot;b&quot; &quot;e&quot; &quot;y&quot;</code></pre>
+<p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code>setlist. The intersects can be determined with the</code>%in%<code>function like this:</code>sum(setlist[[1]] %in% setlist[[2]])`</p>
+<pre class="r"><code>setlist &lt;- sapply(setlist, unique)
+olMA &lt;- sapply(names(setlist), function(x) sapply(names(setlist), 
+               function(y) sum(setlist[[x]] %in% setlist[[y]])))
+olMA[1:12,] </code></pre>
+<pre><code>##     S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20
+## S1  10  3  4  3  6  4  6  6  7   8   7   2   5   8   8   8   8   7   8   7
+## S2   3 10  3  3  3  6  7  4  7   2   5   6   4   8   7   6   8   6   7   7
+## S3   4  3  9  3  3  4  4  5  4   5   5   3   4   5   7   7   8   5   5   5
+## S4   3  3  3  9  4  5  3  4  5   5   5   7   7   5   8   7   7   5   6   5
+## S5   6  3  3  4 11  4  3  5  6   6   7   7   8  10   9   8   8   7   8   8
+## S6   4  6  4  5  4 13  4  5  7   5   7   8   6   9   9   8   9   7   7   9
+## S7   6  7  4  3  3  4 12  6  7   5   9   4   6   9   9   8  10   8  10   8
+## S8   6  4  5  4  5  5  6 13  9   9  10   7   7   9  12   9  11   9   9   7
+## S9   7  7  4  5  6  7  7  9 14   7   8   7   7  11  11  10  11   8   9  11
+## S10  8  2  5  5  6  5  5  9  7  13   8   6   6   6  10  11   9   9   8   9
+## S11  7  5  5  5  7  7  9 10  8   8  15   7   9  11  11  10  12  11  12  10
+## S12  2  6  3  7  7  8  4  7  7   6   7  14   8  10  11   9  11   9   9   8</code></pre>
+<p><strong>Task 3.3</strong> Plot the resulting intersect matrix as heat map. The <code>image</code> or the <code>heatmap.2</code> function from the <code>gplots</code> library can be used for this.</p>
+<pre class="r"><code>image(olMA)</code></pre>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAHgCAMAAABNUi8GAAACrFBMVEUAAAABAQECAgIDAwMEBAQFBQUGBgYHBwcICAgJCQkKCgoLCwsMDAwNDQ0ODg4PDw8QEBARERESEhITExMUFBQWFhYXFxcYGBgZGRkaGhobGxscHBwdHR0eHh4fHx8gICAiIiIjIyMkJCQlJSUmJiYnJycpKSkqKiorKyssLCwuLi4vLy8xMTEyMjIzMzM0NDQ1NTU2NjY3Nzc4ODg6Ojo7Ozs8PDw9PT0+Pj4/Pz9AQEBBQUFCQkJDQ0NERERISEhJSUlKSkpLS0tMTExNTU1PT09QUFBSUlJTU1NUVFRVVVVZWVlaWlpbW1tcXFxdXV1eXl5fX19gYGBiYmJjY2NlZWVmZmZnZ2dpaWlqampra2tsbGxtbW1ubm5vb29wcHBxcXFycnJzc3N0dHR1dXV2dnZ3d3d4eHh5eXl9fX1+fn5/f3+AgICBgYGCgoKEhISFhYWHh4eIiIiJiYmLi4uMjIyNjY2QkJCRkZGTk5OVlZWWlpaYmJiZmZmampqbm5ucnJydnZ2enp6fn5+goKChoaGioqKjo6OkpKSlpaWmpqanp6eoqKipqamqqqqrq6usrKytra2urq6vr6+wsLCxsbGysrKzs7O0tLS1tbW2tra4uLi5ubm6urq7u7u8vLy9vb2+vr6/v7/AwMDBwcHCwsLExMTFxcXGxsbHx8fIyMjJycnKysrLy8vMzMzNzc3Q0NDR0dHT09PU1NTW1tbX19fY2Nja2trb29vc3Nzd3d3e3t7i4uLj4+Pk5OTm5ubn5+fo6Ojq6urr6+vs7Ozt7e3u7u7v7+/w8PDx8fHy8vLz8/P09PT19fX29vb39/f4+Pj5+fn6+vr7+/v8/Pz9/f3+/v7/AAD/IAD/QAD/YAD/gAD/nwD/vwD/3wD//wD//yr//4D//9X////gSOw9AAAACXBIWXMAAA7DAAAOwwHHb6hkAAASwUlEQVR4nO3dj39V9XnA8W8IBkFMwGqVdqNIf6zaH4KOWUjSdqZ0zja2m5FK15YUS1x11tnBYHYVxIFQNdTWlswtXWuZ0JUKOKJktNTOYKSxFQzczrb7ef6Rnfy43Hu85z6558n3e+7T5vN5+brc+0rOfc6533dIbjje6yIiw7l67wCRFEDJdAAl0wGUTAdQMh1AyXQAJdMBlEwHUDIdQMl0ACXTAZRMB1AyHUDJdAAl0wGUTAdQMh1AyXQAJdMBlEwHUDIdQMl0ACXTAZRMB1AyHUDJdAAl0wGUTAdQMh1AyXQAJdMBlEwHUDIdQMl0ACXTAZRMB1AyHUDJdAAl0wGUTAdQMh1AyXQAJdMBlEwHUDIdQMl0ACXTAZRMB1AyHUDJdAAl0wGUTAdQMh1AyXQAJdMBlEwHUDIdQMl0ACXTAZRMB1AyHUDJdAAl0wGUTAdQMh1AyXQAJdMBlEwHUDIdQMl0ACXTAZRMB1AyHUDJdJmBFk6dLITYEaK0sgE91rN0jnNNSzYMBtodomSZgB5sXrRm884dW9YubjkUaoeIyssEdNXKkYkrp1e3pX9G93uJauja50MAbd5WvLa3Jf0zrvulrv/QJd3lr4SUe/lrIWGatJly2n8KCZv9lzLdtF//r9CREECXdRafH3UvB2gygFaWO9Dehvat+48OHNjeMWsPQJMBtLLcgUZ9rW681r4qnwBQgJbKH2gUDR3p7z88VPXDAAVoqXoAnWxkGKDJAFpZHYG2J7Y783SxdyiXHqDZpgF0ijZ1ld/63vlfbzUqlx6g2aYBVNl85dIDNNs0gAI0JWkxAFoZQKW7BGhlAAUoQEvlDnR9WQBNBtDKcgd6+0J3yZWTATQZQCvL/1v8c40b5U8AKEBL1eFn0N+vA9DXqqecJq295FppXtKknBZAk/IuJYTSuEBA9z0DUIAaBjpVAE0JoADNGEABmi2AAhSgpQAK0GwBFKAALQVQgGYLoAAFaCmAAjRbAAUoQEsBFKDZAihAAVoKoADNFkABWnegArTXJKBCWqBCSoTSdtI6KTeTzCuTgP5P9bTjAKoMoAAFKEABqg2gAAUoQAGqDaAABShAAaoNoAAFKEABqg2gAAUoQAGqDaAABShAAaoNoAAFKEAtAs05SZq09sqEadI6Kaf9t5CgSUL4f0LSdsoAClCAArQUQAGaLYACFKClAArQbAEUoAAtBVCAZgugAAVoKYDaATp89AxAXx9ALQD9xuoP7Iq+2OSa7joL0GQANQD0Ebes44K1F97zRE/j3wI0GUANAH3XzYXoYXdvfO3PrgZoMoAaADp3V/wDqPtufO3heQBNBlADQN/aE0X73Nb42hfeBtBkADUA9K8aP/H5y5Zf0f/CV5v/PDtQ6XzQ3NhOmR3X2rsUVEivlShpUn6F5Q509M5Fl3aP/pFz7oaXAeolgPoEGleI//vujqcLVT4M0IwB1DPQyUaGAeolgIYB2p7YbmBNsQuEpQdoSgANA3RTV/mtE18uNkdYeoCmBNAwQKvFt/iMAdQ30MKpk9WeIQE0ewD1CvRYz9I5zjUt2TAIUD8B1CfQg82L1mzeuWPL2sUthwDqJYD6BLpq5cjEldOr2wDqJYD6BNq8rXhtbwtAvQRQn0CXdRafH3UvB6iXAOoTaG9D+9b9RwcObO+YtQegXgKoT6BRX6sbr7WvyicANGMA9Qo0ioaO9PcfHqr6YYBmDKCegU5RzicsS5qUCWuhPbtYmbS8UsoTj4XznLUvAiodHUABClCAhgygAAUoQAGqDaAABShAAaoNoAAFKEABqg2gAAUoQAGqDaAABShAAaoNoAAFKEABqg2ghoAq345begQC4JXGCSe7anROkfLETukupZccFRBK5iW8AAUoQAFaCqAABej5AApQgAIUoNoAClCAAhSg2gAKUIACFKDaAApQgAIUoNoAClCAAhSg2gAKUID+VgJVSpNSmhfESCmnSeMk88I9SksvSVNupkz7BQ1QgAIUoDWNA2hKAAUoQAFa0ziApgRQgM5UoKPP/bjq28kCFKB1BHr23huj0TvnOvfmXQCtfRxAUwoC9G53e3TX7O5vPtbpHgNozeMAmlIQoL+zNoquuGvs2p9eA9CaxwE0pSBAFz4QnW16YuzaQ/MBWvM4gKYUBGjHDWej6zeMXftYtTeTBShA6wf0mTe8b/fueZ/91t6PuCrPkgAK0DoCjZ699eLxN5O9eneVTwAoQOsJNIpODz7V9/0f8nvQLOMAmlLgf0kaGa4C9BfVk1gIm/1CS0bI/5eDBFTaTNAkbZazJmk73VffLwMDbU9s952FxRoAClALQDd1ld8qvFiMv0EBagJotQAK0DoDLZw6WfUpEkABWl+gx3qWznGuacmGQYC+LoAaAHqwedGazTt3bFm7uOUQQJMB1ADQVStHJq6cXt0G0GQANQC0eVvx2t4WgCYDqAGgyzqLz4+6q50sAlCA1g9ob0P71v1HBw5s75i1B6DJAGoAaNTXOn6uiGvtq/IJAAVoPYFG0dCR/v7DQ1U/DFCA1hfoFAEUoACdfgCdsUCFXRJUaJMeASnlOimnSS9sqNtJcS+VSa+V6H8zi+92DFCAlgKoFEArAyhAAVoKoFIArQygAAVoKYBKAbQygAIUoKUAKgXQygAKUICWAqgUQCsDKEABWgqgUgCtDKAABWgpgEoBtDKASud8KoFKp5gq71JiISlUntgpHYEyJVDpwJWPibQdQAEKUIACFKAABShAAQpQgAIUoAAFKEABClCAAhSgAAUoQAEKUIACFKAABShAAQpQgAIUoAD9TQQqFQCock+kB1VAKCr0nxKhNmFPpMdLukuAKvcEoCkJe2IR6KtffwGgAJ3IItBh9yRAATqRKaCdE93k3t/ZCVCAjmUKaJubvyLuWnfVihUABehYpoCe+9L8j5/kWzxAyzIFNIqOt17+DYACtJQxoNG5+y66eRCgAC1mDejYX6ILAQrQYvaARuceWD8IUIBOZBDoWCPDAAXoWEaBtie2++lXeyebq3zAAZqtvGROJuyJUaCbuspvPX1TsdnKBxyg2cpL5mTCnhgFWi2+xedTXjInE/bEHNDCqZMFAaggRokwRMJeSgilxVCukxKoNE54wU7tXioPXDqCMECP9Syd41zTkg3VnsYDNOPSA9Qn0IPNi9Zs3rljy9rFLYcAWnMAzQvoqpUjE1dOr24DaM0BNC+gzduK1/a2ALTmAJoX0GWdxedH3csBWnMAzQtob0P71v1HBw5s75i1B6A1B9C8gEZ9rW681r4qnwDQjEsPUK9Ao2joSH//4aGqHwZoxqUHqGegUwTQjEsPUICmBNBse6k8cIBqA2i2vVQeOEC1ATTbXioPHKDaAJptL5UHDlBtAM22l8oD/w0DKu2upEl62UblKzoKaygcgPYIpDXUfRW9FkCM8stI+9UHUIACFKA1HQFAUwIoQAEK0JqOAKApARSgAAVoTUcA0JQAClCAArSmIwBoSgAFKEABWtMRADQlgAIUoACt6QgAmhJAAQpQgNZ0BABNqV5AlQ+4pEmZdGKn8i6VQKXNhHIGqt1OeZcABShAAVpKuZkQQAGaMWkxlJsJARSgGZMWQ7mZEEABmjFpMZSbCQEUoBmTFkO5mRBAAZoxaTGUmwkBFKAZkxZDuZkQQAGaMWkxlJsJARSgGZMWQ7mZEEABmjFpMZSbCQEUoBmTFkO5mRBAAZoxaTGUmwkBFKAZkxZDuZkQQBVAR4//bPzPl5+vAlR4UJXndUondkonI0rSlKeRSmSElMsrJR24f2ghCgL07N1zXdO6V+NrG6tsB1CA1lYQoFsaPr1nXWMnQAE67YIA/b1PxhcPuq8BFKDTLQjQuQ+PXd645BWAAnSaBQH69nVjlz9acEsBoACdXkGAbmpY8/jPo+hR13UbQAE6rYIAHb13gRuI/+y9zAEUoNMq0O9BCydeGfvjzD/dD1CATqfA/5I0MgxQgE6nwEDbE9sduanYbIACtKYCA93UVX7r33uLXQhQgNaUwddmAqi/AFq1wqmTBYACdLqFAXqsZ+kc55qWbBgEKECnVRCgB5sXrdm8c8eWtYtbDlUBqlUoJDzgkqYAQAOkXN4Ad6kcJ31lSnsZBOiqlSMTV06vbgOol/yLmclAm7cVr+1tAaiX/IuZyUCXdRafH3UvB6iX/IuZyUB7G9q37j86cGB7x6w9APWSfzEzGWjU1+rGa+2r8gkAzZh/MTMaaBQNHenvPzxU9cMAzZh/MTMc6BQBNGP+xQAUoB7zLwagAPWYfzEABajH/IsBKEA95l8MQAHqMf9iAApQj/kXA1CAesy/GIAC1GP+xQBUBCrskhLhr5SupUfHTgEOIF+g2gAa4EENEEABajqAAtR0AAWo6QAKUNMBFKCmAyhATQdQgJoOoAA1HUABajqAAtR0AAWo6QAKUNMBFKCmA2jOQIUHXHpNSyVCKelEReVaSGso7Il0l8qzKZXQlI+JtJ1yT+r2EuDCOgEUoKUACtDKAArQlACaEkABWhlAAZoSQFMCKEArAyhAUwJoSgAFaGUABWhKAE0JoACtbCYAneK9OoV1AihAS9XrvTqFdQIoQEsZfK9OgAK0lMH36gQoQEvV6706lQilxVAiVLLQrqEy5WMSYE9yrl7v1QnQbAHUJ9Aa3qsToNkCqE+gNbxXJ0CzBVCvQKd+r06AZgugnoFONjIMUC8BNAzQ9uR2L704GUAzBtAwQDd1ld/at7DYLIBmC6BhgFbrOoBmC6C+gconiwA0YwD1CnTKk0UAmjGA+gQ69ckiAM0YQH0CnfpkEYBmDKA+gU59sghAMwZQn0CnPlkEoBkDqE+gU58s8nc95TUuuy6fmt6d06C5V+c06OJ35jRowdtzGnRpWzmNO06FADr1ySLJLno5073re9OJnAa9819zGrTiqZwG3VDbUk6/zl2qzTyfLJIMoOoAOpnnf0lKBlB1AJ0MoJkCqDqA5hFA1QE0jwCqDqB5BFB1AM0jgKqzCHTBKyHvvazFP8lp0LuezWnQyn/JadDqf8hp0J88otosKNBaf1/KoIqkk2699uK5nAa99Kpqs6BAiaYbQMl0ACXTAZRMB1AyHUDJdAAl0wGUTAdQMh1AyXQAJdMBlEwXBOiea1vafpB6I+Cgs3/9jnlX/c3Z8IPizrV1hpmTHPTMhy753S8EOpmjfNDoxrfNe/ejYebE3b4+dWpthQDaN+ujW69vOZZyI+Sgexs+/ZXbGu4OPyjuSy4Q0MSgZy/9w223uS+GH3RX4+ce6nR7gwyKomOXnAeqwBACaGtbIfrpFT0pNwIOKiy8Nb781NzR0IPijs+fHwhoYtCt74u/H6y/MfygRZ+IH79rPhxk0L4/mO3OA1VgCAB0yN0fX65ZWnkj5KAT7vH4co87HnpQ/A2+9WMrwgBNDDp98e4o0E8syUGFSz8fX3Z8IMikZzZuPP83qAZDAKBH3P74cvOcQsWNkINeGfh5fLmu6WehB0XRfZefDAQ0Mejf3O7rm970F0G+JSSPaN0b//mlRy54KMSgsa4sAtVgCAC03x2NL3e6UxU3Qg4a78HGzwSY87pBxy96PAoENDHoKTfv9r+/c/adwQdFo8udc2tDzBnvPFANhiBAB+LLHW6o4kbIQXEn/th99EyAOclB51pjnMGAlg3qc93x5bp5If4KTQwq3Hj5l5/8ywvDPBuLEkCzYwgA9LA7EF9uaSpU3Ag5KIp6Fyz5WoAprx/0wMLB4eFrbxrW/S82GQZ9330rvvymey70oH3uH+PLe5peCjBorPNANRiCPEl6ML785JLKGyEHxc+Pbgn1P5EmBq2feIE/9/XQg344/oufx9yPQw/a4V6IL58Y//4boitLT5LKptZYiF8zreqIn4K+5XMpNwIOOnNZV7j/EbJ80OCTcVe9/8kXQg8qXP2R+PLmNwc5rPJBP3CPxZd3NAX58SgqA6rBEOQX9Q2f7ftwy2AUbWofKd0IPOjb7raNYwV5rYjEEY0V6GfQ5KDd7uO7bnG61zvIMqjwweZ7HvlUY5BnY2NNAFViCPJPnY9e09z6dPxnlxsu3Qg86P7J77zPhx40fjsU0OSgh5bNf0+Vl7L2OmjkjrfOveq+UL9znQSqxMDJImQ6gJLpAEqmAyiZDqBkOoCS6QBKpgMomQ6gZDqAkukASqYDKJkOoGQ6gJLpAEqmAyiZDqBkOoCS6QBKpgMomQ6gZDqAkukASqYDKJkOoGQ6gJLpAEqmAyiZDqBkOoCS6QBKpgMomQ6gZDqAkukASqYDKJkOoGQ6gJLpAEqmAyiZDqBkOoCS6QBKpgMomQ6gZDqAkukASqYDKJkOoGQ6gJLpAEqmAyiZDqBkOoCS6QBKpgMomQ6gZDqAkukASqYDKJkOoGQ6gJLpAEqm+3+Ug7PpQ7XgsQAAAABJRU5ErkJggg==" /><br />
+## Exercise 4</p>
+</div>
+<div id="build-your-own-r-package" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Build your own R package</h3>
+<p><strong>Task 4.1</strong>: Save one or more of your functions to a file called <code>script.R</code> and build the package with the <code>package.skeleton</code> function.</p>
+<pre class="r"><code>package.skeleton(name=&quot;mypackage&quot;, code_files=c(&quot;script1.R&quot;), namespace=TRUE)</code></pre>
+<p><strong>Task 4.2</strong>: Build tarball of the package</p>
+<pre class="r"><code>system(&quot;R CMD build mypackage&quot;)</code></pre>
+<p><strong>Task 4.3</strong>: Install and use package</p>
+<pre class="r"><code>install.packages(&quot;mypackage_1.0.tar.gz&quot;, repos=NULL, type=&quot;source&quot;)
+library(mypackage)
+?myMAcomp # Opens help for function defined by mypackage</code></pre>
+</div>
+</div>
+</div>
+<div id="homework-5" class="section level1">
+<h1><span class="header-section-number">9</span> Homework 5</h1>
+<div id="reverse-and-complement-of-dna" class="section level2">
+<h2><span class="header-section-number">9.1</span> Reverse and complement of DNA</h2>
+<p><strong>Task 1</strong>: Write a <code>RevComp</code> function that returns the reverse and complement of a DNA sequence string. Include an argument that will allow to return only the reversed sequence, the complemented sequence or the reversed and complemented sequence. The following R functions will be useful for the implementation:</p>
+<pre class="r"><code>x &lt;- c(&quot;ATGCATTGGACGTTAG&quot;)  
+x &lt;- substring(x, 1:nchar(x), 1:nchar(x)) 
+x &lt;- rev(x) 
+x &lt;- paste(x, collapse=&quot;&quot;)
+chartr(&quot;ATGC&quot;, &quot;TACG&quot;, x) </code></pre>
+<p><strong>Task 2</strong>: Write a function that applies the <code>RevComp</code> function to many sequences stored in a vector.</p>
+</div>
+<div id="translate-dna-into-protein" class="section level2">
+<h2><span class="header-section-number">9.2</span> Translate DNA into Protein</h2>
+<p><strong>Task 3</strong>: Write a function that will translate one or many DNA sequences in all three reading frames into proteins. The following commands will simplify this task:</p>
+<pre class="r"><code>AAdf &lt;- read.table(file=&quot;http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt&quot;, header=TRUE, sep=&quot;\t&quot;) 
+AAv &lt;- as.character(AAdf[,2]) 
+names(AAv) &lt;- AAdf[,1] 
+y &lt;- gsub(&quot;(...)&quot;, &quot;\\1_&quot;, x) 
+y &lt;- unlist(strsplit(y, &quot;_&quot;)) 
+y &lt;- y[grep(&quot;^...\$&quot;, y)] 
+AAv[y] </code></pre>
+<p>Submit the 3 functions in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.</p>
+</div>
+</div>
 <div id="session-info" class="section level1">
-<h1><span class="header-section-number">4</span> Session Info</h1>
+<h1><span class="header-section-number">10</span> Session Info</h1>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 3.2.4 Revised (2016-03-16 r70336)
 ## Platform: x86_64-pc-linux-gnu (64-bit)

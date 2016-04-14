@@ -1,35 +1,114 @@
 ---
-title: Session Info
+title: Functions
 keywords: 
-last_updated: Wed Apr 13 14:47:48 2016
+last_updated: Wed Apr 13 16:38:00 2016
 ---
+
+## Function Overview
+
+A very useful feature of the R environment is the possibility to expand existing functions and to easily write custom functions. In fact, most of the R software can be viewed as a series of R functions.
+
+__Syntax__ to define function
+
+{% highlight r %}
+myfct <- function(arg1, arg2, ...) { 
+	function_body 
+}
+{% endhighlight %}
+__Syntax__ to call functions
+
+{% highlight r %}
+myfct(arg1=..., arg2=...)
+{% endhighlight %}
+The value returned by a function is the value of the function body, which is usually an unassigned final expression, _e.g._: `return()`
+
+## Function Syntax Rules
+	
+__General__
+
+* Functions are defined by 
+    1. The assignment with the keyword `function`
+    2. The declaration of arguments/variables (`arg1, arg2, ...`) 
+    3. The definition of operations (`function_body`) that perform computations on the provided arguments. A function name needs to be assigned to call the function.
+
+__Naming__ 
+
+* Function names can be almost anything. However, the usage of names of existing functions should be avoided.
+	
+__Arguments__ 
+
+* It is often useful to provide default values for arguments (_e.g._: `arg1=1:10`). This way they don't need to be provided in a function call. The argument list can also be left empty (`myfct <- function() { fct_body }`) when a function is expected to return always the same value(s). The argument `...` can be used to allow one function to pass on argument settings to another.
+
+__Body__
+
+* The actual expressions (commands/operations) are defined in the function body which should be enclosed by braces. The individual commands are separated by semicolons or new lines (preferred).
+
+__Usage__ 
+
+* Functions are called by their name followed by parentheses containing possible argument names. Empty parenthesis after the function name will result in an error message when a function requires certain arguments to be provided by the user. The function name alone will print the definition of a function.
+
+__Scope__
+
+* Variables created inside a function exist only for the life time of a function. Thus, they are not accessible outside of the function. To force variables in functions to exist globally, one can use the double assignment operator: `<<-` 
+
+## Examples
+
+__Define sample function__
 
 
 {% highlight r %}
-sessionInfo()
+myfct <- function(x1, x2=5) { 
+	z1 <- x1 / x1
+	z2 <- x2 * x2
+        myvec <- c(z1, z2) 
+        return(myvec)
+} 
+{% endhighlight %}
+
+__Function usage__
+
+
+Apply function to values 2 and 5
+
+{% highlight r %}
+myfct(x1=2, x2=5) 
 {% endhighlight %}
 
 {% highlight txt %}
-## R version 3.2.4 Revised (2016-03-16 r70336)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 14.04.4 LTS
-## 
-## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
-##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## attached base packages:
-## [1] stats     graphics  utils     datasets  grDevices methods   base     
-## 
-## other attached packages:
-## [1] ggplot2_2.0.0   limma_3.26.3    BiocStyle_1.8.0
-## 
-## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.3      codetools_0.2-14 digest_0.6.9     plyr_1.8.3       grid_3.2.4      
-##  [6] gtable_0.1.2     formatR_1.2.1    magrittr_1.5     evaluate_0.8     scales_0.3.0    
-## [11] stringi_1.0-1    rmarkdown_0.9.2  tools_3.2.4      stringr_1.0.0    munsell_0.4.2   
-## [16] yaml_2.1.13      colorspace_1.2-6 htmltools_0.3    knitr_1.12
+## [1]  1 25
+{% endhighlight %}
+
+Run without argument names
+
+{% highlight r %}
+myfct(2, 5) 
+{% endhighlight %}
+
+{% highlight txt %}
+## [1]  1 25
+{% endhighlight %}
+
+Makes use of default value '5'
+
+{% highlight r %}
+myfct(x1=2) 
+{% endhighlight %}
+
+{% highlight txt %}
+## [1]  1 25
+{% endhighlight %}
+Print function definition (often unintended) 
+
+{% highlight r %}
+myfct 
+{% endhighlight %}
+
+{% highlight txt %}
+## function(x1, x2=5) { 
+## 	z1 <- x1 / x1
+## 	z2 <- x2 * x2
+##         myvec <- c(z1, z2) 
+##         return(myvec)
+## }
 {% endhighlight %}
 
