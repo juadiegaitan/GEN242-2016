@@ -99,7 +99,128 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Control Structures",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Loops",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Functions",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_04.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Useful Utilities",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_05.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Running R Scripts",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_06.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Building R Packages",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_07.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Programming Exercises",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_08.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Homework 5",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Programming in R",
+"tags": "",
+"keywords": "",
 "url": "../mydoc/mydoc_Programming_in_R_1.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Session Info",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_10.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_11.html",
 "summary": ""
 },
 
@@ -129,7 +250,7 @@
 
 
 {
-"title": "Session Info",
+"title": "Functions",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Programming_in_R_4.html",
@@ -140,7 +261,7 @@
 
 
 {
-"title": "References",
+"title": "Useful Utilities",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Programming_in_R_5.html",
@@ -151,10 +272,43 @@
 
 
 {
-"title": "References",
+"title": "Running R Scripts",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Programming_in_R_6.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Building R Packages",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_7.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Session Info",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_8.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Programming_in_R_9.html",
 "summary": ""
 },
 
