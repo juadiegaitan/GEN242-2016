@@ -268,21 +268,27 @@ image(olMA)
 ## library(mypackage)
 ## ?myMAcomp # Opens help for function defined by mypackage
 
-## ----hw_revcomp, eval=FALSE----------------------------------------------
-## x <- c("ATGCATTGGACGTTAG")
-## x <- substring(x, 1:nchar(x), 1:nchar(x))
-## x <- rev(x)
-## x <- paste(x, collapse="")
-## chartr("ATGC", "TACG", x)
+## ----hw_revcomp, eval=TRUE-----------------------------------------------
+x <- c("ATGCATTGGACGTTAG")  
+x
+x <- substring(x, 1:nchar(x), 1:nchar(x)) 
+x
+x <- rev(x) 
+x
+x <- paste(x, collapse="")
+x
+chartr("ATGC", "TACG", x) 
 
-## ----hw_translate, eval=FALSE--------------------------------------------
-## AAdf <- read.table(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt", header=TRUE, sep="\t")
-## AAv <- as.character(AAdf[,2])
-## names(AAv) <- AAdf[,1]
-## y <- gsub("(...)", "\\1_", x)
-## y <- unlist(strsplit(y, "_"))
-## y <- y[grep("^...\$", y)]
-## AAv[y]
+## ----hw_translate, eval=TRUE---------------------------------------------
+AAdf <- read.table(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt", header=TRUE, sep="\t") 
+AAdf[1:4,]
+AAv <- as.character(AAdf[,2]) 
+names(AAv) <- AAdf[,1] 
+AAv
+y <- gsub("(...)", "\\1_", x) 
+y <- unlist(strsplit(y, "_")) 
+y <- y[grep("^...$", y)] 
+AAv[y] 
 
 ## ----sessionInfo---------------------------------------------------------
 sessionInfo()

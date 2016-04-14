@@ -450,6 +450,15 @@ window.location.href = uri;
 
                     
                     
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">HW5 - Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
                 </ul>
                 
                 
@@ -628,7 +637,7 @@ window.location.href = uri;
                 
                 
             
-            <li><a href="#">Programming in R</a>
+            <li><a href="#">Programming</a>
                 <ul>
                     
                     
@@ -863,8 +872,8 @@ environment to perform complex custom analyses of almost any type of data [@Gent
 
 <h2 id="r-basics">R Basics</h2>
 
-<p>The previous <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_Rbasics_01.html">Rbasics</a> provides a general introduction to the usage of the R environment and its basic command syntax.
-More details can be found R &amp; BioConductor manual <a href="http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual">here</a>.</p>
+<p>The previous <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_Rbasics_01.html">Rbasics</a> tutorial provides a general introduction to the usage of the R environment and its basic command syntax.
+More details can be found in the R &amp; BioConductor manual <a href="http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual">here</a>.</p>
 
 <h2 id="code-editors-for-r">Code Editors for R</h2>
 
@@ -881,11 +890,11 @@ More details can be found R &amp; BioConductor manual <a href="http://manuals.bi
   <li><a href="https://sourceforge.net/projects/npptor/">Notepad++ (NppToR)</a></li>
 </ul>
 
-<center> Programming in R using Vim or Emacs</center>
-<center><img title="vim-r" src="images/vimR.png" /></center>
-
 <center>Programming in R using RStudio</center>
 <center><img title="R_Interfaces" src="images/rstudio.png" /></center>
+
+<center> Programming in R using Vim or Emacs</center>
+<center><img title="vim-r" src="images/vimR.png" /></center>
 
 <h2 id="finding-help">Finding Help</h2>
 
@@ -956,7 +965,7 @@ if(1==0) {
 ## [1] 2
 </code></p>
 
-<h2 id="conditional-executions-ifelse-statements">Conditional Executions: <code>ifelse</code> Statements`</h2>
+<h2 id="conditional-executions-ifelse-statements">Conditional Executions: <code>ifelse</code> Statements</h2>
 
 <p>The <code>ifelse</code> statement operates on vectors.</p>
 
@@ -1208,7 +1217,7 @@ The value returned by a function is the value of the function body, which is usu
 <p><strong>Arguments</strong></p>
 
 <ul>
-  <li>It is often useful to provide default values for arguments (<em>e.g.</em>: <code>arg1=1:10</code>). This way they don’t need to be provided in a function call. The argument list can also be left empty (<code>myfct &lt;- function() { fct_body }</code>) when a function is expected to return always the same value(s). The argument <code>...</code> can be used to allow one function to pass on argument settings to another.</li>
+  <li>It is often useful to provide default values for arguments (<em>e.g.</em>: <code>arg1=1:10</code>). This way they don’t need to be provided in a function call. The argument list can also be left empty (<code>myfct &lt;- function() { fct_body }</code>) if a function is expected to return always the same value(s). The argument <code>...</code> can be used to allow one function to pass on argument settings to another.</li>
 </ul>
 
 <p><strong>Body</strong></p>
@@ -1244,7 +1253,7 @@ myfct &lt;- function(x1, x2=5) {
 
 <p><strong>Function usage</strong></p>
 
-<p>Apply function to values 2 and 5</p>
+<p>Apply function to values <code>2</code> and <code>5</code></p>
 
 <p><code>r
 myfct(x1=2, x2=5) 
@@ -1264,7 +1273,7 @@ myfct(2, 5)
 ## [1]  1 25
 </code></p>
 
-<p>Makes use of default value ‘5’</p>
+<p>Makes use of default value <code>5</code></p>
 
 <p><code>r
 myfct(x1=2) 
@@ -1308,6 +1317,8 @@ myfct
 
 <p>R’s regular expression utilities work similar as in other languages. To learn how to use them in R, one can consult the main help page on this topic with <code>?regexp</code>.</p>
 
+<h3 id="string-matching-with-grep">String matching with <code>grep</code></h3>
+
 <p>The grep function can be used for finding patterns in strings, here letter <code>A</code> in vector <code>month.name</code>.</p>
 
 <p><code>r
@@ -1316,8 +1327,11 @@ month.name[grep("A", month.name)]
 
 <p><code>
 ## [1] "April"  "August"
-</code>
-Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes <code>\</code> need to be double escaped <code>\\</code> in R.</p>
+</code></p>
+
+<h3 id="string-substitution-with-gsub">String substitution with <code>gsub</code></h3>
+
+<p>Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes <code>\</code> need to be double escaped <code>\\</code> in R.</p>
 
 <p><code>r
 gsub('(i.*a)', 'xxx_\\1', "virginica", perl = TRUE) 
@@ -1458,7 +1472,7 @@ t(as.data.frame(strsplit(x, "u")))
 </code>
 ## Calling External Software</p>
 
-<p>How to run External command-line software. Here example for running <code>blastall</code> from R</p>
+<p>External command-line software can be called with <code>system</code>. The following example calls <code>blastall</code> from R</p>
 
 <p><code>r
 system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
@@ -1502,7 +1516,7 @@ Rscript test.R 10
 
 <h2 id="short-overview-of-package-building-process">Short Overview of Package Building Process</h2>
 
-<p>Automatic package building with the package.skeleton function. The given example will create a directory named <code>mypackage</code> containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the <code>code_files</code> argument. The basic structure of the package directory is described <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack">here</a>. The package directory will also contain a file named <code>Read-and-delete-me</code> with instructions for completing the package:</p>
+<p>R packages can be built with the <code>package.skeleton</code> function. The given example will create a directory named <code>mypackage</code> containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the <code>code_files</code> argument. The basic structure of the package directory is described <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack">here</a>. The package directory will also contain a file named <code>Read-and-delete-me</code> with instructions for completing the package:</p>
 
 <p><code>r
 package.skeleton(name="mypackage", code_files=c("script1.R", "script2.R"))
@@ -1599,7 +1613,7 @@ myResult[1:4, -c(1,2)]
 ## 4  0.6664631  0.12316103 -0.1726270  0.0237048  0.0237048  0.0237048
 </code></p>
 
-<h3 id="avoiding-loops">avoiding loops</h3>
+<h3 id="avoiding-loops">Avoiding loops</h3>
 
 <p><strong>Task 1.5</strong>: When operating on large data sets it is much faster to use the rowMeans function</p>
 
@@ -1688,7 +1702,7 @@ setlist[1:6]
 ##  [1] "c" "l" "h" "v" "e" "a" "i" "u" "g" "h" "s" "f" "u" "b" "e" "y"
 </code></p>
 
-<p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code>setlist. The intersects can be determined with the </code>%in%<code> function like this: </code>sum(setlist[[1]] %in% setlist[[2]])`</p>
+<p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code>setlist</code>. The intersects can be determined with the <code>%in%</code> function like this: <code>sum(setlist[[1]] %in% setlist[[2]])</code></p>
 
 <p><code>r
 setlist &lt;- sapply(setlist, unique)
@@ -1752,10 +1766,46 @@ library(mypackage)
 
 <p><code>r
 x &lt;- c("ATGCATTGGACGTTAG")  
+x
+</code></p>
+
+<p><code>
+## [1] "ATGCATTGGACGTTAG"
+</code></p>
+
+<p><code>r
 x &lt;- substring(x, 1:nchar(x), 1:nchar(x)) 
+x
+</code></p>
+
+<p><code>
+##  [1] "A" "T" "G" "C" "A" "T" "T" "G" "G" "A" "C" "G" "T" "T" "A" "G"
+</code></p>
+
+<p><code>r
 x &lt;- rev(x) 
+x
+</code></p>
+
+<p><code>
+##  [1] "G" "A" "T" "T" "G" "C" "A" "G" "G" "T" "T" "A" "C" "G" "T" "A"
+</code></p>
+
+<p><code>r
 x &lt;- paste(x, collapse="")
+x
+</code></p>
+
+<p><code>
+## [1] "GATTGCAGGTTACGTA"
+</code></p>
+
+<p><code>r
 chartr("ATGC", "TACG", x) 
+</code></p>
+
+<p><code>
+## [1] "CTAACGTCCAATGCAT"
 </code></p>
 
 <p><strong>Task 2</strong>: Write a function that applies the <code>RevComp</code> function to many sequences stored in a vector.</p>
@@ -1766,14 +1816,50 @@ chartr("ATGC", "TACG", x)
 
 <p><code>r
 AAdf &lt;- read.table(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt", header=TRUE, sep="\t") 
+AAdf[1:4,]
+</code></p>
+
+<p><code>
+##   Codon AA_1 AA_3 AA_Full AntiCodon
+## 1   TCA    S  Ser  Serine       TGA
+## 2   TCG    S  Ser  Serine       CGA
+## 3   TCC    S  Ser  Serine       GGA
+## 4   TCT    S  Ser  Serine       AGA
+</code></p>
+
+<p><code>r
 AAv &lt;- as.character(AAdf[,2]) 
 names(AAv) &lt;- AAdf[,1] 
+AAv
+</code></p>
+
+<p><code>
+## TCA TCG TCC TCT TTT TTC TTA TTG TAT TAC TAA TAG TGT TGC TGA TGG CTA CTG CTC CTT CCA CCG CCC CCT CAT 
+## "S" "S" "S" "S" "F" "F" "L" "L" "Y" "Y" "*" "*" "C" "C" "*" "W" "L" "L" "L" "L" "P" "P" "P" "P" "H" 
+## CAC CAA CAG CGA CGG CGC CGT ATT ATC ATA ATG ACA ACG ACC ACT AAT AAC AAA AAG AGT AGC AGA AGG GTA GTG 
+## "H" "Q" "Q" "R" "R" "R" "R" "I" "I" "I" "M" "T" "T" "T" "T" "N" "N" "K" "K" "S" "S" "R" "R" "V" "V" 
+## GTC GTT GCA GCG GCC GCT GAT GAC GAA GAG GGA GGG GGC GGT 
+## "V" "V" "A" "A" "A" "A" "D" "D" "E" "E" "G" "G" "G" "G"
+</code></p>
+
+<p><code>r
 y &lt;- gsub("(...)", "\\1_", x) 
 y &lt;- unlist(strsplit(y, "_")) 
-y &lt;- y[grep("^...\$", y)] 
+y &lt;- y[grep("^...$", y)] 
 AAv[y] 
-</code>
-Submit the 3 functions in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.</p>
+</code></p>
+
+<p><code>
+## GAT TGC AGG TTA CGT 
+## "D" "C" "R" "L" "R"
+</code></p>
+
+<h2 id="homework-submission">Homework submission</h2>
+<p>Submit the 3 functions in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.</p>
+
+<h2 id="due-date">Due date</h2>
+
+<p>This homework is due on Thu, April 21th at 6:00 PM.</p>
 
 <h1 id="session-info">Session Info</h1>
 

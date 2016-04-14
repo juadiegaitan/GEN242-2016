@@ -450,6 +450,15 @@ window.location.href = uri;
 
                     
                     
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">HW5 - Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
                 </ul>
                 
                 
@@ -628,7 +637,7 @@ window.location.href = uri;
                 
                 
             
-            <li><a href="#">Programming in R</a>
+            <li><a href="#">Programming</a>
                 <ul>
                     
                     
@@ -862,7 +871,7 @@ $('#toc').on('click', 'a', function() {
 ## 3 -0.9384848  0.07464206 -0.7651351 -0.4200791 -0.4200791 -0.4200791
 ## 4  0.6664631  0.12316103 -0.1726270  0.0237048  0.0237048  0.0237048</code></pre></div>
 
-<h3 id="avoiding-loops">avoiding loops</h3>
+<h3 id="avoiding-loops">Avoiding loops</h3>
 
 <p><strong>Task 1.5</strong>: When operating on large data sets it is much faster to use the rowMeans function</p>
 
@@ -936,7 +945,7 @@ Solution
 ## $S6
 ##  [1] "c" "l" "h" "v" "e" "a" "i" "u" "g" "h" "s" "f" "u" "b" "e" "y"</code></pre></div>
 
-<p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code>setlist. The intersects can be determined with the </code>%in%<code> function like this: </code>sum(setlist[[1]] %in% setlist[[2]])`</p>
+<p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code>setlist</code>. The intersects can be determined with the <code>%in%</code> function like this: <code>sum(setlist[[1]] %in% setlist[[2]])</code></p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">setlist</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">setlist</span><span class="p">,</span> <span class="n">unique</span><span class="p">)</span>
 <span class="n">olMA</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">setlist</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">setlist</span><span class="p">),</span> 
@@ -997,7 +1006,7 @@ Solution
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed Apr 13 17:35:30 2016<br/> Site last generated: Apr 13, 2016 <br />
+<p>Page last updated:</span> Wed Apr 13 22:20:52 2016<br/> Site last generated: Apr 13, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
