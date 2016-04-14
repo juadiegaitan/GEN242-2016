@@ -100,6 +100,6 @@ git commit -am "some edits"; git push -u origin master
 
 + Shortcuts to automate above routines are [here](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts)
 
-
++ To resolve password issues, follow instructions [here](https://github.com/jennybc/stat540_2014/blob/master/seminars/seminar92_git.md). 
 
 
