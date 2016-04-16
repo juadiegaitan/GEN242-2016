@@ -77,16 +77,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -167,8 +157,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +249,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -407,6 +385,24 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_slides_07.html">Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_08.html">Multiple Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_09.html">Short Read Alignments</a></li>
                     
 
                     
@@ -822,50 +818,50 @@ $('#toc').on('click', 'a', function() {
 
 <p>(1) Download Halobacterium proteome and inspect it</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">wget http://biocluster.ucr.edu/~tgirke/Linux.sh <span class="c"># downloads code from this slide</span>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">wget http://biocluster.ucr.edu/~tgirke/Linux.sh <span class="c"># downloads code from this slide</span>
 module load ncbi-blast/2.2.26
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/archaea/Halobacterium_salinarum/representative/GCA_000069025.1_ASM6902v1/GCA_000069025.1_ASM6902v1_protein.faa.gz
 gunzip GCA_000069025.1_ASM6902v1_protein.faa.gz
 mv GCA_000069025.1_ASM6902v1_protein.faa halobacterium.faa
-less halobacterium.faa <span class="c"># press q to quit</span></code></pre></div>
+less halobacterium.faa <span class="c"># press q to quit</span></code></pre></figure>
 
 <p>(2) How many protein sequences are stored in the downloaded file?</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">grep <span class="s1">'&gt;'</span> halobacterium.faa | wc
-grep <span class="s1">'^&gt;'</span> halobacterium.faa --count</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">grep <span class="s1">'&gt;'</span> halobacterium.faa | wc
+grep <span class="s1">'^&gt;'</span> halobacterium.faa --count</code></pre></figure>
 
-<p>(3) How many proteins contain the pattern <code>WxHxxH</code> or <code>WxHxxHH</code>?</p>
+<p>(3) How many proteins contain the pattern <code class="highlighter-rouge">WxHxxH</code> or <code class="highlighter-rouge">WxHxxHH</code>?</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">egrep <span class="s1">'W.H..H{1,2}'</span> halobacterium.faa --count</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">egrep <span class="s1">'W.H..H{1,2}'</span> halobacterium.faa --count</code></pre></figure>
 
-<p>(4) Use <code>less</code> to find IDs for pattern matches or use <code>awk</code></p>
+<p>(4) Use <code class="highlighter-rouge">less</code> to find IDs for pattern matches or use <code class="highlighter-rouge">awk</code></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> halobacterium.faa | less
-awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> halobacterium.faa | grep <span class="s1">'^&gt;'</span> | cut -c 2- | cut -f 1 -d<span class="se">\ </span>&gt; myIDs</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> halobacterium.faa | less
+awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> halobacterium.faa | grep <span class="s1">'^&gt;'</span> | cut -c 2- | cut -f 1 -d<span class="se">\ </span>&gt; myIDs</code></pre></figure>
 
-<p>(5) Create a BLASTable database with <code>formatdb</code></p>
+<p>(5) Create a BLASTable database with <code class="highlighter-rouge">formatdb</code></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">formatdb -i halobacterium.faa -p T -o</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">formatdb -i halobacterium.faa -p T -o</code></pre></figure>
 
-<p>(6) Query BLASTable database by IDs stored in a file (<em>e.g.</em> <code>myIDs</code>)</p>
+<p>(6) Query BLASTable database by IDs stored in a file (<em>e.g.</em> <code class="highlighter-rouge">myIDs</code>)</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">fastacmd -d halobacterium.faa -i myIDs &gt; myseq.fasta</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">fastacmd -d halobacterium.faa -i myIDs &gt; myseq.fasta</code></pre></figure>
 
-<p>(7) Run BLAST search for sequences stored in <code>myseq.fasta</code></p>
+<p>(7) Run BLAST search for sequences stored in <code class="highlighter-rouge">myseq.fasta</code></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">blastall -p blastp -i myseq.fasta -d halobacterium.faa -o blastp.out -e 1e-6 -v 10 -b 10
-blastall -p blastp -i myseq.fasta -d halobacterium.faa -m 8 -e 1e-6 &gt; blastp.tab</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">blastall -p blastp -i myseq.fasta -d halobacterium.faa -o blastp.out -e 1e-6 -v 10 -b 10
+blastall -p blastp -i myseq.fasta -d halobacterium.faa -m 8 -e 1e-6 &gt; blastp.tab</code></pre></figure>
 
 <p>Additional exercise material in <a href="http://manuals.bioinformatics.ucr.edu/home/linux-basics#TOC-Exercises">Linux Manual</a></p>
 
 <h2 id="homework-assignment">Homework assignment</h2>
 
 <p>Perform above analysis on the following <em>Escherichia coli</em> strain: ftp://ftp.ncbi.nih.gov/genomes/genbank/bacteria/Escherichia_coli/latest_assembly_versions/GCA_000461395.1_Esch_coli_UMEA_3592-1_V1/GCA_000461395.1_Esch_coli_UMEA_3592-1_V1_protein.faa.gz. 
-Record result from final BLAST command (with <code>-m 8</code>) in text file.</p>
+Record result from final BLAST command (with <code class="highlighter-rouge">-m 8</code>) in text file.</p>
 
 <h2 id="homework-submission">Homework submission</h2>
 
-<p>Upload result file to your private course GitHub repository under <code>Homework/HW2/HW2.txt</code>.</p>
+<p>Upload result file to your private course GitHub repository under <code class="highlighter-rouge">Homework/HW2/HW2.txt</code>.</p>
 
 <h2 id="due-date">Due date</h2>
 
@@ -886,7 +882,7 @@ Record result from final BLAST command (with <code>-m 8</code>) in text file.</p
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> 07-Mar-16<br/> Site last generated: Apr 14, 2016 <br />
+<p>Page last updated:</span> 07-Mar-16<br/> Site last generated: Apr 15, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
