@@ -53,6 +53,16 @@ mydoc_slides_07:
   url: "../mydoc_slides_07.html"
   link: "<a href='../mydoc_slides_07.html'>Programming in R</a>"
 
+mydoc_slides_08:
+  title: "Multiple Alignments"
+  url: "../mydoc_slides_08.html"
+  link: "<a href='../mydoc_slides_08.html'>Multiple Alignments</a>"
+
+mydoc_slides_09:
+  title: "Short Read Alignments"
+  url: "../mydoc_slides_09.html"
+  link: "<a href='../mydoc_slides_09.html'>Short Read Alignments</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
