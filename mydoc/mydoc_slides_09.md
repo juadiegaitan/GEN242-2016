@@ -1,6 +1,7 @@
 ---
 title: Short Read Alignments
-last_updated: 14-Apr-16
+last_updated: 19-Apr-16
 ---
 
+<iframe src="https://docs.google.com/presentation/d/1Mp4JF3yE9Rfm5XhWO4q2GF8_ih0ChMliedw5mme7fUA/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
