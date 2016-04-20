@@ -348,18 +348,9 @@ query <- my_mw_target[my_mw_target[, 2] > 100000 & my_mw_target[, 4] == "C", ]
 query[1:4, ]
 dim(query)
 
-## ----filter_tables2, eval=TRUE-------------------------------------------
-query2 <- my_mw_target[my_mw_target[, 2] > 4000 & my_mw_target[, 2] < 5000, ] 
-dim(query2)
-query2[order(query2[,2]),] 
-
 ## ----string_sub, eval=TRUE-----------------------------------------------
 my_mw_target3 <- data.frame(loci=gsub("\\..*", "", as.character(my_mw_target[,1]), perl = TRUE), my_mw_target)
 my_mw_target3[1:3,1:8]
-
-## ----homework solution, eval=FALSE, echo=FALSE---------------------------
-## index <- my_mw_target3[,2] %in%  c("AT5G52930.1", "AT4G18950.1", "AT1G15385.1", "AT4G36500.1", "AT1G67530.1")
-## my_mw_target3[index, ]
 
 ## ----calcul_1, eval=TRUE-------------------------------------------------
 mycounts <- table(my_mw_target3[,1])[my_mw_target3[,1]]

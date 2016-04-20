@@ -38,7 +38,7 @@
 
 
 {
-"title": "Introduction_to_R",
+"title": "Introduction to R",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/08_Rbasics/Rbasics.Rmd",
@@ -49,7 +49,7 @@
 
 
 {
-"title": "Introduction_to_R",
+"title": "Introduction to R",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/08_Rbasics/Rbasics.knit.html",
@@ -60,7 +60,7 @@
 
 
 {
-"title": "Introduction_to_R",
+"title": "Introduction to R",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/08_Rbasics/Rbasics.utf8.html",
@@ -506,7 +506,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
+"url": "../mydoc/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -517,7 +517,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -572,7 +572,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Internal/mydoc_internal.html",
+"url": "../mydoc/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -583,7 +583,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -748,7 +748,7 @@
 "title": "Sequence Alignments and Similarity Searching",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_06.html",
+"url": "../mydoc/mydoc_slides_06.html",
 "summary": ""
 },
 
@@ -759,7 +759,7 @@
 "title": "Sequence Alignments and Similarity Searching",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_06.html",
+"url": "../vignettes/04_Slides/mydoc_slides_06.html",
 "summary": ""
 },
 
@@ -792,7 +792,7 @@
 "title": "Multiple Sequence Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_08.html",
+"url": "../mydoc/mydoc_slides_08.html",
 "summary": ""
 },
 
@@ -803,7 +803,7 @@
 "title": "Multiple Sequence Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_08.html",
+"url": "../vignettes/04_Slides/mydoc_slides_08.html",
 "summary": ""
 },
 
@@ -869,7 +869,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
+"url": "../mydoc/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -880,18 +880,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_tutorial_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Introduction to Biocluster",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -903,6 +892,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_tutorial_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to Biocluster",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
 "summary": ""
 },
 
