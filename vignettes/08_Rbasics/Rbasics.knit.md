@@ -1,7 +1,7 @@
 ---
-title: "Introduction_to_R" 
+title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 07 April, 2016" 
+date: "Last update: 19 April, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -1429,61 +1429,6 @@ dim(query)
 - __Homework 3F__: How many protein entries in the `my`_mw`_target` data frame have a MW of greater then 4,000 and less then 5,000. Subset the data frame accordingly and sort it by MW to check that your result is correct.
 
 
-```r
-query2 <- my_mw_target[my_mw_target[, 2] > 4000 & my_mw_target[, 2] < 5000, ] 
-dim(query2)
-```
-
-```
-## [1] 38  8
-```
-
-```r
-query2[order(query2[,2]),] 
-```
-
-```
-##                ID Molecular.Weight.Da. Residues Loc   cTP   mTP    SP other
-## 13211 AT2G47660.1                 4043       35   _ 0.153 0.099 0.140 0.909
-## 13808 AT3G05080.1                 4068       35   * 0.091 0.200 0.231 0.704
-## 17007 AT3G42090.1                 4113       37   * 0.089 0.071 0.345 0.825
-## 31743 ATCG00550.1                 4117       40   S 0.003 0.065 0.953 0.366
-## 24539 AT5G02502.1                 4133       35   S 0.006 0.013 0.995 0.106
-## 31739 ATCG00510.1                 4134       37   S 0.005 0.025 0.992 0.066
-## 31713 ATCG00080.1                 4168       36   S 0.012 0.030 0.991 0.044
-## 31748 ATCG00600.1                 4204       37   S 0.010 0.054 0.981 0.058
-## 27714 AT5G35480.1                 4298       38   * 0.049 0.157 0.398 0.672
-## 192   AT1G02490.1                 4337       38   * 0.094 0.085 0.438 0.695
-## 30410 AT5G57567.1                 4356       41   S 0.066 0.044 0.843 0.331
-## 14816 AT3G13240.1                 4366       40   * 0.216 0.075 0.261 0.784
-## 24276 AT4G39403.1                 4390       36   * 0.009 0.713 0.363 0.101
-## 5668  AT1G59535.1                 4404       39   _ 0.122 0.132 0.135 0.895
-## 31745 ATCG00570.1                 4424       39   S 0.005 0.309 0.718 0.213
-## 31762 ATCG00760.1                 4461       37   * 0.110 0.542 0.074 0.334
-## 31744 ATCG00560.1                 4470       38   S 0.016 0.148 0.737 0.321
-## 823   AT1G07610.1                 4495       45   * 0.656 0.044 0.248 0.589
-## 288   AT1G03200.1                 4573       41   * 0.089 0.358 0.119 0.647
-## 822   AT1G07600.1                 4580       45   * 0.545 0.046 0.234 0.713
-## 16351 AT3G25717.1                 4620       40   M 0.022 0.890 0.039 0.208
-## 292   AT1G03240.1                 4644       42   * 0.114 0.317 0.132 0.597
-## 25923 AT5G14560.1                 4681       40   * 0.091 0.268 0.122 0.779
-## 1568  AT1G13245.1                 4719       41   * 0.024 0.746 0.067 0.306
-## 31756 ATCG00700.1                 4722       43   S 0.011 0.048 0.972 0.099
-## 6552  AT1G67148.1                 4734       45   _ 0.203 0.096 0.126 0.897
-## 6566  AT1G67265.1                 4738       40   * 0.059 0.283 0.098 0.738
-## 26710 AT5G21020.2                 4744       42   S 0.032 0.069 0.951 0.079
-## 30432 AT5G57730.1                 4763       42   * 0.103 0.308 0.126 0.511
-## 14906 AT3G13857.1                 4778       42   * 0.244 0.476 0.303 0.018
-## 27114 AT5G24980.1                 4839       42   S 0.004 0.030 0.991 0.076
-## 13050 AT2G46390.1                 4884       46   S 0.003 0.155 0.957 0.075
-## 16657 AT3G28120.1                 4897       41   S 0.006 0.075 0.970 0.145
-## 3797  AT1G32670.1                 4926       44   * 0.233 0.607 0.129 0.103
-## 13470 AT3G02390.1                 4933       43   _ 0.135 0.118 0.147 0.877
-## 9128  AT2G14460.1                 4950       41   * 0.143 0.165 0.139 0.784
-## 1389  AT1G11785.1                 4983       46   _ 0.142 0.110 0.146 0.901
-## 23211 AT4G31030.1                 4983       44   * 0.041 0.133 0.352 0.795
-```
-
 ## String Substitutions
 
 - __Step 6__: Use a regular expression in a substitute function to generate a separate ID column that lacks the gene model extensions.
@@ -1503,8 +1448,6 @@ my_mw_target3[1:3,1:8]
 ```
 
 - __Homework 3G__: Retrieve those rows in `my_mw_target3` where the second column contains the following identifiers: `c("AT5G52930.1", "AT4G18950.1", "AT1G15385.1", "AT4G36500.1", "AT1G67530.1")`. Use the `%in%` function for this query. As an alternative approach, assign the second column to the row index of the data frame and then perform the same query again using the row index. Explain the difference of the two methods.
-
-
 
 ## Calculations on Data Frames
 
