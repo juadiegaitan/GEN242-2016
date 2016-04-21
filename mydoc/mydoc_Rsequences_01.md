@@ -1,7 +1,7 @@
 ---
 title: NGS Analysis Basics
 keywords: 
-last_updated: Thu Apr 21 09:05:09 2016
+last_updated: Thu Apr 21 12:28:13 2016
 ---
 Author: Thomas Girke
 
@@ -23,7 +23,7 @@ __R Base__
 
 __Bioconductor__
 
-Bioconductor packages provide much more sophisticated string handling utilities for sequence analysis.
+Bioconductor packages provide much more sophisticated string handling utilities for sequence analysis (Lawrence et al., 2013, Huber et al., 2015).
 
 * [Biostrings](http://bioconductor.org/packages/release/bioc/html/Biostrings.html): general sequence analysis environment
 * [ShortRead](http://bioconductor.org/packages/release/bioc/html/ShortRead.html): pipeline for short read data

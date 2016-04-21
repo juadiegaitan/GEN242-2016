@@ -1,7 +1,7 @@
 ---
 title: Range Operations  
 keywords: 
-last_updated: Thu Apr 21 09:05:09 2016
+last_updated: Thu Apr 21 12:28:13 2016
 ---
 
 ## Important Data Objects for Range Operations
@@ -12,7 +12,7 @@ last_updated: Thu Apr 21 09:05:09 2016
 
 ## Range Data Are Stored in `IRanges` and `GRanges` Containers
 
-### Construct `GRanges` Object
+### Construct `GRanges` Object 
 
 
 {% highlight r %}
@@ -25,7 +25,7 @@ gr <- GRanges(seqnames = Rle(c("chr1", "chr2", "chr1", "chr3"), c(1, 3, 2, 4)), 
 {% highlight r %}
 gff <- import.gff("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/gff3.gff") # Imports a simplified GFF3 genome annotation file.
 seqlengths(gff) <- end(ranges(gff[which(values(gff)[,"type"]=="chromosome"),])) 
-names(gff) <- 1:length(gff) # Assigns names to corresponding slot.
+names(gff) <- 1:length(gff) # Assigns names to corresponding slot
 gff[1:4,]
 {% endhighlight %}
 
@@ -45,6 +45,20 @@ gff[1:4,]
 ##   4 AT1G01010.1                                            <NA>  AT1G01010.1
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
+{% endhighlight %}
+
+### Coerce `GRanges` object to `data.frame`
+
+{% highlight r %}
+as.data.frame(gff)[1:4, 1:7]
+{% endhighlight %}
+
+{% highlight txt %}
+##   seqnames start      end    width strand source       type
+## 1     Chr1     1 30427671 30427671      + TAIR10 chromosome
+## 2     Chr1  3631     5899     2269      + TAIR10       gene
+## 3     Chr1  3631     5899     2269      + TAIR10       mRNA
+## 4     Chr1  3760     5630     1871      + TAIR10    protein
 {% endhighlight %}
 
 ### Coerce `GRanges` to `RangedData` object and vice versa
@@ -129,7 +143,7 @@ c(gff[1:2], gff[401:402])
 Acessor functions
 
 {% highlight r %}
-seqnames(gff); ranges(gff)
+seqnames(gff)
 {% endhighlight %}
 
 {% highlight txt %}
@@ -137,6 +151,10 @@ seqnames(gff); ranges(gff)
 ##   Lengths:   72   22   38  118  172   13   14
 ##   Values : Chr1 Chr2 Chr3 Chr4 Chr5 ChrC ChrM
 ## Levels(7): Chr1 Chr2 Chr3 Chr4 Chr5 ChrC ChrM
+{% endhighlight %}
+
+{% highlight r %}
+ranges(gff)
 {% endhighlight %}
 
 {% highlight txt %}
@@ -202,7 +220,7 @@ width(gff[1:4])
 Accessing metadata component
 
 {% highlight r %}
-values(gff)
+values(gff) # or elementMetadata(gff)
 {% endhighlight %}
 
 {% highlight txt %}
@@ -635,7 +653,7 @@ sp[1:4, "type"] # Subsetting of GRangesList objects is similar to GRanges object
 {% endhighlight %}
 
 {% highlight r %}
-lapply(sp[1:4], length); sapply(sp[1:4], length) # Looping over GRangesList objects similar to lists
+lapply(sp[1:4], length) # Looping over GRangesList objects similar to lists
 {% endhighlight %}
 
 {% highlight txt %}
@@ -650,10 +668,5 @@ lapply(sp[1:4], length); sapply(sp[1:4], length) # Looping over GRangesList obje
 ## 
 ## $`4`
 ## [1] 1
-{% endhighlight %}
-
-{% highlight txt %}
-## 1 2 3 4 
-## 1 1 1 1
 {% endhighlight %}
 

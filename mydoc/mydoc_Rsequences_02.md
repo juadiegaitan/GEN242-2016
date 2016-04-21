@@ -1,7 +1,7 @@
 ---
 title: Package Requirements
 keywords: 
-last_updated: Thu Apr 21 09:05:09 2016
+last_updated: Thu Apr 21 12:28:13 2016
 ---
 
 Several Bioconductor packages are required for this tutorial. To install them, execute

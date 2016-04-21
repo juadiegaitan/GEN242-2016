@@ -1,7 +1,7 @@
 ---
 title: Transcript Ranges
 keywords: 
-last_updated: Thu Apr 21 09:05:09 2016
+last_updated: Thu Apr 21 12:28:13 2016
 ---
 
 Storing annotation ranges in `TranscriptDb` databases makes many operations more robust and convenient.
@@ -23,10 +23,6 @@ txdb <- makeTxDbFromGFF(file="data/gff3.gff", format="gff", dataSource="TAIR", o
 ## 6  Chr1  5439 5630      + <NA> AT1G01010.1-Protein <NA>
 {% endhighlight %}
 
-{% highlight txt %}
-## Warning: closing unused connection 6 (data/SRR038845.fastq)
-{% endhighlight %}
-
 {% highlight r %}
 saveDb(txdb, file="./data/TAIR10.sqlite")
 {% endhighlight %}
@@ -44,7 +40,7 @@ saveDb(txdb, file="./data/TAIR10.sqlite")
 ## # exon_nrow: 113
 ## # cds_nrow: 99
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2016-04-20 20:19:14 -0700 (Wed, 20 Apr 2016)
+## # Creation time: 2016-04-21 12:28:05 -0700 (Thu, 21 Apr 2016)
 ## # GenomicFeatures version at creation time: 1.22.6
 ## # RSQLite version at creation time: 1.0.0
 ## # DBSCHEMAVERSION: 1.1
@@ -52,8 +48,99 @@ saveDb(txdb, file="./data/TAIR10.sqlite")
 
 {% highlight r %}
 txdb <- loadDb("./data/TAIR10.sqlite")
-tr <- transcripts(txdb)
-GRList <- transcriptsBy(txdb, by = "gene")
+transcripts(txdb)
+{% endhighlight %}
+
+{% highlight txt %}
+## GRanges object with 28 ranges and 2 metadata columns:
+##        seqnames         ranges strand   |     tx_id     tx_name
+##           <Rle>      <IRanges>  <Rle>   | <integer> <character>
+##    [1]     Chr1 [ 3631,  5899]      +   |         1 AT1G01010.1
+##    [2]     Chr1 [ 5928,  8737]      -   |         2 AT1G01020.1
+##    [3]     Chr1 [ 6790,  8737]      -   |         3 AT1G01020.2
+##    [4]     Chr1 [11649, 13714]      -   |         4 AT1G01030.1
+##    [5]     Chr2 [ 1025,  2810]      +   |         5 AT2G01008.1
+##    ...      ...            ...    ... ...       ...         ...
+##   [24]     ChrC [  383,  1444]      -   |        24 ATCG00020.1
+##   [25]     ChrC [ 1717,  4347]      -   |        25 ATCG00030.1
+##   [26]     ChrM [11918, 12241]      +   |        26 ATMG00030.1
+##   [27]     ChrM [  273,   734]      -   |        27 ATMG00010.1
+##   [28]     ChrM [ 8848, 11415]      -   |        28 ATMG00020.1
+##   -------
+##   seqinfo: 7 sequences (2 circular) from an unspecified genome; no seqlengths
+{% endhighlight %}
+
+{% highlight r %}
+transcriptsBy(txdb, by = "gene")
+{% endhighlight %}
+
+{% highlight txt %}
+## GRangesList object of length 22:
+## $AT1G01010 
+## GRanges object with 1 range and 2 metadata columns:
+##       seqnames       ranges strand |     tx_id     tx_name
+##          <Rle>    <IRanges>  <Rle> | <integer> <character>
+##   [1]     Chr1 [3631, 5899]      + |         1 AT1G01010.1
+## 
+## $AT1G01020 
+## GRanges object with 2 ranges and 2 metadata columns:
+##       seqnames       ranges strand | tx_id     tx_name
+##   [1]     Chr1 [5928, 8737]      - |     2 AT1G01020.1
+##   [2]     Chr1 [6790, 8737]      - |     3 AT1G01020.2
+## 
+## $AT1G01030 
+## GRanges object with 1 range and 2 metadata columns:
+##       seqnames         ranges strand | tx_id     tx_name
+##   [1]     Chr1 [11649, 13714]      - |     4 AT1G01030.1
+## 
+## ...
+## <19 more elements>
+## -------
+## seqinfo: 7 sequences (2 circular) from an unspecified genome; no seqlengths
+{% endhighlight %}
+
+{% highlight r %}
+exonsBy(txdb, by = "gene")
+{% endhighlight %}
+
+{% highlight txt %}
+## GRangesList object of length 22:
+## $AT1G01010 
+## GRanges object with 6 ranges and 2 metadata columns:
+##       seqnames       ranges strand |   exon_id   exon_name
+##          <Rle>    <IRanges>  <Rle> | <integer> <character>
+##   [1]     Chr1 [3631, 3913]      + |         1        <NA>
+##   [2]     Chr1 [3996, 4276]      + |         2        <NA>
+##   [3]     Chr1 [4486, 4605]      + |         3        <NA>
+##   [4]     Chr1 [4706, 5095]      + |         4        <NA>
+##   [5]     Chr1 [5174, 5326]      + |         5        <NA>
+##   [6]     Chr1 [5439, 5899]      + |         6        <NA>
+## 
+## $AT1G01020 
+## GRanges object with 12 ranges and 2 metadata columns:
+##        seqnames       ranges strand   | exon_id exon_name
+##    [1]     Chr1 [5928, 6263]      -   |       7      <NA>
+##    [2]     Chr1 [6437, 7069]      -   |       8      <NA>
+##    [3]     Chr1 [6790, 7069]      -   |       9      <NA>
+##    [4]     Chr1 [7157, 7232]      -   |      10      <NA>
+##    [5]     Chr1 [7157, 7450]      -   |      11      <NA>
+##    ...      ...          ...    ... ...     ...       ...
+##    [8]     Chr1 [7762, 7835]      -   |      14      <NA>
+##    [9]     Chr1 [7942, 7987]      -   |      15      <NA>
+##   [10]     Chr1 [8236, 8325]      -   |      16      <NA>
+##   [11]     Chr1 [8417, 8464]      -   |      17      <NA>
+##   [12]     Chr1 [8571, 8737]      -   |      18      <NA>
+## 
+## $AT1G01030 
+## GRanges object with 2 ranges and 2 metadata columns:
+##       seqnames         ranges strand | exon_id exon_name
+##   [1]     Chr1 [11649, 13173]      - |      19      <NA>
+##   [2]     Chr1 [13335, 13714]      - |      20      <NA>
+## 
+## ...
+## <19 more elements>
+## -------
+## seqinfo: 7 sequences (2 circular) from an unspecified genome; no seqlengths
 {% endhighlight %}
 
 ## `txdb` from BioMart
@@ -62,16 +149,17 @@ Alternative sources for creating `txdb` databases are BioMart, Bioc annotation p
 
 {% highlight r %}
 library(GenomicFeatures); library("biomaRt")
-txdb <- makeTranscriptDbFromBiomart(biomart = "plants_mart_25", dataset = "athaliana_eg_gene")
+txdb <- makeTxDbFromBiomart(biomart = "plants_mart", dataset = "athaliana_eg_gene", host="plants.ensembl.org")
 {% endhighlight %}
 
 The following steps are useful to find out what is availble in BioMart. 
 
 {% highlight r %}
 listMarts() # Lists BioMart databases
-mymart <- useMart("plants_mart_25") # Select one, here plants_mart_25
+listMarts(host="plants.ensembl.org")
+mymart <- useMart("plants_mart", host="plants.ensembl.org") # Select one, here plants_mart_25
 listDatasets(mymart) # List datasets available in the selected BioMart database
-mymart <- useMart("plants_mart_25", dataset="athaliana_eg_gene")
+mymart <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
 listAttributes(mymart) # List available features 
 getBM(attributes=c("ensembl_gene_id", "description"), mart=mymart)[1:4,]
 {% endhighlight %}

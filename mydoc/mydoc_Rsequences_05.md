@@ -1,7 +1,7 @@
 ---
 title: NGS Sequences
 keywords: 
-last_updated: Thu Apr 21 09:05:09 2016
+last_updated: Thu Apr 21 12:28:13 2016
 ---
 
 ## Sequence and Quality Data: FASTQ Format
@@ -38,10 +38,12 @@ Phred quality scores are integers from 0-50 that are
 stored as ASCII characters after adding 33. The basic R functions `rawToChar` and
 `charToRaw` can be used to interconvert among their representations.
 
+Phred score interconversion
 
 {% highlight r %}
 phred <- 1:9
-phreda <- paste(sapply(as.raw((phred)+33), rawToChar), collapse=""); phreda
+phreda <- paste(sapply(as.raw((phred)+33), rawToChar), collapse="")
+phreda
 {% endhighlight %}
 
 {% highlight txt %}
@@ -55,6 +57,8 @@ as.integer(charToRaw(phreda))-33
 {% highlight txt %}
 ## [1] 1 2 3 4 5 6 7 8 9
 {% endhighlight %}
+
+Construct `QualityScaledDNAStringSet` from scratch
 
 {% highlight r %}
 dset <- DNAStringSet(sapply(1:100, function(x) paste(sample(c("A","T","G","C"), 20, replace=T), collapse=""))) # Creates random sample sequence.
@@ -70,23 +74,31 @@ dsetq1[1:2]
 ## 
 ##   A DNAStringSet instance of length 2
 ##     width seq
-## [1]    20 TTGAGGTCTGGCCCATTGAA
-## [2]    20 TACGGCGGTAAGTCCTGCAA
+## [1]    20 TGAGGTCTGGCCCATTGAAT
+## [2]    20 ACGGCGGTAAGTCCTGCAAA
 ## 
 ##   A PhredQuality instance of length 2
 ##     width seq
-## [1]    20 ';;A1HH/"@2E/2D"9/(D
-## [2]    20 DA2+7.IG:->0*3I7"5H-
+## [1]    20 ;;A1HH/"@2E/2D"9/(DD
+## [2]    20 A2+7.IG:->0*3I7"5H-%
 {% endhighlight %}
 
 ## Processing FASTQ Files with ShortRead
 
 The following expains the basic usage of `ShortReadQ` objects. To make the sample code work, 
 download and unzip this [file](http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip) to your current working directory.
+The following code performs the download for you.
 
 
 {% highlight r %}
 library(ShortRead)
+download.file("http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip", "data.zip")
+unzip("data.zip")
+{% endhighlight %}
+
+Important utilities for accessing FASTQ files
+
+{% highlight r %}
 fastq <- list.files("data", "*.fastq$"); fastq <- paste("data/", fastq, sep="")
 names(fastq) <- paste("flowcell6_lane", 1:length(fastq), sep="_") 
 (fq <- readFastq(fastq[1])) # Imports first FASTQ file
@@ -139,11 +151,15 @@ quality(fq)[1] # Returns Phred scores
 {% endhighlight %}
 
 {% highlight r %}
-as(quality(fq), "matrix")[1,1:12] # Coerces Phred scores to numeric matrix
+as(quality(fq), "matrix")[1:4,1:12] # Coerces Phred scores to numeric matrix
 {% endhighlight %}
 
 {% highlight txt %}
-##  [1] 33 32 31 22 29 33 28 29 25 29 29 22
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+## [1,]   33   32   31   22   29   33   28   29   25    29    29    22
+## [2,]   33   34   34   33   32   31   33   33   31    33    33    33
+## [3,]   33   33   34   33   33   33   33   33   33    31    31    33
+## [4,]   33   33   33   33   31   33   28   31   28    32    33    33
 {% endhighlight %}
 
 {% highlight r %}
@@ -196,7 +212,18 @@ browseURL(res)
 
 {% highlight r %}
 fqtrim <- trimLRPatterns(Rpattern="GCCCGGGTAA", subject=fq)
-sread(fqtrim)[1:2]
+sread(fq)[1:2] # Before trimming
+{% endhighlight %}
+
+{% highlight txt %}
+##   A DNAStringSet instance of length 2
+##     width seq
+## [1]    36 CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA
+## [2]    36 CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA
+{% endhighlight %}
+
+{% highlight r %}
+sread(fqtrim)[1:2] # After trimming
 {% endhighlight %}
 
 {% highlight txt %}
@@ -209,7 +236,6 @@ sread(fqtrim)[1:2]
 
 
 {% highlight r %}
-fqtrim <- trimLRPatterns(Rpattern="GCCCGGGTAA", subject=fq)
 tables(fq)$distribution # Counts read occurences
 {% endhighlight %}
 
@@ -295,7 +321,8 @@ fq <- yield(FastqSampler(fastq[1], 50)) # Random samples 50 reads
 ## Warning: closing unused connection 5 (data/SRR038845.fastq)
 {% endhighlight %}
 
-Streaming through a FASTQ file while applying filtering/trimming functions and writing the results to a new file.
+Streaming through a FASTQ file while applying filtering/trimming functions and writing the results to a new file
+ here `SRR038845.fastq_sub` in `data` directory.
 
 
 {% highlight r %}

@@ -1,26 +1,35 @@
 ---
 title: Strings in R Base
 keywords: 
-last_updated: Thu Apr 21 09:05:09 2016
+last_updated: Thu Apr 21 12:28:13 2016
 ---
 
 ## Basic String Matching and Parsing
 
 ### String matching
 
+Generate sample sequence data set
+
 
 {% highlight r %}
-myseq <- c("ATGCAGACATAGTG", "ATGAACATAGATCC", "GTACAGATCAC") # Sample sequence data set.
-myseq[grep("ATG", myseq)] # String searching with regular expression support.
+myseq <- c("ATGCAGACATAGTG", "ATGAACATAGATCC", "GTACAGATCAC")
+{% endhighlight %}
+
+String searching with regular expression support
+
+{% highlight r %}
+myseq[grep("ATG", myseq)] 
 {% endhighlight %}
 
 {% highlight txt %}
 ## [1] "ATGCAGACATAGTG" "ATGAACATAGATCC"
 {% endhighlight %}
 
+Searches `myseq` for first match of pattern "AT"
+
 {% highlight r %}
-pos1 <- regexpr("AT", myseq) # Searches 'myseq' for first match of pattern "AT".
-as.numeric(pos1); attributes(pos1)$match.length # Returns position information of matches.
+pos1 <- regexpr("AT", myseq) 
+as.numeric(pos1); attributes(pos1)$match.length # Returns position information of matches
 {% endhighlight %}
 
 {% highlight txt %}
@@ -31,9 +40,11 @@ as.numeric(pos1); attributes(pos1)$match.length # Returns position information o
 ## [1] 2 2 2
 {% endhighlight %}
 
+Searches `myseq` for all matches of pattern "AT"
+
 {% highlight r %}
-pos2 <- gregexpr("AT", myseq) # Searches 'myseq' for all matches of pattern "AT".
-as.numeric(pos2[[1]]); attributes(pos2[[1]])$match.length # Returns positions of matches in first sequence.
+pos2 <- gregexpr("AT", myseq) 
+as.numeric(pos2[[1]]); attributes(pos2[[1]])$match.length # Returns positions of matches in first sequence
 {% endhighlight %}
 
 {% highlight txt %}
@@ -44,8 +55,10 @@ as.numeric(pos2[[1]]); attributes(pos2[[1]])$match.length # Returns positions of
 ## [1] 2 2
 {% endhighlight %}
 
+String substitution with regular expression support
+
 {% highlight r %}
-gsub("^ATG", "atg", myseq) # String substitution with regular expression support.
+gsub("^ATG", "atg", myseq) 
 {% endhighlight %}
 
 {% highlight txt %}
@@ -55,7 +68,7 @@ gsub("^ATG", "atg", myseq) # String substitution with regular expression support
 ### Positional parsing
 
 {% highlight r %}
-nchar(myseq) # Computes length of strings.
+nchar(myseq) # Computes length of strings
 {% endhighlight %}
 
 {% highlight txt %}
@@ -63,7 +76,7 @@ nchar(myseq) # Computes length of strings.
 {% endhighlight %}
 
 {% highlight r %}
-substring(myseq[1], c(1,3), c(2,5)) # Positional parsing of several fragments from one string.
+substring(myseq[1], c(1,3), c(2,5)) # Positional parsing of several fragments from one string
 {% endhighlight %}
 
 {% highlight txt %}
@@ -71,7 +84,7 @@ substring(myseq[1], c(1,3), c(2,5)) # Positional parsing of several fragments fr
 {% endhighlight %}
 
 {% highlight r %}
-substring(myseq, c(1,4,7), c(2,6,10)) # Positional parsing of many strings.
+substring(myseq, c(1,4,7), c(2,6,10)) # Positional parsing of many strings
 {% endhighlight %}
 
 {% highlight txt %}

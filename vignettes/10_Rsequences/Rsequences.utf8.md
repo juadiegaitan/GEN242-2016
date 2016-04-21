@@ -56,7 +56,7 @@ __R Base__
 
 __Bioconductor__
 
-Bioconductor packages provide much more sophisticated string handling utilities for sequence analysis.
+Bioconductor packages provide much more sophisticated string handling utilities for sequence analysis [@Lawrence2013-kt, @Huber2015-ag].
 
 * [Biostrings](http://bioconductor.org/packages/release/bioc/html/Biostrings.html): general sequence analysis environment
 * [ShortRead](http://bioconductor.org/packages/release/bioc/html/ShortRead.html): pipeline for short read data
@@ -88,19 +88,28 @@ biocLite(c("Biostrings", "GenomicRanges", "GenomicRanges", "rtracklayer", "syste
 
 ### String matching
 
+Generate sample sequence data set
+
 
 ```r
-myseq <- c("ATGCAGACATAGTG", "ATGAACATAGATCC", "GTACAGATCAC") # Sample sequence data set.
-myseq[grep("ATG", myseq)] # String searching with regular expression support.
+myseq <- c("ATGCAGACATAGTG", "ATGAACATAGATCC", "GTACAGATCAC")
+```
+
+String searching with regular expression support
+
+```r
+myseq[grep("ATG", myseq)] 
 ```
 
 ```
 ## [1] "ATGCAGACATAGTG" "ATGAACATAGATCC"
 ```
 
+Searches `myseq` for first match of pattern "AT"
+
 ```r
-pos1 <- regexpr("AT", myseq) # Searches 'myseq' for first match of pattern "AT".
-as.numeric(pos1); attributes(pos1)$match.length # Returns position information of matches.
+pos1 <- regexpr("AT", myseq) 
+as.numeric(pos1); attributes(pos1)$match.length # Returns position information of matches
 ```
 
 ```
@@ -111,9 +120,11 @@ as.numeric(pos1); attributes(pos1)$match.length # Returns position information o
 ## [1] 2 2 2
 ```
 
+Searches `myseq` for all matches of pattern "AT"
+
 ```r
-pos2 <- gregexpr("AT", myseq) # Searches 'myseq' for all matches of pattern "AT".
-as.numeric(pos2[[1]]); attributes(pos2[[1]])$match.length # Returns positions of matches in first sequence.
+pos2 <- gregexpr("AT", myseq) 
+as.numeric(pos2[[1]]); attributes(pos2[[1]])$match.length # Returns positions of matches in first sequence
 ```
 
 ```
@@ -124,8 +135,10 @@ as.numeric(pos2[[1]]); attributes(pos2[[1]])$match.length # Returns positions of
 ## [1] 2 2
 ```
 
+String substitution with regular expression support
+
 ```r
-gsub("^ATG", "atg", myseq) # String substitution with regular expression support.
+gsub("^ATG", "atg", myseq) 
 ```
 
 ```
@@ -135,7 +148,7 @@ gsub("^ATG", "atg", myseq) # String substitution with regular expression support
 ### Positional parsing
 
 ```r
-nchar(myseq) # Computes length of strings.
+nchar(myseq) # Computes length of strings
 ```
 
 ```
@@ -143,7 +156,7 @@ nchar(myseq) # Computes length of strings.
 ```
 
 ```r
-substring(myseq[1], c(1,3), c(2,5)) # Positional parsing of several fragments from one string.
+substring(myseq[1], c(1,3), c(2,5)) # Positional parsing of several fragments from one string
 ```
 
 ```
@@ -151,7 +164,7 @@ substring(myseq[1], c(1,3), c(2,5)) # Positional parsing of several fragments fr
 ```
 
 ```r
-substring(myseq, c(1,4,7), c(2,6,10)) # Positional parsing of many strings.
+substring(myseq, c(1,4,7), c(2,6,10)) # Positional parsing of many strings
 ```
 
 ```
@@ -206,7 +219,7 @@ unlist(rand_set)
 
 # Sequences in Bioconductor
 
-## Important Data Objects in Biostrings
+## Important Data Objects of Biostrings
 
 ### `XString` for single sequence
 
@@ -229,23 +242,21 @@ unlist(rand_set)
 * `QualityScaledAAStringSet`: for amino acid 
 * `QualityScaledBStringSet`: for any string
 
-## Sequence Import and Export}
+## Sequence Import and Export
 
 Download the following sequences to your current working directory and then import them into R: 
 [ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn](ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn)
 
 
 ```r
-dir.create("data")
-```
-
-```
-## Warning in dir.create("data"): 'data' already exists
-```
-
-```r
+dir.create("data", showWarnings = FALSE)
 # system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn")
 download.file("ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn", "data/AE004437.ffn")
+```
+
+Import FASTA file with `readDNAStringSet`
+
+```r
 myseq <- readDNAStringSet("data/AE004437.ffn")
 myseq[1:3]
 ```
@@ -258,6 +269,8 @@ myseq[1:3]
 ## [3]  1110 ATGGCGTGGCGGAACCTCGGGCGGAACCGCGTG...AACGATCCGCCCGTCGAGGCGCTCGGCGAATGA gi|12057215|gb|AE...
 ```
 
+Subset sequences with regular expression on sequence name field
+
 ```r
 sub <- myseq[grep("99.*", names(myseq))]
 length(sub)
@@ -266,6 +279,8 @@ length(sub)
 ```
 ## [1] 170
 ```
+
+Export subsetted sequences to FASTA file
 
 ```r
 writeXStringSet(sub, file="./data/AE004437sub.ffn", width=80)
@@ -298,16 +313,45 @@ d[1:4]
 ## seq: GCAT
 ```
 
+RNA sequences
+
 ```r
 r <- RNAString("GCAUAU-UAC") 
 r <- RNAString(d) # Converts d to RNAString object
+r
+```
+
+```
+##   10-letter "RNAString" instance
+## seq: GCAUAU-UAC
+```
+Protein sequences
+
+```r
 p <- AAString("HCWYHH")
+p
+```
+
+```
+##   6-letter "AAString" instance
+## seq: HCWYHH
+```
+
+Any type of character strings
+
+```r
 b <- BString("I store any set of characters. Other XString objects store only the IUPAC characters.")
+b
+```
+
+```
+##   85-letter "BString" instance
+## seq: I store any set of characters. Other XString objects store only the IUPAC characters.
 ```
 
 ## Working with `XStringSet` Containers
 
-`XStringSet` containers allow to store many biosequences in one object:
+`XStringSet` containers allow to store many biosequences in one object
 
 ```r
 dset <- DNAStringSet(c("GCATATTAC", "AATCGATCC", "GCATATTAC")) 
@@ -321,6 +365,8 @@ dset[1:2]
 ## [1]     9 GCATATTAC                                                             seq1
 ## [2]     9 AATCGATCC                                                             seq2
 ```
+
+Important utilities for `XStringSet` containers
 
 ```r
 width(dset) # Returns the length of each sequences
@@ -336,6 +382,7 @@ dset2 <- c(dset, dset) # Appends/concatenates two XStringSet objects
 dsetchar <- as.character(dset) # Converts XStringSet to named vector 
 dsetone <- unlist(dset) # Collapses many sequences to a single one stored in a DNAString container
 ```
+
 Sequence subsetting by positions:
 
 ```r
@@ -376,7 +423,7 @@ origMAlign
 
 ## Basic Sequence Manipulations
 
-### Reversed & Complement
+### Reverse and Complement
 
 
 ```r
@@ -457,7 +504,7 @@ countPattern("ATGGCT", myseq1[[1]], max.mismatch=1)
 ## [1] 3
 ```
 
-Count only the matches in many sequences
+Count matches in many sequences
 
 ```r
 vcountPattern("ATGGCT", myseq1, max.mismatch=1)[1:20]
@@ -473,7 +520,7 @@ Results shown in DNAStringSet object
 tmp <- c(DNAStringSet("ATGGTG"), DNAStringSet(mypos)) 
 ```
 
-Return a consensus  matrix for query and hits.
+Return a consensus  matrix for query and hits
 
 ```r
 consensusMatrix(tmp)[1:4,] 
@@ -537,7 +584,7 @@ Return all matches
 
 ```r
 sapply(seq(along=myseq1), function(x) 
-       as.character(Views(myseq1[[x]], start(myvpos[[x]]), end(myvpos[[x]])))) 
+       as.character(Views(myseq1[[x]], start(myvpos[[x]]), end(myvpos[[x]]))))[1:4] 
 ```
 
 ### Pattern matching with regular expression support
@@ -597,19 +644,30 @@ DNAStringSet(gsub("^ATG", "NNN", myseq)) # String substitution with regular expr
 
 
 ```r
+library(seqLogo) 
 pwm <- PWM(DNAStringSet(c("GCT", "GGT", "GCA"))) 
-library(seqLogo); seqLogo(t(t(pwm) * 1/colSums(pwm)))
+pwm
 ```
 
 ```
-## Loading required package: grid
+##        [,1]      [,2]      [,3]
+## A 0.0000000 0.0000000 0.2312611
+## C 0.0000000 0.3157205 0.0000000
+## G 0.3685591 0.2312611 0.0000000
+## T 0.0000000 0.0000000 0.3157205
+```
+
+```r
+seqLogo(t(t(pwm) * 1/colSums(pwm)))
 ```
 
 ![](Rsequences_files/figure-html/pwm_logo-1.png)\
 
+Search sequence for PWM matches with score better than `min.score`
+
 ```r
 chr <- DNAString("AAAGCTAAAGGTAAAGCAAAA") 
-matchPWM(pwm, chr, min.score=0.9) # Searches sequence for PWM matches with score better than min.score.
+matchPWM(pwm, chr, min.score=0.9) 
 ```
 
 ```
@@ -658,10 +716,12 @@ Phred quality scores are integers from 0-50 that are
 stored as ASCII characters after adding 33. The basic R functions `rawToChar` and
 `charToRaw` can be used to interconvert among their representations.
 
+Phred score interconversion
 
 ```r
 phred <- 1:9
-phreda <- paste(sapply(as.raw((phred)+33), rawToChar), collapse=""); phreda
+phreda <- paste(sapply(as.raw((phred)+33), rawToChar), collapse="")
+phreda
 ```
 
 ```
@@ -675,6 +735,8 @@ as.integer(charToRaw(phreda))-33
 ```
 ## [1] 1 2 3 4 5 6 7 8 9
 ```
+
+Construct `QualityScaledDNAStringSet` from scratch
 
 ```r
 dset <- DNAStringSet(sapply(1:100, function(x) paste(sample(c("A","T","G","C"), 20, replace=T), collapse=""))) # Creates random sample sequence.
@@ -690,23 +752,31 @@ dsetq1[1:2]
 ## 
 ##   A DNAStringSet instance of length 2
 ##     width seq
-## [1]    20 TTGAGGTCTGGCCCATTGAA
-## [2]    20 TACGGCGGTAAGTCCTGCAA
+## [1]    20 TGAGGTCTGGCCCATTGAAT
+## [2]    20 ACGGCGGTAAGTCCTGCAAA
 ## 
 ##   A PhredQuality instance of length 2
 ##     width seq
-## [1]    20 ';;A1HH/"@2E/2D"9/(D
-## [2]    20 DA2+7.IG:->0*3I7"5H-
+## [1]    20 ;;A1HH/"@2E/2D"9/(DD
+## [2]    20 A2+7.IG:->0*3I7"5H-%
 ```
 
 ## Processing FASTQ Files with ShortRead
 
 The following expains the basic usage of `ShortReadQ` objects. To make the sample code work, 
 download and unzip this [file](http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip) to your current working directory.
+The following code performs the download for you.
 
 
 ```r
 library(ShortRead)
+download.file("http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip", "data.zip")
+unzip("data.zip")
+```
+
+Important utilities for accessing FASTQ files
+
+```r
 fastq <- list.files("data", "*.fastq$"); fastq <- paste("data/", fastq, sep="")
 names(fastq) <- paste("flowcell6_lane", 1:length(fastq), sep="_") 
 (fq <- readFastq(fastq[1])) # Imports first FASTQ file
@@ -759,11 +829,15 @@ quality(fq)[1] # Returns Phred scores
 ```
 
 ```r
-as(quality(fq), "matrix")[1,1:12] # Coerces Phred scores to numeric matrix
+as(quality(fq), "matrix")[1:4,1:12] # Coerces Phred scores to numeric matrix
 ```
 
 ```
-##  [1] 33 32 31 22 29 33 28 29 25 29 29 22
+##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+## [1,]   33   32   31   22   29   33   28   29   25    29    29    22
+## [2,]   33   34   34   33   32   31   33   33   31    33    33    33
+## [3,]   33   33   34   33   33   33   33   33   33    31    31    33
+## [4,]   33   33   33   33   31   33   28   31   28    32    33    33
 ```
 
 ```r
@@ -816,7 +890,18 @@ browseURL(res)
 
 ```r
 fqtrim <- trimLRPatterns(Rpattern="GCCCGGGTAA", subject=fq)
-sread(fqtrim)[1:2]
+sread(fq)[1:2] # Before trimming
+```
+
+```
+##   A DNAStringSet instance of length 2
+##     width seq
+## [1]    36 CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA
+## [2]    36 CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA
+```
+
+```r
+sread(fqtrim)[1:2] # After trimming
 ```
 
 ```
@@ -829,7 +914,6 @@ sread(fqtrim)[1:2]
 
 
 ```r
-fqtrim <- trimLRPatterns(Rpattern="GCCCGGGTAA", subject=fq)
 tables(fq)$distribution # Counts read occurences
 ```
 
@@ -915,7 +999,8 @@ fq <- yield(FastqSampler(fastq[1], 50)) # Random samples 50 reads
 ## Warning: closing unused connection 5 (data/SRR038845.fastq)
 ```
 
-Streaming through a FASTQ file while applying filtering/trimming functions and writing the results to a new file.
+Streaming through a FASTQ file while applying filtering/trimming functions and writing the results to a new file
+ here `SRR038845.fastq_sub` in `data` directory.
 
 
 ```r
@@ -937,7 +1022,7 @@ close(f)
 
 ## Range Data Are Stored in `IRanges` and `GRanges` Containers
 
-### Construct `GRanges` Object
+### Construct `GRanges` Object 
 
 
 ```r
@@ -950,7 +1035,7 @@ gr <- GRanges(seqnames = Rle(c("chr1", "chr2", "chr1", "chr3"), c(1, 3, 2, 4)), 
 ```r
 gff <- import.gff("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/gff3.gff") # Imports a simplified GFF3 genome annotation file.
 seqlengths(gff) <- end(ranges(gff[which(values(gff)[,"type"]=="chromosome"),])) 
-names(gff) <- 1:length(gff) # Assigns names to corresponding slot.
+names(gff) <- 1:length(gff) # Assigns names to corresponding slot
 gff[1:4,]
 ```
 
@@ -970,6 +1055,20 @@ gff[1:4,]
 ##   4 AT1G01010.1                                            <NA>  AT1G01010.1
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
+```
+
+### Coerce `GRanges` object to `data.frame`
+
+```r
+as.data.frame(gff)[1:4, 1:7]
+```
+
+```
+##   seqnames start      end    width strand source       type
+## 1     Chr1     1 30427671 30427671      + TAIR10 chromosome
+## 2     Chr1  3631     5899     2269      + TAIR10       gene
+## 3     Chr1  3631     5899     2269      + TAIR10       mRNA
+## 4     Chr1  3760     5630     1871      + TAIR10    protein
 ```
 
 ### Coerce `GRanges` to `RangedData` object and vice versa
@@ -1054,7 +1153,7 @@ c(gff[1:2], gff[401:402])
 Acessor functions
 
 ```r
-seqnames(gff); ranges(gff)
+seqnames(gff)
 ```
 
 ```
@@ -1062,6 +1161,10 @@ seqnames(gff); ranges(gff)
 ##   Lengths:   72   22   38  118  172   13   14
 ##   Values : Chr1 Chr2 Chr3 Chr4 Chr5 ChrC ChrM
 ## Levels(7): Chr1 Chr2 Chr3 Chr4 Chr5 ChrC ChrM
+```
+
+```r
+ranges(gff)
 ```
 
 ```
@@ -1127,7 +1230,7 @@ width(gff[1:4])
 Accessing metadata component
 
 ```r
-values(gff)
+values(gff) # or elementMetadata(gff)
 ```
 
 ```
@@ -1560,7 +1663,7 @@ sp[1:4, "type"] # Subsetting of GRangesList objects is similar to GRanges object
 ```
 
 ```r
-lapply(sp[1:4], length); sapply(sp[1:4], length) # Looping over GRangesList objects similar to lists
+lapply(sp[1:4], length) # Looping over GRangesList objects similar to lists
 ```
 
 ```
@@ -1575,11 +1678,6 @@ lapply(sp[1:4], length); sapply(sp[1:4], length) # Looping over GRangesList obje
 ## 
 ## $`4`
 ## [1] 1
-```
-
-```
-## 1 2 3 4 
-## 1 1 1 1
 ```
 
 # Transcript Ranges
@@ -1603,10 +1701,6 @@ txdb <- makeTxDbFromGFF(file="data/gff3.gff", format="gff", dataSource="TAIR", o
 ## 6  Chr1  5439 5630      + <NA> AT1G01010.1-Protein <NA>
 ```
 
-```
-## Warning: closing unused connection 6 (data/SRR038845.fastq)
-```
-
 ```r
 saveDb(txdb, file="./data/TAIR10.sqlite")
 ```
@@ -1624,7 +1718,7 @@ saveDb(txdb, file="./data/TAIR10.sqlite")
 ## # exon_nrow: 113
 ## # cds_nrow: 99
 ## # Db created by: GenomicFeatures package from Bioconductor
-## # Creation time: 2016-04-20 20:19:14 -0700 (Wed, 20 Apr 2016)
+## # Creation time: 2016-04-21 12:28:05 -0700 (Thu, 21 Apr 2016)
 ## # GenomicFeatures version at creation time: 1.22.6
 ## # RSQLite version at creation time: 1.0.0
 ## # DBSCHEMAVERSION: 1.1
@@ -1632,8 +1726,99 @@ saveDb(txdb, file="./data/TAIR10.sqlite")
 
 ```r
 txdb <- loadDb("./data/TAIR10.sqlite")
-tr <- transcripts(txdb)
-GRList <- transcriptsBy(txdb, by = "gene")
+transcripts(txdb)
+```
+
+```
+## GRanges object with 28 ranges and 2 metadata columns:
+##        seqnames         ranges strand   |     tx_id     tx_name
+##           <Rle>      <IRanges>  <Rle>   | <integer> <character>
+##    [1]     Chr1 [ 3631,  5899]      +   |         1 AT1G01010.1
+##    [2]     Chr1 [ 5928,  8737]      -   |         2 AT1G01020.1
+##    [3]     Chr1 [ 6790,  8737]      -   |         3 AT1G01020.2
+##    [4]     Chr1 [11649, 13714]      -   |         4 AT1G01030.1
+##    [5]     Chr2 [ 1025,  2810]      +   |         5 AT2G01008.1
+##    ...      ...            ...    ... ...       ...         ...
+##   [24]     ChrC [  383,  1444]      -   |        24 ATCG00020.1
+##   [25]     ChrC [ 1717,  4347]      -   |        25 ATCG00030.1
+##   [26]     ChrM [11918, 12241]      +   |        26 ATMG00030.1
+##   [27]     ChrM [  273,   734]      -   |        27 ATMG00010.1
+##   [28]     ChrM [ 8848, 11415]      -   |        28 ATMG00020.1
+##   -------
+##   seqinfo: 7 sequences (2 circular) from an unspecified genome; no seqlengths
+```
+
+```r
+transcriptsBy(txdb, by = "gene")
+```
+
+```
+## GRangesList object of length 22:
+## $AT1G01010 
+## GRanges object with 1 range and 2 metadata columns:
+##       seqnames       ranges strand |     tx_id     tx_name
+##          <Rle>    <IRanges>  <Rle> | <integer> <character>
+##   [1]     Chr1 [3631, 5899]      + |         1 AT1G01010.1
+## 
+## $AT1G01020 
+## GRanges object with 2 ranges and 2 metadata columns:
+##       seqnames       ranges strand | tx_id     tx_name
+##   [1]     Chr1 [5928, 8737]      - |     2 AT1G01020.1
+##   [2]     Chr1 [6790, 8737]      - |     3 AT1G01020.2
+## 
+## $AT1G01030 
+## GRanges object with 1 range and 2 metadata columns:
+##       seqnames         ranges strand | tx_id     tx_name
+##   [1]     Chr1 [11649, 13714]      - |     4 AT1G01030.1
+## 
+## ...
+## <19 more elements>
+## -------
+## seqinfo: 7 sequences (2 circular) from an unspecified genome; no seqlengths
+```
+
+```r
+exonsBy(txdb, by = "gene")
+```
+
+```
+## GRangesList object of length 22:
+## $AT1G01010 
+## GRanges object with 6 ranges and 2 metadata columns:
+##       seqnames       ranges strand |   exon_id   exon_name
+##          <Rle>    <IRanges>  <Rle> | <integer> <character>
+##   [1]     Chr1 [3631, 3913]      + |         1        <NA>
+##   [2]     Chr1 [3996, 4276]      + |         2        <NA>
+##   [3]     Chr1 [4486, 4605]      + |         3        <NA>
+##   [4]     Chr1 [4706, 5095]      + |         4        <NA>
+##   [5]     Chr1 [5174, 5326]      + |         5        <NA>
+##   [6]     Chr1 [5439, 5899]      + |         6        <NA>
+## 
+## $AT1G01020 
+## GRanges object with 12 ranges and 2 metadata columns:
+##        seqnames       ranges strand   | exon_id exon_name
+##    [1]     Chr1 [5928, 6263]      -   |       7      <NA>
+##    [2]     Chr1 [6437, 7069]      -   |       8      <NA>
+##    [3]     Chr1 [6790, 7069]      -   |       9      <NA>
+##    [4]     Chr1 [7157, 7232]      -   |      10      <NA>
+##    [5]     Chr1 [7157, 7450]      -   |      11      <NA>
+##    ...      ...          ...    ... ...     ...       ...
+##    [8]     Chr1 [7762, 7835]      -   |      14      <NA>
+##    [9]     Chr1 [7942, 7987]      -   |      15      <NA>
+##   [10]     Chr1 [8236, 8325]      -   |      16      <NA>
+##   [11]     Chr1 [8417, 8464]      -   |      17      <NA>
+##   [12]     Chr1 [8571, 8737]      -   |      18      <NA>
+## 
+## $AT1G01030 
+## GRanges object with 2 ranges and 2 metadata columns:
+##       seqnames         ranges strand | exon_id exon_name
+##   [1]     Chr1 [11649, 13173]      - |      19      <NA>
+##   [2]     Chr1 [13335, 13714]      - |      20      <NA>
+## 
+## ...
+## <19 more elements>
+## -------
+## seqinfo: 7 sequences (2 circular) from an unspecified genome; no seqlengths
 ```
 
 ## `txdb` from BioMart
@@ -1642,16 +1827,17 @@ Alternative sources for creating `txdb` databases are BioMart, Bioc annotation p
 
 ```r
 library(GenomicFeatures); library("biomaRt")
-txdb <- makeTranscriptDbFromBiomart(biomart = "plants_mart_25", dataset = "athaliana_eg_gene")
+txdb <- makeTxDbFromBiomart(biomart = "plants_mart", dataset = "athaliana_eg_gene", host="plants.ensembl.org")
 ```
 
 The following steps are useful to find out what is availble in BioMart. 
 
 ```r
 listMarts() # Lists BioMart databases
-mymart <- useMart("plants_mart_25") # Select one, here plants_mart_25
+listMarts(host="plants.ensembl.org")
+mymart <- useMart("plants_mart", host="plants.ensembl.org") # Select one, here plants_mart_25
 listDatasets(mymart) # List datasets available in the selected BioMart database
-mymart <- useMart("plants_mart_25", dataset="athaliana_eg_gene")
+mymart <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
 listAttributes(mymart) # List available features 
 getBM(attributes=c("ensembl_gene_id", "description"), mart=mymart)[1:4,]
 ```
@@ -1713,8 +1899,8 @@ demultiplex(x=fastq[1], barcode=c("TT", "AA", "GG"), nreads=50)
 
 ## HW6b - Sequence Parsing 
 
-* Download `GFF` from _Halobacterium sp_  [here](ftp://ftp.ncbi.nih.gov/genbank/genomes/Bacteria/Halobacterium\_sp\_uid217/AE004437.gff)
-* Download genome sequence from -Halobacterium sp_ [here](ftp://ftp.ncbi.nih.gov/genbank/genomes/Bacteria/Halobacterium\_sp\_uid217/AE004437.fna)
+* Download `GFF` from _Halobacterium sp_  [here](ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff)
+* Download genome sequence from -Halobacterium sp_ [here](ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.fna)
 * __Task 1__ Extract gene ranges, parse their sequences from genome and translate them into proteins
 * __Task 2__ Reduce overlapping genes and parse their sequences from genome
 * __Task 3__ Generate intergenic ranges and parse their sequences from genome
@@ -1722,10 +1908,10 @@ demultiplex(x=fastq[1], barcode=c("TT", "AA", "GG"), nreads=50)
 __Useful commands__
 
 ```r
-download.file("ftp://ftp.ncbi.nih.gov/genbank/genomes/Bacteria/Halobacterium_sp_uid217/AE004437.gff", "data/AE004437.gff")
-download.file("ftp://ftp.ncbi.nih.gov/genbank/genomes/Bacteria/Halobacterium_sp_uid217/AE004437.fna", "data/AE004437.fna")
+download.file("ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff", "data/AE004437.gff")
+download.file("ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.fna", "data/AE004437.fna")
 chr <- readDNAStringSet("data/AE004437.fna")
-gff <- import("data/AE004437.gff", asRangedData=FALSE)
+gff <- import("data/AE004437.gff")
 gffgene <- gff[values(gff)[,"type"]=="gene"]
 gene <- DNAStringSet(Views(chr[[1]], IRanges(start(gffgene), end(gffgene))))
 names(gene) <- values(gffgene)[,"locus_tag"]
@@ -1735,7 +1921,7 @@ names(p1) <- names(gene[names(gene) %in% pos])
 neg <- values(gffgene[strand(gffgene) == "-"])[,"locus_tag"]
 p2 <- translate(reverseComplement(gene[names(gene) %in% neg]))
 names(p2) <- names(gene[names(gene) %in% neg])
-writeXStringSet(c(p1, p2), "mypep.fasta")
+writeXStringSet(c(p1, p2), "./data/mypep.fasta")
 ```
 
 ## Homework submission

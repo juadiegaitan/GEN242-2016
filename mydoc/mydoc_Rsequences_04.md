@@ -1,10 +1,10 @@
 ---
 title: Sequences in Bioconductor
 keywords: 
-last_updated: Thu Apr 21 09:05:09 2016
+last_updated: Thu Apr 21 12:28:13 2016
 ---
 
-## Important Data Objects in Biostrings
+## Important Data Objects of Biostrings
 
 ### `XString` for single sequence
 
@@ -27,23 +27,21 @@ last_updated: Thu Apr 21 09:05:09 2016
 * `QualityScaledAAStringSet`: for amino acid 
 * `QualityScaledBStringSet`: for any string
 
-## Sequence Import and Export}
+## Sequence Import and Export
 
 Download the following sequences to your current working directory and then import them into R: 
 [ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn](ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn)
 
 
 {% highlight r %}
-dir.create("data")
-{% endhighlight %}
-
-{% highlight txt %}
-## Warning in dir.create("data"): 'data' already exists
-{% endhighlight %}
-
-{% highlight r %}
+dir.create("data", showWarnings = FALSE)
 # system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn")
 download.file("ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn", "data/AE004437.ffn")
+{% endhighlight %}
+
+Import FASTA file with `readDNAStringSet`
+
+{% highlight r %}
 myseq <- readDNAStringSet("data/AE004437.ffn")
 myseq[1:3]
 {% endhighlight %}
@@ -56,6 +54,8 @@ myseq[1:3]
 ## [3]  1110 ATGGCGTGGCGGAACCTCGGGCGGAACCGCGTG...AACGATCCGCCCGTCGAGGCGCTCGGCGAATGA gi|12057215|gb|AE...
 {% endhighlight %}
 
+Subset sequences with regular expression on sequence name field
+
 {% highlight r %}
 sub <- myseq[grep("99.*", names(myseq))]
 length(sub)
@@ -64,6 +64,8 @@ length(sub)
 {% highlight txt %}
 ## [1] 170
 {% endhighlight %}
+
+Export subsetted sequences to FASTA file
 
 {% highlight r %}
 writeXStringSet(sub, file="./data/AE004437sub.ffn", width=80)
@@ -96,16 +98,45 @@ d[1:4]
 ## seq: GCAT
 {% endhighlight %}
 
+RNA sequences
+
 {% highlight r %}
 r <- RNAString("GCAUAU-UAC") 
 r <- RNAString(d) # Converts d to RNAString object
+r
+{% endhighlight %}
+
+{% highlight txt %}
+##   10-letter "RNAString" instance
+## seq: GCAUAU-UAC
+{% endhighlight %}
+Protein sequences
+
+{% highlight r %}
 p <- AAString("HCWYHH")
+p
+{% endhighlight %}
+
+{% highlight txt %}
+##   6-letter "AAString" instance
+## seq: HCWYHH
+{% endhighlight %}
+
+Any type of character strings
+
+{% highlight r %}
 b <- BString("I store any set of characters. Other XString objects store only the IUPAC characters.")
+b
+{% endhighlight %}
+
+{% highlight txt %}
+##   85-letter "BString" instance
+## seq: I store any set of characters. Other XString objects store only the IUPAC characters.
 {% endhighlight %}
 
 ## Working with `XStringSet` Containers
 
-`XStringSet` containers allow to store many biosequences in one object:
+`XStringSet` containers allow to store many biosequences in one object
 
 {% highlight r %}
 dset <- DNAStringSet(c("GCATATTAC", "AATCGATCC", "GCATATTAC")) 
@@ -119,6 +150,8 @@ dset[1:2]
 ## [1]     9 GCATATTAC                                                             seq1
 ## [2]     9 AATCGATCC                                                             seq2
 {% endhighlight %}
+
+Important utilities for `XStringSet` containers
 
 {% highlight r %}
 width(dset) # Returns the length of each sequences
@@ -134,6 +167,7 @@ dset2 <- c(dset, dset) # Appends/concatenates two XStringSet objects
 dsetchar <- as.character(dset) # Converts XStringSet to named vector 
 dsetone <- unlist(dset) # Collapses many sequences to a single one stored in a DNAString container
 {% endhighlight %}
+
 Sequence subsetting by positions:
 
 {% highlight r %}
@@ -174,7 +208,7 @@ origMAlign
 
 ## Basic Sequence Manipulations
 
-### Reversed & Complement
+### Reverse and Complement
 
 
 {% highlight r %}
@@ -255,7 +289,7 @@ countPattern("ATGGCT", myseq1[[1]], max.mismatch=1)
 ## [1] 3
 {% endhighlight %}
 
-Count only the matches in many sequences
+Count matches in many sequences
 
 {% highlight r %}
 vcountPattern("ATGGCT", myseq1, max.mismatch=1)[1:20]
@@ -271,7 +305,7 @@ Results shown in DNAStringSet object
 tmp <- c(DNAStringSet("ATGGTG"), DNAStringSet(mypos)) 
 {% endhighlight %}
 
-Return a consensus  matrix for query and hits.
+Return a consensus  matrix for query and hits
 
 {% highlight r %}
 consensusMatrix(tmp)[1:4,] 
@@ -335,7 +369,7 @@ Return all matches
 
 {% highlight r %}
 sapply(seq(along=myseq1), function(x) 
-       as.character(Views(myseq1[[x]], start(myvpos[[x]]), end(myvpos[[x]])))) 
+       as.character(Views(myseq1[[x]], start(myvpos[[x]]), end(myvpos[[x]]))))[1:4] 
 {% endhighlight %}
 
 ### Pattern matching with regular expression support
@@ -395,19 +429,30 @@ DNAStringSet(gsub("^ATG", "NNN", myseq)) # String substitution with regular expr
 
 
 {% highlight r %}
+library(seqLogo) 
 pwm <- PWM(DNAStringSet(c("GCT", "GGT", "GCA"))) 
-library(seqLogo); seqLogo(t(t(pwm) * 1/colSums(pwm)))
+pwm
 {% endhighlight %}
 
 {% highlight txt %}
-## Loading required package: grid
+##        [,1]      [,2]      [,3]
+## A 0.0000000 0.0000000 0.2312611
+## C 0.0000000 0.3157205 0.0000000
+## G 0.3685591 0.2312611 0.0000000
+## T 0.0000000 0.0000000 0.3157205
+{% endhighlight %}
+
+{% highlight r %}
+seqLogo(t(t(pwm) * 1/colSums(pwm)))
 {% endhighlight %}
 
 ![](Rsequences_files/pwm_logo-1.png)
 
+Search sequence for PWM matches with score better than `min.score`
+
 {% highlight r %}
 chr <- DNAString("AAAGCTAAAGGTAAAGCAAAA") 
-matchPWM(pwm, chr, min.score=0.9) # Searches sequence for PWM matches with score better than min.score.
+matchPWM(pwm, chr, min.score=0.9) 
 {% endhighlight %}
 
 {% highlight txt %}
