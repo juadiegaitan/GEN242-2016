@@ -1,7 +1,7 @@
 ---
 title: Homework 6
 keywords: 
-last_updated: Wed Apr 20 19:57:09 2016
+last_updated: Thu Apr 21 09:01:33 2016
 ---
 
 ## HW 6a - Demultiplexing
@@ -10,7 +10,7 @@ Write a demultiplexing function that accepts any number of
 barcodes and splits a FASTQ file into as many subfiles as there are barcodes.
 At the same time the function should remove low quality tails from the reads.
 The following function accomplishes the first step. Expand this function so
-that it performs the second step as well.  \end{itemize} 
+that it performs the second step as well. 
 
 
 {% highlight r %}
@@ -56,10 +56,6 @@ p2 <- translate(reverseComplement(gene[names(gene) %in% neg]))
 names(p2) <- names(gene[names(gene) %in% neg])
 writeXStringSet(c(p1, p2), "mypep.fasta")
 {% endhighlight %}
-
-\end{changemargin}
-\end{frame}
-
 
 ## Homework submission
 Submit the homework results in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.

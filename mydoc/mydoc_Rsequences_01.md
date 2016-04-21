@@ -1,17 +1,17 @@
 ---
 title: Sequence Analysis 
 keywords: 
-last_updated: Wed Apr 20 19:57:09 2016
+last_updated: Thu Apr 21 09:01:33 2016
 ---
 Author: Thomas Girke
 
-Last update: 20 April, 2016 
+Last update: 21 April, 2016 
 
 Alternative formats of this vignette:
-[`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/09_Programming_in_R/Programming_in_R.html),
-[`.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/09_Programming_in_R/Programming_in_R.Rmd),
-[`.R`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/09_Programming_in_R/Programming_in_R.R)
-[Old Slides `.pdf`](https://drive.google.com/file/d/0B-lLYVUOliJFSnplWlZWcllYY0E/view?usp=sharing)
+[`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/10_Rsequences/Rsequences.html),
+[`.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/10_Rsequences/Rsequences.Rmd),
+[`.R`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/10_Rsequences/Rsequences.R)
+[Old Slides `.pdf`](https://drive.google.com/open?id=0B-lLYVUOliJFWEZ0Vkdwckt5LTQ)
 
 ## Overview
 
@@ -35,4 +35,5 @@ Bioconductor packages provide much more sophisticated string handling utilities 
 * [BSgenome](http://bioconductor.org/packages/release/bioc/html/BSgenome.html): genome annotation data
 * [biomaRt](http://bioconductor.org/packages/release/bioc/html/biomaRt.html): interface to BioMart annotations
 * [rtracklayer](http://bioconductor.org/packages/release/bioc/html/rtracklayer.html): Annotation imports, interface to online genome browsers
+
 

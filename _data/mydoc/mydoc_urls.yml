@@ -278,56 +278,6 @@ mydoc_Rbasics_15:
   url: "../mydoc/mydoc_Rbasics_15.html"
   link: "<a href='../mydoc/mydoc_Rbasics_15.html'>References</a>"
 
-mydoc_Rsequences_01:
-  title: "Overview"
-  url: "../mydoc/mydoc_Rsequences_01.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_01.html'>Overview</a>"
-
-mydoc_Rsequences_02:
-  title: "Strings in R Base"
-  url: "../mydoc/mydoc_Rsequences_02.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_02.html'>Strings in R Base</a>"
-
-mydoc_Rsequences_03:
-  title: "Sequences in Bioconductor"
-  url: "../mydoc/mydoc_Rsequences_03.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_03.html'>Sequences in Bioconductor</a>"
-
-mydoc_Rsequences_04:
-  title: "NGS Sequences"
-  url: "../mydoc/mydoc_Rsequences_04.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_04.html'>NGS Sequences</a>"
-
-mydoc_Rsequences_05:
-  title: "Range Operations  "
-  url: "../mydoc/mydoc_Rsequences_05.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_05.html'>Range Operations  </a>"
-
-mydoc_Rsequences_06:
-  title: "Coerce `GRanges` to `RangedData` object and vice versa"
-  url: "../mydoc/mydoc_Rsequences_06.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_06.html'>Coerce `GRanges` to `RangedData` object and vice versa</a>"
-
-mydoc_Rsequences_07:
-  title: "Transcript Ranges"
-  url: "../mydoc/mydoc_Rsequences_07.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_07.html'>Transcript Ranges</a>"
-
-mydoc_Rsequences_08:
-  title: "Homework 6"
-  url: "../mydoc/mydoc_Rsequences_08.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_08.html'>Homework 6</a>"
-
-mydoc_Rsequences_09:
-  title: "Session Info"
-  url: "../mydoc/mydoc_Rsequences_09.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_09.html'>Session Info</a>"
-
-mydoc_Rsequences_10:
-  title: "References"
-  url: "../mydoc/mydoc_Rsequences_10.html"
-  link: "<a href='../mydoc/mydoc_Rsequences_10.html'>References</a>"
-
 mydoc_Rsequences_1:
   title: "Overview"
   url: "../mydoc/mydoc_Rsequences_1.html"
@@ -372,4 +322,54 @@ mydoc_Rsequences_9:
   title: "References"
   url: "../mydoc/mydoc_Rsequences_9.html"
   link: "<a href='../mydoc/mydoc_Rsequences_9.html'>References</a>"
+
+mydoc_Rsequences_01:
+  title: "Overview"
+  url: "../mydoc/mydoc_Rsequences_01.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_01.html'>Overview</a>"
+
+mydoc_Rsequences_02:
+  title: "Package Requirements"
+  url: "../mydoc/mydoc_Rsequences_02.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_02.html'>Package Requirements</a>"
+
+mydoc_Rsequences_03:
+  title: "Strings in R Base"
+  url: "../mydoc/mydoc_Rsequences_03.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_03.html'>Strings in R Base</a>"
+
+mydoc_Rsequences_04:
+  title: "Sequences in Bioconductor"
+  url: "../mydoc/mydoc_Rsequences_04.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_04.html'>Sequences in Bioconductor</a>"
+
+mydoc_Rsequences_05:
+  title: "NGS Sequences"
+  url: "../mydoc/mydoc_Rsequences_05.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_05.html'>NGS Sequences</a>"
+
+mydoc_Rsequences_06:
+  title: "Range Operations  "
+  url: "../mydoc/mydoc_Rsequences_06.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_06.html'>Range Operations  </a>"
+
+mydoc_Rsequences_07:
+  title: "Transcript Ranges"
+  url: "../mydoc/mydoc_Rsequences_07.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_07.html'>Transcript Ranges</a>"
+
+mydoc_Rsequences_08:
+  title: "Homework 6"
+  url: "../mydoc/mydoc_Rsequences_08.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_08.html'>Homework 6</a>"
+
+mydoc_Rsequences_09:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Rsequences_09.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_09.html'>Session Info</a>"
+
+mydoc_Rsequences_10:
+  title: "References"
+  url: "../mydoc/mydoc_Rsequences_10.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_10.html'>References</a>"
 

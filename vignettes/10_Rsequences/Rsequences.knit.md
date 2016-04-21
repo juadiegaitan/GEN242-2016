@@ -1,7 +1,7 @@
 ---
 title: Sequence Analysis 
 author: "Author: Thomas Girke"
-date: "Last update: 20 April, 2016" 
+date: "Last update: 21 April, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -68,6 +68,19 @@ Bioconductor packages provide much more sophisticated string handling utilities 
 * [BSgenome](http://bioconductor.org/packages/release/bioc/html/BSgenome.html): genome annotation data
 * [biomaRt](http://bioconductor.org/packages/release/bioc/html/biomaRt.html): interface to BioMart annotations
 * [rtracklayer](http://bioconductor.org/packages/release/bioc/html/rtracklayer.html): Annotation imports, interface to online genome browsers
+
+
+# Package Requirements
+
+Several Bioconductor packages are required for this tutorial. To install them, execute
+the following lines in the R console. Please also make sure that you have a recent R version
+installed on your system. R versions `3.2.x` or higher are recommended.
+
+
+```r
+source("https://bioconductor.org/biocLite.R")
+biocLite(c("Biostrings", "GenomicRanges", "GenomicRanges", "rtracklayer", "systemPipeR", "seqLogo", "ShortRead"))
+```
 
 # Strings in R Base
 
@@ -1678,7 +1691,7 @@ Write a demultiplexing function that accepts any number of
 barcodes and splits a FASTQ file into as many subfiles as there are barcodes.
 At the same time the function should remove low quality tails from the reads.
 The following function accomplishes the first step. Expand this function so
-that it performs the second step as well.  \end{itemize} 
+that it performs the second step as well. 
 
 
 ```r
