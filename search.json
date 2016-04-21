@@ -525,7 +525,7 @@
 
 
 {
-"title": "Strings in R Base",
+"title": "Package Requirements",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rsequences_02.html",
@@ -536,7 +536,7 @@
 
 
 {
-"title": "Sequences in Bioconductor",
+"title": "Strings in R Base",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rsequences_03.html",
@@ -547,7 +547,7 @@
 
 
 {
-"title": "NGS Sequences",
+"title": "Sequences in Bioconductor",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rsequences_04.html",
@@ -558,7 +558,7 @@
 
 
 {
-"title": "Range Operations",
+"title": "NGS Sequences",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rsequences_05.html",
@@ -569,7 +569,7 @@
 
 
 {
-"title": "Coerce `GRanges` to `RangedData` object and vice versa",
+"title": "Range Operations",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rsequences_06.html",
@@ -613,109 +613,10 @@
 
 
 {
-"title": "Sequence Analysis",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_Rsequences_1.html",
-"summary": ""
-},
-
-
-
-
-{
 "title": "References",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rsequences_10.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Strings in R Base",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_Rsequences_2.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Sequences in Bioconductor",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_Rsequences_3.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "NGS Sequences",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_Rsequences_4.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Range Operations",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_Rsequences_5.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Transcript Ranges",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_Rsequences_6.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Homework 6",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_Rsequences_7.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Session Info",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_Rsequences_8.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "References",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_Rsequences_9.html",
 "summary": ""
 },
 

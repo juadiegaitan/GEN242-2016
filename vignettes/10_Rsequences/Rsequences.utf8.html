@@ -785,6 +785,103 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">Sequence</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_02.html">2. Package Requirements</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_03.html">3. Strings in R Base</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_04.html">4. Sequences in Bioconductor</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_05.html">5. NGS Sequences</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_06.html">6. Range Operations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_07.html">7. Transcript Ranges</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_08.html">8. Homework 6</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_09.html">9. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_10.html">10. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">Sequence Analysis</a>
                 <ul>
                     
@@ -1002,6 +1099,17 @@ document.addEventListener("DOMContentLoaded", function() {
   <li><a href="http://bioconductor.org/packages/release/bioc/html/biomaRt.html">biomaRt</a>: interface to BioMart annotations</li>
   <li><a href="http://bioconductor.org/packages/release/bioc/html/rtracklayer.html">rtracklayer</a>: Annotation imports, interface to online genome browsers</li>
 </ul>
+
+<h1 id="package-requirements">Package Requirements</h1>
+
+<p>Several Bioconductor packages are required for this tutorial. To install them, execute
+the following lines in the R console. Please also make sure that you have a recent R version
+installed on your system. R versions <code>3.2.x</code> or higher are recommended.</p>
+
+<p><code>r
+source("https://bioconductor.org/biocLite.R")
+biocLite(c("Biostrings", "GenomicRanges", "GenomicRanges", "rtracklayer", "systemPipeR", "seqLogo", "ShortRead"))
+</code></p>
 
 <h1 id="strings-in-r-base">Strings in R Base</h1>
 
@@ -2600,7 +2708,7 @@ getSeq(FaFile("./data/test"), gff)
 barcodes and splits a FASTQ file into as many subfiles as there are barcodes.
 At the same time the function should remove low quality tails from the reads.
 The following function accomplishes the first step. Expand this function so
-that it performs the second step as well.  \end{itemize}</p>
+that it performs the second step as well.</p>
 
 <p><code>r
 demultiplex &lt;- function(x, barcode, nreads) {

@@ -10,6 +10,10 @@ suppressPackageStartupMessages({
     library(limma) 
     library(ggplot2) }) 
 
+## ----package_requrirements, eval=FALSE-----------------------------------
+## source("https://bioconductor.org/biocLite.R")
+## biocLite(c("Biostrings", "GenomicRanges", "GenomicRanges", "rtracklayer", "systemPipeR", "seqLogo", "ShortRead"))
+
 ## ----string_matching_base, eval=TRUE-------------------------------------
 myseq <- c("ATGCAGACATAGTG", "ATGAACATAGATCC", "GTACAGATCAC") # Sample sequence data set.
 myseq[grep("ATG", myseq)] # String searching with regular expression support.

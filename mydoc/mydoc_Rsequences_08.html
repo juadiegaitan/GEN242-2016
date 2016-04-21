@@ -785,6 +785,103 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">Sequence</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_02.html">2. Package Requirements</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_03.html">3. Strings in R Base</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_04.html">4. Sequences in Bioconductor</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_05.html">5. NGS Sequences</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_06.html">6. Range Operations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_07.html">7. Transcript Ranges</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="active"><a href="../mydoc/mydoc_Rsequences_08.html">8. Homework 6</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_09.html">9. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_10.html">10. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">Sequence Analysis</a>
                 <ul>
                     
@@ -948,7 +1045,7 @@ $('#toc').on('click', 'a', function() {
 barcodes and splits a FASTQ file into as many subfiles as there are barcodes.
 At the same time the function should remove low quality tails from the reads.
 The following function accomplishes the first step. Expand this function so
-that it performs the second step as well.  \end{itemize}</p>
+that it performs the second step as well.</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">demultiplex</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">barcode</span><span class="p">,</span> <span class="n">nreads</span><span class="p">)</span> <span class="p">{</span>
 	<span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FastqStreamer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nreads</span><span class="p">)</span> 
@@ -992,9 +1089,6 @@ that it performs the second step as well.  \end{itemize}</p>
 <span class="n">names</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">[</span><span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">)</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">neg</span><span class="p">])</span>
 <span class="n">writeXStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">),</span> <span class="s2">"mypep.fasta"</span><span class="p">)</span></code></pre></div>
 
-<p>\end{changemargin}
-\end{frame}</p>
-
 <h2 id="homework-submission">Homework submission</h2>
 <p>Submit the homework results in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.</p>
 
@@ -1018,7 +1112,7 @@ that it performs the second step as well.  \end{itemize}</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed Apr 20 19:57:09 2016<br/> Site last generated: Apr 21, 2016 <br />
+<p>Page last updated:</span> Thu Apr 21 09:01:33 2016<br/> Site last generated: Apr 21, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
