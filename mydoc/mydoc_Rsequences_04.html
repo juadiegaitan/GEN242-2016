@@ -951,7 +951,7 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<h2 id="important-data-objects-in-biostrings">Important Data Objects in Biostrings</h2>
+<h2 id="important-data-objects-of-biostrings">Important Data Objects of Biostrings</h2>
 
 <h3 id="xstring-for-single-sequence"><code>XString</code> for single sequence</h3>
 
@@ -980,18 +980,18 @@ $('#toc').on('click', 'a', function() {
   <li><code>QualityScaledBStringSet</code>: for any string</li>
 </ul>
 
-<h2 id="sequence-import-and-export">Sequence Import and Export}</h2>
+<h2 id="sequence-import-and-export">Sequence Import and Export</h2>
 
 <p>Download the following sequences to your current working directory and then import them into R: 
 <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn">ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn</a></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dir.create</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dir.create</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">showWarnings</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="c1"># system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn")
+</span><span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn"</span><span class="p">,</span> <span class="s2">"data/AE004437.ffn"</span><span class="p">)</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in dir.create("data"): 'data' already exists</code></pre></div>
+<p>Import FASTA file with <code>readDNAStringSet</code></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn")
-</span><span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn"</span><span class="p">,</span> <span class="s2">"data/AE004437.ffn"</span><span class="p">)</span>
-<span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"data/AE004437.ffn"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"data/AE004437.ffn"</span><span class="p">)</span>
 <span class="n">myseq</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span></code></pre></div>
 
 <div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
@@ -1000,10 +1000,14 @@ $('#toc').on('click', 'a', function() {
 ## [2]   666 ATGAGCATCATCGAACTCGAAGGCGTGGTCAAA...GTCAACCTCGTCGATGGGGTGTTACACACGTGA gi|12057215|gb|AE...
 ## [3]  1110 ATGGCGTGGCGGAACCTCGGGCGGAACCGCGTG...AACGATCCGCCCGTCGAGGCGCTCGGCGAATGA gi|12057215|gb|AE...</code></pre></div>
 
+<p>Subset sequences with regular expression on sequence name field</p>
+
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub</span> <span class="o">&lt;-</span> <span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"99.*"</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">myseq</span><span class="p">))]</span>
 <span class="n">length</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span></code></pre></div>
 
 <div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 170</code></pre></div>
+
+<p>Export subsetted sequences to FASTA file</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">writeXStringSet</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"./data/AE004437sub.ffn"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">80</span><span class="p">)</span></code></pre></div>
 
@@ -1025,14 +1029,34 @@ $('#toc').on('click', 'a', function() {
 <div class="highlight"><pre><code class="language-txt" data-lang="txt">##   4-letter "DNAString" instance
 ## seq: GCAT</code></pre></div>
 
+<p>RNA sequences</p>
+
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">r</span> <span class="o">&lt;-</span> <span class="n">RNAString</span><span class="p">(</span><span class="s2">"GCAUAU-UAC"</span><span class="p">)</span> 
 <span class="n">r</span> <span class="o">&lt;-</span> <span class="n">RNAString</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1"># Converts d to RNAString object
-</span><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">AAString</span><span class="p">(</span><span class="s2">"HCWYHH"</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">&lt;-</span> <span class="n">BString</span><span class="p">(</span><span class="s2">"I store any set of characters. Other XString objects store only the IUPAC characters."</span><span class="p">)</span></code></pre></div>
+</span><span class="n">r</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   10-letter "RNAString" instance
+## seq: GCAUAU-UAC</code></pre></div>
+
+<p>Protein sequences</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">AAString</span><span class="p">(</span><span class="s2">"HCWYHH"</span><span class="p">)</span>
+<span class="n">p</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   6-letter "AAString" instance
+## seq: HCWYHH</code></pre></div>
+
+<p>Any type of character strings</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">b</span> <span class="o">&lt;-</span> <span class="n">BString</span><span class="p">(</span><span class="s2">"I store any set of characters. Other XString objects store only the IUPAC characters."</span><span class="p">)</span>
+<span class="n">b</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   85-letter "BString" instance
+## seq: I store any set of characters. Other XString objects store only the IUPAC characters.</code></pre></div>
 
 <h2 id="working-with-xstringset-containers">Working with <code>XStringSet</code> Containers</h2>
 
-<p><code>XStringSet</code> containers allow to store many biosequences in one object:</p>
+<p><code>XStringSet</code> containers allow to store many biosequences in one object</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCATATTAC"</span><span class="p">,</span> <span class="s2">"AATCGATCC"</span><span class="p">,</span> <span class="s2">"GCATATTAC"</span><span class="p">))</span> 
 <span class="n">names</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"seq1"</span><span class="p">,</span> <span class="s2">"seq2"</span><span class="p">,</span> <span class="s2">"seq3"</span><span class="p">)</span> <span class="c1"># Assigns names
@@ -1042,6 +1066,8 @@ $('#toc').on('click', 'a', function() {
 ##     width seq                                                                   names               
 ## [1]     9 GCATATTAC                                                             seq1
 ## [2]     9 AATCGATCC                                                             seq2</code></pre></div>
+
+<p>Important utilities for <code>XStringSet</code> containers</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">width</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">each</span> <span class="n">sequences</span></code></pre></div>
 
@@ -1083,7 +1109,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="basic-sequence-manipulations">Basic Sequence Manipulations</h2>
 
-<h3 id="reversed--complement">Reversed &amp; Complement</h3>
+<h3 id="reverse-and-complement">Reverse and Complement</h3>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">randset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">rand</span><span class="p">)</span>
 <span class="n">complement</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
@@ -1137,7 +1163,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 3</code></pre></div>
 
-<p>Count only the matches in many sequences</p>
+<p>Count matches in many sequences</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vcountPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">,</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]</span></code></pre></div>
 
@@ -1147,7 +1173,7 @@ $('#toc').on('click', 'a', function() {
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tmp</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="s2">"ATGGTG"</span><span class="p">),</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">mypos</span><span class="p">))</span></code></pre></div>
 
-<p>Return a consensus  matrix for query and hits.</p>
+<p>Return a consensus  matrix for query and hits</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">consensusMatrix</span><span class="p">(</span><span class="n">tmp</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></div>
 
@@ -1198,7 +1224,7 @@ $('#toc').on('click', 'a', function() {
 <p>Return all matches</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sapply</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">myseq1</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
-       <span class="n">as.character</span><span class="p">(</span><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="n">x</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]))))</span></code></pre></div>
+       <span class="n">as.character</span><span class="p">(</span><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="n">x</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]))))[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span></code></pre></div>
 
 <h3 id="pattern-matching-with-regular-expression-support">Pattern matching with regular expression support</h3>
 
@@ -1234,15 +1260,24 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="pwm-viewing-and-searching">PWM Viewing and Searching</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pwm</span> <span class="o">&lt;-</span> <span class="n">PWM</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCT"</span><span class="p">,</span> <span class="s2">"GGT"</span><span class="p">,</span> <span class="s2">"GCA"</span><span class="p">)))</span> 
-<span class="n">library</span><span class="p">(</span><span class="n">seqLogo</span><span class="p">);</span> <span class="n">seqLogo</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">pwm</span><span class="p">)</span> <span class="o">*</span> <span class="m">1</span><span class="o">/</span><span class="n">colSums</span><span class="p">(</span><span class="n">pwm</span><span class="p">)))</span></code></pre></div>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">seqLogo</span><span class="p">)</span> 
+<span class="n">pwm</span> <span class="o">&lt;-</span> <span class="n">PWM</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCT"</span><span class="p">,</span> <span class="s2">"GGT"</span><span class="p">,</span> <span class="s2">"GCA"</span><span class="p">)))</span> 
+<span class="n">pwm</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Loading required package: grid</code></pre></div>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##        [,1]      [,2]      [,3]
+## A 0.0000000 0.0000000 0.2312611
+## C 0.0000000 0.3157205 0.0000000
+## G 0.3685591 0.2312611 0.0000000
+## T 0.0000000 0.0000000 0.3157205</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">seqLogo</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">pwm</span><span class="p">)</span> <span class="o">*</span> <span class="m">1</span><span class="o">/</span><span class="n">colSums</span><span class="p">(</span><span class="n">pwm</span><span class="p">)))</span></code></pre></div>
 
 <p><img src="Rsequences_files/pwm_logo-1.png" alt="" /></p>
 
+<p>Search sequence for PWM matches with score better than <code>min.score</code></p>
+
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">chr</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="s2">"AAAGCTAAAGGTAAAGCAAAA"</span><span class="p">)</span> 
-<span class="n">matchPWM</span><span class="p">(</span><span class="n">pwm</span><span class="p">,</span> <span class="n">chr</span><span class="p">,</span> <span class="n">min.score</span><span class="o">=</span><span class="m">0.9</span><span class="p">)</span> <span class="err">#</span> <span class="n">Searches</span> <span class="n">sequence</span> <span class="k">for</span> <span class="n">PWM</span> <span class="n">matches</span> <span class="n">with</span> <span class="n">score</span> <span class="n">better</span> <span class="n">than</span> <span class="n">min.score.</span></code></pre></div>
+<span class="n">matchPWM</span><span class="p">(</span><span class="n">pwm</span><span class="p">,</span> <span class="n">chr</span><span class="p">,</span> <span class="n">min.score</span><span class="o">=</span><span class="m">0.9</span><span class="p">)</span></code></pre></div>
 
 <div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Views on a 21-letter DNAString subject
 ## subject: AAAGCTAAAGGTAAAGCAAAA
@@ -1268,7 +1303,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Thu Apr 21 09:05:09 2016<br/> Site last generated: Apr 21, 2016 <br />
+<p>Page last updated:</span> Thu Apr 21 12:28:13 2016<br/> Site last generated: Apr 21, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
