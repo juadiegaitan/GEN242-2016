@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>NGS Sequences  | GEN242</title>
+<link rel="stylesheet" type="text/css" href="../css/syntax.css">
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
+<link rel="stylesheet" type="text/css" href="../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../css/lavish-bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="../css/theme-blue.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="../js/toc.js"></script>
+<script src="../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../common_images/favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+  </head>
+
+<body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="fa fa-home fa-lg navbar-brand" href="home.html">&nbsp;<span class="projectTitle"> Data Analysis in Genome Biology</span></a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                
+                
+                
+                <li><a href="https://piazza.com/class/ilbslqb3j2ovy" target="_blank">Piazza</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/tgirke/GEN242" target="_blank">Github Repo</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+                    
+                    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        
+                        <li><a href="https://cran.r-project.org/" target="_blank">CRAN</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://bioconductor.org/" target="_blank">Bioconductor</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual" target="_blank">R & Bioconductor Manual</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/" target="_blank">Jekyll</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://girke.bioinformatics.ucr.edu/" target="_blank">Girke Lab</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/documentation-theme-jekyll" target="_blank">Jekyll Doc Theme</a></li>
+                        
+                        
+                        
+                        
+
+                    </ul>
+                </li>
+                
+                
+
+
+                <!-- special insertion -->
+
+               
+                
+                
+                <!-- Send feedback function -->
+<script>
+function SendLinkByMail(href) {
+var subject= "GEN242 feedback";
+var body = "I have some feedback about the NGS Sequences page: ";
+body += window.location.href;
+body += "";
+var uri = "mailto:?subject=";
+uri += encodeURIComponent(subject);
+uri += "&body=";
+uri += encodeURIComponent(body);
+window.location.href = uri;
+}
+</script>
+
+<li><a href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B" target="_blank"><i class="fa fa-envelope-o"></i> Feedback</a></li>
+
+
+                <!--uncomment this block if you want simple search instead of algolia-->
+                <li>
+                     <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="../js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        SimpleJekyllSearch.init({
+                            searchInput: document.getElementById('search-input'),
+                            resultsContainer: document.getElementById('results-container'),
+                            dataSource: '../search.json',
+                            searchResultTemplate: '<li><a href="{url}" title="NGS Sequences">{title}</a></li>',
+                        noResultsText: 'No results found.',
+                                limit: 10,
+                                fuzzy: true,
+                        })
+                    </script>
+                     <!--end search-->
+                </li>
+
+            
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+
+<!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav highlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <span class="siteTagline">GEN242</span>
+            <span class="versionTagline">Spring 2016</span>
+
+            
+            
+            
+                
+            
+            <li><a href="#">Home</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/home.html">Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Internal</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_internal.html">Internal Resources</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Schedule</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_schedule.html">Course Schedule</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Slides</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_01.html">Course Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_02.html">Molbiol for Bioinformatics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_03.html">Databases and Software</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_04.html">DNA Sequencing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_05.html">Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_06.html">Sequence Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_07.html">Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_08.html">Multiple Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_09.html">Short Read Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_10.html">Sequence Analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Homework</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_01.html">HW1 - Online Tools</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_02.html">HW2 - Biocluster/Linux</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_03.html">HW3 - Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_04.html">HW4 - Pairwise Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">HW5 - Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">GitHub</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_01.html">GitHub</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Biocluster</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_02.html">Biocluster</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Introduction to R</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Programming in R</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_02.html">2. Control Structures</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_03.html">3. Loops</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_04.html">4. Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_05.html">5. Useful Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_06.html">6. Running R Scripts</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_07.html">7. Building R Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_08.html">8. Programming Exercises</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">9. Homework 5</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_10.html">10. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_11.html">11. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Sequence</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_1.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_2.html">2. Strings in R Base</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_3.html">3. Sequences in Bioconductor</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="active"><a href="../mydoc/mydoc_Rsequences_4.html">4. NGS Sequences</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_5.html">5. Range Operations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_6.html">6. Transcript Ranges</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_7.html">7. Homework 6</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_8.html">8. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_9.html">9. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Projects</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_01.html">Project 1</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+                
+
+
+                <!-- if you aren't using the accordion, uncomment this block:
+
+                     <p class="external">
+                         <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+                     </p>
+                 -->
+
+    </div>
+    <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            <!-- Content Column -->
+            <div class="col-md-9">
+                
+                <div class="post-header">
+   <h1 class="post-title-main">NGS Sequences</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+
+<div id="toc"></div>
+
+
+<!--
+    
+    <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    
+-->
+<h2 id="sequence-and-quality-data-fastq-format">Sequence and Quality Data: FASTQ Format</h2>
+
+<p>Four lines per sequence:</p>
+
+<ol>
+  <li>ID</li>
+  <li>Sequence</li>
+  <li>ID</li>
+  <li>Base call qualities (Phred scores) as ASCII characters</li>
+</ol>
+
+<p>The following gives an example of 3 Illumina reads in a FASTQ file. The numbers
+at the beginning of each line are not part of the FASTQ format. They have been added 
+solely for illustration purposes.</p>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">1. @SRR038845.3 HWI-EAS038:6:1:0:1938 length=36
+2. CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA
+3. +SRR038845.3 HWI-EAS038:6:1:0:1938 length=36
+4. BA@7&gt;B=&gt;:&gt;&gt;7@7@&gt;&gt;9=BAA?;&gt;52;&gt;:9=8.=A
+1. @SRR038845.41 HWI-EAS038:6:1:0:1474 length=36
+2. CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA
+3. +SRR038845.41 HWI-EAS038:6:1:0:1474 length=36
+4. BCCBA@BB@BBBBAB@B9B@=BABA@A:@693:@B=
+1. @SRR038845.53 HWI-EAS038:6:1:1:360 length=36
+2. GTTCAAAAAGAACTAAATTGTGTCAATAGAAAACTC
+3. +SRR038845.53 HWI-EAS038:6:1:1:360 length=36
+4. BBCBBBBBB@@BAB?BBBBCBC&gt;BBBAA8&gt;BBBAA@</code></pre></div>
+
+<h2 id="sequence-and-quality-data-qualityscalexstringset">Sequence and Quality Data: <code>QualityScaleXStringSet</code></h2>
+
+<p>Phred quality scores are integers from 0-50 that are
+stored as ASCII characters after adding 33. The basic R functions <code>rawToChar</code> and
+<code>charToRaw</code> can be used to interconvert among their representations.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">phred</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">9</span>
+<span class="n">phreda</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="n">as.raw</span><span class="p">((</span><span class="n">phred</span><span class="p">)</span><span class="m">+33</span><span class="p">),</span> <span class="n">rawToChar</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">);</span> <span class="n">phreda</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "\"#$%&amp;'()*"</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">as.integer</span><span class="p">(</span><span class="n">charToRaw</span><span class="p">(</span><span class="n">phreda</span><span class="p">))</span><span class="m">-33</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 2 3 4 5 6 7 8 9</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span> <span class="c1"># Creates random sample sequence.
+</span><span class="n">myqlist</span> <span class="o">&lt;-</span> <span class="n">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">40</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">))</span> <span class="c1"># Creates random Phred score list.
+</span><span class="n">myqual</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">myqlist</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">toString</span><span class="p">(</span><span class="n">PhredQuality</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># Converts integer scores into ASCII characters.
+</span><span class="n">myqual</span> <span class="o">&lt;-</span> <span class="n">PhredQuality</span><span class="p">(</span><span class="n">myqual</span><span class="p">)</span> <span class="c1"># Converts to a PhredQuality object.
+</span><span class="n">dsetq1</span> <span class="o">&lt;-</span> <span class="n">QualityScaledDNAStringSet</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">myqual</span><span class="p">)</span> <span class="c1"># Combines DNAStringSet and quality data in QualityScaledDNAStringSet object.
+</span><span class="n">dsetq1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A QualityScaledDNAStringSet instance containing:
+## 
+##   A DNAStringSet instance of length 2
+##     width seq
+## [1]    20 TTGAGGTCTGGCCCATTGAA
+## [2]    20 TACGGCGGTAAGTCCTGCAA
+## 
+##   A PhredQuality instance of length 2
+##     width seq
+## [1]    20 ';;A1HH/"@2E/2D"9/(D
+## [2]    20 DA2+7.IG:-&gt;0*3I7"5H-</code></pre></div>
+
+<h2 id="processing-fastq-files-with-shortread">Processing FASTQ Files with ShortRead</h2>
+
+<p>The following expains the basic usage of <code>ShortReadQ</code> objects. To make the sample code work, 
+download and unzip this <a href="http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip">file</a> to your current working directory.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ShortRead</span><span class="p">)</span>
+<span class="n">fastq</span> <span class="o">&lt;-</span> <span class="n">list.files</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"*.fastq$"</span><span class="p">);</span> <span class="n">fastq</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"data/"</span><span class="p">,</span> <span class="n">fastq</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">fastq</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"flowcell6_lane"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">fastq</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"_"</span><span class="p">)</span> 
+<span class="p">(</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">readFastq</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span> <span class="err">#</span> <span class="n">Imports</span> <span class="n">first</span> <span class="n">FASTQ</span> <span class="n">file</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 1000 reads; width: 36 cycles</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">countLines</span><span class="p">(</span><span class="n">dirPath</span><span class="o">=</span><span class="s2">"./data"</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s2">".fastq$"</span><span class="p">)</span><span class="o">/</span><span class="m">4</span> <span class="err">#</span> <span class="n">Counts</span> <span class="n">numbers</span> <span class="n">of</span> <span class="n">reads</span> <span class="k">in</span> <span class="n">FASTQ</span> <span class="n">files</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## SRR038845.fastq SRR038846.fastq SRR038848.fastq SRR038850.fastq 
+##            1000            1000            1000            1000</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">id</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">ID</span> <span class="n">field</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A BStringSet instance of length 1
+##     width seq
+## [1]    43 SRR038845.3 HWI-EAS038:6:1:0:1938 length=36</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">sequence</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 1
+##     width seq
+## [1]    36 CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">Phred</span> <span class="n">scores</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: FastqQuality
+## quality:
+##   A BStringSet instance of length 1
+##     width seq
+## [1]    36 BA@7&gt;B=&gt;:&gt;&gt;7@7@&gt;&gt;9=BAA?;&gt;52;&gt;:9=8.=A</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">as</span><span class="p">(</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="s2">"matrix"</span><span class="p">)[</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">]</span> <span class="err">#</span> <span class="n">Coerces</span> <span class="n">Phred</span> <span class="n">scores</span> <span class="n">to</span> <span class="n">numeric</span> <span class="n">matrix</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] 33 32 31 22 29 33 28 29 25 29 29 22</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ShortReadQ</span><span class="p">(</span><span class="n">sread</span><span class="o">=</span><span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="n">quality</span><span class="o">=</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="n">id</span><span class="o">=</span><span class="n">id</span><span class="p">(</span><span class="n">fq</span><span class="p">))</span> <span class="err">#</span> <span class="n">Constructs</span> <span class="n">a</span> <span class="n">ShortReadQ</span> <span class="n">from</span> <span class="n">components</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 1000 reads; width: 36 cycles</code></pre></div>
+
+<h2 id="fastq-quality-reports">FASTQ Quality Reports</h2>
+
+<h3 id="using-systempiper">Using <code>systemPipeR</code></h3>
+
+<p>The following <code>seeFastq</code> and <code>seeFastqPlot</code> functions generate and plot a series of useful quality statistics for a set of FASTQ files.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span>
+<span class="n">fqlist</span> <span class="o">&lt;-</span> <span class="n">seeFastq</span><span class="p">(</span><span class="n">fastq</span><span class="o">=</span><span class="n">fastq</span><span class="p">,</span> <span class="n">batchsize</span><span class="o">=</span><span class="m">800</span><span class="p">,</span> <span class="n">klength</span><span class="o">=</span><span class="m">8</span><span class="p">)</span> <span class="c1"># For real data set batchsize to at least 10^5 
+</span><span class="n">seeFastqPlot</span><span class="p">(</span><span class="n">fqlist</span><span class="p">)</span></code></pre></div>
+
+<p><img src="Rsequences_files/see_fastq-1.png" alt="" /></p>
+
+<p>Handles many samples in one PDF file. For more details see <a href="http://bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">here</a></p>
+
+<h3 id="using-shortread">Using <code>ShortRead</code></h3>
+
+<p>The <code>ShortRead</code> package contains several FASTQ quality reporting functions.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sp</span> <span class="o">&lt;-</span> <span class="n">SolexaPath</span><span class="p">(</span><span class="n">system.file</span><span class="p">(</span><span class="s1">'extdata'</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">'ShortRead'</span><span class="p">))</span>
+<span class="n">fl</span> <span class="o">&lt;-</span> <span class="n">file.path</span><span class="p">(</span><span class="n">analysisPath</span><span class="p">(</span><span class="n">sp</span><span class="p">),</span> <span class="s2">"s_1_sequence.txt"</span><span class="p">)</span> 
+<span class="n">fls</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">fl</span><span class="p">,</span> <span class="n">fl</span><span class="p">)</span> 
+<span class="n">coll</span> <span class="o">&lt;-</span> <span class="n">QACollate</span><span class="p">(</span><span class="n">QAFastqSource</span><span class="p">(</span><span class="n">fls</span><span class="p">),</span> <span class="n">QAReadQuality</span><span class="p">(),</span> <span class="n">QAAdapterContamination</span><span class="p">(),</span> 
+	    <span class="n">QANucleotideUse</span><span class="p">(),</span> <span class="n">QAQualityUse</span><span class="p">(),</span> <span class="n">QASequenceUse</span><span class="p">(),</span> <span class="n">QAFrequentSequence</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">10</span><span class="p">),</span> 
+		<span class="n">QANucleotideByCycle</span><span class="p">(),</span> <span class="n">QAQualityByCycle</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">qa2</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">&lt;-</span> <span class="n">report</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="n">interactive</span><span class="p">())</span>
+<span class="n">browseURL</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></code></pre></div>
+
+<h2 id="filtering-and-trimming-fastq-files-with-shortread">Filtering and Trimming FASTQ Files with ShortRead</h2>
+
+<h3 id="adaptor-trimming">Adaptor trimming</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fqtrim</span> <span class="o">&lt;-</span> <span class="n">trimLRPatterns</span><span class="p">(</span><span class="n">Rpattern</span><span class="o">=</span><span class="s2">"GCCCGGGTAA"</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">fq</span><span class="p">)</span>
+<span class="n">sread</span><span class="p">(</span><span class="n">fqtrim</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+##     width seq
+## [1]    26 CAACGAGTTCACACCTTGGCCGACAG
+## [2]    36 CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA</code></pre></div>
+
+<h3 id="read-counting-and-duplicate-removal">Read counting and duplicate removal</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fqtrim</span> <span class="o">&lt;-</span> <span class="n">trimLRPatterns</span><span class="p">(</span><span class="n">Rpattern</span><span class="o">=</span><span class="s2">"GCCCGGGTAA"</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">fq</span><span class="p">)</span>
+<span class="n">tables</span><span class="p">(</span><span class="n">fq</span><span class="p">)</span><span class="o">$</span><span class="n">distribution</span> <span class="err">#</span> <span class="n">Counts</span> <span class="n">read</span> <span class="n">occurences</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   nOccurrences nReads
+## 1            1    948
+## 2            2     26</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sum</span><span class="p">(</span><span class="n">srduplicated</span><span class="p">(</span><span class="n">fq</span><span class="p">))</span> <span class="err">#</span> <span class="n">Identifies</span> <span class="n">duplicated</span> <span class="n">reads</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 26</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fq</span><span class="p">[</span><span class="o">!</span><span class="n">srduplicated</span><span class="p">(</span><span class="n">fq</span><span class="p">)]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 974 reads; width: 36 cycles</code></pre></div>
+
+<h3 id="trimming-low-quality-tails">Trimming low quality tails</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="m">30</span>
+<span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="n">rawToChar</span><span class="p">(</span><span class="n">as.raw</span><span class="p">(</span><span class="n">cutoff</span><span class="m">+33</span><span class="p">))</span>
+<span class="n">sread</span><span class="p">(</span><span class="n">trimTails</span><span class="p">(</span><span class="n">fq</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">successive</span><span class="o">=</span><span class="n">FALSE</span><span class="p">))[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+##     width seq
+## [1]     4 CAAC
+## [2]    20 CCAATGATTTTTTTCCGTGT</code></pre></div>
+
+<h3 id="removal-of-reads-with-phred-scores-below-a-threshold-value">Removal of reads with Phred scores below a threshold value</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="m">30</span>
+<span class="n">qcount</span> <span class="o">&lt;-</span> <span class="n">rowSums</span><span class="p">(</span><span class="n">as</span><span class="p">(</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="s2">"matrix"</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="m">20</span><span class="p">)</span> 
+<span class="n">fq</span><span class="p">[</span><span class="n">qcount</span> <span class="o">==</span> <span class="m">0</span><span class="p">]</span> <span class="err">#</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">reads</span> <span class="n">where</span> <span class="n">all</span> <span class="n">Phred</span> <span class="n">scores</span> <span class="o">&gt;=</span> <span class="m">20</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 349 reads; width: 36 cycles</code></pre></div>
+
+<h3 id="removal-of-reads-with-x-ns-andor-low-complexity-segments">Removal of reads with x Ns and/or low complexity segments</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">filter1</span> <span class="o">&lt;-</span> <span class="n">nFilter</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> <span class="c1"># Keeps only reads without Ns
+</span><span class="n">filter2</span> <span class="o">&lt;-</span> <span class="n">polynFilter</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">nuc</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">))</span> <span class="c1"># Removes reads with &gt;=20 of one nucleotide
+</span><span class="n">filter</span> <span class="o">&lt;-</span> <span class="n">compose</span><span class="p">(</span><span class="n">filter1</span><span class="p">,</span> <span class="n">filter2</span><span class="p">)</span>
+<span class="n">fq</span><span class="p">[</span><span class="n">filter</span><span class="p">(</span><span class="n">fq</span><span class="p">)]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 989 reads; width: 36 cycles</code></pre></div>
+
+<h2 id="memory-efficient-fastq-processing">Memory Efficient FASTQ Processing</h2>
+
+<p>Streaming through FASTQ files with <code>FastqStreamer</code> and random sampling reads with <code>FastqSampler</code></p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">FastqStreamer</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">))</span> <span class="c1"># Imports first 50 reads 
+</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">FastqSampler</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">))</span> <span class="err">#</span> <span class="n">Random</span> <span class="n">samples</span> <span class="m">50</span> <span class="n">reads</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning: closing unused connection 5 (data/SRR038845.fastq)</code></pre></div>
+
+<p>Streaming through a FASTQ file while applying filtering/trimming functions and writing the results to a new file.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FastqStreamer</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">)</span> 
+<span class="k">while</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">f</span><span class="p">)))</span> <span class="p">{</span>
+	<span class="n">fqsub</span> <span class="o">&lt;-</span> <span class="n">fq</span><span class="p">[</span><span class="n">grepl</span><span class="p">(</span><span class="s2">"^TT"</span><span class="p">,</span> <span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">))]</span> 
+	<span class="n">writeFastq</span><span class="p">(</span><span class="n">fqsub</span><span class="p">,</span> <span class="n">paste</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="s2">"sub"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"_"</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">close</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></code></pre></div>
+
+
+
+<div class="tags">
+    
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 UC Riverside. All rights reserved. <br />
+<p>Page last updated:</span> Wed Apr 20 20:28:41 2016<br/> Site last generated: Apr 20, 2016 <br />
+<p><img src="../common_images/company_logo.png/></p>
+                </div>
+            </div>
+</footer>
+
+            </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+</body>
+
+
+</html>
+

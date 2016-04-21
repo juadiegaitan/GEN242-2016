@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -403,6 +425,15 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_slides_09.html">Short Read Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_10.html">Sequence Analysis</a></li>
                     
 
                     
@@ -745,6 +776,94 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">Sequence</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_1.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_2.html">2. Strings in R Base</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_3.html">3. Sequences in Bioconductor</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_4.html">4. NGS Sequences</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_5.html">5. Range Operations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_6.html">6. Transcript Ranges</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_7.html">7. Homework 6</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_8.html">8. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_9.html">9. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">Projects</a>
                 <ul>
                     
@@ -923,29 +1042,29 @@ More details can be found in the R &amp; BioConductor manual <a href="http://man
 <h3 id="comparison-operators">Comparison operators</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">==</code> (equal)</li>
-  <li><code class="highlighter-rouge">!=</code> (not equal)</li>
-  <li><code class="highlighter-rouge">&gt;</code> (greater than)</li>
-  <li><code class="highlighter-rouge">&gt;=</code> (greater than or equal)</li>
-  <li><code class="highlighter-rouge">&lt;</code> (less than)</li>
-  <li><code class="highlighter-rouge">&lt;=</code> (less than or equal)</li>
+  <li><code>==</code> (equal)</li>
+  <li><code>!=</code> (not equal)</li>
+  <li><code>&gt;</code> (greater than)</li>
+  <li><code>&gt;=</code> (greater than or equal)</li>
+  <li><code>&lt;</code> (less than)</li>
+  <li><code>&lt;=</code> (less than or equal)</li>
 </ul>
 
 <h3 id="logical-operators">Logical operators</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">&amp;</code> (and)</li>
-  <li><code class="highlighter-rouge">|</code> (or)</li>
-  <li><code class="highlighter-rouge">!</code> (not)</li>
+  <li><code>&amp;</code> (and)</li>
+  <li><code>|</code> (or)</li>
+  <li><code>!</code> (not)</li>
 </ul>
 
-<h2 id="conditional-executions-if-statements">Conditional Executions: <code class="highlighter-rouge">if</code> Statements</h2>
+<h2 id="conditional-executions-if-statements">Conditional Executions: <code>if</code> Statements</h2>
 
-<p>An <code class="highlighter-rouge">if</code> statement operates on length-one logical vectors.</p>
+<p>An <code>if</code> statement operates on length-one logical vectors.</p>
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 if(TRUE) { 
 	statements_1 
 } else { 
@@ -955,7 +1074,7 @@ if(TRUE) {
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 if(1==0) { 
 	print(1) 
 } else { 
@@ -963,46 +1082,46 @@ if(1==0) {
 }
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 2
 </code></p>
 
-<h2 id="conditional-executions-ifelse-statements">Conditional Executions: <code class="highlighter-rouge">ifelse</code> Statements</h2>
+<h2 id="conditional-executions-ifelse-statements">Conditional Executions: <code>ifelse</code> Statements</h2>
 
-<p>The <code class="highlighter-rouge">ifelse</code> statement operates on vectors.</p>
+<p>The <code>ifelse</code> statement operates on vectors.</p>
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 ifelse(test, true_value, false_value)
 </code>
 <strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 x &lt;- 1:10 
 ifelse(x&lt;5, x, 0)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##  [1] 1 2 3 4 0 0 0 0 0 0
 </code></p>
 
 <h1 id="loops">Loops</h1>
 
-<h2 id="for-loop"><code class="highlighter-rouge">for</code> loop</h2>
+<h2 id="for-loop"><code>for</code> loop</h2>
 
-<p><code class="highlighter-rouge">for</code> loops iterate over elements of a looping vector.</p>
+<p><code>for</code> loops iterate over elements of a looping vector.</p>
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 for(variable in sequence) { 
 	statements 
 }
 </code>
 <strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 mydf &lt;- iris
 myve &lt;- NULL
 for(i in seq(along=mydf[,1])) {
@@ -1011,15 +1130,15 @@ for(i in seq(along=mydf[,1])) {
 myve[1:8]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
 </code></p>
 
-<p><strong>Note:</strong> Inject into objecs is much faster than append approach with <code class="highlighter-rouge">c</code>, <code class="highlighter-rouge">cbind</code>, etc.</p>
+<p><strong>Note:</strong> Inject into objecs is much faster than append approach with <code>c</code>, <code>cbind</code>, etc.</p>
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myve &lt;- numeric(length(mydf[,1]))
 for(i in seq(along=myve)) {
 	myve[i] &lt;- mean(as.numeric(mydf[i,1:3]))
@@ -1027,17 +1146,17 @@ for(i in seq(along=myve)) {
 myve[1:8]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
 </code></p>
 
 <h3 id="conditional-stop-of-loops">Conditional Stop of Loops</h3>
 
-<p>The <code class="highlighter-rouge">stop</code> function can be used to break out of a loop (or a function) when a condition becomes <code class="highlighter-rouge">TRUE</code>. In addition, an error message will be printed.</p>
+<p>The <code>stop</code> function can be used to break out of a loop (or a function) when a condition becomes <code>TRUE</code>. In addition, an error message will be printed.</p>
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 x &lt;- 1:10
 z &lt;- NULL
 for(i in seq(along=x)) { 
@@ -1049,13 +1168,13 @@ for(i in seq(along=x)) {
 }
 </code></p>
 
-<h2 id="while-loop"><code class="highlighter-rouge">while</code> loop</h2>
+<h2 id="while-loop"><code>while</code> loop</h2>
 
 <p>Iterates as long as a condition is true.</p>
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 while(condition) {
 	statements
 }
@@ -1063,7 +1182,7 @@ while(condition) {
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 z &lt;- 0
 while(z&lt;5) { 
 	z &lt;- z + 2
@@ -1071,85 +1190,85 @@ while(z&lt;5) {
 }
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 2
 ## [1] 4
 ## [1] 6
 </code></p>
 
-<h2 id="the-apply-function-family">The <code class="highlighter-rouge">apply</code> Function Family</h2>
+<h2 id="the-apply-function-family">The <code>apply</code> Function Family</h2>
 
-<h3 id="apply"><code class="highlighter-rouge">apply</code></h3>
+<h3 id="apply"><code>apply</code></h3>
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 apply(X, MARGIN, FUN, ARGs)
 </code></p>
 
 <p><strong>Arguments</strong></p>
 
 <ul>
-  <li><code class="highlighter-rouge">X</code>: <code class="highlighter-rouge">array</code>, <code class="highlighter-rouge">matrix</code> or <code class="highlighter-rouge">data.frame</code></li>
-  <li><code class="highlighter-rouge">MARGIN</code>: <code class="highlighter-rouge">1</code> for rows, <code class="highlighter-rouge">2</code> for columns</li>
-  <li><code class="highlighter-rouge">FUN</code>: one or more functions</li>
-  <li><code class="highlighter-rouge">ARGs</code>: possible arguments for functions</li>
+  <li><code>X</code>: <code>array</code>, <code>matrix</code> or <code>data.frame</code></li>
+  <li><code>MARGIN</code>: <code>1</code> for rows, <code>2</code> for columns</li>
+  <li><code>FUN</code>: one or more functions</li>
+  <li><code>ARGs</code>: possible arguments for functions</li>
 </ul>
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 apply(iris[1:8,1:3], 1, mean)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##        1        2        3        4        5        6        7        8 
 ## 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
 </code></p>
 
-<h3 id="tapply"><code class="highlighter-rouge">tapply</code></h3>
+<h3 id="tapply"><code>tapply</code></h3>
 
 <p>Applies a function to vector components that are defined by a factor.</p>
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 tapply(vector, factor, FUN)
 </code></p>
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 iris[1:2,]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 tapply(iris$Sepal.Length, iris$Species, mean)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##     setosa versicolor  virginica 
 ##      5.006      5.936      6.588
 </code></p>
 
-<h3 id="sapply-and-lapply"><code class="highlighter-rouge">sapply</code> and <code class="highlighter-rouge">lapply</code></h3>
+<h3 id="sapply-and-lapply"><code>sapply</code> and <code>lapply</code></h3>
 
-<p>Both apply a function to vector or list objects. The <code class="highlighter-rouge">lapply</code> function always returns a list object, while <code class="highlighter-rouge">sapply</code> returns <code class="highlighter-rouge">vector</code> or <code class="highlighter-rouge">matrix</code> objects when it is possible.</p>
+<p>Both apply a function to vector or list objects. The <code>lapply</code> function always returns a list object, while <code>sapply</code> returns <code>vector</code> or <code>matrix</code> objects when it is possible.</p>
 
 <p><strong>Examples</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 x &lt;- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
 lapply(x, mean)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $a
 ## [1] 5.5
 ## 
@@ -1160,18 +1279,18 @@ lapply(x, mean)
 ## [1] 0.5
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 sapply(x, mean)
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##        a     beta    logic 
 ## 5.500000 4.535125 0.500000
 </code></p>
 
 <p>Often used in combination with a function definition:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 lapply(names(x), function(x) mean(x))
 sapply(names(x), function(x) mean(x))
 </code></p>
@@ -1184,17 +1303,17 @@ sapply(names(x), function(x) mean(x))
 
 <p><strong>Syntax</strong> to define function</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myfct &lt;- function(arg1, arg2, ...) { 
 	function_body 
 }
 </code>
 <strong>Syntax</strong> to call functions</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myfct(arg1=..., arg2=...)
 </code>
-The value returned by a function is the value of the function body, which is usually an unassigned final expression, <em>e.g.</em>: <code class="highlighter-rouge">return()</code></p>
+The value returned by a function is the value of the function body, which is usually an unassigned final expression, <em>e.g.</em>: <code>return()</code></p>
 
 <h2 id="function-syntax-rules">Function Syntax Rules</h2>
 
@@ -1203,9 +1322,9 @@ The value returned by a function is the value of the function body, which is usu
 <ul>
   <li>Functions are defined by
     <ol>
-      <li>The assignment with the keyword <code class="highlighter-rouge">function</code></li>
-      <li>The declaration of arguments/variables (<code class="highlighter-rouge">arg1, arg2, ...</code>)</li>
-      <li>The definition of operations (<code class="highlighter-rouge">function_body</code>) that perform computations on the provided arguments. A function name needs to be assigned to call the function.</li>
+      <li>The assignment with the keyword <code>function</code></li>
+      <li>The declaration of arguments/variables (<code>arg1, arg2, ...</code>)</li>
+      <li>The definition of operations (<code>function_body</code>) that perform computations on the provided arguments. A function name needs to be assigned to call the function.</li>
     </ol>
   </li>
 </ul>
@@ -1219,7 +1338,7 @@ The value returned by a function is the value of the function body, which is usu
 <p><strong>Arguments</strong></p>
 
 <ul>
-  <li>It is often useful to provide default values for arguments (<em>e.g.</em>: <code class="highlighter-rouge">arg1=1:10</code>). This way they don’t need to be provided in a function call. The argument list can also be left empty (<code class="highlighter-rouge">myfct &lt;- function() { fct_body }</code>) if a function is expected to return always the same value(s). The argument <code class="highlighter-rouge">...</code> can be used to allow one function to pass on argument settings to another.</li>
+  <li>It is often useful to provide default values for arguments (<em>e.g.</em>: <code>arg1=1:10</code>). This way they don’t need to be provided in a function call. The argument list can also be left empty (<code>myfct &lt;- function() { fct_body }</code>) if a function is expected to return always the same value(s). The argument <code>...</code> can be used to allow one function to pass on argument settings to another.</li>
 </ul>
 
 <p><strong>Body</strong></p>
@@ -1237,14 +1356,14 @@ The value returned by a function is the value of the function body, which is usu
 <p><strong>Scope</strong></p>
 
 <ul>
-  <li>Variables created inside a function exist only for the life time of a function. Thus, they are not accessible outside of the function. To force variables in functions to exist globally, one can use the double assignment operator: <code class="highlighter-rouge">&lt;&lt;-</code></li>
+  <li>Variables created inside a function exist only for the life time of a function. Thus, they are not accessible outside of the function. To force variables in functions to exist globally, one can use the double assignment operator: <code>&lt;&lt;-</code></li>
 </ul>
 
 <h2 id="examples">Examples</h2>
 
 <p><strong>Define sample function</strong></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myfct &lt;- function(x1, x2=5) { 
 	z1 &lt;- x1 / x1
 	z2 &lt;- x2 * x2
@@ -1255,42 +1374,42 @@ myfct &lt;- function(x1, x2=5) {
 
 <p><strong>Function usage</strong></p>
 
-<p>Apply function to values <code class="highlighter-rouge">2</code> and <code class="highlighter-rouge">5</code></p>
+<p>Apply function to values <code>2</code> and <code>5</code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myfct(x1=2, x2=5) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1]  1 25
 </code></p>
 
 <p>Run without argument names</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myfct(2, 5) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1]  1 25
 </code></p>
 
-<p>Makes use of default value <code class="highlighter-rouge">5</code></p>
+<p>Makes use of default value <code>5</code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myfct(x1=2) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1]  1 25
 </code>
 Print function definition (often unintended)</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myfct 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## function(x1, x2=5) { 
 ## 	z1 &lt;- x1 / x1
 ## 	z2 &lt;- x2 * x2
@@ -1306,40 +1425,40 @@ myfct
 <p>Several debugging utilities are available for R. They include:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">traceback</code></li>
-  <li><code class="highlighter-rouge">browser</code></li>
-  <li><code class="highlighter-rouge">options(error=recover)</code></li>
-  <li><code class="highlighter-rouge">options(error=NULL)</code></li>
-  <li><code class="highlighter-rouge">debug</code></li>
+  <li><code>traceback</code></li>
+  <li><code>browser</code></li>
+  <li><code>options(error=recover)</code></li>
+  <li><code>options(error=NULL)</code></li>
+  <li><code>debug</code></li>
 </ul>
 
 <p>The <a href="http://www.stats.uwo.ca/faculty/murdoch/software/debuggingR/">Debugging in R page</a> provides an overview of the available resources.</p>
 
 <h2 id="regular-expressions">Regular Expressions</h2>
 
-<p>R’s regular expression utilities work similar as in other languages. To learn how to use them in R, one can consult the main help page on this topic with <code class="highlighter-rouge">?regexp</code>.</p>
+<p>R’s regular expression utilities work similar as in other languages. To learn how to use them in R, one can consult the main help page on this topic with <code>?regexp</code>.</p>
 
-<h3 id="string-matching-with-grep">String matching with <code class="highlighter-rouge">grep</code></h3>
+<h3 id="string-matching-with-grep">String matching with <code>grep</code></h3>
 
-<p>The grep function can be used for finding patterns in strings, here letter <code class="highlighter-rouge">A</code> in vector <code class="highlighter-rouge">month.name</code>.</p>
+<p>The grep function can be used for finding patterns in strings, here letter <code>A</code> in vector <code>month.name</code>.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 month.name[grep("A", month.name)] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "April"  "August"
 </code></p>
 
-<h3 id="string-substitution-with-gsub">String substitution with <code class="highlighter-rouge">gsub</code></h3>
+<h3 id="string-substitution-with-gsub">String substitution with <code>gsub</code></h3>
 
-<p>Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes <code class="highlighter-rouge">\</code> need to be double escaped <code class="highlighter-rouge">\\</code> in R.</p>
+<p>Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes <code>\</code> need to be double escaped <code>\\</code> in R.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 gsub('(i.*a)', 'xxx_\\1', "virginica", perl = TRUE) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "vxxx_irginica"
 </code></p>
 
@@ -1349,32 +1468,32 @@ gsub('(i.*a)', 'xxx_\\1', "virginica", perl = TRUE)
 
 <p>Generates vector of object names in session</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 mylist &lt;- ls()
 mylist[1] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "i"
 </code></p>
 
 <p>Executes 1st entry as expression</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 get(mylist[1])
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 150
 </code></p>
 
 <p>Alternative approach</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 eval(parse(text=mylist[1])) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] 150
 </code></p>
 
@@ -1382,35 +1501,35 @@ eval(parse(text=mylist[1]))
 
 <p><strong>Selected examples</strong></p>
 
-<p>Substitution with back reference which inserts in this example <code class="highlighter-rouge">_</code> character</p>
+<p>Substitution with back reference which inserts in this example <code>_</code> character</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 x &lt;- gsub("(a)","\\1_", month.name[1], perl=T) 
 x
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "Ja_nua_ry"
 </code></p>
 
 <p>Split string on inserted character from above</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 strsplit(x,"_")
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [[1]]
 ## [1] "Ja"  "nua" "ry"
 </code></p>
 
 <p>Reverse a character string by splitting first all characters into vector fields</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 paste(rev(unlist(strsplit(x, NULL))), collapse="") 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "yr_aun_aJ"
 </code></p>
 
@@ -1420,28 +1539,28 @@ paste(rev(unlist(strsplit(x, NULL))), collapse="")
 
 <p>Return CPU (and other) times that an expression used (here ls)</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 system.time(ls()) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##    user  system elapsed 
 ##       0       0       0
 </code></p>
 
 <p>Return the current system date and time</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 date() 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "Wed Apr 13 16:06:06 2016"
 </code></p>
 
 <p>Pause execution of R expressions for a given number of seconds (e.g. in loop)</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 Sys.sleep(1) 
 </code></p>
 
@@ -1449,24 +1568,24 @@ Sys.sleep(1)
 
 <h4 id="import-of-specific-file-lines-with-regular-expression">Import of Specific File Lines with Regular Expression</h4>
 
-<p>The following example demonstrates the retrieval of specific lines from an external file with a regular expression. First, an external file is created with the <code class="highlighter-rouge">cat</code> function, all lines of this file are imported into a vector with <code class="highlighter-rouge">readLines</code>, the specific elements (lines) are then retieved with the <code class="highlighter-rouge">grep</code> function, and the resulting lines are split into vector fields with <code class="highlighter-rouge">strsplit</code>.</p>
+<p>The following example demonstrates the retrieval of specific lines from an external file with a regular expression. First, an external file is created with the <code>cat</code> function, all lines of this file are imported into a vector with <code>readLines</code>, the specific elements (lines) are then retieved with the <code>grep</code> function, and the resulting lines are split into vector fields with <code>strsplit</code>.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 cat(month.name, file="zzz.txt", sep="\n")
 x &lt;- readLines("zzz.txt")
 x[1:6] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "January"  "February" "March"    "April"    "May"      "June"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 x &lt;- x[c(grep("^J", as.character(x), perl = TRUE))]
 t(as.data.frame(strsplit(x, "u")))
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##                 [,1]  [,2] 
 ## c..Jan....ary.. "Jan" "ary"
 ## c..J....ne..    "J"   "ne" 
@@ -1474,9 +1593,9 @@ t(as.data.frame(strsplit(x, "u")))
 </code>
 ## Calling External Software</p>
 
-<p>External command-line software can be called with <code class="highlighter-rouge">system</code>. The following example calls <code class="highlighter-rouge">blastall</code> from R</p>
+<p>External command-line software can be called with <code>system</code>. The following example calls <code>blastall</code> from R</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
 </code></p>
 
@@ -1486,54 +1605,54 @@ system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
 
 <h3 id="r-console">R console</h3>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 source("my_script.R")
 </code></p>
 
 <h3 id="command-line">Command-line</h3>
 
-<p><code class="highlighter-rouge">sh
+<p><code>sh
 Rscript my_script.R # or just ./myscript.R after making it executable
 R CMD BATCH my_script.R # Alternative way 1 
 R --slave &lt; my_script.R # Alternative way 2
 </code>
 ### Passing arguments from command-line to R</p>
 
-<p>Create an R script named <code class="highlighter-rouge">test.R</code> with the following content:</p>
+<p>Create an R script named <code>test.R</code> with the following content:</p>
 
-<p><code class="highlighter-rouge">sh
+<p><code>sh
 myarg &lt;- commandArgs()
 print(iris[1:myarg[6], ])
 </code></p>
 
 <p>Then run it from the command-line like this:</p>
 
-<p><code class="highlighter-rouge">sh
+<p><code>sh
 Rscript test.R 10
 </code></p>
 
-<p>In the given example the number <code class="highlighter-rouge">10</code> is passed on from the command-line as an argument to the R script which is used to return to <code class="highlighter-rouge">STDOUT</code> the first 10 rows of the <code class="highlighter-rouge">iris</code> sample data. If several arguments are provided, they will be interpreted as one string and need to be split in R with the strsplit function. A more detailed example can be found <a href="http://manuals.bioinformatics.ucr.edu/home/ht-seq\#TOC-Quality-Reports-of-FASTQ-Files-">here</a>.</p>
+<p>In the given example the number <code>10</code> is passed on from the command-line as an argument to the R script which is used to return to <code>STDOUT</code> the first 10 rows of the <code>iris</code> sample data. If several arguments are provided, they will be interpreted as one string and need to be split in R with the strsplit function. A more detailed example can be found <a href="http://manuals.bioinformatics.ucr.edu/home/ht-seq\#TOC-Quality-Reports-of-FASTQ-Files-">here</a>.</p>
 
 <h1 id="building-r-packages">Building R Packages</h1>
 
 <h2 id="short-overview-of-package-building-process">Short Overview of Package Building Process</h2>
 
-<p>R packages can be built with the <code class="highlighter-rouge">package.skeleton</code> function. The given example will create a directory named <code class="highlighter-rouge">mypackage</code> containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the <code class="highlighter-rouge">code_files</code> argument. The basic structure of the package directory is described <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack">here</a>. The package directory will also contain a file named <code class="highlighter-rouge">Read-and-delete-me</code> with instructions for completing the package:</p>
+<p>R packages can be built with the <code>package.skeleton</code> function. The given example will create a directory named <code>mypackage</code> containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the <code>code_files</code> argument. The basic structure of the package directory is described <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack">here</a>. The package directory will also contain a file named <code>Read-and-delete-me</code> with instructions for completing the package:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 package.skeleton(name="mypackage", code_files=c("script1.R", "script2.R"))
 </code></p>
 
 <p>Once a package skeleton is available one can build the package from the command-line (Linux/OS X). This will create a tarball of the package with its version number encoded in the file name. Subequently, the package tarball needs to be checked for errors with:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 R CMD build mypackage
 R CMD check mypackage_1.0.tar.gz
 </code></p>
 
 <p>Install package from source</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 install.packages("mypackage_1.0.tar.gz", repos=NULL) 
 </code></p>
 
@@ -1543,11 +1662,11 @@ install.packages("mypackage_1.0.tar.gz", repos=NULL)
 
 <h2 id="exercise-1">Exercise 1</h2>
 
-<h3 id="for-loop-1"><code class="highlighter-rouge">for</code> loop</h3>
+<h3 id="for-loop-1"><code>for</code> loop</h3>
 
-<p><strong>Task 1.1</strong>: Compute the mean of each row in <code class="highlighter-rouge">myMA</code> by applying the mean function in a <code class="highlighter-rouge">for</code> loop.</p>
+<p><strong>Task 1.1</strong>: Compute the mean of each row in <code>myMA</code> by applying the mean function in a <code>for</code> loop.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myMA &lt;- matrix(rnorm(500), 100, 5, dimnames=list(1:100, paste("C", 1:5, sep="")))
 myve_for &lt;- NULL
 for(i in seq(along=myMA[,1])) {
@@ -1557,7 +1676,7 @@ myResult &lt;- cbind(myMA, mean_for=myve_for)
 myResult[1:4, ]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##           C1         C2         C3          C4         C5   mean_for
 ## 1 -0.9832766  0.8446066  0.4196481  0.23814667  0.3493797  0.1737009
 ## 2  1.2980835  0.6924483  0.5996748 -0.51642965  0.6701380  0.5487830
@@ -1565,11 +1684,11 @@ myResult[1:4, ]
 ## 4  0.8122978 -1.3107710  0.6664631  0.12316103 -0.1726270  0.0237048
 </code></p>
 
-<h3 id="while-loop-1"><code class="highlighter-rouge">while</code> loop</h3>
+<h3 id="while-loop-1"><code>while</code> loop</h3>
 
-<p><strong>Task 1.2</strong>: Compute the mean of each row in <code class="highlighter-rouge">myMA</code> by applying the mean function in a <code class="highlighter-rouge">while</code> loop.</p>
+<p><strong>Task 1.2</strong>: Compute the mean of each row in <code>myMA</code> by applying the mean function in a <code>while</code> loop.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 z &lt;- 1
 myve_while &lt;- NULL
 while(z &lt;= length(myMA[,1])) {
@@ -1580,7 +1699,7 @@ myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while)
 myResult[1:4, -c(1,2)]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##           C3          C4         C5   mean_for mean_while
 ## 1  0.4196481  0.23814667  0.3493797  0.1737009  0.1737009
 ## 2  0.5996748 -0.51642965  0.6701380  0.5487830  0.5487830
@@ -1589,25 +1708,25 @@ myResult[1:4, -c(1,2)]
 </code>
 <strong>Task 1.3</strong>: Confirm that the results from both mean calculations are identical</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 all(myResult[,6] == myResult[,7])
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] TRUE
 </code></p>
 
-<h3 id="apply-loop"><code class="highlighter-rouge">apply</code> loop</h3>
+<h3 id="apply-loop"><code>apply</code> loop</h3>
 
-<p><strong>Task 1.4</strong>: Compute the mean of each row in myMA by applying the mean function in an <code class="highlighter-rouge">apply</code> loop</p>
+<p><strong>Task 1.4</strong>: Compute the mean of each row in myMA by applying the mean function in an <code>apply</code> loop</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myve_apply &lt;- apply(myMA, 1, mean)
 myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply)
 myResult[1:4, -c(1,2)]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##           C3          C4         C5   mean_for mean_while mean_apply
 ## 1  0.4196481  0.23814667  0.3493797  0.1737009  0.1737009  0.1737009
 ## 2  0.5996748 -0.51642965  0.6701380  0.5487830  0.5487830  0.5487830
@@ -1619,13 +1738,13 @@ myResult[1:4, -c(1,2)]
 
 <p><strong>Task 1.5</strong>: When operating on large data sets it is much faster to use the rowMeans function</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 mymean &lt;- rowMeans(myMA)
 myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply, mean_int=mymean)
 myResult[1:4, -c(1,2,3)]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##            C4         C5   mean_for mean_while mean_apply   mean_int
 ## 1  0.23814667  0.3493797  0.1737009  0.1737009  0.1737009  0.1737009
 ## 2 -0.51642965  0.6701380  0.5487830  0.5487830  0.5487830  0.5487830
@@ -1637,14 +1756,14 @@ myResult[1:4, -c(1,2,3)]
 
 <h3 id="custom-functions">Custom functions</h3>
 
-<p><strong>Task 2.1</strong>: Use the following code as basis to implement a function that allows the user to compute the mean for any combination of columns in a matrix or data frame. The first argument of this function should specify the input data set, the second the mathematical function to be passed on (<em>e.g.</em> <code class="highlighter-rouge">mean</code>, <code class="highlighter-rouge">sd</code>, <code class="highlighter-rouge">max</code>) and the third one should allow the selection of the columns by providing a grouping vector.</p>
+<p><strong>Task 2.1</strong>: Use the following code as basis to implement a function that allows the user to compute the mean for any combination of columns in a matrix or data frame. The first argument of this function should specify the input data set, the second the mathematical function to be passed on (<em>e.g.</em> <code>mean</code>, <code>sd</code>, <code>max</code>) and the third one should allow the selection of the columns by providing a grouping vector.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myMA &lt;- matrix(rnorm(100000), 10000, 10, dimnames=list(1:10000, paste("C", 1:10, sep="")))
 myMA[1:2,]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##           C1         C2         C3        C4         C5        C6         C7         C8         C9
 ## 1 0.17958477 -0.5714262 -0.8866647  2.463907 -0.8126814 -0.933438 -0.8118745 -0.5546591 -0.9026947
 ## 2 0.04191538  1.2456075  0.4953736 -2.703100  0.2055566 -1.945671 -2.8696620 -1.5043589 -1.8783809
@@ -1653,14 +1772,14 @@ myMA[1:2,]
 ## 2 -1.6321152
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 myList &lt;- tapply(colnames(myMA), c(1,1,1,2,2,2,3,3,4,4), list) 
 names(myList) &lt;- sapply(myList, paste, collapse="_")
 myMAmean &lt;- sapply(myList, function(x) apply(myMA[,x], 1, mean))
 myMAmean[1:4,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##     C1_C2_C3   C4_C5_C6      C7_C8     C9_C10
 ## 1 -0.4261687  0.2392626 -0.6832668 -0.7362654
 ## 2  0.5942988 -1.4810715 -2.1870104 -1.7552480
@@ -1678,13 +1797,13 @@ Solution</p>
 
 <p><strong>Task 3.1</strong>: Create a sample list populated with character vectors of different lengths</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 setlist &lt;- lapply(11:30, function(x) sample(letters, x, replace=TRUE))
 names(setlist) &lt;- paste("S", seq(along=setlist), sep="") 
 setlist[1:6]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## $S1
 ##  [1] "x" "r" "j" "n" "l" "z" "b" "o" "v" "j" "i"
 ## 
@@ -1704,16 +1823,16 @@ setlist[1:6]
 ##  [1] "c" "l" "h" "v" "e" "a" "i" "u" "g" "h" "s" "f" "u" "b" "e" "y"
 </code></p>
 
-<p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code class="highlighter-rouge">setlist</code>. The intersects can be determined with the <code class="highlighter-rouge">%in%</code> function like this: <code class="highlighter-rouge">sum(setlist[[1]] %in% setlist[[2]])</code></p>
+<p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code>setlist</code>. The intersects can be determined with the <code>%in%</code> function like this: <code>sum(setlist[[1]] %in% setlist[[2]])</code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 setlist &lt;- sapply(setlist, unique)
 olMA &lt;- sapply(names(setlist), function(x) sapply(names(setlist), 
                function(y) sum(setlist[[x]] %in% setlist[[y]])))
 olMA[1:12,] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##     S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20
 ## S1  10  3  4  3  6  4  6  6  7   8   7   2   5   8   8   8   8   7   8   7
 ## S2   3 10  3  3  3  6  7  4  7   2   5   6   4   8   7   6   8   6   7   7
@@ -1728,9 +1847,9 @@ olMA[1:12,]
 ## S11  7  5  5  5  7  7  9 10  8   8  15   7   9  11  11  10  12  11  12  10
 ## S12  2  6  3  7  7  8  4  7  7   6   7  14   8  10  11   9  11   9   9   8
 </code>
-<strong>Task 3.3</strong> Plot the resulting intersect matrix as heat map. The <code class="highlighter-rouge">image</code> or the <code class="highlighter-rouge">heatmap.2</code> function from the <code class="highlighter-rouge">gplots</code> library can be used for this.</p>
+<strong>Task 3.3</strong> Plot the resulting intersect matrix as heat map. The <code>image</code> or the <code>heatmap.2</code> function from the <code>gplots</code> library can be used for this.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 image(olMA)
 </code></p>
 
@@ -1740,21 +1859,21 @@ image(olMA)
 
 <h3 id="build-your-own-r-package">Build your own R package</h3>
 
-<p><strong>Task 4.1</strong>: Save one or more of your functions to a file called <code class="highlighter-rouge">script.R</code> and build the package with the <code class="highlighter-rouge">package.skeleton</code> function.</p>
+<p><strong>Task 4.1</strong>: Save one or more of your functions to a file called <code>script.R</code> and build the package with the <code>package.skeleton</code> function.</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 package.skeleton(name="mypackage", code_files=c("script1.R"), namespace=TRUE)
 </code></p>
 
 <p><strong>Task 4.2</strong>: Build tarball of the package</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 system("R CMD build mypackage")
 </code></p>
 
 <p><strong>Task 4.3</strong>: Install and use package</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 install.packages("mypackage_1.0.tar.gz", repos=NULL, type="source")
 library(mypackage)
 ?myMAcomp # Opens help for function defined by mypackage
@@ -1764,64 +1883,64 @@ library(mypackage)
 
 <h2 id="reverse-and-complement-of-dna">Reverse and complement of DNA</h2>
 
-<p><strong>Task 1</strong>: Write a <code class="highlighter-rouge">RevComp</code> function that returns the reverse and complement of a DNA sequence string. Include an argument that will allow to return only the reversed sequence, the complemented sequence or the reversed and complemented sequence. The following R functions will be useful for the implementation:</p>
+<p><strong>Task 1</strong>: Write a <code>RevComp</code> function that returns the reverse and complement of a DNA sequence string. Include an argument that will allow to return only the reversed sequence, the complemented sequence or the reversed and complemented sequence. The following R functions will be useful for the implementation:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 x &lt;- c("ATGCATTGGACGTTAG")  
 x
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "ATGCATTGGACGTTAG"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 x &lt;- substring(x, 1:nchar(x), 1:nchar(x)) 
 x
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##  [1] "A" "T" "G" "C" "A" "T" "T" "G" "G" "A" "C" "G" "T" "T" "A" "G"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 x &lt;- rev(x) 
 x
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##  [1] "G" "A" "T" "T" "G" "C" "A" "G" "G" "T" "T" "A" "C" "G" "T" "A"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 x &lt;- paste(x, collapse="")
 x
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "GATTGCAGGTTACGTA"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 chartr("ATGC", "TACG", x) 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## [1] "CTAACGTCCAATGCAT"
 </code></p>
 
-<p><strong>Task 2</strong>: Write a function that applies the <code class="highlighter-rouge">RevComp</code> function to many sequences stored in a vector.</p>
+<p><strong>Task 2</strong>: Write a function that applies the <code>RevComp</code> function to many sequences stored in a vector.</p>
 
 <h2 id="translate-dna-into-protein">Translate DNA into Protein</h2>
 
 <p><strong>Task 3</strong>: Write a function that will translate one or many DNA sequences in all three reading frames into proteins. The following commands will simplify this task:</p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 AAdf &lt;- read.table(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt", header=TRUE, sep="\t") 
 AAdf[1:4,]
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ##   Codon AA_1 AA_3 AA_Full AntiCodon
 ## 1   TCA    S  Ser  Serine       TGA
 ## 2   TCG    S  Ser  Serine       CGA
@@ -1829,13 +1948,13 @@ AAdf[1:4,]
 ## 4   TCT    S  Ser  Serine       AGA
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 AAv &lt;- as.character(AAdf[,2]) 
 names(AAv) &lt;- AAdf[,1] 
 AAv
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## TCA TCG TCC TCT TTT TTC TTA TTG TAT TAC TAA TAG TGT TGC TGA TGG CTA CTG CTC CTT CCA CCG CCC CCT CAT 
 ## "S" "S" "S" "S" "F" "F" "L" "L" "Y" "Y" "*" "*" "C" "C" "*" "W" "L" "L" "L" "L" "P" "P" "P" "P" "H" 
 ## CAC CAA CAG CGA CGG CGC CGT ATT ATC ATA ATG ACA ACG ACC ACT AAT AAC AAA AAG AGT AGC AGA AGG GTA GTG 
@@ -1844,14 +1963,14 @@ AAv
 ## "V" "V" "A" "A" "A" "A" "D" "D" "E" "E" "G" "G" "G" "G"
 </code></p>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 y &lt;- gsub("(...)", "\\1_", x) 
 y &lt;- unlist(strsplit(y, "_")) 
 y &lt;- y[grep("^...$", y)] 
 AAv[y] 
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## GAT TGC AGG TTA CGT 
 ## "D" "C" "R" "L" "R"
 </code></p>
@@ -1865,11 +1984,11 @@ AAv[y]
 
 <h1 id="session-info">Session Info</h1>
 
-<p><code class="highlighter-rouge">r
+<p><code>r
 sessionInfo()
 </code></p>
 
-<p><code class="highlighter-rouge">
+<p><code>
 ## R version 3.2.4 Revised (2016-03-16 r70336)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 14.04.4 LTS
@@ -1911,7 +2030,7 @@ sessionInfo()
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
- Site last generated: Apr 19, 2016 <br />
+ Site last generated: Apr 20, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

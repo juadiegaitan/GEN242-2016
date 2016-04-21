@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Sequences in Bioconductor  | GEN242</title>
+<link rel="stylesheet" type="text/css" href="../css/syntax.css">
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
+<link rel="stylesheet" type="text/css" href="../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../css/lavish-bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="../css/theme-blue.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="../js/toc.js"></script>
+<script src="../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../common_images/favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+  </head>
+
+<body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="fa fa-home fa-lg navbar-brand" href="home.html">&nbsp;<span class="projectTitle"> Data Analysis in Genome Biology</span></a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                
+                
+                
+                <li><a href="https://piazza.com/class/ilbslqb3j2ovy" target="_blank">Piazza</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/tgirke/GEN242" target="_blank">Github Repo</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+                    
+                    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        
+                        <li><a href="https://cran.r-project.org/" target="_blank">CRAN</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://bioconductor.org/" target="_blank">Bioconductor</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual" target="_blank">R & Bioconductor Manual</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/" target="_blank">Jekyll</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://girke.bioinformatics.ucr.edu/" target="_blank">Girke Lab</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/documentation-theme-jekyll" target="_blank">Jekyll Doc Theme</a></li>
+                        
+                        
+                        
+                        
+
+                    </ul>
+                </li>
+                
+                
+
+
+                <!-- special insertion -->
+
+               
+                
+                
+                <!-- Send feedback function -->
+<script>
+function SendLinkByMail(href) {
+var subject= "GEN242 feedback";
+var body = "I have some feedback about the Sequences in Bioconductor page: ";
+body += window.location.href;
+body += "";
+var uri = "mailto:?subject=";
+uri += encodeURIComponent(subject);
+uri += "&body=";
+uri += encodeURIComponent(body);
+window.location.href = uri;
+}
+</script>
+
+<li><a href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B" target="_blank"><i class="fa fa-envelope-o"></i> Feedback</a></li>
+
+
+                <!--uncomment this block if you want simple search instead of algolia-->
+                <li>
+                     <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="../js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        SimpleJekyllSearch.init({
+                            searchInput: document.getElementById('search-input'),
+                            resultsContainer: document.getElementById('results-container'),
+                            dataSource: '../search.json',
+                            searchResultTemplate: '<li><a href="{url}" title="Sequences in Bioconductor">{title}</a></li>',
+                        noResultsText: 'No results found.',
+                                limit: 10,
+                                fuzzy: true,
+                        })
+                    </script>
+                     <!--end search-->
+                </li>
+
+            
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+
+<!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav highlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <span class="siteTagline">GEN242</span>
+            <span class="versionTagline">Spring 2016</span>
+
+            
+            
+            
+                
+            
+            <li><a href="#">Home</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/home.html">Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Internal</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_internal.html">Internal Resources</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Schedule</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_schedule.html">Course Schedule</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Slides</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_01.html">Course Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_02.html">Molbiol for Bioinformatics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_03.html">Databases and Software</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_04.html">DNA Sequencing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_05.html">Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_06.html">Sequence Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_07.html">Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_08.html">Multiple Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_09.html">Short Read Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_10.html">Sequence Analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Homework</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_01.html">HW1 - Online Tools</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_02.html">HW2 - Biocluster/Linux</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_03.html">HW3 - Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_04.html">HW4 - Pairwise Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">HW5 - Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">GitHub</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_01.html">GitHub</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Biocluster</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_02.html">Biocluster</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Introduction to R</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Programming in R</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_02.html">2. Control Structures</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_03.html">3. Loops</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_04.html">4. Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_05.html">5. Useful Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_06.html">6. Running R Scripts</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_07.html">7. Building R Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_08.html">8. Programming Exercises</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">9. Homework 5</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_10.html">10. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_11.html">11. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Sequence</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_1.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_2.html">2. Strings in R Base</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_3.html">3. Sequences in Bioconductor</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_4.html">4. NGS Sequences</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_5.html">5. Range Operations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_6.html">6. Transcript Ranges</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_7.html">7. Homework 6</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_8.html">8. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_9.html">9. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Projects</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_01.html">Project 1</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+                
+
+
+                <!-- if you aren't using the accordion, uncomment this block:
+
+                     <p class="external">
+                         <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+                     </p>
+                 -->
+
+    </div>
+    <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            <!-- Content Column -->
+            <div class="col-md-9">
+                
+                <div class="post-header">
+   <h1 class="post-title-main">Sequences in Bioconductor</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+
+<div id="toc"></div>
+
+
+<!--
+    
+    <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    
+-->
+<h2 id="important-data-objects-in-biostrings">Important Data Objects in Biostrings</h2>
+
+<h3 id="xstring-for-single-sequence"><code>XString</code> for single sequence</h3>
+
+<ul>
+  <li><code>DNAString</code>: for DNA</li>
+  <li><code>RNAString</code>: for RNA</li>
+  <li><code>AAString</code>: for amino acid</li>
+  <li><code>BString</code>: for any string</li>
+</ul>
+
+<h3 id="xstringset-for-many-sequences"><code>XStringSet</code> for many sequences</h3>
+
+<ul>
+  <li><code>DNAStringSet</code>`: for DNA</li>
+  <li><code>RNAStringSet</code>: for RNA</li>
+  <li><code>AAStringSet</code>: for amino acid</li>
+  <li><code>BStringSet</code>: for any string</li>
+</ul>
+
+<h3 id="qualityscalexstringset-for-sequences-with-quality-data"><code>QualityScaleXStringSet</code> for sequences with quality data</h3>
+
+<ul>
+  <li><code>QualityScaledDNAStringSet</code>: for DNA</li>
+  <li><code>QualityScaledRNAStringSet</code>: for RNA</li>
+  <li><code>QualityScaledAAStringSet</code>: for amino acid</li>
+  <li><code>QualityScaledBStringSet</code>: for any string</li>
+</ul>
+
+<h2 id="sequence-import-and-export">Sequence Import and Export}</h2>
+
+<p>Download the following sequences to your current working directory and then import them into R: 
+<a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn">ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn</a></p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dir.create</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in dir.create("data"): 'data' already exists</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn")
+</span><span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn"</span><span class="p">,</span> <span class="s2">"data/AE004437.ffn"</span><span class="p">)</span>
+<span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"data/AE004437.ffn"</span><span class="p">)</span>
+<span class="n">myseq</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
+##     width seq                                                                   names               
+## [1]  1206 ATGACTCGGCGGTCTCGTGTCGGTGCCGGCCTC...GTCGTCGTTGTTCGACGCTGGCGGAACCCATGA gi|12057215|gb|AE...
+## [2]   666 ATGAGCATCATCGAACTCGAAGGCGTGGTCAAA...GTCAACCTCGTCGATGGGGTGTTACACACGTGA gi|12057215|gb|AE...
+## [3]  1110 ATGGCGTGGCGGAACCTCGGGCGGAACCGCGTG...AACGATCCGCCCGTCGAGGCGCTCGGCGAATGA gi|12057215|gb|AE...</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub</span> <span class="o">&lt;-</span> <span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"99.*"</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">myseq</span><span class="p">))]</span>
+<span class="n">length</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 170</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">writeXStringSet</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"./data/AE004437sub.ffn"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">80</span><span class="p">)</span></code></pre></div>
+
+<p>Now inspect exported sequence file <code>AE004437sub.ffn</code> in a text editor</p>
+
+<h2 id="working-with-xstring-containers">Working with <code>XString</code> Containers</h2>
+
+<p>The <code>XString</code> stores the different types of biosequences in dedicated containers</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="s2">"GCATAT-TAC"</span><span class="p">)</span>
+<span class="n">d</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   10-letter "DNAString" instance
+## seq: GCATAT-TAC</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">d</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   4-letter "DNAString" instance
+## seq: GCAT</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">r</span> <span class="o">&lt;-</span> <span class="n">RNAString</span><span class="p">(</span><span class="s2">"GCAUAU-UAC"</span><span class="p">)</span> 
+<span class="n">r</span> <span class="o">&lt;-</span> <span class="n">RNAString</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1"># Converts d to RNAString object
+</span><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">AAString</span><span class="p">(</span><span class="s2">"HCWYHH"</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">&lt;-</span> <span class="n">BString</span><span class="p">(</span><span class="s2">"I store any set of characters. Other XString objects store only the IUPAC characters."</span><span class="p">)</span></code></pre></div>
+
+<h2 id="working-with-xstringset-containers">Working with <code>XStringSet</code> Containers</h2>
+
+<p><code>XStringSet</code> containers allow to store many biosequences in one object:</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCATATTAC"</span><span class="p">,</span> <span class="s2">"AATCGATCC"</span><span class="p">,</span> <span class="s2">"GCATATTAC"</span><span class="p">))</span> 
+<span class="n">names</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"seq1"</span><span class="p">,</span> <span class="s2">"seq2"</span><span class="p">,</span> <span class="s2">"seq3"</span><span class="p">)</span> <span class="c1"># Assigns names
+</span><span class="n">dset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+##     width seq                                                                   names               
+## [1]     9 GCATATTAC                                                             seq1
+## [2]     9 AATCGATCC                                                             seq2</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">width</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">each</span> <span class="n">sequences</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 9 9 9</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">d</span> <span class="o">&lt;-</span> <span class="n">dset</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># The [[ subsetting operator returns a single entry as XString object
+</span><span class="n">dset2</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">dset</span><span class="p">)</span> <span class="c1"># Appends/concatenates two XStringSet objects
+</span><span class="n">dsetchar</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="c1"># Converts XStringSet to named vector 
+</span><span class="n">dsetone</span> <span class="o">&lt;-</span> <span class="n">unlist</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="err">#</span> <span class="n">Collapses</span> <span class="n">many</span> <span class="n">sequences</span> <span class="n">to</span> <span class="n">a</span> <span class="n">single</span> <span class="n">one</span> <span class="n">stored</span> <span class="k">in</span> <span class="n">a</span> <span class="n">DNAString</span> <span class="n">container</span></code></pre></div>
+
+<p>Sequence subsetting by positions:</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">5</span><span class="p">))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
+##     width seq                                                                   names               
+## [1]     4 GCAT                                                                  seq1
+## [2]     7 ATCGATC                                                               seq2
+## [3]     3 ATA                                                                   seq3</code></pre></div>
+
+<h2 id="multiple-alignment-class">Multiple Alignment Class</h2>
+
+<p>The <code>XMultipleAlignment</code> class stores the different types of multiple sequence alignments:</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">origMAlign</span> <span class="o">&lt;-</span> <span class="n">readDNAMultipleAlignment</span><span class="p">(</span><span class="n">filepath</span> <span class="o">=</span> <span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span>
+              <span class="s2">"msx2_mRNA.aln"</span><span class="p">,</span> <span class="n">package</span> <span class="o">=</span> <span class="s2">"Biostrings"</span><span class="p">),</span> <span class="n">format</span> <span class="o">=</span> <span class="s2">"clustal"</span><span class="p">)</span>
+<span class="n">origMAlign</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## DNAMultipleAlignment with 8 rows and 2343 columns
+##      aln                                                                        names               
+## [1] -----TCCCGTCTCCGCAGCAAAAAAGTTTGAGTCG...TTGTCCAAACTCACAATTAAAAAAAAAAAAAAAAA gi|84452153|ref|N...
+## [2] ------------------------------------...----------------------------------- gi|208431713|ref|...
+## [3] ------------------------------------...----------------------------------- gi|118601823|ref|...
+## [4] ----------------------AAAAGTTGGAGTCT...----------------------------------- gi|114326503|ref|...
+## [5] ------------------------------------...----------------------------------- gi|119220589|ref|...
+## [6] ------------------------------------...----------------------------------- gi|148540149|ref|...
+## [7] --------------CGGCTCCGCAGCGCCTCACTCG...----------------------------------- gi|45383056|ref|N...
+## [8] GGGGGAGACTTCAGAAGTTGTTGTCCTCTCCGCTGA...----------------------------------- gi|213515133|ref|...</code></pre></div>
+
+<h2 id="basic-sequence-manipulations">Basic Sequence Manipulations</h2>
+
+<h3 id="reversed--complement">Reversed &amp; Complement</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">randset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">rand</span><span class="p">)</span>
+<span class="n">complement</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+##     width seq
+## [1]    10 TCTAGATCGC
+## [2]    16 ATTGTAGCCTAAGATT</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">reverse</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+##     width seq
+## [1]    10 GCGATCTAGA
+## [2]    16 AATCTTAGGCTACAAT</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">reverseComplement</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+##     width seq
+## [1]    10 CGCTAGATCT
+## [2]    16 TTAGAATCCGATGTTA</code></pre></div>
+
+<h2 id="translate-dna-into-protein">Translate DNA into Protein</h2>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">translate</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[1]]':
+## last base was ignored</code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[2]]':
+## last base was ignored</code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A AAStringSet instance of length 2
+##     width seq
+## [1]     3 RSS
+## [2]     5 *HRIL</code></pre></div>
+
+<h2 id="pattern-matching">Pattern Matching</h2>
+
+<h3 id="pattern-matching-with-mismatches">Pattern matching with mismatches</h3>
+
+<p>Find pattern matches in reference</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq1</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"./data/AE004437.ffn"</span><span class="p">)</span> 
+<span class="n">mypos</span> <span class="o">&lt;-</span> <span class="n">matchPattern</span><span class="p">(</span><span class="s2">"ATGGTG"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span></code></pre></div>
+
+<p>Count only the corresponding matches</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">countPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 3</code></pre></div>
+
+<p>Count only the matches in many sequences</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vcountPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">,</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] 3 0 5 4 1 2 2 1 4 3 0 0 1 2 0 1 4 0 0 1</code></pre></div>
+
+<p>Results shown in DNAStringSet object</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tmp</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="s2">"ATGGTG"</span><span class="p">),</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">mypos</span><span class="p">))</span></code></pre></div>
+
+<p>Return a consensus  matrix for query and hits.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">consensusMatrix</span><span class="p">(</span><span class="n">tmp</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   [,1] [,2] [,3] [,4] [,5] [,6]
+## A    3    0    0    0    0    0
+## C    1    1    0    0    0    0
+## G    0    0    4    4    1    4
+## T    0    3    0    0    3    0</code></pre></div>
+
+<p>Find all pattern matches in reference</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myvpos</span> <span class="o">&lt;-</span> <span class="n">vmatchPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">,</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> 
+<span class="n">myvpos</span> <span class="err">#</span> <span class="n">The</span> <span class="n">results</span> <span class="n">are</span> <span class="n">stored</span> <span class="n">as</span> <span class="n">MIndex</span> <span class="n">object.</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## MIndex object of length 2058
+## $`gi|12057215|gb|AE004437.1|:248-1453 Halobacterium sp. NRC-1, complete genome`
+## IRanges of length 3
+##     start end width
+## [1]     1   6     6
+## [2]   383 388     6
+## [3]   928 933     6
+## 
+## $`gi|12057215|gb|AE004437.1|:1450-2115 Halobacterium sp. NRC-1, complete genome`
+## IRanges of length 0
+## 
+## $`gi|12057215|gb|AE004437.1|:2145-3254 Halobacterium sp. NRC-1, complete genome`
+## IRanges of length 5
+##     start end width
+## [1]     1   6     6
+## [2]    94  99     6
+## [3]   221 226     6
+## [4]   535 540     6
+## [5]   601 606     6
+## 
+## ...
+## &lt;2055 more elements&gt;</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="m">1</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="m">1</span><span class="p">]]))</span> <span class="err">#</span> <span class="n">Retrieves</span> <span class="n">the</span> <span class="n">result</span> <span class="k">for</span> <span class="n">single</span> <span class="n">entry</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Views on a 1206-letter DNAString subject
+## subject: ATGACTCGGCGGTCTCGTGTCGGTGCCGGCCTCGCAGCCATTGT...TTGCGATCGTCGTCGTCGTTGTTCGACGCTGGCGGAACCCATGA
+## views:
+##     start end width
+## [1]     1   6     6 [ATGACT]
+## [2]   383 388     6 [ATGGCA]
+## [3]   928 933     6 [ATGACT]</code></pre></div>
+
+<p>Return all matches</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sapply</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">myseq1</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+       <span class="n">as.character</span><span class="p">(</span><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="n">x</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]))))</span></code></pre></div>
+
+<h3 id="pattern-matching-with-regular-expression-support">Pattern matching with regular expression support</h3>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"ATGCAGACATAGTG"</span><span class="p">,</span> <span class="s2">"ATGAACATAGATCC"</span><span class="p">,</span> <span class="s2">"GTACAGATCAC"</span><span class="p">))</span>
+<span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">,</span> <span class="n">perl</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)]</span> <span class="err">#</span> <span class="n">String</span> <span class="n">searching</span> <span class="n">with</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">support</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+##     width seq
+## [1]    14 ATGCAGACATAGTG
+## [2]    14 ATGAACATAGATCC</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos1</span> <span class="o">&lt;-</span> <span class="n">regexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> <span class="c1"># Searches 'myseq' for first match of pattern "AT"
+</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">pos1</span><span class="p">);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">position</span> <span class="n">information</span> <span class="n">of</span> <span class="n">matches</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 1 7</code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2 2</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos2</span> <span class="o">&lt;-</span> <span class="n">gregexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> <span class="c1"># Searches 'myseq' for all matches of pattern "AT"
+</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Match</span> <span class="n">positions</span> <span class="k">in</span> <span class="n">first</span> <span class="n">sequence</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 9</code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2</code></pre></div>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">gsub</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="s2">"NNN"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">))</span> <span class="err">#</span> <span class="n">String</span> <span class="n">substitution</span> <span class="n">with</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">support</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
+##     width seq
+## [1]    14 NNNCAGACATAGTG
+## [2]    14 NNNAACATAGATCC
+## [3]    11 GTACAGATCAC</code></pre></div>
+
+<h2 id="pwm-viewing-and-searching">PWM Viewing and Searching</h2>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pwm</span> <span class="o">&lt;-</span> <span class="n">PWM</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCT"</span><span class="p">,</span> <span class="s2">"GGT"</span><span class="p">,</span> <span class="s2">"GCA"</span><span class="p">)))</span> 
+<span class="n">library</span><span class="p">(</span><span class="n">seqLogo</span><span class="p">);</span> <span class="n">seqLogo</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">pwm</span><span class="p">)</span> <span class="o">*</span> <span class="m">1</span><span class="o">/</span><span class="n">colSums</span><span class="p">(</span><span class="n">pwm</span><span class="p">)))</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Loading required package: grid</code></pre></div>
+
+<p><img src="Rsequences_files/pwm_logo-1.png" alt="" /></p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">chr</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="s2">"AAAGCTAAAGGTAAAGCAAAA"</span><span class="p">)</span> 
+<span class="n">matchPWM</span><span class="p">(</span><span class="n">pwm</span><span class="p">,</span> <span class="n">chr</span><span class="p">,</span> <span class="n">min.score</span><span class="o">=</span><span class="m">0.9</span><span class="p">)</span> <span class="err">#</span> <span class="n">Searches</span> <span class="n">sequence</span> <span class="k">for</span> <span class="n">PWM</span> <span class="n">matches</span> <span class="n">with</span> <span class="n">score</span> <span class="n">better</span> <span class="n">than</span> <span class="n">min.score.</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Views on a 21-letter DNAString subject
+## subject: AAAGCTAAAGGTAAAGCAAAA
+## views:
+##     start end width
+## [1]     4   6     3 [GCT]
+## [2]    10  12     3 [GGT]
+## [3]    16  18     3 [GCA]</code></pre></div>
+
+
+
+<div class="tags">
+    
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 UC Riverside. All rights reserved. <br />
+<p>Page last updated:</span> Wed Apr 20 19:57:09 2016<br/> Site last generated: Apr 20, 2016 <br />
+<p><img src="../common_images/company_logo.png/></p>
+                </div>
+            </div>
+</footer>
+
+            </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+</body>
+
+
+</html>
+

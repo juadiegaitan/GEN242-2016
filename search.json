@@ -71,6 +71,39 @@
 
 
 {
+"title": "Sequence Analysis",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/10_Rsequences/Rsequences.Rmd",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sequence Analysis",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/10_Rsequences/Rsequences.knit.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sequence Analysis",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/10_Rsequences/Rsequences.utf8.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "Introduction",
 "tags": "",
 "keywords": "",
@@ -481,6 +514,215 @@
 
 
 {
+"title": "Sequence Analysis",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Strings in R Base",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sequences in Bioconductor",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "NGS Sequences",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_04.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Range Operations",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_05.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Coerce `GRanges` to `RangedData` object and vice versa",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_06.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Transcript Ranges",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_07.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Homework 6",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_08.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Session Info",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sequence Analysis",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_1.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_10.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Strings in R Base",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_2.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sequences in Bioconductor",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_3.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "NGS Sequences",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_4.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Range Operations",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_5.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Transcript Ranges",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_6.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Homework 6",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_7.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Session Info",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_8.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rsequences_9.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
@@ -506,7 +748,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -517,7 +759,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
+"url": "../mydoc/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -572,7 +814,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -583,7 +825,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Internal/mydoc_internal.html",
+"url": "../mydoc/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -748,7 +990,7 @@
 "title": "Sequence Alignments and Similarity Searching",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_06.html",
+"url": "../vignettes/04_Slides/mydoc_slides_06.html",
 "summary": ""
 },
 
@@ -759,7 +1001,7 @@
 "title": "Sequence Alignments and Similarity Searching",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_06.html",
+"url": "../mydoc/mydoc_slides_06.html",
 "summary": ""
 },
 
@@ -792,7 +1034,7 @@
 "title": "Multiple Sequence Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_08.html",
+"url": "../vignettes/04_Slides/mydoc_slides_08.html",
 "summary": ""
 },
 
@@ -803,7 +1045,7 @@
 "title": "Multiple Sequence Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_08.html",
+"url": "../mydoc/mydoc_slides_08.html",
 "summary": ""
 },
 
@@ -826,6 +1068,28 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sequence Analysis with R and Bioconductor",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_10.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sequence Analysis with R and Bioconductor",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_10.html",
 "summary": ""
 },
 
@@ -869,7 +1133,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_tutorial_01.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -880,18 +1144,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Introduction to Biocluster",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_tutorial_02.html",
+"url": "../mydoc/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -903,6 +1156,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to Biocluster",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_tutorial_02.html",
 "summary": ""
 },
 
