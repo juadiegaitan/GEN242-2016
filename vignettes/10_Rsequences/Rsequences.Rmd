@@ -1545,7 +1545,7 @@ Write a demultiplexing function that accepts any number of
 barcodes and splits a FASTQ file into as many subfiles as there are barcodes.
 At the same time the function should remove low quality tails from the reads.
 The following function accomplishes the first step. Expand this function so
-that it performs the second step as well.  \end{itemize} 
+that it performs the second step as well. 
 
 ```{r hw6a_demultiplex, eval=FALSE}
 demultiplex <- function(x, barcode, nreads) {
@@ -1622,7 +1622,7 @@ sessionInfo()
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
- Site last generated: Apr 20, 2016 <br />
+ Site last generated: Apr 21, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
