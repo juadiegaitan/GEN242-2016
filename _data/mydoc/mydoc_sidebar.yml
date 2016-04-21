@@ -220,6 +220,14 @@ entries:
       version: all
       output: web
       
+    - title: HW6 - Sequence Analysis 
+      url: /mydoc/mydoc_Rsequences_7.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+      
   - title: GitHub
     audience: writers, designers
     platform: all
@@ -476,7 +484,7 @@ entries:
       version: all
       output: web
 
-  - title: Sequence
+  - title: Sequence Analysis
     audience: writers, designers
     platform: all
     product: all
