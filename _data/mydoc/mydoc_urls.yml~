@@ -58,6 +58,11 @@ mydoc_slides_08:
   url: "../mydoc_slides_08.html"
   link: "<a href='../mydoc_slides_08.html'>Multiple Alignments</a>"
 
+mydoc_slides_09:
+  title: "Short Read Alignments"
+  url: "../mydoc_slides_09.html"
+  link: "<a href='../mydoc_slides_09.html'>Short Read Alignments</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
@@ -92,81 +97,6 @@ mydoc_project_01:
   title: "Projects"
   url: "../mydoc_project_01.html"
   link: "<a href='../mydoc_project_01.html'>Slides</a>"
-
-mydoc_Rbasics_01:
-  title: "Overview"
-  url: "../mydoc/mydoc_Rbasics_01.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_01.html'>Overview</a>"
-
-mydoc_Rbasics_02:
-  title: "R Package Repositories"
-  url: "../mydoc/mydoc_Rbasics_02.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_02.html'>R Package Repositories</a>"
-
-mydoc_Rbasics_03:
-  title: "Installation of R and Add-on Packages"
-  url: "../mydoc/mydoc_Rbasics_03.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_03.html'>Installation of R and Add-on Packages</a>"
-
-mydoc_Rbasics_04:
-  title: "Getting Around"
-  url: "../mydoc/mydoc_Rbasics_04.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_04.html'>Getting Around</a>"
-
-mydoc_Rbasics_05:
-  title: "Basic Syntax"
-  url: "../mydoc/mydoc_Rbasics_05.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_05.html'>Basic Syntax</a>"
-
-mydoc_Rbasics_06:
-  title: "Data Types "
-  url: "../mydoc/mydoc_Rbasics_06.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_06.html'>Data Types </a>"
-
-mydoc_Rbasics_07:
-  title: "Data objects"
-  url: "../mydoc/mydoc_Rbasics_07.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_07.html'>Data objects</a>"
-
-mydoc_Rbasics_08:
-  title: "Important Utilities"
-  url: "../mydoc/mydoc_Rbasics_08.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_08.html'>Important Utilities</a>"
-
-mydoc_Rbasics_09:
-  title: "Operators and Calculations"
-  url: "../mydoc/mydoc_Rbasics_09.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_09.html'>Operators and Calculations</a>"
-
-mydoc_Rbasics_10:
-  title: "Reading and Writing External Data"
-  url: "../mydoc/mydoc_Rbasics_10.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_10.html'>Reading and Writing External Data</a>"
-
-mydoc_Rbasics_11:
-  title: "Useful R Functions"
-  url: "../mydoc/mydoc_Rbasics_11.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>Useful R Functions</a>"
-
-mydoc_Rbasics_12:
-  title: "Graphics in R"
-  url: "../mydoc/mydoc_Rbasics_12.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_12.html'>Graphics in R</a>"
-
-mydoc_Rbasics_13:
-  title: "Analysis Routine"
-  url: "../mydoc/mydoc_Rbasics_13.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_13.html'>Analysis Routine</a>"
-
-mydoc_Rbasics_14:
-  title: "Session Info"
-  url: "../mydoc/mydoc_Rbasics_14.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_14.html'>Session Info</a>"
-
-mydoc_Rbasics_15:
-  title: "References"
-  url: "../mydoc/mydoc_Rbasics_15.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_15.html'>References</a>"
 
 mydoc_Programming_in_R_1:
   title: "Overview"
@@ -267,4 +197,174 @@ mydoc_Programming_in_R_11:
   title: "References"
   url: "../mydoc/mydoc_Programming_in_R_11.html"
   link: "<a href='../mydoc/mydoc_Programming_in_R_11.html'>References</a>"
+
+mydoc_Rbasics_01:
+  title: "Overview"
+  url: "../mydoc/mydoc_Rbasics_01.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_01.html'>Overview</a>"
+
+mydoc_Rbasics_02:
+  title: "R Package Repositories"
+  url: "../mydoc/mydoc_Rbasics_02.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_02.html'>R Package Repositories</a>"
+
+mydoc_Rbasics_03:
+  title: "Installation of R and Add-on Packages"
+  url: "../mydoc/mydoc_Rbasics_03.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_03.html'>Installation of R and Add-on Packages</a>"
+
+mydoc_Rbasics_04:
+  title: "Getting Around"
+  url: "../mydoc/mydoc_Rbasics_04.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_04.html'>Getting Around</a>"
+
+mydoc_Rbasics_05:
+  title: "Basic Syntax"
+  url: "../mydoc/mydoc_Rbasics_05.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_05.html'>Basic Syntax</a>"
+
+mydoc_Rbasics_06:
+  title: "Data Types "
+  url: "../mydoc/mydoc_Rbasics_06.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_06.html'>Data Types </a>"
+
+mydoc_Rbasics_07:
+  title: "Data objects"
+  url: "../mydoc/mydoc_Rbasics_07.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_07.html'>Data objects</a>"
+
+mydoc_Rbasics_08:
+  title: "Important Utilities"
+  url: "../mydoc/mydoc_Rbasics_08.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_08.html'>Important Utilities</a>"
+
+mydoc_Rbasics_09:
+  title: "Operators and Calculations"
+  url: "../mydoc/mydoc_Rbasics_09.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_09.html'>Operators and Calculations</a>"
+
+mydoc_Rbasics_10:
+  title: "Reading and Writing External Data"
+  url: "../mydoc/mydoc_Rbasics_10.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_10.html'>Reading and Writing External Data</a>"
+
+mydoc_Rbasics_11:
+  title: "Useful R Functions"
+  url: "../mydoc/mydoc_Rbasics_11.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>Useful R Functions</a>"
+
+mydoc_Rbasics_12:
+  title: "Graphics in R"
+  url: "../mydoc/mydoc_Rbasics_12.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_12.html'>Graphics in R</a>"
+
+mydoc_Rbasics_13:
+  title: "Analysis Routine"
+  url: "../mydoc/mydoc_Rbasics_13.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_13.html'>Analysis Routine</a>"
+
+mydoc_Rbasics_14:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Rbasics_14.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_14.html'>Session Info</a>"
+
+mydoc_Rbasics_15:
+  title: "References"
+  url: "../mydoc/mydoc_Rbasics_15.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_15.html'>References</a>"
+
+mydoc_Rsequences_01:
+  title: "Overview"
+  url: "../mydoc/mydoc_Rsequences_01.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_01.html'>Overview</a>"
+
+mydoc_Rsequences_02:
+  title: "Strings in R Base"
+  url: "../mydoc/mydoc_Rsequences_02.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_02.html'>Strings in R Base</a>"
+
+mydoc_Rsequences_03:
+  title: "Sequences in Bioconductor"
+  url: "../mydoc/mydoc_Rsequences_03.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_03.html'>Sequences in Bioconductor</a>"
+
+mydoc_Rsequences_04:
+  title: "NGS Sequences"
+  url: "../mydoc/mydoc_Rsequences_04.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_04.html'>NGS Sequences</a>"
+
+mydoc_Rsequences_05:
+  title: "Range Operations  "
+  url: "../mydoc/mydoc_Rsequences_05.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_05.html'>Range Operations  </a>"
+
+mydoc_Rsequences_06:
+  title: "Coerce `GRanges` to `RangedData` object and vice versa"
+  url: "../mydoc/mydoc_Rsequences_06.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_06.html'>Coerce `GRanges` to `RangedData` object and vice versa</a>"
+
+mydoc_Rsequences_07:
+  title: "Transcript Ranges"
+  url: "../mydoc/mydoc_Rsequences_07.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_07.html'>Transcript Ranges</a>"
+
+mydoc_Rsequences_08:
+  title: "Homework 6"
+  url: "../mydoc/mydoc_Rsequences_08.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_08.html'>Homework 6</a>"
+
+mydoc_Rsequences_09:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Rsequences_09.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_09.html'>Session Info</a>"
+
+mydoc_Rsequences_10:
+  title: "References"
+  url: "../mydoc/mydoc_Rsequences_10.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_10.html'>References</a>"
+
+mydoc_Rsequences_1:
+  title: "Overview"
+  url: "../mydoc/mydoc_Rsequences_1.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_1.html'>Overview</a>"
+
+mydoc_Rsequences_2:
+  title: "Strings in R Base"
+  url: "../mydoc/mydoc_Rsequences_2.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_2.html'>Strings in R Base</a>"
+
+mydoc_Rsequences_3:
+  title: "Sequences in Bioconductor"
+  url: "../mydoc/mydoc_Rsequences_3.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_3.html'>Sequences in Bioconductor</a>"
+
+mydoc_Rsequences_4:
+  title: "NGS Sequences"
+  url: "../mydoc/mydoc_Rsequences_4.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_4.html'>NGS Sequences</a>"
+
+mydoc_Rsequences_5:
+  title: "Range Operations  "
+  url: "../mydoc/mydoc_Rsequences_5.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_5.html'>Range Operations  </a>"
+
+mydoc_Rsequences_6:
+  title: "Transcript Ranges"
+  url: "../mydoc/mydoc_Rsequences_6.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_6.html'>Transcript Ranges</a>"
+
+mydoc_Rsequences_7:
+  title: "Homework 6"
+  url: "../mydoc/mydoc_Rsequences_7.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_7.html'>Homework 6</a>"
+
+mydoc_Rsequences_8:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Rsequences_8.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_8.html'>Session Info</a>"
+
+mydoc_Rsequences_9:
+  title: "References"
+  url: "../mydoc/mydoc_Rsequences_9.html"
+  link: "<a href='../mydoc/mydoc_Rsequences_9.html'>References</a>"
 
