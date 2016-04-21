@@ -1,5 +1,5 @@
 ---
-title: Sequence Analysis 
+title: NGS Analysis Basics
 author: "Author: Thomas Girke"
 date: "Last update: 21 April, 2016" 
 output:
