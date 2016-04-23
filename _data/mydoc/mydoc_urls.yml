@@ -148,61 +148,6 @@ mydoc_Programming_in_R_9:
   url: "../mydoc/mydoc_Programming_in_R_9.html"
   link: "<a href='../mydoc/mydoc_Programming_in_R_9.html'>References</a>"
 
-mydoc_Programming_in_R_01:
-  title: "Overview"
-  url: "../mydoc/mydoc_Programming_in_R_01.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_01.html'>Overview</a>"
-
-mydoc_Programming_in_R_02:
-  title: "Control Structures"
-  url: "../mydoc/mydoc_Programming_in_R_02.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_02.html'>Control Structures</a>"
-
-mydoc_Programming_in_R_03:
-  title: "Loops"
-  url: "../mydoc/mydoc_Programming_in_R_03.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_03.html'>Loops</a>"
-
-mydoc_Programming_in_R_04:
-  title: "Functions"
-  url: "../mydoc/mydoc_Programming_in_R_04.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_04.html'>Functions</a>"
-
-mydoc_Programming_in_R_05:
-  title: "Useful Utilities"
-  url: "../mydoc/mydoc_Programming_in_R_05.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_05.html'>Useful Utilities</a>"
-
-mydoc_Programming_in_R_06:
-  title: "Running R Scripts"
-  url: "../mydoc/mydoc_Programming_in_R_06.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_06.html'>Running R Scripts</a>"
-
-mydoc_Programming_in_R_07:
-  title: "Building R Packages"
-  url: "../mydoc/mydoc_Programming_in_R_07.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_07.html'>Building R Packages</a>"
-
-mydoc_Programming_in_R_08:
-  title: "Programming Exercises"
-  url: "../mydoc/mydoc_Programming_in_R_08.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_08.html'>Programming Exercises</a>"
-
-mydoc_Programming_in_R_09:
-  title: "Homework 5"
-  url: "../mydoc/mydoc_Programming_in_R_09.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_09.html'>Homework 5</a>"
-
-mydoc_Programming_in_R_10:
-  title: "Session Info"
-  url: "../mydoc/mydoc_Programming_in_R_10.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_10.html'>Session Info</a>"
-
-mydoc_Programming_in_R_11:
-  title: "References"
-  url: "../mydoc/mydoc_Programming_in_R_11.html"
-  link: "<a href='../mydoc/mydoc_Programming_in_R_11.html'>References</a>"
-
 mydoc_Rbasics_01:
   title: "Overview"
   url: "../mydoc/mydoc_Rbasics_01.html"
@@ -327,4 +272,59 @@ mydoc_Rsequences_10:
   title: "References"
   url: "../mydoc/mydoc_Rsequences_10.html"
   link: "<a href='../mydoc/mydoc_Rsequences_10.html'>References</a>"
+
+mydoc_Programming_in_R_01:
+  title: "Overview"
+  url: "../mydoc/mydoc_Programming_in_R_01.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_01.html'>Overview</a>"
+
+mydoc_Programming_in_R_02:
+  title: "Control Structures"
+  url: "../mydoc/mydoc_Programming_in_R_02.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_02.html'>Control Structures</a>"
+
+mydoc_Programming_in_R_03:
+  title: "Loops"
+  url: "../mydoc/mydoc_Programming_in_R_03.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_03.html'>Loops</a>"
+
+mydoc_Programming_in_R_04:
+  title: "Functions"
+  url: "../mydoc/mydoc_Programming_in_R_04.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_04.html'>Functions</a>"
+
+mydoc_Programming_in_R_05:
+  title: "Useful Utilities"
+  url: "../mydoc/mydoc_Programming_in_R_05.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_05.html'>Useful Utilities</a>"
+
+mydoc_Programming_in_R_06:
+  title: "Running R Scripts"
+  url: "../mydoc/mydoc_Programming_in_R_06.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_06.html'>Running R Scripts</a>"
+
+mydoc_Programming_in_R_07:
+  title: "Building R Packages"
+  url: "../mydoc/mydoc_Programming_in_R_07.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_07.html'>Building R Packages</a>"
+
+mydoc_Programming_in_R_08:
+  title: "Programming Exercises"
+  url: "../mydoc/mydoc_Programming_in_R_08.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_08.html'>Programming Exercises</a>"
+
+mydoc_Programming_in_R_09:
+  title: "Homework 5"
+  url: "../mydoc/mydoc_Programming_in_R_09.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_09.html'>Homework 5</a>"
+
+mydoc_Programming_in_R_10:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Programming_in_R_10.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_10.html'>Session Info</a>"
+
+mydoc_Programming_in_R_11:
+  title: "References"
+  url: "../mydoc/mydoc_Programming_in_R_11.html"
+  link: "<a href='../mydoc/mydoc_Programming_in_R_11.html'>References</a>"
 

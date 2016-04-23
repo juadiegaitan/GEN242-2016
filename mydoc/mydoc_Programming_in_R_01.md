@@ -1,11 +1,11 @@
 ---
 title: Programming in R 
 keywords: 
-last_updated: Wed Apr 13 22:25:57 2016
+last_updated: Sat Apr 23 15:51:22 2016
 ---
 Author: Thomas Girke
 
-Last update: 13 April, 2016 
+Last update: 23 April, 2016 
 
 Alternative formats of this vignette:
 [`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/09_Programming_in_R/Programming_in_R.html),

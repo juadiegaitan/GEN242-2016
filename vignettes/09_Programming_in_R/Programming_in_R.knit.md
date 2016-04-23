@@ -1,7 +1,7 @@
 ---
 title: "Programming in R" 
 author: "Author: Thomas Girke"
-date: "Last update: 13 April, 2016" 
+date: "Last update: 23 April, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -1056,6 +1056,10 @@ Submit the 3 functions in one well structured and annotated R script to the inst
 ## Due date
 
 This homework is due on Thu, April 21th at 6:00 PM.
+
+## Homework Solutions
+
+See [here](https://drive.google.com/file/d/0B-lLYVUOliJFWlBhb2xNOWdfS0U/view?usp=sharing)
 
 
 # Session Info

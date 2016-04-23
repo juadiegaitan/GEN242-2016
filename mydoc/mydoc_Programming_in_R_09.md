@@ -1,7 +1,7 @@
 ---
 title: Homework 5
 keywords: 
-last_updated: Wed Apr 13 22:25:57 2016
+last_updated: Sat Apr 23 15:51:22 2016
 ---
 
 ## Reverse and complement of DNA
@@ -106,5 +106,9 @@ Submit the 3 functions in one well structured and annotated R script to the inst
 ## Due date
 
 This homework is due on Thu, April 21th at 6:00 PM.
+
+## Homework Solutions
+
+See [here](https://drive.google.com/file/d/0B-lLYVUOliJFWlBhb2xNOWdfS0U/view?usp=sharing)
 
 

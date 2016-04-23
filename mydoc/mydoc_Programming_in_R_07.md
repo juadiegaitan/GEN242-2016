@@ -1,7 +1,7 @@
 ---
 title: Building R Packages
 keywords: 
-last_updated: Wed Apr 13 22:25:57 2016
+last_updated: Sat Apr 23 15:51:22 2016
 ---
 
 ## Short Overview of Package Building Process
