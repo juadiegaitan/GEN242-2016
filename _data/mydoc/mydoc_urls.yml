@@ -68,6 +68,11 @@ mydoc_slides_10:
   url: "../mydoc_slides_10.html"
   link: "<a href='../mydoc_slides_10.html'>Sequence Analysis</a>"
 
+mydoc_slides_11:
+  title: "Gene Expression Analysis"
+  url: "../mydoc_slides_11.html"
+  link: "<a href='../mydoc_slides_11.html'>Gene Expression Analysis</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
