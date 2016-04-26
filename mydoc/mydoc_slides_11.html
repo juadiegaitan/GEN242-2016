@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Loops  | GEN242</title>
+<title>Analysis of Gene Expression Data  | GEN242</title>
 <link rel="stylesheet" type="text/css" href="../css/syntax.css">
 <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
@@ -173,7 +173,7 @@
 <script>
 function SendLinkByMail(href) {
 var subject= "GEN242 feedback";
-var body = "I have some feedback about the Loops page: ";
+var body = "I have some feedback about the Analysis of Gene Expression Data page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:?subject=";
@@ -200,7 +200,7 @@ window.location.href = uri;
                             searchInput: document.getElementById('search-input'),
                             resultsContainer: document.getElementById('results-container'),
                             dataSource: '../search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="Loops">{title}</a></li>',
+                            searchResultTemplate: '<li><a href="{url}" title="Analysis of Gene Expression Data">{title}</a></li>',
                         noResultsText: 'No results found.',
                                 limit: 10,
                                 fuzzy: true,
@@ -916,7 +916,7 @@ window.location.href = uri;
             <div class="col-md-9">
                 
                 <div class="post-header">
-   <h1 class="post-title-main">Loops</h1>
+   <h1 class="post-title-main">Analysis of Gene Expression Data</h1>
 </div>
 
 <div class="post-content">
@@ -951,149 +951,7 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<h2 id="for-loop"><code>for</code> loop</h2>
-
-<p><code>for</code> loops iterate over elements of a looping vector.</p>
-
-<p><strong>Syntax</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">for</span><span class="p">(</span><span class="n">variable</span> <span class="k">in</span> <span class="n">sequence</span><span class="p">)</span> <span class="p">{</span> 
-	<span class="n">statements</span> 
-<span class="p">}</span></code></pre></div>
-
-<p><strong>Example</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydf</span> <span class="o">&lt;-</span> <span class="n">iris</span>
-<span class="n">myve</span> <span class="o">&lt;-</span> <span class="n">NULL</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">mydf</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span> <span class="p">{</span>
-	<span class="n">myve</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">myve</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">mydf</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">])))</span>
-<span class="p">}</span>
-<span class="n">myve</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000</code></pre></div>
-
-<p><strong>Note:</strong> Inject into objecs is much faster than append approach with <code>c</code>, <code>cbind</code>, etc.</p>
-
-<p><strong>Example</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myve</span> <span class="o">&lt;-</span> <span class="n">numeric</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">mydf</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">myve</span><span class="p">))</span> <span class="p">{</span>
-	<span class="n">myve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">mean</span><span class="p">(</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">mydf</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]))</span>
-<span class="p">}</span>
-<span class="n">myve</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000</code></pre></div>
-
-<h3 id="conditional-stop-of-loops">Conditional Stop of Loops</h3>
-
-<p>The <code>stop</code> function can be used to break out of a loop (or a function) when a condition becomes <code>TRUE</code>. In addition, an error message will be printed.</p>
-
-<p><strong>Example</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
-<span class="n">z</span> <span class="o">&lt;-</span> <span class="n">NULL</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">x</span><span class="p">))</span> <span class="p">{</span> 
-	<span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span> 
-		<span class="n">z</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="m">-1</span><span class="p">)</span>  
-	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span> 
-		<span class="n">stop</span><span class="p">(</span><span class="s2">"values need to be &lt; 5"</span><span class="p">)</span> 
-	<span class="p">}</span>
-<span class="p">}</span></code></pre></div>
-
-<h2 id="while-loop"><code>while</code> loop</h2>
-
-<p>Iterates as long as a condition is true.</p>
-
-<p><strong>Syntax</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
-	<span class="n">statements</span>
-<span class="p">}</span></code></pre></div>
-
-<p><strong>Example</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">z</span> <span class="o">&lt;-</span> <span class="m">0</span>
-<span class="k">while</span><span class="p">(</span><span class="n">z</span><span class="o">&lt;</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span> 
-	<span class="n">z</span> <span class="o">&lt;-</span> <span class="n">z</span> <span class="o">+</span> <span class="m">2</span>
-	<span class="n">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  
-<span class="p">}</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2
-## [1] 4
-## [1] 6</code></pre></div>
-
-<h2 id="the-apply-function-family">The <code>apply</code> Function Family</h2>
-
-<h3 id="apply"><code>apply</code></h3>
-
-<p><strong>Syntax</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">apply</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">MARGIN</span><span class="p">,</span> <span class="n">FUN</span><span class="p">,</span> <span class="n">ARGs</span><span class="p">)</span></code></pre></div>
-
-<p><strong>Arguments</strong></p>
-
-<ul>
-  <li><code>X</code>: <code>array</code>, <code>matrix</code> or <code>data.frame</code></li>
-  <li><code>MARGIN</code>: <code>1</code> for rows, <code>2</code> for columns</li>
-  <li><code>FUN</code>: one or more functions</li>
-  <li><code>ARGs</code>: possible arguments for functions</li>
-</ul>
-
-<p><strong>Example</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">apply</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">],</span> <span class="m">1</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##        1        2        3        4        5        6        7        8 
-## 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000</code></pre></div>
-
-<h3 id="tapply"><code>tapply</code></h3>
-
-<p>Applies a function to vector components that are defined by a factor.</p>
-
-<p><strong>Syntax</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tapply</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">FUN</span><span class="p">)</span></code></pre></div>
-
-<p><strong>Example</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1          5.1         3.5          1.4         0.2  setosa
-## 2          4.9         3.0          1.4         0.2  setosa</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tapply</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span> <span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##     setosa versicolor  virginica 
-##      5.006      5.936      6.588</code></pre></div>
-
-<h3 id="sapply-and-lapply"><code>sapply</code> and <code>lapply</code></h3>
-
-<p>Both apply a function to vector or list objects. The <code>lapply</code> function always returns a list object, while <code>sapply</code> returns <code>vector</code> or <code>matrix</code> objects when it is possible.</p>
-
-<p><strong>Examples</strong></p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="m">-3</span><span class="o">:</span><span class="m">3</span><span class="p">),</span> <span class="n">logic</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">TRUE</span><span class="p">,</span><span class="n">FALSE</span><span class="p">,</span><span class="n">FALSE</span><span class="p">,</span><span class="n">TRUE</span><span class="p">))</span>
-<span class="n">lapply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## $a
-## [1] 5.5
-## 
-## $beta
-## [1] 4.535125
-## 
-## $logic
-## [1] 0.5</code></pre></div>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sapply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##        a     beta    logic 
-## 5.500000 4.535125 0.500000</code></pre></div>
-
-<p>Often used in combination with a function definition:</p>
-
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">lapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span></code></pre></div>
+<iframe src="https://docs.google.com/presentation/d/1rbyvMxmarvKiEWzzJv4aOgkvN_ItysQyimuUZoMhdQI/embed?start=false&amp;loop=false&amp;delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
 
@@ -1111,7 +969,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed Apr 13 16:38:00 2016<br/> Site last generated: Apr 26, 2016 <br />
+<p>Page last updated:</span> 26-Apr-16<br/> Site last generated: Apr 26, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
