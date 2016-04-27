@@ -1,5 +1,5 @@
 ---
-title: systemPipeR NGS workflow Environment" 
+title: Designing and Running NGS Workflows" 
 author: "Author: Thomas Girke (thomas.girke@ucr.edu)"
 date: "Last update: 27 April, 2016" 
 output:

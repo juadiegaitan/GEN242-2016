@@ -588,7 +588,7 @@ entries:
       version: all
       output: web
 
-  - title: NGS Workflows
+  - title: NGS Workflow Overview
     audience: writers, designers
     platform: all
     product: all

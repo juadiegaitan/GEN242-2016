@@ -1,7 +1,7 @@
 ---
-title: systemPipeR NGS workflow Environment 
+title: Designing and Running NGS Workflows 
 keywords: 
-last_updated: Wed Apr 27 12:00:28 2016
+last_updated: Wed Apr 27 13:22:30 2016
 ---
 Author: Thomas Girke (thomas.girke@ucr.edu)
 
@@ -11,7 +11,7 @@ Alternative formats of this tutorial:
 [`.Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/blob/master/vignettes/systemPipeR.html),
 [`.Rmd`](https://raw.githubusercontent.com/tgirke/manuals/master/vignettes/07_systemPipeR/systemPipeR.Rmd),
 [`.R`](https://raw.githubusercontent.com/tgirke/manuals/master/vignettes/07_systemPipeR/systemPipeR.R),
-[`HTML Slides`](https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/master/inst/extdata/slides/systemPipeRslides.html)
+[`HTML Slides`](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/systemPipeRslides.html)
 
 ## Introduction
 
