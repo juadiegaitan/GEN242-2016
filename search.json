@@ -1053,6 +1053,72 @@
 
 
 {
+"title": "systemPipeR NGS workflow Environment",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeR_1.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Getting Started",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeR_2.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Workflow overview",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeR_3.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Workflow templates",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeR_4.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Version information",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeR_5.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeR_6.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
@@ -1101,6 +1167,50 @@
 
 
 
+
+
+
+
+{
+"title": "Designing and Running NGS Workflows&quot;",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/11_Rworkflows/systemPipeR.Rmd",
+"summary": ""
+},
+
+
+
+
+{
+"title": "systemPipeR NGS workflow Environment&quot;",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/11_Rworkflows/systemPipeR.knit.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "systemPipeR NGS workflow Environment&quot;",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/11_Rworkflows/systemPipeR.utf8.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "NGS Workflows with `systemPipeR`",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_12/systemPipeRslides.Rmd",
+"summary": ""
+},
 
 
 
