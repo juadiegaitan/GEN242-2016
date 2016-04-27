@@ -1,5 +1,5 @@
 ---
-title: Creating and Running NGS Workflows
+title: Introduction to NGS Workflows
 last_updated: 28-Apr-16
 ---
 
