@@ -580,7 +580,7 @@ entries:
       version: all
       output: web
 
-  - title: systemPipeR
+  - title: NGS Workflows
     audience: writers, designers
     platform: all
     product: all
