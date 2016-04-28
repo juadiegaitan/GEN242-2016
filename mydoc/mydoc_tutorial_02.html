@@ -1414,14 +1414,14 @@ information on this topic is available in the biocluster manual <a href="http://
   </li>
 </ul>
 
-<h3 id="queuing-system-qsub">Queuing System: <code>qsub</code></h3>
+<h3 id="job-submission-with-qsub">Job submission with <code>qsub</code></h3>
 
-<p>Basic basic job submission with qsub</p>
+<p>Basic basic job submission with <code>qsub</code></p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> ’command_args’ | qsub
 qsub script_name.sh</code></pre></div>
 
-<p>Sample submission script, here called script_name.sh to run my_script.R</p>
+<p>Sample submission script, here called <code>script_name.sh</code> to run <code>my_script.R</code></p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#!/bin/bash</span>
 <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
@@ -1447,6 +1447,38 @@ Rscript my_script.R</code></pre></div>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">SCRIPTNAME.sh.oJOBID or STDIN.oJOBID
 SCRIPTNAME.sh.eJOBID or STDIN.eJOBID</code></pre></div>
+
+<h3 id="monitoring-jobs-with-qstat">Monitoring jobs with <code>qstat</code></h3>
+
+<p>List all jobs in queue</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qstat</code></pre></div>
+
+<p>List jobs of a specific user</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qstat -u &lt;user&gt;</code></pre></div>
+
+<p>Print more detailed information about jobs</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qstat -tf1</code></pre></div>
+
+<p>Custom command to summarize cluster activity</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qstatMonitor</code></pre></div>
+
+<h3 id="deleting-and-altering-jobs">Deleting and altering jobs</h3>
+
+<p>Delete a single job</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qdel &lt;JOBID&gt; <span class="c"># Delete single job</span></code></pre></div>
+
+<p>Delete all jobs of a user</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qselect -u &lt;user&gt; | xargs qdel <span class="c"># All jobs of a user</span></code></pre></div>
+
+<p>Altering jobs with <code>qalter</code> (here walltime)</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qalter -l <span class="nv">walltime</span><span class="o">=</span>8:00 &lt;JOBID&gt;</code></pre></div>
 
 <h2 id="text-editors">Text editors</h2>
 
