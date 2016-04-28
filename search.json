@@ -1075,6 +1075,116 @@
 
 
 {
+"title": "RNA-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sample definitions and environment settings",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Read preprocessing",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Alignments",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_04.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Read quantification per annotation range",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_05.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Analysis of differentially expressed genes with edgeR",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_06.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Clustering and heat maps",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_07.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Version Information",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_08.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Funding",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_10.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "Designing and Running NGS Workflows",
 "tags": "",
 "keywords": "",
@@ -1227,10 +1337,54 @@
 
 
 {
+"title": "RNA-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/12_RNAseqWorkflow/systemPipeRNAseq.Rmd",
+"summary": ""
+},
+
+
+
+
+{
+"title": "RNA-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/12_RNAseqWorkflow/systemPipeRNAseq.knit.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "RNA-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/12_RNAseqWorkflow/systemPipeRNAseq.utf8.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "NGS Workflows with `systemPipeR`",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_12/systemPipeRslides.Rmd",
+"summary": ""
+},
+
+
+
+
+{
+"title": "\VignetteIndexEntry{RNA-Seq Workflow Template}",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/12_RNAseqWorkflow/systemPipeRslides.text",
 "summary": ""
 },
 
