@@ -338,36 +338,6 @@ mydoc_Programming_in_R_11:
   url: "../mydoc/mydoc_Programming_in_R_11.html"
   link: "<a href='../mydoc/mydoc_Programming_in_R_11.html'>References</a>"
 
-mydoc_systemPipeR_1:
-  title: "Introduction"
-  url: "../mydoc/mydoc_systemPipeR_1.html"
-  link: "<a href='../mydoc/mydoc_systemPipeR_1.html'>Introduction</a>"
-
-mydoc_systemPipeR_2:
-  title: "Getting Started"
-  url: "../mydoc/mydoc_systemPipeR_2.html"
-  link: "<a href='../mydoc/mydoc_systemPipeR_2.html'>Getting Started</a>"
-
-mydoc_systemPipeR_3:
-  title: "Workflow overview"
-  url: "../mydoc/mydoc_systemPipeR_3.html"
-  link: "<a href='../mydoc/mydoc_systemPipeR_3.html'>Workflow overview</a>"
-
-mydoc_systemPipeR_4:
-  title: "Workflow templates"
-  url: "../mydoc/mydoc_systemPipeR_4.html"
-  link: "<a href='../mydoc/mydoc_systemPipeR_4.html'>Workflow templates</a>"
-
-mydoc_systemPipeR_5:
-  title: "Version information"
-  url: "../mydoc/mydoc_systemPipeR_5.html"
-  link: "<a href='../mydoc/mydoc_systemPipeR_5.html'>Version information</a>"
-
-mydoc_systemPipeR_6:
-  title: "References"
-  url: "../mydoc/mydoc_systemPipeR_6.html"
-  link: "<a href='../mydoc/mydoc_systemPipeR_6.html'>References</a>"
-
 mydoc_systemPipeRNAseq_01:
   title: "Introduction"
   url: "../mydoc/mydoc_systemPipeRNAseq_01.html"
@@ -417,4 +387,34 @@ mydoc_systemPipeRNAseq_10:
   title: "References"
   url: "../mydoc/mydoc_systemPipeRNAseq_10.html"
   link: "<a href='../mydoc/mydoc_systemPipeRNAseq_10.html'>References</a>"
+
+mydoc_systemPipeR_1:
+  title: "Introduction"
+  url: "../mydoc/mydoc_systemPipeR_1.html"
+  link: "<a href='../mydoc/mydoc_systemPipeR_1.html'>Introduction</a>"
+
+mydoc_systemPipeR_2:
+  title: "Getting Started"
+  url: "../mydoc/mydoc_systemPipeR_2.html"
+  link: "<a href='../mydoc/mydoc_systemPipeR_2.html'>Getting Started</a>"
+
+mydoc_systemPipeR_3:
+  title: "Workflow overview"
+  url: "../mydoc/mydoc_systemPipeR_3.html"
+  link: "<a href='../mydoc/mydoc_systemPipeR_3.html'>Workflow overview</a>"
+
+mydoc_systemPipeR_4:
+  title: "Workflow templates"
+  url: "../mydoc/mydoc_systemPipeR_4.html"
+  link: "<a href='../mydoc/mydoc_systemPipeR_4.html'>Workflow templates</a>"
+
+mydoc_systemPipeR_5:
+  title: "Version information"
+  url: "../mydoc/mydoc_systemPipeR_5.html"
+  link: "<a href='../mydoc/mydoc_systemPipeR_5.html'>Version information</a>"
+
+mydoc_systemPipeR_6:
+  title: "References"
+  url: "../mydoc/mydoc_systemPipeR_6.html"
+  link: "<a href='../mydoc/mydoc_systemPipeR_6.html'>References</a>"
 

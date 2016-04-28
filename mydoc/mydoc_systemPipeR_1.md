@@ -1,7 +1,7 @@
 ---
 title: Designing and Running NGS Workflows 
 keywords: 
-last_updated: Wed Apr 27 13:22:30 2016
+last_updated: Wed Apr 27 22:18:50 2016
 ---
 Author: Thomas Girke (thomas.girke@ucr.edu)
 

@@ -1,5 +1,5 @@
 ---
-title: Designing and Running NGS Workflows" 
+title: Designing and Running NGS Workflows 
 author: "Author: Thomas Girke (thomas.girke@ucr.edu)"
 date: "Last update: 27 April, 2016" 
 output:
@@ -358,7 +358,7 @@ the _`trimLRPatterns`_ function from the _`Biostrings`_ package.
 After the trimming step a new targets file is generated (here
 _`targets_trim.txt`_) containing the paths to the trimmed FASTQ files.
 The new targets file can be used for the next workflow step with an updated
-_`SYSargs`_ instance, \textit{e.g.} running the NGS alignments using the
+_`SYSargs`_ instance, _e.g._ running the NGS alignments using the
 trimmed FASTQ files.
  
 

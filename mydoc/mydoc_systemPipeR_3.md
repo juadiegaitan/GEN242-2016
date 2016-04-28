@@ -1,7 +1,7 @@
 ---
 title: Workflow overview
 keywords: 
-last_updated: Wed Apr 27 13:22:30 2016
+last_updated: Wed Apr 27 22:18:50 2016
 ---
 
 ## Define environment settings and samples
@@ -34,7 +34,7 @@ the _`trimLRPatterns`_ function from the _`Biostrings`_ package.
 After the trimming step a new targets file is generated (here
 _`targets_trim.txt`_) containing the paths to the trimmed FASTQ files.
 The new targets file can be used for the next workflow step with an updated
-_`SYSargs`_ instance, \textit{e.g.} running the NGS alignments using the
+_`SYSargs`_ instance, _e.g._ running the NGS alignments using the
 trimmed FASTQ files.
  
 
