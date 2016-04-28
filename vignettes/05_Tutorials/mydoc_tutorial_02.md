@@ -275,16 +275,16 @@ information on this topic is available in the biocluster manual [here](http://ma
     * Resource Management
     * Job Scheduler
 
-### Queuing System: `qsub`
+### Job submission with `qsub`
 
-Basic basic job submission with qsub
+Basic basic job submission with `qsub`
 
 {% highlight sh %}
 echo ’command_args’ | qsub
 qsub script_name.sh
 {% endhighlight %}
 
-Sample submission script, here called script_name.sh to run my_script.R
+Sample submission script, here called `script_name.sh` to run `my_script.R`
 
 {% highlight sh %}
 #!/bin/bash
@@ -318,7 +318,44 @@ SCRIPTNAME.sh.oJOBID or STDIN.oJOBID
 SCRIPTNAME.sh.eJOBID or STDIN.eJOBID
 {% endhighlight %}
 
+### Monitoring jobs with `qstat`
 
+List all jobs in queue
+{% highlight sh %}
+qstat
+{% endhighlight %}
+
+List jobs of a specific user
+{% highlight sh %}
+qstat -u <user>
+{% endhighlight %}
+
+Print more detailed information about jobs
+{% highlight sh %}
+qstat -tf1
+{% endhighlight %}
+
+Custom command to summarize cluster activity
+{% highlight sh %}
+qstatMonitor
+{% endhighlight %}
+
+### Deleting and altering jobs 
+
+Delete a single job
+{% highlight sh %}
+qdel <JOBID> # Delete single job
+{% endhighlight %}
+
+Delete all jobs of a user
+{% highlight sh %}
+qselect -u <user> | xargs qdel # All jobs of a user
+{% endhighlight %}
+
+Altering jobs with `qalter` (here walltime)
+{% highlight sh %}
+qalter -l walltime=8:00 <JOBID>
+{% endhighlight %}
 
 ## Text editors
 
