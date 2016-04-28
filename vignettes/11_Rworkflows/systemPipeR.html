@@ -11,7 +11,7 @@
 <meta name="author" content="Author: Thomas Girke (thomas.girke@ucr.edu)" />
 
 
-<title>Designing and Running NGS Workflows&quot;</title>
+<title>Designing and Running NGS Workflows</title>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <div id="header">
-<h1 class="title">Designing and Running NGS Workflows&quot;</h1>
+<h1 class="title">Designing and Running NGS Workflows</h1>
 <h4 class="author"><em>Author: Thomas Girke (<a href="mailto:thomas.girke@ucr.edu">thomas.girke@ucr.edu</a>)</em></h4>
 <h4 class="date"><em>Last update: 27 April, 2016</em></h4>
 </div>
@@ -375,7 +375,7 @@ setwd(&quot;rnaseq&quot;)</code></pre>
 </div>
 <div id="read-preprocessing" class="section level2">
 <h2><span class="header-section-number">3.2</span> Read Preprocessing</h2>
-<p>The function <em><code>preprocessReads</code></em> allows to apply predefined or custom read preprocessing functions to all FASTQ files referenced in a <em><code>SYSargs</code></em> container, such as quality filtering or adaptor trimming routines. The paths to the resulting output FASTQ files are stored in the <em><code>outpaths</code></em> slot of the <em><code>SYSargs</code></em> object. Internally, <em><code>preprocessReads</code></em> uses the <em><code>FastqStreamer</code></em> function from the <em><code>ShortRead</code></em> package to stream through large FASTQ files in a memory-efficient manner. The following example performs adaptor trimming with the <em><code>trimLRPatterns</code></em> function from the <em><code>Biostrings</code></em> package. After the trimming step a new targets file is generated (here <em><code>targets_trim.txt</code></em>) containing the paths to the trimmed FASTQ files. The new targets file can be used for the next workflow step with an updated <em><code>SYSargs</code></em> instance,  running the NGS alignments using the trimmed FASTQ files.</p>
+<p>The function <em><code>preprocessReads</code></em> allows to apply predefined or custom read preprocessing functions to all FASTQ files referenced in a <em><code>SYSargs</code></em> container, such as quality filtering or adaptor trimming routines. The paths to the resulting output FASTQ files are stored in the <em><code>outpaths</code></em> slot of the <em><code>SYSargs</code></em> object. Internally, <em><code>preprocessReads</code></em> uses the <em><code>FastqStreamer</code></em> function from the <em><code>ShortRead</code></em> package to stream through large FASTQ files in a memory-efficient manner. The following example performs adaptor trimming with the <em><code>trimLRPatterns</code></em> function from the <em><code>Biostrings</code></em> package. After the trimming step a new targets file is generated (here <em><code>targets_trim.txt</code></em>) containing the paths to the trimmed FASTQ files. The new targets file can be used for the next workflow step with an updated <em><code>SYSargs</code></em> instance, <em>e.g.</em> running the NGS alignments using the trimmed FASTQ files.</p>
 <pre class="r"><code>preprocessReads(args=args, Fct=&quot;trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)&quot;, 
                 batchsize=100000, overwrite=TRUE, compress=TRUE)
 writeTargetsout(x=args, file=&quot;targets_trim.txt&quot;)</code></pre>
