@@ -1243,7 +1243,7 @@ achieved with the <code>BiocParallel</code> package, here using 8 CPU cores.</p>
 <span class="p">(</span><span class="n">align</span> <span class="o">&lt;-</span> <span class="n">readGAlignments</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">]))</span> <span class="c1"># Demonstrates how to read bam file into R
 </span><span class="n">eByg</span> <span class="o">&lt;-</span> <span class="n">exonsBy</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"gene"</span><span class="p">))</span>
 <span class="n">bfl</span> <span class="o">&lt;-</span> <span class="n">BamFileList</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">yieldSize</span><span class="o">=</span><span class="m">50000</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">character</span><span class="p">())</span>
-<span class="n">multicoreParam</span> <span class="o">&lt;-</span> <span class="n">MulticoreParam</span><span class="p">(</span><span class="n">workers</span><span class="o">=</span><span class="m">8</span><span class="p">);</span> <span class="n">register</span><span class="p">(</span><span class="n">multicoreParam</span><span class="p">);</span> <span class="n">registered</span><span class="p">()</span>
+<span class="n">multicoreParam</span> <span class="o">&lt;-</span> <span class="n">MulticoreParam</span><span class="p">(</span><span class="n">workers</span><span class="o">=</span><span class="m">2</span><span class="p">);</span> <span class="n">register</span><span class="p">(</span><span class="n">multicoreParam</span><span class="p">);</span> <span class="n">registered</span><span class="p">()</span>
 <span class="n">counteByg</span> <span class="o">&lt;-</span> <span class="n">bplapply</span><span class="p">(</span><span class="n">bfl</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">summarizeOverlaps</span><span class="p">(</span><span class="n">eByg</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"Union"</span><span class="p">,</span> 
                                                <span class="n">ignore.strand</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> 
                                                <span class="n">inter.feature</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> 
@@ -1305,7 +1305,7 @@ the <code>hclust</code> function and the result is plotted as a dendrogram
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Thu Apr 28 12:14:58 2016<br/> Site last generated: Apr 28, 2016 <br />
+<p>Page last updated:</span> Thu Apr 28 12:28:07 2016<br/> Site last generated: Apr 28, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

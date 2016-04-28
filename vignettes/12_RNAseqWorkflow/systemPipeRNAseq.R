@@ -83,7 +83,7 @@ read.table(system.file("extdata", "alignStats.xls", package="systemPipeR"), head
 ## (align <- readGAlignments(outpaths(args)[1])) # Demonstrates how to read bam file into R
 ## eByg <- exonsBy(txdb, by=c("gene"))
 ## bfl <- BamFileList(outpaths(args), yieldSize=50000, index=character())
-## multicoreParam <- MulticoreParam(workers=8); register(multicoreParam); registered()
+## multicoreParam <- MulticoreParam(workers=2); register(multicoreParam); registered()
 ## counteByg <- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode="Union",
 ##                                                ignore.strand=TRUE,
 ##                                                inter.feature=FALSE,

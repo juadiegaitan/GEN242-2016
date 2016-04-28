@@ -245,7 +245,7 @@ txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
 (align &lt;- readGAlignments(outpaths(args)[1])) # Demonstrates how to read bam file into R
 eByg &lt;- exonsBy(txdb, by=c(&quot;gene&quot;))
 bfl &lt;- BamFileList(outpaths(args), yieldSize=50000, index=character())
-multicoreParam &lt;- MulticoreParam(workers=8); register(multicoreParam); registered()
+multicoreParam &lt;- MulticoreParam(workers=2); register(multicoreParam); registered()
 counteByg &lt;- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode=&quot;Union&quot;, 
                                                ignore.strand=TRUE, 
                                                inter.feature=FALSE, 
