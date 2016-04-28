@@ -368,3 +368,53 @@ mydoc_systemPipeR_6:
   url: "../mydoc/mydoc_systemPipeR_6.html"
   link: "<a href='../mydoc/mydoc_systemPipeR_6.html'>References</a>"
 
+mydoc_systemPipeRNAseq_01:
+  title: "Introduction"
+  url: "../mydoc/mydoc_systemPipeRNAseq_01.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_01.html'>Introduction</a>"
+
+mydoc_systemPipeRNAseq_02:
+  title: "Sample definitions and environment settings"
+  url: "../mydoc/mydoc_systemPipeRNAseq_02.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_02.html'>Sample definitions and environment settings</a>"
+
+mydoc_systemPipeRNAseq_03:
+  title: "Read preprocessing"
+  url: "../mydoc/mydoc_systemPipeRNAseq_03.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_03.html'>Read preprocessing</a>"
+
+mydoc_systemPipeRNAseq_04:
+  title: "Alignments"
+  url: "../mydoc/mydoc_systemPipeRNAseq_04.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_04.html'>Alignments</a>"
+
+mydoc_systemPipeRNAseq_05:
+  title: "Read quantification per annotation range"
+  url: "../mydoc/mydoc_systemPipeRNAseq_05.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_05.html'>Read quantification per annotation range</a>"
+
+mydoc_systemPipeRNAseq_06:
+  title: "Analysis of differentially expressed genes with edgeR "
+  url: "../mydoc/mydoc_systemPipeRNAseq_06.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_06.html'>Analysis of differentially expressed genes with edgeR </a>"
+
+mydoc_systemPipeRNAseq_07:
+  title: "Clustering and heat maps"
+  url: "../mydoc/mydoc_systemPipeRNAseq_07.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_07.html'>Clustering and heat maps</a>"
+
+mydoc_systemPipeRNAseq_08:
+  title: "Version Information"
+  url: "../mydoc/mydoc_systemPipeRNAseq_08.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_08.html'>Version Information</a>"
+
+mydoc_systemPipeRNAseq_09:
+  title: "Funding"
+  url: "../mydoc/mydoc_systemPipeRNAseq_09.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_09.html'>Funding</a>"
+
+mydoc_systemPipeRNAseq_10:
+  title: "References"
+  url: "../mydoc/mydoc_systemPipeRNAseq_10.html"
+  link: "<a href='../mydoc/mydoc_systemPipeRNAseq_10.html'>References</a>"
+
