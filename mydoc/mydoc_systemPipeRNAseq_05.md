@@ -1,7 +1,7 @@
 ---
 title: Read quantification per annotation range
 keywords: 
-last_updated: Thu Apr 28 12:14:58 2016
+last_updated: Thu Apr 28 12:28:07 2016
 ---
 
 ## Read counting with `summarizeOverlaps` in parallel mode using multiple cores
@@ -25,7 +25,7 @@ txdb <- loadDb("./data/tair10.sqlite")
 (align <- readGAlignments(outpaths(args)[1])) # Demonstrates how to read bam file into R
 eByg <- exonsBy(txdb, by=c("gene"))
 bfl <- BamFileList(outpaths(args), yieldSize=50000, index=character())
-multicoreParam <- MulticoreParam(workers=8); register(multicoreParam); registered()
+multicoreParam <- MulticoreParam(workers=2); register(multicoreParam); registered()
 counteByg <- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode="Union", 
                                                ignore.strand=TRUE, 
                                                inter.feature=FALSE, 
