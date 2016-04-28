@@ -1,7 +1,7 @@
 ---
 title: Read quantification per annotation range
 keywords: 
-last_updated: Wed Apr 27 22:14:50 2016
+last_updated: Thu Apr 28 12:14:58 2016
 ---
 
 ## Read counting with `summarizeOverlaps` in parallel mode using multiple cores
@@ -19,7 +19,10 @@ achieved with the `BiocParallel` package, here using 8 CPU cores.
 
 {% highlight r %}
 library("GenomicFeatures"); library(BiocParallel)
+txdb <- makeTxDbFromGFF(file="data/tair10.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
+saveDb(txdb, file="./data/tair10.sqlite")
 txdb <- loadDb("./data/tair10.sqlite")
+(align <- readGAlignments(outpaths(args)[1])) # Demonstrates how to read bam file into R
 eByg <- exonsBy(txdb, by=c("gene"))
 bfl <- BamFileList(outpaths(args), yieldSize=50000, index=character())
 multicoreParam <- MulticoreParam(workers=8); register(multicoreParam); registered()

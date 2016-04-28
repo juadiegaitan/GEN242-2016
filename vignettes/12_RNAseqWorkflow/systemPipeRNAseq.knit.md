@@ -1,7 +1,7 @@
 ---
 title: RNA-Seq Workflow Template 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 27 April, 2016" 
+date: "Last update: 28 April, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -279,7 +279,10 @@ achieved with the `BiocParallel` package, here using 8 CPU cores.
 
 ```r
 library("GenomicFeatures"); library(BiocParallel)
+txdb <- makeTxDbFromGFF(file="data/tair10.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
+saveDb(txdb, file="./data/tair10.sqlite")
 txdb <- loadDb("./data/tair10.sqlite")
+(align <- readGAlignments(outpaths(args)[1])) # Demonstrates how to read bam file into R
 eByg <- exonsBy(txdb, by=c("gene"))
 bfl <- BamFileList(outpaths(args), yieldSize=50000, index=character())
 multicoreParam <- MulticoreParam(workers=8); register(multicoreParam); registered()

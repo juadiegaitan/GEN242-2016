@@ -1,7 +1,7 @@
 ---
 title: Read preprocessing
 keywords: 
-last_updated: Wed Apr 27 22:14:50 2016
+last_updated: Thu Apr 28 12:14:58 2016
 ---
 
 ## Read quality filtering and trimming
