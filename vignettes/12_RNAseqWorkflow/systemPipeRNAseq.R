@@ -77,7 +77,10 @@ read.table(system.file("extdata", "alignStats.xls", package="systemPipeR"), head
 
 ## ----read_counting1, eval=FALSE------------------------------------------
 ## library("GenomicFeatures"); library(BiocParallel)
+## txdb <- makeTxDbFromGFF(file="data/tair10.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
+## saveDb(txdb, file="./data/tair10.sqlite")
 ## txdb <- loadDb("./data/tair10.sqlite")
+## (align <- readGAlignments(outpaths(args)[1])) # Demonstrates how to read bam file into R
 ## eByg <- exonsBy(txdb, by=c("gene"))
 ## bfl <- BamFileList(outpaths(args), yieldSize=50000, index=character())
 ## multicoreParam <- MulticoreParam(workers=8); register(multicoreParam); registered()

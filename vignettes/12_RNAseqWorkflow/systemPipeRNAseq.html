@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="header">
 <h1 class="title">RNA-Seq Workflow Template</h1>
 <h4 class="author"><em>First/last name (<a href="mailto:first.last@ucr.edu">first.last@ucr.edu</a>)</em></h4>
-<h4 class="date"><em>Last update: 27 April, 2016</em></h4>
+<h4 class="date"><em>Last update: 28 April, 2016</em></h4>
 </div>
 
 <h1>Contents</h1>
@@ -239,7 +239,10 @@ write.table(read_statsDF, &quot;results/alignStats.xls&quot;, row.names=FALSE, q
 <h2><span class="header-section-number">5.1</span> Read counting with <code>summarizeOverlaps</code> in parallel mode using multiple cores</h2>
 <p>Reads overlapping with annotation ranges of interest are counted for each sample using the <code>summarizeOverlaps</code> function <span class="citation">(Lawrence et al. 2013)</span>. The read counting is preformed for exonic gene regions in a non-strand-specific manner while ignoring overlaps among different genes. Subsequently, the expression count values are normalized by <em>reads per kp per million mapped reads</em> (RPKM). The raw read count table (<code>countDFeByg.xls</code>) and the correspoding RPKM table (<code>rpkmDFeByg.xls</code>) are written to separate files in the directory of this project. Parallelization is achieved with the <code>BiocParallel</code> package, here using 8 CPU cores.</p>
 <pre class="r"><code>library(&quot;GenomicFeatures&quot;); library(BiocParallel)
+txdb &lt;- makeTxDbFromGFF(file=&quot;data/tair10.gff&quot;, format=&quot;gff&quot;, dataSource=&quot;TAIR&quot;, organism=&quot;Arabidopsis thaliana&quot;)
+saveDb(txdb, file=&quot;./data/tair10.sqlite&quot;)
 txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
+(align &lt;- readGAlignments(outpaths(args)[1])) # Demonstrates how to read bam file into R
 eByg &lt;- exonsBy(txdb, by=c(&quot;gene&quot;))
 bfl &lt;- BamFileList(outpaths(args), yieldSize=50000, index=character())
 multicoreParam &lt;- MulticoreParam(workers=8); register(multicoreParam); registered()

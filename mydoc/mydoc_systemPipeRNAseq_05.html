@@ -961,6 +961,103 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">RNA-Seq</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_02.html">2. Sample definitions and environment settings</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="active"><a href="../mydoc/mydoc_systemPipeRNAseq_05.html">5. Read quantification per annotation range</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_06.html">6. Analysis of differentially expressed genes with edgeR</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_07.html">7. Clustering and heat maps</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_08.html">8. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_09.html">9. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_10.html">10. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">RNA-Seq Workflow</a>
                 <ul>
                     
@@ -1140,8 +1237,11 @@ to separate files in the directory of this project. Parallelization is
 achieved with the <code>BiocParallel</code> package, here using 8 CPU cores.</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"GenomicFeatures"</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">BiocParallel</span><span class="p">)</span>
+<span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">makeTxDbFromGFF</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"data/tair10.gff"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"gff"</span><span class="p">,</span> <span class="n">dataSource</span><span class="o">=</span><span class="s2">"TAIR"</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s2">"Arabidopsis thaliana"</span><span class="p">)</span>
+<span class="n">saveDb</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"./data/tair10.sqlite"</span><span class="p">)</span>
 <span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">loadDb</span><span class="p">(</span><span class="s2">"./data/tair10.sqlite"</span><span class="p">)</span>
-<span class="n">eByg</span> <span class="o">&lt;-</span> <span class="n">exonsBy</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"gene"</span><span class="p">))</span>
+<span class="p">(</span><span class="n">align</span> <span class="o">&lt;-</span> <span class="n">readGAlignments</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">]))</span> <span class="c1"># Demonstrates how to read bam file into R
+</span><span class="n">eByg</span> <span class="o">&lt;-</span> <span class="n">exonsBy</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"gene"</span><span class="p">))</span>
 <span class="n">bfl</span> <span class="o">&lt;-</span> <span class="n">BamFileList</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">yieldSize</span><span class="o">=</span><span class="m">50000</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">character</span><span class="p">())</span>
 <span class="n">multicoreParam</span> <span class="o">&lt;-</span> <span class="n">MulticoreParam</span><span class="p">(</span><span class="n">workers</span><span class="o">=</span><span class="m">8</span><span class="p">);</span> <span class="n">register</span><span class="p">(</span><span class="n">multicoreParam</span><span class="p">);</span> <span class="n">registered</span><span class="p">()</span>
 <span class="n">counteByg</span> <span class="o">&lt;-</span> <span class="n">bplapply</span><span class="p">(</span><span class="n">bfl</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">summarizeOverlaps</span><span class="p">(</span><span class="n">eByg</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"Union"</span><span class="p">,</span> 
@@ -1205,7 +1305,7 @@ the <code>hclust</code> function and the result is plotted as a dendrogram
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed Apr 27 22:14:50 2016<br/> Site last generated: Apr 28, 2016 <br />
+<p>Page last updated:</span> Thu Apr 28 12:14:58 2016<br/> Site last generated: Apr 28, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
