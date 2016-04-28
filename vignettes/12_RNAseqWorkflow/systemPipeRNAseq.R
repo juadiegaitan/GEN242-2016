@@ -35,15 +35,21 @@ targetspath <- system.file("extdata", "targets.txt", package="systemPipeR")
 targets <- read.delim(targetspath, comment.char = "#")[,1:4]
 targets
 
+## ----fastq_filter, eval=FALSE--------------------------------------------
+## args <- systemArgs(sysma="param/trim.param", mytargets="targets.txt")
+## preprocessReads(args=args, Fct="trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)",
+##                 batchsize=100000, overwrite=TRUE, compress=TRUE)
+## writeTargetsout(x=args, file="targets_trim.txt", overwrite=TRUE)
+
 ## ----fastq_report, eval=FALSE--------------------------------------------
-## args <- systemArgs(sysma="tophat.param", mytargets="targets.txt")
+## args <- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
 ## fqlist <- seeFastq(fastq=infile1(args), batchsize=100000, klength=8)
 ## pdf("./results/fastqReport.pdf", height=18, width=4*length(fqlist))
 ## seeFastqPlot(fqlist)
 ## dev.off()
 
 ## ----tophat_alignment1, eval=FALSE---------------------------------------
-## args <- systemArgs(sysma="tophat.param", mytargets="targets.txt")
+## args <- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
 ## sysargs(args)[1] # Command-line parameters for first FASTQ file
 
 ## ----tophat_alignment2, eval=FALSE---------------------------------------
@@ -104,13 +110,15 @@ read.table(system.file("extdata", "alignStats.xls", package="systemPipeR"), head
 
 ## ----run_edger, eval=FALSE-----------------------------------------------
 ## library(edgeR)
-## countDF <- read.delim("countDFeByg.xls", row.names=1, check.names=FALSE)
+## countDF <- read.delim("results/countDFeByg.xls", row.names=1, check.names=FALSE)
 ## targets <- read.delim("targets.txt", comment="#")
 ## cmp <- readComp(file="targets.txt", format="matrix", delim="-")
 ## edgeDF <- run_edgeR(countDF=countDF, targets=targets, cmp=cmp[[1]], independent=FALSE, mdsplot="")
 
 ## ----custom_annot, eval=FALSE--------------------------------------------
-## desc <- read.delim("data/desc.xls")
+## library("biomaRt")
+## m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
+## desc <- getBM(attributes=c("tair_locus", "description"), mart=m)
 ## desc <- desc[!duplicated(desc[,1]),]
 ## descv <- as.character(desc[,2]); names(descv) <- as.character(desc[,1])
 ## edgeDF <- data.frame(edgeDF, Desc=descv[rownames(edgeDF)], check.names=FALSE)
@@ -119,7 +127,7 @@ read.table(system.file("extdata", "alignStats.xls", package="systemPipeR"), head
 ## ----filter_degs, eval=FALSE---------------------------------------------
 ## edgeDF <- read.delim("results/edgeRglm_allcomp.xls", row.names=1, check.names=FALSE)
 ## pdf("results/DEGcounts.pdf")
-## DEG_list <- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=1))
+## DEG_list <- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=20))
 ## dev.off()
 ## write.table(DEG_list$Summary, "./results/DEGcounts.xls", quote=FALSE, sep="\t", row.names=FALSE)
 
@@ -133,8 +141,10 @@ read.table(system.file("extdata", "alignStats.xls", package="systemPipeR"), head
 ## ----get_go_annot, eval=FALSE--------------------------------------------
 ## library("biomaRt")
 ## listMarts() # To choose BioMart database
-## m <- useMart("ENSEMBL_MART_PLANT"); listDatasets(m)
-## m <- useMart("ENSEMBL_MART_PLANT", dataset="athaliana_eg_gene")
+## listMarts(host="plants.ensembl.org")
+## m <- useMart("plants_mart", host="plants.ensembl.org")
+## listDatasets(m)
+## m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
 ## listAttributes(m) # Choose data types you want to download
 ## go <- getBM(attributes=c("go_accession", "tair_locus", "go_namespace_1003"), mart=m)
 ## go <- go[go[,3]!="",]; go[,3] <- as.character(go[,3])
@@ -155,7 +165,8 @@ read.table(system.file("extdata", "alignStats.xls", package="systemPipeR"), head
 ## DEGlist <- c(up_down, up, down)
 ## DEGlist <- DEGlist[sapply(DEGlist, length) > 0]
 ## BatchResult <- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="all", id_type="gene", CLSZ=2, cutoff=0.9, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
-## library("biomaRt"); m <- useMart("ENSEMBL_MART_PLANT", dataset="athaliana_eg_gene")
+## library("biomaRt")
+## m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
 ## goslimvec <- as.character(getBM(attributes=c("goslim_goa_accession"), mart=m)[,1])
 ## BatchResultslim <- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="slim", id_type="gene", myslimv=goslimvec, CLSZ=10, cutoff=0.01, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
 

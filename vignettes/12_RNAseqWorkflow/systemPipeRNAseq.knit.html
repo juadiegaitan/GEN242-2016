@@ -1256,6 +1256,26 @@ targets
 
 <h1 id="read-preprocessing">Read preprocessing</h1>
 
+<h2 id="read-quality-filtering-and-trimming">Read quality filtering and trimming</h2>
+
+<p>The function <code>preprocessReads</code> allows to apply predefined or custom
+read preprocessing functions to all FASTQ files referenced in a
+<code>SYSargs</code> container, such as quality filtering or adaptor trimming
+routines.  The following example performs adaptor trimming with
+the <code>trimLRPatterns</code> function from the <code>Biostrings</code> package.
+After the trimming step a new targets file is generated (here
+<code>targets_trim.txt</code>) containing the paths to the trimmed FASTQ files.
+The new targets file can be used for the next workflow step with an updated
+<code>SYSargs</code> instance, <em>e.g.</em> running the NGS alignments using the
+trimmed FASTQ files.</p>
+
+<p><code>r
+args &lt;- systemArgs(sysma="param/trim.param", mytargets="targets.txt")
+preprocessReads(args=args, Fct="trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)",
+                batchsize=100000, overwrite=TRUE, compress=TRUE)
+writeTargetsout(x=args, file="targets_trim.txt", overwrite=TRUE)
+</code></p>
+
 <h2 id="fastq-quality-report">FASTQ quality report</h2>
 
 <p>The following <code>seeFastq</code> and <code>seeFastqPlot</code> functions generate and plot a series of useful 
@@ -1266,7 +1286,7 @@ above quality cutoffs and mean quality distribution. The results are
 written to a PDF file named <code>fastqReport.pdf</code>.</p>
 
 <p><code>r
-args &lt;- systemArgs(sysma="tophat.param", mytargets="targets.txt")
+args &lt;- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
 fqlist &lt;- seeFastq(fastq=infile1(args), batchsize=100000, klength=8)
 pdf("./results/fastqReport.pdf", height=18, width=4*length(fqlist))
 seeFastqPlot(fqlist)
@@ -1286,7 +1306,7 @@ genome sequence using <code>Bowtie2/TopHat2</code> [@Kim2013-vg; @Langmead2012-b
 settings of the aligner are defined in the <code>tophat.param</code> file.</p>
 
 <p><code>r
-args &lt;- systemArgs(sysma="tophat.param", mytargets="targets.txt")
+args &lt;- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
 sysargs(args)[1] # Command-line parameters for first FASTQ file
 </code></p>
 
@@ -1424,7 +1444,7 @@ comparisons used by this analysis are defined in the header lines of the
 
 <p><code>r
 library(edgeR)
-countDF &lt;- read.delim("countDFeByg.xls", row.names=1, check.names=FALSE) 
+countDF &lt;- read.delim("results/countDFeByg.xls", row.names=1, check.names=FALSE) 
 targets &lt;- read.delim("targets.txt", comment="#")
 cmp &lt;- readComp(file="targets.txt", format="matrix", delim="-")
 edgeDF &lt;- run_edgeR(countDF=countDF, targets=targets, cmp=cmp[[1]], independent=FALSE, mdsplot="")
@@ -1433,7 +1453,9 @@ edgeDF &lt;- run_edgeR(countDF=countDF, targets=targets, cmp=cmp[[1]], independe
 <p>Add custom functional descriptions. Skip this step if <code>desc.xls</code> is not available.</p>
 
 <p><code>r
-desc &lt;- read.delim("data/desc.xls") 
+library("biomaRt")
+m &lt;- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
+desc &lt;- getBM(attributes=c("tair_locus", "description"), mart=m)
 desc &lt;- desc[!duplicated(desc[,1]),]
 descv &lt;- as.character(desc[,2]); names(descv) &lt;- as.character(desc[,1])
 edgeDF &lt;- data.frame(edgeDF, Desc=descv[rownames(edgeDF)], check.names=FALSE)
@@ -1447,7 +1469,7 @@ file. To open it, type <code>?filterDEGs</code> in the R console.</p>
 <p><code>r
 edgeDF &lt;- read.delim("results/edgeRglm_allcomp.xls", row.names=1, check.names=FALSE) 
 pdf("results/DEGcounts.pdf")
-DEG_list &lt;- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=1))
+DEG_list &lt;- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=20))
 dev.off()
 write.table(DEG_list$Summary, "./results/DEGcounts.xls", quote=FALSE, sep="\t", row.names=FALSE)
 </code></p>
@@ -1490,8 +1512,10 @@ with the <code>load</code> function as shown in the next subsection.</p>
 <p><code>r
 library("biomaRt")
 listMarts() # To choose BioMart database
-m &lt;- useMart("ENSEMBL_MART_PLANT"); listDatasets(m) 
-m &lt;- useMart("ENSEMBL_MART_PLANT", dataset="athaliana_eg_gene")
+listMarts(host="plants.ensembl.org")
+m &lt;- useMart("plants_mart", host="plants.ensembl.org")
+listDatasets(m)
+m &lt;- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
 listAttributes(m) # Choose data types you want to download
 go &lt;- getBM(attributes=c("go_accession", "tair_locus", "go_namespace_1003"), mart=m)
 go &lt;- go[go[,3]!="",]; go[,3] &lt;- as.character(go[,3])
@@ -1500,7 +1524,7 @@ go[1:4,]
 dir.create("./data/GO")
 write.table(go, "data/GO/GOannotationsBiomart_mod.txt", quote=FALSE, row.names=FALSE, col.names=FALSE, sep="\t")
 catdb &lt;- makeCATdb(myfile="data/GO/GOannotationsBiomart_mod.txt", lib=NULL, org="", colno=c(1,2,3), idconv=NULL)
-save(catdb, file="data/GO/catdb.RData") 
+save(catdb, file="data/GO/catdb.RData")
 </code></p>
 
 <h3 id="batch-go-term-enrichment-analysis">Batch GO term enrichment analysis</h3>
@@ -1525,7 +1549,8 @@ down &lt;- DEG_list$Down; names(down) &lt;- paste(names(down), "_down", sep="")
 DEGlist &lt;- c(up_down, up, down)
 DEGlist &lt;- DEGlist[sapply(DEGlist, length) &gt; 0]
 BatchResult &lt;- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="all", id_type="gene", CLSZ=2, cutoff=0.9, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
-library("biomaRt"); m &lt;- useMart("ENSEMBL_MART_PLANT", dataset="athaliana_eg_gene")
+library("biomaRt")
+m &lt;- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
 goslimvec &lt;- as.character(getBM(attributes=c("goslim_goa_accession"), mart=m)[,1])
 BatchResultslim &lt;- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="slim", id_type="gene", myslimv=goslimvec, CLSZ=10, cutoff=0.01, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
 </code></p>

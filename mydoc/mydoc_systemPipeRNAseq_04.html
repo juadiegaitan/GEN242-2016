@@ -1133,7 +1133,7 @@ $('#toc').on('click', 'a', function() {
 genome sequence using <code>Bowtie2/TopHat2</code> (Kim et al., 2013; Langmead et al., 2012). The parameter 
 settings of the aligner are defined in the <code>tophat.param</code> file.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"tophat.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets.txt"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/tophat.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets.txt"</span><span class="p">)</span>
 <span class="n">sysargs</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Command</span><span class="o">-</span><span class="n">line</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">first</span> <span class="n">FASTQ</span> <span class="n">file</span></code></pre></div>
 
 <p>Submission of alignment jobs to compute cluster, here using 72 CPU cores
@@ -1192,7 +1192,7 @@ with a path specified under <code>urlfile</code> in the <code>results</code> dir
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed Apr 27 17:46:11 2016<br/> Site last generated: Apr 27, 2016 <br />
+<p>Page last updated:</span> Wed Apr 27 22:14:50 2016<br/> Site last generated: Apr 27, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

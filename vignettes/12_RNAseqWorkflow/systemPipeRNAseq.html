@@ -63,7 +63,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><a href="#experiment-definition-provided-by-targets-file"><span class="toc-section-number">2.3</span> Experiment definition provided by <code>targets</code> file</a></li>
 </ul></li>
 <li><a href="#read-preprocessing"><span class="toc-section-number">3</span> Read preprocessing</a><ul>
-<li><a href="#fastq-quality-report"><span class="toc-section-number">3.1</span> FASTQ quality report</a></li>
+<li><a href="#read-quality-filtering-and-trimming"><span class="toc-section-number">3.1</span> Read quality filtering and trimming</a></li>
+<li><a href="#fastq-quality-report"><span class="toc-section-number">3.2</span> FASTQ quality report</a></li>
 </ul></li>
 <li><a href="#alignments"><span class="toc-section-number">4</span> Alignments</a><ul>
 <li><a href="#read-mapping-with-bowtie2tophat2"><span class="toc-section-number">4.1</span> Read mapping with <code>Bowtie2/Tophat2</code></a></li>
@@ -172,10 +173,18 @@ targets</code></pre>
 </div>
 <div id="read-preprocessing" class="section level1">
 <h1><span class="header-section-number">3</span> Read preprocessing</h1>
+<div id="read-quality-filtering-and-trimming" class="section level2">
+<h2><span class="header-section-number">3.1</span> Read quality filtering and trimming</h2>
+<p>The function <code>preprocessReads</code> allows to apply predefined or custom read preprocessing functions to all FASTQ files referenced in a <code>SYSargs</code> container, such as quality filtering or adaptor trimming routines. The following example performs adaptor trimming with the <code>trimLRPatterns</code> function from the <code>Biostrings</code> package. After the trimming step a new targets file is generated (here <code>targets_trim.txt</code>) containing the paths to the trimmed FASTQ files. The new targets file can be used for the next workflow step with an updated <code>SYSargs</code> instance, <em>e.g.</em> running the NGS alignments using the trimmed FASTQ files.</p>
+<pre class="r"><code>args &lt;- systemArgs(sysma=&quot;param/trim.param&quot;, mytargets=&quot;targets.txt&quot;)
+preprocessReads(args=args, Fct=&quot;trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)&quot;,
+                batchsize=100000, overwrite=TRUE, compress=TRUE)
+writeTargetsout(x=args, file=&quot;targets_trim.txt&quot;, overwrite=TRUE)</code></pre>
+</div>
 <div id="fastq-quality-report" class="section level2">
-<h2><span class="header-section-number">3.1</span> FASTQ quality report</h2>
+<h2><span class="header-section-number">3.2</span> FASTQ quality report</h2>
 <p>The following <code>seeFastq</code> and <code>seeFastqPlot</code> functions generate and plot a series of useful quality statistics for a set of FASTQ files including per cycle quality box plots, base proportions, base-level quality trends, relative k-mer diversity, length and occurrence distribution of reads, number of reads above quality cutoffs and mean quality distribution. The results are written to a PDF file named <code>fastqReport.pdf</code>.</p>
-<pre class="r"><code>args &lt;- systemArgs(sysma=&quot;tophat.param&quot;, mytargets=&quot;targets.txt&quot;)
+<pre class="r"><code>args &lt;- systemArgs(sysma=&quot;param/tophat.param&quot;, mytargets=&quot;targets.txt&quot;)
 fqlist &lt;- seeFastq(fastq=infile1(args), batchsize=100000, klength=8)
 pdf(&quot;./results/fastqReport.pdf&quot;, height=18, width=4*length(fqlist))
 seeFastqPlot(fqlist)
@@ -192,7 +201,7 @@ Figure 1: FASTQ quality report for 18 samples
 <div id="read-mapping-with-bowtie2tophat2" class="section level2">
 <h2><span class="header-section-number">4.1</span> Read mapping with <code>Bowtie2/Tophat2</code></h2>
 <p>The NGS reads of this project will be aligned against the reference genome sequence using <code>Bowtie2/TopHat2</code> <span class="citation">(Kim et al. 2013; Langmead and Salzberg 2012)</span>. The parameter settings of the aligner are defined in the <code>tophat.param</code> file.</p>
-<pre class="r"><code>args &lt;- systemArgs(sysma=&quot;tophat.param&quot;, mytargets=&quot;targets.txt&quot;)
+<pre class="r"><code>args &lt;- systemArgs(sysma=&quot;param/tophat.param&quot;, mytargets=&quot;targets.txt&quot;)
 sysargs(args)[1] # Command-line parameters for first FASTQ file</code></pre>
 <p>Submission of alignment jobs to compute cluster, here using 72 CPU cores (18 <code>qsub</code> processes each with 4 CPU cores).</p>
 <pre class="r"><code>moduleload(modules(args))
@@ -272,12 +281,14 @@ Figure 2: Correlation dendrogram of samples
 <h1><span class="header-section-number">6</span> Analysis of differentially expressed genes with edgeR</h1>
 <p>The analysis of differentially expressed genes (DEGs) is performed with the glm method of the <code>edgeR</code> package <span class="citation">(Robinson, McCarthy, and Smyth 2010)</span>. The sample comparisons used by this analysis are defined in the header lines of the <code>targets.txt</code> file starting with <code>&lt;CMP&gt;</code>.</p>
 <pre class="r"><code>library(edgeR)
-countDF &lt;- read.delim(&quot;countDFeByg.xls&quot;, row.names=1, check.names=FALSE) 
+countDF &lt;- read.delim(&quot;results/countDFeByg.xls&quot;, row.names=1, check.names=FALSE) 
 targets &lt;- read.delim(&quot;targets.txt&quot;, comment=&quot;#&quot;)
 cmp &lt;- readComp(file=&quot;targets.txt&quot;, format=&quot;matrix&quot;, delim=&quot;-&quot;)
 edgeDF &lt;- run_edgeR(countDF=countDF, targets=targets, cmp=cmp[[1]], independent=FALSE, mdsplot=&quot;&quot;)</code></pre>
 <p>Add custom functional descriptions. Skip this step if <code>desc.xls</code> is not available.</p>
-<pre class="r"><code>desc &lt;- read.delim(&quot;data/desc.xls&quot;) 
+<pre class="r"><code>library(&quot;biomaRt&quot;)
+m &lt;- useMart(&quot;plants_mart&quot;, dataset=&quot;athaliana_eg_gene&quot;, host=&quot;plants.ensembl.org&quot;)
+desc &lt;- getBM(attributes=c(&quot;tair_locus&quot;, &quot;description&quot;), mart=m)
 desc &lt;- desc[!duplicated(desc[,1]),]
 descv &lt;- as.character(desc[,2]); names(descv) &lt;- as.character(desc[,1])
 edgeDF &lt;- data.frame(edgeDF, Desc=descv[rownames(edgeDF)], check.names=FALSE)
@@ -285,7 +296,7 @@ write.table(edgeDF, &quot;./results/edgeRglm_allcomp.xls&quot;, quote=FALSE, sep
 <p>Filter and plot DEG results for up and down regulated genes. The definition of <em>up</em> and <em>down</em> is given in the corresponding help file. To open it, type <code>?filterDEGs</code> in the R console.</p>
 <pre class="r"><code>edgeDF &lt;- read.delim(&quot;results/edgeRglm_allcomp.xls&quot;, row.names=1, check.names=FALSE) 
 pdf(&quot;results/DEGcounts.pdf&quot;)
-DEG_list &lt;- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=1))
+DEG_list &lt;- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=20))
 dev.off()
 write.table(DEG_list$Summary, &quot;./results/DEGcounts.xls&quot;, quote=FALSE, sep=&quot;\t&quot;, row.names=FALSE)</code></pre>
 <img src="data:image/png;base64,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" />
@@ -311,8 +322,10 @@ Figure 4: Venn Diagram for 4 Up and Down DEG Sets
 <p>The following shows how to obtain gene-to-GO mappings from <code>biomaRt</code> (here for <em>A. thaliana</em>) and how to organize them for the downstream GO term enrichment analysis. Alternatively, the gene-to-GO mappings can be obtained for many organisms from Bioconductor’s <code>*.db</code> genome annotation packages or GO annotation files provided by various genome databases. For each annotation this relatively slow preprocessing step needs to be performed only once. Subsequently, the preprocessed data can be loaded with the <code>load</code> function as shown in the next subsection.</p>
 <pre class="r"><code>library(&quot;biomaRt&quot;)
 listMarts() # To choose BioMart database
-m &lt;- useMart(&quot;ENSEMBL_MART_PLANT&quot;); listDatasets(m) 
-m &lt;- useMart(&quot;ENSEMBL_MART_PLANT&quot;, dataset=&quot;athaliana_eg_gene&quot;)
+listMarts(host=&quot;plants.ensembl.org&quot;)
+m &lt;- useMart(&quot;plants_mart&quot;, host=&quot;plants.ensembl.org&quot;)
+listDatasets(m)
+m &lt;- useMart(&quot;plants_mart&quot;, dataset=&quot;athaliana_eg_gene&quot;, host=&quot;plants.ensembl.org&quot;)
 listAttributes(m) # Choose data types you want to download
 go &lt;- getBM(attributes=c(&quot;go_accession&quot;, &quot;tair_locus&quot;, &quot;go_namespace_1003&quot;), mart=m)
 go &lt;- go[go[,3]!=&quot;&quot;,]; go[,3] &lt;- as.character(go[,3])
@@ -321,7 +334,7 @@ go[1:4,]
 dir.create(&quot;./data/GO&quot;)
 write.table(go, &quot;data/GO/GOannotationsBiomart_mod.txt&quot;, quote=FALSE, row.names=FALSE, col.names=FALSE, sep=&quot;\t&quot;)
 catdb &lt;- makeCATdb(myfile=&quot;data/GO/GOannotationsBiomart_mod.txt&quot;, lib=NULL, org=&quot;&quot;, colno=c(1,2,3), idconv=NULL)
-save(catdb, file=&quot;data/GO/catdb.RData&quot;) </code></pre>
+save(catdb, file=&quot;data/GO/catdb.RData&quot;)</code></pre>
 </div>
 <div id="batch-go-term-enrichment-analysis" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Batch GO term enrichment analysis</h3>
@@ -335,7 +348,8 @@ down &lt;- DEG_list$Down; names(down) &lt;- paste(names(down), &quot;_down&quot;
 DEGlist &lt;- c(up_down, up, down)
 DEGlist &lt;- DEGlist[sapply(DEGlist, length) &gt; 0]
 BatchResult &lt;- GOCluster_Report(catdb=catdb, setlist=DEGlist, method=&quot;all&quot;, id_type=&quot;gene&quot;, CLSZ=2, cutoff=0.9, gocats=c(&quot;MF&quot;, &quot;BP&quot;, &quot;CC&quot;), recordSpecGO=NULL)
-library(&quot;biomaRt&quot;); m &lt;- useMart(&quot;ENSEMBL_MART_PLANT&quot;, dataset=&quot;athaliana_eg_gene&quot;)
+library(&quot;biomaRt&quot;)
+m &lt;- useMart(&quot;plants_mart&quot;, dataset=&quot;athaliana_eg_gene&quot;, host=&quot;plants.ensembl.org&quot;)
 goslimvec &lt;- as.character(getBM(attributes=c(&quot;goslim_goa_accession&quot;), mart=m)[,1])
 BatchResultslim &lt;- GOCluster_Report(catdb=catdb, setlist=DEGlist, method=&quot;slim&quot;, id_type=&quot;gene&quot;, myslimv=goslimvec, CLSZ=10, cutoff=0.01, gocats=c(&quot;MF&quot;, &quot;BP&quot;, &quot;CC&quot;), recordSpecGO=NULL)</code></pre>
 </div>
