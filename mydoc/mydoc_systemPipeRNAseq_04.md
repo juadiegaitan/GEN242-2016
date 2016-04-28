@@ -1,7 +1,7 @@
 ---
 title: Alignments
 keywords: 
-last_updated: Wed Apr 27 17:46:11 2016
+last_updated: Wed Apr 27 22:14:50 2016
 ---
 
 ## Read mapping with `Bowtie2/Tophat2` 
@@ -12,7 +12,7 @@ settings of the aligner are defined in the `tophat.param` file.
 
 
 {% highlight r %}
-args <- systemArgs(sysma="tophat.param", mytargets="targets.txt")
+args <- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
 sysargs(args)[1] # Command-line parameters for first FASTQ file
 {% endhighlight %}
 

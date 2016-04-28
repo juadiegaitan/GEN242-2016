@@ -1,7 +1,7 @@
 ---
 title: RNA-Seq Workflow Template 
 keywords: 
-last_updated: Wed Apr 27 17:46:11 2016
+last_updated: Wed Apr 27 22:14:50 2016
 ---
 First/last name (first.last@ucr.edu)
 

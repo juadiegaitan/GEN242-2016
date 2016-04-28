@@ -1,7 +1,7 @@
 ---
 title: Analysis of differentially expressed genes with edgeR 
 keywords: 
-last_updated: Wed Apr 27 17:46:11 2016
+last_updated: Wed Apr 27 22:14:50 2016
 ---
 
 The analysis of differentially expressed genes (DEGs) is performed with
@@ -12,7 +12,7 @@ comparisons used by this analysis are defined in the header lines of the
 
 {% highlight r %}
 library(edgeR)
-countDF <- read.delim("countDFeByg.xls", row.names=1, check.names=FALSE) 
+countDF <- read.delim("results/countDFeByg.xls", row.names=1, check.names=FALSE) 
 targets <- read.delim("targets.txt", comment="#")
 cmp <- readComp(file="targets.txt", format="matrix", delim="-")
 edgeDF <- run_edgeR(countDF=countDF, targets=targets, cmp=cmp[[1]], independent=FALSE, mdsplot="")
@@ -22,7 +22,9 @@ Add custom functional descriptions. Skip this step if `desc.xls` is not availabl
 
 
 {% highlight r %}
-desc <- read.delim("data/desc.xls") 
+library("biomaRt")
+m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
+desc <- getBM(attributes=c("tair_locus", "description"), mart=m)
 desc <- desc[!duplicated(desc[,1]),]
 descv <- as.character(desc[,2]); names(descv) <- as.character(desc[,1])
 edgeDF <- data.frame(edgeDF, Desc=descv[rownames(edgeDF)], check.names=FALSE)
@@ -38,7 +40,7 @@ file. To open it, type `?filterDEGs` in the R console.
 {% highlight r %}
 edgeDF <- read.delim("results/edgeRglm_allcomp.xls", row.names=1, check.names=FALSE) 
 pdf("results/DEGcounts.pdf")
-DEG_list <- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=1))
+DEG_list <- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=20))
 dev.off()
 write.table(DEG_list$Summary, "./results/DEGcounts.xls", quote=FALSE, sep="\t", row.names=FALSE)
 {% endhighlight %}
@@ -81,8 +83,10 @@ with the `load` function as shown in the next subsection.
 {% highlight r %}
 library("biomaRt")
 listMarts() # To choose BioMart database
-m <- useMart("ENSEMBL_MART_PLANT"); listDatasets(m) 
-m <- useMart("ENSEMBL_MART_PLANT", dataset="athaliana_eg_gene")
+listMarts(host="plants.ensembl.org")
+m <- useMart("plants_mart", host="plants.ensembl.org")
+listDatasets(m)
+m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
 listAttributes(m) # Choose data types you want to download
 go <- getBM(attributes=c("go_accession", "tair_locus", "go_namespace_1003"), mart=m)
 go <- go[go[,3]!="",]; go[,3] <- as.character(go[,3])
@@ -91,7 +95,7 @@ go[1:4,]
 dir.create("./data/GO")
 write.table(go, "data/GO/GOannotationsBiomart_mod.txt", quote=FALSE, row.names=FALSE, col.names=FALSE, sep="\t")
 catdb <- makeCATdb(myfile="data/GO/GOannotationsBiomart_mod.txt", lib=NULL, org="", colno=c(1,2,3), idconv=NULL)
-save(catdb, file="data/GO/catdb.RData") 
+save(catdb, file="data/GO/catdb.RData")
 {% endhighlight %}
 
 ### Batch GO term enrichment analysis
@@ -107,6 +111,7 @@ example shows how a GO slim vector for a specific organism can be obtained from
 BioMart.
 
 
+
 {% highlight r %}
 library("biomaRt")
 load("data/GO/catdb.RData")
@@ -117,7 +122,8 @@ down <- DEG_list$Down; names(down) <- paste(names(down), "_down", sep="")
 DEGlist <- c(up_down, up, down)
 DEGlist <- DEGlist[sapply(DEGlist, length) > 0]
 BatchResult <- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="all", id_type="gene", CLSZ=2, cutoff=0.9, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
-library("biomaRt"); m <- useMart("ENSEMBL_MART_PLANT", dataset="athaliana_eg_gene")
+library("biomaRt")
+m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
 goslimvec <- as.character(getBM(attributes=c("goslim_goa_accession"), mart=m)[,1])
 BatchResultslim <- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="slim", id_type="gene", myslimv=goslimvec, CLSZ=10, cutoff=0.01, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
 {% endhighlight %}
