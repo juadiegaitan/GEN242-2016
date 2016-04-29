@@ -1,7 +1,7 @@
 ---
 title: RNA-Seq Workflow Template 
 keywords: 
-last_updated: Thu Apr 28 12:28:07 2016
+last_updated: Thu Apr 28 18:39:03 2016
 ---
 First/last name (first.last@ucr.edu)
 
@@ -9,8 +9,8 @@ Last update: 28 April, 2016
 
 Alternative formats of this tutorial:
 [`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.html),
-[`.Rmd`](https://raw.githubusercontent.com/tgirke/manuals/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.Rmd),
-[`.R`](https://raw.githubusercontent.com/tgirke/manuals/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.R),
+[`.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.Rmd),
+[`.R`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.R),
 [`HTML Slides`](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/systemPipeRslides.html)
 
 ## Introduction
