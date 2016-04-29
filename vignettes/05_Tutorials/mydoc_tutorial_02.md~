@@ -7,7 +7,7 @@ last_updated: 29-Mar-16
 
 * A compute cluster is an assembly of CPU units, so called compute nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.
 
-* Usually, users log into the head node to submit their compute requests via qsub to a queuing system provided by resource management and scheduling software, such as TORQUE and MAUI. The queuing system distributes the processes to the compute nodes in a controlled fashion.
+* Usually, users log into the head node to submit their compute requests via `qsub` to a queuing system provided by resource management and scheduling software, such as TORQUE and MAUI. The queuing system distributes the processes to the compute nodes in a controlled fashion.
 
 * Because the head node controls the entire system, users should never run compute jobs on the head node directly!
 
@@ -19,7 +19,7 @@ last_updated: 29-Mar-16
 
 - Over 3,000 CPU cores
 - 50 batch compute nodes, each with 64 CPU cores and 512GB RAM
-- 4 high-memory nodes, each 32 CPU cores and 1024GB RAM
+- 6 high-memory nodes, each 32 CPU cores and 1024GB RAM
 - 4 GPU nodes, each with 10,000 cuda cores
     
 ### Interconnect 
@@ -27,7 +27,7 @@ last_updated: 29-Mar-16
 
 ### Storage
 
-- Parallel GPFS storage system with 1.2PB usable space
+- Parallel GPFS storage system with 1.5PB usable space
 - Backup of same architecture and similar amount
 
 ### User traffic
@@ -114,12 +114,13 @@ less
 
 ## File Exchange
 
-+ GUI applications
-    + Windows: [WinSCP](http://winscp.net/eng/index.php)
-	+ Mac OS X: [CyberDuck](http://cyberduck.en.softonic.com/mac)
-	+ Win/OS X/Linux: [FileZilla](https://filezilla-project.org/)
+__GUI applications__
+
++ Windows: [WinSCP](http://winscp.net/eng/index.php)
++ Mac OS X: [CyberDuck](http://cyberduck.en.softonic.com/mac)
++ Win/OS X/Linux: [FileZilla](https://filezilla-project.org/)
         
-+ SCP command line tool
+__SCP command-line tool__
 
 {% highlight sh %}
 scp file user@remotehost:/home/user/ # From local to remote 
@@ -148,10 +149,6 @@ command >> myfile
 Pipe `STDOUT` of one command to another command
 {% highlight sh %}
 command1 | command2     
-{% endhighlight %}
-Write `STDOUT` to file and print it to screen
-{% highlight sh %}
-command > myfile; cat myfile  
 {% endhighlight %}
 Turn off progress info 
 {% highlight sh %}
@@ -277,7 +274,7 @@ information on this topic is available in the biocluster manual [here](http://ma
 
 ### Job submission with `qsub`
 
-Basic basic job submission with `qsub`
+Basic job submission with `qsub`
 
 {% highlight sh %}
 echo ’command_args’ | qsub
@@ -292,19 +289,9 @@ cd $PBS_O_WORKDIR
 Rscript my_script.R
 {% endhighlight %}
 
-Interactive session on node
+Interactive session: logs user into node
 {% highlight sh %}
 qsub -I
-{% endhighlight %}
-
-Submit job to `batch` queue with specific resource requests (queue, nodes, cpu, memory, walltime)
-{% highlight sh %}
-qsub -q batch -l nodes=1:ppn=2,mem=8gb,walltime=03:00:00 script_name.sh
-{% endhighlight %}
-
-Submit job to batch `highmem` with specific resource requests 
-{% highlight sh %}
-qsub -q highmem -l nodes=1:ppn=2,mem=8gb,walltime=03:00:00 script_name.sh
 {% endhighlight %}
 
 Interactive session with specific resource requests
@@ -312,7 +299,18 @@ Interactive session with specific resource requests
 qsub -q batch -l nodes=1:ppn=2,mem=8gb,walltime=03:00:00 -I
 {% endhighlight %}
 
-`STDOUT` files
+Submit job to `batch` queue with specific resource requests (queue, nodes, cpu, memory, walltime)
+{% highlight sh %}
+qsub -q batch -l nodes=1:ppn=2,mem=8gb,walltime=03:00:00 script_name.sh
+{% endhighlight %}
+
+Submit job to `highmem` queue with specific resource requests 
+{% highlight sh %}
+qsub -q highmem -l nodes=1:ppn=2,mem=8gb,walltime=03:00:00 script_name.sh
+{% endhighlight %}
+
+
+`STDOUT` and `STDERROR` files generate by each job
 {% highlight sh %}
 SCRIPTNAME.sh.oJOBID or STDIN.oJOBID
 SCRIPTNAME.sh.eJOBID or STDIN.eJOBID
@@ -359,7 +357,7 @@ qalter -l walltime=8:00 <JOBID>
 
 ## Text editors
 
-* __Vi and Vim__:Non-graphical (terminal-based) editor. Vi is guaranteed to be available on any system. Vim is the improved version of vi.
+* __Vi and Vim__: Non-graphical (terminal-based) editor. Vi is guaranteed to be available on any system. Vim is the improved version of vi.
 * __Emacs__: Non-graphical or window-based editor. You still need to know keystroke commands to use it. Installed on all Linux distributions and on most other Unix systems.
 * __XEmacs__: More sophisticated version of emacs, but usually not installed by default. All common commands are available from menus. Very powerful editor, with built-in syntax checking, Web-browsing, news-reading, manual-page browsing, etc.
 * __Pico__: Simple terminal-based editor available on most versions of Unix. Uses keystroke commands, but they are listed in logical fashion at bottom of screen. 
@@ -383,10 +381,10 @@ Use the arrow keys to move your cursor in the text. Using `Fn Up/Down key` allow
 the text quicker. In the following command overview, all commands starting with `:` need to be typed in the command mode. 
 All other commands are typed in the normal mode after pushing the `Esc` key. 
 
-Modifier Keys to Control Vim
+Important modifier keys to control vim
 
-* `:w`: save command changes to file. If you are in editing mode you have to hit `Esc` first.
-* `:q`: quit file that has not been change
+* `:w`: save changes to file. If you are in editing mode you have to hit `Esc` first.
+* `:q`: quit file that has not been changed
 * `:wq`: save and quit file
 * `:!q`: quit file without saving any changes
 
@@ -401,7 +399,7 @@ Modifier Keys to Control Vim
 ### Basics
 
 Tmux is a terminal multiplexer that allows to split terminal windows and to deattach/reattach to
-existing terminal session. Combinded with `vim-r` plugin it provides a powerful command-line working 
+existing terminal sessions. Combinded with the `vim-r` plugin it provides a powerful command-line working 
 environment for R where users can send code from a script to the R console or command-line.
 Both tmux and the `vim-r` plugin need to be installed on a system. On Biocluster both are configured
 in each user account. A detailed user manual is available [here](http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r).
@@ -424,7 +422,7 @@ vim myscript.R
 __3. Open vim-connected R session by pressing the `F2` key__ 
 
 This will open an R session in a separate tmux pane. Note, in the provided `.tmux.conf` file 
-the command key binding has been reassigned from the default of tmux from `Ctrl-b` to `Ctrl-a`, 
+the command key binding has been reassigned from the tmux default `Ctrl-b` to `Ctrl-a`, 
 and the shortcut for starting R from vim has be reassigned from `\rf` to `F2` in the `.vimrc` 
 file. The command key binding `Ctrl-a` is the most important key sequence in order to move 
 around in tmux. For instance, the key sequence `Ctrl-a o` will switch between the vim and R 
