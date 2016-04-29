@@ -1134,7 +1134,7 @@ $('#toc').on('click', 'a', function() {
     <p>A compute cluster is an assembly of CPU units, so called compute nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.</p>
   </li>
   <li>
-    <p>Usually, users log into the head node to submit their compute requests via qsub to a queuing system provided by resource management and scheduling software, such as TORQUE and MAUI. The queuing system distributes the processes to the compute nodes in a controlled fashion.</p>
+    <p>Usually, users log into the head node to submit their compute requests via <code>qsub</code> to a queuing system provided by resource management and scheduling software, such as TORQUE and MAUI. The queuing system distributes the processes to the compute nodes in a controlled fashion.</p>
   </li>
   <li>
     <p>Because the head node controls the entire system, users should never run compute jobs on the head node directly!</p>
@@ -1151,7 +1151,7 @@ $('#toc').on('click', 'a', function() {
 <ul>
   <li>Over 3,000 CPU cores</li>
   <li>50 batch compute nodes, each with 64 CPU cores and 512GB RAM</li>
-  <li>4 high-memory nodes, each 32 CPU cores and 1024GB RAM</li>
+  <li>6 high-memory nodes, each 32 CPU cores and 1024GB RAM</li>
   <li>4 GPU nodes, each with 10,000 cuda cores</li>
 </ul>
 
@@ -1163,7 +1163,7 @@ $('#toc').on('click', 'a', function() {
 <h3 id="storage">Storage</h3>
 
 <ul>
-  <li>Parallel GPFS storage system with 1.2PB usable space</li>
+  <li>Parallel GPFS storage system with 1.5PB usable space</li>
   <li>Backup of same architecture and similar amount</li>
 </ul>
 
@@ -1248,16 +1248,15 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="file-exchange">File Exchange</h2>
 
+<p><strong>GUI applications</strong></p>
+
 <ul>
-  <li>GUI applications
-    <ul>
-      <li>Windows: <a href="http://winscp.net/eng/index.php">WinSCP</a></li>
-      <li>Mac OS X: <a href="http://cyberduck.en.softonic.com/mac">CyberDuck</a></li>
-      <li>Win/OS X/Linux: <a href="https://filezilla-project.org/">FileZilla</a></li>
-    </ul>
-  </li>
-  <li>SCP command line tool</li>
+  <li>Windows: <a href="http://winscp.net/eng/index.php">WinSCP</a></li>
+  <li>Mac OS X: <a href="http://cyberduck.en.softonic.com/mac">CyberDuck</a></li>
+  <li>Win/OS X/Linux: <a href="https://filezilla-project.org/">FileZilla</a></li>
 </ul>
+
+<p><strong>SCP command-line tool</strong></p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">scp file user@remotehost:/home/user/ <span class="c"># From local to remote </span>
 scp user@remotehost:/home/user/file . <span class="c"># From remote to local</span></code></pre></div>
@@ -1283,10 +1282,6 @@ scp user@remotehost:/home/user/file . <span class="c"># From remote to local</sp
 <p>Pipe <code>STDOUT</code> of one command to another command</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">command1 | command2</code></pre></div>
-
-<p>Write <code>STDOUT</code> to file and print it to screen</p>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">command</span> &gt; myfile; cat myfile</code></pre></div>
 
 <p>Turn off progress info</p>
 
@@ -1416,7 +1411,7 @@ information on this topic is available in the biocluster manual <a href="http://
 
 <h3 id="job-submission-with-qsub">Job submission with <code>qsub</code></h3>
 
-<p>Basic basic job submission with <code>qsub</code></p>
+<p>Basic job submission with <code>qsub</code></p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> ’command_args’ | qsub
 qsub script_name.sh</code></pre></div>
@@ -1427,23 +1422,23 @@ qsub script_name.sh</code></pre></div>
 <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
 Rscript my_script.R</code></pre></div>
 
-<p>Interactive session on node</p>
+<p>Interactive session: logs user into node</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -I</code></pre></div>
-
-<p>Submit job to <code>batch</code> queue with specific resource requests (queue, nodes, cpu, memory, walltime)</p>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q batch -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 script_name.sh</code></pre></div>
-
-<p>Submit job to batch <code>highmem</code> with specific resource requests</p>
-
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q highmem -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 script_name.sh</code></pre></div>
 
 <p>Interactive session with specific resource requests</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q batch -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 -I</code></pre></div>
 
-<p><code>STDOUT</code> files</p>
+<p>Submit job to <code>batch</code> queue with specific resource requests (queue, nodes, cpu, memory, walltime)</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q batch -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 script_name.sh</code></pre></div>
+
+<p>Submit job to <code>highmem</code> queue with specific resource requests</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q highmem -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 script_name.sh</code></pre></div>
+
+<p><code>STDOUT</code> and <code>STDERROR</code> files generate by each job</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">SCRIPTNAME.sh.oJOBID or STDIN.oJOBID
 SCRIPTNAME.sh.eJOBID or STDIN.eJOBID</code></pre></div>
@@ -1483,7 +1478,7 @@ SCRIPTNAME.sh.eJOBID or STDIN.eJOBID</code></pre></div>
 <h2 id="text-editors">Text editors</h2>
 
 <ul>
-  <li><strong>Vi and Vim</strong>:Non-graphical (terminal-based) editor. Vi is guaranteed to be available on any system. Vim is the improved version of vi.</li>
+  <li><strong>Vi and Vim</strong>: Non-graphical (terminal-based) editor. Vi is guaranteed to be available on any system. Vim is the improved version of vi.</li>
   <li><strong>Emacs</strong>: Non-graphical or window-based editor. You still need to know keystroke commands to use it. Installed on all Linux distributions and on most other Unix systems.</li>
   <li><strong>XEmacs</strong>: More sophisticated version of emacs, but usually not installed by default. All common commands are available from menus. Very powerful editor, with built-in syntax checking, Web-browsing, news-reading, manual-page browsing, etc.</li>
   <li><strong>Pico</strong>: Simple terminal-based editor available on most versions of Unix. Uses keystroke commands, but they are listed in logical fashion at bottom of screen.</li>
@@ -1509,11 +1504,11 @@ SCRIPTNAME.sh.eJOBID or STDIN.eJOBID</code></pre></div>
 the text quicker. In the following command overview, all commands starting with <code>:</code> need to be typed in the command mode. 
 All other commands are typed in the normal mode after pushing the <code>Esc</code> key.</p>
 
-<p>Modifier Keys to Control Vim</p>
+<p>Important modifier keys to control vim</p>
 
 <ul>
-  <li><code>:w</code>: save command changes to file. If you are in editing mode you have to hit <code>Esc</code> first.</li>
-  <li><code>:q</code>: quit file that has not been change</li>
+  <li><code>:w</code>: save changes to file. If you are in editing mode you have to hit <code>Esc</code> first.</li>
+  <li><code>:q</code>: quit file that has not been changed</li>
   <li><code>:wq</code>: save and quit file</li>
   <li><code>:!q</code>: quit file without saving any changes</li>
 </ul>
@@ -1531,7 +1526,7 @@ All other commands are typed in the normal mode after pushing the <code>Esc</cod
 <h3 id="basics">Basics</h3>
 
 <p>Tmux is a terminal multiplexer that allows to split terminal windows and to deattach/reattach to
-existing terminal session. Combinded with <code>vim-r</code> plugin it provides a powerful command-line working 
+existing terminal sessions. Combinded with the <code>vim-r</code> plugin it provides a powerful command-line working 
 environment for R where users can send code from a script to the R console or command-line.
 Both tmux and the <code>vim-r</code> plugin need to be installed on a system. On Biocluster both are configured
 in each user account. A detailed user manual is available <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r">here</a>.
@@ -1551,7 +1546,7 @@ tmux a <span class="c">#  attaches to an existing session</span></code></pre></d
 <p><strong>3. Open vim-connected R session by pressing the <code>F2</code> key</strong></p>
 
 <p>This will open an R session in a separate tmux pane. Note, in the provided <code>.tmux.conf</code> file 
-the command key binding has been reassigned from the default of tmux from <code>Ctrl-b</code> to <code>Ctrl-a</code>, 
+the command key binding has been reassigned from the tmux default <code>Ctrl-b</code> to <code>Ctrl-a</code>, 
 and the shortcut for starting R from vim has be reassigned from <code>\rf</code> to <code>F2</code> in the <code>.vimrc</code> 
 file. The command key binding <code>Ctrl-a</code> is the most important key sequence in order to move 
 around in tmux. For instance, the key sequence <code>Ctrl-a o</code> will switch between the vim and R 
