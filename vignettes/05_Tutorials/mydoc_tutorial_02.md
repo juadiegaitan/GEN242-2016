@@ -396,7 +396,7 @@ Modifier Keys to Control Vim
 * [Official Vim Documentation](http://vimdoc.sourceforge.net/)
 * [UCR Linux Manual](http://manuals.bioinformatics.ucr.edu/home/linux-basics#TOC-Vim-Manual)
 
-## Vim-R-Tmux essential
+## Vim-R-Tmux essentials
 
 ### Basics
 
