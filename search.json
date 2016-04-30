@@ -8,7 +8,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/09_Programming_in_R/Programming_in_R.Rmd",
+"url": "../vignettes/08_Programming_in_R/Programming_in_R.Rmd",
 "summary": ""
 },
 
@@ -19,7 +19,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/09_Programming_in_R/Programming_in_R.knit.html",
+"url": "../vignettes/08_Programming_in_R/Programming_in_R.knit.html",
 "summary": ""
 },
 
@@ -30,7 +30,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/09_Programming_in_R/Programming_in_R.utf8.html",
+"url": "../vignettes/08_Programming_in_R/Programming_in_R.utf8.html",
 "summary": ""
 },
 
@@ -41,7 +41,7 @@
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/08_Rbasics/Rbasics.Rmd",
+"url": "../vignettes/07_Rbasics/Rbasics.Rmd",
 "summary": ""
 },
 
@@ -52,7 +52,7 @@
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/08_Rbasics/Rbasics.knit.html",
+"url": "../vignettes/07_Rbasics/Rbasics.knit.html",
 "summary": ""
 },
 
@@ -63,7 +63,7 @@
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/08_Rbasics/Rbasics.utf8.html",
+"url": "../vignettes/07_Rbasics/Rbasics.utf8.html",
 "summary": ""
 },
 
@@ -74,7 +74,7 @@
 "title": "NGS Analysis Basics",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/10_Rsequences/Rsequences.Rmd",
+"url": "../vignettes/09_Rsequences/Rsequences.Rmd",
 "summary": ""
 },
 
@@ -85,7 +85,7 @@
 "title": "NGS Analysis Basics",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/10_Rsequences/Rsequences.knit.html",
+"url": "../vignettes/09_Rsequences/Rsequences.knit.html",
 "summary": ""
 },
 
@@ -96,7 +96,7 @@
 "title": "NGS Analysis Basics",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/10_Rsequences/Rsequences.utf8.html",
+"url": "../vignettes/09_Rsequences/Rsequences.utf8.html",
 "summary": ""
 },
 
@@ -734,10 +734,32 @@
 
 
 {
+"title": "Paper Presentations",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/12_Paper_Presentations/mydoc_paper_presentations.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Paper Presentations",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_paper_presentations.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "Project 1",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/07_Projects/mydoc_project_01.html",
+"url": "../vignettes/13_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -1307,7 +1329,7 @@
 "title": "Designing and Running NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/11_Rworkflows/systemPipeR.Rmd",
+"url": "../vignettes/10_Rworkflows/systemPipeR.Rmd",
 "summary": ""
 },
 
@@ -1318,7 +1340,7 @@
 "title": "Designing and Running NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/11_Rworkflows/systemPipeR.knit.html",
+"url": "../vignettes/10_Rworkflows/systemPipeR.knit.html",
 "summary": ""
 },
 
@@ -1329,7 +1351,7 @@
 "title": "Designing and Running NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/11_Rworkflows/systemPipeR.utf8.html",
+"url": "../vignettes/10_Rworkflows/systemPipeR.utf8.html",
 "summary": ""
 },
 
@@ -1340,7 +1362,7 @@
 "title": "RNA-Seq Workflow Template",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/12_RNAseqWorkflow/systemPipeRNAseq.Rmd",
+"url": "../vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd",
 "summary": ""
 },
 
@@ -1351,7 +1373,7 @@
 "title": "RNA-Seq Workflow Template",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/12_RNAseqWorkflow/systemPipeRNAseq.knit.html",
+"url": "../vignettes/11_RNAseqWorkflow/systemPipeRNAseq.knit.html",
 "summary": ""
 },
 
@@ -1362,7 +1384,7 @@
 "title": "RNA-Seq Workflow Template",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/12_RNAseqWorkflow/systemPipeRNAseq.utf8.html",
+"url": "../vignettes/11_RNAseqWorkflow/systemPipeRNAseq.utf8.html",
 "summary": ""
 },
 
@@ -1384,7 +1406,7 @@
 "title": "\VignetteIndexEntry{RNA-Seq Workflow Template}",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/12_RNAseqWorkflow/systemPipeRslides.text",
+"url": "../vignettes/11_RNAseqWorkflow/systemPipeRslides.text",
 "summary": ""
 },
 

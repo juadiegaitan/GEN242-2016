@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>RNA-Seq Workflow Template  | GEN242</title>
+<link rel="stylesheet" type="text/css" href="../css/syntax.css">
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
+<link rel="stylesheet" type="text/css" href="../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../css/lavish-bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="../css/theme-blue.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="../js/toc.js"></script>
+<script src="../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../common_images/favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+  </head>
+
+<body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="fa fa-home fa-lg navbar-brand" href="home.html">&nbsp;<span class="projectTitle"> Data Analysis in Genome Biology</span></a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                
+                
+                
+                <li><a href="https://piazza.com/class/ilbslqb3j2ovy" target="_blank">Piazza</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/tgirke/GEN242" target="_blank">Github Repo</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+                    
+                    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        
+                        <li><a href="https://cran.r-project.org/" target="_blank">CRAN</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://bioconductor.org/" target="_blank">Bioconductor</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual" target="_blank">R & Bioconductor Manual</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/" target="_blank">Jekyll</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://girke.bioinformatics.ucr.edu/" target="_blank">Girke Lab</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/documentation-theme-jekyll" target="_blank">Jekyll Doc Theme</a></li>
+                        
+                        
+                        
+                        
+
+                    </ul>
+                </li>
+                
+                
+
+
+                <!-- special insertion -->
+
+               
+                
+                
+                <!-- Send feedback function -->
+<script>
+function SendLinkByMail(href) {
+var subject= "GEN242 feedback";
+var body = "I have some feedback about the RNA-Seq Workflow Template page: ";
+body += window.location.href;
+body += "";
+var uri = "mailto:?subject=";
+uri += encodeURIComponent(subject);
+uri += "&body=";
+uri += encodeURIComponent(body);
+window.location.href = uri;
+}
+</script>
+
+<li><a href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B" target="_blank"><i class="fa fa-envelope-o"></i> Feedback</a></li>
+
+
+                <!--uncomment this block if you want simple search instead of algolia-->
+                <li>
+                     <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="../js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        SimpleJekyllSearch.init({
+                            searchInput: document.getElementById('search-input'),
+                            resultsContainer: document.getElementById('results-container'),
+                            dataSource: '../search.json',
+                            searchResultTemplate: '<li><a href="{url}" title="RNA-Seq Workflow Template">{title}</a></li>',
+                        noResultsText: 'No results found.',
+                                limit: 10,
+                                fuzzy: true,
+                        })
+                    </script>
+                     <!--end search-->
+                </li>
+
+            
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+
+<!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav highlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <span class="siteTagline">GEN242</span>
+            <span class="versionTagline">Spring 2016</span>
+
+            
+            
+            
+                
+            
+            <li><a href="#">Home</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/home.html">Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Internal</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_internal.html">Internal Resources</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Schedule</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_schedule.html">Course Schedule</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Slides</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_01.html">Course Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_02.html">Molbiol for Bioinformatics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_03.html">Databases and Software</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_04.html">DNA Sequencing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_05.html">Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_06.html">Sequence Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_07.html">Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_08.html">Multiple Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_09.html">Short Read Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_10.html">NGS Analysis Basics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_11.html">Gene Expression Analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_12.html">NGS Workflows</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Homework</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_01.html">HW1 - Online Tools</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_02.html">HW2 - Biocluster/Linux</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_03.html">HW3 - Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_04.html">HW4 - Pairwise Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">HW5 - Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_08.html">HW6 - Sequence Analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">GitHub</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_01.html">GitHub</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Biocluster & Linux</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_02.html">Basic Tutorial</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Introduction to R</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Programming in R</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_02.html">2. Control Structures</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_03.html">3. Loops</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_04.html">4. Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_05.html">5. Useful Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_06.html">6. Running R Scripts</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_07.html">7. Building R Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_08.html">8. Programming Exercises</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">9. Homework 5</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_10.html">10. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_11.html">11. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">NGS Analysis Basics</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_02.html">2. Package Requirements</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_03.html">3. Strings in R Base</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_04.html">4. Sequences in Bioconductor</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_05.html">5. NGS Sequences</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_06.html">6. Range Operations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_07.html">7. Transcript Ranges</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_08.html">8. Homework 6</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_09.html">9. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_10.html">10. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">NGS Workflow Overview</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_1.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_2.html">2. Getting Started</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_3.html">3. Workflow overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_4.html">4. Workflow templates</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_5.html">5. Version information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_6.html">6. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">RNA-Seq Workflow</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_02.html">2. Sample definitions and environment settings</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_05.html">5. Read quantification per annotation range</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_06.html">6. Analysis of differentially expressed genes with edgeR</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_07.html">7. Clustering and heat maps</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_08.html">8. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_09.html">9. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_10.html">10. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Paper Presentations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_paper_presentations.html">Paper Presentations</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Projects</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_01.html">Project 1</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+                
+
+
+                <!-- if you aren't using the accordion, uncomment this block:
+
+                     <p class="external">
+                         <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+                     </p>
+                 -->
+
+    </div>
+    <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            <!-- Content Column -->
+            <div class="col-md-9">
+                
+                <div class="post-header">
+   <h1 class="post-title-main">RNA-Seq Workflow Template</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+
+<div id="toc"></div>
+
+
+<!--
+    
+    <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc//vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    
+-->
+<!--
+%% \VignetteEngine{knitr::rmarkdown}
+%\VignetteIndexEntry{Overview Vignette}
+%% \VignetteDepends{rjson, ggplot2, limma, edgeR, DESeq2, GOstats, GO.db, annotate, pheatmap}
+%% \VignetteKeywords{compute cluster, pipeline, reports}
+%% \VignettePackage{systemPipeR}
+-->
+
+<!---
+- Compile from command-line
+echo "rmarkdown::render('systemPipeRNAseq.Rmd', clean=F)" | R -slave; R CMD Stangle systemPipeRNAseq.Rmd; Rscript ../md2jekyll.R systemPipeRNAseq.knit.md 12
+
+- Commit to github
+git commit -am "some edits"; git push -u origin master
+
+- To customize font size and other style features, add this line to output section in preamble:  
+    css: style.css
+-->
+
+```{r style, echo = FALSE, results = 'asis'}
+BiocStyle::markdown()
+options(width=100, max.print=1000)
+knitr::opts_chunk$set(
+    eval=as.logical(Sys.getenv("KNITR_EVAL", "TRUE")),
+    cache=as.logical(Sys.getenv("KNITR_CACHE", "TRUE")))
+```
+
+```{r setup, echo=FALSE, messages=FALSE, warnings=FALSE}
+suppressPackageStartupMessages({
+    library(systemPipeR)
+    library(BiocParallel)
+    library(Biostrings)
+    library(Rsamtools)
+    library(GenomicRanges)
+    library(ggplot2)
+    library(GenomicAlignments)
+    library(ShortRead)
+    library(ape)
+})
+```
+Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/blob/master/vignettes/systemPipeR.html">here</a> and a short overview slide show [here](https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/master/inst/extdata/slides/systemPipeRslides.html).
+
+# Introduction
+
+Users want to provide here background information about the design of their RNA-Seq project.
+
+
+# Sample definitions and environment settings
+
+## Environment settings and input data
+
+Typically, the user wants to record here the sources and versions of the
+reference genome sequence along with the corresponding annotations. In
+the provided sample data set all data inputs are stored in a `data`
+subdirectory and all results will be written to a separate `results` directory,
+while the `systemPipeRNAseq.Rmd` script and the `targets` file are expected to be located in the parent
+directory. The R session is expected to run from this parent directory.
+
+To run this sample report, mini sample FASTQ and reference genome files
+can be downloaded from
+[here](http://biocluster.ucr.edu/~tgirke/projects/systemPipeR_test_data.zip).
+The chosen data set [SRP010938](http://www.ncbi.nlm.nih.gov/sra/?term=SRP010938)
+contains 18 paired-end (PE) read sets from *Arabidposis thaliana*
+[@Howard2013-fq]. To minimize processing time during testing, each FASTQ
+file has been subsetted to 90,000-100,000 randomly sampled PE reads that
+map to the first 100,000 nucleotides of each chromosome of the *A.
+thalina* genome. The corresponding reference genome sequence (FASTA) and
+its GFF annotion files (provided in the same download) have been
+truncated accordingly. This way the entire test sample data set is less
+than 200MB in storage space. A PE read set has been chosen for this test
+data set for flexibility, because it can be used for testing both types
+of analysis routines requiring either SE (single end) reads or PE reads.
+
+The following loads one of the available NGS workflow templates (here RNA-Seq)
+into the user's current working directory. At the moment, the package includes
+workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq and Ribo-Seq. Templates for
+additional NGS applications will be provided in the future.
+
+```{r genRna_workflow, eval=FALSE}
+library(systemPipeRdata)
+genWorkenvir(workflow="rnaseq")
+setwd("rnaseq")
+download.file("https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.Rmd", "systemPipeRNAseq.Rmd")
+```
+Now open the R markdown script `systemPipeRNAseq.Rmd`in your R IDE (_e.g._ vim-r or RStudio) and 
+run the workflow as outlined below. 
+
+## Required packages and resources
+
+The `systemPipeR` package needs to be loaded to perform the analysis steps shown in
+this report [@Girke2014-oy].
+
+```{r load_systempiper, eval=TRUE}
+library(systemPipeR)
+```
+
+If applicable load custom functions not provided by
+
+```{r source_helper_fcts, eval=FALSE}
+source("systemPipeRNAseq_Fct.R")
+```
+## Experiment definition provided by `targets` file
+
+The `targets` file defines all FASTQ files and sample
+comparisons of the analysis workflow.
+
+```{r load_targets, eval=TRUE}
+targetspath <- system.file("extdata", "targets.txt", package="systemPipeR")
+targets <- read.delim(targetspath, comment.char = "#")[,1:4]
+targets
+```
+
+# Read preprocessing
+
+## Read quality filtering and trimming
+
+The function `preprocessReads` allows to apply predefined or custom
+read preprocessing functions to all FASTQ files referenced in a
+`SYSargs` container, such as quality filtering or adaptor trimming
+routines.  The following example performs adaptor trimming with
+the `trimLRPatterns` function from the `Biostrings` package.
+After the trimming step a new targets file is generated (here
+`targets_trim.txt`) containing the paths to the trimmed FASTQ files.
+The new targets file can be used for the next workflow step with an updated
+`SYSargs` instance, _e.g._ running the NGS alignments using the
+trimmed FASTQ files.
+
+```{r fastq_filter, eval=FALSE}
+args <- systemArgs(sysma="param/trim.param", mytargets="targets.txt")
+preprocessReads(args=args, Fct="trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)",
+                batchsize=100000, overwrite=TRUE, compress=TRUE)
+writeTargetsout(x=args, file="targets_trim.txt", overwrite=TRUE)
+```
+
+## FASTQ quality report
+
+The following `seeFastq` and `seeFastqPlot` functions generate and plot a series of useful 
+quality statistics for a set of FASTQ files including per cycle quality box
+plots, base proportions, base-level quality trends, relative k-mer
+diversity, length and occurrence distribution of reads, number of reads
+above quality cutoffs and mean quality distribution. The results are
+written to a PDF file named `fastqReport.pdf`.
+
+```{r fastq_report, eval=FALSE}
+args <- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
+fqlist <- seeFastq(fastq=infile1(args), batchsize=100000, klength=8)
+pdf("./results/fastqReport.pdf", height=18, width=4*length(fqlist))
+seeFastqPlot(fqlist)
+dev.off()
+``` 
+
+![](fastqReport.png)
+<div align="center">Figure 1: FASTQ quality report for 18 samples</div></br>
+
+
+# Alignments
+
+## Read mapping with `Bowtie2/Tophat2` 
+
+The NGS reads of this project will be aligned against the reference
+genome sequence using `Bowtie2/TopHat2` [@Kim2013-vg; @Langmead2012-bs]. The parameter 
+settings of the aligner are defined in the `tophat.param` file.
+
+```{r tophat_alignment1, eval=FALSE}
+args <- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
+sysargs(args)[1] # Command-line parameters for first FASTQ file
+```
+
+
+Submission of alignment jobs to compute cluster, here using 72 CPU cores
+(18 `qsub` processes each with 4 CPU cores).
+
+```{r tophat_alignment2, eval=FALSE}
+moduleload(modules(args))
+system("bowtie2-build ./data/tair10.fasta ./data/tair10.fasta")
+resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", cores(args)), memory="10gb")
+reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01", 
+                  resourceList=resources)
+waitForJobs(reg)
+```
+
+Check whether all BAM files have been created
+
+```{r check_files_exist, eval=FALSE}
+file.exists(outpaths(args))
+```
+
+## Read and alignment stats
+
+The following provides an overview of the number of reads in each sample
+and how many of them aligned to the reference.
+
+```{r align_stats, eval=FALSE}
+read_statsDF <- alignStats(args=args) 
+write.table(read_statsDF, "results/alignStats.xls", row.names=FALSE, quote=FALSE, sep="\t")
+```
+
+```{r align_stats_view, eval=TRUE}
+read.table(system.file("extdata", "alignStats.xls", package="systemPipeR"), header=TRUE)[1:4,]
+```
+
+
+## Create symbolic links for viewing BAM files in IGV
+
+The `symLink2bam` function creates symbolic links to view the BAM alignment files in a
+genome browser such as IGV. The corresponding URLs are written to a file
+with a path specified under `urlfile` in the `results` directory.
+
+```{r bam_urls, eval=FALSE}
+symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"), 
+            urlbase="http://biocluster.ucr.edu/~tgirke/", 
+	        urlfile="./results/IGVurl.txt")
+```
+
+
+# Read quantification per annotation range
+
+## Read counting with `summarizeOverlaps` in parallel mode using multiple cores
+
+Reads overlapping with annotation ranges of interest are counted for
+each sample using the `summarizeOverlaps` function [@Lawrence2013-kt]. The read counting is
+preformed for exonic gene regions in a non-strand-specific manner while
+ignoring overlaps among different genes. Subsequently, the expression
+count values are normalized by *reads per kp per million mapped reads*
+(RPKM). The raw read count table (`countDFeByg.xls`) and the correspoding 
+RPKM table (`rpkmDFeByg.xls`) are written
+to separate files in the directory of this project. Parallelization is
+achieved with the `BiocParallel` package, here using 8 CPU cores.
+
+```{r read_counting1, eval=FALSE}
+library("GenomicFeatures"); library(BiocParallel)
+txdb <- makeTxDbFromGFF(file="data/tair10.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
+saveDb(txdb, file="./data/tair10.sqlite")
+txdb <- loadDb("./data/tair10.sqlite")
+(align <- readGAlignments(outpaths(args)[1])) # Demonstrates how to read bam file into R
+eByg <- exonsBy(txdb, by=c("gene"))
+bfl <- BamFileList(outpaths(args), yieldSize=50000, index=character())
+multicoreParam <- MulticoreParam(workers=2); register(multicoreParam); registered()
+counteByg <- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode="Union", 
+                                               ignore.strand=TRUE, 
+                                               inter.feature=FALSE, 
+                                               singleEnd=TRUE)) 
+countDFeByg <- sapply(seq(along=counteByg), function(x) assays(counteByg[[x]])$counts)
+rownames(countDFeByg) <- names(rowRanges(counteByg[[1]])); colnames(countDFeByg) <- names(bfl)
+rpkmDFeByg <- apply(countDFeByg, 2, function(x) returnRPKM(counts=x, ranges=eByg))
+write.table(countDFeByg, "results/countDFeByg.xls", col.names=NA, quote=FALSE, sep="\t")
+write.table(rpkmDFeByg, "results/rpkmDFeByg.xls", col.names=NA, quote=FALSE, sep="\t")
+```
+
+Sample of data slice of count table
+```{r view_counts, eval=FALSE}
+read.delim("results/countDFeByg.xls", row.names=1, check.names=FALSE)[1:4,1:5]
+```
+
+Sample of data slice of RPKM table
+
+```{r view_rpkm, eval=FALSE}
+read.delim("results/rpkmDFeByg.xls", row.names=1, check.names=FALSE)[1:4,1:4]
+```
+
+Note, for most statistical differential expression or abundance analysis
+methods, such as `edgeR` or `DESeq2`, the raw count values should be used as input. The
+usage of RPKM values should be restricted to specialty applications
+required by some users, *e.g.* manually comparing the expression levels
+among different genes or features.
+
+## Sample-wise correlation analysis
+
+The following computes the sample-wise Spearman correlation coefficients from
+the `rlog` transformed expression values generated with the `DESeq2` package. After
+transformation to a distance matrix, hierarchical clustering is performed with
+the `hclust` function and the result is plotted as a dendrogram
+(also see file `sample_tree.pdf`).
+
+```{r sample_tree, eval=FALSE}
+library(DESeq2, quietly=TRUE); library(ape,  warn.conflicts=FALSE)
+countDF <- as.matrix(read.table("./results/countDFeByg.xls"))
+colData <- data.frame(row.names=targetsin(args)$SampleName, condition=targetsin(args)$Factor)
+dds <- DESeqDataSetFromMatrix(countData = countDF, colData = colData, design = ~ condition)
+d <- cor(assay(rlog(dds)), method="spearman")
+hc <- hclust(dist(1-d))
+pdf("results/sample_tree.pdf")
+plot.phylo(as.phylo(hc), type="p", edge.col="blue", edge.width=2, show.node.label=TRUE, no.margin=TRUE)
+dev.off()
+```
+
+![](sample_tree.png)
+<div align="center">Figure 2: Correlation dendrogram of samples</div></br>
+
+# Analysis of differentially expressed genes with edgeR 
+
+The analysis of differentially expressed genes (DEGs) is performed with
+the glm method of the `edgeR` package [@Robinson2010-uk]. The sample
+comparisons used by this analysis are defined in the header lines of the 
+`targets.txt` file starting with `<CMP>`.
+
+```{r run_edger, eval=FALSE}
+library(edgeR)
+countDF <- read.delim("results/countDFeByg.xls", row.names=1, check.names=FALSE) 
+targets <- read.delim("targets.txt", comment="#")
+cmp <- readComp(file="targets.txt", format="matrix", delim="-")
+edgeDF <- run_edgeR(countDF=countDF, targets=targets, cmp=cmp[[1]], independent=FALSE, mdsplot="")
+```
+
+Add custom functional descriptions. Skip this step if `desc.xls` is not available.
+
+```{r custom_annot, eval=FALSE}
+library("biomaRt")
+m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
+desc <- getBM(attributes=c("tair_locus", "description"), mart=m)
+desc <- desc[!duplicated(desc[,1]),]
+descv <- as.character(desc[,2]); names(descv) <- as.character(desc[,1])
+edgeDF <- data.frame(edgeDF, Desc=descv[rownames(edgeDF)], check.names=FALSE)
+write.table(edgeDF, "./results/edgeRglm_allcomp.xls", quote=FALSE, sep="\t", col.names = NA)
+```
+
+
+Filter and plot DEG results for up and down regulated genes. The
+definition of *up* and *down* is given in the corresponding help
+file. To open it, type `?filterDEGs` in the R console.
+
+```{r filter_degs, eval=FALSE}
+edgeDF <- read.delim("results/edgeRglm_allcomp.xls", row.names=1, check.names=FALSE) 
+pdf("results/DEGcounts.pdf")
+DEG_list <- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=20))
+dev.off()
+write.table(DEG_list$Summary, "./results/DEGcounts.xls", quote=FALSE, sep="\t", row.names=FALSE)
+```
+
+![](DEGcounts.png)
+<div align="center">Figure 3: Up and down regulated DEGs with FDR of 1%</div></br>
+
+The `overLapper` function can compute Venn intersects for large numbers of sample
+sets (up to 20 or more) and plots 2-5 way Venn diagrams. A useful
+feature is the possiblity to combine the counts from several Venn
+comparisons with the same number of sample sets in a single Venn diagram
+(here for 4 up and down DEG sets).
+
+```{r venn_diagram, eval=FALSE}
+vennsetup <- overLapper(DEG_list$Up[6:9], type="vennsets")
+vennsetdown <- overLapper(DEG_list$Down[6:9], type="vennsets")
+pdf("results/vennplot.pdf")
+vennPlot(list(vennsetup, vennsetdown), mymain="", mysub="", colmode=2, ccol=c("blue", "red"))
+dev.off()
+```
+
+![](vennplot.png)
+<div align="center">Figure 4: Venn Diagram for 4 Up and Down DEG Sets</div></br>
+
+## GO term enrichment analysis of DEGs
+
+### Obtain gene-to-GO mappings
+
+The following shows how to obtain gene-to-GO mappings from `biomaRt` (here for *A.
+thaliana*) and how to organize them for the downstream GO term
+enrichment analysis. Alternatively, the gene-to-GO mappings can be
+obtained for many organisms from Bioconductor’s `*.db` genome annotation
+packages or GO annotation files provided by various genome databases.
+For each annotation this relatively slow preprocessing step needs to be
+performed only once. Subsequently, the preprocessed data can be loaded
+with the `load` function as shown in the next subsection.
+
+```{r get_go_annot, eval=FALSE}
+library("biomaRt")
+listMarts() # To choose BioMart database
+listMarts(host="plants.ensembl.org")
+m <- useMart("plants_mart", host="plants.ensembl.org")
+listDatasets(m)
+m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
+listAttributes(m) # Choose data types you want to download
+go <- getBM(attributes=c("go_accession", "tair_locus", "go_namespace_1003"), mart=m)
+go <- go[go[,3]!="",]; go[,3] <- as.character(go[,3])
+go[go[,3]=="molecular_function", 3] <- "F"; go[go[,3]=="biological_process", 3] <- "P"; go[go[,3]=="cellular_component", 3] <- "C"
+go[1:4,]
+dir.create("./data/GO")
+write.table(go, "data/GO/GOannotationsBiomart_mod.txt", quote=FALSE, row.names=FALSE, col.names=FALSE, sep="\t")
+catdb <- makeCATdb(myfile="data/GO/GOannotationsBiomart_mod.txt", lib=NULL, org="", colno=c(1,2,3), idconv=NULL)
+save(catdb, file="data/GO/catdb.RData")
+```
+
+### Batch GO term enrichment analysis
+
+Apply the enrichment analysis to the DEG sets obtained the above differential
+expression analysis. Note, in the following example the `FDR` filter is set
+here to an unreasonably high value, simply because of the small size of the toy
+data set used in this vignette. Batch enrichment analysis of many gene sets is
+performed with the function. When `method=all`, it returns all GO terms passing
+the p-value cutoff specified under the `cutoff` arguments. When `method=slim`,
+it returns only the GO terms specified under the `myslimv` argument. The given
+example shows how a GO slim vector for a specific organism can be obtained from
+BioMart.
+
+
+```{r go_enrich, eval=FALSE}
+library("biomaRt")
+load("data/GO/catdb.RData")
+DEG_list <- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=50), plot=FALSE)
+up_down <- DEG_list$UporDown; names(up_down) <- paste(names(up_down), "_up_down", sep="")
+up <- DEG_list$Up; names(up) <- paste(names(up), "_up", sep="")
+down <- DEG_list$Down; names(down) <- paste(names(down), "_down", sep="")
+DEGlist <- c(up_down, up, down)
+DEGlist <- DEGlist[sapply(DEGlist, length) > 0]
+BatchResult <- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="all", id_type="gene", CLSZ=2, cutoff=0.9, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
+library("biomaRt")
+m <- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
+goslimvec <- as.character(getBM(attributes=c("goslim_goa_accession"), mart=m)[,1])
+BatchResultslim <- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="slim", id_type="gene", myslimv=goslimvec, CLSZ=10, cutoff=0.01, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
+```
+
+### Plot batch GO term results
+
+The `data.frame` generated by `GOCluster` can be plotted with the `goBarplot` function. Because of the
+variable size of the sample sets, it may not always be desirable to show
+the results from different DEG sets in the same bar plot. Plotting
+single sample sets is achieved by subsetting the input data frame as
+shown in the first line of the following example.
+
+```{r go_plot, eval=FALSE}
+gos <- BatchResultslim[grep("M6-V6_up_down", BatchResultslim$CLID), ]
+gos <- BatchResultslim
+pdf("GOslimbarplotMF.pdf", height=8, width=10); goBarplot(gos, gocat="MF"); dev.off()
+goBarplot(gos, gocat="BP")
+goBarplot(gos, gocat="CC")
+```
+
+![](GOslimbarplotMF.png)
+<div align="center">Figure 5: GO Slim Barplot for MF Ontology</div></br>
+
+# Clustering and heat maps
+
+The following example performs hierarchical clustering on the `rlog`
+transformed expression matrix subsetted by the DEGs identified in the above
+differential expression analysis. It uses a Pearson correlation-based distance
+measure and complete linkage for cluster joining.
+
+```{r heatmap, eval=FALSE}
+library(pheatmap)
+geneids <- unique(as.character(unlist(DEG_list[[1]])))
+y <- assay(rlog(dds))[geneids, ]
+pdf("heatmap1.pdf")
+pheatmap(y, scale="row", clustering_distance_rows="correlation", clustering_distance_cols="correlation")
+dev.off()
+```
+
+![](heatmap1.png)
+<div align="center">Figure 6: Heat Map with Hierarchical Clustering Dendrograms of DEGs</div></br>
+
+# Version Information
+
+```{r sessionInfo}
+sessionInfo()
+```
+
+# Funding
+
+This project was supported by funds from the National Institutes of Health (NIH).
+
+# References
+
+
+<div class="tags">
+    
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 UC Riverside. All rights reserved. <br />
+ Site last generated: Apr 30, 2016 <br />
+<p><img src="../common_images/company_logo.png/></p>
+                </div>
+            </div>
+</footer>
+
+            </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+</body>
+
+
+</html>
+
