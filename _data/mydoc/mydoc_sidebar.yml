@@ -756,7 +756,7 @@ entries:
     output: web
     items:
 
-    - title: Project 1
+    - title: ChIP-Seq1 - Motifs
       url: /mydoc/mydoc_project_01.html
       audience: writers, designers
       platform: all
