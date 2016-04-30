@@ -731,6 +731,22 @@ entries:
       product: all
       version: all
       output: web
+  
+  - title: Paper Presentations
+    audience: writers, designers
+    platform: all
+    product: all
+    version: all
+    output: web
+    items:
+
+    - title: Paper Presentations
+      url: /mydoc/mydoc_project_01.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
 
   - title: Projects
     audience: writers, designers
