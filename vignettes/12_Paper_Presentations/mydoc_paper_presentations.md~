@@ -5,7 +5,7 @@ last_updated: 30-Apr-16
 
 ## Overview
 
-Each student in class has been assigned one paper to present in class. The
+Each student has been assigned one paper to present in class. The
 structure of the paper presentations is outlined in this [template slide
 show](https://docs.google.com/presentation/d/1V0kKq2PEu6tnvgnbWGaQU2es-2hsGpdS-JzbUnDMs5o/edit?usp=sharing). The schedule for the paper presentations is available in the
 internal [Course Planning Sheet](https://docs.google.com/spreadsheets/d/1Im2mwX8NJ9FSZB2CVxoevTxttr2wzoG9ybL_GMMNN4A/edit#gid=1818533395). 
