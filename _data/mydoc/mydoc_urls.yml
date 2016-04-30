@@ -114,9 +114,34 @@ mydoc_paper_presentations:
   link: "<a href='../mydoc_paper_presentations.html'>Paper Presentations</a>"
 
 mydoc_project_01:
-  title: "Projects"
+  title: "ChIP-Seq1"
   url: "../mydoc_project_01.html"
-  link: "<a href='../mydoc_project_01.html'>Project 01</a>"
+  link: "<a href='../mydoc_project_01.html'>ChIP-Seq1</a>"
+
+mydoc_project_02:
+  title: "ChIP-Seq2"
+  url: "../mydoc_project_02.html"
+  link: "<a href='../mydoc_project_02.html'>ChIP-Seq2</a>"
+
+mydoc_project_03:
+  title: "RNA-Seq1"
+  url: "../mydoc_project_03.html"
+  link: "<a href='../mydoc_project_03.html'>RNA-Seq1</a>"
+
+mydoc_project_04:
+  title: "RNA-Seq2"
+  url: "../mydoc_project_04.html"
+  link: "<a href='../mydoc_project_04.html'>RNA-Seq2</a>"
+
+mydoc_project_05:
+  title: "VAR-Seq1"
+  url: "../mydoc_project_05.html"
+  link: "<a href='../mydoc_project_05.html'>VAR-Seq1</a>"
+
+mydoc_project_06:
+  title: "VAR-Seq2"
+  url: "../mydoc_project_06.html"
+  link: "<a href='../mydoc_project_06.html'>VAR-Seq2</a>"
 
 mydoc_Programming_in_R_1:
   title: "Overview"

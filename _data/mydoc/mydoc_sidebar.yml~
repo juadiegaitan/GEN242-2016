@@ -756,8 +756,48 @@ entries:
     output: web
     items:
 
-    - title: ChIP-Seq1 - Motifs
+    - title: ChIP-Seq1 - Motif Prediction
       url: /mydoc/mydoc_project_01.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: ChIP-Seq2 - Peak Callers
+      url: /mydoc/mydoc_project_02.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: RNA-Seq1 - RNA-Seq Aligners
+      url: /mydoc/mydoc_project_03.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: RNA-Seq2 - DEG Methods
+      url: /mydoc/mydoc_project_04.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: VAR-Seq1 - Variant Callers
+      url: /mydoc/mydoc_project_05.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: VAR-Seq2 - Functional Prediction
+      url: /mydoc/mydoc_project_05.html
       audience: writers, designers
       platform: all
       product: all
