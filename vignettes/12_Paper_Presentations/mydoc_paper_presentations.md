@@ -6,7 +6,7 @@ last_updated: 30-Apr-16
 ## Overview
 
 Each student has been assigned one paper to present in class. The
-structure of the paper presentations is outlined in this [Template Slide Show](https://docs.google.com/presentation/d/1VJzj9L75HdGel-mnAbNLYc9Wmdxg3aQP8YmrWG3AsTU/edit?usp=sharing). 
+structure of the paper presentations is outlined in this [Template Slideshow](https://docs.google.com/presentation/d/1VJzj9L75HdGel-mnAbNLYc9Wmdxg3aQP8YmrWG3AsTU/edit?usp=sharing). 
 The schedule for the paper presentations is available on the internal [Course Planning Sheet](https://docs.google.com/spreadsheets/d/1OkmYxBt7SZp4Pba8LlRtMRB0JoTie4OJZmo9X-KtQqo/edit#gid=162605681). 
 The following lists the assigned papers organized by course project topics.
 
