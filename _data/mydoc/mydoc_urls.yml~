@@ -133,6 +133,16 @@ mydoc_project_04:
   url: "../mydoc_project_04.html"
   link: "<a href='../mydoc_project_04.html'>RNA-Seq2</a>"
 
+mydoc_project_05:
+  title: "VAR-Seq1"
+  url: "../mydoc_project_05.html"
+  link: "<a href='../mydoc_project_05.html'>VAR-Seq1</a>"
+
+mydoc_project_06:
+  title: "VAR-Seq2"
+  url: "../mydoc_project_06.html"
+  link: "<a href='../mydoc_project_06.html'>VAR-Seq2</a>"
+
 mydoc_Programming_in_R_1:
   title: "Overview"
   url: "../mydoc/mydoc_Programming_in_R_1.html"

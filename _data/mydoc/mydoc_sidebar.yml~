@@ -755,6 +755,15 @@ entries:
     version: all
     output: web
     items:
+    
+    - title: Overview
+      url: /mydoc/mydoc_project_01.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
 
     - title: ChIP-Seq1 - Motif Prediction
       url: /mydoc/mydoc_project_01.html
@@ -797,7 +806,7 @@ entries:
       output: web
     
     - title: VAR-Seq2 - Functional Prediction
-      url: /mydoc/mydoc_project_05.html
+      url: /mydoc/mydoc_project_06.html
       audience: writers, designers
       platform: all
       product: all

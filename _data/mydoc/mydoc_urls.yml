@@ -113,6 +113,11 @@ mydoc_paper_presentations:
   url: "../mydoc_paper_presentations.html"
   link: "<a href='../mydoc_paper_presentations.html'>Paper Presentations</a>"
 
+mydoc_project_00:
+  title: "Overview"
+  url: "../mydoc_project_00.html"
+  link: "<a href='../mydoc_project_00.html'>Overview</a>"
+
 mydoc_project_01:
   title: "ChIP-Seq1"
   url: "../mydoc_project_01.html"
