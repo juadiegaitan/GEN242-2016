@@ -79,8 +79,10 @@ addition, a recent version of [R](http://www.r-project.org) and
 |--------|-------------------------------------------|
 | Week 2 | 1. Sequencing Technologies                |
 |        | 2. Tutorial: Introduction to R            | 
+|        | 2. Tutorial: Introduction to R            | 
 |--------|-------------------------------------------|
 | Week 3 | 1. Sequence Alignments and Searching      |
+|        | 2. Tutorial: Programming in R             |
 |        | 2. Tutorial: Programming in R             |
 |--------|-------------------------------------------|
 | Week 4 | 1. Multiple Sequence Alignments           |
