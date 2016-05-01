@@ -75,7 +75,7 @@ addition, a recent version of [R](http://www.r-project.org) and
 |---------|---------------------------------------------------------|
 | Week 1  | Course Introduction                                     |
 |         | Databases and Software for Genome Biology               |
-|         | Tutorial: Introduction to Biocluster                    |
+|         | Tutorial: Introduction to Linux and Biocluster          |
 | Week 2  | Sequencing Technologies                                 |
 |         | Tutorial: Introduction to R                             | 
 | Week 3  | Sequence Alignments and Searching                       |
