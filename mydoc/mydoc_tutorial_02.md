@@ -364,6 +364,18 @@ qalter -l walltime=8:00 <JOBID>
 * __Nano__: A simple terminal-based editor which is default on modern Debian systems. 
 * __Atom__: Modern text editor developed by GitHub project.
 
+### Why does it matter?
+
+To work efficiently on remote systems like a computer cluster, it is essential
+to learn how to work in a pure command-line interface. GUI interfaces like
+RStudio and similar coding environments are not suitable for this. In addition,
+there is a lot of value of knowing how to work in an environment that is not
+restricted to a specific programming language. Therefore, this class embraces
+RStudio where it is useful, but for working on remote systems like biocluster, it 
+uses Vim and Tmux. Both are useful for many programming languages.
+Combinded with the `vim-r` plugin they provide a powerful command-line working
+environment for R.
+
 ### Vim overview
 
 The following opens a file (here `myfile`) with vim
