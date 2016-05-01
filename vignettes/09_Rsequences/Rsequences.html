@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="header">
 <h1 class="title">NGS Analysis Basics</h1>
 <h4 class="author"><em>Author: Thomas Girke</em></h4>
-<h4 class="date"><em>Last update: 21 April, 2016</em></h4>
+<h4 class="date"><em>Last update: 30 April, 2016</em></h4>
 </div>
 
 <h1>Contents</h1>
@@ -127,10 +127,11 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><a href="#efficient-sequence-parsing-with-getseq"><span class="toc-section-number">7.2</span> Efficient Sequence Parsing with <code>getSeq</code></a></li>
 </ul></li>
 <li><a href="#homework-6"><span class="toc-section-number">8</span> Homework 6</a><ul>
-<li><a href="#hw-6a---demultiplexing"><span class="toc-section-number">8.1</span> HW 6a - Demultiplexing</a></li>
+<li><a href="#hw6a---demultiplexing"><span class="toc-section-number">8.1</span> HW6a - Demultiplexing</a></li>
 <li><a href="#hw6b---sequence-parsing"><span class="toc-section-number">8.2</span> HW6b - Sequence Parsing</a></li>
 <li><a href="#homework-submission"><span class="toc-section-number">8.3</span> Homework submission</a></li>
 <li><a href="#due-date"><span class="toc-section-number">8.4</span> Due date</a></li>
+<li><a href="#homework-solutions"><span class="toc-section-number">8.5</span> Homework Solutions</a></li>
 </ul></li>
 <li><a href="#session-info"><span class="toc-section-number">9</span> Session Info</a></li>
 <li><a href="#references">References</a></li>
@@ -1358,8 +1359,8 @@ getSeq(FaFile(&quot;./data/test&quot;), gff)</code></pre>
 </div>
 <div id="homework-6" class="section level1">
 <h1><span class="header-section-number">8</span> Homework 6</h1>
-<div id="hw-6a---demultiplexing" class="section level2">
-<h2><span class="header-section-number">8.1</span> HW 6a - Demultiplexing</h2>
+<div id="hw6a---demultiplexing" class="section level2">
+<h2><span class="header-section-number">8.1</span> HW6a - Demultiplexing</h2>
 <p>Write a demultiplexing function that accepts any number of barcodes and splits a FASTQ file into as many subfiles as there are barcodes. At the same time the function should remove low quality tails from the reads. The following function accomplishes the first step. Expand this function so that it performs the second step as well.</p>
 <pre class="r"><code>demultiplex &lt;- function(x, barcode, nreads) {
     f &lt;- FastqStreamer(x, nreads) 
@@ -1408,6 +1409,10 @@ writeXStringSet(c(p1, p2), &quot;./data/mypep.fasta&quot;)</code></pre>
 <div id="due-date" class="section level2">
 <h2><span class="header-section-number">8.4</span> Due date</h2>
 <p>This homework is due on Thu, April 28th at 6:00 PM.</p>
+</div>
+<div id="homework-solutions" class="section level2">
+<h2><span class="header-section-number">8.5</span> Homework Solutions</h2>
+<p>See <a href="https://drive.google.com/file/d/0B-lLYVUOliJFUmNlX2twQjBjaW8/view?usp=sharing">here</a></p>
 </div>
 </div>
 <div id="session-info" class="section level1">
