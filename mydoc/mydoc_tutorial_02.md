@@ -357,9 +357,10 @@ qalter -l walltime=8:00 <JOBID>
 
 ## Text/code editor options
 
+The following list includes examples of several widely used code editors.
+
 * __Vi/Vim/Neovim__: Non-graphical (terminal-based) editor. Vi is guaranteed to be available on any system. Vim is the improved version of vi.
 * __Emacs__: Non-graphical or window-based editor. You still need to know keystroke commands to use it. Installed on all Linux distributions and on most other Unix systems.
-* __XEmacs__: More sophisticated version of emacs, but usually not installed by default. All common commands are available from menus. Very powerful editor, with built-in syntax checking, Web-browsing, news-reading, manual-page browsing, etc.
 * __Pico__: Simple terminal-based editor available on most versions of Unix. Uses keystroke commands, but they are listed in logical fashion at bottom of screen. 
 * __Nano__: A simple terminal-based editor which is default on modern Debian systems. 
 * __Atom__: Modern text editor developed by GitHub project.
