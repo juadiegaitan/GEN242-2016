@@ -1545,10 +1545,10 @@ SCRIPTNAME.sh.eJOBID or STDIN.eJOBID</code></pre></div>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">qalter -l <span class="nv">walltime</span><span class="o">=</span>8:00 &lt;JOBID&gt;</code></pre></div>
 
-<h2 id="text-editors">Text editors</h2>
+<h2 id="textcode-editor-options">Text/code editor options</h2>
 
 <ul>
-  <li><strong>Vi and Vim</strong>: Non-graphical (terminal-based) editor. Vi is guaranteed to be available on any system. Vim is the improved version of vi.</li>
+  <li><strong>Vi/Vim/Neovim</strong>: Non-graphical (terminal-based) editor. Vi is guaranteed to be available on any system. Vim is the improved version of vi.</li>
   <li><strong>Emacs</strong>: Non-graphical or window-based editor. You still need to know keystroke commands to use it. Installed on all Linux distributions and on most other Unix systems.</li>
   <li><strong>XEmacs</strong>: More sophisticated version of emacs, but usually not installed by default. All common commands are available from menus. Very powerful editor, with built-in syntax checking, Web-browsing, news-reading, manual-page browsing, etc.</li>
   <li><strong>Pico</strong>: Simple terminal-based editor available on most versions of Unix. Uses keystroke commands, but they are listed in logical fashion at bottom of screen.</li>
@@ -1559,14 +1559,14 @@ SCRIPTNAME.sh.eJOBID or STDIN.eJOBID</code></pre></div>
 <h3 id="why-does-it-matter">Why does it matter?</h3>
 
 <p>To work efficiently on remote systems like a computer cluster, it is essential
-to learn how to work in a pure command-line interface. GUI interfaces like
+to learn how to work in a pure command-line interface. GUI environments like
 RStudio and similar coding environments are not suitable for this. In addition,
 there is a lot of value of knowing how to work in an environment that is not
 restricted to a specific programming language. Therefore, this class embraces
 RStudio where it is useful, but for working on remote systems like biocluster, it 
 uses Vim and Tmux. Both are useful for many programming languages.
-Combinded with the <code>vim-r</code> plugin they provide a powerful command-line working
-environment for R.</p>
+Combinded with the <code>vim-r</code> plugin they also provide a powerful command-line working
+environment for R. The following provides a brief introduction to this environment.</p>
 
 <h3 id="vim-overview">Vim overview</h3>
 
