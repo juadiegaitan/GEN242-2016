@@ -1,7 +1,7 @@
 ---
 title: Strings in R Base
 keywords: 
-last_updated: Thu Apr 21 12:28:13 2016
+last_updated: Sat Apr 30 19:54:48 2016
 ---
 
 ## Basic String Matching and Parsing

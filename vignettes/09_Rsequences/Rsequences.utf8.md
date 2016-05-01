@@ -1,7 +1,7 @@
 ---
 title: NGS Analysis Basics
 author: "Author: Thomas Girke"
-date: "Last update: 21 April, 2016" 
+date: "Last update: 30 April, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -1871,7 +1871,7 @@ getSeq(FaFile("./data/test"), gff)
 
 # Homework 6
 
-## HW 6a - Demultiplexing
+## HW6a - Demultiplexing
 	
 Write a demultiplexing function that accepts any number of
 barcodes and splits a FASTQ file into as many subfiles as there are barcodes.
@@ -1930,6 +1930,10 @@ Submit the homework results in one well structured and annotated R script to the
 ## Due date
 
 This homework is due on Thu, April 28th at 6:00 PM.
+
+## Homework Solutions
+
+See [here](https://drive.google.com/file/d/0B-lLYVUOliJFUmNlX2twQjBjaW8/view?usp=sharing)
 
 
 # Session Info

@@ -1,11 +1,11 @@
 ---
 title: NGS Analysis Basics
 keywords: 
-last_updated: Thu Apr 21 12:28:13 2016
+last_updated: Sat Apr 30 19:54:48 2016
 ---
 Author: Thomas Girke
 
-Last update: 21 April, 2016 
+Last update: 30 April, 2016 
 
 Alternative formats of this vignette:
 [`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/09_Rsequences/Rsequences.html),
