@@ -246,7 +246,7 @@ module unload R/3.2.3-dev
 
 ## Big data storage
 
-Each user accounts on biocluster comes only with 20GB of disk space. Much more disk space is 
+Each user account on biocluster comes only with 20GB of disk space. Much more disk space is 
 available in a dedicated `bigdata` directory. How much space depends on the subscription 
 of each user group. The path of `bigdata` and `bigdata-shared` is as follows:
 
@@ -259,25 +259,25 @@ for user accounts adminstered under GEN242.
 The disk usage of `home` and `bigdata` can be monitored on the [Biocluster Dashboard](https://dashboard.bioinfo.ucr.edu/).
 
 
-## Queuing System 
+## Queuing system 
 
-Biocluster uses Torque/Maui as queuing and load balancing system. Any type of compute intensive
-jobs need to be submitted via the `qsub` (see below) to the compute nodes. Much more detailed
-information on this topic is available in the biocluster manual [here](http://manuals.bioinformatics.ucr.edu/home/hpc).
-
-* Torque (PBS)
-    * Load Balancing
-    * Parallel Computing
-* Maui
-    * Resource Management
-    * Job Scheduler
+Biocluster uses Torque/Maui as queuing and load balancing system. To control user traffic, any 
+type of compute intensive jobs need to be submitted via the `qsub` (see below) to the compute 
+nodes. Much more detailed information on this topic is available in the biocluster manual 
+[here](http://manuals.bioinformatics.ucr.edu/home/hpc).
 
 ### Job submission with `qsub`
 
-Basic job submission with `qsub`
+Basic job submission with `qsub` without a submission script
 
 {% highlight sh %}
 echo ’command_args’ | qsub
+{% endhighlight %}
+
+Alternatively, one can submit jobs via a submission script as shown below. This much more
+flexible approach is preferred for submitting scripts from the command-line.
+
+{% highlight sh %}
 qsub script_name.sh
 {% endhighlight %}
 
@@ -333,7 +333,7 @@ Print more detailed information about jobs
 qstat -tf1
 {% endhighlight %}
 
-Custom command to summarize cluster activity
+Custom command to summarize and visualize cluster activity
 {% highlight sh %}
 qstatMonitor
 {% endhighlight %}
