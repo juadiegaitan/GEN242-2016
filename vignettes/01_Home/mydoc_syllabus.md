@@ -71,45 +71,34 @@ addition, a recent version of [R](http://www.r-project.org) and
 
 ## Schedule
 
-| Week   | Topic                                     |
-|--------|-------------------------------------------|
-| Week 1 | 1. Course Introduction                    |
-|        | 2. Databases and Software for Genome Biology |
-|        | 3. Tutorial: Introduction to Biocluster   |
-|--------|-------------------------------------------|
-| Week 2 | 1. Sequencing Technologies                |
-|        | 2. Tutorial: Introduction to R            | 
-|        | 2. Tutorial: Introduction to R            | 
-|--------|-------------------------------------------|
-| Week 3 | 1. Sequence Alignments and Searching      |
-|        | 2. Tutorial: Programming in R             |
-|        | 2. Tutorial: Programming in R             |
-|--------|-------------------------------------------|
-| Week 4 | 1. Multiple Sequence Alignments           |
-|        | 2. Short Read Alignment Algorithms        |
-|        | 3. Tutorial: Basics of NGS Analysis       |
-|--------|-------------------------------------------|
-| Week 5 | 1. Gene Expression Analysis using Microarrays and RNA-Seqs |
-|        | 2. Tutorial: NGS Workflow Overview        |
-|        | 3. Tutorial: RNA-Seq Analysis             |
-|--------|-------------------------------------------|
-| Week 6 | 1. Analysis of ChIP-Seq and VAR-Seq Experiments |
-|        | 2. Tutorial: ChIP-Seq Analysis            |
-|        | 3. Tutorial: VAR-Seq Analysis             |
-|--------|-------------------------------------------|
-| Week 7 | 1. Student Paper Presentations            |
-|--------|-------------------------------------------|
-| Week 8 | 1. Clustering algorithms                  |
-|        | 2. Annotation Systems and Gene Set Enrichment Analysis |
-|        | 3. Tutorial: Gene Set Enrichment Analysis |
-|--------|-------------------------------------------|
-| Week 9 | 1. Profile HMMs for Protein Family Modeling |
-|        | 2. Phylogenetics                          |
-|        | 3. Tutorial: Graphics and Data Visualization |
-|--------|-------------------------------------------|
-| Week 10| 1. Student Project Presentations          |
-|        | 2. Final Course Discussion                |
-|--------|-------------------------------------------|
+| Week    | Topic                                                      |
+|---------|------------------------------------------------------------|
+| Week 1  | 1. Course Introduction                                     |
+|         | 2. Databases and Software for Genome Biology               |
+|         | 3. Tutorial: Introduction to Biocluster                    |
+| Week 2  | 1. Sequencing Technologies                                 |
+|         | 2. Tutorial: Introduction to R                             | 
+| Week 3  | 1. Sequence Alignments and Searching                       |
+|         | 2. Tutorial: Programming in R                              |
+| Week 4  | 1. Multiple Sequence Alignments                            |
+|         | 2. Short Read Alignment Algorithms                         |
+|         | 3. Tutorial: Basics of NGS Analysis                        |
+| Week 5  | 1. Gene Expression Analysis using Microarrays and RNA-Seqs |
+|         | 2. Tutorial: NGS Workflow Overview                         |
+|         | 3. Tutorial: RNA-Seq Analysis                              |
+| Week 6  | 1. Analysis of ChIP-Seq and VAR-Seq Experiments            |
+|         | 2. Tutorial: ChIP-Seq Analysis                             |
+|         | 3. Tutorial: VAR-Seq Analysis                              |
+| Week 7  | 1. Student Paper Presentations                             |
+| Week 8  | 1. Clustering algorithms                                   |
+|         | 2. Annotation Systems and Gene Set Enrichment Analysis     |
+|         | 3. Tutorial: Gene Set Enrichment Analysis                  |
+| Week 9  | 1. Profile HMMs for Protein Family Modeling                |
+|         | 2. Phylogenetics                                           |
+|         | 3. Tutorial: Graphics and Data Visualization               |
+| Week 10 | 1. Student Project Presentations                           |
+|         | 2. Final Course Discussion                                 |
+|---------|------------------------------------------------------------|
 
 ## Reading list
 
