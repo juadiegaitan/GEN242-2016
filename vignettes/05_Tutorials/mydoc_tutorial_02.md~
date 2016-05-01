@@ -355,9 +355,9 @@ Altering jobs with `qalter` (here walltime)
 qalter -l walltime=8:00 <JOBID>
 {% endhighlight %}
 
-## Text editors
+## Text/code editor options
 
-* __Vi and Vim__: Non-graphical (terminal-based) editor. Vi is guaranteed to be available on any system. Vim is the improved version of vi.
+* __Vi/Vim/Neovim__: Non-graphical (terminal-based) editor. Vi is guaranteed to be available on any system. Vim is the improved version of vi.
 * __Emacs__: Non-graphical or window-based editor. You still need to know keystroke commands to use it. Installed on all Linux distributions and on most other Unix systems.
 * __XEmacs__: More sophisticated version of emacs, but usually not installed by default. All common commands are available from menus. Very powerful editor, with built-in syntax checking, Web-browsing, news-reading, manual-page browsing, etc.
 * __Pico__: Simple terminal-based editor available on most versions of Unix. Uses keystroke commands, but they are listed in logical fashion at bottom of screen. 
@@ -367,14 +367,14 @@ qalter -l walltime=8:00 <JOBID>
 ### Why does it matter?
 
 To work efficiently on remote systems like a computer cluster, it is essential
-to learn how to work in a pure command-line interface. GUI interfaces like
+to learn how to work in a pure command-line interface. GUI environments like
 RStudio and similar coding environments are not suitable for this. In addition,
 there is a lot of value of knowing how to work in an environment that is not
 restricted to a specific programming language. Therefore, this class embraces
-RStudio where it is useful, but for working on remote systems (biocluster), we
-will we will use Vim and Tmux. Both are useful for many programming languages.
-Combinded with the `vim-r` plugin they provide a powerful command-line working
-environment for R as well.
+RStudio where it is useful, but for working on remote systems like biocluster, it 
+uses Vim and Tmux. Both are useful for many programming languages.
+Combinded with the `vim-r` plugin they also provide a powerful command-line working
+environment for R. The following provides a brief introduction to this environment.
 
 ### Vim overview
 
