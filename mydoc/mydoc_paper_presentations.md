@@ -6,8 +6,8 @@ last_updated: 30-Apr-16
 ## Overview
 
 Each student has been assigned one journal publication to present in class. The
-structure of the paper presentations is outlined in this [Slideshow Template](https://docs.google.com/presentation/d/1VJzj9L75HdGel-mnAbNLYc9Wmdxg3aQP8YmrWG3AsTU/edit?usp=sharing). 
-The detailed schedule for the paper presentations is available on the internal [Course Schedule](https://docs.google.com/spreadsheets/d/1OkmYxBt7SZp4Pba8LlRtMRB0JoTie4OJZmo9X-KtQqo/edit#gid=162605681). 
+expected structure of the paper presentations is outlined in this [Slideshow Template](https://docs.google.com/presentation/d/1VJzj9L75HdGel-mnAbNLYc9Wmdxg3aQP8YmrWG3AsTU/edit?usp=sharing). 
+A detailed presentation schedule is available on the internal [Course Schedule](https://docs.google.com/spreadsheets/d/1OkmYxBt7SZp4Pba8LlRtMRB0JoTie4OJZmo9X-KtQqo/edit#gid=162605681). 
 The following lists the assigned papers organized by course project topics.
 
 
@@ -52,7 +52,7 @@ The following lists the assigned papers organized by course project topics.
 + McKenna A, Hanna M, Banks E, Sivachenko A, Cibulskis K, Kernytsky A, Garimella K, Altshuler D, Gabriel S, Daly M, et al (2010) The Genome Analysis Toolkit: a MapReduce framework for analyzing next-generation DNA sequencing data. Genome Res 20: 1297–1303 [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/20644199)
 
 
-### VAR-Seq2 - Functional Prediction  
+### VAR-Seq2 - Prediction of Functional Variants
 
 + Shihab HA, Rogers MF, Gough J, Mort M, Cooper DN, Day INM, Gaunt TR, Campbell C (2015) An integrative approach to predicting the functional effects of non-coding and coding sequence variation. Bioinformatics 31: 1536–1543 [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/25583119)
 + Kumar P, Henikoff S, Ng PC (2009) Predicting the effects of coding non-synonymous variants on protein function using the SIFT algorithm. Nat Protoc 4: 1073–1081 [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/19561590)
