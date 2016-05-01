@@ -1444,7 +1444,7 @@ meaning of this syntax is as follows:</p>
 
 <h2 id="big-data-storage">Big data storage</h2>
 
-<p>Each user accounts on biocluster comes only with 20GB of disk space. Much more disk space is 
+<p>Each user account on biocluster comes only with 20GB of disk space. Much more disk space is 
 available in a dedicated <code>bigdata</code> directory. How much space depends on the subscription 
 of each user group. The path of <code>bigdata</code> and <code>bigdata-shared</code> is as follows:</p>
 
@@ -1458,33 +1458,23 @@ for user accounts adminstered under GEN242.</p>
 
 <p>The disk usage of <code>home</code> and <code>bigdata</code> can be monitored on the <a href="https://dashboard.bioinfo.ucr.edu/">Biocluster Dashboard</a>.</p>
 
-<h2 id="queuing-system">Queuing System</h2>
+<h2 id="queuing-system">Queuing system</h2>
 
-<p>Biocluster uses Torque/Maui as queuing and load balancing system. Any type of compute intensive
-jobs need to be submitted via the <code>qsub</code> (see below) to the compute nodes. Much more detailed
-information on this topic is available in the biocluster manual <a href="http://manuals.bioinformatics.ucr.edu/home/hpc">here</a>.</p>
-
-<ul>
-  <li>Torque (PBS)
-    <ul>
-      <li>Load Balancing</li>
-      <li>Parallel Computing</li>
-    </ul>
-  </li>
-  <li>Maui
-    <ul>
-      <li>Resource Management</li>
-      <li>Job Scheduler</li>
-    </ul>
-  </li>
-</ul>
+<p>Biocluster uses Torque/Maui as queuing and load balancing system. To control user traffic, any 
+type of compute intensive jobs need to be submitted via the <code>qsub</code> (see below) to the compute 
+nodes. Much more detailed information on this topic is available in the biocluster manual 
+<a href="http://manuals.bioinformatics.ucr.edu/home/hpc">here</a>.</p>
 
 <h3 id="job-submission-with-qsub">Job submission with <code>qsub</code></h3>
 
-<p>Basic job submission with <code>qsub</code></p>
+<p>Basic job submission with <code>qsub</code> without a submission script</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> ’command_args’ | qsub
-qsub script_name.sh</code></pre></div>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> ’command_args’ | qsub</code></pre></div>
+
+<p>Alternatively, one can submit jobs via a submission script as shown below. This much more
+flexible approach is preferred for submitting scripts from the command-line.</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub script_name.sh</code></pre></div>
 
 <p>Sample submission script, here called <code>script_name.sh</code> to run <code>my_script.R</code></p>
 
@@ -1527,7 +1517,7 @@ SCRIPTNAME.sh.eJOBID or STDIN.eJOBID</code></pre></div>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">qstat -tf1</code></pre></div>
 
-<p>Custom command to summarize cluster activity</p>
+<p>Custom command to summarize and visualize cluster activity</p>
 
 <div class="highlight"><pre><code class="language-sh" data-lang="sh">qstatMonitor</code></pre></div>
 
