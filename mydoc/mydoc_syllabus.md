@@ -74,47 +74,39 @@ addition, a recent version of [R](http://www.r-project.org) and
 | Week   | Topic                                     |
 |--------|-------------------------------------------|
 | Week 1 | 1. Course Introduction                    |
-|        | 2. Bioinformatics databases and software  |
-|        | 3. Data analysis/programming environments |
-|        | 4. Discussion: Linux/cluster basics       |
+|        | 2. Databases and Software for Genome Biology |
+|        | 3. Tutorial: Introduction to Biocluster   |
 |--------|-------------------------------------------|
-| Week 2 | 1. Sequence alignment algorithms          |
-|        | 2. Sequence search algorithms             | 
-|        | 3. Discussion: Introduction to R          |
+| Week 2 | 1. Sequencing Technologies                |
+|        | 2. Tutorial: Introduction to R            | 
 |--------|-------------------------------------------|
-| Week 3 | 1. Sequence family analysis               |
-|        | 2. Hidden Markov Models                   |
-|        | 3. Phylogenetics                          |
-|        | 4. Discussion: Data visualization in R    |
+| Week 3 | 1. Sequence Alignments and Searching      |
+|        | 2. Tutorial: Programming in R             |
 |--------|-------------------------------------------|
-| Week 4 | 1. Next generation sequence (NGS) analysis |
-|        | 2. NGS alignment algorithms               |
-|        | 3. NGS assembly algorithms                |
-|        | 4. Discussion: Reproducible data analysis strategies |
+| Week 4 | 1. Multiple Sequence Alignments           |
+|        | 2. Short Read Alignment Algorithms        |
+|        | 3. Tutorial: Basics of NGS Analysis       |
 |--------|-------------------------------------------|
-| Week 5 | 1. Students present publication related to their chosen course project |
-|        | 2. Discussion: Sequence analysis programming |
+| Week 5 | 1. Gene Expression Analysis using Microarrays and RNA-Seqs |
+|        | 2. Tutorial: NGS Workflow Overview        |
+|        | 3. Tutorial: RNA-Seq Analysis             |
 |--------|-------------------------------------------|
-| Week 6 | 1. Gene expression analysis using microarray or RNA-Seq data |
-|        | 2. Analysis methods of ChIP-Seq, VAR-Seq and other NGS applications |
-|        | 3. Discussion: RNA-Seq/ChIP-Seq analysis |
+| Week 6 | 1. Analysis of ChIP-Seq and VAR-Seq Experiments |
+|        | 2. Tutorial: ChIP-Seq Analysis            |
+|        | 3. Tutorial: VAR-Seq Analysis             |
 |--------|-------------------------------------------|
-| Week 7 | 1. Clustering algorithms                  |
-|        | 2. Ontology and pathway annotations       |         
-|        | 3. Gene set enrichment and network analysis |     
-|        | 4. Discussion: VAR-Seq analysis           |
+| Week 7 | 1. Student Paper Presentations            |
 |--------|-------------------------------------------|
 | Week 8 | 1. Clustering algorithms                  |
-|        | 2. Ontology and pathway annotations       |
-|        | 3. Gene set enrichment and network analysis |
-|        | 4. Discussion: tips and tricks for data analysis |
+|        | 2. Annotation Systems and Gene Set Enrichment Analysis |
+|        | 3. Tutorial: Gene Set Enrichment Analysis |
 |--------|-------------------------------------------|
-| Week 9 | 1. Data visualization                     |
-|        | 2. Genome browsers                        |
-|        | 3. Cheminformatics and drug discovery     |
-|        | 4. Discussion: tips and tricks for data analysis|
+| Week 9 | 1. Profile HMMs for Protein Family Modeling |
+|        | 2. Phylogenetics                          |
+|        | 3. Tutorial: Graphics and Data Visualization |
 |--------|-------------------------------------------|
-| Week 10 | 1. Final presentations of student data analysis projects |
+| Week 10| 1. Student Project Presentations          |
+|        | 2. Final Course Discussion                |
 |--------|-------------------------------------------|
 
 ## Reading list
