@@ -22,7 +22,7 @@ bibliography: bibtex.bib
 <!---
 - Conversion from Rnw/tex to Rmd
     - Build vignette from Rnw 
-    - Then run: pandoc -s systemPipeChIPseq.tex -o systemPipeChIPseq.Rmd
+    - Then run: pandoc -s systemPipeChIPseq.tex -o systemPipeChIPseq.text
     - The fix things, usually a lot...
 
 - Compile from command-line
@@ -79,7 +79,7 @@ etc.
 
 # Load workflow environment
 
-Now open the R markdown script `systemPipeRNAseq.Rmd`in your R IDE (_e.g._ vim-r or RStudio) and 
+Now open the R markdown script `systemPipeChIPseq.Rmd`in your R IDE (_e.g._ vim-r or RStudio) and 
 run the workflow as outlined below. 
 
 ## Load packages and sample data

@@ -1,10 +1,10 @@
 ---
 title: Load workflow environment
 keywords: 
-last_updated: Sun May  1 18:25:55 2016
+last_updated: Sun May  1 20:41:50 2016
 ---
 
-Now open the R markdown script `systemPipeRNAseq.Rmd`in your R IDE (_e.g._ vim-r or RStudio) and 
+Now open the R markdown script `systemPipeChIPseq.Rmd`in your R IDE (_e.g._ vim-r or RStudio) and 
 run the workflow as outlined below. 
 
 ## Load packages and sample data
