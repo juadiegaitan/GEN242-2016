@@ -1,7 +1,7 @@
 ---
 title: RNA-Seq Workflow Template 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 28 April, 2016" 
+date: "Last update: 01 May, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -13,13 +13,18 @@ bibliography: bibtex.bib
 ---
 <!--
 %% \VignetteEngine{knitr::rmarkdown}
-%\VignetteIndexEntry{Overview Vignette}
+%\VignetteIndexEntry{RNA-Seq Workflow Template}
 %% \VignetteDepends{rjson, ggplot2, limma, edgeR, DESeq2, GOstats, GO.db, annotate, pheatmap}
 %% \VignetteKeywords{compute cluster, pipeline, reports}
 %% \VignettePackage{systemPipeR}
 -->
 
 <!---
+- Conversion from Rnw/tex to Rmd
+    - Build vignette from Rnw 
+    - Then run: pandoc -s systemPipeRNAseq.tex -o systemPipeRNAseq.Rmd
+    - The fix things, usually a lot...
+
 - Compile from command-line
 echo "rmarkdown::render('systemPipeRNAseq.Rmd', clean=F)" | R -slave; R CMD Stangle systemPipeRNAseq.Rmd; Rscript ../md2jekyll.R systemPipeRNAseq.knit.md 12
 
@@ -45,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
-Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/blob/master/vignettes/systemPipeR.html">here</a> and a short overview slide show [here](https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/master/inst/extdata/slides/systemPipeRslides.html).
+Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/blob/master/vignettes/systemPipeRNAseq.html">here</a> and a short overview slide show [here](https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/master/inst/extdata/slides/systemPipeRslides.html).
 
 # Introduction
 
@@ -88,7 +93,7 @@ additional NGS applications will be provided in the future.
 library(systemPipeRdata)
 genWorkenvir(workflow="rnaseq")
 setwd("rnaseq")
-download.file("https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.Rmd", "systemPipeRNAseq.Rmd")
+download.file("https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd", "systemPipeRNAseq.Rmd")
 ```
 Now open the R markdown script `systemPipeRNAseq.Rmd`in your R IDE (_e.g._ vim-r or RStudio) and 
 run the workflow as outlined below. 

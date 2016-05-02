@@ -1,11 +1,11 @@
 ---
 title: RNA-Seq Workflow Template 
 keywords: 
-last_updated: Thu Apr 28 20:17:47 2016
+last_updated: Sun May  1 15:30:21 2016
 ---
 First/last name (first.last@ucr.edu)
 
-Last update: 28 April, 2016 
+Last update: 01 May, 2016 
 
 Alternative formats of this tutorial:
 [`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/11_RNAseqWorkflow/systemPipeRNAseq.html),

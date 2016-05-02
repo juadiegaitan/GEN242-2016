@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="header">
 <h1 class="title">RNA-Seq Workflow Template</h1>
 <h4 class="author"><em>First/last name (<a href="mailto:first.last@ucr.edu">first.last@ucr.edu</a>)</em></h4>
-<h4 class="date"><em>Last update: 28 April, 2016</em></h4>
+<h4 class="date"><em>Last update: 01 May, 2016</em></h4>
 </div>
 
 <h1>Contents</h1>
@@ -91,12 +91,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!--
 %% \VignetteEngine{knitr::rmarkdown}
-%\VignetteIndexEntry{Overview Vignette}
+%\VignetteIndexEntry{RNA-Seq Workflow Template}
 %% \VignetteDepends{rjson, ggplot2, limma, edgeR, DESeq2, GOstats, GO.db, annotate, pheatmap}
 %% \VignetteKeywords{compute cluster, pipeline, reports}
 %% \VignettePackage{systemPipeR}
 -->
 <!---
+- Conversion from Rnw/tex to Rmd
+    - Build vignette from Rnw 
+    - Then run: pandoc -s systemPipeRNAseq.tex -o systemPipeRNAseq.Rmd
+    - The fix things, usually a lot...
+
 - Compile from command-line
 echo "rmarkdown::render('systemPipeRNAseq.Rmd', clean=F)" | R -slave; R CMD Stangle systemPipeRNAseq.Rmd; Rscript ../md2jekyll.R systemPipeRNAseq.knit.md 12
 
@@ -119,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
       links[i].target = '_blank';
 });
 </script>
-<p>Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/blob/master/vignettes/systemPipeR.html">here</a> and a short overview slide show <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/master/inst/extdata/slides/systemPipeRslides.html">here</a>.</p>
+<p>Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/blob/master/vignettes/systemPipeRNAseq.html">here</a> and a short overview slide show <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/master/inst/extdata/slides/systemPipeRslides.html">here</a>.</p>
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
 <p>Users want to provide here background information about the design of their RNA-Seq project.</p>
@@ -134,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <pre class="r"><code>library(systemPipeRdata)
 genWorkenvir(workflow=&quot;rnaseq&quot;)
 setwd(&quot;rnaseq&quot;)
-download.file(&quot;https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.Rmd&quot;, &quot;systemPipeRNAseq.Rmd&quot;)</code></pre>
+download.file(&quot;https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd&quot;, &quot;systemPipeRNAseq.Rmd&quot;)</code></pre>
 <p>Now open the R markdown script <code>systemPipeRNAseq.Rmd</code>in your R IDE (<em>e.g.</em> vim-r or RStudio) and run the workflow as outlined below.</p>
 </div>
 <div id="required-packages-and-resources" class="section level2">

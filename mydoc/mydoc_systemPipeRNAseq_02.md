@@ -1,7 +1,7 @@
 ---
 title: Sample definitions and environment settings
 keywords: 
-last_updated: Thu Apr 28 20:17:47 2016
+last_updated: Sun May  1 15:30:21 2016
 ---
 
 ## Environment settings and input data
@@ -38,7 +38,7 @@ additional NGS applications will be provided in the future.
 library(systemPipeRdata)
 genWorkenvir(workflow="rnaseq")
 setwd("rnaseq")
-download.file("https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.Rmd", "systemPipeRNAseq.Rmd")
+download.file("https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd", "systemPipeRNAseq.Rmd")
 {% endhighlight %}
 Now open the R markdown script `systemPipeRNAseq.Rmd`in your R IDE (_e.g._ vim-r or RStudio) and 
 run the workflow as outlined below. 
