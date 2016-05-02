@@ -1559,6 +1559,149 @@
 
 
 {
+"title": "VAR-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Load workflow environment",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Read preprocessing",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Alignments",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_04.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Variant calling",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_05.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Filter variants",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_06.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Annotate filtered variants",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_07.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Combine annotation results among samples",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_08.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Summary statistics of variants",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Venn diagram of variants",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_10.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Version Information",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_11.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Funding",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_12.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_13.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
@@ -1726,6 +1869,39 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/11_RNAseqWorkflow/systemPipeRslides.text",
+"summary": ""
+},
+
+
+
+
+{
+"title": "VAR-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/13_VARseqWorkflow/systemPipeVARseq.Rmd",
+"summary": ""
+},
+
+
+
+
+{
+"title": "VAR-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/13_VARseqWorkflow/systemPipeVARseq.knit.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "VAR-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/13_VARseqWorkflow/systemPipeVARseq.utf8.html",
 "summary": ""
 },
 
