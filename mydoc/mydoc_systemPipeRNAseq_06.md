@@ -1,7 +1,7 @@
 ---
 title: Analysis of differentially expressed genes with edgeR 
 keywords: 
-last_updated: Sun May  1 18:30:50 2016
+last_updated: Sun May  1 18:33:14 2016
 ---
 
 The analysis of differentially expressed genes (DEGs) is performed with

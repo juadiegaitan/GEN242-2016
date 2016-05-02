@@ -1,7 +1,7 @@
 ---
 title: Read quantification per annotation range
 keywords: 
-last_updated: Sun May  1 18:30:50 2016
+last_updated: Sun May  1 18:33:14 2016
 ---
 
 ## Read counting with `summarizeOverlaps` in parallel mode using multiple cores
