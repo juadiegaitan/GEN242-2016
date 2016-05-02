@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/blob/master/vignettes/systemPipeChIPseq.html">here</a> and a short overview slide show [here](https://docs.google.com/presentation/d/11qMRvkBITydUE49zOFvrGTbBaOmOlA_tXeYMlI3tu9g/edit?usp=sharing).
+Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/blob/master/vignettes/systemPipeChIPseq.pdf">here</a> and a short overview slide show [here](https://docs.google.com/presentation/d/11qMRvkBITydUE49zOFvrGTbBaOmOlA_tXeYMlI3tu9g/edit?usp=sharing).
 
 
 # Introduction
@@ -366,7 +366,6 @@ bfl <- BamFileList(outpaths(args_bam), yieldSize=50000, index=character())
 countDFnames <- countRangeset(bfl, args, mode="Union", ignore.strand=TRUE)
 writeTargetsout(x=args, file="targets_countDF.txt", overwrite=TRUE)
 ```
-
 
 # Differential binding analysis
 

@@ -1,7 +1,7 @@
 ---
 title: Count reads overlapping peaks
 keywords: 
-last_updated: Sun May  1 17:26:16 2016
+last_updated: Sun May  1 17:32:15 2016
 ---
 
 The `countRangeset` function is a convenience wrapper to perform read counting
@@ -19,5 +19,4 @@ bfl <- BamFileList(outpaths(args_bam), yieldSize=50000, index=character())
 countDFnames <- countRangeset(bfl, args, mode="Union", ignore.strand=TRUE)
 writeTargetsout(x=args, file="targets_countDF.txt", overwrite=TRUE)
 {% endhighlight %}
-
 
