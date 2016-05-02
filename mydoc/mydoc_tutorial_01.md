@@ -6,10 +6,11 @@ last_updated: 29-Mar-16
 ## GEN242 and GitHub 
 
 + Note, this class will make heavy use of GitHub 
-+ Homework assignments and course projects will be submitted to private GitHub accounts (one for each student)
++ Homework assignments will be submitted to private GitHub repositories: one repository for each student
++ Course projects will also use private GitHub repositories: one repository for each course project (shared among students of each project)
 + Each student will need a personal GitHub account. They can be created [here](https://github.com/personal).
 + GitHub provides an unlimited number of free public repositories to each user. Via GitHub Education students can sign up for free private GitHub accounts (see [here](https://education.github.com)).
-+ For this class private GitHub accounts will be provided by the instructor via [GitHub Classroom](https://classroom.github.com/)
++ All private GitHub accounts required for this class will be provided by the instructor via [GitHub Classroom](https://classroom.github.com/)
 + For beginners this [quick guide](https://guides.github.com/activities/hello-world/) may be useful
 
 ## What are Git and GitHub?
