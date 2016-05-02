@@ -95,7 +95,8 @@ targets[1:4,-c(5,6)]
 ## ----chip_peak_anno, eval=FALSE------------------------------------------
 ## library(ChIPpeakAnno); library(GenomicFeatures)
 ## args <- systemArgs(sysma="param/annotate_peaks.param", mytargets="targets_macs.txt")
-## txdb <- loadDb("./data/tair10.sqlite")
+## # txdb <- loadDb("./data/tair10.sqlite")
+## txdb <- makeTxDbFromGFF(file="data/tair10.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
 ## ge <- genes(txdb, columns=c("tx_name", "gene_id", "tx_type"))
 ## for(i in seq(along=args)) {
 ##     peaksGR <- as(read.delim(infile1(args)[i], comment="#"), "GRanges")
@@ -107,17 +108,16 @@ targets[1:4,-c(5,6)]
 
 ## ----chip_peak_anno_full_annotation, include=FALSE, eval=FALSE-----------
 ## ## Perform previous step with full genome annotation from Biomart
-## # txdb <- makeTxDbFromBiomart(biomart="ENSEMBL_MART_PLANT", dataset="athaliana_eg_gene")
+## # txdb <- makeTxDbFromBiomart(biomart = "plants_mart", dataset = "athaliana_eg_gene", host="plants.ensembl.org")
 ## # tx <- transcripts(txdb, columns=c("tx_name", "gene_id", "tx_type"))
 ## # ge <- genes(txdb, columns=c("tx_name", "gene_id", "tx_type")) # works as well
 ## # seqlevels(ge) <- c("Chr1", "Chr2", "Chr3", "Chr4", "Chr5", "ChrC", "ChrM")
 ## # table(mcols(tx)$tx_type)
-## # tx <- tx[!duplicated(unstrsplit(values(tx)$gene_id, sep=",")) # Keeps only first transcript model for each gene]
-## # annotatedPeak <- annotatePeakInBatch(macsOutput, AnnotationData = tx)
+## # tx <- tx[!duplicated(unstrsplit(values(tx)$gene_id, sep=","))] # Keeps only first transcript model for each gene]
+## # annotatedPeak <- annotatePeakInBatch(peaksGR, AnnotationData = tx)
 
 ## ----chip_peak_seeker, eval=FALSE----------------------------------------
 ## library(ChIPseeker)
-## txdb <- loadDb("./data/tair10.sqlite")
 ## for(i in seq(along=args)) {
 ##     peakAnno <- annotatePeak(infile1(args)[i], TxDb=txdb, verbose=FALSE)
 ##     df <- as.data.frame(peakAnno)

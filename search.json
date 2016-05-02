@@ -1438,7 +1438,7 @@
 
 
 {
-"title": "Clustering and heat maps",
+"title": "GO term enrichment analysis of DEGs",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeRNAseq_07.html",
@@ -1449,7 +1449,7 @@
 
 
 {
-"title": "Version Information",
+"title": "Clustering and heat maps",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeRNAseq_08.html",
@@ -1460,7 +1460,7 @@
 
 
 {
-"title": "Funding",
+"title": "Version Information",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeRNAseq_09.html",
@@ -1471,10 +1471,21 @@
 
 
 {
-"title": "References",
+"title": "Funding",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeRNAseq_10.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeRNAseq_11.html",
 "summary": ""
 },
 

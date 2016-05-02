@@ -1597,7 +1597,8 @@ information using the <code>ChIPpeakAnno</code> and <code>ChIPseeker</code> pack
 <p><code>r
 library(ChIPpeakAnno); library(GenomicFeatures)
 args &lt;- systemArgs(sysma="param/annotate_peaks.param", mytargets="targets_macs.txt")
-txdb &lt;- loadDb("./data/tair10.sqlite")
+# txdb &lt;- loadDb("./data/tair10.sqlite")
+txdb &lt;- makeTxDbFromGFF(file="data/tair10.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
 ge &lt;- genes(txdb, columns=c("tx_name", "gene_id", "tx_type")) 
 for(i in seq(along=args)) {
     peaksGR &lt;- as(read.delim(infile1(args)[i], comment="#"), "GRanges")
@@ -1619,7 +1620,6 @@ here <code>*.peaks.annotated.xls</code>.</p>
 
 <p><code>r
 library(ChIPseeker)
-txdb &lt;- loadDb("./data/tair10.sqlite")
 for(i in seq(along=args)) {
     peakAnno &lt;- annotatePeak(infile1(args)[i], TxDb=txdb, verbose=FALSE)
     df &lt;- as.data.frame(peakAnno)
