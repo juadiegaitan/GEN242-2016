@@ -22,7 +22,7 @@ suppressPackageStartupMessages({
 ## library(systemPipeRdata)
 ## genWorkenvir(workflow="rnaseq")
 ## setwd("rnaseq")
-## download.file("https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/12_RNAseqWorkflow/systemPipeRNAseq.Rmd", "systemPipeRNAseq.Rmd")
+## download.file("https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd", "systemPipeRNAseq.Rmd")
 
 ## ----load_systempiper, eval=TRUE-----------------------------------------
 library(systemPipeR)

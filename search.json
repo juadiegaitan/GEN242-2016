@@ -737,7 +737,7 @@
 "title": "Student Paper Presentations",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/12_Paper_Presentations/mydoc_paper_presentations.html",
+"url": "../vignettes/14_Paper_Presentations/mydoc_paper_presentations.html",
 "summary": ""
 },
 
@@ -759,7 +759,7 @@
 "title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/13_Projects/mydoc_project_00.html",
+"url": "../vignettes/15_Projects/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -781,7 +781,7 @@
 "title": "ChIP-Seq1 - Motif Prediction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/13_Projects/mydoc_project_01.html",
+"url": "../vignettes/15_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -803,7 +803,7 @@
 "title": "ChIP-Seq2 - Peak Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/13_Projects/mydoc_project_02.html",
+"url": "../vignettes/15_Projects/mydoc_project_02.html",
 "summary": ""
 },
 
@@ -825,7 +825,7 @@
 "title": "RNA-Seq1 - RNA-Seq Aligners",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/13_Projects/mydoc_project_03.html",
+"url": "../vignettes/15_Projects/mydoc_project_03.html",
 "summary": ""
 },
 
@@ -847,7 +847,7 @@
 "title": "RNA-Seq2 - DEG Methods",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/13_Projects/mydoc_project_04.html",
+"url": "../vignettes/15_Projects/mydoc_project_04.html",
 "summary": ""
 },
 
@@ -869,7 +869,7 @@
 "title": "VAR-Seq1 - Comparison of Variant Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/13_Projects/mydoc_project_05.html",
+"url": "../vignettes/15_Projects/mydoc_project_05.html",
 "summary": ""
 },
 
@@ -891,7 +891,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/13_Projects/mydoc_project_06.html",
+"url": "../vignettes/15_Projects/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -1229,6 +1229,149 @@
 
 
 {
+"title": "ChIP-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Load workflow environment",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Read preprocessing",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Alignments",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_04.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Peak calling with MACS2",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_05.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Annotate peaks with genomic context",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_06.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Count reads overlapping peaks",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_07.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Differential binding analysis",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_08.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "GO term enrichment analysis",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Motif analysis",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_10.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Version Information",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_11.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Funding",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_12.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_13.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "RNA-Seq Workflow Template",
 "tags": "",
 "keywords": "",
@@ -1453,6 +1596,39 @@
 
 
 
+
+
+
+
+{
+"title": "ChIP-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/12_ChIPseqWorkflow/systemPipeChIPseq.Rmd",
+"summary": ""
+},
+
+
+
+
+{
+"title": "ChIP-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/12_ChIPseqWorkflow/systemPipeChIPseq.knit.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "ChIP-Seq Workflow Template",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/12_ChIPseqWorkflow/systemPipeChIPseq.utf8.html",
+"summary": ""
+},
 
 
 

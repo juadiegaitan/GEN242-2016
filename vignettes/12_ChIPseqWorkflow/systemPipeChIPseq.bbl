@@ -1,0 +1,72 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Girke(2014)]{Girke2014-oy}
+Thomas Girke.
+\newblock {systemPipeR}: {NGS} workflow and report generation environment,
+  28~June 2014.
+\newblock URL \url{https://github.com/tgirke/systemPipeR}.
+
+\bibitem[Langmead and Salzberg(2012)]{Langmead2012-bs}
+Ben Langmead and Steven~L Salzberg.
+\newblock Fast gapped-read alignment with bowtie 2.
+\newblock \emph{Nat. Methods}, 9\penalty0 (4):\penalty0 357--359, April 2012.
+\newblock ISSN 1548-7091.
+\newblock \doi{10.1038/nmeth.1923}.
+\newblock URL \url{http://dx.doi.org/10.1038/nmeth.1923}.
+
+\bibitem[Love et~al.(2014)Love, Huber, and Anders]{Love2014-sh}
+Michael Love, Wolfgang Huber, and Simon Anders.
+\newblock Moderated estimation of fold change and dispersion for {RNA-seq} data
+  with {DESeq2}.
+\newblock \emph{Genome Biol.}, 15\penalty0 (12):\penalty0 550, 2014.
+\newblock ISSN 1465-6906.
+\newblock \doi{10.1186/s13059-014-0550-8}.
+\newblock URL \url{http://genomebiology.com/2014/15/12/550}.
+
+\bibitem[Robinson et~al.(2010)Robinson, McCarthy, and Smyth]{Robinson2010-uk}
+M~D Robinson, D~J McCarthy, and G~K Smyth.
+\newblock edger: a bioconductor package for differential expression analysis of
+  digital gene expression data.
+\newblock \emph{Bioinformatics}, 26\penalty0 (1):\penalty0 139--140, January
+  2010.
+\newblock ISSN 1367-4803.
+\newblock \doi{10.1093/bioinformatics/btp616}.
+\newblock URL \url{http://dx.doi.org/10.1093/bioinformatics/btp616}.
+
+\bibitem[Yu et~al.(2015)Yu, Wang, and He]{Yu2015-xu}
+Guangchuang Yu, Li-Gen Wang, and Qing-Yu He.
+\newblock {ChIPseeker}: an {R/Bioconductor} package for {ChIP} peak annotation,
+  comparison and visualization.
+\newblock \emph{Bioinformatics}, 31\penalty0 (14):\penalty0 2382--2383, 15~July
+  2015.
+\newblock ISSN 1367-4803, 1367-4811.
+\newblock \doi{10.1093/bioinformatics/btv145}.
+\newblock URL \url{http://dx.doi.org/10.1093/bioinformatics/btv145}.
+
+\bibitem[Zhang et~al.(2008)Zhang, Liu, Meyer, Eeckhoute, Johnson, Bernstein,
+  Nussbaum, Myers, Brown, Li, and Liu]{Zhang2008-pc}
+Y~Zhang, T~Liu, C~A Meyer, J~Eeckhoute, D~S Johnson, B~E Bernstein, C~Nussbaum,
+  R~M Myers, M~Brown, W~Li, and X~S Liu.
+\newblock Model-based analysis of {ChIP-Seq} ({MACS}).
+\newblock \emph{Genome Biol.}, 9\penalty0 (9), 2008.
+\newblock ISSN 1465-6906.
+\newblock \doi{10.1186/gb-2008-9-9-r137}.
+\newblock URL \url{http://dx.doi.org/10.1186/gb-2008-9-9-r137}.
+
+\bibitem[Zhu et~al.(2010)Zhu, Gazin, Lawson, Pag\`{e}s, Lin, Lapointe, and
+  Green]{Zhu2010-zo}
+Lihua~J Zhu, Claude Gazin, Nathan~D Lawson, Herv\'{e} Pag\`{e}s, Simon~M Lin,
+  David~S Lapointe, and Michael~R Green.
+\newblock {ChIPpeakAnno}: a bioconductor package to annotate {ChIP-seq} and
+  {ChIP-chip} data.
+\newblock \emph{BMC Bioinformatics}, 11:\penalty0 237, 11~May 2010.
+\newblock ISSN 1471-2105.
+\newblock \doi{10.1186/1471-2105-11-237}.
+\newblock URL \url{http://dx.doi.org/10.1186/1471-2105-11-237}.
+
+\end{thebibliography}

@@ -1,0 +1,29 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Background and objectives}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Experimental design}{2}{subsection.1.2}
+\contentsline {section}{\numberline {2}Load workflow environment}{2}{section.2}
+\contentsline {subsection}{\numberline {2.1}Load packages and sample data}{2}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Experiment definition provided by \texttt {targets} file}{2}{subsection.2.2}
+\contentsline {section}{\numberline {3}Read preprocessing}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Read quality filtering and trimming}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}FASTQ quality report}{3}{subsection.3.2}
+\contentsline {section}{\numberline {4}Alignments}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Read mapping with \texttt {Bowtie2}}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Read and alignment stats}{4}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Create symbolic links for viewing BAM files in IGV}{4}{subsection.4.3}
+\contentsline {section}{\numberline {5}Peak calling with MACS2}{4}{section.5}
+\contentsline {subsection}{\numberline {5.1}Merge BAM files of replicates prior to peak calling}{4}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Peak calling without input/reference sample}{5}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Peak calling with input/reference sample}{5}{subsection.5.3}
+\contentsline {section}{\numberline {6}Annotate peaks with genomic context}{5}{section.6}
+\contentsline {subsection}{\numberline {6.1}Annotation with \textsl {ChIPpeakAnno} package}{5}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Annotation with \textsl {ChIPseeker} package}{6}{subsection.6.2}
+\contentsline {section}{\numberline {7}Count reads overlapping peak regions}{6}{section.7}
+\contentsline {section}{\numberline {8}Differential binding analysis of peaks}{6}{section.8}
+\contentsline {section}{\numberline {9}GO term enrichment analysis}{6}{section.9}
+\contentsline {section}{\numberline {10}Motif analysis}{7}{section.10}
+\contentsline {subsection}{\numberline {10.1}Parse DNA sequences of peak regions from genome}{7}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Motif discovery with \textsl {BCRANK}}{7}{subsection.10.2}
+\contentsline {section}{\numberline {11}Version Information}{8}{section.11}
+\contentsline {section}{\numberline {12}Funding}{9}{section.12}
+\contentsline {section}{\numberline {13}References}{9}{section.13}
