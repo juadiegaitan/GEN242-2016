@@ -76,15 +76,18 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><a href="#sample-wise-correlation-analysis"><span class="toc-section-number">5.2</span> Sample-wise correlation analysis</a></li>
 </ul></li>
 <li><a href="#analysis-of-differentially-expressed-genes-with-edger"><span class="toc-section-number">6</span> Analysis of differentially expressed genes with edgeR</a><ul>
-<li><a href="#go-term-enrichment-analysis-of-degs"><span class="toc-section-number">6.1</span> GO term enrichment analysis of DEGs</a><ul>
-<li><a href="#obtain-gene-to-go-mappings"><span class="toc-section-number">6.1.1</span> Obtain gene-to-GO mappings</a></li>
-<li><a href="#batch-go-term-enrichment-analysis"><span class="toc-section-number">6.1.2</span> Batch GO term enrichment analysis</a></li>
-<li><a href="#plot-batch-go-term-results"><span class="toc-section-number">6.1.3</span> Plot batch GO term results</a></li>
+<li><a href="#run-edger"><span class="toc-section-number">6.1</span> Run <code>edgeR</code></a></li>
+<li><a href="#plot-deg-results"><span class="toc-section-number">6.2</span> Plot DEG results</a></li>
+<li><a href="#venn-diagrams-of-deg-sets"><span class="toc-section-number">6.3</span> Venn diagrams of DEG sets</a></li>
 </ul></li>
+<li><a href="#go-term-enrichment-analysis-of-degs"><span class="toc-section-number">7</span> GO term enrichment analysis of DEGs</a><ul>
+<li><a href="#obtain-gene-to-go-mappings"><span class="toc-section-number">7.1</span> Obtain gene-to-GO mappings</a></li>
+<li><a href="#batch-go-term-enrichment-analysis"><span class="toc-section-number">7.2</span> Batch GO term enrichment analysis</a></li>
+<li><a href="#plot-batch-go-term-results"><span class="toc-section-number">7.3</span> Plot batch GO term results</a></li>
 </ul></li>
-<li><a href="#clustering-and-heat-maps"><span class="toc-section-number">7</span> Clustering and heat maps</a></li>
-<li><a href="#version-information"><span class="toc-section-number">8</span> Version Information</a></li>
-<li><a href="#funding"><span class="toc-section-number">9</span> Funding</a></li>
+<li><a href="#clustering-and-heat-maps"><span class="toc-section-number">8</span> Clustering and heat maps</a></li>
+<li><a href="#version-information"><span class="toc-section-number">9</span> Version Information</a></li>
+<li><a href="#funding"><span class="toc-section-number">10</span> Funding</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
@@ -288,12 +291,14 @@ Figure 2: Correlation dendrogram of samples
 <div id="analysis-of-differentially-expressed-genes-with-edger" class="section level1">
 <h1><span class="header-section-number">6</span> Analysis of differentially expressed genes with edgeR</h1>
 <p>The analysis of differentially expressed genes (DEGs) is performed with the glm method of the <code>edgeR</code> package <span class="citation">(Robinson, McCarthy, and Smyth 2010)</span>. The sample comparisons used by this analysis are defined in the header lines of the <code>targets.txt</code> file starting with <code>&lt;CMP&gt;</code>.</p>
+<div id="run-edger" class="section level2">
+<h2><span class="header-section-number">6.1</span> Run <code>edgeR</code></h2>
 <pre class="r"><code>library(edgeR)
 countDF &lt;- read.delim(&quot;results/countDFeByg.xls&quot;, row.names=1, check.names=FALSE) 
 targets &lt;- read.delim(&quot;targets.txt&quot;, comment=&quot;#&quot;)
 cmp &lt;- readComp(file=&quot;targets.txt&quot;, format=&quot;matrix&quot;, delim=&quot;-&quot;)
 edgeDF &lt;- run_edgeR(countDF=countDF, targets=targets, cmp=cmp[[1]], independent=FALSE, mdsplot=&quot;&quot;)</code></pre>
-<p>Add custom functional descriptions. Skip this step if <code>desc.xls</code> is not available.</p>
+<p>Add gene descriptions</p>
 <pre class="r"><code>library(&quot;biomaRt&quot;)
 m &lt;- useMart(&quot;plants_mart&quot;, dataset=&quot;athaliana_eg_gene&quot;, host=&quot;plants.ensembl.org&quot;)
 desc &lt;- getBM(attributes=c(&quot;tair_locus&quot;, &quot;description&quot;), mart=m)
@@ -301,6 +306,9 @@ desc &lt;- desc[!duplicated(desc[,1]),]
 descv &lt;- as.character(desc[,2]); names(descv) &lt;- as.character(desc[,1])
 edgeDF &lt;- data.frame(edgeDF, Desc=descv[rownames(edgeDF)], check.names=FALSE)
 write.table(edgeDF, &quot;./results/edgeRglm_allcomp.xls&quot;, quote=FALSE, sep=&quot;\t&quot;, col.names = NA)</code></pre>
+</div>
+<div id="plot-deg-results" class="section level2">
+<h2><span class="header-section-number">6.2</span> Plot DEG results</h2>
 <p>Filter and plot DEG results for up and down regulated genes. The definition of <em>up</em> and <em>down</em> is given in the corresponding help file. To open it, type <code>?filterDEGs</code> in the R console.</p>
 <pre class="r"><code>edgeDF &lt;- read.delim(&quot;results/edgeRglm_allcomp.xls&quot;, row.names=1, check.names=FALSE) 
 pdf(&quot;results/DEGcounts.pdf&quot;)
@@ -312,6 +320,9 @@ write.table(DEG_list$Summary, &quot;./results/DEGcounts.xls&quot;, quote=FALSE, 
 Figure 3: Up and down regulated DEGs with FDR of 1%
 </div>
 <p></br></p>
+</div>
+<div id="venn-diagrams-of-deg-sets" class="section level2">
+<h2><span class="header-section-number">6.3</span> Venn diagrams of DEG sets</h2>
 <p>The <code>overLapper</code> function can compute Venn intersects for large numbers of sample sets (up to 20 or more) and plots 2-5 way Venn diagrams. A useful feature is the possiblity to combine the counts from several Venn comparisons with the same number of sample sets in a single Venn diagram (here for 4 up and down DEG sets).</p>
 <pre class="r"><code>vennsetup &lt;- overLapper(DEG_list$Up[6:9], type=&quot;vennsets&quot;)
 vennsetdown &lt;- overLapper(DEG_list$Down[6:9], type=&quot;vennsets&quot;)
@@ -323,10 +334,12 @@ dev.off()</code></pre>
 Figure 4: Venn Diagram for 4 Up and Down DEG Sets
 </div>
 <p></br></p>
-<div id="go-term-enrichment-analysis-of-degs" class="section level2">
-<h2><span class="header-section-number">6.1</span> GO term enrichment analysis of DEGs</h2>
-<div id="obtain-gene-to-go-mappings" class="section level3">
-<h3><span class="header-section-number">6.1.1</span> Obtain gene-to-GO mappings</h3>
+</div>
+</div>
+<div id="go-term-enrichment-analysis-of-degs" class="section level1">
+<h1><span class="header-section-number">7</span> GO term enrichment analysis of DEGs</h1>
+<div id="obtain-gene-to-go-mappings" class="section level2">
+<h2><span class="header-section-number">7.1</span> Obtain gene-to-GO mappings</h2>
 <p>The following shows how to obtain gene-to-GO mappings from <code>biomaRt</code> (here for <em>A. thaliana</em>) and how to organize them for the downstream GO term enrichment analysis. Alternatively, the gene-to-GO mappings can be obtained for many organisms from Bioconductor’s <code>*.db</code> genome annotation packages or GO annotation files provided by various genome databases. For each annotation this relatively slow preprocessing step needs to be performed only once. Subsequently, the preprocessed data can be loaded with the <code>load</code> function as shown in the next subsection.</p>
 <pre class="r"><code>library(&quot;biomaRt&quot;)
 listMarts() # To choose BioMart database
@@ -344,8 +357,8 @@ write.table(go, &quot;data/GO/GOannotationsBiomart_mod.txt&quot;, quote=FALSE, r
 catdb &lt;- makeCATdb(myfile=&quot;data/GO/GOannotationsBiomart_mod.txt&quot;, lib=NULL, org=&quot;&quot;, colno=c(1,2,3), idconv=NULL)
 save(catdb, file=&quot;data/GO/catdb.RData&quot;)</code></pre>
 </div>
-<div id="batch-go-term-enrichment-analysis" class="section level3">
-<h3><span class="header-section-number">6.1.2</span> Batch GO term enrichment analysis</h3>
+<div id="batch-go-term-enrichment-analysis" class="section level2">
+<h2><span class="header-section-number">7.2</span> Batch GO term enrichment analysis</h2>
 <p>Apply the enrichment analysis to the DEG sets obtained the above differential expression analysis. Note, in the following example the <code>FDR</code> filter is set here to an unreasonably high value, simply because of the small size of the toy data set used in this vignette. Batch enrichment analysis of many gene sets is performed with the function. When <code>method=all</code>, it returns all GO terms passing the p-value cutoff specified under the <code>cutoff</code> arguments. When <code>method=slim</code>, it returns only the GO terms specified under the <code>myslimv</code> argument. The given example shows how a GO slim vector for a specific organism can be obtained from BioMart.</p>
 <pre class="r"><code>library(&quot;biomaRt&quot;)
 load(&quot;data/GO/catdb.RData&quot;)
@@ -361,8 +374,8 @@ m &lt;- useMart(&quot;plants_mart&quot;, dataset=&quot;athaliana_eg_gene&quot;, 
 goslimvec &lt;- as.character(getBM(attributes=c(&quot;goslim_goa_accession&quot;), mart=m)[,1])
 BatchResultslim &lt;- GOCluster_Report(catdb=catdb, setlist=DEGlist, method=&quot;slim&quot;, id_type=&quot;gene&quot;, myslimv=goslimvec, CLSZ=10, cutoff=0.01, gocats=c(&quot;MF&quot;, &quot;BP&quot;, &quot;CC&quot;), recordSpecGO=NULL)</code></pre>
 </div>
-<div id="plot-batch-go-term-results" class="section level3">
-<h3><span class="header-section-number">6.1.3</span> Plot batch GO term results</h3>
+<div id="plot-batch-go-term-results" class="section level2">
+<h2><span class="header-section-number">7.3</span> Plot batch GO term results</h2>
 <p>The <code>data.frame</code> generated by <code>GOCluster</code> can be plotted with the <code>goBarplot</code> function. Because of the variable size of the sample sets, it may not always be desirable to show the results from different DEG sets in the same bar plot. Plotting single sample sets is achieved by subsetting the input data frame as shown in the first line of the following example.</p>
 <pre class="r"><code>gos &lt;- BatchResultslim[grep(&quot;M6-V6_up_down&quot;, BatchResultslim$CLID), ]
 gos &lt;- BatchResultslim
@@ -376,9 +389,8 @@ Figure 5: GO Slim Barplot for MF Ontology
 <p></br></p>
 </div>
 </div>
-</div>
 <div id="clustering-and-heat-maps" class="section level1">
-<h1><span class="header-section-number">7</span> Clustering and heat maps</h1>
+<h1><span class="header-section-number">8</span> Clustering and heat maps</h1>
 <p>The following example performs hierarchical clustering on the <code>rlog</code> transformed expression matrix subsetted by the DEGs identified in the above differential expression analysis. It uses a Pearson correlation-based distance measure and complete linkage for cluster joining.</p>
 <pre class="r"><code>library(pheatmap)
 geneids &lt;- unique(as.character(unlist(DEG_list[[1]])))
@@ -393,7 +405,7 @@ Figure 6: Heat Map with Hierarchical Clustering Dendrograms of DEGs
 <p></br></p>
 </div>
 <div id="version-information" class="section level1">
-<h1><span class="header-section-number">8</span> Version Information</h1>
+<h1><span class="header-section-number">9</span> Version Information</h1>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 3.2.5 (2016-04-14)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
@@ -435,7 +447,7 @@ Figure 6: Heat Map with Hierarchical Clustering Dendrograms of DEGs
 ## [57] AnnotationDbi_1.32.0   colorspace_1.2-6       knitr_1.12</code></pre>
 </div>
 <div id="funding" class="section level1">
-<h1><span class="header-section-number">9</span> Funding</h1>
+<h1><span class="header-section-number">10</span> Funding</h1>
 <p>This project was supported by funds from the National Institutes of Health (NIH).</p>
 </div>
 <div id="references" class="section level1 unnumbered">

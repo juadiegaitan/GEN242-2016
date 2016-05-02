@@ -1,7 +1,7 @@
 ---
 title: Annotate peaks with genomic context
 keywords: 
-last_updated: Sun May  1 17:34:29 2016
+last_updated: Sun May  1 18:25:55 2016
 ---
 
 ## Annotation with `ChIPpeakAnno` package
@@ -14,7 +14,8 @@ information using the `ChIPpeakAnno` and `ChIPseeker` packages, respectively
 {% highlight r %}
 library(ChIPpeakAnno); library(GenomicFeatures)
 args <- systemArgs(sysma="param/annotate_peaks.param", mytargets="targets_macs.txt")
-txdb <- loadDb("./data/tair10.sqlite")
+# txdb <- loadDb("./data/tair10.sqlite")
+txdb <- makeTxDbFromGFF(file="data/tair10.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
 ge <- genes(txdb, columns=c("tx_name", "gene_id", "tx_type")) 
 for(i in seq(along=args)) {
     peaksGR <- as(read.delim(infile1(args)[i], comment="#"), "GRanges")
@@ -40,7 +41,6 @@ Same as in previous step but using the `ChIPseeker` package for annotating the p
 
 {% highlight r %}
 library(ChIPseeker)
-txdb <- loadDb("./data/tair10.sqlite")
 for(i in seq(along=args)) {
     peakAnno <- annotatePeak(infile1(args)[i], TxDb=txdb, verbose=FALSE)
     df <- as.data.frame(peakAnno)

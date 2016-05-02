@@ -267,7 +267,8 @@ writeTargetsout(x=args, file=&quot;targets_macs.txt&quot;, overwrite=TRUE)</code
 <p>The following annotates the identified peaks with genomic context information using the <code>ChIPpeakAnno</code> and <code>ChIPseeker</code> packages, respectively <span class="citation">(Zhu et al. 2010; Yu, Wang, and He 2015)</span>.</p>
 <pre class="r"><code>library(ChIPpeakAnno); library(GenomicFeatures)
 args &lt;- systemArgs(sysma=&quot;param/annotate_peaks.param&quot;, mytargets=&quot;targets_macs.txt&quot;)
-txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
+# txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
+txdb &lt;- makeTxDbFromGFF(file=&quot;data/tair10.gff&quot;, format=&quot;gff&quot;, dataSource=&quot;TAIR&quot;, organism=&quot;Arabidopsis thaliana&quot;)
 ge &lt;- genes(txdb, columns=c(&quot;tx_name&quot;, &quot;gene_id&quot;, &quot;tx_type&quot;)) 
 for(i in seq(along=args)) {
     peaksGR &lt;- as(read.delim(infile1(args)[i], comment=&quot;#&quot;), &quot;GRanges&quot;)
@@ -282,7 +283,6 @@ writeTargetsout(x=args, file=&quot;targets_peakanno.txt&quot;, overwrite=TRUE)</
 <h2><span class="header-section-number">6.2</span> Annotation with <code>ChIPseeker</code> package</h2>
 <p>Same as in previous step but using the <code>ChIPseeker</code> package for annotating the peaks.</p>
 <pre class="r"><code>library(ChIPseeker)
-txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
 for(i in seq(along=args)) {
     peakAnno &lt;- annotatePeak(infile1(args)[i], TxDb=txdb, verbose=FALSE)
     df &lt;- as.data.frame(peakAnno)

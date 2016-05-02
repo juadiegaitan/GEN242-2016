@@ -1,7 +1,7 @@
 ---
 title: Motif analysis
 keywords: 
-last_updated: Sun May  1 17:34:29 2016
+last_updated: Sun May  1 18:25:55 2016
 ---
 
 ## Parse DNA sequences of peak regions from genome
