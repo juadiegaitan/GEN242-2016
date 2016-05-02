@@ -1,7 +1,7 @@
 ---
 title: Load workflow environment
 keywords: 
-last_updated: Sun May  1 17:32:15 2016
+last_updated: Sun May  1 17:34:29 2016
 ---
 
 Now open the R markdown script `systemPipeRNAseq.Rmd`in your R IDE (_e.g._ vim-r or RStudio) and 

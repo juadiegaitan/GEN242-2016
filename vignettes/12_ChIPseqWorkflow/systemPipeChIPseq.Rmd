@@ -57,7 +57,7 @@ suppressPackageStartupMessages({
 })
 ```
 
-Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/tgirke/systemPipeR/blob/master/vignettes/systemPipeChIPseq.pdf">here</a> and a short overview slide show [here](https://docs.google.com/presentation/d/11qMRvkBITydUE49zOFvrGTbBaOmOlA_tXeYMlI3tu9g/edit?usp=sharing).
+Note: the most recent version of this tutorial can be found <a href="https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/12_ChIPseqWorkflow/systemPipeChIPseq.html">here</a> and a short overview slide show [here](https://docs.google.com/presentation/d/11qMRvkBITydUE49zOFvrGTbBaOmOlA_tXeYMlI3tu9g/edit?usp=sharing).
 
 
 # Introduction

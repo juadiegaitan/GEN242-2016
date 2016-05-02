@@ -1,7 +1,7 @@
 ---
 title: Count reads overlapping peaks
 keywords: 
-last_updated: Sun May  1 17:32:15 2016
+last_updated: Sun May  1 17:34:29 2016
 ---
 
 The `countRangeset` function is a convenience wrapper to perform read counting
