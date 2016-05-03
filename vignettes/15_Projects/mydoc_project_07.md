@@ -82,7 +82,7 @@ After sourcing the above function, execute it as follows:
 downloadRefs(rerun=FALSE) # To execute the function set 'rerun=TRUE'
 {% endhighlight %}
 
-### Generate workflow environment with project data
+## Generate workflow environment with project data
 
 1. Generate workflow environment for your project with `genWorkenvir` from `systemPipeRdata` 
 2. Delete mini FASTQ files under `data` directory
