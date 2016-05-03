@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="header">
 <h1 class="title">ChIP-Seq Workflow Template</h1>
 <h4 class="author"><em>First/last name (<a href="mailto:first.last@ucr.edu">first.last@ucr.edu</a>)</em></h4>
-<h4 class="date"><em>Last update: 01 May, 2016</em></h4>
+<h4 class="date"><em>Last update: 03 May, 2016</em></h4>
 </div>
 
 <h1>Contents</h1>
@@ -189,7 +189,7 @@ writeTargetsout(x=args, file=&quot;targets_chip_trim.txt&quot;, overwrite=TRUE)<
 <div id="fastq-quality-report" class="section level2">
 <h2><span class="header-section-number">3.2</span> FASTQ quality report</h2>
 <p>The following <code>seeFastq</code> and <code>seeFastqPlot</code> functions generate and plot a series of useful quality statistics for a set of FASTQ files including per cycle quality box plots, base proportions, base-level quality trends, relative k-mer diversity, length and occurrence distribution of reads, number of reads above quality cutoffs and mean quality distribution. The results are written to a PDF file named <code>fastqReport.pdf</code>.</p>
-<pre class="r"><code>args &lt;- systemArgs(sysma=&quot;param/tophat.param&quot;, mytargets=&quot;targets.txt&quot;)
+<pre class="r"><code>args &lt;- systemArgs(sysma=&quot;param/tophat.param&quot;, mytargets=&quot;targets_chip.txt&quot;)
 fqlist &lt;- seeFastq(fastq=infile1(args), batchsize=100000, klength=8)
 pdf(&quot;./results/fastqReport.pdf&quot;, height=18, width=4*length(fqlist))
 seeFastqPlot(fqlist)

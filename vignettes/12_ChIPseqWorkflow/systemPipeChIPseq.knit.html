@@ -1621,7 +1621,7 @@ above quality cutoffs and mean quality distribution. The results are
 written to a PDF file named <code>fastqReport.pdf</code>.</p>
 
 <p><code>r
-args &lt;- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
+args &lt;- systemArgs(sysma="param/tophat.param", mytargets="targets_chip.txt")
 fqlist &lt;- seeFastq(fastq=infile1(args), batchsize=100000, klength=8)
 pdf("./results/fastqReport.pdf", height=18, width=4*length(fqlist))
 seeFastqPlot(fqlist)
