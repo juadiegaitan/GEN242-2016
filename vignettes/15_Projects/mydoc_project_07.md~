@@ -84,12 +84,16 @@ getSRAfastq <- function(sraid, targetdir, maxreads="1000000000") {
 Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to 
 the path specified under `targetdir`.
 {% highlight r %}
-for(i in sraidv) getSRAfastq(sraid=i, targetdir="data/")
+mydir <- getwd(); setwd("data")
+for(i in sraidv) getSRAfastq(sraid=i, targetdir=".")
+setwd(mydir)
 {% endhighlight %}
 
 Alternatively, the download can be performed in parallelized mode with `BiocParallel`. Please run this version only on one of the compute nodes.
 {% highlight r %}
-# bplapply(sraidv, getSRAfastq, targetdir="data/", BPPARAM = MulticoreParam(workers=4))
+mydir <- getwd(); setwd("data")
+# bplapply(sraidv, getSRAfastq, targetdir=".", BPPARAM = MulticoreParam(workers=4))
+setwd(mydir)
 {% endhighlight %}
 
 ### Download reference genome and annotation
