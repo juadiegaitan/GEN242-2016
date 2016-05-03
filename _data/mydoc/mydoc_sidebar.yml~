@@ -187,6 +187,14 @@ entries:
       product: all
       version: all
       output: web
+    
+    - title: NGS Workflows 
+      url: /mydoc/mydoc_slides_13.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
   
   - title: Homework
     audience: writers, designers
@@ -1039,6 +1047,14 @@ entries:
     
     - title: VAR-Seq2 - Functional Prediction
       url: /mydoc/mydoc_project_06.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: Project Data
+      url: /mydoc/mydoc_project_07.html
       audience: writers, designers
       platform: all
       product: all
