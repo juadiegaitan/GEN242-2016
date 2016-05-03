@@ -6,7 +6,8 @@ last_updated: 29-Apr-16
 ## Shared big data space on biocluster
 
 All larger data sets of the coure projects will be organized in a shared big data space under
-`/bigdata/gen242/shared`. Each group will use a subdirectory named after their project:
+`/bigdata/gen242/shared`. Within this space, each group will read and write data to a 
+subdirectory named after their project:
 
 + `/bigdata/gen242/shared/RNA-Seq1`
 + `/bigdata/gen242/shared/RNA-Seq2`
