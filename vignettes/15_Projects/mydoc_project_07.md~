@@ -5,7 +5,7 @@ last_updated: 29-Apr-16
 
 ## Shared big data space on biocluster
 
-All larger data sets of the coures projects will be organized in a shared big data space under
+All larger data sets of the coure projects will be organized in a shared big data space under
 `/bigdata/gen242/shared`. Each group will use a subdirectory named after their project:
 
 + `/bigdata/gen242/shared/RNA-Seq1`
@@ -16,14 +16,14 @@ All larger data sets of the coures projects will be organized in a shared big da
 + `/bigdata/gen242/shared/VAR-Seq2`
 
 Within each project subdirectory all input files of a workflow (_e.g._) will be saved to 
-a `data` directory and all output files will be written to a results directory. 
+a `data` directory and all output files will be written to a `results` directory. 
 
 ## GitHub repositories for projects
 
 Students will work on the course projects within GitHub repositories, one for each course project.
 These project repositories are private and have been shared by the instructor with all members of each project group.
 To populate a course project with an initial project workflow, please follow the instruction
-given below. 
+given [below](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_project_07.html#generate-workflow-environment-with-project-data). 
 
 ## Download of project data
 
