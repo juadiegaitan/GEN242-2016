@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1445,47 +1467,47 @@ $('#toc').on('click', 'a', function() {
 
 <p>Merging BAM files of technical and/or biological replicates can improve
 the sensitivity of the peak calling by increasing the depth of read
-coverage. The <code class="highlighter-rouge">mergeBamByFactor</code> function merges BAM files based on grouping information
-specified by a <code class="highlighter-rouge">factor</code>, here the <code class="highlighter-rouge">Factor</code> column of the imported targets file. It 
-also returns an updated <code class="highlighter-rouge">SYSargs</code> object containing the paths to the
+coverage. The <code>mergeBamByFactor</code> function merges BAM files based on grouping information
+specified by a <code>factor</code>, here the <code>Factor</code> column of the imported targets file. It 
+also returns an updated <code>SYSargs</code> object containing the paths to the
 merged BAM files as well as to any unmerged files without replicates.
 This step can be skipped if merging of BAM files is not desired.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">)</span>
 <span class="n">args_merge</span> <span class="o">&lt;-</span> <span class="n">mergeBamByFactor</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
-<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args_merge</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_mergeBamByFactor.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></figure>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args_merge</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_mergeBamByFactor.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
 
 <h2 id="peak-calling-without-inputreference-sample">Peak calling without input/reference sample</h2>
 
 <p>MACS2 can perform peak calling on ChIP-Seq data with and without input
 samples (Zhang et al., 2008). The following performs peak calling without
-input on all samples specified in the corresponding <code class="highlighter-rouge">args</code> object. Note, due to
+input on all samples specified in the corresponding <code>args</code> object. Note, due to
 the small size of the sample data, MACS2 needs to be run here with the
-<code class="highlighter-rouge">–nomodel</code> setting. For real data sets, users want to remove this parameter 
-in the corresponding <code class="highlighter-rouge">*.param</code> file(s).</p>
+<code>–nomodel</code> setting. For real data sets, users want to remove this parameter 
+in the corresponding <code>*.param</code> file(s).</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/macs2_noinput.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_mergeBamByFactor.txt"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/macs2_noinput.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_mergeBamByFactor.txt"</span><span class="p">)</span>
 <span class="n">sysargs</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="c1"># Command-line parameters for first FASTQ file
 </span><span class="n">runCommandline</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 <span class="n">file.exists</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
-<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_macs.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></figure>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_macs.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
 
 <h2 id="peak-calling-with-inputreference-sample">Peak calling with input/reference sample</h2>
 
 <p>To perform peak calling with input samples, they can be most
-conveniently specified in the <code class="highlighter-rouge">SampleReference</code> column of the initial
-<code class="highlighter-rouge">targets</code> file. The <code class="highlighter-rouge">writeTargetsRef</code> function uses this information to create a <code class="highlighter-rouge">targets</code> 
+conveniently specified in the <code>SampleReference</code> column of the initial
+<code>targets</code> file. The <code>writeTargetsRef</code> function uses this information to create a <code>targets</code> 
 file intermediate for running MACS2 with the corresponding input samples.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">writeTargetsRef</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="s2">"targets_mergeBamByFactor.txt"</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="s2">"targets_bam_ref.txt"</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">writeTargetsRef</span><span class="p">(</span><span class="n">infile</span><span class="o">=</span><span class="s2">"targets_mergeBamByFactor.txt"</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="s2">"targets_bam_ref.txt"</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
 <span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/macs2.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_bam_ref.txt"</span><span class="p">)</span>
 <span class="n">sysargs</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="c1"># Command-line parameters for first FASTQ file
 </span><span class="n">runCommandline</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 <span class="n">file.exists</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
-<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_macs.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></figure>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_macs.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
 
 <p>The peak calling results from MACS2 are written for each sample to
-separate files in the <code class="highlighter-rouge">results</code> directory. They are named after the corresponding
+separate files in the <code>results</code> directory. They are named after the corresponding
 files with extensions used by MACS2.</p>
 
 

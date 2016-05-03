@@ -107,7 +107,7 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/home.html",
+"url": "../vignettes/01_Home/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
@@ -118,7 +118,7 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/home.html",
+"url": "../mydoc/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
@@ -649,7 +649,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -660,7 +660,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
+"url": "../mydoc/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -693,7 +693,7 @@
 "title": "HW4 - Pairwise Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_04.html",
+"url": "../vignettes/06_Homework/mydoc_homework_04.html",
 "summary": ""
 },
 
@@ -704,7 +704,7 @@
 "title": "HW4 - Pairwise Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_04.html",
+"url": "../mydoc/mydoc_homework_04.html",
 "summary": ""
 },
 
@@ -737,7 +737,7 @@
 "title": "Student Paper Presentations",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_paper_presentations.html",
+"url": "../vignettes/14_Paper_Presentations/mydoc_paper_presentations.html",
 "summary": ""
 },
 
@@ -748,18 +748,7 @@
 "title": "Student Paper Presentations",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/14_Paper_Presentations/mydoc_paper_presentations.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Overview of Course Projects",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_project_00.html",
+"url": "../mydoc/mydoc_paper_presentations.html",
 "summary": ""
 },
 
@@ -778,10 +767,10 @@
 
 
 {
-"title": "ChIP-Seq1 - Motif Prediction",
+"title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_01.html",
+"url": "../mydoc/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -793,6 +782,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/15_Projects/mydoc_project_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "ChIP-Seq1 - Motif Prediction",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -825,7 +825,7 @@
 "title": "RNA-Seq1 - RNA-Seq Aligners",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_03.html",
+"url": "../vignettes/15_Projects/mydoc_project_03.html",
 "summary": ""
 },
 
@@ -836,18 +836,7 @@
 "title": "RNA-Seq1 - RNA-Seq Aligners",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_03.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "RNA-Seq2 - DEG Methods",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_project_04.html",
+"url": "../mydoc/mydoc_project_03.html",
 "summary": ""
 },
 
@@ -859,6 +848,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/15_Projects/mydoc_project_04.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "RNA-Seq2 - DEG Methods",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_project_04.html",
 "summary": ""
 },
 
@@ -891,7 +891,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_06.html",
+"url": "../vignettes/15_Projects/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -902,7 +902,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_06.html",
+"url": "../mydoc/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -910,7 +910,7 @@
 
 
 {
-"title": "Download of Project Data",
+"title": "Data Management for Course Projects",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/15_Projects/mydoc_project_07.html",
@@ -921,7 +921,7 @@
 
 
 {
-"title": "Download of Project Data",
+"title": "Data Management for Course Projects",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_project_07.html",
@@ -1001,7 +1001,7 @@
 "title": "Databases and Software for Genome Biology",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_03.html",
+"url": "../vignettes/04_Slides/mydoc_slides_03.html",
 "summary": ""
 },
 
@@ -1012,18 +1012,7 @@
 "title": "Databases and Software for Genome Biology",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_03.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "DNA Sequencing Technologies",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_04.html",
+"url": "../mydoc/mydoc_slides_03.html",
 "summary": ""
 },
 
@@ -1035,6 +1024,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_04.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "DNA Sequencing Technologies",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_04.html",
 "summary": ""
 },
 
@@ -1067,7 +1067,7 @@
 "title": "Sequence Alignments and Similarity Searching",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_06.html",
+"url": "../vignettes/04_Slides/mydoc_slides_06.html",
 "summary": ""
 },
 
@@ -1078,7 +1078,7 @@
 "title": "Sequence Alignments and Similarity Searching",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_06.html",
+"url": "../mydoc/mydoc_slides_06.html",
 "summary": ""
 },
 
@@ -1133,7 +1133,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_09.html",
+"url": "../vignettes/04_Slides/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1144,7 +1144,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_09.html",
+"url": "../mydoc/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1199,7 +1199,7 @@
 "title": "Introduction to NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_12.html",
+"url": "../vignettes/04_Slides/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1210,7 +1210,7 @@
 "title": "Introduction to NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_12.html",
+"url": "../mydoc/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1727,7 +1727,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_tutorial_01.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -1738,7 +1738,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
+"url": "../mydoc/mydoc_tutorial_01.html",
 "summary": ""
 },
 
