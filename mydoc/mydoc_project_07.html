@@ -1501,6 +1501,7 @@ given <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_project_07
 
 <ol>
   <li>Log in to biocluster and set your working directory to <code>bigdata</code></li>
+  <li>Clone GitHub repository for your project with <code>git clone ...</code> (see <a href="https://docs.google.com/spreadsheets/d/1Im2mwX8NJ9FSZB2CVxoevTxttr2wzoG9ybL_GMMNN4A/edit?usp=sharing">here</a>) and then <code>cd</code> into this directory.</li>
   <li>Generate workflow environment for your project on biocluster with <code>genWorkenvir</code> from <code>systemPipeRdata</code>.</li>
   <li>Replace the <code>data</code> and <code>results</code> directories by symbolic links pointing to the above described <code>data</code> and <code>results</code> directories of your course project. For instance, the project RNA-Seq1 should point on biocluster to:
     <ul>
@@ -1508,10 +1509,11 @@ given <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_project_07
       <li><code>/bigdata/gen242/shared/RNA-Seq1/results</code></li>
     </ul>
   </li>
-  <li>Add the workflow directory to the GitHub repository of your project with <code>git add -A</code>. This needs to be done only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned with <code>git clone ...</code>.</li>
+  <li>Add the workflow directory to the GitHub repository of your project with <code>git add -A</code>. Note, steps 1-4 need to be performed only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned by all other students with <code>git clone ...</code>.</li>
   <li>Download the FASTQ files of your project with <code>getSRAfastq</code> (see below) to the <code>data</code> directory of your project.</li>
   <li>Generate a proper <code>targets</code> file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: <code>SampleNames</code> and <code>Factor</code>).</li>
   <li>Inspect and adjust the <code>.param</code> files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.</li>
+  <li>Every time you start working on your project you <code>cd</code> into the directory of the repository and then run <code>git pull</code> to get the latest change. When you are done, you commit and push your changes back to GitHub with <code>git commit -am "some edits"; git push -u origin master</code>.</li>
 </ol>
 
 <h2 id="download-of-project-data">Download of project data</h2>
