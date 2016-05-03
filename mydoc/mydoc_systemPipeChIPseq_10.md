@@ -1,57 +1,19 @@
 ---
-title: Motif analysis
+title: GO term enrichment analysis
 keywords: 
-last_updated: Tue May  3 11:49:55 2016
+last_updated: Tue May  3 13:38:05 2016
 ---
 
-## Parse DNA sequences of peak regions from genome
-
-Enrichment analysis of known DNA binding motifs or _de novo_ discovery
-of novel motifs requires the DNA sequences of the identified peak
-regions. To parse the corresponding sequences from the reference genome,
-the `getSeq` function from the `Biostrings` package can be used. The 
-following example parses the sequences for each peak set and saves the 
-results to separate FASTA files, one for each peak set. In addition, the 
-sequences in the FASTA files are ranked (sorted) by increasing p-values 
-as expected by some motif discovery tools, such as `BCRANK`.
+The following performs GO term enrichment analysis for each annotated peak set.
 
 
 {% highlight r %}
-library(Biostrings); library(seqLogo); library(BCRANK)
-args <- systemArgs(sysma="param/annotate_peaks.param", mytargets="targets_macs.txt")
-rangefiles <- infile1(args)
-for(i in seq(along=rangefiles)) {
-    df <- read.delim(rangefiles[i], comment="#")
-    peaks <- as(df, "GRanges")
-    names(peaks) <- paste0(as.character(seqnames(peaks)), "_", start(peaks), "-", end(peaks))
-    peaks <- peaks[order(values(peaks)$X.log10.pvalue, decreasing=TRUE)]
-    pseq <- getSeq(FaFile("./data/tair10.fasta"), peaks)
-    names(pseq) <- names(peaks)
-    writeXStringSet(pseq, paste0(rangefiles[i], ".fasta")) 
-}
+args <- systemArgs(sysma="param/macs2.param", mytargets="targets_bam_ref.txt")
+args_anno <- systemArgs(sysma="param/annotate_peaks.param", mytargets="targets_macs.txt")
+annofiles <- outpaths(args_anno)
+gene_ids <- sapply(names(annofiles), function(x) unique(as.character(read.delim(annofiles[x])[,"gene_id"])))
+load("data/GO/catdb.RData")
+BatchResult <- GOCluster_Report(catdb=catdb, setlist=gene_ids, method="all", id_type="gene", CLSZ=2, cutoff=0.9, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
 {% endhighlight %}
-
-## Motif discovery with `BCRANK`
-
-The Bioconductor package `BCRANK` is one of the many tools available for 
-_de novo_ discovery of DNA binding motifs in peak regions of ChIP-Seq
-experiments. The given example applies this method on the first peak
-sample set and plots the sequence logo of the highest ranking motif.
-
-
-{% highlight r %}
-set.seed(0)
-BCRANKout <- bcrank(paste0(rangefiles[1], ".fasta"), restarts=25, use.P1=TRUE, use.P2=TRUE)
-toptable(BCRANKout)
-topMotif <- toptable(BCRANKout, 1)
-weightMatrix <- pwm(topMotif, normalize = FALSE)
-weightMatrixNormalized <- pwm(topMotif, normalize = TRUE)
-pdf("results/seqlogo.pdf")
-seqLogo(weightMatrixNormalized)
-dev.off()
-{% endhighlight %}
-
-![](systemPipeChIPseq_files/seqlogo.png)
-<div align="center">Figure 2: One of the motifs identified by `BCRANK`</div>
 
 

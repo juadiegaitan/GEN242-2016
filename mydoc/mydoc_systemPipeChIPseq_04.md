@@ -1,7 +1,7 @@
 ---
 title: Alignments
 keywords: 
-last_updated: Tue May  3 11:49:55 2016
+last_updated: Tue May  3 13:38:05 2016
 ---
 
 ## Read mapping with `Bowtie2` 
@@ -54,5 +54,4 @@ symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"),
             urlbase="http://biocluster.ucr.edu/~tgirke/", 
             urlfile="./results/IGVurl.txt")
 {% endhighlight %}
-
 

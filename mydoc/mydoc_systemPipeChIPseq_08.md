@@ -1,22 +1,22 @@
 ---
-title: Differential binding analysis
+title: Count reads overlapping peaks
 keywords: 
-last_updated: Tue May  3 11:49:55 2016
+last_updated: Tue May  3 13:38:05 2016
 ---
 
-The `runDiff` function performs differential binding analysis in batch mode for
-several count tables using `edgeR` or `DESeq2` (Robinson et al., 2010; Love et al., 2014).
-Internally, it calls the functions `run_edgeR` and `run_DESeq2`. It also returns 
-the filtering results and plots from the downstream `filterDEGs` function using 
-the fold change and FDR cutoffs provided under the `dbrfilter` argument.
+The `countRangeset` function is a convenience wrapper to perform read counting
+iteratively over serveral range sets, here peak range sets. Internally,
+the read counting is performed with the `summarizeOverlaps` function from the 
+`GenomicAlignments` package. The resulting count tables are directly saved to 
+files, one for each peak set.
 
 
 {% highlight r %}
-args_diff <- systemArgs(sysma="param/rundiff.param", mytargets="targets_countDF.txt")
-cmp <- readComp(file=args_bam, format="matrix") 
-dbrlist <- runDiff(args=args_diff, diffFct=run_edgeR, targets=targetsin(args_bam), 
-                    cmp=cmp[[1]], independent=TRUE, dbrfilter=c(Fold=2, FDR=1))
-writeTargetsout(x=args_diff, file="targets_rundiff.txt", overwrite=TRUE)
+library(GenomicRanges)
+args <- systemArgs(sysma="param/count_rangesets.param", mytargets="targets_macs.txt")
+args_bam <- systemArgs(sysma=NULL, mytargets="targets_bam.txt")
+bfl <- BamFileList(outpaths(args_bam), yieldSize=50000, index=character())
+countDFnames <- countRangeset(bfl, args, mode="Union", ignore.strand=TRUE)
+writeTargetsout(x=args, file="targets_countDF.txt", overwrite=TRUE)
 {% endhighlight %}
-
 

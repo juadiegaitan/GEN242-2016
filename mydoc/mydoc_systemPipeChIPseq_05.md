@@ -1,62 +1,34 @@
 ---
-title: Peak calling with MACS2
+title: Utilities for coverage data
 keywords: 
-last_updated: Tue May  3 11:49:55 2016
+last_updated: Tue May  3 13:38:05 2016
 ---
 
-## Merge BAM files of replicates prior to peak calling
+The following introduces several utilities useful for ChIP-Seq data. They are not part of the actual
+workflow.
 
-Merging BAM files of technical and/or biological replicates can improve
-the sensitivity of the peak calling by increasing the depth of read
-coverage. The `mergeBamByFactor` function merges BAM files based on grouping information
-specified by a `factor`, here the `Factor` column of the imported targets file. It 
-also returns an updated `SYSargs` object containing the paths to the
-merged BAM files as well as to any unmerged files without replicates.
-This step can be skipped if merging of BAM files is not desired.
-
+## Rle object stores coverage information
 
 {% highlight r %}
-args <- systemArgs(sysma=NULL, mytargets="targets_bam.txt")
-args_merge <- mergeBamByFactor(args, overwrite=TRUE)
-writeTargetsout(x=args_merge, file="targets_mergeBamByFactor.txt", overwrite=TRUE)
+library(rtracklayer); library(GenomicRanges); library(Rsamtools); library(GenomicAlignments)
+aligns <- readGAlignmentsFromBam(outpaths()[1])
+cov <- coverage(aligns)
+cov
 {% endhighlight %}
 
-## Peak calling without input/reference sample
-
-MACS2 can perform peak calling on ChIP-Seq data with and without input
-samples (Zhang et al., 2008). The following performs peak calling without
-input on all samples specified in the corresponding `args` object. Note, due to
-the small size of the sample data, MACS2 needs to be run here with the
-`–nomodel` setting. For real data sets, users want to remove this parameter 
-in the corresponding `*.param` file(s).
-
+## Naive peak calling
 
 {% highlight r %}
-args <- systemArgs(sysma="param/macs2_noinput.param", mytargets="targets_mergeBamByFactor.txt")
-sysargs(args)[1] # Command-line parameters for first FASTQ file
-runCommandline(args)
-file.exists(outpaths(args))
-writeTargetsout(x=args, file="targets_macs.txt", overwrite=TRUE)
+islands <- slice(cov, lower = 15)
+islands[[1]]
 {% endhighlight %}
 
-## Peak calling with input/reference sample
-
-To perform peak calling with input samples, they can be most
-conveniently specified in the `SampleReference` column of the initial
-`targets` file. The `writeTargetsRef` function uses this information to create a `targets` 
-file intermediate for running MACS2 with the corresponding input samples.
-
+## Plot coverage for defined region
 
 {% highlight r %}
-writeTargetsRef(infile="targets_mergeBamByFactor.txt", outfile="targets_bam_ref.txt", silent=FALSE, overwrite=TRUE)
-args <- systemArgs(sysma="param/macs2.param", mytargets="targets_bam_ref.txt")
-sysargs(args)[1] # Command-line parameters for first FASTQ file
-runCommandline(args)
-file.exists(outpaths(args))
-writeTargetsout(x=args, file="targets_macs.txt", overwrite=TRUE)
+library(ggbio)
+myloc <- c("Chr1", 1, 100000)
+ga <- readGAlignments(outpaths(args)[1], use.names=TRUE, param=ScanBamParam(which=GRanges(myloc[1], IRanges(as.numeric(myloc[2]), as.numeric(myloc[3])))))
+autoplot(ga, aes(color = strand, fill = strand), facets = strand ~ seqnames, stat = "coverage")
 {% endhighlight %}
-
-The peak calling results from MACS2 are written for each sample to
-separate files in the `results` directory. They are named after the corresponding
-files with extensions used by MACS2.
 

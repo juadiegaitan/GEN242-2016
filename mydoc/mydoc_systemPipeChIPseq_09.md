@@ -1,19 +1,22 @@
 ---
-title: GO term enrichment analysis
+title: Differential binding analysis
 keywords: 
-last_updated: Tue May  3 11:49:55 2016
+last_updated: Tue May  3 13:38:05 2016
 ---
 
-The following performs GO term enrichment analysis for each annotated peak set.
+The `runDiff` function performs differential binding analysis in batch mode for
+several count tables using `edgeR` or `DESeq2` (Robinson et al., 2010; Love et al., 2014).
+Internally, it calls the functions `run_edgeR` and `run_DESeq2`. It also returns 
+the filtering results and plots from the downstream `filterDEGs` function using 
+the fold change and FDR cutoffs provided under the `dbrfilter` argument.
 
 
 {% highlight r %}
-args <- systemArgs(sysma="param/macs2.param", mytargets="targets_bam_ref.txt")
-args_anno <- systemArgs(sysma="param/annotate_peaks.param", mytargets="targets_macs.txt")
-annofiles <- outpaths(args_anno)
-gene_ids <- sapply(names(annofiles), function(x) unique(as.character(read.delim(annofiles[x])[,"gene_id"])))
-load("data/GO/catdb.RData")
-BatchResult <- GOCluster_Report(catdb=catdb, setlist=gene_ids, method="all", id_type="gene", CLSZ=2, cutoff=0.9, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
+args_diff <- systemArgs(sysma="param/rundiff.param", mytargets="targets_countDF.txt")
+cmp <- readComp(file=args_bam, format="matrix") 
+dbrlist <- runDiff(args=args_diff, diffFct=run_edgeR, targets=targetsin(args_bam), 
+                    cmp=cmp[[1]], independent=TRUE, dbrfilter=c(Fold=2, FDR=1))
+writeTargetsout(x=args_diff, file="targets_rundiff.txt", overwrite=TRUE)
 {% endhighlight %}
 
 

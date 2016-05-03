@@ -1,62 +1,62 @@
 ---
-title: Annotate peaks with genomic context
+title: Peak calling with MACS2
 keywords: 
-last_updated: Tue May  3 11:49:55 2016
+last_updated: Tue May  3 13:38:05 2016
 ---
 
-## Annotation with `ChIPpeakAnno` package
+## Merge BAM files of replicates prior to peak calling
 
-The following annotates the identified peaks with genomic context
-information using the `ChIPpeakAnno` and `ChIPseeker` packages, respectively
-(Zhu et al., 2010; Yu et al., 2015).
-
-
-{% highlight r %}
-library(ChIPpeakAnno); library(GenomicFeatures)
-args <- systemArgs(sysma="param/annotate_peaks.param", mytargets="targets_macs.txt")
-# txdb <- loadDb("./data/tair10.sqlite")
-txdb <- makeTxDbFromGFF(file="data/tair10.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
-ge <- genes(txdb, columns=c("tx_name", "gene_id", "tx_type")) 
-for(i in seq(along=args)) {
-    peaksGR <- as(read.delim(infile1(args)[i], comment="#"), "GRanges")
-    annotatedPeak <- annotatePeakInBatch(peaksGR, AnnotationData=genes(txdb))
-    df <- data.frame(as.data.frame(annotatedPeak), as.data.frame(values(ge[values(annotatedPeak)$feature,])))
-    write.table(df, outpaths(args[i]), quote=FALSE, row.names=FALSE, sep="\t")
-}
-writeTargetsout(x=args, file="targets_peakanno.txt", overwrite=TRUE)
-{% endhighlight %}
-
-
-
-
-The peak annotation results are written for each peak set to separate
-files in the `results` directory. They are named after the corresponding peak
-files with extensions specified in the `annotate_peaks.param` file, 
-here `*.peaks.annotated.xls`.
-
-## Annotation with `ChIPseeker` package
-
-Same as in previous step but using the `ChIPseeker` package for annotating the peaks.
+Merging BAM files of technical and/or biological replicates can improve
+the sensitivity of the peak calling by increasing the depth of read
+coverage. The `mergeBamByFactor` function merges BAM files based on grouping information
+specified by a `factor`, here the `Factor` column of the imported targets file. It 
+also returns an updated `SYSargs` object containing the paths to the
+merged BAM files as well as to any unmerged files without replicates.
+This step can be skipped if merging of BAM files is not desired.
 
 
 {% highlight r %}
-library(ChIPseeker)
-for(i in seq(along=args)) {
-    peakAnno <- annotatePeak(infile1(args)[i], TxDb=txdb, verbose=FALSE)
-    df <- as.data.frame(peakAnno)
-    write.table(df, outpaths(args[i]), quote=FALSE, row.names=FALSE, sep="\t")
-}
-writeTargetsout(x=args, file="targets_peakanno.txt", overwrite=TRUE)
+args <- systemArgs(sysma=NULL, mytargets="targets_bam.txt")
+args_merge <- mergeBamByFactor(args, overwrite=TRUE)
+writeTargetsout(x=args_merge, file="targets_mergeBamByFactor.txt", overwrite=TRUE)
 {% endhighlight %}
 
-Summary plots provided by the `ChIPseeker` package. Here applied only to one sample
-for demonstration purposes.
+## Peak calling without input/reference sample
+
+MACS2 can perform peak calling on ChIP-Seq data with and without input
+samples (Zhang et al., 2008). The following performs peak calling without
+input on all samples specified in the corresponding `args` object. Note, due to
+the small size of the sample data, MACS2 needs to be run here with the
+`–nomodel` setting. For real data sets, users want to remove this parameter 
+in the corresponding `*.param` file(s).
 
 
 {% highlight r %}
-peak <- readPeakFile(infile1(args)[1])
-covplot(peak, weightCol="X.log10.pvalue.")
-peakHeatmap(outpaths(args)[1], TxDb=txdb, upstream=1000, downstream=1000, color="red")
-plotAvgProf2(outpaths(args)[1], TxDb=txdb, upstream=1000, downstream=1000, xlab="Genomic Region (5'->3')", ylab = "Read Count Frequency")
+args <- systemArgs(sysma="param/macs2_noinput.param", mytargets="targets_mergeBamByFactor.txt")
+sysargs(args)[1] # Command-line parameters for first FASTQ file
+runCommandline(args)
+file.exists(outpaths(args))
+writeTargetsout(x=args, file="targets_macs.txt", overwrite=TRUE)
 {% endhighlight %}
+
+## Peak calling with input/reference sample
+
+To perform peak calling with input samples, they can be most
+conveniently specified in the `SampleReference` column of the initial
+`targets` file. The `writeTargetsRef` function uses this information to create a `targets` 
+file intermediate for running MACS2 with the corresponding input samples.
+
+
+{% highlight r %}
+writeTargetsRef(infile="targets_mergeBamByFactor.txt", outfile="targets_bam_ref.txt", silent=FALSE, overwrite=TRUE)
+args <- systemArgs(sysma="param/macs2.param", mytargets="targets_bam_ref.txt")
+sysargs(args)[1] # Command-line parameters for first FASTQ file
+runCommandline(args)
+file.exists(outpaths(args))
+writeTargetsout(x=args, file="targets_macs.txt", overwrite=TRUE)
+{% endhighlight %}
+
+The peak calling results from MACS2 are written for each sample to
+separate files in the `results` directory. They are named after the corresponding
+files with extensions used by MACS2.
 

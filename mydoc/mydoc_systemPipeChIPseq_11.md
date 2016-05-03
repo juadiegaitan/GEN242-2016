@@ -1,53 +1,57 @@
 ---
-title: Version Information
+title: Motif analysis
 keywords: 
-last_updated: Tue May  3 11:49:55 2016
+last_updated: Tue May  3 13:38:05 2016
 ---
+
+## Parse DNA sequences of peak regions from genome
+
+Enrichment analysis of known DNA binding motifs or _de novo_ discovery
+of novel motifs requires the DNA sequences of the identified peak
+regions. To parse the corresponding sequences from the reference genome,
+the `getSeq` function from the `Biostrings` package can be used. The 
+following example parses the sequences for each peak set and saves the 
+results to separate FASTA files, one for each peak set. In addition, the 
+sequences in the FASTA files are ranked (sorted) by increasing p-values 
+as expected by some motif discovery tools, such as `BCRANK`.
 
 
 {% highlight r %}
-sessionInfo()
+library(Biostrings); library(seqLogo); library(BCRANK)
+args <- systemArgs(sysma="param/annotate_peaks.param", mytargets="targets_macs.txt")
+rangefiles <- infile1(args)
+for(i in seq(along=rangefiles)) {
+    df <- read.delim(rangefiles[i], comment="#")
+    peaks <- as(df, "GRanges")
+    names(peaks) <- paste0(as.character(seqnames(peaks)), "_", start(peaks), "-", end(peaks))
+    peaks <- peaks[order(values(peaks)$X.log10.pvalue, decreasing=TRUE)]
+    pseq <- getSeq(FaFile("./data/tair10.fasta"), peaks)
+    names(pseq) <- names(peaks)
+    writeXStringSet(pseq, paste0(rangefiles[i], ".fasta")) 
+}
 {% endhighlight %}
 
-{% highlight txt %}
-## R version 3.2.5 (2016-04-14)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: Ubuntu 14.04.4 LTS
-## 
-## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
-##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
-## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
-## 
-## attached base packages:
-## [1] stats4    parallel  stats     graphics  utils     datasets  grDevices methods   base     
-## 
-## other attached packages:
-##  [1] ape_3.4                    ggplot2_2.0.0              systemPipeR_1.4.8         
-##  [4] RSQLite_1.0.0              DBI_0.3.1                  ShortRead_1.28.0          
-##  [7] GenomicAlignments_1.6.1    SummarizedExperiment_1.0.1 Biobase_2.30.0            
-## [10] BiocParallel_1.4.0         Rsamtools_1.22.0           Biostrings_2.38.2         
-## [13] XVector_0.10.0             GenomicRanges_1.22.1       GenomeInfoDb_1.6.1        
-## [16] IRanges_2.4.4              S4Vectors_0.8.3            BiocGenerics_0.16.1       
-## [19] BiocStyle_1.8.0           
-## 
-## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.3            lattice_0.20-33        GO.db_3.2.2            digest_0.6.9          
-##  [5] plyr_1.8.3             futile.options_1.0.0   BatchJobs_1.6          evaluate_0.8          
-##  [9] zlibbioc_1.16.0        GenomicFeatures_1.22.6 annotate_1.48.0        Matrix_1.2-3          
-## [13] checkmate_1.6.3        rmarkdown_0.9.2        GOstats_2.36.0         splines_3.2.5         
-## [17] stringr_1.0.0          pheatmap_1.0.7         RCurl_1.95-4.7         biomaRt_2.26.1        
-## [21] munsell_0.4.2          sendmailR_1.2-1        rtracklayer_1.30.1     base64enc_0.1-3       
-## [25] BBmisc_1.9             htmltools_0.3          fail_1.3               edgeR_3.12.0          
-## [29] codetools_0.2-14       XML_3.98-1.3           AnnotationForge_1.12.0 bitops_1.0-6          
-## [33] grid_3.2.5             RBGL_1.46.0            nlme_3.1-122           xtable_1.8-0          
-## [37] GSEABase_1.32.0        gtable_0.1.2           magrittr_1.5           formatR_1.2.1         
-## [41] scales_0.3.0           graph_1.48.0           stringi_1.0-1          hwriter_1.3.2         
-## [45] genefilter_1.52.0      limma_3.26.3           latticeExtra_0.6-26    futile.logger_1.4.1   
-## [49] brew_1.0-6             rjson_0.2.15           lambda.r_1.1.7         RColorBrewer_1.1-2    
-## [53] tools_3.2.5            Category_2.36.0        survival_2.38-3        yaml_2.1.13           
-## [57] AnnotationDbi_1.32.0   colorspace_1.2-6       knitr_1.12
+## Motif discovery with `BCRANK`
+
+The Bioconductor package `BCRANK` is one of the many tools available for 
+_de novo_ discovery of DNA binding motifs in peak regions of ChIP-Seq
+experiments. The given example applies this method on the first peak
+sample set and plots the sequence logo of the highest ranking motif.
+
+
+{% highlight r %}
+set.seed(0)
+BCRANKout <- bcrank(paste0(rangefiles[1], ".fasta"), restarts=25, use.P1=TRUE, use.P2=TRUE)
+toptable(BCRANKout)
+topMotif <- toptable(BCRANKout, 1)
+weightMatrix <- pwm(topMotif, normalize = FALSE)
+weightMatrixNormalized <- pwm(topMotif, normalize = TRUE)
+pdf("results/seqlogo.pdf")
+seqLogo(weightMatrixNormalized)
+dev.off()
 {% endhighlight %}
+
+![](systemPipeChIPseq_files/seqlogo.png)
+<div align="center">Figure 2: One of the motifs identified by `BCRANK`</div>
 
 

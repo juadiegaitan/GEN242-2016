@@ -232,6 +232,35 @@ symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"),
             urlfile="./results/IGVurl.txt")
 ```
 
+# Utilities for coverage data
+
+The following introduces several utilities useful for ChIP-Seq data. They are not part of the actual
+workflow.
+
+## Rle object stores coverage information
+
+```r
+library(rtracklayer); library(GenomicRanges); library(Rsamtools); library(GenomicAlignments)
+aligns <- readGAlignmentsFromBam(outpaths()[1])
+cov <- coverage(aligns)
+cov
+```
+
+## Naive peak calling
+
+```r
+islands <- slice(cov, lower = 15)
+islands[[1]]
+```
+
+## Plot coverage for defined region
+
+```r
+library(ggbio)
+myloc <- c("Chr1", 1, 100000)
+ga <- readGAlignments(outpaths(args)[1], use.names=TRUE, param=ScanBamParam(which=GRanges(myloc[1], IRanges(as.numeric(myloc[2]), as.numeric(myloc[3])))))
+autoplot(ga, aes(color = strand, fill = strand), facets = strand ~ seqnames, stat = "coverage")
+```
 
 # Peak calling with MACS2
 

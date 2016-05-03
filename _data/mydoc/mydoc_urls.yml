@@ -555,47 +555,52 @@ mydoc_systemPipeChIPseq_04:
   link: "<a href='../mydoc/mydoc_systemPipeChIPseq_04.html'>Alignments</a>"
 
 mydoc_systemPipeChIPseq_05:
-  title: "Peak calling with MACS2"
+  title: "Utilities for coverage data"
   url: "../mydoc/mydoc_systemPipeChIPseq_05.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_05.html'>Peak calling with MACS2</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_05.html'>Utilities for coverage data</a>"
 
 mydoc_systemPipeChIPseq_06:
-  title: "Annotate peaks with genomic context"
+  title: "Peak calling with MACS2"
   url: "../mydoc/mydoc_systemPipeChIPseq_06.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_06.html'>Annotate peaks with genomic context</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_06.html'>Peak calling with MACS2</a>"
 
 mydoc_systemPipeChIPseq_07:
-  title: "Count reads overlapping peaks"
+  title: "Annotate peaks with genomic context"
   url: "../mydoc/mydoc_systemPipeChIPseq_07.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_07.html'>Count reads overlapping peaks</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_07.html'>Annotate peaks with genomic context</a>"
 
 mydoc_systemPipeChIPseq_08:
-  title: "Differential binding analysis"
+  title: "Count reads overlapping peaks"
   url: "../mydoc/mydoc_systemPipeChIPseq_08.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_08.html'>Differential binding analysis</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_08.html'>Count reads overlapping peaks</a>"
 
 mydoc_systemPipeChIPseq_09:
-  title: "GO term enrichment analysis"
+  title: "Differential binding analysis"
   url: "../mydoc/mydoc_systemPipeChIPseq_09.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_09.html'>GO term enrichment analysis</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_09.html'>Differential binding analysis</a>"
 
 mydoc_systemPipeChIPseq_10:
-  title: "Motif analysis"
+  title: "GO term enrichment analysis"
   url: "../mydoc/mydoc_systemPipeChIPseq_10.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_10.html'>Motif analysis</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_10.html'>GO term enrichment analysis</a>"
 
 mydoc_systemPipeChIPseq_11:
-  title: "Version Information"
+  title: "Motif analysis"
   url: "../mydoc/mydoc_systemPipeChIPseq_11.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_11.html'>Version Information</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_11.html'>Motif analysis</a>"
 
 mydoc_systemPipeChIPseq_12:
-  title: "Funding"
+  title: "Version Information"
   url: "../mydoc/mydoc_systemPipeChIPseq_12.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_12.html'>Funding</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_12.html'>Version Information</a>"
 
 mydoc_systemPipeChIPseq_13:
-  title: "References"
+  title: "Funding"
   url: "../mydoc/mydoc_systemPipeChIPseq_13.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_13.html'>References</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_13.html'>Funding</a>"
+
+mydoc_systemPipeChIPseq_14:
+  title: "References"
+  url: "../mydoc/mydoc_systemPipeChIPseq_14.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_14.html'>References</a>"
 
