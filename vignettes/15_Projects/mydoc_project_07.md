@@ -29,14 +29,16 @@ given [below](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_project_07.
 ## Generate workflow environment with project data
 
 1. Log in to biocluster and set your working directory to `bigdata`
+2. Clone GitHub repository for your project with `git clone ...` (see [here](https://docs.google.com/spreadsheets/d/1Im2mwX8NJ9FSZB2CVxoevTxttr2wzoG9ybL_GMMNN4A/edit?usp=sharing)) and then `cd` into this directory.
 2. Generate workflow environment for your project on biocluster with `genWorkenvir` from `systemPipeRdata`. 
 3. Replace the `data` and `results` directories by symbolic links pointing to the above described `data` and `results` directories of your course project. For instance, the project RNA-Seq1 should point on biocluster to:
     + `/bigdata/gen242/shared/RNA-Seq1/data` 
     + `/bigdata/gen242/shared/RNA-Seq1/results`
-4. Add the workflow directory to the GitHub repository of your project with `git add -A`. This needs to be done only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned with `git clone ...`.
+4. Add the workflow directory to the GitHub repository of your project with `git add -A`. Note, steps 1-4 need to be performed only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned by all other students with `git clone ...`.
 5. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project. 
 6. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`).
 7. Inspect and adjust the `.param` files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct. 
+8. Every time you start working on your project you `cd` into the directory of the repository and then run `git pull` to get the latest change. When you are done, you commit and push your changes back to GitHub with `git commit -am "some edits"; git push -u origin master`.
 
 ## Download of project data
 
