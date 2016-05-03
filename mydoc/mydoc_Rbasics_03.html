@@ -77,16 +77,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -167,8 +157,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +249,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1397,6 +1375,15 @@ window.location.href = uri;
 
                     
                     
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_07.html">Project Data</a></li>
+                    
+
+                    
+
+                    
+                    
                 </ul>
                 
                 
@@ -1460,16 +1447,16 @@ $('#toc').on('click', 'a', function() {
 
 <p>(3.) Install CRAN Packages from R console like this:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">install.packages</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"pkg1"</span><span class="p">,</span> <span class="s2">"pkg2"</span><span class="p">))</span> 
-<span class="n">install.packages</span><span class="p">(</span><span class="s2">"pkg.zip"</span><span class="p">,</span> <span class="n">repos</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">install.packages</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"pkg1"</span><span class="p">,</span> <span class="s2">"pkg2"</span><span class="p">))</span> 
+<span class="n">install.packages</span><span class="p">(</span><span class="s2">"pkg.zip"</span><span class="p">,</span> <span class="n">repos</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span></code></pre></figure>
 
 <p>(4.) Install Bioconductor packages as follows:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"http://www.bioconductor.org/biocLite.R"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"http://www.bioconductor.org/biocLite.R"</span><span class="p">)</span>
 <span class="n">library</span><span class="p">(</span><span class="n">BiocInstaller</span><span class="p">)</span>
 <span class="n">BiocVersion</span><span class="p">()</span>
 <span class="n">biocLite</span><span class="p">()</span>
-<span class="n">biocLite</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"pkg1"</span><span class="p">,</span> <span class="s2">"pkg2"</span><span class="p">))</span></code></pre></div>
+<span class="n">biocLite</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"pkg1"</span><span class="p">,</span> <span class="s2">"pkg2"</span><span class="p">))</span></code></pre></figure>
 
 <p>(5.) For more details consult the <a href="http://www.bioconductor.org/install/">Bioc Install page</a>
 and <a href="http://www.bioconductor.org/packages/release/bioc/html/BiocInstaller.html">BiocInstaller</a> package.</p>

@@ -77,16 +77,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -167,8 +157,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +249,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1397,6 +1375,15 @@ window.location.href = uri;
 
                     
                     
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_07.html">Project Data</a></li>
+                    
+
+                    
+
+                    
+                    
                 </ul>
                 
                 
@@ -1456,31 +1443,31 @@ $('#toc').on('click', 'a', function() {
 -->
 <h2 id="important-data-objects-of-biostrings">Important Data Objects of Biostrings</h2>
 
-<h3 id="xstring-for-single-sequence"><code>XString</code> for single sequence</h3>
+<h3 id="xstring-for-single-sequence"><code class="highlighter-rouge">XString</code> for single sequence</h3>
 
 <ul>
-  <li><code>DNAString</code>: for DNA</li>
-  <li><code>RNAString</code>: for RNA</li>
-  <li><code>AAString</code>: for amino acid</li>
-  <li><code>BString</code>: for any string</li>
+  <li><code class="highlighter-rouge">DNAString</code>: for DNA</li>
+  <li><code class="highlighter-rouge">RNAString</code>: for RNA</li>
+  <li><code class="highlighter-rouge">AAString</code>: for amino acid</li>
+  <li><code class="highlighter-rouge">BString</code>: for any string</li>
 </ul>
 
-<h3 id="xstringset-for-many-sequences"><code>XStringSet</code> for many sequences</h3>
+<h3 id="xstringset-for-many-sequences"><code class="highlighter-rouge">XStringSet</code> for many sequences</h3>
 
 <ul>
-  <li><code>DNAStringSet</code>`: for DNA</li>
-  <li><code>RNAStringSet</code>: for RNA</li>
-  <li><code>AAStringSet</code>: for amino acid</li>
-  <li><code>BStringSet</code>: for any string</li>
+  <li><code class="highlighter-rouge">DNAStringSet</code>`: for DNA</li>
+  <li><code class="highlighter-rouge">RNAStringSet</code>: for RNA</li>
+  <li><code class="highlighter-rouge">AAStringSet</code>: for amino acid</li>
+  <li><code class="highlighter-rouge">BStringSet</code>: for any string</li>
 </ul>
 
-<h3 id="qualityscalexstringset-for-sequences-with-quality-data"><code>QualityScaleXStringSet</code> for sequences with quality data</h3>
+<h3 id="qualityscalexstringset-for-sequences-with-quality-data"><code class="highlighter-rouge">QualityScaleXStringSet</code> for sequences with quality data</h3>
 
 <ul>
-  <li><code>QualityScaledDNAStringSet</code>: for DNA</li>
-  <li><code>QualityScaledRNAStringSet</code>: for RNA</li>
-  <li><code>QualityScaledAAStringSet</code>: for amino acid</li>
-  <li><code>QualityScaledBStringSet</code>: for any string</li>
+  <li><code class="highlighter-rouge">QualityScaledDNAStringSet</code>: for DNA</li>
+  <li><code class="highlighter-rouge">QualityScaledRNAStringSet</code>: for RNA</li>
+  <li><code class="highlighter-rouge">QualityScaledAAStringSet</code>: for amino acid</li>
+  <li><code class="highlighter-rouge">QualityScaledBStringSet</code>: for any string</li>
 </ul>
 
 <h2 id="sequence-import-and-export">Sequence Import and Export</h2>
@@ -1488,118 +1475,118 @@ $('#toc').on('click', 'a', function() {
 <p>Download the following sequences to your current working directory and then import them into R: 
 <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn">ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn</a></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dir.create</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">showWarnings</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dir.create</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">showWarnings</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
 <span class="c1"># system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn")
-</span><span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn"</span><span class="p">,</span> <span class="s2">"data/AE004437.ffn"</span><span class="p">)</span></code></pre></div>
+</span><span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn"</span><span class="p">,</span> <span class="s2">"data/AE004437.ffn"</span><span class="p">)</span></code></pre></figure>
 
-<p>Import FASTA file with <code>readDNAStringSet</code></p>
+<p>Import FASTA file with <code class="highlighter-rouge">readDNAStringSet</code></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"data/AE004437.ffn"</span><span class="p">)</span>
-<span class="n">myseq</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"data/AE004437.ffn"</span><span class="p">)</span>
+<span class="n">myseq</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
 ##     width seq                                                                   names               
 ## [1]  1206 ATGACTCGGCGGTCTCGTGTCGGTGCCGGCCTC...GTCGTCGTTGTTCGACGCTGGCGGAACCCATGA gi|12057215|gb|AE...
 ## [2]   666 ATGAGCATCATCGAACTCGAAGGCGTGGTCAAA...GTCAACCTCGTCGATGGGGTGTTACACACGTGA gi|12057215|gb|AE...
-## [3]  1110 ATGGCGTGGCGGAACCTCGGGCGGAACCGCGTG...AACGATCCGCCCGTCGAGGCGCTCGGCGAATGA gi|12057215|gb|AE...</code></pre></div>
+## [3]  1110 ATGGCGTGGCGGAACCTCGGGCGGAACCGCGTG...AACGATCCGCCCGTCGAGGCGCTCGGCGAATGA gi|12057215|gb|AE...</code></pre></figure>
 
 <p>Subset sequences with regular expression on sequence name field</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub</span> <span class="o">&lt;-</span> <span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"99.*"</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">myseq</span><span class="p">))]</span>
-<span class="n">length</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sub</span> <span class="o">&lt;-</span> <span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"99.*"</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">myseq</span><span class="p">))]</span>
+<span class="n">length</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 170</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 170</code></pre></figure>
 
 <p>Export subsetted sequences to FASTA file</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">writeXStringSet</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"./data/AE004437sub.ffn"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">80</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">writeXStringSet</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"./data/AE004437sub.ffn"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">80</span><span class="p">)</span></code></pre></figure>
 
-<p>Now inspect exported sequence file <code>AE004437sub.ffn</code> in a text editor</p>
+<p>Now inspect exported sequence file <code class="highlighter-rouge">AE004437sub.ffn</code> in a text editor</p>
 
-<h2 id="working-with-xstring-containers">Working with <code>XString</code> Containers</h2>
+<h2 id="working-with-xstring-containers">Working with <code class="highlighter-rouge">XString</code> Containers</h2>
 
-<p>The <code>XString</code> stores the different types of biosequences in dedicated containers</p>
+<p>The <code class="highlighter-rouge">XString</code> stores the different types of biosequences in dedicated containers</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="s2">"GCATAT-TAC"</span><span class="p">)</span>
-<span class="n">d</span></code></pre></div>
+<span class="n">d</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   10-letter "DNAString" instance
-## seq: GCATAT-TAC</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   10-letter "DNAString" instance
+## seq: GCATAT-TAC</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">d</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">d</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   4-letter "DNAString" instance
-## seq: GCAT</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   4-letter "DNAString" instance
+## seq: GCAT</code></pre></figure>
 
 <p>RNA sequences</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">r</span> <span class="o">&lt;-</span> <span class="n">RNAString</span><span class="p">(</span><span class="s2">"GCAUAU-UAC"</span><span class="p">)</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">r</span> <span class="o">&lt;-</span> <span class="n">RNAString</span><span class="p">(</span><span class="s2">"GCAUAU-UAC"</span><span class="p">)</span> 
 <span class="n">r</span> <span class="o">&lt;-</span> <span class="n">RNAString</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1"># Converts d to RNAString object
-</span><span class="n">r</span></code></pre></div>
+</span><span class="n">r</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   10-letter "RNAString" instance
-## seq: GCAUAU-UAC</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   10-letter "RNAString" instance
+## seq: GCAUAU-UAC</code></pre></figure>
 
 <p>Protein sequences</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">AAString</span><span class="p">(</span><span class="s2">"HCWYHH"</span><span class="p">)</span>
-<span class="n">p</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">AAString</span><span class="p">(</span><span class="s2">"HCWYHH"</span><span class="p">)</span>
+<span class="n">p</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   6-letter "AAString" instance
-## seq: HCWYHH</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   6-letter "AAString" instance
+## seq: HCWYHH</code></pre></figure>
 
 <p>Any type of character strings</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">b</span> <span class="o">&lt;-</span> <span class="n">BString</span><span class="p">(</span><span class="s2">"I store any set of characters. Other XString objects store only the IUPAC characters."</span><span class="p">)</span>
-<span class="n">b</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">b</span> <span class="o">&lt;-</span> <span class="n">BString</span><span class="p">(</span><span class="s2">"I store any set of characters. Other XString objects store only the IUPAC characters."</span><span class="p">)</span>
+<span class="n">b</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   85-letter "BString" instance
-## seq: I store any set of characters. Other XString objects store only the IUPAC characters.</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   85-letter "BString" instance
+## seq: I store any set of characters. Other XString objects store only the IUPAC characters.</code></pre></figure>
 
-<h2 id="working-with-xstringset-containers">Working with <code>XStringSet</code> Containers</h2>
+<h2 id="working-with-xstringset-containers">Working with <code class="highlighter-rouge">XStringSet</code> Containers</h2>
 
-<p><code>XStringSet</code> containers allow to store many biosequences in one object</p>
+<p><code class="highlighter-rouge">XStringSet</code> containers allow to store many biosequences in one object</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCATATTAC"</span><span class="p">,</span> <span class="s2">"AATCGATCC"</span><span class="p">,</span> <span class="s2">"GCATATTAC"</span><span class="p">))</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCATATTAC"</span><span class="p">,</span> <span class="s2">"AATCGATCC"</span><span class="p">,</span> <span class="s2">"GCATATTAC"</span><span class="p">))</span> 
 <span class="n">names</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"seq1"</span><span class="p">,</span> <span class="s2">"seq2"</span><span class="p">,</span> <span class="s2">"seq3"</span><span class="p">)</span> <span class="c1"># Assigns names
-</span><span class="n">dset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></div>
+</span><span class="n">dset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
 ##     width seq                                                                   names               
 ## [1]     9 GCATATTAC                                                             seq1
-## [2]     9 AATCGATCC                                                             seq2</code></pre></div>
+## [2]     9 AATCGATCC                                                             seq2</code></pre></figure>
 
-<p>Important utilities for <code>XStringSet</code> containers</p>
+<p>Important utilities for <code class="highlighter-rouge">XStringSet</code> containers</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">width</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">each</span> <span class="n">sequences</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">width</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">each</span> <span class="n">sequences</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 9 9 9</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 9 9 9</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">d</span> <span class="o">&lt;-</span> <span class="n">dset</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># The [[ subsetting operator returns a single entry as XString object
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">d</span> <span class="o">&lt;-</span> <span class="n">dset</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># The [[ subsetting operator returns a single entry as XString object
 </span><span class="n">dset2</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">dset</span><span class="p">)</span> <span class="c1"># Appends/concatenates two XStringSet objects
 </span><span class="n">dsetchar</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="c1"># Converts XStringSet to named vector 
-</span><span class="n">dsetone</span> <span class="o">&lt;-</span> <span class="n">unlist</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="err">#</span> <span class="n">Collapses</span> <span class="n">many</span> <span class="n">sequences</span> <span class="n">to</span> <span class="n">a</span> <span class="n">single</span> <span class="n">one</span> <span class="n">stored</span> <span class="k">in</span> <span class="n">a</span> <span class="n">DNAString</span> <span class="n">container</span></code></pre></div>
+</span><span class="n">dsetone</span> <span class="o">&lt;-</span> <span class="n">unlist</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="err">#</span> <span class="n">Collapses</span> <span class="n">many</span> <span class="n">sequences</span> <span class="n">to</span> <span class="n">a</span> <span class="n">single</span> <span class="n">one</span> <span class="n">stored</span> <span class="k">in</span> <span class="n">a</span> <span class="n">DNAString</span> <span class="n">container</span></code></pre></figure>
 
 <p>Sequence subsetting by positions:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">5</span><span class="p">))</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">5</span><span class="p">))</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
 ##     width seq                                                                   names               
 ## [1]     4 GCAT                                                                  seq1
 ## [2]     7 ATCGATC                                                               seq2
-## [3]     3 ATA                                                                   seq3</code></pre></div>
+## [3]     3 ATA                                                                   seq3</code></pre></figure>
 
 <h2 id="multiple-alignment-class">Multiple Alignment Class</h2>
 
-<p>The <code>XMultipleAlignment</code> class stores the different types of multiple sequence alignments:</p>
+<p>The <code class="highlighter-rouge">XMultipleAlignment</code> class stores the different types of multiple sequence alignments:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">origMAlign</span> <span class="o">&lt;-</span> <span class="n">readDNAMultipleAlignment</span><span class="p">(</span><span class="n">filepath</span> <span class="o">=</span> <span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">origMAlign</span> <span class="o">&lt;-</span> <span class="n">readDNAMultipleAlignment</span><span class="p">(</span><span class="n">filepath</span> <span class="o">=</span> <span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span>
               <span class="s2">"msx2_mRNA.aln"</span><span class="p">,</span> <span class="n">package</span> <span class="o">=</span> <span class="s2">"Biostrings"</span><span class="p">),</span> <span class="n">format</span> <span class="o">=</span> <span class="s2">"clustal"</span><span class="p">)</span>
-<span class="n">origMAlign</span></code></pre></div>
+<span class="n">origMAlign</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## DNAMultipleAlignment with 8 rows and 2343 columns
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## DNAMultipleAlignment with 8 rows and 2343 columns
 ##      aln                                                                        names               
 ## [1] -----TCCCGTCTCCGCAGCAAAAAAGTTTGAGTCG...TTGTCCAAACTCACAATTAAAAAAAAAAAAAAAAA gi|84452153|ref|N...
 ## [2] ------------------------------------...----------------------------------- gi|208431713|ref|...
@@ -1608,48 +1595,48 @@ $('#toc').on('click', 'a', function() {
 ## [5] ------------------------------------...----------------------------------- gi|119220589|ref|...
 ## [6] ------------------------------------...----------------------------------- gi|148540149|ref|...
 ## [7] --------------CGGCTCCGCAGCGCCTCACTCG...----------------------------------- gi|45383056|ref|N...
-## [8] GGGGGAGACTTCAGAAGTTGTTGTCCTCTCCGCTGA...----------------------------------- gi|213515133|ref|...</code></pre></div>
+## [8] GGGGGAGACTTCAGAAGTTGTTGTCCTCTCCGCTGA...----------------------------------- gi|213515133|ref|...</code></pre></figure>
 
 <h2 id="basic-sequence-manipulations">Basic Sequence Manipulations</h2>
 
 <h3 id="reverse-and-complement">Reverse and Complement</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">randset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">rand</span><span class="p">)</span>
-<span class="n">complement</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">randset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">rand</span><span class="p">)</span>
+<span class="n">complement</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    17 AACCACGGGCGTGTGCA
-## [2]    10 ATGAGTGCTG</code></pre></div>
+## [2]    10 ATGAGTGCTG</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">reverse</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">reverse</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    17 TGCACACGCCCGTGGTT
-## [2]    10 CAGCACTCAT</code></pre></div>
+## [2]    10 CAGCACTCAT</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">reverseComplement</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">reverseComplement</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    17 ACGTGTGCGGGCACCAA
-## [2]    10 GTCGTGAGTA</code></pre></div>
+## [2]    10 GTCGTGAGTA</code></pre></figure>
 
 <h2 id="translate-dna-into-protein">Translate DNA into Protein</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">translate</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">translate</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[1]]':
-## last 2 bases were ignored</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[1]]':
+## last 2 bases were ignored</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[2]]':
-## last base was ignored</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[2]]':
+## last base was ignored</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A AAStringSet instance of length 2
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A AAStringSet instance of length 2
 ##     width seq
 ## [1]     5 LVPAH
-## [2]     3 YSR</code></pre></div>
+## [2]     3 YSR</code></pre></figure>
 
 <h2 id="pattern-matching">Pattern Matching</h2>
 
@@ -1657,41 +1644,41 @@ $('#toc').on('click', 'a', function() {
 
 <p>Find pattern matches in reference</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq1</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"./data/AE004437.ffn"</span><span class="p">)</span> 
-<span class="n">mypos</span> <span class="o">&lt;-</span> <span class="n">matchPattern</span><span class="p">(</span><span class="s2">"ATGGTG"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq1</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"./data/AE004437.ffn"</span><span class="p">)</span> 
+<span class="n">mypos</span> <span class="o">&lt;-</span> <span class="n">matchPattern</span><span class="p">(</span><span class="s2">"ATGGTG"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> </code></pre></figure>
 
 <p>Count only the corresponding matches</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">countPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">countPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 3</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 3</code></pre></figure>
 
 <p>Count matches in many sequences</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vcountPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">,</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vcountPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">,</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] 3 0 5 4 1 2 2 1 4 3 0 0 1 2 0 1 4 0 0 1</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] 3 0 5 4 1 2 2 1 4 3 0 0 1 2 0 1 4 0 0 1</code></pre></figure>
 
 <p>Results shown in DNAStringSet object</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tmp</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="s2">"ATGGTG"</span><span class="p">),</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">mypos</span><span class="p">))</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tmp</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="s2">"ATGGTG"</span><span class="p">),</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">mypos</span><span class="p">))</span> </code></pre></figure>
 
 <p>Return a consensus  matrix for query and hits</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">consensusMatrix</span><span class="p">(</span><span class="n">tmp</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">consensusMatrix</span><span class="p">(</span><span class="n">tmp</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   [,1] [,2] [,3] [,4] [,5] [,6]
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   [,1] [,2] [,3] [,4] [,5] [,6]
 ## A    3    0    0    0    0    0
 ## C    1    1    0    0    0    0
 ## G    0    0    4    4    1    4
-## T    0    3    0    0    3    0</code></pre></div>
+## T    0    3    0    0    3    0</code></pre></figure>
 
 <p>Find all pattern matches in reference</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myvpos</span> <span class="o">&lt;-</span> <span class="n">vmatchPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">,</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> 
-<span class="n">myvpos</span> <span class="err">#</span> <span class="n">The</span> <span class="n">results</span> <span class="n">are</span> <span class="n">stored</span> <span class="n">as</span> <span class="n">MIndex</span> <span class="n">object.</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myvpos</span> <span class="o">&lt;-</span> <span class="n">vmatchPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">,</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> 
+<span class="n">myvpos</span> <span class="err">#</span> <span class="n">The</span> <span class="n">results</span> <span class="n">are</span> <span class="n">stored</span> <span class="n">as</span> <span class="n">MIndex</span> <span class="n">object.</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## MIndex object of length 2058
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## MIndex object of length 2058
 ## $`gi|12057215|gb|AE004437.1|:248-1453 Halobacterium sp. NRC-1, complete genome`
 ## IRanges of length 3
 ##     start end width
@@ -1712,83 +1699,83 @@ $('#toc').on('click', 'a', function() {
 ## [5]   601 606     6
 ## 
 ## ...
-## &lt;2055 more elements&gt;</code></pre></div>
+## &lt;2055 more elements&gt;</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="m">1</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="m">1</span><span class="p">]]))</span> <span class="err">#</span> <span class="n">Retrieves</span> <span class="n">the</span> <span class="n">result</span> <span class="k">for</span> <span class="n">single</span> <span class="n">entry</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="m">1</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="m">1</span><span class="p">]]))</span> <span class="err">#</span> <span class="n">Retrieves</span> <span class="n">the</span> <span class="n">result</span> <span class="k">for</span> <span class="n">single</span> <span class="n">entry</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Views on a 1206-letter DNAString subject
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   Views on a 1206-letter DNAString subject
 ## subject: ATGACTCGGCGGTCTCGTGTCGGTGCCGGCCTCGCAGCCATTGT...TTGCGATCGTCGTCGTCGTTGTTCGACGCTGGCGGAACCCATGA
 ## views:
 ##     start end width
 ## [1]     1   6     6 [ATGACT]
 ## [2]   383 388     6 [ATGGCA]
-## [3]   928 933     6 [ATGACT]</code></pre></div>
+## [3]   928 933     6 [ATGACT]</code></pre></figure>
 
 <p>Return all matches</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sapply</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">myseq1</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
-       <span class="n">as.character</span><span class="p">(</span><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="n">x</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]))))[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sapply</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">myseq1</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+       <span class="n">as.character</span><span class="p">(</span><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="n">x</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]))))[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span> </code></pre></figure>
 
 <h3 id="pattern-matching-with-regular-expression-support">Pattern matching with regular expression support</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"ATGCAGACATAGTG"</span><span class="p">,</span> <span class="s2">"ATGAACATAGATCC"</span><span class="p">,</span> <span class="s2">"GTACAGATCAC"</span><span class="p">))</span>
-<span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">,</span> <span class="n">perl</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)]</span> <span class="err">#</span> <span class="n">String</span> <span class="n">searching</span> <span class="n">with</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">support</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"ATGCAGACATAGTG"</span><span class="p">,</span> <span class="s2">"ATGAACATAGATCC"</span><span class="p">,</span> <span class="s2">"GTACAGATCAC"</span><span class="p">))</span>
+<span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">,</span> <span class="n">perl</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)]</span> <span class="err">#</span> <span class="n">String</span> <span class="n">searching</span> <span class="n">with</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">support</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    14 ATGCAGACATAGTG
-## [2]    14 ATGAACATAGATCC</code></pre></div>
+## [2]    14 ATGAACATAGATCC</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos1</span> <span class="o">&lt;-</span> <span class="n">regexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> <span class="c1"># Searches 'myseq' for first match of pattern "AT"
-</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">pos1</span><span class="p">);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">position</span> <span class="n">information</span> <span class="n">of</span> <span class="n">matches</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos1</span> <span class="o">&lt;-</span> <span class="n">regexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> <span class="c1"># Searches 'myseq' for first match of pattern "AT"
+</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">pos1</span><span class="p">);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">position</span> <span class="n">information</span> <span class="n">of</span> <span class="n">matches</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 1 7</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 1 7</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2 2</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2 2</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos2</span> <span class="o">&lt;-</span> <span class="n">gregexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> <span class="c1"># Searches 'myseq' for all matches of pattern "AT"
-</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Match</span> <span class="n">positions</span> <span class="k">in</span> <span class="n">first</span> <span class="n">sequence</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos2</span> <span class="o">&lt;-</span> <span class="n">gregexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> <span class="c1"># Searches 'myseq' for all matches of pattern "AT"
+</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Match</span> <span class="n">positions</span> <span class="k">in</span> <span class="n">first</span> <span class="n">sequence</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 9</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 9</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">gsub</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="s2">"NNN"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">))</span> <span class="err">#</span> <span class="n">String</span> <span class="n">substitution</span> <span class="n">with</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">support</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">gsub</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="s2">"NNN"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">))</span> <span class="err">#</span> <span class="n">String</span> <span class="n">substitution</span> <span class="n">with</span> <span class="n">regular</span> <span class="n">expression</span> <span class="n">support</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 3
 ##     width seq
 ## [1]    14 NNNCAGACATAGTG
 ## [2]    14 NNNAACATAGATCC
-## [3]    11 GTACAGATCAC</code></pre></div>
+## [3]    11 GTACAGATCAC</code></pre></figure>
 
 <h2 id="pwm-viewing-and-searching">PWM Viewing and Searching</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">seqLogo</span><span class="p">)</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">seqLogo</span><span class="p">)</span> 
 <span class="n">pwm</span> <span class="o">&lt;-</span> <span class="n">PWM</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCT"</span><span class="p">,</span> <span class="s2">"GGT"</span><span class="p">,</span> <span class="s2">"GCA"</span><span class="p">)))</span> 
-<span class="n">pwm</span></code></pre></div>
+<span class="n">pwm</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##        [,1]      [,2]      [,3]
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##        [,1]      [,2]      [,3]
 ## A 0.0000000 0.0000000 0.2312611
 ## C 0.0000000 0.3157205 0.0000000
 ## G 0.3685591 0.2312611 0.0000000
-## T 0.0000000 0.0000000 0.3157205</code></pre></div>
+## T 0.0000000 0.0000000 0.3157205</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">seqLogo</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">pwm</span><span class="p">)</span> <span class="o">*</span> <span class="m">1</span><span class="o">/</span><span class="n">colSums</span><span class="p">(</span><span class="n">pwm</span><span class="p">)))</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">seqLogo</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">pwm</span><span class="p">)</span> <span class="o">*</span> <span class="m">1</span><span class="o">/</span><span class="n">colSums</span><span class="p">(</span><span class="n">pwm</span><span class="p">)))</span></code></pre></figure>
 
 <p><img src="Rsequences_files/pwm_logo-1.png" alt="" /></p>
 
-<p>Search sequence for PWM matches with score better than <code>min.score</code></p>
+<p>Search sequence for PWM matches with score better than <code class="highlighter-rouge">min.score</code></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">chr</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="s2">"AAAGCTAAAGGTAAAGCAAAA"</span><span class="p">)</span> 
-<span class="n">matchPWM</span><span class="p">(</span><span class="n">pwm</span><span class="p">,</span> <span class="n">chr</span><span class="p">,</span> <span class="n">min.score</span><span class="o">=</span><span class="m">0.9</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">chr</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="s2">"AAAGCTAAAGGTAAAGCAAAA"</span><span class="p">)</span> 
+<span class="n">matchPWM</span><span class="p">(</span><span class="n">pwm</span><span class="p">,</span> <span class="n">chr</span><span class="p">,</span> <span class="n">min.score</span><span class="o">=</span><span class="m">0.9</span><span class="p">)</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Views on a 21-letter DNAString subject
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   Views on a 21-letter DNAString subject
 ## subject: AAAGCTAAAGGTAAAGCAAAA
 ## views:
 ##     start end width
 ## [1]     4   6     3 [GCT]
 ## [2]    10  12     3 [GGT]
-## [3]    16  18     3 [GCA]</code></pre></div>
+## [3]    16  18     3 [GCA]</code></pre></figure>
 
 
 

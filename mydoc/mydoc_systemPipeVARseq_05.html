@@ -77,16 +77,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -167,8 +157,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +249,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1397,6 +1375,15 @@ window.location.href = uri;
 
                     
                     
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_07.html">Project Data</a></li>
+                    
+
+                    
+
+                    
+                    
                 </ul>
                 
                 
@@ -1454,27 +1441,27 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<p>The following performs variant calling with <code>GATK</code>, <code>BCFtools</code> and <code>VariantTools</code> 
+<p>The following performs variant calling with <code class="highlighter-rouge">GATK</code>, <code class="highlighter-rouge">BCFtools</code> and <code class="highlighter-rouge">VariantTools</code> 
 in parallel mode on a compute cluster (McKenna et al., 2010; Li , 2011). If a cluster is not
-available, the <code>runCommandline</code> function can be used to run the variant calling with <code>GATK</code> 
-and <code>BCFtools</code> for each sample sequentially on a single machine, or <code>callVariants</code> in case 
-of <code>VariantTools</code>. Typically, the user would choose here only one variant caller rather
+available, the <code class="highlighter-rouge">runCommandline</code> function can be used to run the variant calling with <code class="highlighter-rouge">GATK</code> 
+and <code class="highlighter-rouge">BCFtools</code> for each sample sequentially on a single machine, or <code class="highlighter-rouge">callVariants</code> in case 
+of <code class="highlighter-rouge">VariantTools</code>. Typically, the user would choose here only one variant caller rather
 than running several ones.</p>
 
-<h2 id="variant-calling-with-gatk">Variant calling with <code>GATK</code></h2>
+<h2 id="variant-calling-with-gatk">Variant calling with <code class="highlighter-rouge">GATK</code></h2>
 
-<p>The following creates in the inital step a new <code>targets</code> file
-(<code>targets_bam.txt</code>). The first column of this file gives the paths to
+<p>The following creates in the inital step a new <code class="highlighter-rouge">targets</code> file
+(<code class="highlighter-rouge">targets_bam.txt</code>). The first column of this file gives the paths to
 the BAM files created in the alignment step. The new targets file and the
-parameter file <code>gatk.param</code> are used to create a new <code>SYSargs</code>
+parameter file <code class="highlighter-rouge">gatk.param</code> are used to create a new <code class="highlighter-rouge">SYSargs</code>
 instance for running GATK. Since GATK involves many processing steps, it is
-executed by a bash script <code>gatk_run.sh</code> where the user can specify the
+executed by a bash script <code class="highlighter-rouge">gatk_run.sh</code> where the user can specify the
 detailed run parameters. All three files are expected to be located in the
-current working directory. Samples files for <code>gatk.param</code> and
-<code>gatk_run.sh</code> are available in the <code>param</code> subdirectory
-provided by <code>systemPipeRdata</code>.</p>
+current working directory. Samples files for <code class="highlighter-rouge">gatk.param</code> and
+<code class="highlighter-rouge">gatk_run.sh</code> are available in the <code class="highlighter-rouge">param</code> subdirectory
+provided by <code class="highlighter-rouge">systemPipeRdata</code>.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">)</span>
 <span class="n">system</span><span class="p">(</span><span class="s2">"java -jar CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict"</span><span class="p">)</span>
 <span class="c1"># system("java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
 </span><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"gatk.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">)</span>
@@ -1482,24 +1469,24 @@ provided by <code>systemPipeRdata</code>.</p>
 <span class="n">reg</span> <span class="o">&lt;-</span> <span class="n">clusterRun</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">conffile</span><span class="o">=</span><span class="s2">".BatchJobs.R"</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="s2">"torque.tmpl"</span><span class="p">,</span> <span class="n">Njobs</span><span class="o">=</span><span class="m">18</span><span class="p">,</span> <span class="n">runid</span><span class="o">=</span><span class="s2">"01"</span><span class="p">,</span>
                   <span class="n">resourceList</span><span class="o">=</span><span class="n">resources</span><span class="p">)</span>
 <span class="n">waitForJobs</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span>
-<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_gatk.txt"</span><span class="p">)</span></code></pre></div>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_gatk.txt"</span><span class="p">)</span></code></pre></figure>
 
-<h2 id="variant-calling-with-bcftools">Variant calling with <code>BCFtools</code></h2>
+<h2 id="variant-calling-with-bcftools">Variant calling with <code class="highlighter-rouge">BCFtools</code></h2>
 
-<p>The following runs the variant calling with <code>BCFtools</code>. This step requires
-in the current working directory the parameter file <code>sambcf.param</code> and the bash script 
-<code>sambcf_run.sh</code>.</p>
+<p>The following runs the variant calling with <code class="highlighter-rouge">BCFtools</code>. This step requires
+in the current working directory the parameter file <code class="highlighter-rouge">sambcf.param</code> and the bash script 
+<code class="highlighter-rouge">sambcf_run.sh</code>.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"sambcf.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"sambcf.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">)</span>
 <span class="n">resources</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">walltime</span><span class="o">=</span><span class="s2">"20:00:00"</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="n">paste0</span><span class="p">(</span><span class="s2">"1:ppn="</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">memory</span><span class="o">=</span><span class="s2">"10gb"</span><span class="p">)</span>
 <span class="n">reg</span> <span class="o">&lt;-</span> <span class="n">clusterRun</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">conffile</span><span class="o">=</span><span class="s2">".BatchJobs.R"</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="s2">"torque.tmpl"</span><span class="p">,</span> <span class="n">Njobs</span><span class="o">=</span><span class="m">18</span><span class="p">,</span> <span class="n">runid</span><span class="o">=</span><span class="s2">"01"</span><span class="p">,</span>
                   <span class="n">resourceList</span><span class="o">=</span><span class="n">resources</span><span class="p">)</span>
 <span class="n">waitForJobs</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span>
-<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_sambcf.txt"</span><span class="p">)</span></code></pre></div>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_sambcf.txt"</span><span class="p">)</span></code></pre></figure>
 
-<h2 id="variant-calling-with-varianttools">Variant calling with <code>VariantTools</code></h2>
+<h2 id="variant-calling-with-varianttools">Variant calling with <code class="highlighter-rouge">VariantTools</code></h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">gmapR</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">BiocParallel</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">BatchJobs</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">gmapR</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">BiocParallel</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">BatchJobs</span><span class="p">)</span>
 <span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"vartools.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_gsnap_bam.txt"</span><span class="p">)</span>
 <span class="n">f</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">library</span><span class="p">(</span><span class="n">VariantTools</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">gmapR</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span>
@@ -1515,7 +1502,7 @@ in the current working directory the parameter file <code>sambcf.param</code> an
 <span class="n">param</span> <span class="o">&lt;-</span> <span class="n">BatchJobsParam</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">resources</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">walltime</span><span class="o">=</span><span class="s2">"20:00:00"</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="s2">"1:ppn=1"</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="s2">"6gb"</span><span class="p">),</span> <span class="n">cluster.functions</span><span class="o">=</span><span class="n">funs</span><span class="p">)</span>
 <span class="n">register</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">&lt;-</span> <span class="n">bplapply</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">args</span><span class="p">),</span> <span class="n">f</span><span class="p">)</span>
-<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_vartools.txt"</span><span class="p">)</span></code></pre></div>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_vartools.txt"</span><span class="p">)</span></code></pre></figure>
 
 
 

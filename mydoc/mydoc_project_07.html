@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>RNA-Seq1 - RNA-Seq Aligners  | GEN242</title>
+<title>Project Data  | GEN242</title>
 <link rel="stylesheet" type="text/css" href="../css/syntax.css">
 <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
@@ -161,7 +161,7 @@
 <script>
 function SendLinkByMail(href) {
 var subject= "GEN242 feedback";
-var body = "I have some feedback about the RNA-Seq1 - RNA-Seq Aligners page: ";
+var body = "I have some feedback about the Project Data page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:?subject=";
@@ -188,7 +188,7 @@ window.location.href = uri;
                             searchInput: document.getElementById('search-input'),
                             resultsContainer: document.getElementById('results-container'),
                             dataSource: '../search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="RNA-Seq1 - RNA-Seq Aligners">{title}</a></li>',
+                            searchResultTemplate: '<li><a href="{url}" title="Project Data">{title}</a></li>',
                         noResultsText: 'No results found.',
                                 limit: 10,
                                 fuzzy: true,
@@ -1341,7 +1341,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li class="active"><a href="../mydoc/mydoc_project_03.html">RNA-Seq1 - RNA-Seq Aligners</a></li>
+                    <li><a href="../mydoc/mydoc_project_03.html">RNA-Seq1 - RNA-Seq Aligners</a></li>
                     
 
                     
@@ -1377,7 +1377,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_project_07.html">Project Data</a></li>
+                    <li class="active"><a href="../mydoc/mydoc_project_07.html">Project Data</a></li>
                     
 
                     
@@ -1406,7 +1406,7 @@ window.location.href = uri;
             <div class="col-md-9">
                 
                 <div class="post-header">
-   <h1 class="post-title-main">RNA-Seq1 - RNA-Seq Aligners</h1>
+   <h1 class="post-title-main">Project Data</h1>
 </div>
 
 <div class="post-content">
@@ -1441,44 +1441,76 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<h2 id="rna-seq-workflow">RNA-Seq Workflow</h2>
+<h2 id="download-of-project-data">Download of project data</h2>
 
-<ol>
-  <li>Read quality assessment, filtering and trimming</li>
-  <li>Map reads against reference genome</li>
-  <li>Perform read counting for required ranges (<em>e.g.</em> exonic gene ranges)</li>
-  <li>Normalization of read counts</li>
-  <li>Identification of differentially expressed genes (DEGs)</li>
-  <li>Clustering of gene expression profiles</li>
-  <li>Gene set enrichment analysis</li>
-</ol>
+<h3 id="fastq-files-from-sra">FASTQ files from SRA</h3>
 
-<h2 id="challenge-project-comparison-of-rna-seq-aligners">Challenge Project: Comparison of RNA-Seq Aligners</h2>
+<h4 id="choose-fastq-data-for-your-project">Choose FASTQ data for your project</h4>
 
 <ul>
-  <li>Run workflow from start to finish (steps 1-7) on RNA-Seq data set from Howard et al. (2013)</li>
-  <li>Challenge project tasks
-    <ul>
-      <li>Run at least 2-3 RNA-Seq alignment tools such as Bowtie2/Tophat2, HISAT or Rsubread and evaluate the impact of the aligner on
-        <ul>
-          <li>Read counts</li>
-          <li>Differentially expressed genes (DEGs)</li>
-          <li>Generate plots to compare the results efficiently</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <li>The FASTQ files for the ChIP-Seq project are from SRA study <a href="http://www.ncbi.nlm.nih.gov/sra?term=SRP002174">SRP002174</a> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/20360106">Kaufman et al. 2010</a>)</li>
 </ul>
 
-<h2 id="references">References</h2>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sraidv</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"SRR0388"</span><span class="p">,</span> <span class="m">45</span><span class="o">:</span><span class="m">51</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> </code></pre></figure>
 
 <ul>
-  <li>Howard, B.E. et al., 2013. High-throughput RNA sequencing of pseudomonas-infected Arabidopsis reveals hidden transcriptome complexity and novel splice variants. PloS one, 8(10), p.e74183. <a href="http://www.ncbi.nlm.nih.gov/pubmed/24098335">PubMed</a></li>
-  <li>Kim D, Pertea G, Trapnell C, Pimentel H, Kelley R, Salzberg SL (2013) TopHat2: accurate alignment of transcriptomes in the presence of insertions, deletions and gene fusions. Genome Biol. doi: 10.1186/gb-2013-14-4-r36 <a href="http://www.ncbi.nlm.nih.gov/pubmed/23618408">PubMed</a></li>
-  <li>Kim D, Langmead B, Salzberg SL (2015) HISAT: a fast spliced aligner with low memory requirements. Nat Methods 12: 357–360 <a href="http://www.ncbi.nlm.nih.gov/pubmed/25751142">PubMed</a></li>
-  <li>Liao Y, Smyth GK, Shi W (2013) The Subread aligner: fast, accurate and scalable read mapping by seed-and-vote. Nucleic Acids Res 41: e108 <a href="http://www.ncbi.nlm.nih.gov/pubmed/23558742">PubMed</a></li>
-  <li>Bray NL, Pimentel H, Melsted P, Pachter L (2016) Near-optimal probabilistic RNA-seq quantification. Nat Biotechnol. doi: 10.1038/nbt.3519 <a href="http://www.ncbi.nlm.nih.gov/pubmed/27043002">PubMed</a></li>
+  <li>The FASTQ files for the RNA-Seq project are from SRA study <a href="http://www.ncbi.nlm.nih.gov/sra?term=SRP010938">SRP010938</a> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/24098335">Howard et al. 2013</a>)</li>
 </ul>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sraidv</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"SRR4460"</span><span class="p">,</span> <span class="m">27</span><span class="o">:</span><span class="m">44</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></figure>
+
+<ul>
+  <li>The FASTQ files for the VAR-Seq project are from SRA study <a href="http://www.ncbi.nlm.nih.gov/sra?term=SRP008819">SRP008819</a> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/22106370">Lu et al 2012</a>)</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sraidv</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"SRR1051"</span><span class="p">,</span> <span class="m">389</span><span class="o">:</span><span class="m">415</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></figure>
+
+<h4 id="load-libraries-and-modules">Load libraries and modules</h4>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span>
+<span class="n">moduleload</span><span class="p">(</span><span class="s2">"sratoolkit/2.5.0"</span><span class="p">)</span>
+<span class="n">system</span><span class="p">(</span><span class="s1">'fastq-dump --help'</span><span class="p">)</span> <span class="err">#</span> <span class="n">prints</span> <span class="n">help</span> <span class="n">to</span> <span class="n">screen</span></code></pre></figure>
+
+<h4 id="define-download-function">Define download function</h4>
+<p>The following function downloads and extracts the FASTQ files for each project from SRA.
+Internally, it uses the <code class="highlighter-rouge">fastq-dump</code> utility from NCBI.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">getSRAfastq</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">sraid</span><span class="p">,</span> <span class="n">targetdir</span><span class="p">,</span> <span class="n">maxreads</span><span class="o">=</span><span class="s2">"1000000000"</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">system</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"fastq-dump --split-files --gzip --maxSpotId"</span><span class="p">,</span> <span class="n">maxreads</span><span class="p">,</span> <span class="n">sraid</span><span class="p">,</span> <span class="s2">"--outdir"</span><span class="p">,</span> <span class="n">targetdir</span><span class="p">))</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="run-download">Run download</h4>
+
+<p>Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to 
+the path specified under <code class="highlighter-rouge">targetdir</code>.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">sraidv</span><span class="p">)</span> <span class="n">getSRAfastq</span><span class="p">(</span><span class="n">sraid</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">targetdir</span><span class="o">=</span><span class="s2">"data/"</span><span class="p">)</span></code></pre></figure>
+
+<p>Alternatively, the download can be performed in parallelized mode with <code class="highlighter-rouge">BiocParallel</code>. Please run this version only one of the compute nodes.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="err">#</span> <span class="n">bplapply</span><span class="p">(</span><span class="n">sraidv</span><span class="p">,</span> <span class="n">getSRAfastq</span><span class="p">,</span> <span class="n">targetdir</span><span class="o">=</span><span class="s2">"data/"</span><span class="p">,</span> <span class="n">BPPARAM</span> <span class="o">=</span> <span class="n">MulticoreParam</span><span class="p">(</span><span class="n">workers</span><span class="o">=</span><span class="m">4</span><span class="p">))</span></code></pre></figure>
+
+<h3 id="download-reference-genome-and-annotation">Download reference genome and annotation</h3>
+
+<p>The following <code class="highlighter-rouge">downloadRefs</code> function downloads the <em>Arabidopsis thaliana</em> genome sequence and GFF file from the <a href="ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/">TAIR FTP site</a>. 
+It also assigns consistent chromosome identifiers to make them the same among both the genome sequence and the GFF file. This is
+important for many analysis routines such as the read counting in the RNA-Seq workflow.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">downloadRefs</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">rerun</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rerun</span><span class="o">==</span><span class="n">TRUE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
+        <span class="n">system</span><span class="p">(</span><span class="s2">"wget ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas -P ./data/"</span><span class="p">)</span>
+        <span class="n">dna</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"./data/TAIR10_chr_all.fas"</span><span class="p">)</span>
+        <span class="n">names</span><span class="p">(</span><span class="n">dna</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="s2">"Chr"</span><span class="p">,</span> <span class="m">7</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="s2">"M"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> <span class="c1"># Fixes chromomse ids
+</span>        <span class="n">writeXStringSet</span><span class="p">(</span><span class="n">dna</span><span class="p">,</span> <span class="s2">"./data/TAIR10_chr_all.fas"</span><span class="p">)</span>
+        <span class="n">system</span><span class="p">(</span><span class="s2">"wget ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes.gff -P ./data/"</span><span class="p">)</span>
+        <span class="n">system</span><span class="p">(</span><span class="s2">"wget ftp://ftp.arabidopsis.org/home/tair/Proteins/TAIR10_functional_descriptions -P ./data/"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>After sourcing the above function, execute it as follows:</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">downloadRefs</span><span class="p">(</span><span class="n">rerun</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> <span class="err">#</span> <span class="n">To</span> <span class="n">execute</span> <span class="n">the</span> <span class="k">function</span> <span class="n">set</span> <span class="s1">'rerun=TRUE'</span></code></pre></figure>
 
 
 
