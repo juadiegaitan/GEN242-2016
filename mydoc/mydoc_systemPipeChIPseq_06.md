@@ -1,7 +1,7 @@
 ---
 title: Peak calling with MACS2
 keywords: 
-last_updated: Tue May  3 13:38:05 2016
+last_updated: Tue May  3 13:51:27 2016
 ---
 
 ## Merge BAM files of replicates prior to peak calling

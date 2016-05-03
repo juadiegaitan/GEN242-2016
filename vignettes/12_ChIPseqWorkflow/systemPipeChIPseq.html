@@ -75,8 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
 </ul></li>
 <li><a href="#utilities-for-coverage-data"><span class="toc-section-number">5</span> Utilities for coverage data</a><ul>
 <li><a href="#rle-object-stores-coverage-information"><span class="toc-section-number">5.1</span> Rle object stores coverage information</a></li>
-<li><a href="#naive-peak-calling"><span class="toc-section-number">5.2</span> Naive peak calling</a></li>
-<li><a href="#plot-coverage-for-defined-region"><span class="toc-section-number">5.3</span> Plot coverage for defined region</a></li>
+<li><a href="#resizing-aligned-reads"><span class="toc-section-number">5.2</span> Resizing aligned reads</a></li>
+<li><a href="#naive-peak-calling"><span class="toc-section-number">5.3</span> Naive peak calling</a></li>
+<li><a href="#plot-coverage-for-defined-region"><span class="toc-section-number">5.4</span> Plot coverage for defined region</a></li>
 </ul></li>
 <li><a href="#peak-calling-with-macs2"><span class="toc-section-number">6</span> Peak calling with MACS2</a><ul>
 <li><a href="#merge-bam-files-of-replicates-prior-to-peak-calling"><span class="toc-section-number">6.1</span> Merge BAM files of replicates prior to peak calling</a></li>
@@ -245,13 +246,17 @@ aligns &lt;- readGAlignmentsFromBam(outpaths()[1])
 cov &lt;- coverage(aligns)
 cov</code></pre>
 </div>
+<div id="resizing-aligned-reads" class="section level2">
+<h2><span class="header-section-number">5.2</span> Resizing aligned reads</h2>
+<pre class="r"><code>trim(resize(as(aligns, &quot;GRanges&quot;), width = 200))</code></pre>
+</div>
 <div id="naive-peak-calling" class="section level2">
-<h2><span class="header-section-number">5.2</span> Naive peak calling</h2>
+<h2><span class="header-section-number">5.3</span> Naive peak calling</h2>
 <pre class="r"><code>islands &lt;- slice(cov, lower = 15)
 islands[[1]]</code></pre>
 </div>
 <div id="plot-coverage-for-defined-region" class="section level2">
-<h2><span class="header-section-number">5.3</span> Plot coverage for defined region</h2>
+<h2><span class="header-section-number">5.4</span> Plot coverage for defined region</h2>
 <pre class="r"><code>library(ggbio)
 myloc &lt;- c(&quot;Chr1&quot;, 1, 100000)
 ga &lt;- readGAlignments(outpaths(args)[1], use.names=TRUE, param=ScanBamParam(which=GRanges(myloc[1], IRanges(as.numeric(myloc[2]), as.numeric(myloc[3])))))

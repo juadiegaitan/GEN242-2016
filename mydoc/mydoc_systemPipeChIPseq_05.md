@@ -1,7 +1,7 @@
 ---
 title: Utilities for coverage data
 keywords: 
-last_updated: Tue May  3 13:38:05 2016
+last_updated: Tue May  3 13:51:27 2016
 ---
 
 The following introduces several utilities useful for ChIP-Seq data. They are not part of the actual
@@ -14,6 +14,12 @@ library(rtracklayer); library(GenomicRanges); library(Rsamtools); library(Genomi
 aligns <- readGAlignmentsFromBam(outpaths()[1])
 cov <- coverage(aligns)
 cov
+{% endhighlight %}
+
+## Resizing aligned reads
+
+{% highlight r %}
+trim(resize(as(aligns, "GRanges"), width = 200))
 {% endhighlight %}
 
 ## Naive peak calling

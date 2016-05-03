@@ -246,6 +246,12 @@ cov <- coverage(aligns)
 cov
 ```
 
+## Resizing aligned reads
+
+```r
+trim(resize(as(aligns, "GRanges"), width = 200))
+```
+
 ## Naive peak calling
 
 ```r

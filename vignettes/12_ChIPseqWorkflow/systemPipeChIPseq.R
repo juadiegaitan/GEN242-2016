@@ -78,6 +78,9 @@ targets[1:4,-c(5,6)]
 ## cov <- coverage(aligns)
 ## cov
 
+## ----resize_align, eval=FALSE--------------------------------------------
+## trim(resize(as(aligns, "GRanges"), width = 200))
+
 ## ----rle_slice, eval=FALSE-----------------------------------------------
 ## islands <- slice(cov, lower = 15)
 ## islands[[1]]

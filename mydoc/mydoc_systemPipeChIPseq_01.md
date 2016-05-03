@@ -1,7 +1,7 @@
 ---
 title: ChIP-Seq Workflow Template 
 keywords: 
-last_updated: Tue May  3 13:38:05 2016
+last_updated: Tue May  3 13:51:27 2016
 ---
 First/last name (first.last@ucr.edu)
 
