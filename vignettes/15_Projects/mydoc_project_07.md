@@ -1,0 +1,85 @@
+---
+title: Download of Project Data
+last_updated: 29-Apr-16
+---
+
+## Download of project data
+
+### FASTQ files from SRA
+
+#### Choose FASTQ data for your project
+
++ The FASTQ files for the ChIP-Seq project are from SRA study [SRP002174](http://www.ncbi.nlm.nih.gov/sra?term=SRP002174) ([Kaufman et al. 2010](http://www.ncbi.nlm.nih.gov/pubmed/20360106))
+{% highlight r %}
+sraidv <- paste("SRR0388", 45:51, sep="") 
+{% endhighlight %}
+
++ The FASTQ files for the RNA-Seq project are from SRA study [SRP010938](http://www.ncbi.nlm.nih.gov/sra?term=SRP010938) ([Howard et al. 2013](http://www.ncbi.nlm.nih.gov/pubmed/24098335))
+{% highlight r %}
+sraidv <- paste("SRR4460", 27:44, sep="")
+{% endhighlight %}
+
++ The FASTQ files for the VAR-Seq project are from SRA study [SRP008819](http://www.ncbi.nlm.nih.gov/sra?term=SRP008819) ([Lu et al 2012](http://www.ncbi.nlm.nih.gov/pubmed/22106370))
+{% highlight r %}
+sraidv <- paste("SRR1051", 389:415, sep="")
+{% endhighlight %}
+
+#### Load libraries and modules
+
+{% highlight r %}
+library(systemPipeR)
+moduleload("sratoolkit/2.5.0")
+system('fastq-dump --help') # prints help to screen
+{% endhighlight %}
+
+
+#### Define download function
+The following function downloads and extracts the FASTQ files for each project from SRA.
+Internally, it uses the `fastq-dump` utility from NCBI.
+
+{% highlight r %}
+getSRAfastq <- function(sraid, targetdir, maxreads="1000000000") {
+    system(paste("fastq-dump --split-files --gzip --maxSpotId", maxreads, sraid, "--outdir", targetdir))
+}
+{% endhighlight %}
+
+
+#### Run download
+
+Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to 
+the path specified under `targetdir`.
+{% highlight r %}
+for(i in sraidv) getSRAfastq(sraid=i, targetdir="data/")
+{% endhighlight %}
+
+Alternatively, the download can be performed in parallelized mode with `BiocParallel`. Please run this version only one of the compute nodes.
+{% highlight r %}
+# bplapply(sraidv, getSRAfastq, targetdir="data/", BPPARAM = MulticoreParam(workers=4))
+{% endhighlight %}
+
+### Download reference genome and annotation
+
+The following `downloadRefs` function downloads the _Arabidopsis thaliana_ genome sequence and GFF file from the [TAIR FTP site](ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/). 
+It also assigns consistent chromosome identifiers to make them the same among both the genome sequence and the GFF file. This is
+important for many analysis routines such as the read counting in the RNA-Seq workflow.  
+
+{% highlight r %}
+downloadRefs <- function(rerun=FALSE) {
+    if(rerun==TRUE) {
+        library(Biostrings)
+        system("wget ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas -P ./data/")
+        dna <- readDNAStringSet("./data/TAIR10_chr_all.fas")
+        names(dna) <- paste(rep("Chr", 7), c(1:5, "M", "C"), sep="") # Fixes chromomse ids
+        writeXStringSet(dna, "./data/TAIR10_chr_all.fas")
+        system("wget ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes.gff -P ./data/")
+        system("wget ftp://ftp.arabidopsis.org/home/tair/Proteins/TAIR10_functional_descriptions -P ./data/")
+    }
+}
+{% endhighlight %}
+
+After sourcing the above function, execute it as follows:
+{% highlight r %}
+downloadRefs(rerun=FALSE) # To execute the function set 'rerun=TRUE'
+{% endhighlight %}
+
+

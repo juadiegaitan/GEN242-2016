@@ -148,6 +148,11 @@ mydoc_project_06:
   url: "../mydoc_project_06.html"
   link: "<a href='../mydoc_project_06.html'>VAR-Seq2</a>"
 
+mydoc_project_07:
+  title: "Project Data"
+  url: "../mydoc_project_07.html"
+  link: "<a href='../mydoc_project_07.html'>Project Data</a>"
+
 mydoc_Programming_in_R_1:
   title: "Overview"
   url: "../mydoc/mydoc_Programming_in_R_1.html"
@@ -587,4 +592,5 @@ mydoc_systemPipeVARseq_13:
   title: "References"
   url: "../mydoc/mydoc_systemPipeVARseq_13.html"
   link: "<a href='../mydoc/mydoc_systemPipeVARseq_13.html'>References</a>"
+
 
