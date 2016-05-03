@@ -72,6 +72,22 @@ targets[1:4,-c(5,6)]
 ##             urlbase="http://biocluster.ucr.edu/~tgirke/",
 ##             urlfile="./results/IGVurl.txt")
 
+## ----rle_object, eval=FALSE----------------------------------------------
+## library(rtracklayer); library(GenomicRanges); library(Rsamtools); library(GenomicAlignments)
+## aligns <- readGAlignmentsFromBam(outpaths()[1])
+## cov <- coverage(aligns)
+## cov
+
+## ----rle_slice, eval=FALSE-----------------------------------------------
+## islands <- slice(cov, lower = 15)
+## islands[[1]]
+
+## ----plot_coverage, eval=FALSE-------------------------------------------
+## library(ggbio)
+## myloc <- c("Chr1", 1, 100000)
+## ga <- readGAlignments(outpaths(args)[1], use.names=TRUE, param=ScanBamParam(which=GRanges(myloc[1], IRanges(as.numeric(myloc[2]), as.numeric(myloc[3])))))
+## autoplot(ga, aes(color = strand, fill = strand), facets = strand ~ seqnames, stat = "coverage")
+
 ## ----merge_bams, eval=FALSE----------------------------------------------
 ## args <- systemArgs(sysma=NULL, mytargets="targets_bam.txt")
 ## args_merge <- mergeBamByFactor(args, overwrite=TRUE)

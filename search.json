@@ -693,7 +693,7 @@
 "title": "HW4 - Pairwise Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_04.html",
+"url": "../mydoc/mydoc_homework_04.html",
 "summary": ""
 },
 
@@ -704,7 +704,7 @@
 "title": "HW4 - Pairwise Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_04.html",
+"url": "../vignettes/06_Homework/mydoc_homework_04.html",
 "summary": ""
 },
 
@@ -737,7 +737,7 @@
 "title": "Student Paper Presentations",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/14_Paper_Presentations/mydoc_paper_presentations.html",
+"url": "../mydoc/mydoc_paper_presentations.html",
 "summary": ""
 },
 
@@ -748,18 +748,7 @@
 "title": "Student Paper Presentations",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_paper_presentations.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Overview of Course Projects",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_00.html",
+"url": "../vignettes/14_Paper_Presentations/mydoc_paper_presentations.html",
 "summary": ""
 },
 
@@ -771,6 +760,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_project_00.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Overview of Course Projects",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/15_Projects/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -891,7 +891,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_06.html",
+"url": "../mydoc/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -902,7 +902,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_06.html",
+"url": "../vignettes/15_Projects/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -957,7 +957,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_01.html",
+"url": "../mydoc/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -968,7 +968,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_01.html",
+"url": "../vignettes/04_Slides/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1045,7 +1045,7 @@
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_05.html",
+"url": "../mydoc/mydoc_slides_05.html",
 "summary": ""
 },
 
@@ -1056,18 +1056,7 @@
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_05.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Sequence Alignments and Similarity Searching",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_06.html",
+"url": "../vignettes/04_Slides/mydoc_slides_05.html",
 "summary": ""
 },
 
@@ -1079,6 +1068,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_06.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sequence Alignments and Similarity Searching",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_06.html",
 "summary": ""
 },
 
@@ -1111,7 +1111,7 @@
 "title": "Multiple Sequence Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_08.html",
+"url": "../mydoc/mydoc_slides_08.html",
 "summary": ""
 },
 
@@ -1122,18 +1122,7 @@
 "title": "Multiple Sequence Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_08.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Short Read Alignments",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_09.html",
+"url": "../vignettes/04_Slides/mydoc_slides_08.html",
 "summary": ""
 },
 
@@ -1152,10 +1141,10 @@
 
 
 {
-"title": "Sequence Analysis with R and Bioconductor",
+"title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_10.html",
+"url": "../vignettes/04_Slides/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1174,10 +1163,10 @@
 
 
 {
-"title": "Analysis of Gene Expression Data",
+"title": "Sequence Analysis with R and Bioconductor",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_11.html",
+"url": "../vignettes/04_Slides/mydoc_slides_10.html",
 "summary": ""
 },
 
@@ -1196,10 +1185,10 @@
 
 
 {
-"title": "Introduction to NGS Workflows",
+"title": "Analysis of Gene Expression Data",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_12.html",
+"url": "../vignettes/04_Slides/mydoc_slides_11.html",
 "summary": ""
 },
 
@@ -1218,10 +1207,10 @@
 
 
 {
-"title": "ChIP-Seq Overview",
+"title": "Introduction to NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_13.html",
+"url": "../vignettes/04_Slides/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1233,6 +1222,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_13.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "ChIP-Seq Overview",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_13.html",
 "summary": ""
 },
 
@@ -1317,7 +1317,7 @@
 
 
 {
-"title": "Peak calling with MACS2",
+"title": "Utilities for coverage data",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeChIPseq_05.html",
@@ -1328,7 +1328,7 @@
 
 
 {
-"title": "Annotate peaks with genomic context",
+"title": "Peak calling with MACS2",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeChIPseq_06.html",
@@ -1339,7 +1339,7 @@
 
 
 {
-"title": "Count reads overlapping peaks",
+"title": "Annotate peaks with genomic context",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeChIPseq_07.html",
@@ -1350,7 +1350,7 @@
 
 
 {
-"title": "Differential binding analysis",
+"title": "Count reads overlapping peaks",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeChIPseq_08.html",
@@ -1361,7 +1361,7 @@
 
 
 {
-"title": "GO term enrichment analysis",
+"title": "Differential binding analysis",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeChIPseq_09.html",
@@ -1372,7 +1372,7 @@
 
 
 {
-"title": "Motif analysis",
+"title": "GO term enrichment analysis",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeChIPseq_10.html",
@@ -1383,7 +1383,7 @@
 
 
 {
-"title": "Version Information",
+"title": "Motif analysis",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeChIPseq_11.html",
@@ -1394,7 +1394,7 @@
 
 
 {
-"title": "Funding",
+"title": "Version Information",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeChIPseq_12.html",
@@ -1405,10 +1405,21 @@
 
 
 {
-"title": "References",
+"title": "Funding",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeChIPseq_13.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeChIPseq_14.html",
 "summary": ""
 },
 
