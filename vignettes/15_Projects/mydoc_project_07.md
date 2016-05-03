@@ -1,7 +1,29 @@
 ---
-title: Download of Project Data
+title: Data Management for Course Projects
 last_updated: 29-Apr-16
 ---
+
+## Shared big data space on biocluster
+
+All larger data sets of the coures projects will be organized in a shared big data space under
+`/bigdata/gen242/shared`. Each group will use a subdirectory named after their project:
+
++ `/bigdata/gen242/shared/RNA-Seq1`
++ `/bigdata/gen242/shared/RNA-Seq2`
++ `/bigdata/gen242/shared/ChIP-Seq1`
++ `/bigdata/gen242/shared/ChIP-Seq2`
++ `/bigdata/gen242/shared/VAR-Seq1`
++ `/bigdata/gen242/shared/VAR-Seq2`
+
+Within each project subdirectory all input files of a workflow (_e.g._) will be saved to 
+a `data` directory and all output files will be written to a results directory. 
+
+## GitHub repositories for projects
+
+Students will work on the course projects within GitHub repositories, one for each course project.
+These project repositories are private and have been shared by the instructor with all members of each project group.
+To populate a course project with an initial project workflow, please follow the instruction
+given below. 
 
 ## Download of project data
 
@@ -81,7 +103,6 @@ After sourcing the above function, execute it as follows:
 {% highlight r %}
 downloadRefs(rerun=FALSE) # To execute the function set 'rerun=TRUE'
 {% endhighlight %}
-
 ## Generate workflow environment with project data
 
 1. Generate workflow environment for your project on biocluster with `genWorkenvir` from `systemPipeRdata`. 
