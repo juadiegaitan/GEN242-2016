@@ -16,7 +16,7 @@ subdirectory named after their project:
 + `/bigdata/gen242/shared/VAR-Seq1`
 + `/bigdata/gen242/shared/VAR-Seq2`
 
-Within each project subdirectory all input files of a workflow (_e.g._) will be saved to 
+Within each project subdirectory all input files of a workflow (_e.g._ FASTQ) will be saved to 
 a `data` directory and all output files will be written to a `results` directory. 
 
 ## GitHub repositories for projects
