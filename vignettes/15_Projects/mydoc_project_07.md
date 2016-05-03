@@ -84,8 +84,8 @@ downloadRefs(rerun=FALSE) # To execute the function set 'rerun=TRUE'
 
 ## Generate workflow environment with project data
 
-1. Generate workflow environment for your project with `genWorkenvir` from `systemPipeRdata`. 
-2. Replace the `data` and `results` directories by symbolic links pointing to the `data` and `results` directories of your course project. For instance, the project RNA-Seq1 should point to `/bigdata/gen242/shared/RNA-Seq1/data` and `/bigdata/gen242/shared/RNA-Seq1/results`.
+1. Generate workflow environment for your project on biocluster with `genWorkenvir` from `systemPipeRdata`. 
+2. Replace the `data` and `results` directories by symbolic links pointing to the `data` and `results` directories of your course project. For instance, the project RNA-Seq1 should point on biocluster to `/bigdata/gen242/shared/RNA-Seq1/data` and `/bigdata/gen242/shared/RNA-Seq1/results`.
 3. Add the workflow directory to the GitHub repository of your project. This needs to be done only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned with `git clone`.
 4. Download the FASTQ files of your project with `getSRAfastq` to project's `data` directory. 
 5. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`).

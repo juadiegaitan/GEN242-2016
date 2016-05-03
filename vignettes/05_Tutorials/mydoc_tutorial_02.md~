@@ -198,6 +198,12 @@ Syntax for changing user & group ownership
 chown <user>:<group> <file or dir> 
 {% endhighlight %}
 
+## Symbolic Links
+Symbolic links are short nicknames to files and directories that save typing of their full paths. 
+{% highlight sh %}
+ln -s original_filename new_nickname
+{% endhighlight %}
+
 
 ## Software and module system
 
