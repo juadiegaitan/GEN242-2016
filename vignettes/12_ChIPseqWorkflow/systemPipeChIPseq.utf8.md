@@ -1,7 +1,7 @@
 ---
 title: ChIP-Seq Workflow Template 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 01 May, 2016" 
+date: "Last update: 03 May, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -168,7 +168,7 @@ written to a PDF file named `fastqReport.pdf`.
 
 
 ```r
-args <- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
+args <- systemArgs(sysma="param/tophat.param", mytargets="targets_chip.txt")
 fqlist <- seeFastq(fastq=infile1(args), batchsize=100000, klength=8)
 pdf("./results/fastqReport.pdf", height=18, width=4*length(fqlist))
 seeFastqPlot(fqlist)

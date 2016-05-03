@@ -45,7 +45,7 @@ targets[1:4,-c(5,6)]
 ## writeTargetsout(x=args, file="targets_chip_trim.txt", overwrite=TRUE)
 
 ## ----fastq_report, eval=FALSE--------------------------------------------
-## args <- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
+## args <- systemArgs(sysma="param/tophat.param", mytargets="targets_chip.txt")
 ## fqlist <- seeFastq(fastq=infile1(args), batchsize=100000, klength=8)
 ## pdf("./results/fastqReport.pdf", height=18, width=4*length(fqlist))
 ## seeFastqPlot(fqlist)

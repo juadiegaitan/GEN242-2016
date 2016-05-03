@@ -468,71 +468,6 @@ mydoc_systemPipeRNAseq_11:
   url: "../mydoc/mydoc_systemPipeRNAseq_11.html"
   link: "<a href='../mydoc/mydoc_systemPipeRNAseq_11.html'>References</a>"
 
-mydoc_systemPipeChIPseq_01:
-  title: "Introduction"
-  url: "../mydoc/mydoc_systemPipeChIPseq_01.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_01.html'>Introduction</a>"
-
-mydoc_systemPipeChIPseq_02:
-  title: "Load workflow environment"
-  url: "../mydoc/mydoc_systemPipeChIPseq_02.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_02.html'>Load workflow environment</a>"
-
-mydoc_systemPipeChIPseq_03:
-  title: "Read preprocessing"
-  url: "../mydoc/mydoc_systemPipeChIPseq_03.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_03.html'>Read preprocessing</a>"
-
-mydoc_systemPipeChIPseq_04:
-  title: "Alignments"
-  url: "../mydoc/mydoc_systemPipeChIPseq_04.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_04.html'>Alignments</a>"
-
-mydoc_systemPipeChIPseq_05:
-  title: "Peak calling with MACS2"
-  url: "../mydoc/mydoc_systemPipeChIPseq_05.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_05.html'>Peak calling with MACS2</a>"
-
-mydoc_systemPipeChIPseq_06:
-  title: "Annotate peaks with genomic context"
-  url: "../mydoc/mydoc_systemPipeChIPseq_06.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_06.html'>Annotate peaks with genomic context</a>"
-
-mydoc_systemPipeChIPseq_07:
-  title: "Count reads overlapping peaks"
-  url: "../mydoc/mydoc_systemPipeChIPseq_07.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_07.html'>Count reads overlapping peaks</a>"
-
-mydoc_systemPipeChIPseq_08:
-  title: "Differential binding analysis"
-  url: "../mydoc/mydoc_systemPipeChIPseq_08.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_08.html'>Differential binding analysis</a>"
-
-mydoc_systemPipeChIPseq_09:
-  title: "GO term enrichment analysis"
-  url: "../mydoc/mydoc_systemPipeChIPseq_09.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_09.html'>GO term enrichment analysis</a>"
-
-mydoc_systemPipeChIPseq_10:
-  title: "Motif analysis"
-  url: "../mydoc/mydoc_systemPipeChIPseq_10.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_10.html'>Motif analysis</a>"
-
-mydoc_systemPipeChIPseq_11:
-  title: "Version Information"
-  url: "../mydoc/mydoc_systemPipeChIPseq_11.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_11.html'>Version Information</a>"
-
-mydoc_systemPipeChIPseq_12:
-  title: "Funding"
-  url: "../mydoc/mydoc_systemPipeChIPseq_12.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_12.html'>Funding</a>"
-
-mydoc_systemPipeChIPseq_13:
-  title: "References"
-  url: "../mydoc/mydoc_systemPipeChIPseq_13.html"
-  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_13.html'>References</a>"
-
 mydoc_systemPipeVARseq_01:
   title: "Introduction"
   url: "../mydoc/mydoc_systemPipeVARseq_01.html"
@@ -598,4 +533,69 @@ mydoc_systemPipeVARseq_13:
   url: "../mydoc/mydoc_systemPipeVARseq_13.html"
   link: "<a href='../mydoc/mydoc_systemPipeVARseq_13.html'>References</a>"
 
+
+mydoc_systemPipeChIPseq_01:
+  title: "Introduction"
+  url: "../mydoc/mydoc_systemPipeChIPseq_01.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_01.html'>Introduction</a>"
+
+mydoc_systemPipeChIPseq_02:
+  title: "Load workflow environment"
+  url: "../mydoc/mydoc_systemPipeChIPseq_02.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_02.html'>Load workflow environment</a>"
+
+mydoc_systemPipeChIPseq_03:
+  title: "Read preprocessing"
+  url: "../mydoc/mydoc_systemPipeChIPseq_03.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_03.html'>Read preprocessing</a>"
+
+mydoc_systemPipeChIPseq_04:
+  title: "Alignments"
+  url: "../mydoc/mydoc_systemPipeChIPseq_04.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_04.html'>Alignments</a>"
+
+mydoc_systemPipeChIPseq_05:
+  title: "Peak calling with MACS2"
+  url: "../mydoc/mydoc_systemPipeChIPseq_05.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_05.html'>Peak calling with MACS2</a>"
+
+mydoc_systemPipeChIPseq_06:
+  title: "Annotate peaks with genomic context"
+  url: "../mydoc/mydoc_systemPipeChIPseq_06.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_06.html'>Annotate peaks with genomic context</a>"
+
+mydoc_systemPipeChIPseq_07:
+  title: "Count reads overlapping peaks"
+  url: "../mydoc/mydoc_systemPipeChIPseq_07.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_07.html'>Count reads overlapping peaks</a>"
+
+mydoc_systemPipeChIPseq_08:
+  title: "Differential binding analysis"
+  url: "../mydoc/mydoc_systemPipeChIPseq_08.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_08.html'>Differential binding analysis</a>"
+
+mydoc_systemPipeChIPseq_09:
+  title: "GO term enrichment analysis"
+  url: "../mydoc/mydoc_systemPipeChIPseq_09.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_09.html'>GO term enrichment analysis</a>"
+
+mydoc_systemPipeChIPseq_10:
+  title: "Motif analysis"
+  url: "../mydoc/mydoc_systemPipeChIPseq_10.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_10.html'>Motif analysis</a>"
+
+mydoc_systemPipeChIPseq_11:
+  title: "Version Information"
+  url: "../mydoc/mydoc_systemPipeChIPseq_11.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_11.html'>Version Information</a>"
+
+mydoc_systemPipeChIPseq_12:
+  title: "Funding"
+  url: "../mydoc/mydoc_systemPipeChIPseq_12.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_12.html'>Funding</a>"
+
+mydoc_systemPipeChIPseq_13:
+  title: "References"
+  url: "../mydoc/mydoc_systemPipeChIPseq_13.html"
+  link: "<a href='../mydoc/mydoc_systemPipeChIPseq_13.html'>References</a>"
 
