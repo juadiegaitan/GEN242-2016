@@ -89,5 +89,5 @@ downloadRefs(rerun=FALSE) # To execute the function set 'rerun=TRUE'
 3. Download FASTQ files of your project with `getSRAfastq` to `/bigdata/gen242/shared/<project_name>/data`. Replace `project_name` with the name of your course project. It should be
 one of: RNA-Seq1, RNA-Seq2, ChIP-Seq1, ChIP-Seq2, VAR-Seq1, VAR-Seq2.
 4. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`).
-5. Inspect and adjust the `.param` files you will be using. For instance, make sure the path to the reference genome is correct. 
+5. Inspect and adjust the `.param` files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct. 
 
