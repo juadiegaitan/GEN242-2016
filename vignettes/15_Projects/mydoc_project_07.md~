@@ -25,6 +25,17 @@ These project repositories are private and have been shared by the instructor wi
 To populate a course project with an initial project workflow, please follow the instruction
 given [below](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_project_07.html#generate-workflow-environment-with-project-data). 
 
+## Generate workflow environment with project data
+
+1. Generate workflow environment for your project on biocluster with `genWorkenvir` from `systemPipeRdata`. 
+2. Replace the `data` and `results` directories by symbolic links pointing to the above described `data` and `results` directories of your course project. For instance, the project RNA-Seq1 should point on biocluster to:
+    + `/bigdata/gen242/shared/RNA-Seq1/data` 
+    + `/bigdata/gen242/shared/RNA-Seq1/results`
+3. Add the workflow directory to the GitHub repository of your project with `git add -A`. This needs to be done only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned with `git clone ...`.
+4. Download the FASTQ files of your project with `getSRAfastq` (see below) to the `data` directory of your project. 
+5. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`).
+6. Inspect and adjust the `.param` files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct. 
+
 ## Download of project data
 
 ### FASTQ files from SRA
@@ -54,7 +65,6 @@ moduleload("sratoolkit/2.5.0")
 system('fastq-dump --help') # prints help to screen
 {% endhighlight %}
 
-
 #### Define download function
 The following function downloads and extracts the FASTQ files for each project from SRA.
 Internally, it uses the `fastq-dump` utility from NCBI.
@@ -64,7 +74,6 @@ getSRAfastq <- function(sraid, targetdir, maxreads="1000000000") {
     system(paste("fastq-dump --split-files --gzip --maxSpotId", maxreads, sraid, "--outdir", targetdir))
 }
 {% endhighlight %}
-
 
 #### Run download
 
@@ -103,12 +112,5 @@ After sourcing the above function, execute it as follows:
 {% highlight r %}
 downloadRefs(rerun=FALSE) # To execute the function set 'rerun=TRUE'
 {% endhighlight %}
-## Generate workflow environment with project data
 
-1. Generate workflow environment for your project on biocluster with `genWorkenvir` from `systemPipeRdata`. 
-2. Replace the `data` and `results` directories by symbolic links pointing to the `data` and `results` directories of your course project. For instance, the project RNA-Seq1 should point on biocluster to `/bigdata/gen242/shared/RNA-Seq1/data` and `/bigdata/gen242/shared/RNA-Seq1/results`.
-3. Add the workflow directory to the GitHub repository of your project. This needs to be done only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned with `git clone`.
-4. Download the FASTQ files of your project with `getSRAfastq` to project's `data` directory. 
-5. Generate a proper `targets` file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: `SampleNames` and `Factor`).
-6. Inspect and adjust the `.param` files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct. 
 
