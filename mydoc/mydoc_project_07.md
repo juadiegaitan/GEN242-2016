@@ -83,7 +83,7 @@ the path specified under `targetdir`.
 for(i in sraidv) getSRAfastq(sraid=i, targetdir="data/")
 {% endhighlight %}
 
-Alternatively, the download can be performed in parallelized mode with `BiocParallel`. Please run this version only one of the compute nodes.
+Alternatively, the download can be performed in parallelized mode with `BiocParallel`. Please run this version only on one of the compute nodes.
 {% highlight r %}
 # bplapply(sraidv, getSRAfastq, targetdir="data/", BPPARAM = MulticoreParam(workers=4))
 {% endhighlight %}
