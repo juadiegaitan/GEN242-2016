@@ -1515,10 +1515,10 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
 <h2 id="generate-workflow-environment-with-project-data">Generate workflow environment with project data</h2>
 
 <ol>
-  <li>Generate workflow environment for your project with <code class="highlighter-rouge">genWorkenvir</code> from <code class="highlighter-rouge">systemPipeRdata</code></li>
-  <li>Delete mini FASTQ files under <code class="highlighter-rouge">data</code> directory</li>
-  <li>Download FASTQ files of your project with <code class="highlighter-rouge">getSRAfastq</code> to <code class="highlighter-rouge">/bigdata/gen242/shared/&lt;project_name&gt;/data</code>. Replace <code class="highlighter-rouge">project_name</code> with the name of your course project. It should be
-one of: RNA-Seq1, RNA-Seq2, ChIP-Seq1, ChIP-Seq2, VAR-Seq1, VAR-Seq2.</li>
+  <li>Generate workflow environment for your project with <code class="highlighter-rouge">genWorkenvir</code> from <code class="highlighter-rouge">systemPipeRdata</code>.</li>
+  <li>Replace the <code class="highlighter-rouge">data</code> and <code class="highlighter-rouge">results</code> directories by symbolic links pointing to the <code class="highlighter-rouge">data</code> and <code class="highlighter-rouge">results</code> directories of your course project. For instance, the project RNA-Seq1 should point to <code class="highlighter-rouge">/bigdata/gen242/shared/RNA-Seq1/data</code> and <code class="highlighter-rouge">/bigdata/gen242/shared/RNA-Seq1/results</code>.</li>
+  <li>Add the workflow directory to the GitHub repository of your project. This needs to be done only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned with <code class="highlighter-rouge">git clone</code>.</li>
+  <li>Download the FASTQ files of your project with <code class="highlighter-rouge">getSRAfastq</code> to project’s <code class="highlighter-rouge">data</code> directory.</li>
   <li>Generate a proper <code class="highlighter-rouge">targets</code> file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: <code class="highlighter-rouge">SampleNames</code> and <code class="highlighter-rouge">Factor</code>).</li>
   <li>Inspect and adjust the <code class="highlighter-rouge">.param</code> files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.</li>
 </ol>
