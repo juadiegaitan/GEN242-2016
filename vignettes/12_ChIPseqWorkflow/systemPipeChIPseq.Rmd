@@ -1681,6 +1681,11 @@ cov <- coverage(aligns)
 cov
 ```
 
+## Resizing aligned reads
+```{r resize_align, eval=FALSE}
+trim(resize(as(aligns, "GRanges"), width = 200))
+```
+
 ## Naive peak calling
 ```{r rle_slice, eval=FALSE}
 islands <- slice(cov, lower = 15)

@@ -1683,6 +1683,12 @@ cov &lt;- coverage(aligns)
 cov
 </code></p>
 
+<h2 id="resizing-aligned-reads">Resizing aligned reads</h2>
+
+<p><code class="highlighter-rouge">r
+trim(resize(as(aligns, "GRanges"), width = 200))
+</code></p>
+
 <h2 id="naive-peak-calling">Naive peak calling</h2>
 
 <p><code class="highlighter-rouge">r
