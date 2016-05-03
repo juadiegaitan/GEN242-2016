@@ -1548,7 +1548,7 @@ the path specified under <code>targetdir</code>.</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">sraidv</span><span class="p">)</span> <span class="n">getSRAfastq</span><span class="p">(</span><span class="n">sraid</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">targetdir</span><span class="o">=</span><span class="s2">"data/"</span><span class="p">)</span></code></pre></div>
 
-<p>Alternatively, the download can be performed in parallelized mode with <code>BiocParallel</code>. Please run this version only one of the compute nodes.</p>
+<p>Alternatively, the download can be performed in parallelized mode with <code>BiocParallel</code>. Please run this version only on one of the compute nodes.</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="err">#</span> <span class="n">bplapply</span><span class="p">(</span><span class="n">sraidv</span><span class="p">,</span> <span class="n">getSRAfastq</span><span class="p">,</span> <span class="n">targetdir</span><span class="o">=</span><span class="s2">"data/"</span><span class="p">,</span> <span class="n">BPPARAM</span> <span class="o">=</span> <span class="n">MulticoreParam</span><span class="p">(</span><span class="n">workers</span><span class="o">=</span><span class="m">4</span><span class="p">))</span></code></pre></div>
 
