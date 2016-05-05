@@ -1,11 +1,11 @@
 ---
 title: ChIP-Seq Workflow Template 
 keywords: 
-last_updated: Tue May  3 13:51:27 2016
+last_updated: Wed May  4 17:24:19 2016
 ---
 First/last name (first.last@ucr.edu)
 
-Last update: 03 May, 2016 
+Last update: 04 May, 2016 
 
 Alternative formats of this tutorial:
 [`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/12_ChIPseqWorkflow/systemPipeChIPseq.html),

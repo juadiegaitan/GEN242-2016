@@ -1,7 +1,7 @@
 ---
 title: Peak calling with MACS2
 keywords: 
-last_updated: Tue May  3 13:51:27 2016
+last_updated: Wed May  4 17:24:19 2016
 ---
 
 ## Merge BAM files of replicates prior to peak calling
@@ -59,4 +59,22 @@ writeTargetsout(x=args, file="targets_macs.txt", overwrite=TRUE)
 The peak calling results from MACS2 are written for each sample to
 separate files in the `results` directory. They are named after the corresponding
 files with extensions used by MACS2.
+
+
+## Identify consensus peaks
+
+The following example shows how one can identify consensus preaks among two peak sets sharing either a minimum absolute overlap and/or
+minimum relative overlap using the `subsetByOverlaps` or `olRanges` functions, respectively. Note, the latter is
+a custom function imported below by sourcing it.
+
+{% highlight r %}
+source("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/rangeoverlapper.R")
+peak_M1A <- outpaths(args)["M1A"]
+peak_M1A <- as(read.delim(peak_M1A, comment="#")[,1:3], "GRanges")
+peak_A1A <- outpaths(args)["A1A"]
+peak_A1A <- as(read.delim(peak_A1A, comment="#")[,1:3], "GRanges")
+(myol1 <- subsetByOverlaps(peak_M1A, peak_A1A, minoverlap=1)) # Returns any overlap
+myol2 <- olRanges(query=peak_M1A, subject=peak_A1A, output="gr") # Returns any overlap with OL length information
+myol2[values(myol2)["OLpercQ"][,1]>=50] # Returns only query peaks with a minimum overlap of 50%
+{% endhighlight %}
 
