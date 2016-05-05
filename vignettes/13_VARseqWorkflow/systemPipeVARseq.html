@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="header">
 <h1 class="title">VAR-Seq Workflow Template</h1>
 <h4 class="author"><em>First/last name (<a href="mailto:first.last@ucr.edu">first.last@ucr.edu</a>)</em></h4>
-<h4 class="date"><em>Last update: 04 May, 2016</em></h4>
+<h4 class="date"><em>Last update: 05 May, 2016</em></h4>
 </div>
 
 <h1>Contents</h1>
@@ -78,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><a href="#variant-calling-with-gatk"><span class="toc-section-number">5.1</span> Variant calling with <code>GATK</code></a></li>
 <li><a href="#variant-calling-with-bcftools"><span class="toc-section-number">5.2</span> Variant calling with <code>BCFtools</code></a></li>
 <li><a href="#variant-calling-with-varianttools"><span class="toc-section-number">5.3</span> Variant calling with <code>VariantTools</code></a></li>
+<li><a href="#inspect-vcf-file"><span class="toc-section-number">5.4</span> Inspect VCF file</a></li>
 </ul></li>
 <li><a href="#filter-variants"><span class="toc-section-number">6</span> Filter variants</a><ul>
 <li><a href="#filter-variants-called-by-gatk"><span class="toc-section-number">6.1</span> Filter variants called by <code>GATK</code></a></li>
@@ -85,9 +86,10 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><a href="#filter-variants-called-by-varianttools"><span class="toc-section-number">6.3</span> Filter variants called by <code>VariantTools</code></a></li>
 </ul></li>
 <li><a href="#annotate-filtered-variants"><span class="toc-section-number">7</span> Annotate filtered variants</a><ul>
-<li><a href="#annotate-filtered-variants-called-by-gatk"><span class="toc-section-number">7.1</span> Annotate filtered variants called by <code>GATK</code></a></li>
-<li><a href="#annotate-filtered-variants-called-by-bcftools"><span class="toc-section-number">7.2</span> Annotate filtered variants called by <code>BCFtools</code></a></li>
-<li><a href="#annotate-filtered-variants-called-by-varianttools"><span class="toc-section-number">7.3</span> Annotate filtered variants called by <code>VariantTools</code></a></li>
+<li><a href="#basics-of-annotating-variants"><span class="toc-section-number">7.1</span> Basics of annotating variants</a></li>
+<li><a href="#annotate-filtered-variants-called-by-gatk"><span class="toc-section-number">7.2</span> Annotate filtered variants called by <code>GATK</code></a></li>
+<li><a href="#annotate-filtered-variants-called-by-bcftools"><span class="toc-section-number">7.3</span> Annotate filtered variants called by <code>BCFtools</code></a></li>
+<li><a href="#annotate-filtered-variants-called-by-varianttools"><span class="toc-section-number">7.4</span> Annotate filtered variants called by <code>VariantTools</code></a></li>
 </ul></li>
 <li><a href="#combine-annotation-results-among-samples"><span class="toc-section-number">8</span> Combine annotation results among samples</a><ul>
 <li><a href="#combine-results-from-gatk"><span class="toc-section-number">8.1</span> Combine results from <code>GATK</code></a></li>
@@ -100,8 +102,9 @@ document.addEventListener("DOMContentLoaded", function() {
 <li><a href="#summary-for-varianttools"><span class="toc-section-number">9.3</span> Summary for <code>VariantTools</code></a></li>
 </ul></li>
 <li><a href="#venn-diagram-of-variants"><span class="toc-section-number">10</span> Venn diagram of variants</a></li>
-<li><a href="#version-information"><span class="toc-section-number">11</span> Version Information</a></li>
-<li><a href="#funding"><span class="toc-section-number">12</span> Funding</a></li>
+<li><a href="#plot-variants-programmatically"><span class="toc-section-number">11</span> Plot variants programmatically</a></li>
+<li><a href="#version-information"><span class="toc-section-number">12</span> Version Information</a></li>
+<li><a href="#funding"><span class="toc-section-number">13</span> Funding</a></li>
 <li><a href="#references">References</a></li>
 </ul>
 </div>
@@ -235,6 +238,7 @@ Figure 1: FASTQ quality report for 18 samples
 sysargs(args)[1] # Command-line parameters for first FASTQ file</code></pre>
 <p>Runs the alignments sequentially (<em>e.g.</em> on a single machine)</p>
 <pre class="r"><code>moduleload(modules(args))
+system(&quot;bwa index -a bwtsw ./data/tair10.fasta&quot;)
 bampaths &lt;- runCommandline(args=args)</code></pre>
 <p>Alternatively, the alignment jobs can be submitted to a compute cluster, here using 72 CPU cores (18 <code>qsub</code> processes each with 4 CPU cores).</p>
 <pre class="r"><code>moduleload(modules(args))
@@ -242,7 +246,8 @@ system(&quot;bwa index -a bwtsw ./data/tair10.fasta&quot;)
 resources &lt;- list(walltime=&quot;20:00:00&quot;, nodes=paste0(&quot;1:ppn=&quot;, cores(args)), memory=&quot;10gb&quot;)
 reg &lt;- clusterRun(args, conffile=&quot;.BatchJobs.R&quot;, template=&quot;torque.tmpl&quot;, Njobs=18, runid=&quot;01&quot;, 
                   resourceList=resources)
-waitForJobs(reg)</code></pre>
+waitForJobs(reg)
+writeTargetsout(x=args, file=&quot;targets_bam.txt&quot;, overwrite=TRUE)</code></pre>
 <p>Check whether all BAM files have been created</p>
 <pre class="r"><code>file.exists(outpaths(args))</code></pre>
 </div>
@@ -274,7 +279,7 @@ write.table(read_statsDF, &quot;results/alignStats.xls&quot;, row.names=FALSE, q
 <div id="create-symbolic-links-for-viewing-bam-files-in-igv" class="section level2">
 <h2><span class="header-section-number">4.4</span> Create symbolic links for viewing BAM files in IGV</h2>
 <p>The <code>symLink2bam</code> function creates symbolic links to view the BAM alignment files in a genome browser such as IGV. The corresponding URLs are written to a file with a path specified under <code>urlfile</code>, here <code>IGVurl.txt</code>.</p>
-<pre class="r"><code>symLink2bam(sysargs=args, htmldir=c(&quot;~/.html/&quot;, &quot;somedir/&quot;), 
+<pre class="r"><code>symLink2bam(sysargs=args, htmldir=c(&quot;~/.html/&quot;, &quot;projects/gen242/&quot;), 
             urlbase=&quot;http://biocluster.ucr.edu/~tgirke/&quot;, 
             urlfile=&quot;./results/IGVurl.txt&quot;)</code></pre>
 </div>
@@ -285,15 +290,14 @@ write.table(read_statsDF, &quot;results/alignStats.xls&quot;, row.names=FALSE, q
 <div id="variant-calling-with-gatk" class="section level2">
 <h2><span class="header-section-number">5.1</span> Variant calling with <code>GATK</code></h2>
 <p>The following creates in the inital step a new <code>targets</code> file (<code>targets_bam.txt</code>). The first column of this file gives the paths to the BAM files created in the alignment step. The new targets file and the parameter file <code>gatk.param</code> are used to create a new <code>SYSargs</code> instance for running GATK. Since GATK involves many processing steps, it is executed by a bash script <code>gatk_run.sh</code> where the user can specify the detailed run parameters. All three files are expected to be located in the current working directory. Samples files for <code>gatk.param</code> and <code>gatk_run.sh</code> are available in the <code>param</code> subdirectory provided by <code>systemPipeRdata</code>.</p>
-<pre class="r"><code>writeTargetsout(x=args, file=&quot;targets_bam.txt&quot;)
-moduleload(&quot;picard/1.130&quot;)
+<pre class="r"><code>moduleload(&quot;picard/1.130&quot;)
 system(&quot;picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict&quot;)
 args &lt;- systemArgs(sysma=&quot;param/gatk.param&quot;, mytargets=&quot;targets_bam.txt&quot;)
 resources &lt;- list(walltime=&quot;20:00:00&quot;, nodes=paste0(&quot;1:ppn=&quot;, 1), memory=&quot;10gb&quot;)
 reg &lt;- clusterRun(args, conffile=&quot;.BatchJobs.R&quot;, template=&quot;torque.tmpl&quot;, Njobs=18, runid=&quot;01&quot;,
                   resourceList=resources)
 waitForJobs(reg)
-unlink(outfile1(args), recursive = TRUE, force = TRUE)
+# unlink(outfile1(args), recursive = TRUE, force = TRUE)
 writeTargetsout(x=args, file=&quot;targets_gatk.txt&quot;, overwrite=TRUE)</code></pre>
 </div>
 <div id="variant-calling-with-bcftools" class="section level2">
@@ -304,7 +308,7 @@ resources &lt;- list(walltime=&quot;20:00:00&quot;, nodes=paste0(&quot;1:ppn=&qu
 reg &lt;- clusterRun(args, conffile=&quot;.BatchJobs.R&quot;, template=&quot;torque.tmpl&quot;, Njobs=18, runid=&quot;01&quot;,
                   resourceList=resources)
 waitForJobs(reg)
-unlink(outfile1(args), recursive = TRUE, force = TRUE)
+# unlink(outfile1(args), recursive = TRUE, force = TRUE)
 writeTargetsout(x=args, file=&quot;targets_sambcf.txt&quot;, overwrite=TRUE)</code></pre>
 </div>
 <div id="variant-calling-with-varianttools" class="section level2">
@@ -326,6 +330,16 @@ param &lt;- BatchJobsParam(length(args), resources=list(walltime=&quot;20:00:00&
 register(param)
 d &lt;- bplapply(seq(along=args), f)
 writeTargetsout(x=args, file=&quot;targets_vartools.txt&quot;, overwrite=TRUE)</code></pre>
+</div>
+<div id="inspect-vcf-file" class="section level2">
+<h2><span class="header-section-number">5.4</span> Inspect VCF file</h2>
+<p>VCF files can be imported into R with the <code>readVcf</code> function. Both <code>VCF</code> and <code>VRanges</code> objects provide convenient data structure for working with variant data (<em>e.g.</em> SNP quality filtering).</p>
+<pre class="r"><code>library(VariantAnnotation)
+args &lt;- systemArgs(sysma=&quot;param/filter_gatk.param&quot;, mytargets=&quot;targets_gatk.txt&quot;)
+vcf &lt;- readVcf(infile1(args)[1], &quot;A. thaliana&quot;)
+vcf
+vr &lt;- as(vcf, &quot;VRanges&quot;)
+vr</code></pre>
 </div>
 </div>
 <div id="filter-variants" class="section level1">
@@ -369,8 +383,20 @@ length(as(readVcf(outpaths(args)[1], genome=&quot;Ath&quot;), &quot;VRanges&quot
 <div id="annotate-filtered-variants" class="section level1">
 <h1><span class="header-section-number">7</span> Annotate filtered variants</h1>
 <p>The function <code>variantReport</code> generates a variant report using utilities provided by the <code>VariantAnnotation</code> package. The report for each sample is written to a tabular file containing genomic context annotations (<em>e.g.</em> coding or non-coding SNPs, amino acid changes, IDs of affected genes, etc.) along with confidence statistics for each variant. The parameter file <code>annotate_vars.param</code> defines the paths to the input and output files which are stored in a new <code>SYSargs</code> instance.</p>
+<div id="basics-of-annotating-variants" class="section level2">
+<h2><span class="header-section-number">7.1</span> Basics of annotating variants</h2>
+<p>Variants overlapping with common annotation features can be identified with <code>locateVariants</code>.</p>
+<pre class="r"><code>library(&quot;GenomicFeatures&quot;)
+args &lt;- systemArgs(sysma=&quot;param/annotate_vars.param&quot;, mytargets=&quot;targets_gatk_filtered.txt&quot;)
+txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
+vcf &lt;- readVcf(infile1(args)[1], &quot;A. thaliana&quot;)
+locateVariants(vcf, txdb, CodingVariants())</code></pre>
+<p>Synonymous/non-synonymous variants of coding sequences are computed by the predictCoding function for variants overlapping with coding regions.</p>
+<pre class="r"><code>fa &lt;- FaFile(systemPipeR::reference(args))
+predictCoding(vcf, txdb, seqSource=fa)</code></pre>
+</div>
 <div id="annotate-filtered-variants-called-by-gatk" class="section level2">
-<h2><span class="header-section-number">7.1</span> Annotate filtered variants called by <code>GATK</code></h2>
+<h2><span class="header-section-number">7.2</span> Annotate filtered variants called by <code>GATK</code></h2>
 <pre class="r"><code>library(&quot;GenomicFeatures&quot;)
 args &lt;- systemArgs(sysma=&quot;param/annotate_vars.param&quot;, mytargets=&quot;targets_gatk_filtered.txt&quot;)
 txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
@@ -378,14 +404,14 @@ fa &lt;- FaFile(systemPipeR::reference(args))
 suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism=&quot;A. thaliana&quot;))</code></pre>
 </div>
 <div id="annotate-filtered-variants-called-by-bcftools" class="section level2">
-<h2><span class="header-section-number">7.2</span> Annotate filtered variants called by <code>BCFtools</code></h2>
+<h2><span class="header-section-number">7.3</span> Annotate filtered variants called by <code>BCFtools</code></h2>
 <pre class="r"><code>args &lt;- systemArgs(sysma=&quot;param/annotate_vars.param&quot;, mytargets=&quot;targets_sambcf_filtered.txt&quot;)
 txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
 fa &lt;- FaFile(systemPipeR::reference(args))
 suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism=&quot;A. thaliana&quot;))</code></pre>
 </div>
 <div id="annotate-filtered-variants-called-by-varianttools" class="section level2">
-<h2><span class="header-section-number">7.3</span> Annotate filtered variants called by <code>VariantTools</code></h2>
+<h2><span class="header-section-number">7.4</span> Annotate filtered variants called by <code>VariantTools</code></h2>
 <pre class="r"><code>args &lt;- systemArgs(sysma=&quot;param/annotate_vars.param&quot;, mytargets=&quot;targets_vartools_filtered.txt&quot;)
 txdb &lt;- loadDb(&quot;./data/tair10.sqlite&quot;)
 fa &lt;- FaFile(systemPipeR::reference(args))
@@ -460,8 +486,28 @@ Figure 2: Venn Diagram for 4 samples from GATK and BCFtools
 </div>
 <p></br></p>
 </div>
+<div id="plot-variants-programmatically" class="section level1">
+<h1><span class="header-section-number">11</span> Plot variants programmatically</h1>
+<p>The following plots a selected variant with <code>ggbio</code>.</p>
+<pre class="r"><code>library(ggbio)
+mychr &lt;- &quot;ChrC&quot;; mystart &lt;- 11000; myend &lt;- 13000
+args &lt;- systemArgs(sysma=&quot;param/bwa.param&quot;, mytargets=&quot;targets.txt&quot;)
+ga &lt;- readGAlignments(outpaths(args)[1], use.names=TRUE, param=ScanBamParam(which=GRanges(mychr, IRanges(mystart, myend))))
+p1 &lt;- autoplot(ga, geom = &quot;rect&quot;)
+p2 &lt;- autoplot(ga, geom = &quot;line&quot;, stat = &quot;coverage&quot;)
+p3 &lt;- autoplot(vcf[seqnames(vcf)==mychr], type = &quot;fixed&quot;) + xlim(mystart, myend) + theme(legend.position = &quot;none&quot;, axis.text.y = element_blank(), axis.ticks.y=element_blank())
+p4 &lt;- autoplot(txdb, which=GRanges(mychr, IRanges(mystart, myend)), names.expr = &quot;gene_id&quot;)
+png(&quot;./results/plot_variant.png&quot;)
+tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 0.1, 0.35)) + ylab(&quot;&quot;)
+dev.off()</code></pre>
+<img src="data:image/png;base64,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o9FoueavtFiW5TjOZDJJXQghhCiVSplMVlVVJXUhhBDCMIxCoXDxgklikclkarW6oqJC6kL+RtUHSqfTuW/jXhXQRqPRclsul5tMJko++X5+fta1SYthGI7jKKlHJpPRU4xCoWAYhpJi+ICmpBiWZeVyOSXFEMo+UG6FfmEAAEohoAEAKIWA9k55eXlNmzadN28ef3fGjBkRERERERFNmzZt1apVWFjYO++8w//p4MGD/fv379SpU7du3TZs2MAv/P33359++ulOnTp16dJl4cKFlv9OGgyGBQsWREVFRUVFLViwwGAw2C+xrNmlSxdLPVlZWUOHDu3evftjjz2WnZ1teVSXLl3mzZtHSU+rx9Tz6vA3PPzq5OTkPPbYY926devRo8fXX39d16PA8xDQ3mnfvn3du3f/4osv+E/v8uXLs7KysrKyAgMD8/Ly/vjjjzfffJMQ8sMPP/z73//esGFDVlbWl19+uWHDhq+//jo/P/+VV1556aWXMjMzU1NTf/7559WrV/Ob3bhx49WrV9PS0tLS0vLy8jZt2mS/hBDy2WefxcTEXL9+nX8Ux3EvvPDCzJkzT506NXbs2OnTp1sedfr06StXrvjaBR/qeXX4G/yr891333ng1SGELFq06IUXXvjpp59WrVoVHx9f66NAEghoL8Rx3J49e954442AgICTJ0/Ws+by5cuXLl0aHh7OMEyrVq1WrVplNpuXL18+YcKEJ554QqFQNGnSZMmSJRzH8evv3LkzPj5eqVQqlcr4+PidO3faLyGEtGvX7vXXX7fspbKysk2bNgMHDiSEDB069MqVK9aPmjVrFv8oH+H4q/Pee+954NUhhMTFxcXExOj1+vLy8pCQkFofBZLwqlEcwPvtt99KS0t79eo1fPjwffv22c8gbpGdnd2tWzfL3T59+hBCVq9eHRsba1l4//3333///fztq1evhoWF8bfDwsKuXbtmNpttlhBCoqKirPei0Wj27t1LCDGZTMuWLXviiSe++OILy6PatWvHP8pHOP7qZGVleeDVsSzp0KFDUVHRoUOHnn32WftHgSTQgvZCe/bsiYmJkcvlw4YNS0lJqWdgL8dxlvYXIcRkMun1+hs3bgQGBvJLmt7B37UeV84Pj7NfUte+fvnllyFDhlRXVycmJjr+KO9D56tDCMnMzExISJg/f74vvzq0QUB7G6PR+Pnnn2/YsKFp06ZDhgypqKg4fPhwXSt37Njx9OnTlrt79ux5+eWXO3To8P333/NL8vPzc3JyLCu0atXq0qVL/O3Lly+3bt3afkmtO9q3b9/EiRPfeeed1atXK5VK60ddunSprkd5H6denU6dOnng1eE47o033jAajX5+fs8///y5c+ccfE3BAxDQ3ubkyZMMw1y/fj0/Pz8/P3/SpEn79u2ra+UZM2bMmjUrOzub47iLFy+uXLny2Wefff311+fNm5eWlmY2mysrK5csWWJZf/To0UlJSWaz2WQyrV69+tlnn7VfYr8XvV7/5ptvHjhwoOedi9RZP4rfqejHgU5OvTpvvPGGB14dhmHOnTuXkpJCCDl27FhERIQjjwLPQB+0t9m7d+9LL72kUCj4uy+99FJ0dHRxcXGTJk3sV+7du/fs2bMnTpx469atgICAiRMnjhw5kmGYlStXvvPOO7m5ua1atVq4cOGPP/7Irz958uS33367X79+HMf1799/4sSJhBD7JTaysrIKCgoiIyMtSy5fvsw/ihAyYMCAWh/llZx6dfr27euBV4fc6ddOTEzU6XQrV64MDw935FHgAV41YX9BQYH17kpKSig51Vur1dIzj0FgYKDBYKBkxgmlUslxHCUTg6jVapZly8vLpS6EEEIYhlGr1Xq9XupCCCGEZdnAwMCioiKpC/kbVR+o0NBQ920cXRwAAJRCQAMAUAoBDQBAKQQ0AAClENAAAJRCQAMAUAoBDQBAKQQ0AAClENDie/fddz///HOpqwDh3nrrrf/85z9SV9FYLV68eP/+/VJX4SVwqrf49uzZ07dv39TUVKkLAYckJSXZLNm9e3dxcbGHM9q+jEZqz549+fn5R48ebXBNr3nK7oMWNAAApRDQAACUQkADAFAKAQ0AQCkENAAApRDQAACUQkADAFAKAQ0AQCkENAAApRDQAACUQkADAFAKAQ0AQCkENAAApRDQAACUQkADAFAKAQ0AQCkENAAApRDQAACUQkADAFAKAQ0AQCkENAAApRDQAACUQkADAFAKAQ0AQCkENAAApRDQAACUQkADAFAKAQ0AQCkENAAApRDQAACUQkADAFAKAQ0AQCkhAb1z586pU6cajcapU6cOGDBg//79opcFAABCAjo5OXnu3Lmpqak6nW7jxo1r164VvSwAABAS0CzLGgyGlJSUESNGyOVyo9EoelkAACAkoKdNmzZhwgSZTNajR49p06ZNmTJF9LIAAIAV8JiYmJiYmBj+9oEDB0StBwAA/iakBf3cc89ZbhuNxmHDholXDwAA/M25FvTUqVNPnTpFCImKirIs7N27t8hFAQCAswH94YcfEkJmzJixfPly99QDAAB/E9LFgXQGAPAAIT8SXr9+ffny5WfOnDGbzZGRkTNnzmzRooXolQEA+DghLeg333wzLCzs888/379/f7t27RISEkQvCwAAhAR0Xl7epEmTdDpdYGDgxIkTL126JHpZAAAgJKDHjRuXnJx87dq1a9euJScnP/nkk6KXBQAAQvqg16xZQwj5+OOPLUu2bt1KCHn33XcHDx4sVmUAAD5OSEBnZGSIXgcAANjAfNAAAJRyogUdFRX14osvxsbGWp9GyEObGgBAdE4EtCWFEccAAB4gpItj8ODBubm5opcCAADWhAR0XFzc3r17i4uLRa8GAAAshIzi4E8d3L17t2UJOj0AAESHYXYAAJQSOMzOYDCYzeaqqqqKigpxCwIAAJ6QgP6///u/oUOH3r59+/r164899tixY8dELwsAAIQE9Nq1a1esWBEYGNi2bdsPPvggKSlJ9LIAAEBIQJeWlj7wwAP87X/84x/l5eWilgQAAIQIC+jIyMi1a9eWlpaWlZWtXbu2S5cuopcFAABCAnrevHm3bt166qmnYmJirl69On/+fNHLAgAAIcPsmjRpsnjxYtFLAQAAa0Ja0Dt37pw6darRaJw6deqAAQP2798velkAACAkoJOTk+fOnZuamqrT6TZu3Lh27VrRywIAACEBzbKswWBISUkZMWKEXC43Go2ilwUAAEICetq0aRMmTJDJZD169Jg2bdqUKVNELwsAAIQEdExMzPHjx1esWMEwzIEDB55++mnRywLwQXq9/tChQ9ZLsrOzz549a7nLcdxXX31l/X/WoqIim1N509PT8/LyLHdramq++uor6xXy8vJ+/PFH6yWHDx+2PpuhoqLCpoyzZ89mZmZa7prN5i+//NJkMlmWFBYWHj9+3LFnCU4QMooDAES3efPm999/v23btnfffbdMJqusrPzkk09SUlL4H+QJIbm5uatWrSovL1er1XfddRfHcQcPHty0adMjjzwSEhJCCCkpKfnoo4/S09PnzZv30EMPEUJ++eWXpKQkrVbbrFkzjUZT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" />
+<div align="center">
+Figure 3: Plot variants with programmatically.
+</div>
+<p></br></p>
+</div>
 <div id="version-information" class="section level1">
-<h1><span class="header-section-number">11</span> Version Information</h1>
+<h1><span class="header-section-number">12</span> Version Information</h1>
 <pre class="r"><code>sessionInfo()</code></pre>
 <pre><code>## R version 3.2.5 (2016-04-14)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
@@ -503,7 +549,7 @@ Figure 2: Venn Diagram for 4 samples from GATK and BCFtools
 ## [57] AnnotationDbi_1.32.0   colorspace_1.2-6       knitr_1.12</code></pre>
 </div>
 <div id="funding" class="section level1">
-<h1><span class="header-section-number">12</span> Funding</h1>
+<h1><span class="header-section-number">13</span> Funding</h1>
 <p>This project was supported by funds from the National Institutes of Health (NIH) and the National Science Foundation (NSF).</p>
 </div>
 <div id="references" class="section level1 unnumbered">
