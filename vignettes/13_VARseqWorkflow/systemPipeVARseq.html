@@ -286,7 +286,8 @@ write.table(read_statsDF, &quot;results/alignStats.xls&quot;, row.names=FALSE, q
 <h2><span class="header-section-number">5.1</span> Variant calling with <code>GATK</code></h2>
 <p>The following creates in the inital step a new <code>targets</code> file (<code>targets_bam.txt</code>). The first column of this file gives the paths to the BAM files created in the alignment step. The new targets file and the parameter file <code>gatk.param</code> are used to create a new <code>SYSargs</code> instance for running GATK. Since GATK involves many processing steps, it is executed by a bash script <code>gatk_run.sh</code> where the user can specify the detailed run parameters. All three files are expected to be located in the current working directory. Samples files for <code>gatk.param</code> and <code>gatk_run.sh</code> are available in the <code>param</code> subdirectory provided by <code>systemPipeRdata</code>.</p>
 <pre class="r"><code>writeTargetsout(x=args, file=&quot;targets_bam.txt&quot;)
-system(&quot;java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict&quot;)
+moduleload(&quot;picard/1.130&quot;)
+system(&quot;picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict&quot;)
 args &lt;- systemArgs(sysma=&quot;param/gatk.param&quot;, mytargets=&quot;targets_bam.txt&quot;)
 resources &lt;- list(walltime=&quot;20:00:00&quot;, nodes=paste0(&quot;1:ppn=&quot;, 1), memory=&quot;10gb&quot;)
 reg &lt;- clusterRun(args, conffile=&quot;.BatchJobs.R&quot;, template=&quot;torque.tmpl&quot;, Njobs=18, runid=&quot;01&quot;,

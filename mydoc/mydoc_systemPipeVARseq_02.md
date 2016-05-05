@@ -1,7 +1,7 @@
 ---
 title: Load workflow environment
 keywords: 
-last_updated: Wed May  4 21:29:45 2016
+last_updated: Wed May  4 22:57:27 2016
 ---
 
 Now open the R markdown script `systemPipeVARseq.Rmd`in your R IDE (_e.g._ vim-r or RStudio) and 

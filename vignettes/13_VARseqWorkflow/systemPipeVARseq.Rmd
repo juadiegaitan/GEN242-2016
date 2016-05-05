@@ -280,7 +280,8 @@ provided by `systemPipeRdata`.
 
 ```{r run_gatk, eval=FALSE}
 writeTargetsout(x=args, file="targets_bam.txt")
-system("java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
+moduleload("picard/1.130")
+system("picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict")
 args <- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
 resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",

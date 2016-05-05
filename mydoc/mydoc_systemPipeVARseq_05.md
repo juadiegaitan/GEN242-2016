@@ -1,7 +1,7 @@
 ---
 title: Variant calling
 keywords: 
-last_updated: Wed May  4 21:29:45 2016
+last_updated: Wed May  4 22:57:27 2016
 ---
 
 The following performs variant calling with `GATK`, `BCFtools` and `VariantTools` 
@@ -27,7 +27,8 @@ provided by `systemPipeRdata`.
 
 {% highlight r %}
 writeTargetsout(x=args, file="targets_bam.txt")
-system("java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
+moduleload("picard/1.130")
+system("picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict")
 args <- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
 resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",

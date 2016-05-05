@@ -1,7 +1,7 @@
 ---
 title: Filter variants
 keywords: 
-last_updated: Wed May  4 21:29:45 2016
+last_updated: Wed May  4 22:57:27 2016
 ---
 
 The function `filterVars` filters VCF files based on user definable
