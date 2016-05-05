@@ -1529,29 +1529,29 @@ this step if this is not the case.</p>
 
 <p>The <code>targets</code> file defines all FASTQ files and sample comparisons of the analysis workflow.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">targetspath</span> <span class="o">&lt;-</span> <span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span> <span class="s2">"targets_chip.txt"</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s2">"systemPipeR"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">targetspath</span> <span class="o">&lt;-</span> <span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span> <span class="s2">"targetsPE.txt"</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s2">"systemPipeR"</span><span class="p">)</span>
 <span class="n">targets</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="n">targetspath</span><span class="p">,</span> <span class="n">comment.char</span> <span class="o">=</span> <span class="s2">"#"</span><span class="p">)</span>
 <span class="n">targets</span><span class="p">[,</span><span class="o">-</span><span class="n">c</span><span class="p">(</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">)]</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##                    FileName SampleName Factor SampleLong SampleReference
-## 1  ./data/SRR446027_1.fastq        M1A     M1  Mock.1h.A                
-## 2  ./data/SRR446028_1.fastq        M1B     M1  Mock.1h.B                
-## 3  ./data/SRR446029_1.fastq        A1A     A1   Avr.1h.A             M1A
-## 4  ./data/SRR446030_1.fastq        A1B     A1   Avr.1h.B             M1B
-## 5  ./data/SRR446031_1.fastq        V1A     V1   Vir.1h.A             M1A
-## 6  ./data/SRR446032_1.fastq        V1B     V1   Vir.1h.B             M1B
-## 7  ./data/SRR446033_1.fastq        M6A     M6  Mock.6h.A                
-## 8  ./data/SRR446034_1.fastq        M6B     M6  Mock.6h.B                
-## 9  ./data/SRR446035_1.fastq        A6A     A6   Avr.6h.A             M6A
-## 10 ./data/SRR446036_1.fastq        A6B     A6   Avr.6h.B             M6B
-## 11 ./data/SRR446037_1.fastq        V6A     V6   Vir.6h.A             M6A
-## 12 ./data/SRR446038_1.fastq        V6B     V6   Vir.6h.B             M6B
-## 13 ./data/SRR446039_1.fastq       M12A    M12 Mock.12h.A                
-## 14 ./data/SRR446040_1.fastq       M12B    M12 Mock.12h.B                
-## 15 ./data/SRR446041_1.fastq       A12A    A12  Avr.12h.A            M12A
-## 16 ./data/SRR446042_1.fastq       A12B    A12  Avr.12h.B            M12B
-## 17 ./data/SRR446043_1.fastq       V12A    V12  Vir.12h.A            M12A
-## 18 ./data/SRR446044_1.fastq       V12B    V12  Vir.12h.B            M12B</code></pre></div>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##                   FileName1                FileName2 SampleName Factor        Date
+## 1  ./data/SRR446027_1.fastq ./data/SRR446027_2.fastq        M1A     M1 23-Mar-2012
+## 2  ./data/SRR446028_1.fastq ./data/SRR446028_2.fastq        M1B     M1 23-Mar-2012
+## 3  ./data/SRR446029_1.fastq ./data/SRR446029_2.fastq        A1A     A1 23-Mar-2012
+## 4  ./data/SRR446030_1.fastq ./data/SRR446030_2.fastq        A1B     A1 23-Mar-2012
+## 5  ./data/SRR446031_1.fastq ./data/SRR446031_2.fastq        V1A     V1 23-Mar-2012
+## 6  ./data/SRR446032_1.fastq ./data/SRR446032_2.fastq        V1B     V1 23-Mar-2012
+## 7  ./data/SRR446033_1.fastq ./data/SRR446033_2.fastq        M6A     M6 23-Mar-2012
+## 8  ./data/SRR446034_1.fastq ./data/SRR446034_2.fastq        M6B     M6 23-Mar-2012
+## 9  ./data/SRR446035_1.fastq ./data/SRR446035_2.fastq        A6A     A6 23-Mar-2012
+## 10 ./data/SRR446036_1.fastq ./data/SRR446036_2.fastq        A6B     A6 23-Mar-2012
+## 11 ./data/SRR446037_1.fastq ./data/SRR446037_2.fastq        V6A     V6 23-Mar-2012
+## 12 ./data/SRR446038_1.fastq ./data/SRR446038_2.fastq        V6B     V6 23-Mar-2012
+## 13 ./data/SRR446039_1.fastq ./data/SRR446039_2.fastq       M12A    M12 23-Mar-2012
+## 14 ./data/SRR446040_1.fastq ./data/SRR446040_2.fastq       M12B    M12 23-Mar-2012
+## 15 ./data/SRR446041_1.fastq ./data/SRR446041_2.fastq       A12A    A12 23-Mar-2012
+## 16 ./data/SRR446042_1.fastq ./data/SRR446042_2.fastq       A12B    A12 23-Mar-2012
+## 17 ./data/SRR446043_1.fastq ./data/SRR446043_2.fastq       V12A    V12 23-Mar-2012
+## 18 ./data/SRR446044_1.fastq ./data/SRR446044_2.fastq       V12B    V12 23-Mar-2012</code></pre></div>
 
 
 
@@ -1569,7 +1569,7 @@ this step if this is not the case.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sun May  1 20:44:33 2016<br/> Site last generated: May 4, 2016 <br />
+<p>Page last updated:</span> Wed May  4 19:12:05 2016<br/> Site last generated: May 4, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

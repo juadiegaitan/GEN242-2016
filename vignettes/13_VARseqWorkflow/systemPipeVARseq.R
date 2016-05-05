@@ -31,7 +31,7 @@ library(systemPipeR)
 ## source("systemPipeChIPseq_Fct.R")
 
 ## ----load_targets_file, eval=TRUE----------------------------------------
-targetspath <- system.file("extdata", "targets_chip.txt", package="systemPipeR")
+targetspath <- system.file("extdata", "targetsPE.txt", package="systemPipeR")
 targets <- read.delim(targetspath, comment.char = "#")
 targets[,-c(5,6)]
 
