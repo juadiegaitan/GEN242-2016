@@ -197,7 +197,7 @@ entries:
       output: web
     
     - title: VAR-Seq Overview 
-      url: /mydoc/mydoc_slides_13.html
+      url: /mydoc/mydoc_slides_14.html
       audience: writers, designers
       platform: all
       product: all

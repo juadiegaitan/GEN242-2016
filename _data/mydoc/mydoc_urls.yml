@@ -473,72 +473,6 @@ mydoc_systemPipeRNAseq_11:
   url: "../mydoc/mydoc_systemPipeRNAseq_11.html"
   link: "<a href='../mydoc/mydoc_systemPipeRNAseq_11.html'>References</a>"
 
-mydoc_systemPipeVARseq_01:
-  title: "Introduction"
-  url: "../mydoc/mydoc_systemPipeVARseq_01.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_01.html'>Introduction</a>"
-
-mydoc_systemPipeVARseq_02:
-  title: "Load workflow environment"
-  url: "../mydoc/mydoc_systemPipeVARseq_02.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_02.html'>Load workflow environment</a>"
-
-mydoc_systemPipeVARseq_03:
-  title: "Read preprocessing"
-  url: "../mydoc/mydoc_systemPipeVARseq_03.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_03.html'>Read preprocessing</a>"
-
-mydoc_systemPipeVARseq_04:
-  title: "Alignments"
-  url: "../mydoc/mydoc_systemPipeVARseq_04.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_04.html'>Alignments</a>"
-
-mydoc_systemPipeVARseq_05:
-  title: "Variant calling"
-  url: "../mydoc/mydoc_systemPipeVARseq_05.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_05.html'>Variant calling</a>"
-
-mydoc_systemPipeVARseq_06:
-  title: "Filter variants"
-  url: "../mydoc/mydoc_systemPipeVARseq_06.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_06.html'>Filter variants</a>"
-
-mydoc_systemPipeVARseq_07:
-  title: "Annotate filtered variants"
-  url: "../mydoc/mydoc_systemPipeVARseq_07.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_07.html'>Annotate filtered variants</a>"
-
-mydoc_systemPipeVARseq_08:
-  title: "Combine annotation results among samples"
-  url: "../mydoc/mydoc_systemPipeVARseq_08.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_08.html'>Combine annotation results among samples</a>"
-
-mydoc_systemPipeVARseq_09:
-  title: "Summary statistics of variants"
-  url: "../mydoc/mydoc_systemPipeVARseq_09.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_09.html'>Summary statistics of variants</a>"
-
-mydoc_systemPipeVARseq_10:
-  title: "Venn diagram of variants"
-  url: "../mydoc/mydoc_systemPipeVARseq_10.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_10.html'>Venn diagram of variants</a>"
-
-mydoc_systemPipeVARseq_11:
-  title: "Version Information"
-  url: "../mydoc/mydoc_systemPipeVARseq_11.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_11.html'>Version Information</a>"
-
-mydoc_systemPipeVARseq_12:
-  title: "Funding"
-  url: "../mydoc/mydoc_systemPipeVARseq_12.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_12.html'>Funding</a>"
-
-mydoc_systemPipeVARseq_13:
-  title: "References"
-  url: "../mydoc/mydoc_systemPipeVARseq_13.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_13.html'>References</a>"
-
-
 mydoc_systemPipeChIPseq_01:
   title: "Introduction"
   url: "../mydoc/mydoc_systemPipeChIPseq_01.html"
@@ -608,4 +542,69 @@ mydoc_systemPipeChIPseq_14:
   title: "References"
   url: "../mydoc/mydoc_systemPipeChIPseq_14.html"
   link: "<a href='../mydoc/mydoc_systemPipeChIPseq_14.html'>References</a>"
+
+mydoc_systemPipeVARseq_01:
+  title: "Introduction"
+  url: "../mydoc/mydoc_systemPipeVARseq_01.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_01.html'>Introduction</a>"
+
+mydoc_systemPipeVARseq_02:
+  title: "Load workflow environment"
+  url: "../mydoc/mydoc_systemPipeVARseq_02.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_02.html'>Load workflow environment</a>"
+
+mydoc_systemPipeVARseq_03:
+  title: "Read preprocessing"
+  url: "../mydoc/mydoc_systemPipeVARseq_03.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_03.html'>Read preprocessing</a>"
+
+mydoc_systemPipeVARseq_04:
+  title: "Alignments"
+  url: "../mydoc/mydoc_systemPipeVARseq_04.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_04.html'>Alignments</a>"
+
+mydoc_systemPipeVARseq_05:
+  title: "Variant calling"
+  url: "../mydoc/mydoc_systemPipeVARseq_05.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_05.html'>Variant calling</a>"
+
+mydoc_systemPipeVARseq_06:
+  title: "Filter variants"
+  url: "../mydoc/mydoc_systemPipeVARseq_06.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_06.html'>Filter variants</a>"
+
+mydoc_systemPipeVARseq_07:
+  title: "Annotate filtered variants"
+  url: "../mydoc/mydoc_systemPipeVARseq_07.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_07.html'>Annotate filtered variants</a>"
+
+mydoc_systemPipeVARseq_08:
+  title: "Combine annotation results among samples"
+  url: "../mydoc/mydoc_systemPipeVARseq_08.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_08.html'>Combine annotation results among samples</a>"
+
+mydoc_systemPipeVARseq_09:
+  title: "Summary statistics of variants"
+  url: "../mydoc/mydoc_systemPipeVARseq_09.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_09.html'>Summary statistics of variants</a>"
+
+mydoc_systemPipeVARseq_10:
+  title: "Venn diagram of variants"
+  url: "../mydoc/mydoc_systemPipeVARseq_10.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_10.html'>Venn diagram of variants</a>"
+
+mydoc_systemPipeVARseq_11:
+  title: "Version Information"
+  url: "../mydoc/mydoc_systemPipeVARseq_11.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_11.html'>Version Information</a>"
+
+mydoc_systemPipeVARseq_12:
+  title: "Funding"
+  url: "../mydoc/mydoc_systemPipeVARseq_12.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_12.html'>Funding</a>"
+
+mydoc_systemPipeVARseq_13:
+  title: "References"
+  url: "../mydoc/mydoc_systemPipeVARseq_13.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_13.html'>References</a>"
 
