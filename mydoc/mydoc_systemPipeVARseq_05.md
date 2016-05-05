@@ -1,7 +1,7 @@
 ---
 title: Variant calling
 keywords: 
-last_updated: Wed May  4 19:12:05 2016
+last_updated: Wed May  4 21:29:45 2016
 ---
 
 The following performs variant calling with `GATK`, `BCFtools` and `VariantTools` 
@@ -27,14 +27,14 @@ provided by `systemPipeRdata`.
 
 {% highlight r %}
 writeTargetsout(x=args, file="targets_bam.txt")
-system("java -jar CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
-# system("java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
-args <- systemArgs(sysma="gatk.param", mytargets="targets_bam.txt")
+system("java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
+args <- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
 resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-writeTargetsout(x=args, file="targets_gatk.txt")
+unlink(outfile1(args), recursive = TRUE, force = TRUE)
+writeTargetsout(x=args, file="targets_gatk.txt", overwrite=TRUE)
 {% endhighlight %}
 
 ## Variant calling with `BCFtools`
@@ -45,12 +45,13 @@ in the current working directory the parameter file `sambcf.param` and the bash 
 
 
 {% highlight r %}
-args <- systemArgs(sysma="sambcf.param", mytargets="targets_bam.txt")
+args <- systemArgs(sysma="param/sambcf.param", mytargets="targets_bam.txt")
 resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-writeTargetsout(x=args, file="targets_sambcf.txt")
+unlink(outfile1(args), recursive = TRUE, force = TRUE)
+writeTargetsout(x=args, file="targets_sambcf.txt", overwrite=TRUE)
 {% endhighlight %}
 
 ## Variant calling with `VariantTools`  
@@ -58,10 +59,10 @@ writeTargetsout(x=args, file="targets_sambcf.txt")
 
 {% highlight r %}
 library(gmapR); library(BiocParallel); library(BatchJobs)
-args <- systemArgs(sysma="vartools.param", mytargets="targets_gsnap_bam.txt")
+args <- systemArgs(sysma="param/vartools.param", mytargets="targets_gsnap_bam.txt")
 f <- function(x) {
     library(VariantTools); library(gmapR); library(systemPipeR)
-    args <- systemArgs(sysma="vartools.param", mytargets="targets_gsnap_bam.txt")
+    args <- systemArgs(sysma="param/vartools.param", mytargets="targets_gsnap_bam.txt")
     gmapGenome <- GmapGenome(systemPipeR::reference(args), directory="data", name="gmap_tair10chr", create=FALSE)
     tally.param <- TallyVariantsParam(gmapGenome, high_base_quality = 23L, indels = TRUE)
     bfl <- BamFileList(infile1(args)[x], index=character())
@@ -73,6 +74,6 @@ funs <- makeClusterFunctionsTorque("torque.tmpl")
 param <- BatchJobsParam(length(args), resources=list(walltime="20:00:00", nodes="1:ppn=1", memory="6gb"), cluster.functions=funs)
 register(param)
 d <- bplapply(seq(along=args), f)
-writeTargetsout(x=args, file="targets_vartools.txt")
+writeTargetsout(x=args, file="targets_vartools.txt", overwrite=TRUE)
 {% endhighlight %}
 

@@ -1,7 +1,7 @@
 ---
 title: Venn diagram of variants
 keywords: 
-last_updated: Wed May  4 19:12:05 2016
+last_updated: Wed May  4 21:29:45 2016
 ---
 
 The venn diagram utilities defined by the `systemPipeR` package can be used to
@@ -11,14 +11,17 @@ comparing four sampes for each of the two variant callers.
 
 
 {% highlight r %}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
 varlist <- sapply(names(outpaths(args))[1:4], function(x) as.character(read.delim(outpaths(args)[x])$VARID))
 vennset_gatk <- overLapper(varlist, type="vennsets")
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
 varlist <- sapply(names(outpaths(args))[1:4], function(x) as.character(read.delim(outpaths(args)[x])$VARID))
 vennset_bcf <- overLapper(varlist, type="vennsets")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+varlist <- sapply(names(outpaths(args))[1:4], function(x) as.character(read.delim(outpaths(args)[x])$VARID))
+vennset_vartools <- overLapper(varlist, type="vennsets")
 pdf("./results/vennplot_var.pdf")
-vennPlot(list(vennset_gatk, vennset_bcf), mymain="", mysub="GATK: red; BCFtools: blue", colmode=2, ccol=c("blue", "red"))
+vennPlot(list(vennset_gatk, vennset_bcf, vennset_vartools), mymain="", mysub="GATK: red; BCFtools: blue; VariantTools: green", colmode=2, ccol=c("red", "blue", "green"))
 dev.off()
 {% endhighlight %}
 

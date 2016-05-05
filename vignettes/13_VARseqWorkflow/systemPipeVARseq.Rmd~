@@ -177,7 +177,7 @@ sequence using the highly variant tolerant short read aligner `BWA-MEM`
 defined in the `bwa.param` file.
 
 ```{r load_sysargs, eval=FALSE}
-args <- systemArgs(sysma="bwa.param", mytargets="targets.txt")
+args <- systemArgs(sysma="param/bwa.param", mytargets="targets.txt")
 sysargs(args)[1] # Command-line parameters for first FASTQ file
 ```
 
@@ -185,6 +185,7 @@ sysargs(args)[1] # Command-line parameters for first FASTQ file
 Runs the alignments sequentially (_e.g._ on a single machine)
 
 ```{r bwa_serial, eval=FALSE}
+moduleload(modules(args))
 bampaths <- runCommandline(args=args)
 ```
 
@@ -214,11 +215,11 @@ multiple nodes of a computer cluster that uses Torque as scheduler.
 
 ```{r gsnap_parallel, eval=FALSE}
 library(gmapR); library(BiocParallel); library(BatchJobs)
-gmapGenome <- GmapGenome(reference(args), directory="data", name="gmap_tair10chr", create=TRUE)
-args <- systemArgs(sysma="gsnap.param", mytargets="targetsPE.txt")
+args <- systemArgs(sysma="param/gsnap.param", mytargets="targetsPE.txt")
+gmapGenome <- GmapGenome(systemPipeR::reference(args), directory="data", name="gmap_tair10chr", create=TRUE)
 f <- function(x) {
     library(gmapR); library(systemPipeR)
-    args <- systemArgs(sysma="gsnap.param", mytargets="targetsPE.txt")
+    args <- systemArgs(sysma="param/gsnap.param", mytargets="targetsPE.txt")
     gmapGenome <- GmapGenome(reference(args), directory="data", name="gmap_tair10chr", create=FALSE)
     p <- GsnapParam(genome=gmapGenome, unique_only=TRUE, molecule="DNA", max_mismatches=3)
     o <- gsnap(input_a=infile1(args)[x], input_b=infile2(args)[x], params=p, output=outfile1(args)[x])
@@ -227,7 +228,7 @@ funs <- makeClusterFunctionsTorque("torque.tmpl")
 param <- BatchJobsParam(length(args), resources=list(walltime="20:00:00", nodes="1:ppn=1", memory="6gb"), cluster.functions=funs)
 register(param)
 d <- bplapply(seq(along=args), f)
-writeTargetsout(x=args, file="targets_gsnap_bam.txt")
+writeTargetsout(x=args, file="targets_gsnap_bam.txt", overwrite=TRUE)
 ```
 
 
@@ -279,14 +280,14 @@ provided by `systemPipeRdata`.
 
 ```{r run_gatk, eval=FALSE}
 writeTargetsout(x=args, file="targets_bam.txt")
-system("java -jar CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
-# system("java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
-args <- systemArgs(sysma="gatk.param", mytargets="targets_bam.txt")
+system("java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
+args <- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
 resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-writeTargetsout(x=args, file="targets_gatk.txt")
+unlink(outfile1(args), recursive = TRUE, force = TRUE)
+writeTargetsout(x=args, file="targets_gatk.txt", overwrite=TRUE)
 ```
 
 ## Variant calling with `BCFtools`
@@ -296,22 +297,23 @@ in the current working directory the parameter file `sambcf.param` and the bash 
 `sambcf_run.sh`.
 
 ```{r run_bcftools, eval=FALSE}
-args <- systemArgs(sysma="sambcf.param", mytargets="targets_bam.txt")
+args <- systemArgs(sysma="param/sambcf.param", mytargets="targets_bam.txt")
 resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-writeTargetsout(x=args, file="targets_sambcf.txt")
+unlink(outfile1(args), recursive = TRUE, force = TRUE)
+writeTargetsout(x=args, file="targets_sambcf.txt", overwrite=TRUE)
 ```
 
 ## Variant calling with `VariantTools`  
 
 ```{r run_varianttools, eval=FALSE}
 library(gmapR); library(BiocParallel); library(BatchJobs)
-args <- systemArgs(sysma="vartools.param", mytargets="targets_gsnap_bam.txt")
+args <- systemArgs(sysma="param/vartools.param", mytargets="targets_gsnap_bam.txt")
 f <- function(x) {
     library(VariantTools); library(gmapR); library(systemPipeR)
-    args <- systemArgs(sysma="vartools.param", mytargets="targets_gsnap_bam.txt")
+    args <- systemArgs(sysma="param/vartools.param", mytargets="targets_gsnap_bam.txt")
     gmapGenome <- GmapGenome(systemPipeR::reference(args), directory="data", name="gmap_tair10chr", create=FALSE)
     tally.param <- TallyVariantsParam(gmapGenome, high_base_quality = 23L, indels = TRUE)
     bfl <- BamFileList(infile1(args)[x], index=character())
@@ -323,7 +325,7 @@ funs <- makeClusterFunctionsTorque("torque.tmpl")
 param <- BatchJobsParam(length(args), resources=list(walltime="20:00:00", nodes="1:ppn=1", memory="6gb"), cluster.functions=funs)
 register(param)
 d <- bplapply(seq(along=args), f)
-writeTargetsout(x=args, file="targets_vartools.txt")
+writeTargetsout(x=args, file="targets_vartools.txt", overwrite=TRUE)
 ```
 
 # Filter variants
@@ -352,11 +354,12 @@ out).
 
 ```{r filter_gatk, eval=FALSE}
 library(VariantAnnotation)
-args <- systemArgs(sysma="filter_gatk.param", mytargets="targets_gatk.txt")
+library(BBmisc) # Defines suppressAll()
+args <- systemArgs(sysma="param/filter_gatk.param", mytargets="targets_gatk.txt")[1:4]
 filter <- "totalDepth(vr) >= 2 & (altDepth(vr) / totalDepth(vr) >= 0.8) & rowSums(softFilterMatrix(vr))>=1"
 # filter <- "totalDepth(vr) >= 20 & (altDepth(vr) / totalDepth(vr) >= 0.8) & rowSums(softFilterMatrix(vr))==6"
-filterVars(args, filter, varcaller="gatk", organism="A. thaliana")
-writeTargetsout(x=args, file="targets_gatk_filtered.txt")
+suppressAll(filterVars(args, filter, varcaller="gatk", organism="A. thaliana"))
+writeTargetsout(x=args, file="targets_gatk_filtered.txt", overwrite=TRUE)
 ```
 
 
@@ -367,11 +370,11 @@ similar parameter settings as in the previous filtering of the GATK
 results.
 
 ```{r filter_bcftools, eval=FALSE}
-args <- systemArgs(sysma="filter_sambcf.param", mytargets="targets_sambcf.txt")
+args <- systemArgs(sysma="param/filter_sambcf.param", mytargets="targets_sambcf.txt")[1:4]
 filter <- "rowSums(vr) >= 2 & (rowSums(vr[,3:4])/rowSums(vr[,1:4]) >= 0.8)"
 # filter <- "rowSums(vr) >= 20 & (rowSums(vr[,3:4])/rowSums(vr[,1:4]) >= 0.8)"
-filterVars(args, filter, varcaller="bcftools", organism="A. thaliana")
-writeTargetsout(x=args, file="targets_sambcf_filtered.txt")
+suppressAll(filterVars(args, filter, varcaller="bcftools", organism="A. thaliana"))
+writeTargetsout(x=args, file="targets_sambcf_filtered.txt", overwrite=TRUE)
 ```
 
 ## Filter variants called by `VariantTools` 
@@ -381,11 +384,19 @@ similar parameter settings as in the previous filtering of the GATK
 results.
 
 ```{r filter_varianttools, eval=FALSE}
-args <- systemArgs(sysma="filter_vartools.param", mytargets="targets_vartools.txt")
+library(VariantAnnotation)
+library(BBmisc) # Defines suppressAll()
+args <- systemArgs(sysma="param/filter_vartools.param", mytargets="targets_vartools.txt")[1:4]
 filter <- "(values(vr)$n.read.pos.ref + values(vr)$n.read.pos) >= 2 & (values(vr)$n.read.pos / (values(vr)$n.read.pos.ref + values(vr)$n.read.pos) >= 0.8)"
 # filter <- "(values(vr)$n.read.pos.ref + values(vr)$n.read.pos) >= 20 & (values(vr)$n.read.pos / (values(vr)$n.read.pos.ref + values(vr)$n.read.pos) >= 0.8)"
 filterVars(args, filter, varcaller="vartools", organism="A. thaliana")
-writeTargetsout(x=args, file="targets_vartools_filtered.txt")
+writeTargetsout(x=args, file="targets_vartools_filtered.txt", overwrite=TRUE)
+```
+
+Check filtering outcome for one sample
+```{r check_filter, eval=FALSE}
+length(as(readVcf(infile1(args)[1], genome="Ath"), "VRanges")[,1])
+length(as(readVcf(outpaths(args)[1], genome="Ath"), "VRanges")[,1])
 ```
 
 # Annotate filtered variants
@@ -402,30 +413,34 @@ files which are stored in a new `SYSargs` instance.
 
 ```{r annotate_gatk, eval=FALSE}
 library("GenomicFeatures")
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
 txdb <- loadDb("./data/tair10.sqlite")
 fa <- FaFile(systemPipeR::reference(args))
-variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana")
+suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana"))
 ```
 
 ## Annotate filtered variants called by `BCFtools`
 
 ```{r annotate_bcftools, eval=FALSE}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
 txdb <- loadDb("./data/tair10.sqlite")
 fa <- FaFile(systemPipeR::reference(args))
-variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana")
+suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana"))
 ```
 
 ## Annotate filtered variants called by `VariantTools`
 
 ```{r annotate_varianttools, eval=FALSE}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
 txdb <- loadDb("./data/tair10.sqlite")
 fa <- FaFile(systemPipeR::reference(args))
-variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana")
+suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana"))
 ```
 
+View annotation result for single sample
+```{r view_annotation, eval=FALSE}
+read.delim(outpaths(args)[1])[38:40,]
+```
 
 
 # Combine annotation results among samples
@@ -442,7 +457,7 @@ the annotation reports. To omit filtering, one can use the setting
 ## Combine results from `GATK`  
 
 ```{r combine_gatk, eval=FALSE}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
 combineDF <- combineVarReports(args, filtercol=c(Consequence="nonsynonymous"))
 write.table(combineDF, "./results/combineDF_nonsyn_gatk.xls", quote=FALSE, row.names=FALSE, sep="\t")
 ```
@@ -450,7 +465,7 @@ write.table(combineDF, "./results/combineDF_nonsyn_gatk.xls", quote=FALSE, row.n
 ## Combine results from `BCFtools`  
 
 ```{r combine_bcftools, eval=FALSE}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
 combineDF <- combineVarReports(args, filtercol=c(Consequence="nonsynonymous"))
 write.table(combineDF, "./results/combineDF_nonsyn_sambcf.xls", quote=FALSE, row.names=FALSE, sep="\t")
 ```
@@ -458,9 +473,10 @@ write.table(combineDF, "./results/combineDF_nonsyn_sambcf.xls", quote=FALSE, row
 ## Combine results from `VariantTools`
 
 ```{r combine_varianttools, eval=FALSE}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
 combineDF <- combineVarReports(args, filtercol=c(Consequence="nonsynonymous"))
 write.table(combineDF, "./results/combineDF_nonsyn_vartools.xls", quote=FALSE, row.names=FALSE, sep="\t")
+combineDF[2:4,] 
 ```
 
 # Summary statistics of variants
@@ -471,21 +487,24 @@ included in the anntation reports.
 ## Summary for `GATK`
 
 ```{r summary_gatk, eval=FALSE}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+varSummary(args)
 write.table(varSummary(args), "./results/variantStats_gatk.xls", quote=FALSE, col.names = NA, sep="\t")
 ```
 
 ## Summary for `BCFtools`
 
 ```{r summary_bcftools, eval=FALSE}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+varSummary(args)
 write.table(varSummary(args), "./results/variantStats_sambcf.xls", quote=FALSE, col.names = NA, sep="\t")
 ```
 
 ## Summary for `VariantTools`  
 
 ```{r summary_varianttools, eval=FALSE}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+varSummary(args)
 write.table(varSummary(args), "./results/variantStats_vartools.xls", quote=FALSE, col.names = NA, sep="\t")
 ```
 
@@ -497,14 +516,17 @@ and/or variant callers. The below generates a 4-way venn diagram
 comparing four sampes for each of the two variant callers.
 
 ```{r venn_diagram, eval=FALSE}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
 varlist <- sapply(names(outpaths(args))[1:4], function(x) as.character(read.delim(outpaths(args)[x])$VARID))
 vennset_gatk <- overLapper(varlist, type="vennsets")
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
 varlist <- sapply(names(outpaths(args))[1:4], function(x) as.character(read.delim(outpaths(args)[x])$VARID))
 vennset_bcf <- overLapper(varlist, type="vennsets")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+varlist <- sapply(names(outpaths(args))[1:4], function(x) as.character(read.delim(outpaths(args)[x])$VARID))
+vennset_vartools <- overLapper(varlist, type="vennsets")
 pdf("./results/vennplot_var.pdf")
-vennPlot(list(vennset_gatk, vennset_bcf), mymain="", mysub="GATK: red; BCFtools: blue", colmode=2, ccol=c("blue", "red"))
+vennPlot(list(vennset_gatk, vennset_bcf, vennset_vartools), mymain="", mysub="GATK: red; BCFtools: blue; VariantTools: green", colmode=2, ccol=c("red", "blue", "green"))
 dev.off()
 ```
 

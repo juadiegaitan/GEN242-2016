@@ -1,7 +1,7 @@
 ---
 title: Summary statistics of variants
 keywords: 
-last_updated: Wed May  4 19:12:05 2016
+last_updated: Wed May  4 21:29:45 2016
 ---
 
 The `varSummary` function counts the number of variants for each feature type
@@ -11,7 +11,8 @@ included in the anntation reports.
 
 
 {% highlight r %}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+varSummary(args)
 write.table(varSummary(args), "./results/variantStats_gatk.xls", quote=FALSE, col.names = NA, sep="\t")
 {% endhighlight %}
 
@@ -19,7 +20,8 @@ write.table(varSummary(args), "./results/variantStats_gatk.xls", quote=FALSE, co
 
 
 {% highlight r %}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+varSummary(args)
 write.table(varSummary(args), "./results/variantStats_sambcf.xls", quote=FALSE, col.names = NA, sep="\t")
 {% endhighlight %}
 
@@ -27,7 +29,8 @@ write.table(varSummary(args), "./results/variantStats_sambcf.xls", quote=FALSE, 
 
 
 {% highlight r %}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+varSummary(args)
 write.table(varSummary(args), "./results/variantStats_vartools.xls", quote=FALSE, col.names = NA, sep="\t")
 {% endhighlight %}
 

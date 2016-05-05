@@ -1,7 +1,7 @@
 ---
 title: Combine annotation results among samples
 keywords: 
-last_updated: Wed May  4 19:12:05 2016
+last_updated: Wed May  4 21:29:45 2016
 ---
 
 To simplify comparisons among samples, the \Rfunction{combineVarReports}
@@ -17,7 +17,7 @@ the annotation reports. To omit filtering, one can use the setting
 
 
 {% highlight r %}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
 combineDF <- combineVarReports(args, filtercol=c(Consequence="nonsynonymous"))
 write.table(combineDF, "./results/combineDF_nonsyn_gatk.xls", quote=FALSE, row.names=FALSE, sep="\t")
 {% endhighlight %}
@@ -26,7 +26,7 @@ write.table(combineDF, "./results/combineDF_nonsyn_gatk.xls", quote=FALSE, row.n
 
 
 {% highlight r %}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
 combineDF <- combineVarReports(args, filtercol=c(Consequence="nonsynonymous"))
 write.table(combineDF, "./results/combineDF_nonsyn_sambcf.xls", quote=FALSE, row.names=FALSE, sep="\t")
 {% endhighlight %}
@@ -35,8 +35,9 @@ write.table(combineDF, "./results/combineDF_nonsyn_sambcf.xls", quote=FALSE, row
 
 
 {% highlight r %}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
 combineDF <- combineVarReports(args, filtercol=c(Consequence="nonsynonymous"))
 write.table(combineDF, "./results/combineDF_nonsyn_vartools.xls", quote=FALSE, row.names=FALSE, sep="\t")
+combineDF[2:4,] 
 {% endhighlight %}
 

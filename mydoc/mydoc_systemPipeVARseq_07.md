@@ -1,7 +1,7 @@
 ---
 title: Annotate filtered variants
 keywords: 
-last_updated: Wed May  4 19:12:05 2016
+last_updated: Wed May  4 21:29:45 2016
 ---
 
 The function `variantReport` generates a variant report using
@@ -17,31 +17,36 @@ files which are stored in a new `SYSargs` instance.
 
 {% highlight r %}
 library("GenomicFeatures")
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
 txdb <- loadDb("./data/tair10.sqlite")
 fa <- FaFile(systemPipeR::reference(args))
-variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana")
+suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana"))
 {% endhighlight %}
 
 ## Annotate filtered variants called by `BCFtools`
 
 
 {% highlight r %}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
 txdb <- loadDb("./data/tair10.sqlite")
 fa <- FaFile(systemPipeR::reference(args))
-variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana")
+suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana"))
 {% endhighlight %}
 
 ## Annotate filtered variants called by `VariantTools`
 
 
 {% highlight r %}
-args <- systemArgs(sysma="annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
 txdb <- loadDb("./data/tair10.sqlite")
 fa <- FaFile(systemPipeR::reference(args))
-variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana")
+suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana"))
 {% endhighlight %}
 
+View annotation result for single sample
+
+{% highlight r %}
+read.delim(outpaths(args)[1])[38:40,]
+{% endhighlight %}
 
 

@@ -1,7 +1,7 @@
 ---
 title: Alignments
 keywords: 
-last_updated: Wed May  4 19:12:05 2016
+last_updated: Wed May  4 21:29:45 2016
 ---
 
 ## Read mapping with `BWA-MEM` 
@@ -13,7 +13,7 @@ defined in the `bwa.param` file.
 
 
 {% highlight r %}
-args <- systemArgs(sysma="bwa.param", mytargets="targets.txt")
+args <- systemArgs(sysma="param/bwa.param", mytargets="targets.txt")
 sysargs(args)[1] # Command-line parameters for first FASTQ file
 {% endhighlight %}
 
@@ -22,6 +22,7 @@ Runs the alignments sequentially (_e.g._ on a single machine)
 
 
 {% highlight r %}
+moduleload(modules(args))
 bampaths <- runCommandline(args=args)
 {% endhighlight %}
 
@@ -54,11 +55,11 @@ multiple nodes of a computer cluster that uses Torque as scheduler.
 
 {% highlight r %}
 library(gmapR); library(BiocParallel); library(BatchJobs)
-gmapGenome <- GmapGenome(reference(args), directory="data", name="gmap_tair10chr", create=TRUE)
-args <- systemArgs(sysma="gsnap.param", mytargets="targetsPE.txt")
+args <- systemArgs(sysma="param/gsnap.param", mytargets="targetsPE.txt")
+gmapGenome <- GmapGenome(systemPipeR::reference(args), directory="data", name="gmap_tair10chr", create=TRUE)
 f <- function(x) {
     library(gmapR); library(systemPipeR)
-    args <- systemArgs(sysma="gsnap.param", mytargets="targetsPE.txt")
+    args <- systemArgs(sysma="param/gsnap.param", mytargets="targetsPE.txt")
     gmapGenome <- GmapGenome(reference(args), directory="data", name="gmap_tair10chr", create=FALSE)
     p <- GsnapParam(genome=gmapGenome, unique_only=TRUE, molecule="DNA", max_mismatches=3)
     o <- gsnap(input_a=infile1(args)[x], input_b=infile2(args)[x], params=p, output=outfile1(args)[x])
@@ -67,7 +68,7 @@ funs <- makeClusterFunctionsTorque("torque.tmpl")
 param <- BatchJobsParam(length(args), resources=list(walltime="20:00:00", nodes="1:ppn=1", memory="6gb"), cluster.functions=funs)
 register(param)
 d <- bplapply(seq(along=args), f)
-writeTargetsout(x=args, file="targets_gsnap_bam.txt")
+writeTargetsout(x=args, file="targets_gsnap_bam.txt", overwrite=TRUE)
 {% endhighlight %}
 
 

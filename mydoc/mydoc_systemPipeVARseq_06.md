@@ -1,7 +1,7 @@
 ---
 title: Filter variants
 keywords: 
-last_updated: Wed May  4 19:12:05 2016
+last_updated: Wed May  4 21:29:45 2016
 ---
 
 The function `filterVars` filters VCF files based on user definable
@@ -29,11 +29,12 @@ out).
 
 {% highlight r %}
 library(VariantAnnotation)
-args <- systemArgs(sysma="filter_gatk.param", mytargets="targets_gatk.txt")
+library(BBmisc) # Defines suppressAll()
+args <- systemArgs(sysma="param/filter_gatk.param", mytargets="targets_gatk.txt")[1:4]
 filter <- "totalDepth(vr) >= 2 & (altDepth(vr) / totalDepth(vr) >= 0.8) & rowSums(softFilterMatrix(vr))>=1"
 # filter <- "totalDepth(vr) >= 20 & (altDepth(vr) / totalDepth(vr) >= 0.8) & rowSums(softFilterMatrix(vr))==6"
-filterVars(args, filter, varcaller="gatk", organism="A. thaliana")
-writeTargetsout(x=args, file="targets_gatk_filtered.txt")
+suppressAll(filterVars(args, filter, varcaller="gatk", organism="A. thaliana"))
+writeTargetsout(x=args, file="targets_gatk_filtered.txt", overwrite=TRUE)
 {% endhighlight %}
 
 
@@ -45,11 +46,11 @@ results.
 
 
 {% highlight r %}
-args <- systemArgs(sysma="filter_sambcf.param", mytargets="targets_sambcf.txt")
+args <- systemArgs(sysma="param/filter_sambcf.param", mytargets="targets_sambcf.txt")[1:4]
 filter <- "rowSums(vr) >= 2 & (rowSums(vr[,3:4])/rowSums(vr[,1:4]) >= 0.8)"
 # filter <- "rowSums(vr) >= 20 & (rowSums(vr[,3:4])/rowSums(vr[,1:4]) >= 0.8)"
-filterVars(args, filter, varcaller="bcftools", organism="A. thaliana")
-writeTargetsout(x=args, file="targets_sambcf_filtered.txt")
+suppressAll(filterVars(args, filter, varcaller="bcftools", organism="A. thaliana"))
+writeTargetsout(x=args, file="targets_sambcf_filtered.txt", overwrite=TRUE)
 {% endhighlight %}
 
 ## Filter variants called by `VariantTools` 
@@ -60,10 +61,19 @@ results.
 
 
 {% highlight r %}
-args <- systemArgs(sysma="filter_vartools.param", mytargets="targets_vartools.txt")
+library(VariantAnnotation)
+library(BBmisc) # Defines suppressAll()
+args <- systemArgs(sysma="param/filter_vartools.param", mytargets="targets_vartools.txt")[1:4]
 filter <- "(values(vr)$n.read.pos.ref + values(vr)$n.read.pos) >= 2 & (values(vr)$n.read.pos / (values(vr)$n.read.pos.ref + values(vr)$n.read.pos) >= 0.8)"
 # filter <- "(values(vr)$n.read.pos.ref + values(vr)$n.read.pos) >= 20 & (values(vr)$n.read.pos / (values(vr)$n.read.pos.ref + values(vr)$n.read.pos) >= 0.8)"
 filterVars(args, filter, varcaller="vartools", organism="A. thaliana")
-writeTargetsout(x=args, file="targets_vartools_filtered.txt")
+writeTargetsout(x=args, file="targets_vartools_filtered.txt", overwrite=TRUE)
+{% endhighlight %}
+
+Check filtering outcome for one sample
+
+{% highlight r %}
+length(as(readVcf(infile1(args)[1], genome="Ath"), "VRanges")[,1])
+length(as(readVcf(outpaths(args)[1], genome="Ath"), "VRanges")[,1])
 {% endhighlight %}
 
