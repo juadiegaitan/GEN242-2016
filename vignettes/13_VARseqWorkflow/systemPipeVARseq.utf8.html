@@ -1670,13 +1670,14 @@ sequence using the highly variant tolerant short read aligner <code>BWA-MEM</cod
 defined in the <code>bwa.param</code> file.</p>
 
 <p><code>r
-args &lt;- systemArgs(sysma="bwa.param", mytargets="targets.txt")
+args &lt;- systemArgs(sysma="param/bwa.param", mytargets="targets.txt")
 sysargs(args)[1] # Command-line parameters for first FASTQ file
 </code></p>
 
 <p>Runs the alignments sequentially (<em>e.g.</em> on a single machine)</p>
 
 <p><code>r
+moduleload(modules(args))
 bampaths &lt;- runCommandline(args=args)
 </code></p>
 
@@ -1706,11 +1707,11 @@ multiple nodes of a computer cluster that uses Torque as scheduler.</p>
 
 <p><code>r
 library(gmapR); library(BiocParallel); library(BatchJobs)
-gmapGenome &lt;- GmapGenome(reference(args), directory="data", name="gmap_tair10chr", create=TRUE)
-args &lt;- systemArgs(sysma="gsnap.param", mytargets="targetsPE.txt")
+args &lt;- systemArgs(sysma="param/gsnap.param", mytargets="targetsPE.txt")
+gmapGenome &lt;- GmapGenome(systemPipeR::reference(args), directory="data", name="gmap_tair10chr", create=TRUE)
 f &lt;- function(x) {
     library(gmapR); library(systemPipeR)
-    args &lt;- systemArgs(sysma="gsnap.param", mytargets="targetsPE.txt")
+    args &lt;- systemArgs(sysma="param/gsnap.param", mytargets="targetsPE.txt")
     gmapGenome &lt;- GmapGenome(reference(args), directory="data", name="gmap_tair10chr", create=FALSE)
     p &lt;- GsnapParam(genome=gmapGenome, unique_only=TRUE, molecule="DNA", max_mismatches=3)
     o &lt;- gsnap(input_a=infile1(args)[x], input_b=infile2(args)[x], params=p, output=outfile1(args)[x])
@@ -1719,7 +1720,7 @@ funs &lt;- makeClusterFunctionsTorque("torque.tmpl")
 param &lt;- BatchJobsParam(length(args), resources=list(walltime="20:00:00", nodes="1:ppn=1", memory="6gb"), cluster.functions=funs)
 register(param)
 d &lt;- bplapply(seq(along=args), f)
-writeTargetsout(x=args, file="targets_gsnap_bam.txt")
+writeTargetsout(x=args, file="targets_gsnap_bam.txt", overwrite=TRUE)
 </code></p>
 
 <h2 id="read-and-alignment-stats">Read and alignment stats</h2>
@@ -1768,14 +1769,14 @@ provided by <code>systemPipeRdata</code>.</p>
 
 <p><code>r
 writeTargetsout(x=args, file="targets_bam.txt")
-system("java -jar CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
-# system("java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
-args &lt;- systemArgs(sysma="gatk.param", mytargets="targets_bam.txt")
+system("java -jar /opt/picard/1.81/CreateSequenceDictionary.jar R=./data/tair10.fasta O=./data/tair10.dict")
+args &lt;- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
 resources &lt;- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg &lt;- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-writeTargetsout(x=args, file="targets_gatk.txt")
+unlink(outfile1(args), recursive = TRUE, force = TRUE)
+writeTargetsout(x=args, file="targets_gatk.txt", overwrite=TRUE)
 </code></p>
 
 <h2 id="variant-calling-with-bcftools">Variant calling with <code>BCFtools</code></h2>
@@ -1785,22 +1786,23 @@ in the current working directory the parameter file <code>sambcf.param</code> an
 <code>sambcf_run.sh</code>.</p>
 
 <p><code>r
-args &lt;- systemArgs(sysma="sambcf.param", mytargets="targets_bam.txt")
+args &lt;- systemArgs(sysma="param/sambcf.param", mytargets="targets_bam.txt")
 resources &lt;- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg &lt;- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-writeTargetsout(x=args, file="targets_sambcf.txt")
+unlink(outfile1(args), recursive = TRUE, force = TRUE)
+writeTargetsout(x=args, file="targets_sambcf.txt", overwrite=TRUE)
 </code></p>
 
 <h2 id="variant-calling-with-varianttools">Variant calling with <code>VariantTools</code></h2>
 
 <p><code>r
 library(gmapR); library(BiocParallel); library(BatchJobs)
-args &lt;- systemArgs(sysma="vartools.param", mytargets="targets_gsnap_bam.txt")
+args &lt;- systemArgs(sysma="param/vartools.param", mytargets="targets_gsnap_bam.txt")
 f &lt;- function(x) {
     library(VariantTools); library(gmapR); library(systemPipeR)
-    args &lt;- systemArgs(sysma="vartools.param", mytargets="targets_gsnap_bam.txt")
+    args &lt;- systemArgs(sysma="param/vartools.param", mytargets="targets_gsnap_bam.txt")
     gmapGenome &lt;- GmapGenome(systemPipeR::reference(args), directory="data", name="gmap_tair10chr", create=FALSE)
     tally.param &lt;- TallyVariantsParam(gmapGenome, high_base_quality = 23L, indels = TRUE)
     bfl &lt;- BamFileList(infile1(args)[x], index=character())
@@ -1812,7 +1814,7 @@ funs &lt;- makeClusterFunctionsTorque("torque.tmpl")
 param &lt;- BatchJobsParam(length(args), resources=list(walltime="20:00:00", nodes="1:ppn=1", memory="6gb"), cluster.functions=funs)
 register(param)
 d &lt;- bplapply(seq(along=args), f)
-writeTargetsout(x=args, file="targets_vartools.txt")
+writeTargetsout(x=args, file="targets_vartools.txt", overwrite=TRUE)
 </code></p>
 
 <h1 id="filter-variants">Filter variants</h1>
@@ -1840,11 +1842,12 @@ out).</p>
 
 <p><code>r
 library(VariantAnnotation)
-args &lt;- systemArgs(sysma="filter_gatk.param", mytargets="targets_gatk.txt")
+library(BBmisc) # Defines suppressAll()
+args &lt;- systemArgs(sysma="param/filter_gatk.param", mytargets="targets_gatk.txt")[1:4]
 filter &lt;- "totalDepth(vr) &gt;= 2 &amp; (altDepth(vr) / totalDepth(vr) &gt;= 0.8) &amp; rowSums(softFilterMatrix(vr))&gt;=1"
 # filter &lt;- "totalDepth(vr) &gt;= 20 &amp; (altDepth(vr) / totalDepth(vr) &gt;= 0.8) &amp; rowSums(softFilterMatrix(vr))==6"
-filterVars(args, filter, varcaller="gatk", organism="A. thaliana")
-writeTargetsout(x=args, file="targets_gatk_filtered.txt")
+suppressAll(filterVars(args, filter, varcaller="gatk", organism="A. thaliana"))
+writeTargetsout(x=args, file="targets_gatk_filtered.txt", overwrite=TRUE)
 </code></p>
 
 <h2 id="filter-variants-called-by-bcftools">Filter variants called by <code>BCFtools</code></h2>
@@ -1854,11 +1857,11 @@ similar parameter settings as in the previous filtering of the GATK
 results.</p>
 
 <p><code>r
-args &lt;- systemArgs(sysma="filter_sambcf.param", mytargets="targets_sambcf.txt")
+args &lt;- systemArgs(sysma="param/filter_sambcf.param", mytargets="targets_sambcf.txt")[1:4]
 filter &lt;- "rowSums(vr) &gt;= 2 &amp; (rowSums(vr[,3:4])/rowSums(vr[,1:4]) &gt;= 0.8)"
 # filter &lt;- "rowSums(vr) &gt;= 20 &amp; (rowSums(vr[,3:4])/rowSums(vr[,1:4]) &gt;= 0.8)"
-filterVars(args, filter, varcaller="bcftools", organism="A. thaliana")
-writeTargetsout(x=args, file="targets_sambcf_filtered.txt")
+suppressAll(filterVars(args, filter, varcaller="bcftools", organism="A. thaliana"))
+writeTargetsout(x=args, file="targets_sambcf_filtered.txt", overwrite=TRUE)
 </code></p>
 
 <h2 id="filter-variants-called-by-varianttools">Filter variants called by <code>VariantTools</code></h2>
@@ -1868,11 +1871,20 @@ similar parameter settings as in the previous filtering of the GATK
 results.</p>
 
 <p><code>r
-args &lt;- systemArgs(sysma="filter_vartools.param", mytargets="targets_vartools.txt")
+library(VariantAnnotation)
+library(BBmisc) # Defines suppressAll()
+args &lt;- systemArgs(sysma="param/filter_vartools.param", mytargets="targets_vartools.txt")[1:4]
 filter &lt;- "(values(vr)$n.read.pos.ref + values(vr)$n.read.pos) &gt;= 2 &amp; (values(vr)$n.read.pos / (values(vr)$n.read.pos.ref + values(vr)$n.read.pos) &gt;= 0.8)"
 # filter &lt;- "(values(vr)$n.read.pos.ref + values(vr)$n.read.pos) &gt;= 20 &amp; (values(vr)$n.read.pos / (values(vr)$n.read.pos.ref + values(vr)$n.read.pos) &gt;= 0.8)"
 filterVars(args, filter, varcaller="vartools", organism="A. thaliana")
-writeTargetsout(x=args, file="targets_vartools_filtered.txt")
+writeTargetsout(x=args, file="targets_vartools_filtered.txt", overwrite=TRUE)
+</code></p>
+
+<p>Check filtering outcome for one sample</p>
+
+<p><code>r
+length(as(readVcf(infile1(args)[1], genome="Ath"), "VRanges")[,1])
+length(as(readVcf(outpaths(args)[1], genome="Ath"), "VRanges")[,1])
 </code></p>
 
 <h1 id="annotate-filtered-variants">Annotate filtered variants</h1>
@@ -1889,28 +1901,34 @@ files which are stored in a new <code>SYSargs</code> instance.</p>
 
 <p><code>r
 library("GenomicFeatures")
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
 txdb &lt;- loadDb("./data/tair10.sqlite")
 fa &lt;- FaFile(systemPipeR::reference(args))
-variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana")
+suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana"))
 </code></p>
 
 <h2 id="annotate-filtered-variants-called-by-bcftools">Annotate filtered variants called by <code>BCFtools</code></h2>
 
 <p><code>r
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
 txdb &lt;- loadDb("./data/tair10.sqlite")
 fa &lt;- FaFile(systemPipeR::reference(args))
-variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana")
+suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana"))
 </code></p>
 
 <h2 id="annotate-filtered-variants-called-by-varianttools">Annotate filtered variants called by <code>VariantTools</code></h2>
 
 <p><code>r
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
 txdb &lt;- loadDb("./data/tair10.sqlite")
 fa &lt;- FaFile(systemPipeR::reference(args))
-variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana")
+suppressAll(variantReport(args=args, txdb=txdb, fa=fa, organism="A. thaliana"))
+</code></p>
+
+<p>View annotation result for single sample</p>
+
+<p><code>r
+read.delim(outpaths(args)[1])[38:40,]
 </code></p>
 
 <h1 id="combine-annotation-results-among-samples">Combine annotation results among samples</h1>
@@ -1927,7 +1945,7 @@ the annotation reports. To omit filtering, one can use the setting
 <h2 id="combine-results-from-gatk">Combine results from <code>GATK</code></h2>
 
 <p><code>r
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
 combineDF &lt;- combineVarReports(args, filtercol=c(Consequence="nonsynonymous"))
 write.table(combineDF, "./results/combineDF_nonsyn_gatk.xls", quote=FALSE, row.names=FALSE, sep="\t")
 </code></p>
@@ -1935,7 +1953,7 @@ write.table(combineDF, "./results/combineDF_nonsyn_gatk.xls", quote=FALSE, row.n
 <h2 id="combine-results-from-bcftools">Combine results from <code>BCFtools</code></h2>
 
 <p><code>r
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
 combineDF &lt;- combineVarReports(args, filtercol=c(Consequence="nonsynonymous"))
 write.table(combineDF, "./results/combineDF_nonsyn_sambcf.xls", quote=FALSE, row.names=FALSE, sep="\t")
 </code></p>
@@ -1943,9 +1961,10 @@ write.table(combineDF, "./results/combineDF_nonsyn_sambcf.xls", quote=FALSE, row
 <h2 id="combine-results-from-varianttools">Combine results from <code>VariantTools</code></h2>
 
 <p><code>r
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
 combineDF &lt;- combineVarReports(args, filtercol=c(Consequence="nonsynonymous"))
 write.table(combineDF, "./results/combineDF_nonsyn_vartools.xls", quote=FALSE, row.names=FALSE, sep="\t")
+combineDF[2:4,] 
 </code></p>
 
 <h1 id="summary-statistics-of-variants">Summary statistics of variants</h1>
@@ -1956,21 +1975,24 @@ included in the anntation reports.</p>
 <h2 id="summary-for-gatk">Summary for <code>GATK</code></h2>
 
 <p><code>r
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+varSummary(args)
 write.table(varSummary(args), "./results/variantStats_gatk.xls", quote=FALSE, col.names = NA, sep="\t")
 </code></p>
 
 <h2 id="summary-for-bcftools">Summary for <code>BCFtools</code></h2>
 
 <p><code>r
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+varSummary(args)
 write.table(varSummary(args), "./results/variantStats_sambcf.xls", quote=FALSE, col.names = NA, sep="\t")
 </code></p>
 
 <h2 id="summary-for-varianttools">Summary for <code>VariantTools</code></h2>
 
 <p><code>r
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+varSummary(args)
 write.table(varSummary(args), "./results/variantStats_vartools.xls", quote=FALSE, col.names = NA, sep="\t")
 </code></p>
 
@@ -1982,14 +2004,17 @@ and/or variant callers. The below generates a 4-way venn diagram
 comparing four sampes for each of the two variant callers.</p>
 
 <p><code>r
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
 varlist &lt;- sapply(names(outpaths(args))[1:4], function(x) as.character(read.delim(outpaths(args)[x])$VARID))
 vennset_gatk &lt;- overLapper(varlist, type="vennsets")
-args &lt;- systemArgs(sysma="annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_sambcf_filtered.txt")
 varlist &lt;- sapply(names(outpaths(args))[1:4], function(x) as.character(read.delim(outpaths(args)[x])$VARID))
 vennset_bcf &lt;- overLapper(varlist, type="vennsets")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_vartools_filtered.txt")
+varlist &lt;- sapply(names(outpaths(args))[1:4], function(x) as.character(read.delim(outpaths(args)[x])$VARID))
+vennset_vartools &lt;- overLapper(varlist, type="vennsets")
 pdf("./results/vennplot_var.pdf")
-vennPlot(list(vennset_gatk, vennset_bcf), mymain="", mysub="GATK: red; BCFtools: blue", colmode=2, ccol=c("blue", "red"))
+vennPlot(list(vennset_gatk, vennset_bcf, vennset_vartools), mymain="", mysub="GATK: red; BCFtools: blue; VariantTools: green", colmode=2, ccol=c("red", "blue", "green"))
 dev.off()
 </code></p>
 
