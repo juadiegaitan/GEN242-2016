@@ -636,7 +636,7 @@ tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 
 dev.off()
 ```
 
-![](variant_plot.png)
+![](plot_variant.png)
 <div align="center">Figure 3: Plot variants with programmatically.</div></br>
 
 # Version Information

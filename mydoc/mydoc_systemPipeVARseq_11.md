@@ -1,7 +1,7 @@
 ---
 title: Plot variants programmatically 
 keywords: 
-last_updated: Thu May  5 11:34:28 2016
+last_updated: Thu May  5 11:37:34 2016
 ---
 
 The following plots a selected variant with `ggbio`.
@@ -21,6 +21,6 @@ tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 
 dev.off()
 {% endhighlight %}
 
-![](systemPipeVARseq_files/variant_plot.png)
+![](systemPipeVARseq_files/plot_variant.png)
 <div align="center">Figure 3: Plot variants with programmatically.</div>
 

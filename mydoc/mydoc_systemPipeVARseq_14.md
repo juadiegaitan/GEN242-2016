@@ -1,7 +1,7 @@
 ---
 title: References
 keywords: 
-last_updated: Thu May  5 11:34:28 2016
+last_updated: Thu May  5 11:37:34 2016
 ---
  
 1. Girke, Thomas (2015) systemPipeR: NGS workflow and report generation environment. NA, NA: NA; [URL](https://github.com/tgirke/systemPipeR)
