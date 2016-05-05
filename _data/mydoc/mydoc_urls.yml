@@ -83,6 +83,11 @@ mydoc_slides_13:
   url: "../mydoc_slides_13.html"
   link: "<a href='../mydoc_slides_13.html'>ChIP-Seq Overview</a>"
 
+mydoc_slides_14:
+  title: "VAR-Seq Overview"
+  url: "../mydoc_slides_14.html"
+  link: "<a href='../mydoc_slides_14.html'>VAR-Seq Overview</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
