@@ -1218,6 +1218,139 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">VAR-Seq</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="active"><a href="../mydoc/mydoc_systemPipeVARseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_05.html">5. Variant calling</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_06.html">6. Filter variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_07.html">7. Annotate filtered variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_08.html">8. Combine annotation results among samples</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_09.html">9. Summary statistics of variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_10.html">10. Venn diagram of variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_11.html">11. Plot variants programmatically</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">VAR-Seq Workflow</a>
                 <ul>
                     
@@ -1503,6 +1636,7 @@ defined in the <code>bwa.param</code> file.</p>
 <p>Runs the alignments sequentially (<em>e.g.</em> on a single machine)</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">moduleload</span><span class="p">(</span><span class="n">modules</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+<span class="n">system</span><span class="p">(</span><span class="s2">"bwa index -a bwtsw ./data/tair10.fasta"</span><span class="p">)</span>
 <span class="n">bampaths</span> <span class="o">&lt;-</span> <span class="n">runCommandline</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span></code></pre></div>
 
 <p>Alternatively, the alignment jobs can be submitted to a compute cluster,
@@ -1513,7 +1647,8 @@ here using 72 CPU cores (18 <code>qsub</code> processes each with 4 CPU cores).<
 <span class="n">resources</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">walltime</span><span class="o">=</span><span class="s2">"20:00:00"</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="n">paste0</span><span class="p">(</span><span class="s2">"1:ppn="</span><span class="p">,</span> <span class="n">cores</span><span class="p">(</span><span class="n">args</span><span class="p">)),</span> <span class="n">memory</span><span class="o">=</span><span class="s2">"10gb"</span><span class="p">)</span>
 <span class="n">reg</span> <span class="o">&lt;-</span> <span class="n">clusterRun</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">conffile</span><span class="o">=</span><span class="s2">".BatchJobs.R"</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="s2">"torque.tmpl"</span><span class="p">,</span> <span class="n">Njobs</span><span class="o">=</span><span class="m">18</span><span class="p">,</span> <span class="n">runid</span><span class="o">=</span><span class="s2">"01"</span><span class="p">,</span> 
                   <span class="n">resourceList</span><span class="o">=</span><span class="n">resources</span><span class="p">)</span>
-<span class="n">waitForJobs</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span></code></pre></div>
+<span class="n">waitForJobs</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
 
 <p>Check whether all BAM files have been created</p>
 
@@ -1555,7 +1690,7 @@ sample and how many of them aligned to the reference.</p>
 genome browser such as IGV. The corresponding URLs are written to a file
 with a path specified under <code>urlfile</code>, here <code>IGVurl.txt</code>.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">symLink2bam</span><span class="p">(</span><span class="n">sysargs</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">htmldir</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"~/.html/"</span><span class="p">,</span> <span class="s2">"somedir/"</span><span class="p">),</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">symLink2bam</span><span class="p">(</span><span class="n">sysargs</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">htmldir</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"~/.html/"</span><span class="p">,</span> <span class="s2">"projects/gen242/"</span><span class="p">),</span> 
             <span class="n">urlbase</span><span class="o">=</span><span class="s2">"http://biocluster.ucr.edu/~tgirke/"</span><span class="p">,</span> 
             <span class="n">urlfile</span><span class="o">=</span><span class="s2">"./results/IGVurl.txt"</span><span class="p">)</span></code></pre></div>
 
@@ -1575,7 +1710,7 @@ with a path specified under <code>urlfile</code>, here <code>IGVurl.txt</code>.<
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed May  4 22:57:27 2016<br/> Site last generated: May 4, 2016 <br />
+<p>Page last updated:</span> Thu May  5 11:34:28 2016<br/> Site last generated: May 5, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

@@ -1746,7 +1746,7 @@
 
 
 {
-"title": "Version Information",
+"title": "Plot variants programmatically",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeVARseq_11.html",
@@ -1757,7 +1757,7 @@
 
 
 {
-"title": "Funding",
+"title": "Version Information",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeVARseq_12.html",
@@ -1768,10 +1768,21 @@
 
 
 {
-"title": "References",
+"title": "Funding",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_systemPipeVARseq_13.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_systemPipeVARseq_14.html",
 "summary": ""
 },
 

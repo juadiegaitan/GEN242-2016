@@ -1218,6 +1218,139 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">VAR-Seq</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_05.html">5. Variant calling</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_06.html">6. Filter variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li class="active"><a href="../mydoc/mydoc_systemPipeVARseq_07.html">7. Annotate filtered variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_08.html">8. Combine annotation results among samples</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_09.html">9. Summary statistics of variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_10.html">10. Venn diagram of variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_11.html">11. Plot variants programmatically</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">VAR-Seq Workflow</a>
                 <ul>
                     
@@ -1498,6 +1631,21 @@ genes, etc.) along with confidence statistics for each variant. The parameter
 file <code>annotate_vars.param</code> defines the paths to the input and output
 files which are stored in a new <code>SYSargs</code> instance.</p>
 
+<h2 id="basics-of-annotating-variants">Basics of annotating variants</h2>
+
+<p>Variants overlapping with common annotation features can be identified with <code>locateVariants</code>.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"GenomicFeatures"</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_gatk_filtered.txt"</span><span class="p">)</span>
+<span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">loadDb</span><span class="p">(</span><span class="s2">"./data/tair10.sqlite"</span><span class="p">)</span>
+<span class="n">vcf</span> <span class="o">&lt;-</span> <span class="n">readVcf</span><span class="p">(</span><span class="n">infile1</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">],</span> <span class="s2">"A. thaliana"</span><span class="p">)</span>
+<span class="n">locateVariants</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">txdb</span><span class="p">,</span> <span class="n">CodingVariants</span><span class="p">())</span></code></pre></div>
+
+<p>Synonymous/non-synonymous variants of coding sequences are computed by the predictCoding function for variants overlapping with coding regions.</p>
+
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fa</span> <span class="o">&lt;-</span> <span class="n">FaFile</span><span class="p">(</span><span class="n">systemPipeR</span><span class="o">::</span><span class="n">reference</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+<span class="n">predictCoding</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">txdb</span><span class="p">,</span> <span class="n">seqSource</span><span class="o">=</span><span class="n">fa</span><span class="p">)</span></code></pre></div>
+
 <h2 id="annotate-filtered-variants-called-by-gatk">Annotate filtered variants called by <code>GATK</code></h2>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"GenomicFeatures"</span><span class="p">)</span>
@@ -1540,7 +1688,7 @@ files which are stored in a new <code>SYSargs</code> instance.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed May  4 22:57:27 2016<br/> Site last generated: May 4, 2016 <br />
+<p>Page last updated:</span> Thu May  5 11:34:28 2016<br/> Site last generated: May 5, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

@@ -1218,6 +1218,139 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">VAR-Seq</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_05.html">5. Variant calling</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_06.html">6. Filter variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_07.html">7. Annotate filtered variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_08.html">8. Combine annotation results among samples</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_09.html">9. Summary statistics of variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_10.html">10. Venn diagram of variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_11.html">11. Plot variants programmatically</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">VAR-Seq Workflow</a>
                 <ul>
                     
@@ -1678,6 +1811,7 @@ sysargs(args)[1] # Command-line parameters for first FASTQ file
 
 <p><code>r
 moduleload(modules(args))
+system("bwa index -a bwtsw ./data/tair10.fasta")
 bampaths &lt;- runCommandline(args=args)
 </code></p>
 
@@ -1691,6 +1825,7 @@ resources &lt;- list(walltime="20:00:00", nodes=paste0("1:ppn=", cores(args)), m
 reg &lt;- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01", 
                   resourceList=resources)
 waitForJobs(reg)
+writeTargetsout(x=args, file="targets_bam.txt", overwrite=TRUE)
 </code></p>
 
 <p>Check whether all BAM files have been created</p>
@@ -1740,7 +1875,7 @@ genome browser such as IGV. The corresponding URLs are written to a file
 with a path specified under <code>urlfile</code>, here <code>IGVurl.txt</code>.</p>
 
 <p><code>r
-symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"), 
+symLink2bam(sysargs=args, htmldir=c("~/.html/", "projects/gen242/"), 
             urlbase="http://biocluster.ucr.edu/~tgirke/", 
             urlfile="./results/IGVurl.txt")
 </code></p>
@@ -1768,7 +1903,6 @@ current working directory. Samples files for <code>gatk.param</code> and
 provided by <code>systemPipeRdata</code>.</p>
 
 <p><code>r
-writeTargetsout(x=args, file="targets_bam.txt")
 moduleload("picard/1.130")
 system("picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict")
 args &lt;- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
@@ -1776,7 +1910,7 @@ resources &lt;- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10g
 reg &lt;- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-unlink(outfile1(args), recursive = TRUE, force = TRUE)
+# unlink(outfile1(args), recursive = TRUE, force = TRUE)
 writeTargetsout(x=args, file="targets_gatk.txt", overwrite=TRUE)
 </code></p>
 
@@ -1792,7 +1926,7 @@ resources &lt;- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10g
 reg &lt;- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-unlink(outfile1(args), recursive = TRUE, force = TRUE)
+# unlink(outfile1(args), recursive = TRUE, force = TRUE)
 writeTargetsout(x=args, file="targets_sambcf.txt", overwrite=TRUE)
 </code></p>
 
@@ -1816,6 +1950,20 @@ param &lt;- BatchJobsParam(length(args), resources=list(walltime="20:00:00", nod
 register(param)
 d &lt;- bplapply(seq(along=args), f)
 writeTargetsout(x=args, file="targets_vartools.txt", overwrite=TRUE)
+</code></p>
+
+<h2 id="inspect-vcf-file">Inspect VCF file</h2>
+
+<p>VCF files can be imported into R with the <code>readVcf</code> function. Both <code>VCF</code> and <code>VRanges</code> objects provide
+convenient data structure for working with variant data (<em>e.g.</em> SNP quality filtering).</p>
+
+<p><code>r
+library(VariantAnnotation)
+args &lt;- systemArgs(sysma="param/filter_gatk.param", mytargets="targets_gatk.txt")
+vcf &lt;- readVcf(infile1(args)[1], "A. thaliana")
+vcf
+vr &lt;- as(vcf, "VRanges")
+vr
 </code></p>
 
 <h1 id="filter-variants">Filter variants</h1>
@@ -1897,6 +2045,24 @@ each sample is written to a tabular file containing genomic context annotations
 genes, etc.) along with confidence statistics for each variant. The parameter
 file <code>annotate_vars.param</code> defines the paths to the input and output
 files which are stored in a new <code>SYSargs</code> instance.</p>
+
+<h2 id="basics-of-annotating-variants">Basics of annotating variants</h2>
+
+<p>Variants overlapping with common annotation features can be identified with <code>locateVariants</code>.</p>
+
+<p><code>r
+library("GenomicFeatures")
+args &lt;- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+txdb &lt;- loadDb("./data/tair10.sqlite")
+vcf &lt;- readVcf(infile1(args)[1], "A. thaliana")
+locateVariants(vcf, txdb, CodingVariants())
+</code>
+Synonymous/non-synonymous variants of coding sequences are computed by the predictCoding function for variants overlapping with coding regions.</p>
+
+<p><code>r
+fa &lt;- FaFile(systemPipeR::reference(args))
+predictCoding(vcf, txdb, seqSource=fa)
+</code></p>
 
 <h2 id="annotate-filtered-variants-called-by-gatk">Annotate filtered variants called by <code>GATK</code></h2>
 
@@ -2023,6 +2189,28 @@ dev.off()
 <div align="center">Figure 2: Venn Diagram for 4 samples from GATK and BCFtools</div>
 <p>&lt;/br&gt;</p>
 
+<h1 id="plot-variants-programmatically">Plot variants programmatically</h1>
+
+<p>The following plots a selected variant with <code>ggbio</code>.</p>
+
+<p><code>r
+library(ggbio)
+mychr &lt;- "ChrC"; mystart &lt;- 11000; myend &lt;- 13000
+args &lt;- systemArgs(sysma="param/bwa.param", mytargets="targets.txt")
+ga &lt;- readGAlignments(outpaths(args)[1], use.names=TRUE, param=ScanBamParam(which=GRanges(mychr, IRanges(mystart, myend))))
+p1 &lt;- autoplot(ga, geom = "rect")
+p2 &lt;- autoplot(ga, geom = "line", stat = "coverage")
+p3 &lt;- autoplot(vcf[seqnames(vcf)==mychr], type = "fixed") + xlim(mystart, myend) + theme(legend.position = "none", axis.text.y = element_blank(), axis.ticks.y=element_blank())
+p4 &lt;- autoplot(txdb, which=GRanges(mychr, IRanges(mystart, myend)), names.expr = "gene_id")
+png("./results/plot_variant.png")
+tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 0.1, 0.35)) + ylab("")
+dev.off()
+</code></p>
+
+<p><img src="variant_plot.png" alt="" /></p>
+<div align="center">Figure 3: Plot variants with programmatically.</div>
+<p>&lt;/br&gt;</p>
+
 <h1 id="version-information">Version Information</h1>
 
 <p><code>r
@@ -2093,7 +2281,7 @@ Health (NIH) and the National Science Foundation (NSF).</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
- Site last generated: May 4, 2016 <br />
+ Site last generated: May 5, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

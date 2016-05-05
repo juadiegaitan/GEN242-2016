@@ -57,6 +57,7 @@ targets[,-c(5,6)]
 
 ## ----bwa_serial, eval=FALSE----------------------------------------------
 ## moduleload(modules(args))
+## system("bwa index -a bwtsw ./data/tair10.fasta")
 ## bampaths <- runCommandline(args=args)
 
 ## ----bwa_parallel, eval=FALSE--------------------------------------------
@@ -66,6 +67,7 @@ targets[,-c(5,6)]
 ## reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
 ##                   resourceList=resources)
 ## waitForJobs(reg)
+## writeTargetsout(x=args, file="targets_bam.txt", overwrite=TRUE)
 
 ## ----check_file_presence, eval=FALSE-------------------------------------
 ## file.exists(outpaths(args))
@@ -92,12 +94,11 @@ targets[,-c(5,6)]
 ## write.table(read_statsDF, "results/alignStats.xls", row.names=FALSE, quote=FALSE, sep="\t")
 
 ## ----symbolic_links, eval=FALSE------------------------------------------
-## symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"),
+## symLink2bam(sysargs=args, htmldir=c("~/.html/", "projects/gen242/"),
 ##             urlbase="http://biocluster.ucr.edu/~tgirke/",
 ##             urlfile="./results/IGVurl.txt")
 
 ## ----run_gatk, eval=FALSE------------------------------------------------
-## writeTargetsout(x=args, file="targets_bam.txt")
 ## moduleload("picard/1.130")
 ## system("picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict")
 ## args <- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
@@ -105,7 +106,7 @@ targets[,-c(5,6)]
 ## reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
 ##                   resourceList=resources)
 ## waitForJobs(reg)
-## unlink(outfile1(args), recursive = TRUE, force = TRUE)
+## # unlink(outfile1(args), recursive = TRUE, force = TRUE)
 ## writeTargetsout(x=args, file="targets_gatk.txt", overwrite=TRUE)
 
 ## ----run_bcftools, eval=FALSE--------------------------------------------
@@ -114,7 +115,7 @@ targets[,-c(5,6)]
 ## reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
 ##                   resourceList=resources)
 ## waitForJobs(reg)
-## unlink(outfile1(args), recursive = TRUE, force = TRUE)
+## # unlink(outfile1(args), recursive = TRUE, force = TRUE)
 ## writeTargetsout(x=args, file="targets_sambcf.txt", overwrite=TRUE)
 
 ## ----run_varianttools, eval=FALSE----------------------------------------
@@ -135,6 +136,14 @@ targets[,-c(5,6)]
 ## register(param)
 ## d <- bplapply(seq(along=args), f)
 ## writeTargetsout(x=args, file="targets_vartools.txt", overwrite=TRUE)
+
+## ----inspect_vcf, eval=FALSE---------------------------------------------
+## library(VariantAnnotation)
+## args <- systemArgs(sysma="param/filter_gatk.param", mytargets="targets_gatk.txt")
+## vcf <- readVcf(infile1(args)[1], "A. thaliana")
+## vcf
+## vr <- as(vcf, "VRanges")
+## vr
 
 ## ----filter_gatk, eval=FALSE---------------------------------------------
 ## library(VariantAnnotation)
@@ -164,6 +173,17 @@ targets[,-c(5,6)]
 ## ----check_filter, eval=FALSE--------------------------------------------
 ## length(as(readVcf(infile1(args)[1], genome="Ath"), "VRanges")[,1])
 ## length(as(readVcf(outpaths(args)[1], genome="Ath"), "VRanges")[,1])
+
+## ----annotate_basics, eval=FALSE-----------------------------------------
+## library("GenomicFeatures")
+## args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+## txdb <- loadDb("./data/tair10.sqlite")
+## vcf <- readVcf(infile1(args)[1], "A. thaliana")
+## locateVariants(vcf, txdb, CodingVariants())
+
+## ----annotate_basics_non-synon, eval=FALSE-------------------------------
+## fa <- FaFile(systemPipeR::reference(args))
+## predictCoding(vcf, txdb, seqSource=fa)
 
 ## ----annotate_gatk, eval=FALSE-------------------------------------------
 ## library("GenomicFeatures")
@@ -230,6 +250,19 @@ targets[,-c(5,6)]
 ## vennset_vartools <- overLapper(varlist, type="vennsets")
 ## pdf("./results/vennplot_var.pdf")
 ## vennPlot(list(vennset_gatk, vennset_bcf, vennset_vartools), mymain="", mysub="GATK: red; BCFtools: blue; VariantTools: green", colmode=2, ccol=c("red", "blue", "green"))
+## dev.off()
+
+## ----plot_variant, eval=FALSE--------------------------------------------
+## library(ggbio)
+## mychr <- "ChrC"; mystart <- 11000; myend <- 13000
+## args <- systemArgs(sysma="param/bwa.param", mytargets="targets.txt")
+## ga <- readGAlignments(outpaths(args)[1], use.names=TRUE, param=ScanBamParam(which=GRanges(mychr, IRanges(mystart, myend))))
+## p1 <- autoplot(ga, geom = "rect")
+## p2 <- autoplot(ga, geom = "line", stat = "coverage")
+## p3 <- autoplot(vcf[seqnames(vcf)==mychr], type = "fixed") + xlim(mystart, myend) + theme(legend.position = "none", axis.text.y = element_blank(), axis.ticks.y=element_blank())
+## p4 <- autoplot(txdb, which=GRanges(mychr, IRanges(mystart, myend)), names.expr = "gene_id")
+## png("./results/plot_variant.png")
+## tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 0.1, 0.35)) + ylab("")
 ## dev.off()
 
 ## ----sessionInfo---------------------------------------------------------
