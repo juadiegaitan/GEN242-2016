@@ -594,17 +594,22 @@ mydoc_systemPipeVARseq_10:
   link: "<a href='../mydoc/mydoc_systemPipeVARseq_10.html'>Venn diagram of variants</a>"
 
 mydoc_systemPipeVARseq_11:
-  title: "Version Information"
+  title: "Plot variants programmatically "
   url: "../mydoc/mydoc_systemPipeVARseq_11.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_11.html'>Version Information</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_11.html'>Plot variants programmatically </a>"
 
 mydoc_systemPipeVARseq_12:
-  title: "Funding"
+  title: "Version Information"
   url: "../mydoc/mydoc_systemPipeVARseq_12.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_12.html'>Funding</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_12.html'>Version Information</a>"
 
 mydoc_systemPipeVARseq_13:
-  title: "References"
+  title: "Funding"
   url: "../mydoc/mydoc_systemPipeVARseq_13.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_13.html'>References</a>"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_13.html'>Funding</a>"
+
+mydoc_systemPipeVARseq_14:
+  title: "References"
+  url: "../mydoc/mydoc_systemPipeVARseq_14.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_14.html'>References</a>"
 

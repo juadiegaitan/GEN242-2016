@@ -1,7 +1,7 @@
 ---
 title: VAR-Seq Workflow Template 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 04 May, 2016" 
+date: "Last update: 05 May, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -210,6 +210,7 @@ Runs the alignments sequentially (_e.g._ on a single machine)
 
 ```r
 moduleload(modules(args))
+system("bwa index -a bwtsw ./data/tair10.fasta")
 bampaths <- runCommandline(args=args)
 ```
 
@@ -224,6 +225,7 @@ resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", cores(args)), memo
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01", 
                   resourceList=resources)
 waitForJobs(reg)
+writeTargetsout(x=args, file="targets_bam.txt", overwrite=TRUE)
 ```
 
 Check whether all BAM files have been created
@@ -279,7 +281,7 @@ with a path specified under `urlfile`, here `IGVurl.txt`.
 
 
 ```r
-symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"), 
+symLink2bam(sysargs=args, htmldir=c("~/.html/", "projects/gen242/"), 
             urlbase="http://biocluster.ucr.edu/~tgirke/", 
             urlfile="./results/IGVurl.txt")
 ```
@@ -309,7 +311,6 @@ provided by `systemPipeRdata`.
 
 
 ```r
-writeTargetsout(x=args, file="targets_bam.txt")
 moduleload("picard/1.130")
 system("picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict")
 args <- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
@@ -317,7 +318,7 @@ resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-unlink(outfile1(args), recursive = TRUE, force = TRUE)
+# unlink(outfile1(args), recursive = TRUE, force = TRUE)
 writeTargetsout(x=args, file="targets_gatk.txt", overwrite=TRUE)
 ```
 
@@ -334,7 +335,7 @@ resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-unlink(outfile1(args), recursive = TRUE, force = TRUE)
+# unlink(outfile1(args), recursive = TRUE, force = TRUE)
 writeTargetsout(x=args, file="targets_sambcf.txt", overwrite=TRUE)
 ```
 
@@ -361,6 +362,21 @@ d <- bplapply(seq(along=args), f)
 writeTargetsout(x=args, file="targets_vartools.txt", overwrite=TRUE)
 ```
 
+## Inspect VCF file 
+
+VCF files can be imported into R with the `readVcf` function. Both `VCF` and `VRanges` objects provide
+convenient data structure for working with variant data (_e.g._ SNP quality filtering). 
+
+
+```r
+library(VariantAnnotation)
+args <- systemArgs(sysma="param/filter_gatk.param", mytargets="targets_gatk.txt")
+vcf <- readVcf(infile1(args)[1], "A. thaliana")
+vcf
+vr <- as(vcf, "VRanges")
+vr
+```
+
 # Filter variants
 
 The function `filterVars` filters VCF files based on user definable
@@ -373,6 +389,7 @@ subsetting syntax for two dimensional objects such as: `vr[filter, ]`.
 The parameter files (`filter_gatk.param`, `filter_sambcf.param` and 
 `filter_vartools.param`), used in the filtering steps, define the paths to 
 the input and output VCF files which are stored in new `SYSargs` instances.  
+
 
 
 ## Filter variants called by `GATK` 
@@ -446,6 +463,25 @@ genes, etc.) along with confidence statistics for each variant. The parameter
 file `annotate_vars.param` defines the paths to the input and output
 files which are stored in a new `SYSargs` instance. 
 
+## Basics of annotating variants
+
+Variants overlapping with common annotation features can be identified with `locateVariants`.
+
+```r
+library("GenomicFeatures")
+args <- systemArgs(sysma="param/annotate_vars.param", mytargets="targets_gatk_filtered.txt")
+txdb <- loadDb("./data/tair10.sqlite")
+vcf <- readVcf(infile1(args)[1], "A. thaliana")
+locateVariants(vcf, txdb, CodingVariants())
+```
+Synonymous/non-synonymous variants of coding sequences are computed by the predictCoding function for variants overlapping with coding regions.
+
+
+```r
+fa <- FaFile(systemPipeR::reference(args))
+predictCoding(vcf, txdb, seqSource=fa)
+```
+
 ## Annotate filtered variants called by `GATK`
 
 
@@ -482,7 +518,6 @@ View annotation result for single sample
 ```r
 read.delim(outpaths(args)[1])[38:40,]
 ```
-
 
 # Combine annotation results among samples
 
@@ -581,6 +616,28 @@ dev.off()
 ![](vennplot_var.png)
 <div align="center">Figure 2: Venn Diagram for 4 samples from GATK and BCFtools</div></br>
 
+
+# Plot variants programmatically 
+
+The following plots a selected variant with `ggbio`.
+
+
+```r
+library(ggbio)
+mychr <- "ChrC"; mystart <- 11000; myend <- 13000
+args <- systemArgs(sysma="param/bwa.param", mytargets="targets.txt")
+ga <- readGAlignments(outpaths(args)[1], use.names=TRUE, param=ScanBamParam(which=GRanges(mychr, IRanges(mystart, myend))))
+p1 <- autoplot(ga, geom = "rect")
+p2 <- autoplot(ga, geom = "line", stat = "coverage")
+p3 <- autoplot(vcf[seqnames(vcf)==mychr], type = "fixed") + xlim(mystart, myend) + theme(legend.position = "none", axis.text.y = element_blank(), axis.ticks.y=element_blank())
+p4 <- autoplot(txdb, which=GRanges(mychr, IRanges(mystart, myend)), names.expr = "gene_id")
+png("./results/plot_variant.png")
+tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 0.1, 0.35)) + ylab("")
+dev.off()
+```
+
+![](variant_plot.png)
+<div align="center">Figure 3: Plot variants with programmatically.</div></br>
 
 # Version Information
 

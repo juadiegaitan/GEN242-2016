@@ -1,7 +1,7 @@
 ---
 title: Alignments
 keywords: 
-last_updated: Wed May  4 22:57:27 2016
+last_updated: Thu May  5 11:34:28 2016
 ---
 
 ## Read mapping with `BWA-MEM` 
@@ -23,6 +23,7 @@ Runs the alignments sequentially (_e.g._ on a single machine)
 
 {% highlight r %}
 moduleload(modules(args))
+system("bwa index -a bwtsw ./data/tair10.fasta")
 bampaths <- runCommandline(args=args)
 {% endhighlight %}
 
@@ -37,6 +38,7 @@ resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", cores(args)), memo
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01", 
                   resourceList=resources)
 waitForJobs(reg)
+writeTargetsout(x=args, file="targets_bam.txt", overwrite=TRUE)
 {% endhighlight %}
 
 Check whether all BAM files have been created
@@ -92,7 +94,7 @@ with a path specified under `urlfile`, here `IGVurl.txt`.
 
 
 {% highlight r %}
-symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"), 
+symLink2bam(sysargs=args, htmldir=c("~/.html/", "projects/gen242/"), 
             urlbase="http://biocluster.ucr.edu/~tgirke/", 
             urlfile="./results/IGVurl.txt")
 {% endhighlight %}

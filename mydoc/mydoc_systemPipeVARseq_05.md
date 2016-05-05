@@ -1,7 +1,7 @@
 ---
 title: Variant calling
 keywords: 
-last_updated: Wed May  4 22:57:27 2016
+last_updated: Thu May  5 11:34:28 2016
 ---
 
 The following performs variant calling with `GATK`, `BCFtools` and `VariantTools` 
@@ -26,7 +26,6 @@ provided by `systemPipeRdata`.
 
 
 {% highlight r %}
-writeTargetsout(x=args, file="targets_bam.txt")
 moduleload("picard/1.130")
 system("picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict")
 args <- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
@@ -34,7 +33,7 @@ resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-unlink(outfile1(args), recursive = TRUE, force = TRUE)
+# unlink(outfile1(args), recursive = TRUE, force = TRUE)
 writeTargetsout(x=args, file="targets_gatk.txt", overwrite=TRUE)
 {% endhighlight %}
 
@@ -51,7 +50,7 @@ resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",
                   resourceList=resources)
 waitForJobs(reg)
-unlink(outfile1(args), recursive = TRUE, force = TRUE)
+# unlink(outfile1(args), recursive = TRUE, force = TRUE)
 writeTargetsout(x=args, file="targets_sambcf.txt", overwrite=TRUE)
 {% endhighlight %}
 
@@ -76,5 +75,20 @@ param <- BatchJobsParam(length(args), resources=list(walltime="20:00:00", nodes=
 register(param)
 d <- bplapply(seq(along=args), f)
 writeTargetsout(x=args, file="targets_vartools.txt", overwrite=TRUE)
+{% endhighlight %}
+
+## Inspect VCF file 
+
+VCF files can be imported into R with the `readVcf` function. Both `VCF` and `VRanges` objects provide
+convenient data structure for working with variant data (_e.g._ SNP quality filtering). 
+
+
+{% highlight r %}
+library(VariantAnnotation)
+args <- systemArgs(sysma="param/filter_gatk.param", mytargets="targets_gatk.txt")
+vcf <- readVcf(infile1(args)[1], "A. thaliana")
+vcf
+vr <- as(vcf, "VRanges")
+vr
 {% endhighlight %}
 

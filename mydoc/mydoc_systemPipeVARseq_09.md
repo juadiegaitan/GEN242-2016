@@ -1,7 +1,7 @@
 ---
 title: Summary statistics of variants
 keywords: 
-last_updated: Wed May  4 22:57:27 2016
+last_updated: Thu May  5 11:34:28 2016
 ---
 
 The `varSummary` function counts the number of variants for each feature type

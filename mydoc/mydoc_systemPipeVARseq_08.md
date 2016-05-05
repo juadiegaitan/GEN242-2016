@@ -1,7 +1,7 @@
 ---
 title: Combine annotation results among samples
 keywords: 
-last_updated: Wed May  4 22:57:27 2016
+last_updated: Thu May  5 11:34:28 2016
 ---
 
 To simplify comparisons among samples, the \Rfunction{combineVarReports}

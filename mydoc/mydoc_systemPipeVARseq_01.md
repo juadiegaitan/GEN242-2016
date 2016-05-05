@@ -1,11 +1,11 @@
 ---
 title: VAR-Seq Workflow Template 
 keywords: 
-last_updated: Wed May  4 22:57:27 2016
+last_updated: Thu May  5 11:34:28 2016
 ---
 First/last name (first.last@ucr.edu)
 
-Last update: 04 May, 2016 
+Last update: 05 May, 2016 
 
 Alternative formats of this tutorial:
 [`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/13_VARseqWorkflow/systemPipeVARseq.html),

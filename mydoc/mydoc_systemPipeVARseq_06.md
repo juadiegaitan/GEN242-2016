@@ -1,7 +1,7 @@
 ---
 title: Filter variants
 keywords: 
-last_updated: Wed May  4 22:57:27 2016
+last_updated: Thu May  5 11:34:28 2016
 ---
 
 The function `filterVars` filters VCF files based on user definable
@@ -14,6 +14,7 @@ subsetting syntax for two dimensional objects such as: `vr[filter, ]`.
 The parameter files (`filter_gatk.param`, `filter_sambcf.param` and 
 `filter_vartools.param`), used in the filtering steps, define the paths to 
 the input and output VCF files which are stored in new `SYSargs` instances.  
+
 
 
 ## Filter variants called by `GATK` 
