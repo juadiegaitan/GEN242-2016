@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1054,6 +1076,139 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">ChIP-Seq</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_05.html">5. Utilities for coverage data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_06.html">6. Peak calling with MACS2</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_07.html">7. Annotate peaks with genomic context</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_08.html">8. Count reads overlapping peaks</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_09.html">9. Differential binding analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_10.html">10. GO term enrichment analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_11.html">11. Motif analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">ChIP-Seq Workflow</a>
                 <ul>
                     
@@ -1466,51 +1621,51 @@ $('#toc').on('click', 'a', function() {
     <p><strong>Starting R</strong>:
   The R GUI versions, including RStudio, under Windows and Mac OS X can be
   opened by double-clicking their icons. Alternatively, one can start it by
-  typing <code class="highlighter-rouge">R</code> in a terminal (default under Linux).</p>
+  typing <code>R</code> in a terminal (default under Linux).</p>
   </li>
   <li>
     <p><strong>Startup/Closing Behavior</strong>:
   The R environment is controlled by hidden files in the startup directory:
-  <code class="highlighter-rouge">.RData</code>, <code class="highlighter-rouge">.Rhistory</code> and <code class="highlighter-rouge">.Rprofile</code> (optional).</p>
+  <code>.RData</code>, <code>.Rhistory</code> and <code>.Rprofile</code> (optional).</p>
   </li>
   <li>
     <p><strong>Closing R</strong>:</p>
   </li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">q</span><span class="p">()</span>  </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">q</span><span class="p">()</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">Save workspace image? [y/n/c]:</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">Save workspace image? [y/n/c]:</code></pre></div>
 
 <ul>
   <li><strong>Note</strong>:
-  When responding with <code class="highlighter-rouge">y</code>, then the entire R workspace will be written to
-  the <code class="highlighter-rouge">.RData</code> file which can become very large. Often it is sufficient to just
+  When responding with <code>y</code>, then the entire R workspace will be written to
+  the <code>.RData</code> file which can become very large. Often it is sufficient to just
   save an analysis protocol in an R source file. This way one can quickly
   regenerate all data sets and objects.</li>
 </ul>
 
 <h2 id="navigating-directories">Navigating directories</h2>
 
-<p>Create an object with the assignment operator <code class="highlighter-rouge">&lt;-</code> or <code class="highlighter-rouge">=</code></p>
+<p>Create an object with the assignment operator <code>&lt;-</code> or <code>=</code></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">object</span> <span class="o">&lt;-</span> <span class="k">...</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">object</span> <span class="o">&lt;-</span> <span class="k">...</span></code></pre></div>
 
 <p>List objects in current R session</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ls</span><span class="p">()</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ls</span><span class="p">()</span></code></pre></div>
 
 <p>Return content of current working directory</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dir</span><span class="p">()</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dir</span><span class="p">()</span></code></pre></div>
 
 <p>Return path of current working directory</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">getwd</span><span class="p">()</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">getwd</span><span class="p">()</span></code></pre></div>
 
 <p>Change current working directory</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">setwd</span><span class="p">(</span><span class="s2">"/home/user"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">setwd</span><span class="p">(</span><span class="s2">"/home/user"</span><span class="p">)</span></code></pre></div>
 
 
 
@@ -1528,7 +1683,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Tue Apr 19 19:45:32 2016<br/> Site last generated: May 3, 2016 <br />
+<p>Page last updated:</span> Tue Apr 19 19:45:32 2016<br/> Site last generated: May 4, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

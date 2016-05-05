@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1054,6 +1076,139 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">ChIP-Seq</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_05.html">5. Utilities for coverage data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_06.html">6. Peak calling with MACS2</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_07.html">7. Annotate peaks with genomic context</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_08.html">8. Count reads overlapping peaks</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_09.html">9. Differential binding analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_10.html">10. GO term enrichment analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_11.html">11. Motif analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">ChIP-Seq Workflow</a>
                 <ul>
                     
@@ -1461,34 +1616,34 @@ $('#toc').on('click', 'a', function() {
 -->
 <p>General R command syntax</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">object</span> <span class="o">&lt;-</span> <span class="n">function_name</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span> 
-<span class="n">object</span> <span class="o">&lt;-</span> <span class="n">object</span><span class="p">[</span><span class="n">arguments</span><span class="p">]</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">object</span> <span class="o">&lt;-</span> <span class="n">function_name</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span> 
+<span class="n">object</span> <span class="o">&lt;-</span> <span class="n">object</span><span class="p">[</span><span class="n">arguments</span><span class="p">]</span></code></pre></div>
 
 <p>Finding help</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">?</span><span class="n">function_name</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">?</span><span class="n">function_name</span></code></pre></div>
 
 <p>Load a library/package</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"my_library"</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"my_library"</span><span class="p">)</span></code></pre></div>
 
 <p>List functions defined by a library</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">help</span><span class="o">=</span><span class="s2">"my_library"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">help</span><span class="o">=</span><span class="s2">"my_library"</span><span class="p">)</span></code></pre></div>
 
 <p>Load library manual (PDF or HTML file)</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vignette</span><span class="p">(</span><span class="s2">"my_library"</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vignette</span><span class="p">(</span><span class="s2">"my_library"</span><span class="p">)</span></code></pre></div>
 
 <p>Execute an R script from within R</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"my_script.R"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"my_script.R"</span><span class="p">)</span></code></pre></div>
 
 <p>Execute an R script from command-line (the first of the three options is preferred)</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="gp">$ </span>Rscript my_script.R
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="gp">$ </span>Rscript my_script.R
 <span class="gp">$ </span>R CMD BATCH my_script.R 
-<span class="gp">$ </span>R --slave &lt; my_script.R </code></pre></figure>
+<span class="gp">$ </span>R --slave &lt; my_script.R</code></pre></div>
 
 
 
@@ -1506,7 +1661,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Tue Apr 19 19:45:32 2016<br/> Site last generated: May 3, 2016 <br />
+<p>Page last updated:</span> Tue Apr 19 19:45:32 2016<br/> Site last generated: May 4, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

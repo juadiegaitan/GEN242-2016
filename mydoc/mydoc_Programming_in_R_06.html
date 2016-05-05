@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1054,6 +1076,139 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">ChIP-Seq</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_05.html">5. Utilities for coverage data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_06.html">6. Peak calling with MACS2</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_07.html">7. Annotate peaks with genomic context</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_08.html">8. Count reads overlapping peaks</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_09.html">9. Differential binding analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_10.html">10. GO term enrichment analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_11.html">11. Motif analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">ChIP-Seq Workflow</a>
                 <ul>
                     
@@ -1463,26 +1618,26 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="r-console">R console</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"my_script.R"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"my_script.R"</span><span class="p">)</span></code></pre></div>
 
 <h3 id="command-line">Command-line</h3>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">Rscript my_script.R <span class="c"># or just ./myscript.R after making it executable</span>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">Rscript my_script.R <span class="c"># or just ./myscript.R after making it executable</span>
 R CMD BATCH my_script.R <span class="c"># Alternative way 1 </span>
-R --slave &lt; my_script.R <span class="c"># Alternative way 2</span></code></pre></figure>
+R --slave &lt; my_script.R <span class="c"># Alternative way 2</span></code></pre></div>
 
 <h3 id="passing-arguments-from-command-line-to-r">Passing arguments from command-line to R</h3>
 
-<p>Create an R script named <code class="highlighter-rouge">test.R</code> with the following content:</p>
+<p>Create an R script named <code>test.R</code> with the following content:</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">myarg &lt;- commandArgs<span class="o">()</span>
-print<span class="o">(</span>iris[1:myarg[6], <span class="o">])</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">myarg &lt;- commandArgs<span class="o">()</span>
+print<span class="o">(</span>iris[1:myarg[6], <span class="o">])</span></code></pre></div>
 
 <p>Then run it from the command-line like this:</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">Rscript test.R 10</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">Rscript test.R 10</code></pre></div>
 
-<p>In the given example the number <code class="highlighter-rouge">10</code> is passed on from the command-line as an argument to the R script which is used to return to <code class="highlighter-rouge">STDOUT</code> the first 10 rows of the <code class="highlighter-rouge">iris</code> sample data. If several arguments are provided, they will be interpreted as one string and need to be split in R with the strsplit function. A more detailed example can be found <a href="http://manuals.bioinformatics.ucr.edu/home/ht-seq\#TOC-Quality-Reports-of-FASTQ-Files-">here</a>.</p>
+<p>In the given example the number <code>10</code> is passed on from the command-line as an argument to the R script which is used to return to <code>STDOUT</code> the first 10 rows of the <code>iris</code> sample data. If several arguments are provided, they will be interpreted as one string and need to be split in R with the strsplit function. A more detailed example can be found <a href="http://manuals.bioinformatics.ucr.edu/home/ht-seq\#TOC-Quality-Reports-of-FASTQ-Files-">here</a>.</p>
 
 
 
@@ -1500,7 +1655,7 @@ print<span class="o">(</span>iris[1:myarg[6], <span class="o">])</span></code></
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: May 3, 2016 <br />
+<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: May 4, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1054,6 +1076,139 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">ChIP-Seq</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_05.html">5. Utilities for coverage data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_06.html">6. Peak calling with MACS2</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_07.html">7. Annotate peaks with genomic context</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_08.html">8. Count reads overlapping peaks</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_09.html">9. Differential binding analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_10.html">10. GO term enrichment analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_11.html">11. Motif analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">ChIP-Seq Workflow</a>
                 <ul>
                     
@@ -1464,58 +1619,58 @@ $('#toc').on('click', 'a', function() {
 <h3 id="comparison-operators">Comparison operators</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">==</code> (equal)</li>
-  <li><code class="highlighter-rouge">!=</code> (not equal)</li>
-  <li><code class="highlighter-rouge">&gt;</code> (greater than)</li>
-  <li><code class="highlighter-rouge">&gt;=</code> (greater than or equal)</li>
-  <li><code class="highlighter-rouge">&lt;</code> (less than)</li>
-  <li><code class="highlighter-rouge">&lt;=</code> (less than or equal)</li>
+  <li><code>==</code> (equal)</li>
+  <li><code>!=</code> (not equal)</li>
+  <li><code>&gt;</code> (greater than)</li>
+  <li><code>&gt;=</code> (greater than or equal)</li>
+  <li><code>&lt;</code> (less than)</li>
+  <li><code>&lt;=</code> (less than or equal)</li>
 </ul>
 
 <h3 id="logical-operators">Logical operators</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">&amp;</code> (and)</li>
-  <li><code class="highlighter-rouge">|</code> (or)</li>
-  <li><code class="highlighter-rouge">!</code> (not)</li>
+  <li><code>&amp;</code> (and)</li>
+  <li><code>|</code> (or)</li>
+  <li><code>!</code> (not)</li>
 </ul>
 
-<h2 id="conditional-executions-if-statements">Conditional Executions: <code class="highlighter-rouge">if</code> Statements</h2>
+<h2 id="conditional-executions-if-statements">Conditional Executions: <code>if</code> Statements</h2>
 
-<p>An <code class="highlighter-rouge">if</code> statement operates on length-one logical vectors.</p>
+<p>An <code>if</code> statement operates on length-one logical vectors.</p>
 
 <p><strong>Syntax</strong></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">if</span><span class="p">(</span><span class="n">TRUE</span><span class="p">)</span> <span class="p">{</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">if</span><span class="p">(</span><span class="n">TRUE</span><span class="p">)</span> <span class="p">{</span> 
 	<span class="n">statements_1</span> 
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> 
 	<span class="n">statements_2</span> 
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span></code></pre></div>
 
 <p><strong>Example</strong></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">if</span><span class="p">(</span><span class="m">1</span><span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">if</span><span class="p">(</span><span class="m">1</span><span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span> 
 	<span class="n">print</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> 
 <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> 
 	<span class="n">print</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> 
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2</code></pre></div>
 
-<h2 id="conditional-executions-ifelse-statements">Conditional Executions: <code class="highlighter-rouge">ifelse</code> Statements</h2>
+<h2 id="conditional-executions-ifelse-statements">Conditional Executions: <code>ifelse</code> Statements</h2>
 
-<p>The <code class="highlighter-rouge">ifelse</code> statement operates on vectors.</p>
+<p>The <code>ifelse</code> statement operates on vectors.</p>
 
 <p><strong>Syntax</strong></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ifelse</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">true_value</span><span class="p">,</span> <span class="n">false_value</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ifelse</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">true_value</span><span class="p">,</span> <span class="n">false_value</span><span class="p">)</span></code></pre></div>
 
 <p><strong>Example</strong></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span> 
-<span class="n">ifelse</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="m">5</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span> 
+<span class="n">ifelse</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="m">5</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] 1 2 3 4 0 0 0 0 0 0</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] 1 2 3 4 0 0 0 0 0 0</code></pre></div>
 
 
 
@@ -1533,7 +1688,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: May 3, 2016 <br />
+<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: May 4, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

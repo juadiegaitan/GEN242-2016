@@ -74,7 +74,7 @@ targets[1:4,-c(5,6)]
 
 ## ----rle_object, eval=FALSE----------------------------------------------
 ## library(rtracklayer); library(GenomicRanges); library(Rsamtools); library(GenomicAlignments)
-## aligns <- readGAlignmentsFromBam(outpaths()[1])
+## aligns <- readGAlignments(outpaths(args)[1])
 ## cov <- coverage(aligns)
 ## cov
 
@@ -110,6 +110,16 @@ targets[1:4,-c(5,6)]
 ## runCommandline(args)
 ## file.exists(outpaths(args))
 ## writeTargetsout(x=args, file="targets_macs.txt", overwrite=TRUE)
+
+## ----consensus_peaks, eval=FALSE-----------------------------------------
+## source("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/rangeoverlapper.R")
+## peak_M1A <- outpaths(args)["M1A"]
+## peak_M1A <- as(read.delim(peak_M1A, comment="#")[,1:3], "GRanges")
+## peak_A1A <- outpaths(args)["A1A"]
+## peak_A1A <- as(read.delim(peak_A1A, comment="#")[,1:3], "GRanges")
+## (myol1 <- subsetByOverlaps(peak_M1A, peak_A1A, minoverlap=1)) # Returns any overlap
+## myol2 <- olRanges(query=peak_M1A, subject=peak_A1A, output="gr") # Returns any overlap with OL length information
+## myol2[values(myol2)["OLpercQ"][,1]>=50] # Returns only query peaks with a minimum overlap of 50%
 
 ## ----chip_peak_anno, eval=FALSE------------------------------------------
 ## library(ChIPpeakAnno); library(GenomicFeatures)

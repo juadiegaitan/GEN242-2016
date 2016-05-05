@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1054,6 +1076,139 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">ChIP-Seq</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_05.html">5. Utilities for coverage data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_06.html">6. Peak calling with MACS2</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_07.html">7. Annotate peaks with genomic context</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_08.html">8. Count reads overlapping peaks</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_09.html">9. Differential binding analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_10.html">10. GO term enrichment analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_11.html">11. Motif analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">ChIP-Seq Workflow</a>
                 <ul>
                     
@@ -1459,12 +1614,12 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<p>The venn diagram utilities defined by the <code class="highlighter-rouge">systemPipeR</code> package can be used to
+<p>The venn diagram utilities defined by the <code>systemPipeR</code> package can be used to
 identify common and unique variants reported for different samples
 and/or variant callers. The below generates a 4-way venn diagram
 comparing four sampes for each of the two variant callers.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_gatk_filtered.txt"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_gatk_filtered.txt"</span><span class="p">)</span>
 <span class="n">varlist</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">))[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">as.character</span><span class="p">(</span><span class="n">read.delim</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="n">x</span><span class="p">])</span><span class="o">$</span><span class="n">VARID</span><span class="p">))</span>
 <span class="n">vennset_gatk</span> <span class="o">&lt;-</span> <span class="n">overLapper</span><span class="p">(</span><span class="n">varlist</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"vennsets"</span><span class="p">)</span>
 <span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_sambcf_filtered.txt"</span><span class="p">)</span>
@@ -1472,7 +1627,7 @@ comparing four sampes for each of the two variant callers.</p>
 <span class="n">vennset_bcf</span> <span class="o">&lt;-</span> <span class="n">overLapper</span><span class="p">(</span><span class="n">varlist</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"vennsets"</span><span class="p">)</span>
 <span class="n">pdf</span><span class="p">(</span><span class="s2">"./results/vennplot_var.pdf"</span><span class="p">)</span>
 <span class="n">vennPlot</span><span class="p">(</span><span class="n">list</span><span class="p">(</span><span class="n">vennset_gatk</span><span class="p">,</span> <span class="n">vennset_bcf</span><span class="p">),</span> <span class="n">mymain</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">mysub</span><span class="o">=</span><span class="s2">"GATK: red; BCFtools: blue"</span><span class="p">,</span> <span class="n">colmode</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">ccol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"red"</span><span class="p">))</span>
-<span class="n">dev.off</span><span class="p">()</span></code></pre></figure>
+<span class="n">dev.off</span><span class="p">()</span></code></pre></div>
 
 <p><img src="systemPipeVARseq_files/vennplot_var.png" alt="" /></p>
 <div align="center">Figure 2: Venn Diagram for 4 samples from GATK and BCFtools</div>
@@ -1493,7 +1648,7 @@ comparing four sampes for each of the two variant callers.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sun May  1 20:44:33 2016<br/> Site last generated: May 3, 2016 <br />
+<p>Page last updated:</span> Sun May  1 20:44:33 2016<br/> Site last generated: May 4, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
