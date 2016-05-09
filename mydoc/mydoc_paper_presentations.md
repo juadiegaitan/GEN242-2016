@@ -13,6 +13,8 @@ The following lists the assigned papers organized by course project topics.
 
 ## Publications organized by course projects
 
+All references in [Paperpile](https://paperpile.com/shared/VeQ7iA)
+
 ### ChIP-Seq1 - Motif Prediction    
 
 + McLeay, Robert C, and Timothy L Bailey. 2010. “Motif Enrichment Analysis: A Unified Framework and an Evaluation on ChIP Data.” BMC Bioinformatics 11: 165. [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/20356413)
