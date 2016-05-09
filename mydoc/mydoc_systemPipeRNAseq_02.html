@@ -77,16 +77,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -167,8 +157,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +249,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1503,9 +1481,9 @@ $('#toc').on('click', 'a', function() {
 
 <p>Typically, the user wants to record here the sources and versions of the
 reference genome sequence along with the corresponding annotations. In
-the provided sample data set all data inputs are stored in a <code>data</code>
-subdirectory and all results will be written to a separate <code>results</code> directory,
-while the <code>systemPipeRNAseq.Rmd</code> script and the <code>targets</code> file are expected to be located in the parent
+the provided sample data set all data inputs are stored in a <code class="highlighter-rouge">data</code>
+subdirectory and all results will be written to a separate <code class="highlighter-rouge">results</code> directory,
+while the <code class="highlighter-rouge">systemPipeRNAseq.Rmd</code> script and the <code class="highlighter-rouge">targets</code> file are expected to be located in the parent
 directory. The R session is expected to run from this parent directory.</p>
 
 <p>To run this sample report, mini sample FASTQ and reference genome files
@@ -1528,35 +1506,35 @@ into the user’s current working directory. At the moment, the package includes
 workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq and Ribo-Seq. Templates for
 additional NGS applications will be provided in the future.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeRdata</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeRdata</span><span class="p">)</span>
 <span class="n">genWorkenvir</span><span class="p">(</span><span class="n">workflow</span><span class="o">=</span><span class="s2">"rnaseq"</span><span class="p">)</span>
 <span class="n">setwd</span><span class="p">(</span><span class="s2">"rnaseq"</span><span class="p">)</span>
-<span class="n">download.file</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd"</span><span class="p">,</span> <span class="s2">"systemPipeRNAseq.Rmd"</span><span class="p">)</span></code></pre></div>
+<span class="n">download.file</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd"</span><span class="p">,</span> <span class="s2">"systemPipeRNAseq.Rmd"</span><span class="p">)</span></code></pre></figure>
 
-<p>Now open the R markdown script <code>systemPipeRNAseq.Rmd</code>in your R IDE (<em>e.g.</em> vim-r or RStudio) and 
+<p>Now open the R markdown script <code class="highlighter-rouge">systemPipeRNAseq.Rmd</code>in your R IDE (<em>e.g.</em> vim-r or RStudio) and 
 run the workflow as outlined below.</p>
 
 <h2 id="required-packages-and-resources">Required packages and resources</h2>
 
-<p>The <code>systemPipeR</code> package needs to be loaded to perform the analysis steps shown in
+<p>The <code class="highlighter-rouge">systemPipeR</code> package needs to be loaded to perform the analysis steps shown in
 this report (Girke , 2014).</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span></code></pre></figure>
 
 <p>If applicable load custom functions not provided by</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"systemPipeRNAseq_Fct.R"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"systemPipeRNAseq_Fct.R"</span><span class="p">)</span></code></pre></figure>
 
-<h2 id="experiment-definition-provided-by-targets-file">Experiment definition provided by <code>targets</code> file</h2>
+<h2 id="experiment-definition-provided-by-targets-file">Experiment definition provided by <code class="highlighter-rouge">targets</code> file</h2>
 
-<p>The <code>targets</code> file defines all FASTQ files and sample
+<p>The <code class="highlighter-rouge">targets</code> file defines all FASTQ files and sample
 comparisons of the analysis workflow.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">targetspath</span> <span class="o">&lt;-</span> <span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span> <span class="s2">"targets.txt"</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s2">"systemPipeR"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">targetspath</span> <span class="o">&lt;-</span> <span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span> <span class="s2">"targets.txt"</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s2">"systemPipeR"</span><span class="p">)</span>
 <span class="n">targets</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="n">targetspath</span><span class="p">,</span> <span class="n">comment.char</span> <span class="o">=</span> <span class="s2">"#"</span><span class="p">)[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
-<span class="n">targets</span></code></pre></div>
+<span class="n">targets</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##                    FileName SampleName Factor SampleLong
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##                    FileName SampleName Factor SampleLong
 ## 1  ./data/SRR446027_1.fastq        M1A     M1  Mock.1h.A
 ## 2  ./data/SRR446028_1.fastq        M1B     M1  Mock.1h.B
 ## 3  ./data/SRR446029_1.fastq        A1A     A1   Avr.1h.A
@@ -1574,7 +1552,7 @@ comparisons of the analysis workflow.</p>
 ## 15 ./data/SRR446041_1.fastq       A12A    A12  Avr.12h.A
 ## 16 ./data/SRR446042_1.fastq       A12B    A12  Avr.12h.B
 ## 17 ./data/SRR446043_1.fastq       V12A    V12  Vir.12h.A
-## 18 ./data/SRR446044_1.fastq       V12B    V12  Vir.12h.B</code></pre></div>
+## 18 ./data/SRR446044_1.fastq       V12B    V12  Vir.12h.B</code></pre></figure>
 
 
 
@@ -1592,7 +1570,7 @@ comparisons of the analysis workflow.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sun May  1 18:33:14 2016<br/> Site last generated: May 5, 2016 <br />
+<p>Page last updated:</span> Sun May  1 18:33:14 2016<br/> Site last generated: May 9, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
