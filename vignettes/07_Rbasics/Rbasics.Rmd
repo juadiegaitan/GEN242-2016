@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -655,7 +677,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. SQLite Databases</a></li>
                     
 
                     
@@ -664,7 +686,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Graphics in R</a></li>
                     
 
                     
@@ -673,7 +695,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Analysis Routine</a></li>
                     
 
                     
@@ -682,7 +704,16 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_16.html">16. References</a></li>
                     
 
                     
@@ -1930,15 +1961,32 @@ apply(iris[1:6,1:3], 1, mean)
 ```
 
 # Reading and Writing External Data
-## Import data from tabular files into R
+## Import of tabular data
 
+Import of a tab-delimited tabular file
 ```{r read_delim, eval=FALSE}
 myDF <- read.delim("myData.xls", sep="\t")
 ```
 
-## Export data from R to tabular files
+Import of Excel file. Note: working with tab- or comma-delimited files is more flexible and preferred.
+```{r read_excel, eval=FALSE}
+library(gdata)
+myDF <- read.xls"myData.xls")
+```
+
+## Export of tabular data
 ```{r write_table, eval=FALSE}
 write.table(myDF, file="myfile.xls", sep="\t", quote=FALSE, col.names=NA)
+```
+
+## Line-wise import
+```{r readlines, eval=FALSE}
+myDF <- readLines("myData.txt")
+```
+
+## Line-wise export
+```{r writelines, eval=FALSE}
+writeLines(month.name, "myData.txt")
 ```
 
 ## Copy and paste into R
@@ -2012,6 +2060,52 @@ dim(frame1)
 my_result <- merge(frame1, iris, by.x = 0, by.y = 0, all = TRUE)
 dim(my_result)
 ```
+
+# SQLite Databases
+
+`SQLite` is a lightweight relational database solution. The `RSQLite` package provides an easy to use interface to create, manage and query `SQLite` databases directly from R. Basic instructions
+for using `SQLite` from the command-line are available [here](https://www.sqlite.org/cli.html). A short introduction to `RSQLite` is available [here](https://github.com/rstats-db/RSQLite/blob/master/vignettes/RSQLite.Rmd).
+
+## Loading data into SQLite databases
+
+The following loads two `data.frames` derived from the `iris` data set (here `mydf1` and `mydf2`) 
+into an SQLite database (here `test.db`).
+
+```{r load_sqlite, eval=TRUE}
+library(RSQLite)
+mydb <- dbConnect(SQLite(), "test.db") # Creates database file test.db
+mydf1 <- data.frame(ids=paste0("id", seq_along(iris[,1])), iris)
+mydf2 <- mydf1[sample(seq_along(mydf1[,1]), 10),]
+dbWriteTable(mydb, "mydf1", mydf1)
+dbWriteTable(mydb, "mydf2", mydf2)
+```
+
+## List names of tables in database
+
+```{r list_tables, eval=TRUE}
+dbListTables(mydb)
+```
+
+## Import table into `data.frame`
+
+```{r import_sqlite_tables, eval=TRUE}
+dbGetQuery(mydb, 'SELECT * FROM mydf2')
+```
+
+## Query database
+
+```{r query_sqlite_tables, eval=TRUE}
+dbGetQuery(mydb, 'SELECT * FROM mydf1 WHERE "Sepal.Length" < 4.6')
+```
+
+## Join tables
+
+The two tables can be joined on the shared `ids` column as follows. 
+
+```{r join_sqlite_tables, eval=TRUE}
+dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
+```
+
 
 # Graphics in R
 
@@ -2444,7 +2538,7 @@ sessionInfo()
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
- Site last generated: May 9, 2016 <br />
+ Site last generated: May 14, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

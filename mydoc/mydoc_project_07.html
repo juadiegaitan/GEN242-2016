@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -655,7 +677,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. SQLite Databases</a></li>
                     
 
                     
@@ -664,7 +686,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Graphics in R</a></li>
                     
 
                     
@@ -673,7 +695,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Analysis Routine</a></li>
                     
 
                     
@@ -682,7 +704,16 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_16.html">16. References</a></li>
                     
 
                     
@@ -1480,20 +1511,20 @@ $('#toc').on('click', 'a', function() {
 <h2 id="shared-big-data-space-on-biocluster">Shared big data space on biocluster</h2>
 
 <p>All larger data sets of the coure projects will be organized in a shared big data space under
-<code class="highlighter-rouge">/bigdata/gen242/shared</code>. Within this space, each group will read and write data to a 
+<code>/bigdata/gen242/shared</code>. Within this space, each group will read and write data to a 
 subdirectory named after their project:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">/bigdata/gen242/shared/RNA-Seq1</code></li>
-  <li><code class="highlighter-rouge">/bigdata/gen242/shared/RNA-Seq2</code></li>
-  <li><code class="highlighter-rouge">/bigdata/gen242/shared/ChIP-Seq1</code></li>
-  <li><code class="highlighter-rouge">/bigdata/gen242/shared/ChIP-Seq2</code></li>
-  <li><code class="highlighter-rouge">/bigdata/gen242/shared/VAR-Seq1</code></li>
-  <li><code class="highlighter-rouge">/bigdata/gen242/shared/VAR-Seq2</code></li>
+  <li><code>/bigdata/gen242/shared/RNA-Seq1</code></li>
+  <li><code>/bigdata/gen242/shared/RNA-Seq2</code></li>
+  <li><code>/bigdata/gen242/shared/ChIP-Seq1</code></li>
+  <li><code>/bigdata/gen242/shared/ChIP-Seq2</code></li>
+  <li><code>/bigdata/gen242/shared/VAR-Seq1</code></li>
+  <li><code>/bigdata/gen242/shared/VAR-Seq2</code></li>
 </ul>
 
 <p>Within each project subdirectory all input files of a workflow (<em>e.g.</em> FASTQ) will be saved to 
-a <code class="highlighter-rouge">data</code> directory and all output files will be written to a <code class="highlighter-rouge">results</code> directory.</p>
+a <code>data</code> directory and all output files will be written to a <code>results</code> directory.</p>
 
 <h2 id="github-repositories-for-projects">GitHub repositories for projects</h2>
 
@@ -1505,20 +1536,20 @@ given <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_project_07
 <h2 id="generate-workflow-environment-with-project-data">Generate workflow environment with project data</h2>
 
 <ol>
-  <li>Log in to biocluster and set your working directory to <code class="highlighter-rouge">bigdata</code></li>
-  <li>Clone GitHub repository for your project with <code class="highlighter-rouge">git clone ...</code> (see <a href="https://docs.google.com/spreadsheets/d/1Im2mwX8NJ9FSZB2CVxoevTxttr2wzoG9ybL_GMMNN4A/edit?usp=sharing">here</a>) and then <code class="highlighter-rouge">cd</code> into this directory.</li>
-  <li>Generate workflow environment for your project on biocluster with <code class="highlighter-rouge">genWorkenvir</code> from <code class="highlighter-rouge">systemPipeRdata</code>.</li>
-  <li>Replace the <code class="highlighter-rouge">data</code> and <code class="highlighter-rouge">results</code> directories by symbolic links pointing to the above described <code class="highlighter-rouge">data</code> and <code class="highlighter-rouge">results</code> directories of your course project. For instance, the project RNA-Seq1 should point on biocluster to:
+  <li>Log in to biocluster and set your working directory to <code>bigdata</code></li>
+  <li>Clone GitHub repository for your project with <code>git clone ...</code> (see <a href="https://docs.google.com/spreadsheets/d/1Im2mwX8NJ9FSZB2CVxoevTxttr2wzoG9ybL_GMMNN4A/edit#gid=1818533395">here</a>) and then <code>cd</code> into this directory.</li>
+  <li>Generate workflow environment for your project on biocluster with <code>genWorkenvir</code> from <code>systemPipeRdata</code>.</li>
+  <li>Replace the <code>data</code> and <code>results</code> directories by symbolic links pointing to the above described <code>data</code> and <code>results</code> directories of your course project. For instance, the project RNA-Seq1 should point on biocluster to:
     <ul>
-      <li><code class="highlighter-rouge">/bigdata/gen242/shared/RNA-Seq1/data</code></li>
-      <li><code class="highlighter-rouge">/bigdata/gen242/shared/RNA-Seq1/results</code></li>
+      <li><code>/bigdata/gen242/shared/RNA-Seq1/data</code></li>
+      <li><code>/bigdata/gen242/shared/RNA-Seq1/results</code></li>
     </ul>
   </li>
-  <li>Add the workflow directory to the GitHub repository of your project with <code class="highlighter-rouge">git add -A</code>. Note, steps 1-4 need to be performed only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned by all other students with <code class="highlighter-rouge">git clone ...</code>.</li>
-  <li>Download the FASTQ files of your project with <code class="highlighter-rouge">getSRAfastq</code> (see below) to the <code class="highlighter-rouge">data</code> directory of your project.</li>
-  <li>Generate a proper <code class="highlighter-rouge">targets</code> file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: <code class="highlighter-rouge">SampleNames</code> and <code class="highlighter-rouge">Factor</code>).</li>
-  <li>Inspect and adjust the <code class="highlighter-rouge">.param</code> files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.</li>
-  <li>Every time you start working on your project you <code class="highlighter-rouge">cd</code> into the directory of the repository and then run <code class="highlighter-rouge">git pull</code> to get the latest change. When you are done, you commit and push your changes back to GitHub with <code class="highlighter-rouge">git commit -am "some edits"; git push -u origin master</code>.</li>
+  <li>Add the workflow directory to the GitHub repository of your project with <code>git add -A</code>. Note, steps 1-4 need to be performed only by one student in each project. After committing and pushing the repository to GitHub, it can be cloned by all other students with <code>git clone ...</code>.</li>
+  <li>Download the FASTQ files of your project with <code>getSRAfastq</code> (see below) to the <code>data</code> directory of your project.</li>
+  <li>Generate a proper <code>targets</code> file for your project where the first column(s) point(s) to the downloaded FASTQ files. In addition, provide sample names matching the experimental design (columns: <code>SampleNames</code> and <code>Factor</code>).</li>
+  <li>Inspect and adjust the <code>.param</code> files you will be using. For instance, make sure the software modules you are loading and the path to the reference genome are correct.</li>
+  <li>Every time you start working on your project you <code>cd</code> into the directory of the repository and then run <code>git pull</code> to get the latest change. When you are done, you commit and push your changes back to GitHub with <code>git commit -am "some edits"; git push -u origin master</code>.</li>
 </ol>
 
 <h2 id="download-of-project-data">Download of project data</h2>
@@ -1531,56 +1562,56 @@ given <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_project_07
   <li>The FASTQ files for the ChIP-Seq project are from SRA study <a href="http://www.ncbi.nlm.nih.gov/sra?term=SRP002174">SRP002174</a> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/20360106">Kaufman et al. 2010</a>)</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sraidv</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"SRR0388"</span><span class="p">,</span> <span class="m">45</span><span class="o">:</span><span class="m">51</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sraidv</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"SRR0388"</span><span class="p">,</span> <span class="m">45</span><span class="o">:</span><span class="m">51</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></div>
 
 <ul>
   <li>The FASTQ files for the RNA-Seq project are from SRA study <a href="http://www.ncbi.nlm.nih.gov/sra?term=SRP010938">SRP010938</a> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/24098335">Howard et al. 2013</a>)</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sraidv</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"SRR4460"</span><span class="p">,</span> <span class="m">27</span><span class="o">:</span><span class="m">44</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sraidv</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"SRR4460"</span><span class="p">,</span> <span class="m">27</span><span class="o">:</span><span class="m">44</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></div>
 
 <ul>
   <li>The FASTQ files for the VAR-Seq project are from SRA study <a href="http://www.ncbi.nlm.nih.gov/sra?term=SRP008819">SRP008819</a> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/22106370">Lu et al 2012</a>)</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sraidv</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"SRR1051"</span><span class="p">,</span> <span class="m">389</span><span class="o">:</span><span class="m">415</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sraidv</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"SRR1051"</span><span class="p">,</span> <span class="m">389</span><span class="o">:</span><span class="m">415</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></div>
 
 <h4 id="load-libraries-and-modules">Load libraries and modules</h4>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span>
 <span class="n">moduleload</span><span class="p">(</span><span class="s2">"sratoolkit/2.5.0"</span><span class="p">)</span>
-<span class="n">system</span><span class="p">(</span><span class="s1">'fastq-dump --help'</span><span class="p">)</span> <span class="err">#</span> <span class="n">prints</span> <span class="n">help</span> <span class="n">to</span> <span class="n">screen</span></code></pre></figure>
+<span class="n">system</span><span class="p">(</span><span class="s1">'fastq-dump --help'</span><span class="p">)</span> <span class="err">#</span> <span class="n">prints</span> <span class="n">help</span> <span class="n">to</span> <span class="n">screen</span></code></pre></div>
 
 <h4 id="define-download-function">Define download function</h4>
 <p>The following function downloads and extracts the FASTQ files for each project from SRA.
-Internally, it uses the <code class="highlighter-rouge">fastq-dump</code> utility from NCBI.</p>
+Internally, it uses the <code>fastq-dump</code> utility from NCBI.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">getSRAfastq</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">sraid</span><span class="p">,</span> <span class="n">targetdir</span><span class="p">,</span> <span class="n">maxreads</span><span class="o">=</span><span class="s2">"1000000000"</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">getSRAfastq</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">sraid</span><span class="p">,</span> <span class="n">targetdir</span><span class="p">,</span> <span class="n">maxreads</span><span class="o">=</span><span class="s2">"1000000000"</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">system</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"fastq-dump --split-files --gzip --maxSpotId"</span><span class="p">,</span> <span class="n">maxreads</span><span class="p">,</span> <span class="n">sraid</span><span class="p">,</span> <span class="s2">"--outdir"</span><span class="p">,</span> <span class="n">targetdir</span><span class="p">))</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span></code></pre></div>
 
 <h4 id="run-download">Run download</h4>
 
 <p>Note the following performs the download in serialized mode for the chosen data set and saves the extracted FASTQ files to 
-the path specified under <code class="highlighter-rouge">targetdir</code>.</p>
+the path specified under <code>targetdir</code>.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydir</span> <span class="o">&lt;-</span> <span class="n">getwd</span><span class="p">();</span> <span class="n">setwd</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydir</span> <span class="o">&lt;-</span> <span class="n">getwd</span><span class="p">();</span> <span class="n">setwd</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span>
 <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">sraidv</span><span class="p">)</span> <span class="n">getSRAfastq</span><span class="p">(</span><span class="n">sraid</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">targetdir</span><span class="o">=</span><span class="s2">"."</span><span class="p">)</span>
-<span class="n">setwd</span><span class="p">(</span><span class="n">mydir</span><span class="p">)</span></code></pre></figure>
+<span class="n">setwd</span><span class="p">(</span><span class="n">mydir</span><span class="p">)</span></code></pre></div>
 
-<p>Alternatively, the download can be performed in parallelized mode with <code class="highlighter-rouge">BiocParallel</code>. Please run this version only on one of the compute nodes.</p>
+<p>Alternatively, the download can be performed in parallelized mode with <code>BiocParallel</code>. Please run this version only on one of the compute nodes.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydir</span> <span class="o">&lt;-</span> <span class="n">getwd</span><span class="p">();</span> <span class="n">setwd</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydir</span> <span class="o">&lt;-</span> <span class="n">getwd</span><span class="p">();</span> <span class="n">setwd</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)</span>
 <span class="c1"># bplapply(sraidv, getSRAfastq, targetdir=".", BPPARAM = MulticoreParam(workers=4))
-</span><span class="n">setwd</span><span class="p">(</span><span class="n">mydir</span><span class="p">)</span></code></pre></figure>
+</span><span class="n">setwd</span><span class="p">(</span><span class="n">mydir</span><span class="p">)</span></code></pre></div>
 
 <h3 id="download-reference-genome-and-annotation">Download reference genome and annotation</h3>
 
-<p>The following <code class="highlighter-rouge">downloadRefs</code> function downloads the <em>Arabidopsis thaliana</em> genome sequence and GFF file from the <a href="ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/">TAIR FTP site</a>. 
+<p>The following <code>downloadRefs</code> function downloads the <em>Arabidopsis thaliana</em> genome sequence and GFF file from the <a href="ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/">TAIR FTP site</a>. 
 It also assigns consistent chromosome identifiers to make them the same among both the genome sequence and the GFF file. This is
 important for many analysis routines such as the read counting in the RNA-Seq workflow.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">downloadRefs</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">rerun</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">downloadRefs</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">rerun</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">rerun</span><span class="o">==</span><span class="n">TRUE</span><span class="p">)</span> <span class="p">{</span>
         <span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
         <span class="n">system</span><span class="p">(</span><span class="s2">"wget ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/TAIR10_chromosome_files/TAIR10_chr_all.fas -P ./data/"</span><span class="p">)</span>
@@ -1590,11 +1621,11 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
         <span class="n">system</span><span class="p">(</span><span class="s2">"wget ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR10_genome_release/TAIR10_gff3/TAIR10_GFF3_genes.gff -P ./data/"</span><span class="p">)</span>
         <span class="n">system</span><span class="p">(</span><span class="s2">"wget ftp://ftp.arabidopsis.org/home/tair/Proteins/TAIR10_functional_descriptions -P ./data/"</span><span class="p">)</span>
     <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span></code></pre></div>
 
 <p>After sourcing the above function, execute it as follows:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">downloadRefs</span><span class="p">(</span><span class="n">rerun</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> <span class="err">#</span> <span class="n">To</span> <span class="n">execute</span> <span class="n">the</span> <span class="k">function</span> <span class="n">set</span> <span class="s1">'rerun=TRUE'</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">downloadRefs</span><span class="p">(</span><span class="n">rerun</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> <span class="err">#</span> <span class="n">To</span> <span class="n">execute</span> <span class="n">the</span> <span class="k">function</span> <span class="n">set</span> <span class="s1">'rerun=TRUE'</span></code></pre></div>
 
 
 
@@ -1612,7 +1643,7 @@ important for many analysis routines such as the read counting in the RNA-Seq wo
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> 29-Apr-16<br/> Site last generated: May 9, 2016 <br />
+<p>Page last updated:</span> 29-Apr-16<br/> Site last generated: May 14, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

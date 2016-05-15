@@ -77,6 +77,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -157,6 +167,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -249,6 +261,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -655,7 +677,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. Graphics in R</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. SQLite Databases</a></li>
                     
 
                     
@@ -664,7 +686,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Analysis Routine</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Graphics in R</a></li>
                     
 
                     
@@ -673,7 +695,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Session Info</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Analysis Routine</a></li>
                     
 
                     
@@ -682,7 +704,16 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_16.html">16. References</a></li>
                     
 
                     
@@ -1479,12 +1510,12 @@ $('#toc').on('click', 'a', function() {
 -->
 <p>The following performs GO term enrichment analysis for each annotated peak set.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/macs2.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_bam_ref.txt"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/macs2.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_bam_ref.txt"</span><span class="p">)</span>
 <span class="n">args_anno</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_peaks.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_macs.txt"</span><span class="p">)</span>
 <span class="n">annofiles</span> <span class="o">&lt;-</span> <span class="n">outpaths</span><span class="p">(</span><span class="n">args_anno</span><span class="p">)</span>
 <span class="n">gene_ids</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">annofiles</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">unique</span><span class="p">(</span><span class="n">as.character</span><span class="p">(</span><span class="n">read.delim</span><span class="p">(</span><span class="n">annofiles</span><span class="p">[</span><span class="n">x</span><span class="p">])[,</span><span class="s2">"gene_id"</span><span class="p">])))</span>
 <span class="n">load</span><span class="p">(</span><span class="s2">"data/GO/catdb.RData"</span><span class="p">)</span>
-<span class="n">BatchResult</span> <span class="o">&lt;-</span> <span class="n">GOCluster_Report</span><span class="p">(</span><span class="n">catdb</span><span class="o">=</span><span class="n">catdb</span><span class="p">,</span> <span class="n">setlist</span><span class="o">=</span><span class="n">gene_ids</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"all"</span><span class="p">,</span> <span class="n">id_type</span><span class="o">=</span><span class="s2">"gene"</span><span class="p">,</span> <span class="n">CLSZ</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="m">0.9</span><span class="p">,</span> <span class="n">gocats</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"MF"</span><span class="p">,</span> <span class="s2">"BP"</span><span class="p">,</span> <span class="s2">"CC"</span><span class="p">),</span> <span class="n">recordSpecGO</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span></code></pre></figure>
+<span class="n">BatchResult</span> <span class="o">&lt;-</span> <span class="n">GOCluster_Report</span><span class="p">(</span><span class="n">catdb</span><span class="o">=</span><span class="n">catdb</span><span class="p">,</span> <span class="n">setlist</span><span class="o">=</span><span class="n">gene_ids</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"all"</span><span class="p">,</span> <span class="n">id_type</span><span class="o">=</span><span class="s2">"gene"</span><span class="p">,</span> <span class="n">CLSZ</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="m">0.9</span><span class="p">,</span> <span class="n">gocats</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"MF"</span><span class="p">,</span> <span class="s2">"BP"</span><span class="p">,</span> <span class="s2">"CC"</span><span class="p">),</span> <span class="n">recordSpecGO</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span></code></pre></div>
 
 
 
@@ -1502,7 +1533,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed May  4 17:24:19 2016<br/> Site last generated: May 9, 2016 <br />
+<p>Page last updated:</span> Wed May  4 17:24:19 2016<br/> Site last generated: May 14, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

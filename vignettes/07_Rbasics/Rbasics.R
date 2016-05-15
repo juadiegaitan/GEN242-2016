@@ -179,8 +179,18 @@ apply(iris[1:6,1:3], 1, mean)
 ## ----read_delim, eval=FALSE----------------------------------------------
 ## myDF <- read.delim("myData.xls", sep="\t")
 
+## ----read_excel, eval=FALSE----------------------------------------------
+## library(gdata)
+## myDF <- read.xls"myData.xls")
+
 ## ----write_table, eval=FALSE---------------------------------------------
 ## write.table(myDF, file="myfile.xls", sep="\t", quote=FALSE, col.names=NA)
+
+## ----readlines, eval=FALSE-----------------------------------------------
+## myDF <- readLines("myData.txt")
+
+## ----writelines, eval=FALSE----------------------------------------------
+## writeLines(month.name, "myData.txt")
 
 ## ----paste_windows, eval=FALSE-------------------------------------------
 ## read.delim("clipboard")
@@ -215,6 +225,26 @@ frame1[1:2,]
 dim(frame1)
 my_result <- merge(frame1, iris, by.x = 0, by.y = 0, all = TRUE)
 dim(my_result)
+
+## ----load_sqlite, eval=TRUE----------------------------------------------
+library(RSQLite)
+mydb <- dbConnect(SQLite(), "test.db") # Creates database file test.db
+mydf1 <- data.frame(ids=paste0("id", seq_along(iris[,1])), iris)
+mydf2 <- mydf1[sample(seq_along(mydf1[,1]), 10),]
+dbWriteTable(mydb, "mydf1", mydf1)
+dbWriteTable(mydb, "mydf2", mydf2)
+
+## ----list_tables, eval=TRUE----------------------------------------------
+dbListTables(mydb)
+
+## ----import_sqlite_tables, eval=TRUE-------------------------------------
+dbGetQuery(mydb, 'SELECT * FROM mydf2')
+
+## ----query_sqlite_tables, eval=TRUE--------------------------------------
+dbGetQuery(mydb, 'SELECT * FROM mydf1 WHERE "Sepal.Length" < 4.6')
+
+## ----join_sqlite_tables, eval=TRUE---------------------------------------
+dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 
 ## ----sample_data, eval=TRUE----------------------------------------------
 set.seed(1410)
