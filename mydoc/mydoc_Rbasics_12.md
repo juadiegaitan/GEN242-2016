@@ -1,386 +1,125 @@
 ---
-title: Graphics in R
+title: SQLite Databases
 keywords: 
-last_updated: Tue Apr 19 19:45:32 2016
+last_updated: Sat May 14 21:39:23 2016
 ---
 
-## Advantages
+`SQLite` is a lightweight relational database solution. The `RSQLite` package provides an easy to use interface to create, manage and query `SQLite` databases directly from R. Basic instructions
+for using `SQLite` from the command-line are available [here](https://www.sqlite.org/cli.html). A short introduction to `RSQLite` is available [here](https://github.com/rstats-db/RSQLite/blob/master/vignettes/RSQLite.Rmd).
 
-- Powerful environment for visualizing scientific data
-- Integrated graphics and statistics infrastructure
-- Publication quality graphics
-- Fully programmable 
-- Highly reproducible
-- Full [LaTeX](http://www.latex-project.org/) and Markdown support via `knitr` and `R markdown`
-- Vast number of R packages with graphics utilities
+## Loading data into SQLite databases
 
-## Documentation for R Graphics
-
-__General__
-
-- Graphics Task Page - [URL](http://cran.r-project.org/web/views/Graphics.html)
-- R Graph Gallery - [URL](http://addictedtor.free.fr/graphiques/allgraph.php)
-- R Graphical Manual - [URL](http://cged.genes.nig.ac.jp/RGM2/index.php)
-- Paul Murrell's book R (Grid) Graphics - [URL](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
-
-__Interactive graphics__
-
-- rggobi` (GGobi) - [URL](http://www.ggobi.org/)
-- `iplots` - [URL](http://www.rosuda.org/iplots/)
-- Open GL (`rgl`) - [URL](http://rgl.neoscientists.org/gallery.shtml)
-
-## Graphics Environments
-
-__Viewing and saving graphics in R__
-
-- On-screen graphics
-- postscript, pdf, svg
-- jpeg, png, wmf, tiff, ...
-
-__Four major graphic environments__
-
-(a) Low-level infrastructure
-
-- R Base Graphics (low- and high-level)
-- `grid`: [Manual](http://www.stat.auckland.ac.nz/~paul/grid/grid.html)
-        
-(b) High-level infrastructure
-        \begin{itemize}
-- `lattice`: [Manual](http://lmdvr.r-forge.r-project.org), [Intro](http://www.his.sunderland.ac.uk/~cs0her/Statistics/UsingLatticeGraphicsInR.htm), [Book](http://www.amazon.com/Lattice-Multivariate-Data-Visualization-Use/dp/0387759689)
-- `ggplot2`: [Manual](http://had.co.nz/ggplot2/), [Intro](http://www.ling.upenn.edu/~joseff/rstudy/summer2010_ggplot2_intro.html), [Book](http://had.co.nz/ggplot2/book/)
-
-## Base Graphics: Overview
-
-__Important high-level plotting functions__
-
-- `plot`: generic x-y plotting
-- `barplot`: bar plots
-- `boxplot`: box-and-whisker plot
-- `hist`: histograms
-- `pie`: pie charts
-- `dotchart`: cleveland dot plots
-- `image, heatmap, contour, persp`: functions to generate image-like plots
-- `qqnorm, qqline, qqplot`: distribution comparison plots
-- `pairs, coplot`: display of multivariant data
-
-__Help on graphics functions__
-
-- `?myfct`
-- `?plot`
-- `?par`
-
-### Preferred Object Types
-
-- Matrices and data frames
-- Vectors
-- Named vectors
-
-## Scatter Plots
-
-### Basic Scatter Plot
-
-Sample data set for subsequent plots
+The following loads two `data.frames` derived from the `iris` data set (here `mydf1` and `mydf2`) 
+into an SQLite database (here `test.db`).
 
 
 {% highlight r %}
-set.seed(1410)
-y <- matrix(runif(30), ncol=3, dimnames=list(letters[1:10], LETTERS[1:3]))
-{% endhighlight %}
-
-Plot data
-
-{% highlight r %}
-plot(y[,1], y[,2]) 
-{% endhighlight %}
-
-![](Rbasics_files/basic_scatter_plot-1.png)
-
-### All pairs
-
-
-{% highlight r %}
-pairs(y) 
-{% endhighlight %}
-
-![](Rbasics_files/pairs_scatter_plot-1.png)
-
-### With labels
-
-
-{% highlight r %}
-plot(y[,1], y[,2], pch=20, col="red", main="Symbols and Labels")
-text(y[,1]+0.03, y[,2], rownames(y))
-{% endhighlight %}
-
-![](Rbasics_files/labels_scatter_plot-1.png)
-
-## More examples
-
-__Print instead of symbols the row names__
-
-
-{% highlight r %}
-plot(y[,1], y[,2], type="n", main="Plot of Labels")
-text(y[,1], y[,2], rownames(y)) 
-{% endhighlight %}
-
-![](Rbasics_files/row_scatter_plot-1.png)
-
-__Usage of important plotting parameters__
-
-
-{% highlight r %}
-grid(5, 5, lwd = 2) 
-op <- par(mar=c(8,8,8,8), bg="lightblue")
-plot(y[,1], y[,2], type="p", col="red", cex.lab=1.2, cex.axis=1.2, 
-     cex.main=1.2, cex.sub=1, lwd=4, pch=20, xlab="x label", 
-     ylab="y label", main="My Main", sub="My Sub")
-par(op)
-{% endhighlight %}
-__Important arguments_
-
-- `mar`: specifies the margin sizes around the plotting area in order: `c(bottom, left, top, right)` 
-- `col`: color of symbols
-- `pch`: type of symbols, samples: `example(points)`
-- `lwd`: size of symbols
-- `cex.*`: control font sizes
-- For details see `?par`
-
-
-### Add regression line 
-
-
-{% highlight r %}
-plot(y[,1], y[,2])
-myline <- lm(y[,2]~y[,1]); abline(myline, lwd=2) 
-{% endhighlight %}
-
-![](Rbasics_files/plot_regression-1.png)
-
-{% highlight r %}
-summary(myline) 
+library(RSQLite)
 {% endhighlight %}
 
 {% highlight txt %}
-## 
-## Call:
-## lm(formula = y[, 2] ~ y[, 1])
-## 
-## Residuals:
-##      Min       1Q   Median       3Q      Max 
-## -0.40357 -0.17912 -0.04299  0.22147  0.46623 
-## 
-## Coefficients:
-##             Estimate Std. Error t value Pr(>|t|)  
-## (Intercept)   0.5764     0.2110   2.732   0.0258 *
-## y[, 1]       -0.3647     0.3959  -0.921   0.3839  
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 0.3095 on 8 degrees of freedom
-## Multiple R-squared:  0.09589,	Adjusted R-squared:  -0.01712 
-## F-statistic: 0.8485 on 1 and 8 DF,  p-value: 0.3839
+## Loading required package: DBI
 {% endhighlight %}
 
-### Log scale
-
-Same plot as above, but on log scale
-
-
 {% highlight r %}
-plot(y[,1], y[,2], log="xy") 
-{% endhighlight %}
-
-![](Rbasics_files/plot_regression_log-1.png)
-
-### Add a mathematical expression
-
-
-{% highlight r %}
-plot(y[,1], y[,2]); text(y[1,1], y[1,2], expression(sum(frac(1,sqrt(x^2*pi)))), cex=1.3) 
-{% endhighlight %}
-
-![](Rbasics_files/plot_regression_math-1.png)
-
-## Homework 3B 
-
-Homework 3B: [Scatter Plots](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_homework_03.html)
-
-
-## Line Plots
-
-### Single data set
-
-
-{% highlight r %}
-plot(y[,1], type="l", lwd=2, col="blue") 
-{% endhighlight %}
-
-![](Rbasics_files/plot_line_single-1.png)
-
-### Many Data Sets
-
-Plots line graph for all columns in data frame `y`. The `split.screen` function is used in this example in a for loop to overlay several line graphs in the same plot. 
-
-
-{% highlight r %}
-split.screen(c(1,1)) 
+mydb <- dbConnect(SQLite(), "test.db") # Creates database file test.db
+mydf1 <- data.frame(ids=paste0("id", seq_along(iris[,1])), iris)
+mydf2 <- mydf1[sample(seq_along(mydf1[,1]), 10),]
+dbWriteTable(mydb, "mydf1", mydf1)
 {% endhighlight %}
 
 {% highlight txt %}
-## [1] 1
+## [1] TRUE
 {% endhighlight %}
 
 {% highlight r %}
-plot(y[,1], ylim=c(0,1), xlab="Measurement", ylab="Intensity", type="l", lwd=2, col=1)
-for(i in 2:length(y[1,])) { 
-	screen(1, new=FALSE)
-	plot(y[,i], ylim=c(0,1), type="l", lwd=2, col=i, xaxt="n", yaxt="n", ylab="", xlab="", main="", bty="n") 
-}
-{% endhighlight %}
-
-![](Rbasics_files/plot_line_many-1.png)
-
-{% highlight r %}
-close.screen(all=TRUE) 
-{% endhighlight %}
-
-## Bar Plots 
-
-### Basics
-
-
-{% highlight r %}
-barplot(y[1:4,], ylim=c(0, max(y[1:4,])+0.3), beside=TRUE, legend=letters[1:4]) 
-text(labels=round(as.vector(as.matrix(y[1:4,])),2), x=seq(1.5, 13, by=1) + sort(rep(c(0,1,2), 4)), y=as.vector(as.matrix(y[1:4,]))+0.04) 
-{% endhighlight %}
-
-![](Rbasics_files/plot_bar_simple-1.png)
-    
-### Error Bars
-
-
-{% highlight r %}
-bar <- barplot(m <- rowMeans(y) * 10, ylim=c(0, 10))
-stdev <- sd(t(y))
-arrows(bar, m, bar, m + stdev, length=0.15, angle = 90)
-{% endhighlight %}
-
-![](Rbasics_files/plot_bar_error-1.png)
-
-## Histograms
-
-
-{% highlight r %}
-hist(y, freq=TRUE, breaks=10)
-{% endhighlight %}
-
-![](Rbasics_files/plot_hist-1.png)
-
-## Density Plots
-
-
-{% highlight r %}
-plot(density(y), col="red")
-{% endhighlight %}
-
-![](Rbasics_files/plot_dens-1.png)
-
-## Pie Charts
-
-
-{% highlight r %}
-pie(y[,1], col=rainbow(length(y[,1]), start=0.1, end=0.8), clockwise=TRUE)
-legend("topright", legend=row.names(y), cex=1.3, bty="n", pch=15, pt.cex=1.8, 
-col=rainbow(length(y[,1]), start=0.1, end=0.8), ncol=1) 
-{% endhighlight %}
-
-![](Rbasics_files/plot_pie-1.png)
-
-## Color Selection Utilities
-
-Default color palette and how to change it
-
-
-{% highlight r %}
-palette()
+dbWriteTable(mydb, "mydf2", mydf2)
 {% endhighlight %}
 
 {% highlight txt %}
-## [1] "black"   "red"     "green3"  "blue"    "cyan"    "magenta" "yellow"  "gray"
+## [1] TRUE
 {% endhighlight %}
 
+## List names of tables in database
+
+
 {% highlight r %}
-palette(rainbow(5, start=0.1, end=0.2))
-palette()
+dbListTables(mydb)
 {% endhighlight %}
 
 {% highlight txt %}
-## [1] "#FF9900" "#FFBF00" "#FFE600" "#F2FF00" "#CCFF00"
+## [1] "mydf1" "mydf2"
 {% endhighlight %}
 
-{% highlight r %}
-palette("default")
-{% endhighlight %}
+## Import table into `data.frame`
 
-The `gray` function allows to select any type of gray shades by providing values from 0 to 1
 
 {% highlight r %}
-gray(seq(0.1, 1, by= 0.2))
+dbGetQuery(mydb, 'SELECT * FROM mydf2')
 {% endhighlight %}
 
 {% highlight txt %}
-## [1] "#1A1A1A" "#4D4D4D" "#808080" "#B3B3B3" "#E6E6E6"
+##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+## 1  id115          5.8         2.8          5.1         2.4  virginica
+## 2   id73          6.3         2.5          4.9         1.5 versicolor
+## 3   id80          5.7         2.6          3.5         1.0 versicolor
+## 4   id63          6.0         2.2          4.0         1.0 versicolor
+## 5  id123          7.7         2.8          6.7         2.0  virginica
+## 6   id99          5.1         2.5          3.0         1.1 versicolor
+## 7  id126          7.2         3.2          6.0         1.8  virginica
+## 8    id2          4.9         3.0          1.4         0.2     setosa
+## 9   id91          5.5         2.6          4.4         1.2 versicolor
+## 10  id20          5.1         3.8          1.5         0.3     setosa
 {% endhighlight %}
 
-Color gradients with `colorpanel` function from `gplots` library`
+## Query database
+
 
 {% highlight r %}
-library(gplots)
+dbGetQuery(mydb, 'SELECT * FROM mydf1 WHERE "Sepal.Length" < 4.6')
 {% endhighlight %}
 
 {% highlight txt %}
-## 
-## Attaching package: 'gplots'
+##    ids Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1  id9          4.4         2.9          1.4         0.2  setosa
+## 2 id14          4.3         3.0          1.1         0.1  setosa
+## 3 id39          4.4         3.0          1.3         0.2  setosa
+## 4 id42          4.5         2.3          1.3         0.3  setosa
+## 5 id43          4.4         3.2          1.3         0.2  setosa
+{% endhighlight %}
+
+## Join tables
+
+The two tables can be joined on the shared `ids` column as follows. 
+
+
+{% highlight r %}
+dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 {% endhighlight %}
 
 {% highlight txt %}
-## The following object is masked from 'package:stats':
-## 
-##     lowess
+##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species   ids Sepal.Length
+## 1    id2          4.9         3.0          1.4         0.2     setosa   id2          4.9
+## 2   id20          5.1         3.8          1.5         0.3     setosa  id20          5.1
+## 3   id63          6.0         2.2          4.0         1.0 versicolor  id63          6.0
+## 4   id73          6.3         2.5          4.9         1.5 versicolor  id73          6.3
+## 5   id80          5.7         2.6          3.5         1.0 versicolor  id80          5.7
+## 6   id91          5.5         2.6          4.4         1.2 versicolor  id91          5.5
+## 7   id99          5.1         2.5          3.0         1.1 versicolor  id99          5.1
+## 8  id115          5.8         2.8          5.1         2.4  virginica id115          5.8
+## 9  id123          7.7         2.8          6.7         2.0  virginica id123          7.7
+## 10 id126          7.2         3.2          6.0         1.8  virginica id126          7.2
+##    Sepal.Width Petal.Length Petal.Width    Species
+## 1          3.0          1.4         0.2     setosa
+## 2          3.8          1.5         0.3     setosa
+## 3          2.2          4.0         1.0 versicolor
+## 4          2.5          4.9         1.5 versicolor
+## 5          2.6          3.5         1.0 versicolor
+## 6          2.6          4.4         1.2 versicolor
+## 7          2.5          3.0         1.1 versicolor
+## 8          2.8          5.1         2.4  virginica
+## 9          2.8          6.7         2.0  virginica
+## 10         3.2          6.0         1.8  virginica
 {% endhighlight %}
 
-{% highlight r %}
-colorpanel(5, "darkblue", "yellow", "white")
-{% endhighlight %}
-
-{% highlight txt %}
-## [1] "#00008B" "#808046" "#FFFF00" "#FFFF80" "#FFFFFF"
-{% endhighlight %}
-Much more on colors in R see Earl Glynn's color chart [here](http://research.stowers-institute.org/efg/R/Color/Chart/)
-
-
-## Saving Graphics to File
-
-After the `pdf()` command all graphs are redirected to file `test.pdf`. Works for all common formats similarly: jpeg, png, ps, tiff, ...
-
-{% highlight r %}
-pdf("test.pdf")
-plot(1:10, 1:10)
-dev.off() 
-{% endhighlight %}
-
-Generates Scalable Vector Graphics (SVG) files that can be edited in vector graphics programs, such as InkScape.
-
-
-{% highlight r %}
-library("RSvgDevice")
-devSVG("test.svg")
-plot(1:10, 1:10)
-dev.off() 
-{% endhighlight %}
-
-## Homework 3C
-
-Homework 3C: [Bar Plots](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_homework_03.html)
 

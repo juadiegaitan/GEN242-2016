@@ -388,7 +388,7 @@ entries:
       version: all
       output: web
 
-    - title: 12. Graphics in R
+    - title: 12. SQLite Databases
       url: /mydoc/mydoc_Rbasics_12.html
       audience: writers, designers
       platform: all
@@ -396,7 +396,7 @@ entries:
       version: all
       output: web
 
-    - title: 13. Analysis Routine
+    - title: 13. Graphics in R
       url: /mydoc/mydoc_Rbasics_13.html
       audience: writers, designers
       platform: all
@@ -404,7 +404,7 @@ entries:
       version: all
       output: web
 
-    - title: 14. Session Info
+    - title: 14. Analysis Routine
       url: /mydoc/mydoc_Rbasics_14.html
       audience: writers, designers
       platform: all
@@ -412,8 +412,16 @@ entries:
       version: all
       output: web
 
-    - title: 15. References
+    - title: 15. Session Info
       url: /mydoc/mydoc_Rbasics_15.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+    - title: 16. References
+      url: /mydoc/mydoc_Rbasics_16.html
       audience: writers, designers
       platform: all
       product: all

@@ -3,3 +3,5 @@ BiocStyle
 limma
 ggplot2
 gplots
+DBI
+RSQLite

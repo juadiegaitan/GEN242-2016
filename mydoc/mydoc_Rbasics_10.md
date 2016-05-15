@@ -1,19 +1,39 @@
 ---
 title: Reading and Writing External Data
 keywords: 
-last_updated: Tue Apr 19 19:45:32 2016
+last_updated: Sat May 14 21:39:23 2016
 ---
-## Import data from tabular files into R
+## Import of tabular data
 
+Import of a tab-delimited tabular file
 
 {% highlight r %}
 myDF <- read.delim("myData.xls", sep="\t")
 {% endhighlight %}
 
-## Export data from R to tabular files
+Import of Excel file. Note: working with tab- or comma-delimited files is more flexible and preferred.
+
+{% highlight r %}
+library(gdata)
+myDF <- read.xls"myData.xls")
+{% endhighlight %}
+
+## Export of tabular data
 
 {% highlight r %}
 write.table(myDF, file="myfile.xls", sep="\t", quote=FALSE, col.names=NA)
+{% endhighlight %}
+
+## Line-wise import
+
+{% highlight r %}
+myDF <- readLines("myData.txt")
+{% endhighlight %}
+
+## Line-wise export
+
+{% highlight r %}
+writeLines(month.name, "myData.txt")
 {% endhighlight %}
 
 ## Copy and paste into R
