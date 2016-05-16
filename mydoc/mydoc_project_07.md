@@ -72,7 +72,7 @@ system('fastq-dump --help') # prints help to screen
 #### Redirect cache output of SRA Toolkit 
 
 Newer versions of the SRA Toolkit create a cache directory (named `ncbi`) in the highest level of a user's home directory. 
-To save space in you home account, you may want to redirect this output to your project's
+To save space in your home account, you may want to redirect this output to your project's
 `data` directory via a symbolic link. The following shows how to do this for the `data` directory
 of the `ChIP-Seq1` project.
 
@@ -82,7 +82,7 @@ system("ln -s /bigdata/gen242/shared/ChIP-Seq1/data ~/ncbi")
 
 #### Define download function
 The following function downloads and extracts the FASTQ files for each project from SRA.
-Internally, it uses the `fastq-dump` utility from NCBI.
+Internally, it uses the `fastq-dump` utility of the SRA Toolkit from NCBI.
 
 {% highlight r %}
 getSRAfastq <- function(sraid, targetdir, maxreads="1000000000") {
