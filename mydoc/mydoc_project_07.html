@@ -1603,7 +1603,7 @@ given <a href="http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_project_07
 <h4 id="redirect-cache-output-of-sra-toolkit">Redirect cache output of SRA Toolkit</h4>
 
 <p>Newer versions of the SRA Toolkit create a cache directory (named <code>ncbi</code>) in the highest level of a user’s home directory. 
-To save space in you home account, you may want to redirect this output to your project’s
+To save space in your home account, you may want to redirect this output to your project’s
 <code>data</code> directory via a symbolic link. The following shows how to do this for the <code>data</code> directory
 of the <code>ChIP-Seq1</code> project.</p>
 
@@ -1611,7 +1611,7 @@ of the <code>ChIP-Seq1</code> project.</p>
 
 <h4 id="define-download-function">Define download function</h4>
 <p>The following function downloads and extracts the FASTQ files for each project from SRA.
-Internally, it uses the <code>fastq-dump</code> utility from NCBI.</p>
+Internally, it uses the <code>fastq-dump</code> utility of the SRA Toolkit from NCBI.</p>
 
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">getSRAfastq</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">sraid</span><span class="p">,</span> <span class="n">targetdir</span><span class="p">,</span> <span class="n">maxreads</span><span class="o">=</span><span class="s2">"1000000000"</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">system</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"fastq-dump --split-files --gzip --maxSpotId"</span><span class="p">,</span> <span class="n">maxreads</span><span class="p">,</span> <span class="n">sraid</span><span class="p">,</span> <span class="s2">"--outdir"</span><span class="p">,</span> <span class="n">targetdir</span><span class="p">))</span>
