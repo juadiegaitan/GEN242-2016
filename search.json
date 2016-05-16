@@ -1273,7 +1273,7 @@
 
 
 {
-"title": "Genome Annotation, Ontologies and Gene Set Enrichment",
+"title": "Assembly of Genomes and Transcriptomes",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_15.html",
@@ -1284,10 +1284,32 @@
 
 
 {
-"title": "Genome Annotation, Ontologies and Gene Set Enrichment",
+"title": "Assembly of Genomes and Transcriptomes",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_15.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Gene Annotation, Ontologies and Enrichment Methods",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_16.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Gene Annotation, Ontologies and Enrichment Methods",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_16.html",
 "summary": ""
 },
 
