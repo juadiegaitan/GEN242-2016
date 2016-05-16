@@ -83,6 +83,11 @@ mydoc_slides_13:
   url: "../mydoc_slides_13.html"
   link: "<a href='../mydoc_slides_13.html'>ChIP-Seq Overview</a>"
 
+mydoc_slides_14:
+  title: "VAR-Seq Overview"
+  url: "../mydoc_slides_14.html"
+  link: "<a href='../mydoc_slides_14.html'>VAR-Seq Overview</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
@@ -202,81 +207,6 @@ mydoc_Programming_in_R_9:
   title: "References"
   url: "../mydoc/mydoc_Programming_in_R_9.html"
   link: "<a href='../mydoc/mydoc_Programming_in_R_9.html'>References</a>"
-
-mydoc_Rbasics_01:
-  title: "Overview"
-  url: "../mydoc/mydoc_Rbasics_01.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_01.html'>Overview</a>"
-
-mydoc_Rbasics_02:
-  title: "R Package Repositories"
-  url: "../mydoc/mydoc_Rbasics_02.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_02.html'>R Package Repositories</a>"
-
-mydoc_Rbasics_03:
-  title: "Installation of R and Add-on Packages"
-  url: "../mydoc/mydoc_Rbasics_03.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_03.html'>Installation of R and Add-on Packages</a>"
-
-mydoc_Rbasics_04:
-  title: "Getting Around"
-  url: "../mydoc/mydoc_Rbasics_04.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_04.html'>Getting Around</a>"
-
-mydoc_Rbasics_05:
-  title: "Basic Syntax"
-  url: "../mydoc/mydoc_Rbasics_05.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_05.html'>Basic Syntax</a>"
-
-mydoc_Rbasics_06:
-  title: "Data Types "
-  url: "../mydoc/mydoc_Rbasics_06.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_06.html'>Data Types </a>"
-
-mydoc_Rbasics_07:
-  title: "Data objects"
-  url: "../mydoc/mydoc_Rbasics_07.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_07.html'>Data objects</a>"
-
-mydoc_Rbasics_08:
-  title: "Important Utilities"
-  url: "../mydoc/mydoc_Rbasics_08.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_08.html'>Important Utilities</a>"
-
-mydoc_Rbasics_09:
-  title: "Operators and Calculations"
-  url: "../mydoc/mydoc_Rbasics_09.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_09.html'>Operators and Calculations</a>"
-
-mydoc_Rbasics_10:
-  title: "Reading and Writing External Data"
-  url: "../mydoc/mydoc_Rbasics_10.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_10.html'>Reading and Writing External Data</a>"
-
-mydoc_Rbasics_11:
-  title: "Useful R Functions"
-  url: "../mydoc/mydoc_Rbasics_11.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>Useful R Functions</a>"
-
-mydoc_Rbasics_12:
-  title: "Graphics in R"
-  url: "../mydoc/mydoc_Rbasics_12.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_12.html'>Graphics in R</a>"
-
-mydoc_Rbasics_13:
-  title: "Analysis Routine"
-  url: "../mydoc/mydoc_Rbasics_13.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_13.html'>Analysis Routine</a>"
-
-mydoc_Rbasics_14:
-  title: "Session Info"
-  url: "../mydoc/mydoc_Rbasics_14.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_14.html'>Session Info</a>"
-
-mydoc_Rbasics_15:
-  title: "References"
-  url: "../mydoc/mydoc_Rbasics_15.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_15.html'>References</a>"
 
 mydoc_Programming_in_R_01:
   title: "Overview"
@@ -468,72 +398,6 @@ mydoc_systemPipeRNAseq_11:
   url: "../mydoc/mydoc_systemPipeRNAseq_11.html"
   link: "<a href='../mydoc/mydoc_systemPipeRNAseq_11.html'>References</a>"
 
-mydoc_systemPipeVARseq_01:
-  title: "Introduction"
-  url: "../mydoc/mydoc_systemPipeVARseq_01.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_01.html'>Introduction</a>"
-
-mydoc_systemPipeVARseq_02:
-  title: "Load workflow environment"
-  url: "../mydoc/mydoc_systemPipeVARseq_02.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_02.html'>Load workflow environment</a>"
-
-mydoc_systemPipeVARseq_03:
-  title: "Read preprocessing"
-  url: "../mydoc/mydoc_systemPipeVARseq_03.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_03.html'>Read preprocessing</a>"
-
-mydoc_systemPipeVARseq_04:
-  title: "Alignments"
-  url: "../mydoc/mydoc_systemPipeVARseq_04.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_04.html'>Alignments</a>"
-
-mydoc_systemPipeVARseq_05:
-  title: "Variant calling"
-  url: "../mydoc/mydoc_systemPipeVARseq_05.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_05.html'>Variant calling</a>"
-
-mydoc_systemPipeVARseq_06:
-  title: "Filter variants"
-  url: "../mydoc/mydoc_systemPipeVARseq_06.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_06.html'>Filter variants</a>"
-
-mydoc_systemPipeVARseq_07:
-  title: "Annotate filtered variants"
-  url: "../mydoc/mydoc_systemPipeVARseq_07.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_07.html'>Annotate filtered variants</a>"
-
-mydoc_systemPipeVARseq_08:
-  title: "Combine annotation results among samples"
-  url: "../mydoc/mydoc_systemPipeVARseq_08.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_08.html'>Combine annotation results among samples</a>"
-
-mydoc_systemPipeVARseq_09:
-  title: "Summary statistics of variants"
-  url: "../mydoc/mydoc_systemPipeVARseq_09.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_09.html'>Summary statistics of variants</a>"
-
-mydoc_systemPipeVARseq_10:
-  title: "Venn diagram of variants"
-  url: "../mydoc/mydoc_systemPipeVARseq_10.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_10.html'>Venn diagram of variants</a>"
-
-mydoc_systemPipeVARseq_11:
-  title: "Version Information"
-  url: "../mydoc/mydoc_systemPipeVARseq_11.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_11.html'>Version Information</a>"
-
-mydoc_systemPipeVARseq_12:
-  title: "Funding"
-  url: "../mydoc/mydoc_systemPipeVARseq_12.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_12.html'>Funding</a>"
-
-mydoc_systemPipeVARseq_13:
-  title: "References"
-  url: "../mydoc/mydoc_systemPipeVARseq_13.html"
-  link: "<a href='../mydoc/mydoc_systemPipeVARseq_13.html'>References</a>"
-
-
 mydoc_systemPipeChIPseq_01:
   title: "Introduction"
   url: "../mydoc/mydoc_systemPipeChIPseq_01.html"
@@ -603,4 +467,154 @@ mydoc_systemPipeChIPseq_14:
   title: "References"
   url: "../mydoc/mydoc_systemPipeChIPseq_14.html"
   link: "<a href='../mydoc/mydoc_systemPipeChIPseq_14.html'>References</a>"
+
+mydoc_systemPipeVARseq_01:
+  title: "Introduction"
+  url: "../mydoc/mydoc_systemPipeVARseq_01.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_01.html'>Introduction</a>"
+
+mydoc_systemPipeVARseq_02:
+  title: "Load workflow environment"
+  url: "../mydoc/mydoc_systemPipeVARseq_02.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_02.html'>Load workflow environment</a>"
+
+mydoc_systemPipeVARseq_03:
+  title: "Read preprocessing"
+  url: "../mydoc/mydoc_systemPipeVARseq_03.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_03.html'>Read preprocessing</a>"
+
+mydoc_systemPipeVARseq_04:
+  title: "Alignments"
+  url: "../mydoc/mydoc_systemPipeVARseq_04.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_04.html'>Alignments</a>"
+
+mydoc_systemPipeVARseq_05:
+  title: "Variant calling"
+  url: "../mydoc/mydoc_systemPipeVARseq_05.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_05.html'>Variant calling</a>"
+
+mydoc_systemPipeVARseq_06:
+  title: "Filter variants"
+  url: "../mydoc/mydoc_systemPipeVARseq_06.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_06.html'>Filter variants</a>"
+
+mydoc_systemPipeVARseq_07:
+  title: "Annotate filtered variants"
+  url: "../mydoc/mydoc_systemPipeVARseq_07.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_07.html'>Annotate filtered variants</a>"
+
+mydoc_systemPipeVARseq_08:
+  title: "Combine annotation results among samples"
+  url: "../mydoc/mydoc_systemPipeVARseq_08.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_08.html'>Combine annotation results among samples</a>"
+
+mydoc_systemPipeVARseq_09:
+  title: "Summary statistics of variants"
+  url: "../mydoc/mydoc_systemPipeVARseq_09.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_09.html'>Summary statistics of variants</a>"
+
+mydoc_systemPipeVARseq_10:
+  title: "Venn diagram of variants"
+  url: "../mydoc/mydoc_systemPipeVARseq_10.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_10.html'>Venn diagram of variants</a>"
+
+mydoc_systemPipeVARseq_11:
+  title: "Plot variants programmatically "
+  url: "../mydoc/mydoc_systemPipeVARseq_11.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_11.html'>Plot variants programmatically </a>"
+
+mydoc_systemPipeVARseq_12:
+  title: "Version Information"
+  url: "../mydoc/mydoc_systemPipeVARseq_12.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_12.html'>Version Information</a>"
+
+mydoc_systemPipeVARseq_13:
+  title: "Funding"
+  url: "../mydoc/mydoc_systemPipeVARseq_13.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_13.html'>Funding</a>"
+
+mydoc_systemPipeVARseq_14:
+  title: "References"
+  url: "../mydoc/mydoc_systemPipeVARseq_14.html"
+  link: "<a href='../mydoc/mydoc_systemPipeVARseq_14.html'>References</a>"
+
+mydoc_Rbasics_01:
+  title: "Overview"
+  url: "../mydoc/mydoc_Rbasics_01.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_01.html'>Overview</a>"
+
+mydoc_Rbasics_02:
+  title: "R Package Repositories"
+  url: "../mydoc/mydoc_Rbasics_02.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_02.html'>R Package Repositories</a>"
+
+mydoc_Rbasics_03:
+  title: "Installation of R and Add-on Packages"
+  url: "../mydoc/mydoc_Rbasics_03.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_03.html'>Installation of R and Add-on Packages</a>"
+
+mydoc_Rbasics_04:
+  title: "Getting Around"
+  url: "../mydoc/mydoc_Rbasics_04.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_04.html'>Getting Around</a>"
+
+mydoc_Rbasics_05:
+  title: "Basic Syntax"
+  url: "../mydoc/mydoc_Rbasics_05.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_05.html'>Basic Syntax</a>"
+
+mydoc_Rbasics_06:
+  title: "Data Types "
+  url: "../mydoc/mydoc_Rbasics_06.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_06.html'>Data Types </a>"
+
+mydoc_Rbasics_07:
+  title: "Data objects"
+  url: "../mydoc/mydoc_Rbasics_07.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_07.html'>Data objects</a>"
+
+mydoc_Rbasics_08:
+  title: "Important Utilities"
+  url: "../mydoc/mydoc_Rbasics_08.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_08.html'>Important Utilities</a>"
+
+mydoc_Rbasics_09:
+  title: "Operators and Calculations"
+  url: "../mydoc/mydoc_Rbasics_09.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_09.html'>Operators and Calculations</a>"
+
+mydoc_Rbasics_10:
+  title: "Reading and Writing External Data"
+  url: "../mydoc/mydoc_Rbasics_10.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_10.html'>Reading and Writing External Data</a>"
+
+mydoc_Rbasics_11:
+  title: "Useful R Functions"
+  url: "../mydoc/mydoc_Rbasics_11.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_11.html'>Useful R Functions</a>"
+
+mydoc_Rbasics_12:
+  title: "SQLite Databases"
+  url: "../mydoc/mydoc_Rbasics_12.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_12.html'>SQLite Databases</a>"
+
+mydoc_Rbasics_13:
+  title: "Graphics in R"
+  url: "../mydoc/mydoc_Rbasics_13.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_13.html'>Graphics in R</a>"
+
+mydoc_Rbasics_14:
+  title: "Analysis Routine"
+  url: "../mydoc/mydoc_Rbasics_14.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_14.html'>Analysis Routine</a>"
+
+mydoc_Rbasics_15:
+  title: "Session Info"
+  url: "../mydoc/mydoc_Rbasics_15.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_15.html'>Session Info</a>"
+
+mydoc_Rbasics_16:
+  title: "References"
+  url: "../mydoc/mydoc_Rbasics_16.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_16.html'>References</a>"
 
