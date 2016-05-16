@@ -1,8 +1,8 @@
 ---
-title: Genome Annotation, Ontologies and Gene Set Enrichment 
+title: Assembly of Genomes and Transcriptomes 
 last_updated: 15-May-16
 ---
 
-<iframe src="https://docs.google.com/presentation/d/1TpgdNFpn93031y1Knj3U1I2EB981GJs4CQ6lgjIjLhA/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/1VWOpnWGU_ZUuryeo3Y_MRzIaSj1pp0313mOnA71N2ek/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 

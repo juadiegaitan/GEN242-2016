@@ -204,8 +204,16 @@ entries:
       version: all
       output: web
     
-    - title: Gene Set Enrichment Analysis
+    - title: Sequence Assembly
       url: /mydoc/mydoc_slides_15.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+    
+    - title: Gene Annotation and Ontologies
+      url: /mydoc/mydoc_slides_16.html
       audience: writers, designers
       platform: all
       product: all

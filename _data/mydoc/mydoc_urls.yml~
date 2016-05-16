@@ -88,6 +88,11 @@ mydoc_slides_14:
   url: "../mydoc_slides_14.html"
   link: "<a href='../mydoc_slides_14.html'>VAR-Seq Overview</a>"
 
+mydoc_slides_15:
+  title: "Gene Set Enrichment"
+  url: "../mydoc_slides_15.html"
+  link: "<a href='../mydoc_slides_15.html'>Gene Set Enrichment</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"
