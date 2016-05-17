@@ -1,7 +1,7 @@
 ---
 title: Graphics and Data Visualization in R 
 keywords: 
-last_updated: Tue May 17 09:39:48 2016
+last_updated: Tue May 17 09:54:10 2016
 ---
 Thomas Girke (thomas.girke@ucr.edu)
 
