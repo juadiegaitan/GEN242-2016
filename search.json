@@ -71,6 +71,50 @@
 
 
 {
+"title": "Graphics and Data Visualization in R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/15_Rgraphics/Rgraphics.Rmd",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Graphics and Data Visualization in R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/15_Rgraphics/Rgraphics.knit.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Graphics and Data Visualization in R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/15_Rgraphics/Rgraphics.text",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Graphics and Data Visualization in R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/15_Rgraphics/Rgraphics.utf8.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "NGS Analysis Basics",
 "tags": "",
 "keywords": "",
@@ -525,6 +569,94 @@
 
 
 {
+"title": "Graphics and Data Visualization in R",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rgraphics_1.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Base Graphics",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rgraphics_2.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Grid Graphics",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rgraphics_3.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "lattice Graphics",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rgraphics_4.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "ggplot2 Graphics",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rgraphics_5.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Specialty Graphics",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rgraphics_6.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Genome Graphics",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rgraphics_7.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rgraphics_8.html",
+"summary": ""
+},
+
+
+
+
+{
 "title": "NGS Analysis Basics",
 "tags": "",
 "keywords": "",
@@ -748,7 +880,7 @@
 "title": "Student Paper Presentations",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/14_Paper_Presentations/mydoc_paper_presentations.html",
+"url": "../vignettes/16_Paper_Presentations/mydoc_paper_presentations.html",
 "summary": ""
 },
 
@@ -770,7 +902,7 @@
 "title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_00.html",
+"url": "../vignettes/17_Projects/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -792,7 +924,7 @@
 "title": "ChIP-Seq1 - Motif Prediction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_01.html",
+"url": "../vignettes/17_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -814,7 +946,7 @@
 "title": "ChIP-Seq2 - Peak Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_02.html",
+"url": "../vignettes/17_Projects/mydoc_project_02.html",
 "summary": ""
 },
 
@@ -836,7 +968,7 @@
 "title": "RNA-Seq1 - RNA-Seq Aligners",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_03.html",
+"url": "../vignettes/17_Projects/mydoc_project_03.html",
 "summary": ""
 },
 
@@ -858,7 +990,7 @@
 "title": "RNA-Seq2 - DEG Methods",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_04.html",
+"url": "../vignettes/17_Projects/mydoc_project_04.html",
 "summary": ""
 },
 
@@ -880,7 +1012,7 @@
 "title": "VAR-Seq1 - Comparison of Variant Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_05.html",
+"url": "../vignettes/17_Projects/mydoc_project_05.html",
 "summary": ""
 },
 
@@ -902,7 +1034,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_06.html",
+"url": "../vignettes/17_Projects/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -924,7 +1056,7 @@
 "title": "Data Management for Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/15_Projects/mydoc_project_07.html",
+"url": "../vignettes/17_Projects/mydoc_project_07.html",
 "summary": ""
 },
 

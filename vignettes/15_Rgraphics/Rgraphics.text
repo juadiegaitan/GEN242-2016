@@ -1,0 +1,3064 @@
+<!DOCTYPE html>
+  <head>
+
+ <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Graphics and Data Visualization in R  | GEN242</title>
+<link rel="stylesheet" type="text/css" href="../css/syntax.css">
+<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
+<link rel="stylesheet" type="text/css" href="../css/modern-business.css">
+<link rel="stylesheet" type="text/css" href="../css/lavish-bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../css/customstyles.css">
+<link rel="stylesheet" type="text/css" href="../css/theme-blue.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="../js/jquery.navgoco.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="../js/toc.js"></script>
+<script src="../js/customscripts.js"></script>
+<link rel="shortcut icon" href="../common_images/favicon.ico" type="image/x-icon">
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+
+
+
+ 
+
+<script>
+  $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+
+
+  </head>
+
+<body>
+
+   <!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="fa fa-home fa-lg navbar-brand" href="home.html">&nbsp;<span class="projectTitle"> Data Analysis in Genome Biology</span></a>
+
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                
+                
+                
+                <li><a href="https://piazza.com/class/ilbslqb3j2ovy" target="_blank">Piazza</a></li>
+                
+                
+                
+                
+                
+                <li><a href="https://github.com/tgirke/GEN242" target="_blank">Github Repo</a></li>
+                
+                
+                
+                
+
+
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+
+                <li class="dropdown">
+                    
+                    
+                    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        
+                        <li><a href="https://cran.r-project.org/" target="_blank">CRAN</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://bioconductor.org/" target="_blank">Bioconductor</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual" target="_blank">R & Bioconductor Manual</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="https://guides.github.com/activities/hello-world/" target="_blank">GitHub</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/" target="_blank">Jekyll</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://girke.bioinformatics.ucr.edu/" target="_blank">Girke Lab</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/documentation-theme-jekyll" target="_blank">Jekyll Doc Theme</a></li>
+                        
+                        
+                        
+                        
+
+                    </ul>
+                </li>
+                
+                
+
+
+                <!-- special insertion -->
+
+               
+                
+                
+                <!-- Send feedback function -->
+<script>
+function SendLinkByMail(href) {
+var subject= "GEN242 feedback";
+var body = "I have some feedback about the Graphics and Data Visualization in R page: ";
+body += window.location.href;
+body += "";
+var uri = "mailto:?subject=";
+uri += encodeURIComponent(subject);
+uri += "&body=";
+uri += encodeURIComponent(body);
+window.location.href = uri;
+}
+</script>
+
+<li><a href="javascript:(function()%7BSendLinkByMail()%3B%7D)()%3B" target="_blank"><i class="fa fa-envelope-o"></i> Feedback</a></li>
+
+
+                <!--uncomment this block if you want simple search instead of algolia-->
+                <li>
+                     <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="../js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                        SimpleJekyllSearch.init({
+                            searchInput: document.getElementById('search-input'),
+                            resultsContainer: document.getElementById('results-container'),
+                            dataSource: '../search.json',
+                            searchResultTemplate: '<li><a href="{url}" title="Graphics and Data Visualization in R">{title}</a></li>',
+                        noResultsText: 'No results found.',
+                                limit: 10,
+                                fuzzy: true,
+                        })
+                    </script>
+                     <!--end search-->
+                </li>
+
+            
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-lg-12">&nbsp;</div>
+
+
+<!-- Content Row -->
+<div class="row">
+    <!-- Sidebar Column -->
+    <div class="col-md-3">
+
+        <script>
+
+            $(document).ready(function() {
+                // Initialize navgoco with default options
+                $("#mysidebar").navgoco({
+                    caretHtml: '',
+                    accordion: true,
+                    openClass: 'active', // open
+                    save: false, // leave false or nav highlighting doesn't work right
+                    cookie: {
+                        name: 'navgoco',
+                        expires: false,
+                        path: '/'
+                    },
+                    slide: {
+                        duration: 400,
+                        easing: 'swing'
+                    }
+                });
+
+                $("#collapseAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', false);
+                });
+
+                $("#expandAll").click(function(e) {
+                    e.preventDefault();
+                    $("#mysidebar").navgoco('toggle', true);
+                });
+
+            });
+
+        </script>
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <ul id="mysidebar" class="nav">
+
+            <span class="siteTagline">GEN242</span>
+            <span class="versionTagline">Spring 2016</span>
+
+            
+            
+            
+                
+            
+            <li><a href="#">Home</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/home.html">Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_syllabus.html">Syllabus</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Internal</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_internal.html">Internal Resources</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Schedule</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_schedule.html">Course Schedule</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Lecture Slides</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_01.html">Course Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_02.html">Molbiol for Bioinformatics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_03.html">Databases and Software</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_04.html">DNA Sequencing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_05.html">Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_06.html">Sequence Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_07.html">Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_08.html">Multiple Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_09.html">Short Read Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_10.html">NGS Analysis Basics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_11.html">Gene Expression Analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_12.html">NGS Workflows</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_13.html">ChIP-Seq Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_14.html">VAR-Seq Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_15.html">Sequence Assembly</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_16.html">Gene Annotation and Ontologies</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Homework</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_01.html">HW1 - Online Tools</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_02.html">HW2 - Biocluster/Linux</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_03.html">HW3 - Introduction to R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_homework_04.html">HW4 - Pairwise Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">HW5 - Programming in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_08.html">HW6 - Sequence Analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">GitHub</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_01.html">GitHub</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Biocluster & Linux</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_tutorial_02.html">Basic Tutorial</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Introduction to R</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. SQLite Databases</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Graphics in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Analysis Routine</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_16.html">16. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Programming in R</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_02.html">2. Control Structures</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_03.html">3. Loops</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_04.html">4. Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_05.html">5. Useful Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_06.html">6. Running R Scripts</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_07.html">7. Building R Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_08.html">8. Programming Exercises</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_09.html">9. Homework 5</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_10.html">10. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Programming_in_R_11.html">11. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">NGS Analysis Basics</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_02.html">2. Package Requirements</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_03.html">3. Strings in R Base</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_04.html">4. Sequences in Bioconductor</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_05.html">5. NGS Sequences</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_06.html">6. Range Operations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_07.html">7. Transcript Ranges</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_08.html">8. Homework 6</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_09.html">9. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rsequences_10.html">10. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">NGS Workflow Overview</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_1.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_2.html">2. Getting Started</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_3.html">3. Workflow overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_4.html">4. Workflow templates</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_5.html">5. Version information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeR_6.html">6. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">RNA-Seq Workflow</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_02.html">2. Sample definitions and environment settings</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_05.html">5. Read quantification per annotation range</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_06.html">6. Analysis of differentially expressed genes with edgeR</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_07.html">7. GO term enrichment analysis of DEGs</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_08.html">8. Clustering and heat maps</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_09.html">9. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_10.html">10. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeRNAseq_11.html">11. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">ChIP-Seq Workflow</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_05.html">5. Utilities for coverage data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_06.html">6. Peak calling with MACS2</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_07.html">7. Annotate peaks with genomic context</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_08.html">8. Count reads overlapping peaks</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_09.html">9. Differential binding analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_10.html">10. GO term enrichment analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_11.html">11. Motif analysis</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeChIPseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">VAR-Seq Workflow</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_01.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_02.html">2. Load workflow environment</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_03.html">3. Read preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_04.html">4. Alignments</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_05.html">5. Variant calling</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_06.html">6. Filter variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_07.html">7. Annotate filtered variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_08.html">8. Combine annotation results among samples</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_09.html">9. Summary statistics of variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_10.html">10. Venn diagram of variants</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_11.html">11. Plot variants programmatically</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_12.html">12. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_13.html">13. Funding</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_systemPipeVARseq_14.html">14. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Graphics and Visualization</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rgraphics_1.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rgraphics_2.html">2. Base Graphics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rgraphics_3.html">3. Grid Graphics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rgraphics_4.html">4. lattice Graphics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rgraphics_5.html">5. ggplot2 Graphics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rgraphics_6.html">6. Specialty Graphics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rgraphics_7.html">7. Genome Graphics</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rgraphics_8.html">8. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Paper Presentations</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_paper_presentations.html">Paper Presentations</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Course Projects</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_00.html">Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_01.html">ChIP-Seq1 - Motif Prediction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_02.html">ChIP-Seq2 - Peak Callers</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_03.html">RNA-Seq1 - RNA-Seq Aligners</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_04.html">RNA-Seq2 - DEG Methods</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_05.html">VAR-Seq1 - Variant Callers</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_06.html">VAR-Seq2 - Functional Prediction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_project_07.html">Project Data</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+                
+
+
+                <!-- if you aren't using the accordion, uncomment this block:
+
+                     <p class="external">
+                         <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+                     </p>
+                 -->
+
+    </div>
+    <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+    <script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+            <!-- Content Column -->
+            <div class="col-md-9">
+                
+                <div class="post-header">
+   <h1 class="post-title-main">Graphics and Data Visualization in R</h1>
+</div>
+
+<div class="post-content">
+
+   
+
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h2,h3,h4' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+
+<div id="toc"></div>
+
+
+<!--
+    
+    <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc//vignettes/15_Rgraphics/Rgraphics.text" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
+    
+-->
+Overview
+========
+
+\[containsverbatim\]
+
+### Graphics in R
+
+-   Powerful environment for visualizing scientific data
+
+-   Integrated graphics and statistics infrastructure
+
+-   Publication quality graphics
+
+-   Fully programmable
+
+-   Highly reproducible
+
+-   Full LaTeX [](http://www.latex-project.org/) & Sweave
+    [](http://www.stat.auckland.ac.nz/~dscott/782/Sweave-manual-20060104.pdf)
+    support
+
+-   Vast number of R packages with graphics utilities
+
+\[containsverbatim\]
+
+### Documentation on Graphics in R
+
+-   -   Graphics Task Page
+    [](http://cran.r-project.org/web/views/Graphics.html)
+
+-   R Graph Gallery
+    [](http://addictedtor.free.fr/graphiques/allgraph.php)
+
+-   R Graphical Manual [](http://cged.genes.nig.ac.jp/RGM2/index.php)
+
+-   Paul Murrell’s book R (Grid) Graphics
+    [](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
+
+<!-- -->
+
+-   -   rggobi (GGobi) [](http://www.ggobi.org/)
+
+-   iplots [](http://www.rosuda.org/iplots/)
+
+-   Open GL (rgl) [](http://rgl.neoscientists.org/gallery.shtml)
+
+\[containsverbatim\]
+
+### Graphics Environments
+
+-   -   On-screen graphics
+
+-   postscript, pdf, svg
+
+-   jpeg/png/wmf/tiff/...
+
+<!-- -->
+
+-   -   Low-level infrastructure
+
+    -   R Base Graphics (low- and high-level)
+
+    -   <span><span>*grid*</span></span>: Manual
+        [](http://www.stat.auckland.ac.nz/~paul/grid/grid.html), Book
+        [](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
+
+-   High-level infrastructure
+
+    -   <span><span>*lattice:*</span></span> Manual
+        [](http://lmdvr.r-forge.r-project.org), Intro
+        [](http://www.his.sunderland.ac.uk/~cs0her/Statistics/UsingLatticeGraphicsInR.htm),
+        Book
+        [](http://www.amazon.com/Lattice-Multivariate-Data-Visualization-Use/dp/0387759689)
+
+    -   <span><span>*ggplot2:*</span></span> Manual
+        [](http://docs.ggplot2.org/current/), Intro
+        [](http://www.ling.upenn.edu/~joseff/rstudy/summer2010_ggplot2_intro.html),
+        Book [](http://had.co.nz/ggplot2/book/)
+
+Graphics Environments
+=====================
+
+Base Graphics
+-------------
+
+\[containsverbatim\]
+
+### Base Graphics: Overview
+
+-   -   <span><span>`plot`</span></span>: generic x-y plotting
+
+-   <span><span>`barplot`</span></span>: bar plots
+
+-   <span><span>`boxplot`</span></span>: box-and-whisker plot
+
+-   <span><span>`hist`</span></span>: histograms
+
+-   <span><span>`pie`</span></span>: pie charts
+
+-   <span><span>`dotchart`</span></span>: cleveland dot plots
+
+-   <span><span>`image, heatmap, contour, persp`</span></span>:
+    functions to generate image-like plots
+
+-   <span><span>`qqnorm, qqline, qqplot`</span></span>: distribution
+    comparison plots
+
+-   <span><span>`pairs, coplot`</span></span>: display of multivariant
+    data
+
+-   -   <span><span>`?myfct`</span></span>
+
+-   <span><span>`?plot`</span></span>
+
+-   <span><span>`?par`</span></span>
+
+\[containsverbatim\]
+
+### Base Graphics: Preferred Input Data Objects
+
+-   Matrices and data frames
+
+-   Vectors
+
+-   Named vectors
+
+\[containsverbatim\]
+
+### Scatter Plot: very basic
+
+&gt; set.seed(1410) &gt; y &lt;- matrix(runif(30), ncol=3,
+dimnames=list(letters\[1:10\], LETTERS\[1:3\]))
+
+&gt; plot(y\[,1\], y\[,2\])
+
+![image](fig--002) \[fig:base\_scatter\]
+
+\[containsverbatim\]
+
+### Scatter Plot: all pairs
+
+&gt; pairs(y)
+
+![image](fig--003) \[fig:base\_scatter\_all\]
+
+\[containsverbatim\]
+
+### Scatter Plot: with labels
+
+&gt; plot(y\[,1\], y\[,2\], pch=20, col=“red”, main=“Symbols and
+Labels”) &gt; text(y\[,1\]+0.03, y\[,2\], rownames(y))
+
+![image](fig--004) \[fig:base\_scatter\_lab\]
+
+\[containsverbatim\]
+
+### Scatter Plots: more examples
+
+&gt; plot(y\[,1\], y\[,2\], type=“n”, main=“Plot of Labels”) &gt;
+text(y\[,1\], y\[,2\], rownames(y))
+
+&gt; grid(5, 5, lwd = 2) &gt; op &lt;- par(mar=c(8,8,8,8),
+bg=“lightblue”) &gt; plot(y\[,1\], y\[,2\], type=“p”, col=“red”,
+cex.lab=1.2, cex.axis=1.2, + cex.main=1.2, cex.sub=1, lwd=4, pch=20,
+xlab=“x label”, + ylab=“y label”, main=“My Main”, sub=“My Sub”) &gt;
+par(op)
+
+-   -   <span><span>`mar`</span></span>: specifies the margin sizes
+    around the plotting area in order:
+    <span><span>`c(bottom, left, top, right)`</span></span>
+
+-   <span><span>`col`</span></span>: color of symbols
+
+-   <span><span>`pch`</span></span>: type of symbols, samples:
+    <span><span>`example(points)`</span></span>
+
+-   <span><span>`lwd`</span></span>: size of symbols
+
+-   <span><span>`cex.*`</span></span>: control font sizes
+
+-   For details see <span><span>`?par`</span></span>
+
+\[containsverbatim\]
+
+### Scatter Plots: more examples
+
+&gt; plot(y\[,1\], y\[,2\]) &gt; myline &lt;- lm(y\[,2\] y\[,1\]);
+abline(myline, lwd=2) &gt; summary(myline)
+
+&gt; plot(y\[,1\], y\[,2\], log=“xy”)
+
+&gt; plot(y\[,1\], y\[,2\]); text(y\[1,1\], y\[1,2\],
+
+\[containsverbatim\]
+
+### Exercise 1: Scatter Plots
+
+-   Generate scatter plot for first two columns in
+    <span><span>`iris`</span></span> data frame and color dots by its
+    <span><span>`Species`</span></span> column.
+
+-   Use the <span><span>`xlim/ylim`</span></span> arguments to set
+    limits on the x- and y-axes so that all data points are restricted
+    to the left bottom quadrant of the plot.
+
+-   Structure of iris data set:
+
+&gt; class(iris)
+
+\[1\] “data.frame”
+
+&gt; iris\[1:4,\]
+
+Sepal.Length Sepal.Width Petal.Length Petal.Width Species 1 5.1 3.5 1.4
+0.2 setosa 2 4.9 3.0 1.4 0.2 setosa 3 4.7 3.2 1.3 0.2 setosa 4 4.6 3.1
+1.5 0.2 setosa
+
+&gt; table(iris$Species)
+\end{Sinput}
+\begin{Soutput}
+    setosa versicolor  virginica 
+        50         50         50 
+\end{Soutput}
+\end{Schunk}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Line Plot: Single Data Set}
+\scriptsize
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> plot(y[,1], type="l", lwd=2, col="blue") 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--012}
+\label{fig:line_plot}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Line Plots: Many Data Sets}
+\scriptsize
+\tiny
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> split.screen(c(1,1)); 
+\end{Sinput}
+\begin{Soutput}
+[1] 1
+\end{Soutput}
+\begin{Sinput}
+> plot(y[,1], ylim=c(0,1), xlab="Measurement", ylab="Intensity", type="l", lwd=2, col=1)
+> for(i in 2:length(y[1,])) { 
++   screen(1, new=FALSE)
++   plot(y[,i], ylim=c(0,1), type="l", lwd=2, col=i, xaxt="n", yaxt="n", ylab="", 
++              xlab="", main="", bty="n") 
++ }
+> close.screen(all=TRUE) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--013}
+\label{fig:line_plot_many}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Bar Plot Basics}
+\scriptsize
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> barplot(y[1:4,], ylim=c(0, max(y[1:4,])+0.3), beside=TRUE, 
++         legend=letters[1:4]) 
+> text(labels=round(as.vector(as.matrix(y[1:4,])),2), x=seq(1.5, 13, by=1)
++      +sort(rep(c(0,1,2), 4)), y=as.vector(as.matrix(y[1:4,]))+0.04) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--014}
+\label{fig:bar_plot1}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Bar Plots with Error Bars}
+\scriptsize
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> bar <- barplot(m <- rowMeans(y) * 10, ylim=c(0, 10))
+> stdev <- sd(t(y))
+> arrows(bar, m, bar, m + stdev, length=0.15, angle = 90)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--015}
+\label{ig:bar_plot2}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Histograms}
+\scriptsize
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> hist(y, freq=TRUE, breaks=10)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--017}
+\label{fig:hist}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Density Plots}
+\scriptsize
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> plot(density(y), col="red")
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--018}
+\label{fig:dens}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Pie Charts}
+\scriptsize
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> pie(y[,1], col=rainbow(length(y[,1]), start=0.1, end=0.8), clockwise=TRUE)
+> legend("topright", legend=row.names(y), cex=1.3, bty="n", pch=15, pt.cex=1.8, 
++ col=rainbow(length(y[,1]), start=0.1, end=0.8), ncol=1) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--019}
+\label{fig:pie}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Color Selection Utilities}
+\scriptsize
+\textcolor{blue}{Default color palette and how to change it}
+\begin{Schunk}
+\begin{Sinput}
+> palette()
+\end{Sinput}
+\begin{Soutput}
+[1] "black"   "red"     "green3"  "blue"    "cyan"    "magenta" "yellow"  "gray"   
+\end{Soutput}
+\begin{Sinput}
+> palette(rainbow(5, start=0.1, end=0.2))
+> palette()
+\end{Sinput}
+\begin{Soutput}
+[1] "#FF9900" "#FFBF00" "#FFE600" "#F2FF00" "#CCFF00"
+\end{Soutput}
+\begin{Sinput}
+> palette("default")
+\end{Sinput}
+\end{Schunk}
+\textcolor{blue}{The } function allows to select any type of gray shades by providing values from 0 to 1}
+\begin{Schunk}
+\begin{Sinput}
+> gray(seq(0.1, 1, by= 0.2))
+\end{Sinput}
+\begin{Soutput}
+[1] "#1A1A1A" "#4D4D4D" "#808080" "#B3B3B3" "#E6E6E6"
+\end{Soutput}
+\end{Schunk}
+\textcolor{blue}{Color gradients with } function from } library}
+\begin{Schunk}
+\begin{Sinput}
+> library(gplots)
+> colorpanel(5, "darkblue", "yellow", "white")
+\end{Sinput}
+\end{Schunk}
+Much more on colors in R see Earl Glynn's color chart \href{http://research.stowers-institute.org/efg/R/Color/Chart/}} 
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Arranging Several Plots on Single Page}
+\scriptsize
+\textcolor{blue}{With } one can define how several plots are arranged next to each other.}
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> par(mfrow=c(2,3)); for(i in 1:6) { plot(1:10) } 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--023}
+\label{fig:arrange1}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Arranging Plots with Variable Width}
+\scriptsize
+\textcolor{blue}{The } function allows to divide the plotting device into variable numbers of rows and columns with the column-widths and the row-heights specified in the respective arguments.}
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> nf <- layout(matrix(c(1,2,3,3), 2, 2, byrow=TRUE), c(3,7), c(5,5), 
++              respect=TRUE)
+> # layout.show(nf)
+> for(i in 1:3) { barplot(1:10) } 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--024}
+\label{fig:arrange2}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Saving Graphics to Files}
+\scriptsize
+\textcolor{blue}{After the } command all graphs are redirected to file }. Works for all common formats similarly: jpeg, png, ps, tiff, ...}
+\begin{Schunk}
+\begin{Sinput}
+> pdf("test.pdf"); plot(1:10, 1:10); dev.off() 
+\end{Sinput}
+\end{Schunk}
+\textcolor{blue}{Generates Scalable Vector Graphics (SVG) files that can be edited in vector graphics programs, such as InkScape.}
+\begin{Schunk}
+\begin{Sinput}
+> svg("test.svg"); plot(1:10, 1:10); dev.off() 
+\end{Sinput}
+\end{Schunk}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Exercise 2: Bar Plots}
+\scriptsize
+\begin{itemize}
+        \item[Task 1] Calculate the mean values for the } components of the first four columns in the } data set. Organize the results in a matrix where the row names are the unique values from the } column and the column names are the same as in the first four } columns. 
+        \item[Task 2] Generate two bar plots: one with stacked bars and one with horizontally arranged bars. 
+        \item[]\hspace{-1.1cm} Structure of iris data set:
+\end{itemize}
+\begin{Schunk}
+\begin{Sinput}
+> class(iris)
+\end{Sinput}
+\begin{Soutput}
+[1] "data.frame"
+\end{Soutput}
+\begin{Sinput}
+> iris[1:4,]
+\end{Sinput}
+\begin{Soutput}
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+\end{Soutput}
+\begin{Sinput}
+> table(iris$Species)
+
+setosa versicolor virginica 50 50 50
+
+Grid Graphics
+-------------
+
+\[containsverbatim\]
+
+### grid Graphics Environment
+
+-   What is <span><span>*grid*</span></span>?
+
+    -   Low-level graphics system
+
+    -   Highly flexible and controllable system
+
+    -   Does not provide high-level functions
+
+    -   Intended as development environment for custom plotting
+        functions
+
+    -   Pre-installed on new R distributions
+
+-   Documentation and Help
+
+    -   Manual [](http://www.stat.auckland.ac.nz/~paul/grid/grid.html)
+
+    -   Book
+        [](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
+
+lattice
+-------
+
+\[containsverbatim\]
+
+### lattice Environment
+
+-   What is <span><span>*lattice*</span></span>?
+
+    -   High-level graphics system
+
+    -   Developed by Deepayan Sarkar
+
+    -   Implements Trellis graphics system from S-Plus
+
+    -   Simplifies high-level plotting tasks: arranging complex
+        graphical features
+
+    -   Syntax similar to R’s base graphics
+
+-   Documentation and Help
+
+    -   Manual [](http://lmdvr.r-forge.r-project.org)
+
+    -   Intro
+        [](http://www.his.sunderland.ac.uk/~cs0her/Statistics/UsingLatticeGraphicsInR.htm)
+
+    -   Book
+        [](http://www.amazon.com/Lattice-Multivariate-Data-Visualization-Use/dp/0387759689)
+
+    -   <span><span>`library(help=lattice)`</span></span> opens a list
+        of all functions available in the lattice package
+
+    -   Accessing and changing global parameters:
+        <span><span>`?lattice.options`</span></span> and
+        <span><span>`?trellis.device`</span></span>
+
+\[containsverbatim\]
+
+### Scatter Plot Sample
+
+&gt; library(lattice) &gt; p1 &lt;- xyplot(1:8   1:8 |
+rep(LETTERS\[1:4\], each=2), as.table=TRUE) &gt; plot(p1)
+
+![image](fig--029) \[fig:p1\]
+
+\[containsverbatim\]
+
+### Line Plot Sample
+
+&gt; library(lattice) &gt; p2 &lt;- parallelplot( iris\[1:4\] | Species,
+iris, horizontal.axis = FALSE, + layout = c(1, 3, 1)) &gt; plot(p2)
+
+![image](fig--030) \[fig:p2\]
+
+ggplot2
+-------
+
+\[containsverbatim\]
+
+### ggplot2 Environment
+
+-   What is <span><span>*ggplot2*</span></span>?
+
+    -   High-level graphics system
+
+    -   Implements grammar of graphics from Leland Wilkinson
+        [](http://www.amazon.com/Grammar-Graphics-Leland-Wilkinson/dp/0387987746)
+
+    -   Streamlines many graphics workflows for complex plots
+
+    -   Syntax centered around main <span><span>`ggplot`</span></span>
+        function
+
+    -   Simpler <span><span>`qplot`</span></span> function provides many
+        shortcuts
+
+-   Documentation and Help
+
+    -   Manual [](http://had.co.nz/ggplot2/)
+
+    -   Intro
+        [](http://www.ling.upenn.edu/~joseff/rstudy/summer2010_ggplot2_intro.html)
+
+    -   Book [](http://had.co.nz/ggplot2/book/)
+
+    -   Cookbook for R [](http://www.cookbook-r.com/Graphs/)
+
+\[containsverbatim\]
+
+### ggplot2 Usage
+
+-   <span><span>`ggplot`</span></span> function accepts two arguments
+
+    -   Data set to be plotted
+
+    -   Aesthetic mappings provided by <span><span>`aes`</span></span>
+        function
+
+-   Additional parameters such as geometric objects (e.g. points,
+    lines, bars) are passed on by appending them with
+    <span><span>`+`</span></span> as separator.
+
+-   List of available <span><span>`geom_`</span></span> functions:
+    [](http://docs.ggplot2.org/current/)
+
+-   Settings of plotting theme can be accessed with the command
+    <span><span>`theme_get()`</span></span> and its settings can be
+    changed with <span><span>`theme()`</span></span>.
+
+-   Preferred input data object
+
+    -   <span><span>`qplot`</span></span>:
+        <span><span>`data.frame`</span></span> (support for
+        <span><span>`vector, matrix, ...`</span></span>)
+
+    -   <span><span>`ggplot`</span></span>:
+        <span><span>`data.frame`</span></span>
+
+-   Packages with convenience utilities to create expected inputs
+
+    -   <span><span>*plyr*</span></span>
+
+    -   <span><span>*reshape*</span></span>
+
+\[containsverbatim\]
+
+### qplot Function
+
+-   <span><span>`qplot`</span></span> syntax is similar to R’s basic
+    <span><span>`plot`</span></span> function
+
+-   Arguments:
+
+    -   <span><span>`x`</span></span>: x-coordinates (*e.g.*
+        <span><span>`col1`</span></span>)
+
+    -   <span><span>`y`</span></span>: y-coordinates (*e.g.*
+        <span><span>`col2`</span></span>)
+
+    -   <span><span>`data`</span></span>: data frame with corresponding
+        column names
+
+    -   <span><span>`xlim, ylim`</span></span>: *e.g.*
+        <span><span>`xlim=c(0,10)`</span></span>
+
+    -   <span><span>`log`</span></span>: *e.g.*
+        <span><span>`log=x or log=xy`</span></span>
+
+    -   <span><span>`main`</span></span>: main title; see
+        <span><span>`?plotmath`</span></span> for mathematical formula
+
+    -   <span><span>`xlab, ylab`</span></span>: labels for the x- and
+        y-axes
+
+    -   <span><span>`color, shape, size`</span></span>
+
+    -   <span><span>`...`</span></span>: many arguments accepted by
+        <span><span>`plot`</span></span> function
+
+\[containsverbatim\]
+
+### qplot: Scatter Plots
+
+&gt; library(ggplot2) &gt; x &lt;- sample(1:10, 10); y &lt;-
+sample(1:10, 10); cat &lt;- rep(c(“A”, “B”), 5)
+
+&gt; qplot(x, y, geom=“point”)
+
+&gt; qplot(x, y, geom=“point”, size=x, color=cat, + main=“Dot Size and
+Color Relative to Some Values”)
+
+&gt; qplot(x, y, geom=“point”, size=x, color=cat) + +
+theme(legend.position = “none”)
+
+&gt; qplot(x, y, geom=“point”, size=5, shape=cat)
+
+\[containsverbatim\]
+
+### qplot: Scatter Plot with qplot
+
+&gt; p &lt;- qplot(x, y, geom=“point”, size=x, color=cat, + main=“Dot
+Size and Color Relative to Some Values”) + + theme(legend.position =
+“none”) &gt; print(p)
+
+![image](fig--036) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### qplot: Scatter Plot with Regression Line
+
+&gt; set.seed(1410) &gt; dsmall &lt;- diamonds\[sample(nrow(diamonds),
+1000), \] &gt; p &lt;- qplot(carat, price, data = dsmall, geom =
+c(“point”, “smooth”)) + + geom\_smooth(method=“lm”) &gt; print(p)
+
+![image](fig--037) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### qplot: Scatter Plot with Local Regression Curve (loess)
+
+&gt; p &lt;- qplot(carat, price, data=dsmall, geom=c(“point”, “smooth”))
+&gt; print(p) \# Setting se=FALSE removes error shade
+
+![image](fig--038) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot Function
+
+-   More important than <span><span>`qplot`</span></span> to access full
+    functionality of <span><span>*ggplot2*</span></span>
+
+-   Main arguments
+
+    -   data set, usually a <span><span>`data.frame`</span></span>
+
+    -   aesthetic mappings provided by <span><span>`aes`</span></span>
+        function
+
+-   General <span><span>`ggplot`</span></span> syntax
+
+    -   <span><span>`ggplot(data, aes(...)) + geom_() + ... + stat_() + ...`</span></span>
+
+-   Layer specifications
+
+    -   <span><span>`geom_(mapping, data, ..., geom, position)`</span></span>
+
+    -   <span><span>`stat_(mapping, data, ..., stat, position)`</span></span>
+
+-   Additional components
+
+    -   <span><span>`scales`</span></span>
+
+    -   <span><span>`coordinates`</span></span>
+
+    -   <span><span>`facet`</span></span>
+
+-   aes() mappings can be passed on to all components
+    (<span><span>`ggplot, geom_`</span></span>, etc.). Effects are
+    global when passed on to ggplot() and local for other components.
+
+    -   <span><span>`x, y`</span></span>
+
+    -   <span><span>`color`</span></span>: grouping vector (factor)
+
+    -   <span><span>`group`</span></span>: grouping vector (factor)
+
+\[containsverbatim\]
+
+### Changing Plotting Themes with ggplot
+
+-   Theme settings can be accessed with
+    <span><span>`theme_get()`</span></span>
+
+-   Their settings can be changed with
+    <span><span>`theme()`</span></span>
+
+-   Some examples
+
+    -   Change background color to white\
+        <span><span>`... + theme(panel.background=element_rect(fill = white, colour = black))`</span></span>
+
+\[containsverbatim\]
+
+### Storing ggplot Specifications
+
+&gt; p &lt;- ggplot(dsmall, aes(carat, price)) + geom\_point() &gt; p \#
+or print(p)
+
+&gt; summary(p)
+
+&gt; bestfit &lt;- geom\_smooth(methodw = “lm”, se = F, color =
+alpha(“steelblue”, 0.5), size = 2) &gt; p + bestfit \# Plot with custom
+regression line
+
+&gt; p
+
+&gt; ggsave(p, file=“myplot.pdf”)
+
+\[containsverbatim\]
+
+### ggplot: Scatter Plot
+
+&gt; p &lt;- ggplot(dsmall, aes(carat, price, color=color)) + +
+geom\_point(size=4) &gt; print(p)
+
+![image](fig--044) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Scatter Plot with Regression Line
+
+&gt; p &lt;- ggplot(dsmall, aes(carat, price)) + geom\_point() + +
+geom\_smooth(method=“lm”, se=FALSE) + +
+theme(panel.background=element\_rect(fill = “white”, colour = “black”))
+&gt; print(p)
+
+![image](fig--045) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Scatter Plot with Several Regression Lines
+
+&gt; p &lt;- ggplot(dsmall, aes(carat, price, group=color)) + +
+geom\_point(aes(color=color), size=2) + + geom\_smooth(aes(color=color),
+method = “lm”, se=FALSE) &gt; print(p)
+
+![image](fig--046) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Scatter Plot with Local Regression Curve (loess)
+
+&gt; p &lt;- ggplot(dsmall, aes(carat, price)) + geom\_point() +
+geom\_smooth() &gt; print(p) \# Setting se=FALSE removes error shade
+
+![image](fig--047) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Line Plot
+
+&gt; p &lt;- ggplot(iris, aes(Petal.Length, Petal.Width, group=Species,
++ color=Species)) + geom\_line() &gt; print(p)
+
+![image](fig--048) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Faceting
+
+&gt; p &lt;- ggplot(iris, aes(Sepal.Length, Sepal.Width)) + +
+geom\_line(aes(color=Species), size=1) + + facet\_wrap( Species, ncol=1)
+&gt; print(p)
+
+![image](fig--049) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### Exercise 3: Scatter Plots
+
+-   Generate scatter plot for first two columns in
+    <span><span>`iris`</span></span> data frame and color dots by its
+    <span><span>`Species`</span></span> column.
+
+-   Use the <span><span>`xlim, ylim`</span></span> functionss to set
+    limits on the x- and y-axes so that all data points are restricted
+    to the left bottom quadrant of the plot.
+
+-   Generate corresponding line plot with faceting show individual data
+    sets in saparate plots.
+
+-   Structure of iris data set:
+
+&gt; class(iris)
+
+\[1\] “data.frame”
+
+&gt; iris\[1:4,\]
+
+Sepal.Length Sepal.Width Petal.Length Petal.Width Species 1 5.1 3.5 1.4
+0.2 setosa 2 4.9 3.0 1.4 0.2 setosa 3 4.7 3.2 1.3 0.2 setosa 4 4.6 3.1
+1.5 0.2 setosa
+
+&gt; table(iris$Species)
+\end{Sinput}
+\begin{Soutput}
+    setosa versicolor  virginica 
+        50         50         50 
+\end{Soutput}
+\end{Schunk}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{ggplot: Bar Plots}
+\vspace{0cm}
+\begin{changemargin}{-0.6cm}{-0.8cm}
+\scriptsize 
+\textcolor{blue}{\textbf{Sample Set}: the following transforms the iris data set into a ggplot2-friendly format.}
+
+\vspace{0.2cm}
+\textcolor{blue}{Calculate mean values for aggregates given by } column in iris data set}
+\begin{Schunk}
+\begin{Sinput}
+> iris_mean <- aggregate(iris[,1:4], by=list(Species=iris$Species),
+FUN=mean)
+
+&gt; iris\_sd &lt;- aggregate(iris\[,1:4\],
+by=list(Species=iris$Species), FUN=sd) 
+\end{Sinput}
+\end{Schunk}
+
+\textcolor{blue}{Convert } with }}
+\begin{Schunk}
+\begin{Sinput}
+> library(reshape2) # Defines melt function
+> df_mean <- melt(iris_mean, id.vars=c("Species"), variable.name = "Samples", value.name="Values")
+\end{Sinput}
+\end{Schunk}
+
+\textcolor{blue}{Convert } with }}
+\begin{Schunk}
+\begin{Sinput}
+> df_sd <- melt(iris_sd, id.vars=c("Species"), variable.name = "Samples", value.name="Values")
+\end{Sinput}
+\end{Schunk}
+
+\textcolor{blue}{Define standard deviation limits}
+\begin{Schunk}
+\begin{Sinput}
+> limits <- aes(ymax = df_mean[,"Values"] + df_sd[,"Values"], ymin=df_mean[,"Values"] - df_sd[,"Values"])
+\end{Sinput}
+\end{Schunk}
+\end{changemargin}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{ggplot: Bar Plot}
+\scriptsize 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> p <- ggplot(df_mean, aes(Samples, Values, fill = Species)) + 
++       geom_bar(position="dodge", stat="identity")
+> print(p) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--057}
+\label{fig:qplotscatter}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{ggplot: Bar Plot Sideways}
+\scriptsize 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> p <- ggplot(df_mean, aes(Samples, Values, fill = Species)) + 
++             geom_bar(position="dodge", stat="identity") + coord_flip() + 
++             theme(axis.text.y=element_text(angle=0, hjust=1))
+> print(p) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--058}
+\label{fig:qplotscatter}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{ggplot: Bar Plot with Faceting}
+\scriptsize 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> p <- ggplot(df_mean, aes(Samples, Values)) + geom_bar(aes(fill = Species), stat="identity") + 
++             facet_wrap(~Species, ncol=1)
+> print(p) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--059}
+\label{fig:qplotscatter}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{ggplot: Bar Plot with Error Bars}
+\scriptsize 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> p <- ggplot(df_mean, aes(Samples, Values, fill = Species)) + 
++       geom_bar(position="dodge", stat="identity") + geom_errorbar(limits, position="dodge") 
+> print(p) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--060}
+\label{fig:qplotscatter}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{ggplot: Changing Color Settings}
+\tiny
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> library(RColorBrewer)
+> # display.brewer.all() 
+> p <- ggplot(df_mean, aes(Samples, Values, fill=Species, color=Species)) +
++             geom_bar(position="dodge", stat="identity") + geom_errorbar(limits, position="dodge") + 
++             scale_fill_brewer(palette="Blues") + scale_color_brewer(palette = "Greys") 
+> print(p) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--061}
+\label{fig:qplotscatter}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{ggplot: Using Standard Colors}
+\tiny
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> p <- ggplot(df_mean, aes(Samples, Values, fill=Species, color=Species)) + 
++             geom_bar(position="dodge", stat="identity") + geom_errorbar(limits, position="dodge") + 
++             scale_fill_manual(values=c("red", "green3", "blue")) + 
++             scale_color_manual(values=c("red", "green3", "blue")) 
+> print(p) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--062}
+\label{fig:qplotscatter}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{ggplot: Mirrored Bar Plots}
+\tiny
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> df <- data.frame(group = rep(c("Above", "Below"), each=10), x = rep(1:10, 2), y = c(runif(10, 0, 1), runif(10, -1, 0)))
+> p <- ggplot(df, aes(x=x, y=y, fill=group)) + 
++       geom_bar(stat="identity", position="identity")
+> print(p) 
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--063}
+\label{fig:qplotscatter}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Exercise 4: Bar Plots}
+\scriptsize
+\begin{itemize}
+        \item[Task 1] Calculate the mean values for the } components of the first four columns in the } data set. Use the } function from the } package to bring the results into the expected format for }.
+        \item[Task 2] Generate two bar plots: one with stacked bars and one with horizontally arranged bars. 
+        \item[]\hspace{-1.1cm} Structure of iris data set:
+\end{itemize}
+\begin{Schunk}
+\begin{Sinput}
+> class(iris)
+\end{Sinput}
+\begin{Soutput}
+[1] "data.frame"
+\end{Soutput}
+\begin{Sinput}
+> iris[1:4,]
+\end{Sinput}
+\begin{Soutput}
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+\end{Soutput}
+\begin{Sinput}
+> table(iris$Species)
+
+setosa versicolor virginica 50 50 50
+
+\[containsverbatim\]
+
+### ggplot: Data Reformatting Example for Line Plot
+
+&gt; y &lt;- matrix(rnorm(500), 100, 5, dimnames=list(paste(“g”, 1:100,
+sep=“”), paste(“Sample”, 1:5, sep=“”))) &gt; y &lt;-
+data.frame(Position=1:length(y\[,1\]), y) &gt; y\[1:4, \] \# First rows
+of input format expected by melt()
+
+Position Sample1 Sample2 Sample3 Sample4 Sample5 g1 1 1.0002088
+0.6850199 -0.21324932 1.27195056 1.0479301 g2 2 -1.2024596 -1.5004962
+-0.01111579 0.07584497 -0.7100662 g3 3 0.1023678 -0.5153367 0.28564390
+1.41522878 1.1084695 g4 4 1.3294248 -1.2084007 -0.19581898 -0.42361768
+1.7139697
+
+&gt; df &lt;- melt(y, id.vars=c(“Position”), variable.name = “Samples”,
+value.name=“Values”) &gt; p &lt;- ggplot(df, aes(Position, Values)) +
+geom\_line(aes(color=Samples)) + facet\_wrap( Samples, ncol=1) &gt;
+print(p) &gt; \#\# Represent same data in box plot &gt; \#\# ggplot(df,
+aes(Samples, Values, fill=Samples)) + geom\_boxplot()
+
+![image](fig--066) \[fig:lineplot\_split\]
+
+\[containsverbatim\]
+
+### ggplot: Jitter Plots
+
+&gt; p &lt;- ggplot(dsmall, aes(color, price/carat)) + +
+geom\_jitter(alpha = I(1 / 2), aes(color=color)) &gt; print(p)
+
+![image](fig--067) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Box Plots
+
+&gt; p &lt;- ggplot(dsmall, aes(color, price/carat, fill=color)) +
+geom\_boxplot() &gt; print(p)
+
+![image](fig--068) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Density Plot with Line Coloring
+
+&gt; p &lt;- ggplot(dsmall, aes(carat)) + geom\_density(aes(color =
+color)) &gt; print(p)
+
+![image](fig--069) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Density Plot with Area Coloring
+
+&gt; p &lt;- ggplot(dsmall, aes(carat)) + geom\_density(aes(fill =
+color)) &gt; print(p)
+
+![image](fig--070) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Histograms
+
+&gt; p &lt;- ggplot(iris, aes(x=Sepal.Width)) + geom\_histogram(aes(y =
+..density.., + fill = ..count..), binwidth=0.2) + geom\_density() &gt;
+print(p)
+
+![image](fig--071) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Pie Chart
+
+&gt; df &lt;- data.frame(variable=rep(c(“cat”, “mouse”, “dog”, “bird”,
+“fly”)), + value=c(1,3,3,4,2)) &gt; p &lt;- ggplot(df, aes(x = “”, y =
+value, fill = variable)) + + geom\_bar(width = 1, stat=“identity”) + +
+coord\_polar(“y”, start=pi / 3) + ggtitle(“Pie Chart”) &gt; print(p)
+
+![image](fig--072) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Wind Rose Pie Chart
+
+&gt; p &lt;- ggplot(df, aes(x = variable, y = value, fill = variable)) +
++ geom\_bar(width = 1, stat=“identity”) + coord\_polar(“y”, start=pi /
+3) + + ggtitle(“Pie Chart”) &gt; print(p)
+
+![image](fig--073) \[fig:qplotscatter\]
+
+\[containsverbatim\]
+
+### ggplot: Arranging Graphics on One Page
+
+&gt; library(grid) &gt; a &lt;- ggplot(dsmall, aes(color, price/carat))
++ geom\_jitter(size=4, alpha = I(1 / 1.5), aes(color=color)) &gt; b
+&lt;- ggplot(dsmall, aes(color, price/carat, color=color)) +
+geom\_boxplot() &gt; c &lt;- ggplot(dsmall, aes(color, price/carat,
+fill=color)) + geom\_boxplot() + theme(legend.position = “none”) &gt;
+grid.newpage() \# Open a new page on grid device &gt;
+pushViewport(viewport(layout = grid.layout(2, 2))) \# Assign to device
+viewport with 2 by 2 grid layout &gt; print(a, vp =
+viewport(layout.pos.row = 1, layout.pos.col = 1:2)) &gt; print(b, vp =
+viewport(layout.pos.row = 2, layout.pos.col = 1)) &gt; print(c, vp =
+viewport(layout.pos.row = 2, layout.pos.col = 2, width=0.3, height=0.3,
+x=0.8, y=0.8))
+
+\[containsverbatim\]
+
+### ggplot: Arranging Graphics on One Page
+
+![image](arrange.pdf){height="6cm" width="6cm"}\
+
+\[containsverbatim\]
+
+### ggplot: Inserting Graphics into Plots
+
+&gt; \# pdf(“insert.pdf”) &gt; print(a) &gt; print(b,
+vp=viewport(width=0.3, height=0.3, x=0.8, y=0.8)) &gt; \# dev.off()
+
+![image](insert.pdf){height="6cm" width="6cm"}\
+
+Specialty Graphics
+==================
+
+\[containsverbatim\]
+
+### Venn Diagrams (Code)
+
+&gt;
+source(“http://faculty.ucr.edu/ tgirke/Documents/R\_BioCond/My\_R\_Scripts/overLapper.R”)
+
+&gt; setlist5 &lt;- list(A=sample(letters, 18), B=sample(letters, 16),
+C=sample(letters, 20), D=sample(letters, 22), E=sample(letters, 18))
+&gt; OLlist5 &lt;- overLapper(setlist=setlist5, sep=“\_”,
+type=“vennsets”) &gt; counts &lt;- sapply(OLlist5$Venn_List, length)
+> # pdf("venn.pdf")
+> vennPlot(counts=counts, ccol=c(rep(1,30),2), lcex=1.5, ccex=c(rep(1.5,5), rep(0.6,25),1.5))
+> # dev.off()
+\end{Sinput}
+\end{Schunk}
+\end{frame}
+\begin{frame}[containsverbatim]         \frametitle{Venn Diagram (Plot)}
+\begin{figure}[htbp]
+\begin{center}
+        \includegraphics[height=6cm, width=6cm]{venn.pdf} \\
+\caption{Venn Diagram}
+\end{center}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Compound Depictions with ChemmineR}
+\tiny 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> library(ChemmineR)
+> data(sdfsample)
+> plot(sdfsample[1], print=FALSE)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--078}
+\label{fig:compounds}
+\end{figure}
+\end{frame}
+\section{Genome Graphics}
+\subsection{ggbio}
+\begin{frame}[containsverbatim]  
+    \frametitle}: A Programmable Genome Browser}
+\begin{changemargin}{-0.6cm}{-0.8cm}
+\footnotesize 
+\begin{itemize}
+    \item A genome browser is a visulalization tool for plotting different types of genomic data in separate tracks along chromosomes. 
+    \item The } package \citep{Yin2012a} facilitates plotting of complex genome data objects, such as read alignments (SAM/BAM), genomic context/annotation information (gff/txdb), variant calls (VCF/BCF), and more. To easily compare these data sets, it extends the faceting facility of } to genome browser-like tracks.
+    \item Most of the core object types for handling genomic data with R/Bioconductor are supported: }, }, }, etc. For more details, see Table 1.1 of the } vignette \href{http://www.bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf}}.
+    \item }'s convenience plotting function is \textcolor{blue}}}. For more customizable plots, one can use the generic \textcolor{blue}}} function.
+    \item Apart from the standard } plotting components, } defines serval new components useful for genomic data visualization. A detailed list is given in Table 1.2 of the vignette \href{http://www.bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf}}. 
+    \item Useful web sites:
+    \begin{itemize}
+    \scriptsize
+        \item } manual \href{http://www.tengfei.name/ggbio/docs/}}
+        \item } functions \href{http://www.tengfei.name/ggbio/docs/man/}}
+        \item } demo \href{http://www.tengfei.name/ggbio/docs/man/autoplot-method.html}}
+    \end{itemize}
+\end{itemize}
+\end{changemargin}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Tracks: Aligning Plots Along Chromosomes}
+\tiny 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> library(ggbio)
+> df1 <- data.frame(time = 1:100, score = sin((1:100)/20)*10)
+> p1 <- qplot(data = df1, x = time, y = score, geom = "line")
+> df2 <- data.frame(time = 30:120, score = sin((30:120)/20)*10, value = rnorm(120-30 +1))
+> p2 <- ggplot(data = df2, aes(x = time, y = score)) + geom_line() + geom_point(size = 2, aes(color = value))
+> tracks(time1 = p1, time2 = p2) + xlim(1, 40) + theme_tracks_sunset()
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--079}
+\label{fig:tracks}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Plotting Genomic Ranges}
+\scriptsize
+\textcolor{blue}} objects are essential for storing alignment or annotation ranges in R/Bioconductor. The following creates a sample } object and plots its content.}
+\tiny 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> library(GenomicRanges)
+> set.seed(1); N <- 100; gr <- GRanges(seqnames = sample(c("chr1", "chr2", "chr3"), size = N, replace = TRUE), IRanges(start = sample(1:300, size = N, replace = TRUE), width = sample(70:75, size = N,replace = TRUE)), strand = sample(c("+", "-"), size = N, replace = TRUE), value = rnorm(N, 10, 3), score = rnorm(N, 100, 30), sample = sample(c("Normal", "Tumor"), size = N, replace = TRUE), pair = sample(letters, size = N, replace = TRUE))
+> autoplot(gr, aes(color = strand, fill = strand), facets = strand ~ seqnames)
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--080}
+\label{fig:tracks}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Plotting Coverage Instead of Ranges}
+\tiny 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> autoplot(gr, aes(color = strand, fill = strand), facets = strand ~ seqnames, stat = "coverage")
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--081}
+\label{fig:tracks}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Mirrored Coverage Plot}
+\tiny 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> pos <- sapply(coverage(gr[strand(gr)=="+"]), as.numeric)
+> pos <- data.frame(Chr=rep(names(pos), sapply(pos, length)), Strand=rep("+", length(unlist(pos))), Position=unlist(sapply(pos, function(x) 1:length(x))), Coverage=as.numeric(unlist(pos)))
+> neg <- sapply(coverage(gr[strand(gr)=="-"]), as.numeric)
+> neg <- data.frame(Chr=rep(names(neg), sapply(neg, length)), Strand=rep("-", length(unlist(neg))), Position=unlist(sapply(neg, function(x) 1:length(x))), Coverage=-as.numeric(unlist(neg)))
+> covdf <- rbind(pos, neg)
+> p <- ggplot(covdf, aes(Position, Coverage, fill=Strand)) + 
++       geom_bar(stat="identity", position="identity") + facet_wrap(~Chr)
+> p
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--082}
+\label{fig:tracks}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{Circular Layout}
+\tiny 
+\begin{figure}
+  \centering
+\begin{Schunk}
+\begin{Sinput}
+> ggplot(gr) + layout_circle(aes(fill = seqnames), geom = "rect")
+\end{Sinput}
+\end{Schunk}
+\includegraphics{fig--083}
+\label{fig:tracks}
+\end{figure}
+\end{frame}
+\begin{frame}[containsverbatim]  
+    \frametitle{More Complex Circular Example}
+\tiny 
+\begin{Schunk}
+\begin{Sinput}
+> seqlengths(gr) <- c(400, 500, 700)
+> values(gr)$to.gr &lt;- gr\[sample(1:length(gr), size = length(gr))\]
+&gt; idx &lt;- sample(1:length(gr), size = 50) &gt; gr &lt;- gr\[idx\]
+&gt; ggplot() + layout\_circle(gr, geom = “ideo”, fill = “gray70”,
+radius = 7, trackWidth = 3) + + layout\_circle(gr, geom = “bar”, radius
+= 10, trackWidth = 4, + aes(fill = score, y = score)) + +
+layout\_circle(gr, geom = “point”, color = “red”, radius = 14, +
+trackWidth = 3, grid = TRUE, aes(y = score)) + + layout\_circle(gr, geom
+= “link”, linked.to = “to.gr”, radius = 6, trackWidth = 1)
+
+\[containsverbatim\]
+
+### Viewing Alignments and Variants
+
+&gt; library(rtracklayer); library(GenomicFeatures); library(Rsamtools);
+library(GenomicAlignments); library(VariantAnnotation) &gt; ga &lt;-
+readGAlignments(“./data/SRR064167.fastq.bam”, use.names=TRUE,
+param=ScanBamParam(which=GRanges(“Chr5”, IRanges(4000, 8000)))) &gt; p1
+&lt;- autoplot(ga, geom = “rect”) &gt; p2 &lt;- autoplot(ga, geom =
+“line”, stat = “coverage”) &gt; vcf &lt;-
+readVcf(file=“data/varianttools\_gnsap.vcf”, genome=“ATH1”) &gt; p3
+&lt;- autoplot(vcf\[seqnames(vcf)==“Chr5”\], type = “fixed”) +
+xlim(4000, 8000) + theme(legend.position = “none”, axis.text.y =
+element\_blank(), axis.ticks.y=element\_blank()) &gt; txdb &lt;-
+makeTxDbFromGFF(file=“./data/TAIR10\_GFF3\_trunc.gff”, format=“gff3”)
+&gt; p4 &lt;- autoplot(txdb, which=GRanges(“Chr5”, IRanges(4000, 8000)),
+names.expr = “gene\_id”) &gt; tracks(Reads=p1, Coverage=p2, Variant=p3,
+Transcripts=p4, heights = c(0.3, 0.2, 0.1, 0.35)) + ylab(“”)
+
+![image](fig--085) \[fig:tracks\]
+
+\[containsverbatim\]
+
+### Additional Sample Plots
+
+-   <span><span>`autoplot`</span></span> demo
+    [](http://www.tengfei.name/ggbio/docs/man/autoplot-method.html)
+
+Additional Genome Graphics
+--------------------------
+
+\[containsverbatim\]
+
+### Additional Packages for Visualizing Genome Data
+
+-   Gviz
+    [](http://www.bioconductor.org/packages/devel/bioc/html/Gviz.html)
+
+-   RCircos [@Zhang2013a]
+    [](http://cran.us.r-project.org/web/packages/RCircos/index.html)
+
+-   Genome Graphs
+    [](http://bioconductor.org/packages/release/bioc/html/GenomeGraphs.html)
+
+-   genoPlotR [](http://genoplotr.r-forge.r-project.org/)
+
+Genome Browser: IGV
+===================
+
+\[containsverbatim\]
+
+### Alignment Viewing in IGV
+
+<span>-0.5cm</span><span>-0.5cm</span>
+
+-   Download and open IGV[](http://www.broadinstitute.org/igv/download)
+
+-   Select in menu in top left corner `A. thaliana (TAIR10)`
+
+-   Upload the following indexed/sorted Bam files with
+    `File -> Load from URL...`
+
+http://faculty.ucr.edu/ tgirke/HTML\_Presentations/Manuals/Workshop\_Dec\_6\_10\_2012/Rrnaseq/results/SRR064154.fastq.bam
+http://faculty.ucr.edu/ tgirke/HTML\_Presentations/Manuals/Workshop\_Dec\_6\_10\_2012/Rrnaseq/results/SRR064155.fastq.bam
+http://faculty.ucr.edu/ tgirke/HTML\_Presentations/Manuals/Workshop\_Dec\_6\_10\_2012/Rrnaseq/results/SRR064166.fastq.bam
+http://faculty.ucr.edu/ tgirke/HTML\_Presentations/Manuals/Workshop\_Dec\_6\_10\_2012/Rrnaseq/results/SRR064167.fastq.bam
+
+-   To view area of interest, enter its coordinates `Chr1:49,457-51,457`
+    in position menu on top.
+
+![image](./images/igv_peak_3.png){width="65mm"}\
+
+### Create symbolic links for viewing BAM files in IGV
+
+-   systemPipeR: utilities for building NGS analysis pipelines
+    [](https://github.com/tgirke/systemPipeR)\
+
+    \
+
+    \
+
+    \
+
+\[allowframebreaks\]<span>Bibliography</span>
+
+
+<div class="tags">
+    
+</div>
+
+
+
+</div>
+
+
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 UC Riverside. All rights reserved. <br />
+ Site last generated: May 17, 2016 <br />
+<p><img src="../common_images/company_logo.png/></p>
+                </div>
+            </div>
+</footer>
+
+            </div><!-- /.row -->
+
+    </div>    <!-- /.container -->
+
+</body>
+
+
+</html>
+
