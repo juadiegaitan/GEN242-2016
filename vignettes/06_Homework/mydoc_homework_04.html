@@ -21,6 +21,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="../js/toc.js"></script>
 <script src="../js/customscripts.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <link rel="shortcut icon" href="../common_images/favicon.ico" type="image/x-icon">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,6 +37,7 @@
 
 
  
+
 
 <script>
   $(function () {
@@ -68,16 +70,6 @@
                 <!-- entries without drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -167,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -488,6 +468,15 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_slides_16.html">Gene Annotation and Ontologies</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_17.html">Cluster Analysis</a></li>
                     
 
                     
@@ -1457,6 +1446,49 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">Cluster Analysis</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_1.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_2.html">2. Data Preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_3.html">3. Clustering Algorithms</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_4.html">4. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">Paper Presentations</a>
                 <ul>
                     
@@ -1616,8 +1648,8 @@ $('#toc').on('click', 'a', function() {
   <li><strong>Task 2</strong>: Create manually (or write an R script for it) one global and one local alignment for the following two protein sequences using the Needleman-Wusch and Smith-Waterman algorithms:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">O15528: PFGFGKRSCMGRRLA
-P98187: FIPFSAGPRNCIGQK</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">O15528: PFGFGKRSCMGRRLA
+P98187: FIPFSAGPRNCIGQK</code></pre></figure>
 
 <p>Use in each case BLOSUM50 as substitution matrix and 8 as gap opening and extension penalties. 
 Note, <a href="https://github.com/tgirke/GEN242/blob/master/vignettes/06_Homework/mydoc_homework_04.R">here</a> is some R code to create the initial matrix programmatically and then upload it into your spreadsheet program, or continue solving the homework by writing an R script.
@@ -1632,13 +1664,13 @@ Your answers should contain the following components:</p>
 <h2 id="c-alignments-with-different-substitution-matrices">C. Alignments with Different Substitution Matrices</h2>
 
 <ul>
-  <li><strong>Task 1</strong>: Load the <code>Biostrings</code> package in R, import the following two cytochrome P450 sequences <code>O15528</code> and <code>P98187</code> from <a href="http://www.ncbi.nlm.nih.gov/protein/O15528,P98187">NCBI</a> (save as <code>myseq.fasta</code>), and create a global alignment with the <code>pairwiseAlignment</code> function from <code>Biostrings</code> as follows:</li>
+  <li><strong>Task 1</strong>: Load the <code class="highlighter-rouge">Biostrings</code> package in R, import the following two cytochrome P450 sequences <code class="highlighter-rouge">O15528</code> and <code class="highlighter-rouge">P98187</code> from <a href="http://www.ncbi.nlm.nih.gov/protein/O15528,P98187">NCBI</a> (save as <code class="highlighter-rouge">myseq.fasta</code>), and create a global alignment with the <code class="highlighter-rouge">pairwiseAlignment</code> function from <code class="highlighter-rouge">Biostrings</code> as follows:</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
 <span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">readAAStringSet</span><span class="p">(</span><span class="s2">"myseq.fasta"</span><span class="p">,</span> <span class="s2">"fasta"</span><span class="p">)</span>
 <span class="p">(</span><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">pairwiseAlignment</span><span class="p">(</span><span class="n">myseq</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">myseq</span><span class="p">[[</span><span class="m">2</span><span class="p">]],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"global"</span><span class="p">,</span> <span class="n">substitutionMatrix</span><span class="o">=</span><span class="s2">"BLOSUM50"</span><span class="p">))</span>
-<span class="n">writePairwiseAlignments</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">writePairwiseAlignments</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
 
 <p>Your answers should address the following items:</p>
 
@@ -1649,7 +1681,7 @@ Your answers should contain the following components:</p>
 
 <h2 id="homework-submission">Homework submission</h2>
 
-<p>Assemble the results from this homework in one PDF file (<code>HW4.pdf</code>) and upload it to your private GitHub repository under <code>Homework/HW4/HW4.pdf</code>.</p>
+<p>Assemble the results from this homework in one PDF file (<code class="highlighter-rouge">HW4.pdf</code>) and upload it to your private GitHub repository under <code class="highlighter-rouge">Homework/HW4/HW4.pdf</code>.</p>
 
 <h2 id="due-date">Due date</h2>
 
@@ -1670,7 +1702,7 @@ Your answers should contain the following components:</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> 12-April-16<br/> Site last generated: May 17, 2016 <br />
+<p>Page last updated:</span> 12-April-16<br/> Site last generated: May 18, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

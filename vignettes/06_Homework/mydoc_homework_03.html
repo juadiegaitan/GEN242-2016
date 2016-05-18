@@ -21,6 +21,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="../js/toc.js"></script>
 <script src="../js/customscripts.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <link rel="shortcut icon" href="../common_images/favicon.ico" type="image/x-icon">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,6 +37,7 @@
 
 
  
+
 
 <script>
   $(function () {
@@ -68,16 +70,6 @@
                 <!-- entries without drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -167,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -488,6 +468,15 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_slides_16.html">Gene Annotation and Ontologies</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_17.html">Cluster Analysis</a></li>
                     
 
                     
@@ -1457,6 +1446,49 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">Cluster Analysis</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_1.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_2.html">2. Data Preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_3.html">3. Clustering Algorithms</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_4.html">4. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">Paper Presentations</a>
                 <ul>
                     
@@ -1608,33 +1640,33 @@ $('#toc').on('click', 'a', function() {
 <h2 id="a-object-subsetting-import-and-export">A. Object Subsetting, Import and Export</h2>
 
 <ul>
-  <li><strong>Task 1</strong>: Sort the rows of the <code>iris</code> data frame by its first column and sort its columns alphabetically by column names.</li>
+  <li><strong>Task 1</strong>: Sort the rows of the <code class="highlighter-rouge">iris</code> data frame by its first column and sort its columns alphabetically by column names.</li>
   <li><strong>Task 2</strong>: Subset the first 12 rows, export the result to a text file and view it in a spreadsheet program like Excel or Google Sheets.</li>
-  <li><strong>Task 3</strong>: Change some column titles in your spreadsheet program, save the result to a tab delimited text file and import it back into R. Note, for this task you only want to include the <code>read.table</code> command in the homework result (here R script).</li>
+  <li><strong>Task 3</strong>: Change some column titles in your spreadsheet program, save the result to a tab delimited text file and import it back into R. Note, for this task you only want to include the <code class="highlighter-rouge">read.table</code> command in the homework result (here R script).</li>
 </ul>
 
-<p>Before you start it can be helpful to evaluate the structure of the <code>iris</code> data set with the following commands:</p>
+<p>Before you start it can be helpful to evaluate the structure of the <code class="highlighter-rouge">iris</code> data set with the following commands:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
 <span class="n">dim</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
-<span class="n">colnames</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span></code></pre></div>
+<span class="n">colnames</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span></code></pre></figure>
 
 <h2 id="b-scatter-plots">B. Scatter Plots</h2>
 
 <ul>
-  <li><strong>Task 1</strong>: Generate a scatter plot for the first two columns of the <code>iris</code> data frame and color the dots by the <code>Species</code> column.</li>
-  <li><strong>Task 2</strong>: Use the <code>xlim/ylim</code> arguments to set limits on the x- and y-axes so that all data points are restricted to the bottom left quadrant of the plot.</li>
+  <li><strong>Task 1</strong>: Generate a scatter plot for the first two columns of the <code class="highlighter-rouge">iris</code> data frame and color the dots by the <code class="highlighter-rouge">Species</code> column.</li>
+  <li><strong>Task 2</strong>: Use the <code class="highlighter-rouge">xlim/ylim</code> arguments to set limits on the x- and y-axes so that all data points are restricted to the bottom left quadrant of the plot.</li>
 </ul>
 
 <p>Again before you start, evaluate the structure of iris data set. The following commands are useful:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
-<span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
+<span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></figure>
 
 <h2 id="c-bar-plots">C. Bar Plots</h2>
 
 <ul>
-  <li><strong>Task 1</strong>: Calculate the mean values for the <code>Species</code> components of the first four columns in the <code>iris</code> data frame. Organize the results in a matrix where the row names are the unique values from the <code>iris Species</code> column and the column names are the names of the first four <code>iris</code> columns.</li>
+  <li><strong>Task 1</strong>: Calculate the mean values for the <code class="highlighter-rouge">Species</code> components of the first four columns in the <code class="highlighter-rouge">iris</code> data frame. Organize the results in a matrix where the row names are the unique values from the <code class="highlighter-rouge">iris Species</code> column and the column names are the names of the first four <code class="highlighter-rouge">iris</code> columns.</li>
   <li><strong>Task 2</strong>: Generate two bar plots for the matrix generated in the previous step: one with stacked bars and one with horizontally arranged bars.</li>
 </ul>
 
@@ -1644,7 +1676,7 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="homework-submission">Homework submission</h2>
 
-<p>Assemble the results from homework assignments A-H in a single R script (<code>HW3.R</code>) and upload it to your private GitHub repository under <code>Homework/HW3/HW3.R</code>.</p>
+<p>Assemble the results from homework assignments A-H in a single R script (<code class="highlighter-rouge">HW3.R</code>) and upload it to your private GitHub repository under <code class="highlighter-rouge">Homework/HW3/HW3.R</code>.</p>
 
 <h2 id="due-date">Due date</h2>
 
@@ -1669,7 +1701,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> 07-April-16<br/> Site last generated: May 17, 2016 <br />
+<p>Page last updated:</span> 07-April-16<br/> Site last generated: May 18, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

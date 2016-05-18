@@ -21,6 +21,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="../js/toc.js"></script>
 <script src="../js/customscripts.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <link rel="shortcut icon" href="../common_images/favicon.ico" type="image/x-icon">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,6 +37,7 @@
 
 
  
+
 
 <script>
   $(function () {
@@ -68,16 +70,6 @@
                 <!-- entries without drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -167,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -488,6 +468,15 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_slides_16.html">Gene Annotation and Ontologies</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_17.html">Cluster Analysis</a></li>
                     
 
                     
@@ -1457,6 +1446,49 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">Cluster Analysis</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_1.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_2.html">2. Data Preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_3.html">3. Clustering Algorithms</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_4.html">4. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">Paper Presentations</a>
                 <ul>
                     
@@ -1607,31 +1639,31 @@ $('#toc').on('click', 'a', function() {
 -->
 <p>To simplify comparisons among samples, the \Rfunction{combineVarReports}
 function combines all variant annotation reports referenced in a
-<code>SYSargs</code> instance (here <code>args</code>). At the same time the function
+<code class="highlighter-rouge">SYSargs</code> instance (here <code class="highlighter-rouge">args</code>). At the same time the function
 allows to consider only certain feature types of interest. For instance, the
-below setting <code>filtercol=c(Consequence="nonsynonymous")</code> will include
-only nonsysynonymous variances listed in the <code>Consequence</code> column of
+below setting <code class="highlighter-rouge">filtercol=c(Consequence="nonsynonymous")</code> will include
+only nonsysynonymous variances listed in the <code class="highlighter-rouge">Consequence</code> column of
 the annotation reports. To omit filtering, one can use the setting
-<code>filtercol="All"</code>.</p>
+<code class="highlighter-rouge">filtercol="All"</code>.</p>
 
-<h2 id="combine-results-from-gatk">Combine results from <code>GATK</code></h2>
+<h2 id="combine-results-from-gatk">Combine results from <code class="highlighter-rouge">GATK</code></h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_gatk_filtered.txt"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_gatk_filtered.txt"</span><span class="p">)</span>
 <span class="n">combineDF</span> <span class="o">&lt;-</span> <span class="n">combineVarReports</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">filtercol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">Consequence</span><span class="o">=</span><span class="s2">"nonsynonymous"</span><span class="p">))</span>
-<span class="n">write.table</span><span class="p">(</span><span class="n">combineDF</span><span class="p">,</span> <span class="s2">"./results/combineDF_nonsyn_gatk.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span></code></pre></div>
+<span class="n">write.table</span><span class="p">(</span><span class="n">combineDF</span><span class="p">,</span> <span class="s2">"./results/combineDF_nonsyn_gatk.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span></code></pre></figure>
 
-<h2 id="combine-results-from-bcftools">Combine results from <code>BCFtools</code></h2>
+<h2 id="combine-results-from-bcftools">Combine results from <code class="highlighter-rouge">BCFtools</code></h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_sambcf_filtered.txt"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_sambcf_filtered.txt"</span><span class="p">)</span>
 <span class="n">combineDF</span> <span class="o">&lt;-</span> <span class="n">combineVarReports</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">filtercol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">Consequence</span><span class="o">=</span><span class="s2">"nonsynonymous"</span><span class="p">))</span>
-<span class="n">write.table</span><span class="p">(</span><span class="n">combineDF</span><span class="p">,</span> <span class="s2">"./results/combineDF_nonsyn_sambcf.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span></code></pre></div>
+<span class="n">write.table</span><span class="p">(</span><span class="n">combineDF</span><span class="p">,</span> <span class="s2">"./results/combineDF_nonsyn_sambcf.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span></code></pre></figure>
 
-<h2 id="combine-results-from-varianttools">Combine results from <code>VariantTools</code></h2>
+<h2 id="combine-results-from-varianttools">Combine results from <code class="highlighter-rouge">VariantTools</code></h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_vartools_filtered.txt"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_vartools_filtered.txt"</span><span class="p">)</span>
 <span class="n">combineDF</span> <span class="o">&lt;-</span> <span class="n">combineVarReports</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">filtercol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">Consequence</span><span class="o">=</span><span class="s2">"nonsynonymous"</span><span class="p">))</span>
 <span class="n">write.table</span><span class="p">(</span><span class="n">combineDF</span><span class="p">,</span> <span class="s2">"./results/combineDF_nonsyn_vartools.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span>
-<span class="n">combineDF</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></div>
+<span class="n">combineDF</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span> </code></pre></figure>
 
 
 
@@ -1649,7 +1681,7 @@ the annotation reports. To omit filtering, one can use the setting
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Thu May  5 11:37:34 2016<br/> Site last generated: May 17, 2016 <br />
+<p>Page last updated:</span> Thu May  5 11:37:34 2016<br/> Site last generated: May 18, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

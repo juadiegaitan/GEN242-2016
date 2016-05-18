@@ -21,6 +21,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
 <script src="../js/toc.js"></script>
 <script src="../js/customscripts.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <link rel="shortcut icon" href="../common_images/favicon.ico" type="image/x-icon">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,6 +37,7 @@
 
 
  
+
 
 <script>
   $(function () {
@@ -68,16 +70,6 @@
                 <!-- entries without drop-downs appear here -->
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -167,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -261,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -488,6 +468,15 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_slides_16.html">Gene Annotation and Ontologies</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_slides_17.html">Cluster Analysis</a></li>
                     
 
                     
@@ -1457,6 +1446,49 @@ window.location.href = uri;
                 
                 
             
+            <li><a href="#">Cluster Analysis</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_1.html">1. Introduction</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_2.html">2. Data Preprocessing</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_3.html">3. Clustering Algorithms</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_4.html">4. References</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
             <li><a href="#">Paper Presentations</a>
                 <ul>
                     
@@ -1607,10 +1639,10 @@ $('#toc').on('click', 'a', function() {
 -->
 <p>Several Bioconductor packages are required for this tutorial. To install them, execute
 the following lines in the R console. Please also make sure that you have a recent R version
-installed on your system. R versions <code>3.2.x</code> or higher are recommended.</p>
+installed on your system. R versions <code class="highlighter-rouge">3.2.x</code> or higher are recommended.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"https://bioconductor.org/biocLite.R"</span><span class="p">)</span>
-<span class="n">biocLite</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"Biostrings"</span><span class="p">,</span> <span class="s2">"GenomicRanges"</span><span class="p">,</span> <span class="s2">"GenomicRanges"</span><span class="p">,</span> <span class="s2">"rtracklayer"</span><span class="p">,</span> <span class="s2">"systemPipeR"</span><span class="p">,</span> <span class="s2">"seqLogo"</span><span class="p">,</span> <span class="s2">"ShortRead"</span><span class="p">))</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"https://bioconductor.org/biocLite.R"</span><span class="p">)</span>
+<span class="n">biocLite</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"Biostrings"</span><span class="p">,</span> <span class="s2">"GenomicRanges"</span><span class="p">,</span> <span class="s2">"GenomicRanges"</span><span class="p">,</span> <span class="s2">"rtracklayer"</span><span class="p">,</span> <span class="s2">"systemPipeR"</span><span class="p">,</span> <span class="s2">"seqLogo"</span><span class="p">,</span> <span class="s2">"ShortRead"</span><span class="p">))</span></code></pre></figure>
 
 
 
@@ -1628,7 +1660,7 @@ installed on your system. R versions <code>3.2.x</code> or higher are recommende
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sat Apr 30 19:54:48 2016<br/> Site last generated: May 17, 2016 <br />
+<p>Page last updated:</span> Sat Apr 30 19:54:48 2016<br/> Site last generated: May 18, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
