@@ -95,8 +95,13 @@ mydoc_slides_15:
 
 mydoc_slides_16:
   title: "Gene Set Enrichment"
-  url: "../mydoc_slides_15.html"
+  url: "../mydoc_slides_16.html"
   link: "<a href='../mydoc_slides_16.html'>Gene Set Enrichment</a>"
+
+mydoc_slides_17:
+  title: "Cluster Analysis"
+  url: "../mydoc_slides_17.html"
+  link: "<a href='../mydoc_slides_17.html'>Gene Set Enrichment</a>"
 
 mydoc_tutorial_01:
   title: "GitHub"
@@ -667,4 +672,24 @@ mydoc_Rgraphics_8:
   title: "References"
   url: "../mydoc/mydoc_Rgraphics_8.html"
   link: "<a href='../mydoc/mydoc_Rgraphics_8.html'>References</a>"
+
+mydoc_Rclustering_1:
+  title: "Introduction"
+  url: "../mydoc/mydoc_Rclustering_1.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_1.html'>Introduction</a>"
+
+mydoc_Rclustering_2:
+  title: "Data Preprocessing"
+  url: "../mydoc/mydoc_Rclustering_2.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_2.html'>Data Preprocessing</a>"
+
+mydoc_Rclustering_3:
+  title: "Clustering Algorithms"
+  url: "../mydoc/mydoc_Rclustering_3.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_3.html'>Clustering Algorithms</a>"
+
+mydoc_Rclustering_4:
+  title: "References"
+  url: "../mydoc/mydoc_Rclustering_4.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_4.html'>References</a>"
 

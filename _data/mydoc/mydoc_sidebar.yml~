@@ -219,6 +219,14 @@ entries:
       product: all
       version: all
       output: web
+    
+    - title: Cluster Analysis
+      url: /mydoc/mydoc_slides_17.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
   
   - title: Homework
     audience: writers, designers
@@ -1020,78 +1028,6 @@ entries:
       version: all
       output: web
 
-  - title: Graphics
-    audience: writers, designers
-    platform: all
-    product: all
-    version: all
-    output: web, pdf
-    items:
-
-    - title: 1. Overview
-      url: /mydoc/mydoc_Rgraphics_1.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 2. Base Graphics
-      url: /mydoc/mydoc_Rgraphics_2.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 3. Grid Graphics
-      url: /mydoc/mydoc_Rgraphics_3.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 4. lattice Graphics
-      url: /mydoc/mydoc_Rgraphics_4.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 5. ggplot2 Graphics
-      url: /mydoc/mydoc_Rgraphics_5.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 6. Specialty Graphics
-      url: /mydoc/mydoc_Rgraphics_6.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 7. Genome Graphics
-      url: /mydoc/mydoc_Rgraphics_7.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
-    - title: 8. References
-      url: /mydoc/mydoc_Rgraphics_8.html
-      audience: writers, designers
-      platform: all
-      product: all
-      version: all
-      output: web
-
   - title: Graphics and Visualization
     audience: writers, designers
     platform: all
@@ -1158,6 +1094,46 @@ entries:
 
     - title: 8. References
       url: /mydoc/mydoc_Rgraphics_8.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+  - title: Cluster
+    audience: writers, designers
+    platform: all
+    product: all
+    version: all
+    output: web, pdf
+    items:
+
+    - title: 1. Introduction
+      url: /mydoc/mydoc_Rclustering_1.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+    - title: 2. Data Preprocessing
+      url: /mydoc/mydoc_Rclustering_2.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+    - title: 3. Clustering Algorithms
+      url: /mydoc/mydoc_Rclustering_3.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+    - title: 4. References
+      url: /mydoc/mydoc_Rclustering_4.html
       audience: writers, designers
       platform: all
       product: all
