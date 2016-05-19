@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1659,26 +1681,26 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="r-console">R console</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"my_script.R"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"my_script.R"</span><span class="p">)</span></code></pre></div>
 
 <h3 id="command-line">Command-line</h3>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">Rscript my_script.R <span class="c"># or just ./myscript.R after making it executable</span>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">Rscript my_script.R <span class="c"># or just ./myscript.R after making it executable</span>
 R CMD BATCH my_script.R <span class="c"># Alternative way 1 </span>
-R --slave &lt; my_script.R <span class="c"># Alternative way 2</span></code></pre></figure>
+R --slave &lt; my_script.R <span class="c"># Alternative way 2</span></code></pre></div>
 
 <h3 id="passing-arguments-from-command-line-to-r">Passing arguments from command-line to R</h3>
 
-<p>Create an R script named <code class="highlighter-rouge">test.R</code> with the following content:</p>
+<p>Create an R script named <code>test.R</code> with the following content:</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">myarg &lt;- commandArgs<span class="o">()</span>
-print<span class="o">(</span>iris[1:myarg[6], <span class="o">])</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">myarg &lt;- commandArgs<span class="o">()</span>
+print<span class="o">(</span>iris[1:myarg[6], <span class="o">])</span></code></pre></div>
 
 <p>Then run it from the command-line like this:</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">Rscript test.R 10</code></pre></figure>
+<div class="highlight"><pre><code class="language-sh" data-lang="sh">Rscript test.R 10</code></pre></div>
 
-<p>In the given example the number <code class="highlighter-rouge">10</code> is passed on from the command-line as an argument to the R script which is used to return to <code class="highlighter-rouge">STDOUT</code> the first 10 rows of the <code class="highlighter-rouge">iris</code> sample data. If several arguments are provided, they will be interpreted as one string and need to be split in R with the strsplit function. A more detailed example can be found <a href="http://manuals.bioinformatics.ucr.edu/home/ht-seq\#TOC-Quality-Reports-of-FASTQ-Files-">here</a>.</p>
+<p>In the given example the number <code>10</code> is passed on from the command-line as an argument to the R script which is used to return to <code>STDOUT</code> the first 10 rows of the <code>iris</code> sample data. If several arguments are provided, they will be interpreted as one string and need to be split in R with the strsplit function. A more detailed example can be found <a href="http://manuals.bioinformatics.ucr.edu/home/ht-seq\#TOC-Quality-Reports-of-FASTQ-Files-">here</a>.</p>
 
 
 
@@ -1696,7 +1718,7 @@ print<span class="o">(</span>iris[1:myarg[6], <span class="o">])</span></code></
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: May 18, 2016 <br />
+<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: May 19, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

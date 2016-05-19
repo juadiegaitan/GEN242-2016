@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1655,10 +1677,10 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<h2 id="ggbio"><code class="highlighter-rouge">ggbio</code></h2>
+<h2 id="ggbio"><code>ggbio</code></h2>
 
 <ul>
-  <li>What is <code class="highlighter-rouge">ggbio</code>?
+  <li>What is <code>ggbio</code>?
     <ul>
       <li>A programmable genome browser environment</li>
     </ul>
@@ -1666,10 +1688,10 @@ $('#toc').on('click', 'a', function() {
   <li>Genome broswer concepts
     <ul>
       <li>A genome browser is a visulalization tool for plotting different types of genomic data in separate tracks along chromosomes.</li>
-      <li>The <code class="highlighter-rouge">ggbio</code> package (Yin et al., 2012) facilitates plotting of complex genome data objects, such as read alignments (SAM/BAM), genomic context/annotation information (gff/txdb), variant calls (VCF/BCF), and more. To easily compare these data sets, it extends the faceting facility of <code class="highlighter-rouge">ggplot2</code> to genome browser-like tracks.</li>
-      <li>Most of the core object types for handling genomic data with R/Bioconductor are supported: <code class="highlighter-rouge">GRanges</code>, <code class="highlighter-rouge">GAlignments</code>, <code class="highlighter-rouge">VCF</code>, etc. For more details, see Table 1.1 of the <code class="highlighter-rouge">ggbio</code> vignette <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf">here</a>.</li>
-      <li><code class="highlighter-rouge">ggbio</code>’s convenience plotting function is <code class="highlighter-rouge">autoplot</code>. For more customizable plots, one can use the generic <code class="highlighter-rouge">ggplot</code> function.</li>
-      <li>Apart from the standard <code class="highlighter-rouge">ggplot2</code> plotting components, <code class="highlighter-rouge">ggbio</code> defines serval new components useful for genomic data visualization. A detailed list is given in Table 1.2 of the vignette <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf">here</a>.</li>
+      <li>The <code>ggbio</code> package (Yin et al., 2012) facilitates plotting of complex genome data objects, such as read alignments (SAM/BAM), genomic context/annotation information (gff/txdb), variant calls (VCF/BCF), and more. To easily compare these data sets, it extends the faceting facility of <code>ggplot2</code> to genome browser-like tracks.</li>
+      <li>Most of the core object types for handling genomic data with R/Bioconductor are supported: <code>GRanges</code>, <code>GAlignments</code>, <code>VCF</code>, etc. For more details, see Table 1.1 of the <code>ggbio</code> vignette <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf">here</a>.</li>
+      <li><code>ggbio</code>’s convenience plotting function is <code>autoplot</code>. For more customizable plots, one can use the generic <code>ggplot</code> function.</li>
+      <li>Apart from the standard <code>ggplot2</code> plotting components, <code>ggbio</code> defines serval new components useful for genomic data visualization. A detailed list is given in Table 1.2 of the vignette <a href="http://www.bioconductor.org/packages/release/bioc/vignettes/ggbio/inst/doc/ggbio.pdf">here</a>.</li>
       <li>Useful web sites:
         <ul>
           <li><a href="http://www.tengfei.name/ggbio/docs/">ggbio manual</a></li>
@@ -1683,78 +1705,56 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="tracks-aligning-plots-along-chromosomes">Tracks: aligning plots along chromosomes</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ggbio</span><span class="p">)</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning: replacing previous import 'ggplot2::Position' by 'BiocGenerics::Position' when loading
-## 'ggbio'</code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Need specific help about ggbio? try mailing 
-##  the maintainer or visit http://tengfei.github.com/ggbio/</code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## 
-## Attaching package: 'ggbio'</code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:ape':
-## 
-##     zoom</code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following objects are masked from 'package:ggplot2':
-## 
-##     geom_bar, geom_rect, geom_segment, ggsave, stat_bin, stat_identity, xlim</code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:ShortRead':
-## 
-##     zoom</code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df1</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">sin</span><span class="p">((</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">)</span><span class="o">/</span><span class="m">20</span><span class="p">)</span><span class="o">*</span><span class="m">10</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ggbio</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">sin</span><span class="p">((</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">)</span><span class="o">/</span><span class="m">20</span><span class="p">)</span><span class="o">*</span><span class="m">10</span><span class="p">)</span>
 <span class="n">p1</span> <span class="o">&lt;-</span> <span class="n">qplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df1</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">time</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">score</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"line"</span><span class="p">)</span>
 <span class="n">df2</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="m">30</span><span class="o">:</span><span class="m">120</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="n">sin</span><span class="p">((</span><span class="m">30</span><span class="o">:</span><span class="m">120</span><span class="p">)</span><span class="o">/</span><span class="m">20</span><span class="p">)</span><span class="o">*</span><span class="m">10</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">rnorm</span><span class="p">(</span><span class="m">120-30</span> <span class="m">+1</span><span class="p">))</span>
 <span class="n">p2</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df2</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">time</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">score</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">value</span><span class="p">))</span>
-<span class="n">tracks</span><span class="p">(</span><span class="n">time1</span> <span class="o">=</span> <span class="n">p1</span><span class="p">,</span> <span class="n">time2</span> <span class="o">=</span> <span class="n">p2</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlim</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">40</span><span class="p">)</span> <span class="o">+</span> <span class="n">theme_tracks_sunset</span><span class="p">()</span></code></pre></figure>
+<span class="n">tracks</span><span class="p">(</span><span class="n">time1</span> <span class="o">=</span> <span class="n">p1</span><span class="p">,</span> <span class="n">time2</span> <span class="o">=</span> <span class="n">p2</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlim</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">40</span><span class="p">)</span> <span class="o">+</span> <span class="n">theme_tracks_sunset</span><span class="p">()</span></code></pre></div>
 
 <p><img src="Rgraphics_files/ggbio_align-1.png" alt="" /></p>
 
 <h3 id="plotting-genomic-ranges">Plotting genomic ranges</h3>
 
-<p><code class="highlighter-rouge">GRanges</code> objects are essential for storing alignment or annotation ranges in R/Bioconductor. The following creates a sample <code class="highlighter-rouge">GRanges</code> object and plots its content.</p>
+<p><code>GRanges</code> objects are essential for storing alignment or annotation ranges in R/Bioconductor. The following creates a sample <code>GRanges</code> object and plots its content.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">GenomicRanges</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">GenomicRanges</span><span class="p">)</span>
 <span class="n">set.seed</span><span class="p">(</span><span class="m">1</span><span class="p">);</span> <span class="n">N</span> <span class="o">&lt;-</span> <span class="m">100</span><span class="p">;</span> <span class="n">gr</span> <span class="o">&lt;-</span> <span class="n">GRanges</span><span class="p">(</span><span class="n">seqnames</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"chr1"</span><span class="p">,</span> <span class="s2">"chr2"</span><span class="p">,</span> <span class="s2">"chr3"</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">),</span> <span class="n">IRanges</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">300</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">),</span> <span class="n">width</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="m">70</span><span class="o">:</span><span class="m">75</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span><span class="n">replace</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)),</span> <span class="n">strand</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"+"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">),</span> <span class="n">value</span> <span class="o">=</span> <span class="n">rnorm</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">3</span><span class="p">),</span> <span class="n">score</span> <span class="o">=</span> <span class="n">rnorm</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="m">100</span><span class="p">,</span> <span class="m">30</span><span class="p">),</span> <span class="n">sample</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"Normal"</span><span class="p">,</span> <span class="s2">"Tumor"</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">),</span> <span class="n">pair</span> <span class="o">=</span> <span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">))</span>
-<span class="n">autoplot</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">strand</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">strand</span><span class="p">),</span> <span class="n">facets</span> <span class="o">=</span> <span class="n">strand</span> <span class="o">~</span> <span class="n">seqnames</span><span class="p">)</span></code></pre></figure>
+<span class="n">autoplot</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">strand</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">strand</span><span class="p">),</span> <span class="n">facets</span> <span class="o">=</span> <span class="n">strand</span> <span class="o">~</span> <span class="n">seqnames</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rgraphics_files/ggbio_granges-1.png" alt="" /></p>
 
 <h3 id="plotting-coverage">Plotting coverage</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">autoplot</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">strand</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">strand</span><span class="p">),</span> <span class="n">facets</span> <span class="o">=</span> <span class="n">strand</span> <span class="o">~</span> <span class="n">seqnames</span><span class="p">,</span> <span class="n">stat</span> <span class="o">=</span> <span class="s2">"coverage"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">autoplot</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">strand</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">strand</span><span class="p">),</span> <span class="n">facets</span> <span class="o">=</span> <span class="n">strand</span> <span class="o">~</span> <span class="n">seqnames</span><span class="p">,</span> <span class="n">stat</span> <span class="o">=</span> <span class="s2">"coverage"</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Scale for 'x' is already present. Adding another scale for 'x', which will replace the existing
-## scale.</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Scale for 'x' is already present. Adding another scale for 'x', which will replace the existing
+## scale.</code></pre></div>
 
 <p><img src="Rgraphics_files/ggbio_coverage-1.png" alt="" /></p>
 
 <h3 id="mirrored-coverage">Mirrored coverage</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">coverage</span><span class="p">(</span><span class="n">gr</span><span class="p">[</span><span class="n">strand</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span><span class="o">==</span><span class="s2">"+"</span><span class="p">]),</span> <span class="n">as.numeric</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">coverage</span><span class="p">(</span><span class="n">gr</span><span class="p">[</span><span class="n">strand</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span><span class="o">==</span><span class="s2">"+"</span><span class="p">]),</span> <span class="n">as.numeric</span><span class="p">)</span>
 <span class="n">pos</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">Chr</span><span class="o">=</span><span class="n">rep</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">pos</span><span class="p">),</span> <span class="n">sapply</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">length</span><span class="p">)),</span> <span class="n">Strand</span><span class="o">=</span><span class="n">rep</span><span class="p">(</span><span class="s2">"+"</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">pos</span><span class="p">))),</span> <span class="n">Position</span><span class="o">=</span><span class="n">unlist</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">))),</span> <span class="n">Coverage</span><span class="o">=</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">pos</span><span class="p">)))</span>
 <span class="n">neg</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">coverage</span><span class="p">(</span><span class="n">gr</span><span class="p">[</span><span class="n">strand</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span><span class="o">==</span><span class="s2">"-"</span><span class="p">]),</span> <span class="n">as.numeric</span><span class="p">)</span>
 <span class="n">neg</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">Chr</span><span class="o">=</span><span class="n">rep</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">neg</span><span class="p">),</span> <span class="n">sapply</span><span class="p">(</span><span class="n">neg</span><span class="p">,</span> <span class="n">length</span><span class="p">)),</span> <span class="n">Strand</span><span class="o">=</span><span class="n">rep</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="n">length</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">neg</span><span class="p">))),</span> <span class="n">Position</span><span class="o">=</span><span class="n">unlist</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="n">neg</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">x</span><span class="p">))),</span> <span class="n">Coverage</span><span class="o">=-</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">neg</span><span class="p">)))</span>
 <span class="n">covdf</span> <span class="o">&lt;-</span> <span class="n">rbind</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">neg</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">covdf</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Position</span><span class="p">,</span> <span class="n">Coverage</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">Strand</span><span class="p">))</span> <span class="o">+</span> 
 	    <span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span> <span class="o">+</span> <span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">Chr</span><span class="p">)</span>
-<span class="n">p</span></code></pre></figure>
+<span class="n">p</span></code></pre></div>
 
 <p><img src="Rgraphics_files/ggbio_mirrored_coverage-1.png" alt="" /></p>
 
 <h2 id="circular-genome-plots">Circular genome plots</h2>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span> <span class="o">+</span> <span class="n">layout_circle</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">seqnames</span><span class="p">),</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"rect"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span> <span class="o">+</span> <span class="n">layout_circle</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">seqnames</span><span class="p">),</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"rect"</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rgraphics_files/ggbio_circular1-1.png" alt="" /></p>
 
 <p>More complex circular example</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">seqlengths</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">400</span><span class="p">,</span> <span class="m">500</span><span class="p">,</span> <span class="m">700</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">seqlengths</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="m">400</span><span class="p">,</span> <span class="m">500</span><span class="p">,</span> <span class="m">700</span><span class="p">)</span>
 <span class="n">values</span><span class="p">(</span><span class="n">gr</span><span class="p">)</span><span class="o">$</span><span class="n">to.gr</span> <span class="o">&lt;-</span> <span class="n">gr</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">gr</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">gr</span><span class="p">))]</span>
 <span class="n">idx</span> <span class="o">&lt;-</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">gr</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">50</span><span class="p">)</span>
 <span class="n">gr</span> <span class="o">&lt;-</span> <span class="n">gr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
@@ -1763,7 +1763,7 @@ $('#toc').on('click', 'a', function() {
                 <span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">score</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">score</span><span class="p">))</span> <span class="o">+</span>
   <span class="n">layout_circle</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"point"</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">"red"</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="m">14</span><span class="p">,</span>
                 <span class="n">trackWidth</span> <span class="o">=</span> <span class="m">3</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="n">score</span><span class="p">))</span> <span class="o">+</span>
-  <span class="n">layout_circle</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"link"</span><span class="p">,</span> <span class="n">linked.to</span> <span class="o">=</span> <span class="s2">"to.gr"</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span> <span class="n">trackWidth</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span></code></pre></figure>
+  <span class="n">layout_circle</span><span class="p">(</span><span class="n">gr</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"link"</span><span class="p">,</span> <span class="n">linked.to</span> <span class="o">=</span> <span class="s2">"to.gr"</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="m">6</span><span class="p">,</span> <span class="n">trackWidth</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rgraphics_files/ggbio_circular2-1.png" alt="" /></p>
 
@@ -1771,118 +1771,118 @@ $('#toc').on('click', 'a', function() {
 
 <p>To make the following example work, please download and unpack this <a href="http://biocluster.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_12_16_2013/Rgraphics/data.zip">data archive</a> containing GFF, BAM and VCF sample files.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">rtracklayer</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">GenomicFeatures</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">Rsamtools</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">GenomicAlignments</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">VariantAnnotation</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">rtracklayer</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">GenomicFeatures</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">Rsamtools</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">GenomicAlignments</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">VariantAnnotation</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Loading required package: AnnotationDbi</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Loading required package: AnnotationDbi</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## 
-## Attaching package: 'VariantAnnotation'</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## 
+## Attaching package: 'VariantAnnotation'</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following objects are masked from 'package:ChemmineR':
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## The following objects are masked from 'package:ChemmineR':
 ## 
-##     header, header&lt;-</code></pre></figure>
+##     header, header&lt;-</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:systemPipeR':
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:systemPipeR':
 ## 
-##     reference</code></pre></figure>
+##     reference</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:ShortRead':
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:ShortRead':
 ## 
-##     readInfo</code></pre></figure>
+##     readInfo</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:base':
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:base':
 ## 
-##     tabulate</code></pre></figure>
+##     tabulate</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ga</span> <span class="o">&lt;-</span> <span class="n">readGAlignments</span><span class="p">(</span><span class="s2">"./data/SRR064167.fastq.bam"</span><span class="p">,</span> <span class="n">use.names</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="n">ScanBamParam</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="n">GRanges</span><span class="p">(</span><span class="s2">"Chr5"</span><span class="p">,</span> <span class="n">IRanges</span><span class="p">(</span><span class="m">4000</span><span class="p">,</span> <span class="m">8000</span><span class="p">))))</span>
-<span class="n">p1</span> <span class="o">&lt;-</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">ga</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"rect"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ga</span> <span class="o">&lt;-</span> <span class="n">readGAlignments</span><span class="p">(</span><span class="s2">"./data/SRR064167.fastq.bam"</span><span class="p">,</span> <span class="n">use.names</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">param</span><span class="o">=</span><span class="n">ScanBamParam</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="n">GRanges</span><span class="p">(</span><span class="s2">"Chr5"</span><span class="p">,</span> <span class="n">IRanges</span><span class="p">(</span><span class="m">4000</span><span class="p">,</span> <span class="m">8000</span><span class="p">))))</span>
+<span class="n">p1</span> <span class="o">&lt;-</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">ga</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"rect"</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## extracting information...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## extracting information...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p2</span> <span class="o">&lt;-</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">ga</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"line"</span><span class="p">,</span> <span class="n">stat</span> <span class="o">=</span> <span class="s2">"coverage"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p2</span> <span class="o">&lt;-</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">ga</span><span class="p">,</span> <span class="n">geom</span> <span class="o">=</span> <span class="s2">"line"</span><span class="p">,</span> <span class="n">stat</span> <span class="o">=</span> <span class="s2">"coverage"</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## extracting information...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## extracting information...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Scale for 'x' is already present. Adding another scale for 'x', which will replace the existing
-## scale.</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Scale for 'x' is already present. Adding another scale for 'x', which will replace the existing
+## scale.</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vcf</span> <span class="o">&lt;-</span> <span class="n">readVcf</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"data/varianttools_gnsap.vcf"</span><span class="p">,</span> <span class="n">genome</span><span class="o">=</span><span class="s2">"ATH1"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vcf</span> <span class="o">&lt;-</span> <span class="n">readVcf</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"data/varianttools_gnsap.vcf"</span><span class="p">,</span> <span class="n">genome</span><span class="o">=</span><span class="s2">"ATH1"</span><span class="p">)</span>
 <span class="n">p3</span> <span class="o">&lt;-</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">vcf</span><span class="p">[</span><span class="n">seqnames</span><span class="p">(</span><span class="n">vcf</span><span class="p">)</span><span class="o">==</span><span class="s2">"Chr5"</span><span class="p">],</span> <span class="n">type</span> <span class="o">=</span> <span class="s2">"fixed"</span><span class="p">)</span> <span class="o">+</span> <span class="n">xlim</span><span class="p">(</span><span class="m">4000</span><span class="p">,</span> <span class="m">8000</span><span class="p">)</span> <span class="o">+</span> <span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">,</span> <span class="n">axis.text.y</span> <span class="o">=</span> <span class="n">element_blank</span><span class="p">(),</span> <span class="n">axis.ticks.y</span><span class="o">=</span><span class="n">element_blank</span><span class="p">())</span>
-<span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">makeTxDbFromGFF</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"./data/TAIR10_GFF3_trunc.gff"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"gff3"</span><span class="p">)</span></code></pre></figure>
+<span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">makeTxDbFromGFF</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"./data/TAIR10_GFF3_trunc.gff"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"gff3"</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Import genomic features from the file as a GRanges object ...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Import genomic features from the file as a GRanges object ...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .local(con, format, text, ...): gff-version directive indicates version is 1, not 3</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .local(con, format, text, ...): gff-version directive indicates version is 1, not 3</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## OK</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## OK</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Prepare the 'metadata' data frame ...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Prepare the 'metadata' data frame ...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## OK</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## OK</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Make the TxDb object ...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Make the TxDb object ...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .extract_exons_from_GRanges(exon_IDX, gr, ID, Name, Parent, feature = "exon", : The following orphan exon were dropped (showing only the 6 first):
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .extract_exons_from_GRanges(exon_IDX, gr, ID, Name, Parent, feature = "exon", : The following orphan exon were dropped (showing only the 6 first):
 ##   seqid start   end strand   ID      Parent Name
 ## 1  Chr2 10478 12861      - &lt;NA&gt; AT2G01022.1 &lt;NA&gt;
 ## 2  Chr2 14395 16377      - &lt;NA&gt; AT2G01024.1 &lt;NA&gt;
 ## 3  Chr2 17624 22540      - &lt;NA&gt; AT2G01026.1 &lt;NA&gt;
 ## 4  Chr2 23971 26923      - &lt;NA&gt; AT2G01028.1 &lt;NA&gt;
 ## 5  Chr2 28465 38652      + &lt;NA&gt; AT2G01029.1 &lt;NA&gt;
-## 6  Chr2 39867 40358      - &lt;NA&gt; AT2G01031.1 &lt;NA&gt;</code></pre></figure>
+## 6  Chr2 39867 40358      - &lt;NA&gt; AT2G01031.1 &lt;NA&gt;</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .extract_exons_from_GRanges(cds_IDX, gr, ID, Name, Parent, feature = "cds", : The following orphan CDS were dropped (showing only the 6 first):
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning in .extract_exons_from_GRanges(cds_IDX, gr, ID, Name, Parent, feature = "cds", : The following orphan CDS were dropped (showing only the 6 first):
 ##   seqid start  end strand   ID              Parent Name
 ## 1  Chr1  3760 3913      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
 ## 2  Chr1  3996 4276      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
 ## 3  Chr1  4486 4605      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
 ## 4  Chr1  4706 5095      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
 ## 5  Chr1  5174 5326      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
-## 6  Chr1  5439 5630      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;</code></pre></figure>
+## 6  Chr1  5439 5630      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## OK</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## OK</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p4</span> <span class="o">&lt;-</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">GRanges</span><span class="p">(</span><span class="s2">"Chr5"</span><span class="p">,</span> <span class="n">IRanges</span><span class="p">(</span><span class="m">4000</span><span class="p">,</span> <span class="m">8000</span><span class="p">)),</span> <span class="n">names.expr</span> <span class="o">=</span> <span class="s2">"gene_id"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p4</span> <span class="o">&lt;-</span> <span class="n">autoplot</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="n">GRanges</span><span class="p">(</span><span class="s2">"Chr5"</span><span class="p">,</span> <span class="n">IRanges</span><span class="p">(</span><span class="m">4000</span><span class="p">,</span> <span class="m">8000</span><span class="p">)),</span> <span class="n">names.expr</span> <span class="o">=</span> <span class="s2">"gene_id"</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Parsing transcripts...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Parsing transcripts...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Parsing exons...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Parsing exons...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Parsing cds...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Parsing cds...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Parsing utrs...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Parsing utrs...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## ------exons...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## ------exons...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## ------cdss...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## ------cdss...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## ------introns...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## ------introns...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## ------utr...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## ------utr...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## aggregating...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## aggregating...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Done</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Done</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## "gap" not in any of the valid gene feature terms "cds", "exon", "utr"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## "gap" not in any of the valid gene feature terms "cds", "exon", "utr"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Constructing graphics...</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Constructing graphics...</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tracks</span><span class="p">(</span><span class="n">Reads</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">Coverage</span><span class="o">=</span><span class="n">p2</span><span class="p">,</span> <span class="n">Variant</span><span class="o">=</span><span class="n">p3</span><span class="p">,</span> <span class="n">Transcripts</span><span class="o">=</span><span class="n">p4</span><span class="p">,</span> <span class="n">heights</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">0.3</span><span class="p">,</span> <span class="m">0.2</span><span class="p">,</span> <span class="m">0.1</span><span class="p">,</span> <span class="m">0.35</span><span class="p">))</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tracks</span><span class="p">(</span><span class="n">Reads</span><span class="o">=</span><span class="n">p1</span><span class="p">,</span> <span class="n">Coverage</span><span class="o">=</span><span class="n">p2</span><span class="p">,</span> <span class="n">Variant</span><span class="o">=</span><span class="n">p3</span><span class="p">,</span> <span class="n">Transcripts</span><span class="o">=</span><span class="n">p4</span><span class="p">,</span> <span class="n">heights</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">0.3</span><span class="p">,</span> <span class="m">0.2</span><span class="p">,</span> <span class="m">0.1</span><span class="p">,</span> <span class="m">0.35</span><span class="p">))</span> <span class="o">+</span> <span class="n">ylab</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rgraphics_files/ggbio_align_variants-1.png" alt="" /></p>
 
 <h2 id="additional-examples">Additional examples</h2>
 
-<p>See <code class="highlighter-rouge">autoplot</code> demo <a href="http://www.tengfei.name/ggbio/docs/man/autoplot-method.html">here</a></p>
+<p>See <code>autoplot</code> demo <a href="http://www.tengfei.name/ggbio/docs/man/autoplot-method.html">here</a></p>
 
 <h2 id="additional-genome-graphics">Additional genome graphics</h2>
 
 <ul>
-  <li><a href="http://www.bioconductor.org/packages/devel/bioc/html/Gviz.html"><code class="highlighter-rouge">gviz</code></a></li>
-  <li><a href="http://cran.us.r-project.org/web/packages/RCircos/index.html"><code class="highlighter-rouge">RCircos</code></a> (Zhang et al., 2013)</li>
-  <li><a href="http://bioconductor.org/packages/release/bioc/html/GenomeGraphs.html"><code class="highlighter-rouge">Genome Graphs</code></a></li>
-  <li><a href="http://genoplotr.r-forge.r-project.org/"><code class="highlighter-rouge">genoPlotR</code></a></li>
+  <li><a href="http://www.bioconductor.org/packages/devel/bioc/html/Gviz.html"><code>Gviz</code></a></li>
+  <li><a href="http://cran.us.r-project.org/web/packages/RCircos/index.html"><code>RCircos</code></a> (Zhang et al., 2013)</li>
+  <li><a href="http://bioconductor.org/packages/release/bioc/html/GenomeGraphs.html"><code>Genome Graphs</code></a></li>
+  <li><a href="http://genoplotr.r-forge.r-project.org/"><code>genoPlotR</code></a></li>
 </ul>
 
 <h2 id="genome-browser-igv">Genome Browser: IGV</h2>
@@ -1892,32 +1892,32 @@ $('#toc').on('click', 'a', function() {
 <ul>
   <li>Download and open <a href="http://www.broadinstitute.org/igv/download">IGV</a></li>
   <li>Select in menu in top left corner <em>A. thaliana</em> (TAIR10)</li>
-  <li>Upload the following indexed/sorted Bam files with <code class="highlighter-rouge">File -&gt; Load from URL...</code></li>
+  <li>Upload the following indexed/sorted Bam files with <code>File -&gt; Load from URL...</code></li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rrnaseq/results/SRR064154.fastq.bam
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rrnaseq/results/SRR064154.fastq.bam
 http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rrnaseq/results/SRR064155.fastq.bam
 http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rrnaseq/results/SRR064166.fastq.bam
-http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rrnaseq/results/SRR064167.fastq.bam</code></pre></figure>
+http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rrnaseq/results/SRR064167.fastq.bam</code></pre></div>
 
 <ul>
-  <li>To view area of interest, enter its coordinates <code class="highlighter-rouge">Chr1:49,457-51,457</code> in position menu on top.</li>
+  <li>To view area of interest, enter its coordinates <code>Chr1:49,457-51,457</code> in position menu on top.</li>
 </ul>
 
 <center><img title="vim-r" src="Rgraphics_files/igv_peak_3.png" /></center>
 
 <h3 id="create-symbolic-links">Create symbolic links</h3>
 
-<p>For viewing BAM files in IGV as part of <code class="highlighter-rouge">systemPipeR</code> workflows.</p>
+<p>For viewing BAM files in IGV as part of <code>systemPipeR</code> workflows.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">systemPipeR</code>: utilities for building NGS analysis <a href="https://github.com/tgirke/systemPipeR">pipelines</a></li>
+  <li><code>systemPipeR</code>: utilities for building NGS analysis <a href="https://github.com/tgirke/systemPipeR">pipelines</a></li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"systemPipeR"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"systemPipeR"</span><span class="p">)</span>
 <span class="n">symLink2bam</span><span class="p">(</span><span class="n">sysargs</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">htmldir</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"~/.html/"</span><span class="p">,</span> <span class="s2">"somedir/"</span><span class="p">),</span> 
             <span class="n">urlbase</span><span class="o">=</span><span class="s2">"http://myserver.edu/~username/"</span><span class="p">,</span>
-            <span class="n">urlfile</span><span class="o">=</span><span class="s2">"IGVurl.txt"</span><span class="p">)</span></code></pre></figure>
+            <span class="n">urlfile</span><span class="o">=</span><span class="s2">"IGVurl.txt"</span><span class="p">)</span></code></pre></div>
 
 
 
@@ -1935,7 +1935,7 @@ http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Tue May 17 10:22:29 2016<br/> Site last generated: May 18, 2016 <br />
+<p>Page last updated:</span> Thu May 19 12:36:10 2016<br/> Site last generated: May 19, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

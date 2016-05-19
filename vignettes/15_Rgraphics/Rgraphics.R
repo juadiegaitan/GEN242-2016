@@ -173,7 +173,7 @@ print(p)
 ## ----qplot_scatter_regression_line, eval=TRUE----------------------------
 set.seed(1410)
 dsmall <- diamonds[sample(nrow(diamonds), 1000), ]
-p <- qplot(carat, price, data = dsmall, geom = c("point", "smooth")) +
+p <- qplot(carat, price, data = dsmall) +
            geom_smooth(method="lm")
 print(p)
 
@@ -209,7 +209,7 @@ print(p)
 ## ----ggplot_regression_line, eval=TRUE-----------------------------------
 p <- ggplot(dsmall, aes(carat, price)) + geom_point() + 
             geom_smooth(method="lm", se=FALSE) +
-	    theme(panel.background=element_rect(fill = "white", colour = "black"))
+    	    theme(panel.background=element_rect(fill = "white", colour = "black"))
 print(p) 
 
 ## ----ggplot_many_regression_lines, eval=TRUE-----------------------------
@@ -229,7 +229,7 @@ print(p)
 
 ## ----ggplot_line_plot_faceting, eval=TRUE--------------------------------
 p <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
-	    geom_line(aes(color=Species), size=1) + 
+    	    geom_line(aes(color=Species), size=1) + 
             facet_wrap(~Species, ncol=1)
 print(p) 
 
@@ -387,7 +387,7 @@ library(ChemmineR)
 data(sdfsample)
 plot(sdfsample[1], print=FALSE)
 
-## ----ggbio_align, eval=TRUE----------------------------------------------
+## ----ggbio_align, eval=TRUE, warning=FALSE, message=FALSE----------------
 library(ggbio)
 df1 <- data.frame(time = 1:100, score = sin((1:100)/20)*10)
 p1 <- qplot(data = df1, x = time, y = score, geom = "line")
