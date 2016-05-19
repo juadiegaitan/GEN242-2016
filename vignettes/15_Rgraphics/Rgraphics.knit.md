@@ -1346,7 +1346,7 @@ ggplot() + layout_circle(gr, geom = "ideo", fill = "gray70", radius = 7, trackWi
   layout_circle(gr, geom = "link", linked.to = "to.gr", radius = 6, trackWidth = 1)
 ```
 
-![](Rgraphics_files/figure-html/ggbio_circular2-1.png)<!-- -->
+<center><img title="vim-r" src="images/circularplot.png"/></center>
 
 ### Alignments and variants
 
@@ -1355,172 +1355,13 @@ To make the following example work, please download and unpack this [data archiv
 
 ```r
 library(rtracklayer); library(GenomicFeatures); library(Rsamtools); library(GenomicAlignments); library(VariantAnnotation)
-```
-
-```
-## Loading required package: AnnotationDbi
-```
-
-```
-## 
-## Attaching package: 'VariantAnnotation'
-```
-
-```
-## The following objects are masked from 'package:ChemmineR':
-## 
-##     header, header<-
-```
-
-```
-## The following object is masked from 'package:systemPipeR':
-## 
-##     reference
-```
-
-```
-## The following object is masked from 'package:ShortRead':
-## 
-##     readInfo
-```
-
-```
-## The following object is masked from 'package:base':
-## 
-##     tabulate
-```
-
-```r
 ga <- readGAlignments("./data/SRR064167.fastq.bam", use.names=TRUE, param=ScanBamParam(which=GRanges("Chr5", IRanges(4000, 8000))))
 p1 <- autoplot(ga, geom = "rect")
-```
-
-```
-## extracting information...
-```
-
-```r
 p2 <- autoplot(ga, geom = "line", stat = "coverage")
-```
-
-```
-## extracting information...
-```
-
-```
-## Scale for 'x' is already present. Adding another scale for 'x', which will replace the existing
-## scale.
-```
-
-```r
 vcf <- readVcf(file="data/varianttools_gnsap.vcf", genome="ATH1")
 p3 <- autoplot(vcf[seqnames(vcf)=="Chr5"], type = "fixed") + xlim(4000, 8000) + theme(legend.position = "none", axis.text.y = element_blank(), axis.ticks.y=element_blank())
 txdb <- makeTxDbFromGFF(file="./data/TAIR10_GFF3_trunc.gff", format="gff3")
-```
-
-```
-## Import genomic features from the file as a GRanges object ...
-```
-
-```
-## Warning in .local(con, format, text, ...): gff-version directive indicates version is 1, not 3
-```
-
-```
-## OK
-```
-
-```
-## Prepare the 'metadata' data frame ...
-```
-
-```
-## OK
-```
-
-```
-## Make the TxDb object ...
-```
-
-```
-## Warning in .extract_exons_from_GRanges(exon_IDX, gr, ID, Name, Parent, feature = "exon", : The following orphan exon were dropped (showing only the 6 first):
-##   seqid start   end strand   ID      Parent Name
-## 1  Chr2 10478 12861      - <NA> AT2G01022.1 <NA>
-## 2  Chr2 14395 16377      - <NA> AT2G01024.1 <NA>
-## 3  Chr2 17624 22540      - <NA> AT2G01026.1 <NA>
-## 4  Chr2 23971 26923      - <NA> AT2G01028.1 <NA>
-## 5  Chr2 28465 38652      + <NA> AT2G01029.1 <NA>
-## 6  Chr2 39867 40358      - <NA> AT2G01031.1 <NA>
-```
-
-```
-## Warning in .extract_exons_from_GRanges(cds_IDX, gr, ID, Name, Parent, feature = "cds", : The following orphan CDS were dropped (showing only the 6 first):
-##   seqid start  end strand   ID              Parent Name
-## 1  Chr1  3760 3913      + <NA> AT1G01010.1-Protein <NA>
-## 2  Chr1  3996 4276      + <NA> AT1G01010.1-Protein <NA>
-## 3  Chr1  4486 4605      + <NA> AT1G01010.1-Protein <NA>
-## 4  Chr1  4706 5095      + <NA> AT1G01010.1-Protein <NA>
-## 5  Chr1  5174 5326      + <NA> AT1G01010.1-Protein <NA>
-## 6  Chr1  5439 5630      + <NA> AT1G01010.1-Protein <NA>
-```
-
-```
-## OK
-```
-
-```r
 p4 <- autoplot(txdb, which=GRanges("Chr5", IRanges(4000, 8000)), names.expr = "gene_id")
-```
-
-```
-## Parsing transcripts...
-```
-
-```
-## Parsing exons...
-```
-
-```
-## Parsing cds...
-```
-
-```
-## Parsing utrs...
-```
-
-```
-## ------exons...
-```
-
-```
-## ------cdss...
-```
-
-```
-## ------introns...
-```
-
-```
-## ------utr...
-```
-
-```
-## aggregating...
-```
-
-```
-## Done
-```
-
-```
-## "gap" not in any of the valid gene feature terms "cds", "exon", "utr"
-```
-
-```
-## Constructing graphics...
-```
-
-```r
 tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 0.1, 0.35)) + ylab("")
 ```
 

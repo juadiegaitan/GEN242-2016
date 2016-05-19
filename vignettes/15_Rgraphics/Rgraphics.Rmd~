@@ -966,7 +966,7 @@ ggplot(gr) + layout_circle(aes(fill = seqnames), geom = "rect")
 
 More complex circular example
 
-```{r ggbio_circular2, eval=TRUE}
+```{r ggbio_circular2, eval=FALSE}
 seqlengths(gr) <- c(400, 500, 700)
 values(gr)$to.gr <- gr[sample(1:length(gr), size = length(gr))]
 idx <- sample(1:length(gr), size = 50)
@@ -978,6 +978,8 @@ ggplot() + layout_circle(gr, geom = "ideo", fill = "gray70", radius = 7, trackWi
                 trackWidth = 3, grid = TRUE, aes(y = score)) +
   layout_circle(gr, geom = "link", linked.to = "to.gr", radius = 6, trackWidth = 1)
 ```
+
+<center><img title="vim-r" src="images/circularplot.png"/></center>
 
 ### Alignments and variants
 

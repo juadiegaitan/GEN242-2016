@@ -966,7 +966,7 @@ ggplot(gr) + layout_circle(aes(fill = seqnames), geom = "rect")
 
 More complex circular example
 
-```{r ggbio_circular2, eval=TRUE}
+```{r ggbio_circular2, eval=FALSE}
 seqlengths(gr) <- c(400, 500, 700)
 values(gr)$to.gr <- gr[sample(1:length(gr), size = length(gr))]
 idx <- sample(1:length(gr), size = 50)
@@ -979,11 +979,13 @@ ggplot() + layout_circle(gr, geom = "ideo", fill = "gray70", radius = 7, trackWi
   layout_circle(gr, geom = "link", linked.to = "to.gr", radius = 6, trackWidth = 1)
 ```
 
+<center><img title="vim-r" src="images/circularplot.png"/></center>
+
 ### Alignments and variants
 
 To make the following example work, please download and unpack this [data archive](http://biocluster.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_12_16_2013/Rgraphics/data.zip) containing GFF, BAM and VCF sample files.
 
-```{r ggbio_align_variants, eval=TRUE}
+```{r ggbio_align_variants, eval=TRUE, warning=FALSE, message=FALSE}
 library(rtracklayer); library(GenomicFeatures); library(Rsamtools); library(GenomicAlignments); library(VariantAnnotation)
 ga <- readGAlignments("./data/SRR064167.fastq.bam", use.names=TRUE, param=ScanBamParam(which=GRanges("Chr5", IRanges(4000, 8000))))
 p1 <- autoplot(ga, geom = "rect")
