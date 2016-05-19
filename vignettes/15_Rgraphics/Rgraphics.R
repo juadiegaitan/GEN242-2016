@@ -416,19 +416,19 @@ p
 ## ----ggbio_circular1, eval=TRUE------------------------------------------
 ggplot(gr) + layout_circle(aes(fill = seqnames), geom = "rect")
 
-## ----ggbio_circular2, eval=TRUE------------------------------------------
-seqlengths(gr) <- c(400, 500, 700)
-values(gr)$to.gr <- gr[sample(1:length(gr), size = length(gr))]
-idx <- sample(1:length(gr), size = 50)
-gr <- gr[idx]
-ggplot() + layout_circle(gr, geom = "ideo", fill = "gray70", radius = 7, trackWidth = 3) +
-  layout_circle(gr, geom = "bar", radius = 10, trackWidth = 4,
-                aes(fill = score, y = score)) +
-  layout_circle(gr, geom = "point", color = "red", radius = 14,
-                trackWidth = 3, grid = TRUE, aes(y = score)) +
-  layout_circle(gr, geom = "link", linked.to = "to.gr", radius = 6, trackWidth = 1)
+## ----ggbio_circular2, eval=FALSE-----------------------------------------
+## seqlengths(gr) <- c(400, 500, 700)
+## values(gr)$to.gr <- gr[sample(1:length(gr), size = length(gr))]
+## idx <- sample(1:length(gr), size = 50)
+## gr <- gr[idx]
+## ggplot() + layout_circle(gr, geom = "ideo", fill = "gray70", radius = 7, trackWidth = 3) +
+##   layout_circle(gr, geom = "bar", radius = 10, trackWidth = 4,
+##                 aes(fill = score, y = score)) +
+##   layout_circle(gr, geom = "point", color = "red", radius = 14,
+##                 trackWidth = 3, grid = TRUE, aes(y = score)) +
+##   layout_circle(gr, geom = "link", linked.to = "to.gr", radius = 6, trackWidth = 1)
 
-## ----ggbio_align_variants, eval=TRUE-------------------------------------
+## ----ggbio_align_variants, eval=TRUE, warning=FALSE, message=FALSE-------
 library(rtracklayer); library(GenomicFeatures); library(Rsamtools); library(GenomicAlignments); library(VariantAnnotation)
 ga <- readGAlignments("./data/SRR064167.fastq.bam", use.names=TRUE, param=ScanBamParam(which=GRanges("Chr5", IRanges(4000, 8000))))
 p1 <- autoplot(ga, geom = "rect")

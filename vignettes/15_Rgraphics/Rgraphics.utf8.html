@@ -3025,7 +3025,7 @@ ggplot() + layout_circle(gr, geom = "ideo", fill = "gray70", radius = 7, trackWi
   layout_circle(gr, geom = "link", linked.to = "to.gr", radius = 6, trackWidth = 1)
 </code></p>
 
-<p><img src="Rgraphics_files/figure-html/ggbio_circular2-1.png" alt="" /><!-- --></p>
+<center><img title="vim-r" src="images/circularplot.png" /></center>
 
 <h3 id="alignments-and-variants">Alignments and variants</h3>
 
@@ -3033,172 +3033,13 @@ ggplot() + layout_circle(gr, geom = "ideo", fill = "gray70", radius = 7, trackWi
 
 <p><code>r
 library(rtracklayer); library(GenomicFeatures); library(Rsamtools); library(GenomicAlignments); library(VariantAnnotation)
-</code></p>
-
-<p><code>
-## Loading required package: AnnotationDbi
-</code></p>
-
-<p><code>
-## 
-## Attaching package: 'VariantAnnotation'
-</code></p>
-
-<p><code>
-## The following objects are masked from 'package:ChemmineR':
-## 
-##     header, header&lt;-
-</code></p>
-
-<p><code>
-## The following object is masked from 'package:systemPipeR':
-## 
-##     reference
-</code></p>
-
-<p><code>
-## The following object is masked from 'package:ShortRead':
-## 
-##     readInfo
-</code></p>
-
-<p><code>
-## The following object is masked from 'package:base':
-## 
-##     tabulate
-</code></p>
-
-<p><code>r
 ga &lt;- readGAlignments("./data/SRR064167.fastq.bam", use.names=TRUE, param=ScanBamParam(which=GRanges("Chr5", IRanges(4000, 8000))))
 p1 &lt;- autoplot(ga, geom = "rect")
-</code></p>
-
-<p><code>
-## extracting information...
-</code></p>
-
-<p><code>r
 p2 &lt;- autoplot(ga, geom = "line", stat = "coverage")
-</code></p>
-
-<p><code>
-## extracting information...
-</code></p>
-
-<p><code>
-## Scale for 'x' is already present. Adding another scale for 'x', which will replace the existing
-## scale.
-</code></p>
-
-<p><code>r
 vcf &lt;- readVcf(file="data/varianttools_gnsap.vcf", genome="ATH1")
 p3 &lt;- autoplot(vcf[seqnames(vcf)=="Chr5"], type = "fixed") + xlim(4000, 8000) + theme(legend.position = "none", axis.text.y = element_blank(), axis.ticks.y=element_blank())
 txdb &lt;- makeTxDbFromGFF(file="./data/TAIR10_GFF3_trunc.gff", format="gff3")
-</code></p>
-
-<p><code>
-## Import genomic features from the file as a GRanges object ...
-</code></p>
-
-<p><code>
-## Warning in .local(con, format, text, ...): gff-version directive indicates version is 1, not 3
-</code></p>
-
-<p><code>
-## OK
-</code></p>
-
-<p><code>
-## Prepare the 'metadata' data frame ...
-</code></p>
-
-<p><code>
-## OK
-</code></p>
-
-<p><code>
-## Make the TxDb object ...
-</code></p>
-
-<p><code>
-## Warning in .extract_exons_from_GRanges(exon_IDX, gr, ID, Name, Parent, feature = "exon", : The following orphan exon were dropped (showing only the 6 first):
-##   seqid start   end strand   ID      Parent Name
-## 1  Chr2 10478 12861      - &lt;NA&gt; AT2G01022.1 &lt;NA&gt;
-## 2  Chr2 14395 16377      - &lt;NA&gt; AT2G01024.1 &lt;NA&gt;
-## 3  Chr2 17624 22540      - &lt;NA&gt; AT2G01026.1 &lt;NA&gt;
-## 4  Chr2 23971 26923      - &lt;NA&gt; AT2G01028.1 &lt;NA&gt;
-## 5  Chr2 28465 38652      + &lt;NA&gt; AT2G01029.1 &lt;NA&gt;
-## 6  Chr2 39867 40358      - &lt;NA&gt; AT2G01031.1 &lt;NA&gt;
-</code></p>
-
-<p><code>
-## Warning in .extract_exons_from_GRanges(cds_IDX, gr, ID, Name, Parent, feature = "cds", : The following orphan CDS were dropped (showing only the 6 first):
-##   seqid start  end strand   ID              Parent Name
-## 1  Chr1  3760 3913      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
-## 2  Chr1  3996 4276      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
-## 3  Chr1  4486 4605      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
-## 4  Chr1  4706 5095      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
-## 5  Chr1  5174 5326      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
-## 6  Chr1  5439 5630      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
-</code></p>
-
-<p><code>
-## OK
-</code></p>
-
-<p><code>r
 p4 &lt;- autoplot(txdb, which=GRanges("Chr5", IRanges(4000, 8000)), names.expr = "gene_id")
-</code></p>
-
-<p><code>
-## Parsing transcripts...
-</code></p>
-
-<p><code>
-## Parsing exons...
-</code></p>
-
-<p><code>
-## Parsing cds...
-</code></p>
-
-<p><code>
-## Parsing utrs...
-</code></p>
-
-<p><code>
-## ------exons...
-</code></p>
-
-<p><code>
-## ------cdss...
-</code></p>
-
-<p><code>
-## ------introns...
-</code></p>
-
-<p><code>
-## ------utr...
-</code></p>
-
-<p><code>
-## aggregating...
-</code></p>
-
-<p><code>
-## Done
-</code></p>
-
-<p><code>
-## "gap" not in any of the valid gene feature terms "cds", "exon", "utr"
-</code></p>
-
-<p><code>
-## Constructing graphics...
-</code></p>
-
-<p><code>r
 tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 0.1, 0.35)) + ylab("")
 </code></p>
 
