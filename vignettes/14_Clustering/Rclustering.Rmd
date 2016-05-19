@@ -42,7 +42,7 @@ knitr::opts_chunk$set(
     cache=as.logical(Sys.getenv("KNITR_CACHE", "TRUE")))
 ```
 
-Note: the most recent version of this tutorial can be found <a href="http://girke.bioinformatics.ucr.edu/GEN242/vignettes/14_Rgraphics/Rclustering.html">here</a> and a slide show [here](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_slides_17.html).
+Note: the most recent version of this tutorial can be found <a href="http://girke.bioinformatics.ucr.edu/GEN242/vignettes/14_Clustering/Rclustering.html">here</a> and a slide show [here](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_slides_17.html).
 
 # Introduction
 
