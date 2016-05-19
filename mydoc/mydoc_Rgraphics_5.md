@@ -1,15 +1,15 @@
 ---
 title: ggplot2 Graphics
 keywords: 
-last_updated: Tue May 17 10:22:29 2016
+last_updated: Thu May 19 12:36:10 2016
 ---
 
 - What is `ggplot2`?
     - High-level graphics system
     - Implements grammar of graphics from [Leland Wilkinson](http://www.amazon.com/Grammar-Graphics-Leland-Wilkinson/dp/0387987746) 
     - Streamlines many graphics workflows for complex plots
-    - Syntax centered around main \Rfunction{ggplot} function 
-    - Simpler \Rfunction{qplot} function provides many shortcuts
+    - Syntax centered around main `ggplot` function 
+    - Simpler `qplot` function provides many shortcuts
         
 - Documentation and Help
     - [Manual](http://had.co.nz/ggplot2/)
@@ -26,7 +26,7 @@ last_updated: Tue May 17 10:22:29 2016
 - List of available `geom_*` functions see [here](http://docs.ggplot2.org/current/) 
 - Settings of plotting theme can be accessed with the command `theme_get()` and its settings can be changed with `theme()`. 
 - Preferred input data object 
-    - `qplot`: `data.frame` (support for \Robject{vector, matrix, ...})
+    - `qplot`: `data.frame` (support for `vector`, `matrix`, `...`)
     - `ggplot`: `data.frame`
 - Packages with convenience utilities to create expected inputs
     - `plyr`
@@ -39,11 +39,11 @@ The syntax of `qplot` is similar as R's basic `plot` function
 - Arguments
     - `x`: x-coordinates (_e.g._ `col1`)
     - `y`: y-coordinates (_e.g._ `col2`)
-	- `data}: data frame with corresponding column names
-	- `xlim, ylim}: _e.g._ `xlim=c(0,10)` 
-    - `log}: \textit{e.g.} `log="x"` or `log="xy"`
-	- `main}: main title; see `?plotmath` for mathematical formula
-	- `xlab, ylab}: labels for the x- and y-axes
+	- `data`: data frame with corresponding column names
+	- `xlim, ylim`: _e.g._ `xlim=c(0,10)` 
+    - `log`: _e.g._ `log="x"` or `log="xy"`
+	- `main`: main title; see `?plotmath` for mathematical formula
+	- `xlab, ylab`: labels for the x- and y-axes
 	- `color`, `shape`, `size`
 	- `...`: many arguments accepted by `plot` function
 
@@ -112,7 +112,7 @@ print(p)
 {% highlight r %}
 set.seed(1410)
 dsmall <- diamonds[sample(nrow(diamonds), 1000), ]
-p <- qplot(carat, price, data = dsmall, geom = c("point", "smooth")) +
+p <- qplot(carat, price, data = dsmall) +
            geom_smooth(method="lm")
 print(p)
 {% endhighlight %}
@@ -219,7 +219,7 @@ print(p)
 {% highlight r %}
 p <- ggplot(dsmall, aes(carat, price)) + geom_point() + 
             geom_smooth(method="lm", se=FALSE) +
-	    theme(panel.background=element_rect(fill = "white", colour = "black"))
+    	    theme(panel.background=element_rect(fill = "white", colour = "black"))
 print(p) 
 {% endhighlight %}
 
@@ -263,7 +263,7 @@ print(p)
 
 {% highlight r %}
 p <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
-	    geom_line(aes(color=Species), size=1) + 
+    	    geom_line(aes(color=Species), size=1) + 
             facet_wrap(~Species, ncol=1)
 print(p) 
 {% endhighlight %}
@@ -376,7 +376,7 @@ print(p)
 
 ![](Rgraphics_files/iris_mean_bar_plot_sideways-1.png)
 
-### faceting
+### Faceting
 
 
 {% highlight r %}

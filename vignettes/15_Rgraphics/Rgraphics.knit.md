@@ -1,7 +1,7 @@
 ---
 title: Graphics and Data Visualization in R 
 author: "Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 17 May, 2016" 
+date: "Last update: 19 May, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -69,13 +69,13 @@ Note: the most recent version of this tutorial can be found <a href="https://htm
 
 - General 
     - [Graphics Task Page](http://cran.r-project.org/web/views/Graphics.html)
-    - [R Graph Gallery](http://addictedtor.free.fr/graphiques/allgraph.php)
-    - [R Graphical Manual](http://cged.genes.nig.ac.jp/RGM2/index.php)
+    - [R Graph Gallery](http://www.r-graph-gallery.com/)
+    - [R Graphical Manual](http://bm2.genes.nig.ac.jp/RGM2/index.php)
     - [Paul Murrell’s book R (Grid) Graphics](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
 
 - Interactive graphics
     - [`rggobi` (GGobi)](http://www.ggobi.org/)
-    - [`iplots`](http://www.rosuda.org/iplots/)
+    - [`iplots`](http://www.iplots.org/)
     - [Open GL (`rgl`)](http://rgl.neoscientists.org/gallery.shtml)
 
 
@@ -585,8 +585,8 @@ plot(p2)
     - High-level graphics system
     - Implements grammar of graphics from [Leland Wilkinson](http://www.amazon.com/Grammar-Graphics-Leland-Wilkinson/dp/0387987746) 
     - Streamlines many graphics workflows for complex plots
-    - Syntax centered around main \Rfunction{ggplot} function 
-    - Simpler \Rfunction{qplot} function provides many shortcuts
+    - Syntax centered around main `ggplot` function 
+    - Simpler `qplot` function provides many shortcuts
         
 - Documentation and Help
     - [Manual](http://had.co.nz/ggplot2/)
@@ -603,7 +603,7 @@ plot(p2)
 - List of available `geom_*` functions see [here](http://docs.ggplot2.org/current/) 
 - Settings of plotting theme can be accessed with the command `theme_get()` and its settings can be changed with `theme()`. 
 - Preferred input data object 
-    - `qplot`: `data.frame` (support for \Robject{vector, matrix, ...})
+    - `qplot`: `data.frame` (support for `vector`, `matrix`, `...`)
     - `ggplot`: `data.frame`
 - Packages with convenience utilities to create expected inputs
     - `plyr`
@@ -616,11 +616,11 @@ The syntax of `qplot` is similar as R's basic `plot` function
 - Arguments
     - `x`: x-coordinates (_e.g._ `col1`)
     - `y`: y-coordinates (_e.g._ `col2`)
-	- `data}: data frame with corresponding column names
-	- `xlim, ylim}: _e.g._ `xlim=c(0,10)` 
-    - `log}: \textit{e.g.} `log="x"` or `log="xy"`
-	- `main}: main title; see `?plotmath` for mathematical formula
-	- `xlab, ylab}: labels for the x- and y-axes
+	- `data`: data frame with corresponding column names
+	- `xlim, ylim`: _e.g._ `xlim=c(0,10)` 
+    - `log`: _e.g._ `log="x"` or `log="xy"`
+	- `main`: main title; see `?plotmath` for mathematical formula
+	- `xlab, ylab`: labels for the x- and y-axes
 	- `color`, `shape`, `size`
 	- `...`: many arguments accepted by `plot` function
 
@@ -689,7 +689,7 @@ print(p)
 ```r
 set.seed(1410)
 dsmall <- diamonds[sample(nrow(diamonds), 1000), ]
-p <- qplot(carat, price, data = dsmall, geom = c("point", "smooth")) +
+p <- qplot(carat, price, data = dsmall) +
            geom_smooth(method="lm")
 print(p)
 ```
@@ -796,7 +796,7 @@ print(p)
 ```r
 p <- ggplot(dsmall, aes(carat, price)) + geom_point() + 
             geom_smooth(method="lm", se=FALSE) +
-	    theme(panel.background=element_rect(fill = "white", colour = "black"))
+    	    theme(panel.background=element_rect(fill = "white", colour = "black"))
 print(p) 
 ```
 
@@ -840,7 +840,7 @@ print(p)
 
 ```r
 p <- ggplot(iris, aes(Sepal.Length, Sepal.Width)) + 
-	    geom_line(aes(color=Species), size=1) + 
+    	    geom_line(aes(color=Species), size=1) + 
             facet_wrap(~Species, ncol=1)
 print(p) 
 ```
@@ -953,7 +953,7 @@ print(p)
 
 ![](Rgraphics_files/figure-html/iris_mean_bar_plot_sideways-1.png)<!-- -->
 
-### faceting
+### Faceting
 
 
 ```r
@@ -1269,42 +1269,6 @@ plot(sdfsample[1], print=FALSE)
 
 ```r
 library(ggbio)
-```
-
-```
-## Warning: replacing previous import 'ggplot2::Position' by 'BiocGenerics::Position' when loading
-## 'ggbio'
-```
-
-```
-## Need specific help about ggbio? try mailing 
-##  the maintainer or visit http://tengfei.github.com/ggbio/
-```
-
-```
-## 
-## Attaching package: 'ggbio'
-```
-
-```
-## The following object is masked from 'package:ape':
-## 
-##     zoom
-```
-
-```
-## The following objects are masked from 'package:ggplot2':
-## 
-##     geom_bar, geom_rect, geom_segment, ggsave, stat_bin, stat_identity, xlim
-```
-
-```
-## The following object is masked from 'package:ShortRead':
-## 
-##     zoom
-```
-
-```r
 df1 <- data.frame(time = 1:100, score = sin((1:100)/20)*10)
 p1 <- qplot(data = df1, x = time, y = score, geom = "line")
 df2 <- data.frame(time = 30:120, score = sin((30:120)/20)*10, value = rnorm(120-30 +1))
@@ -1568,7 +1532,7 @@ See `autoplot` demo [here](http://www.tengfei.name/ggbio/docs/man/autoplot-metho
 
 ## Additional genome graphics
 	
-- [`gviz`](http://www.bioconductor.org/packages/devel/bioc/html/Gviz.html)
+- [`Gviz`](http://www.bioconductor.org/packages/devel/bioc/html/Gviz.html)
 - [`RCircos`](http://cran.us.r-project.org/web/packages/RCircos/index.html) [@Zhang2013-zn]
 - [`Genome Graphs`](http://bioconductor.org/packages/release/bioc/html/GenomeGraphs.html)
 - [`genoPlotR`](http://genoplotr.r-forge.r-project.org/)

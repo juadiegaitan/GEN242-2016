@@ -1,11 +1,11 @@
 ---
 title: Graphics and Data Visualization in R 
 keywords: 
-last_updated: Tue May 17 10:22:29 2016
+last_updated: Thu May 19 12:36:10 2016
 ---
 Thomas Girke (thomas.girke@ucr.edu)
 
-Last update: 17 May, 2016 
+Last update: 19 May, 2016 
 
 Alternative formats of this tutorial:
 [`Single-page .Rmd HTML`](http://girke.bioinformatics.ucr.edu/GEN242/vignettes/15_Rgraphics/Rgraphics.html),
@@ -31,13 +31,13 @@ Alternative formats of this tutorial:
 
 - General 
     - [Graphics Task Page](http://cran.r-project.org/web/views/Graphics.html)
-    - [R Graph Gallery](http://addictedtor.free.fr/graphiques/allgraph.php)
-    - [R Graphical Manual](http://cged.genes.nig.ac.jp/RGM2/index.php)
+    - [R Graph Gallery](http://www.r-graph-gallery.com/)
+    - [R Graphical Manual](http://bm2.genes.nig.ac.jp/RGM2/index.php)
     - [Paul Murrell’s book R (Grid) Graphics](http://www.stat.auckland.ac.nz/~paul/RGraphics/rgraphics.html)
 
 - Interactive graphics
     - [`rggobi` (GGobi)](http://www.ggobi.org/)
-    - [`iplots`](http://www.rosuda.org/iplots/)
+    - [`iplots`](http://www.iplots.org/)
     - [Open GL (`rgl`)](http://rgl.neoscientists.org/gallery.shtml)
 
 

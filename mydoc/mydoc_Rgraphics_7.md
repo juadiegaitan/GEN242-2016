@@ -1,7 +1,7 @@
 ---
 title: Genome Graphics
 keywords: 
-last_updated: Tue May 17 10:22:29 2016
+last_updated: Thu May 19 12:36:10 2016
 ---
 
 ## `ggbio`
@@ -25,42 +25,6 @@ last_updated: Tue May 17 10:22:29 2016
 
 {% highlight r %}
 library(ggbio)
-{% endhighlight %}
-
-{% highlight txt %}
-## Warning: replacing previous import 'ggplot2::Position' by 'BiocGenerics::Position' when loading
-## 'ggbio'
-{% endhighlight %}
-
-{% highlight txt %}
-## Need specific help about ggbio? try mailing 
-##  the maintainer or visit http://tengfei.github.com/ggbio/
-{% endhighlight %}
-
-{% highlight txt %}
-## 
-## Attaching package: 'ggbio'
-{% endhighlight %}
-
-{% highlight txt %}
-## The following object is masked from 'package:ape':
-## 
-##     zoom
-{% endhighlight %}
-
-{% highlight txt %}
-## The following objects are masked from 'package:ggplot2':
-## 
-##     geom_bar, geom_rect, geom_segment, ggsave, stat_bin, stat_identity, xlim
-{% endhighlight %}
-
-{% highlight txt %}
-## The following object is masked from 'package:ShortRead':
-## 
-##     zoom
-{% endhighlight %}
-
-{% highlight r %}
 df1 <- data.frame(time = 1:100, score = sin((1:100)/20)*10)
 p1 <- qplot(data = df1, x = time, y = score, geom = "line")
 df2 <- data.frame(time = 30:120, score = sin((30:120)/20)*10, value = rnorm(120-30 +1))
@@ -324,7 +288,7 @@ See `autoplot` demo [here](http://www.tengfei.name/ggbio/docs/man/autoplot-metho
 
 ## Additional genome graphics
 	
-- [`gviz`](http://www.bioconductor.org/packages/devel/bioc/html/Gviz.html)
+- [`Gviz`](http://www.bioconductor.org/packages/devel/bioc/html/Gviz.html)
 - [`RCircos`](http://cran.us.r-project.org/web/packages/RCircos/index.html) (Zhang et al., 2013)
 - [`Genome Graphs`](http://bioconductor.org/packages/release/bioc/html/GenomeGraphs.html)
 - [`genoPlotR`](http://genoplotr.r-forge.r-project.org/)

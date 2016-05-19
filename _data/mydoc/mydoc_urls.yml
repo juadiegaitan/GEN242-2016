@@ -633,6 +633,36 @@ mydoc_Rbasics_16:
   url: "../mydoc/mydoc_Rbasics_16.html"
   link: "<a href='../mydoc/mydoc_Rbasics_16.html'>References</a>"
 
+mydoc_Rclustering_1:
+  title: "Introduction"
+  url: "../mydoc/mydoc_Rclustering_1.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_1.html'>Introduction</a>"
+
+mydoc_Rclustering_2:
+  title: "Data Preprocessing"
+  url: "../mydoc/mydoc_Rclustering_2.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_2.html'>Data Preprocessing</a>"
+
+mydoc_Rclustering_3:
+  title: "Clustering Algorithms"
+  url: "../mydoc/mydoc_Rclustering_3.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_3.html'>Clustering Algorithms</a>"
+
+mydoc_Rclustering_4:
+  title: "Clustering Exercises"
+  url: "../mydoc/mydoc_Rclustering_4.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_4.html'>Clustering Exercises</a>"
+
+mydoc_Rclustering_5:
+  title: "Version Information"
+  url: "../mydoc/mydoc_Rclustering_5.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_5.html'>Version Information</a>"
+
+mydoc_Rclustering_6:
+  title: "References"
+  url: "../mydoc/mydoc_Rclustering_6.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_6.html'>References</a>"
+
 mydoc_Rgraphics_1:
   title: "Overview"
   url: "../mydoc/mydoc_Rgraphics_1.html"
@@ -672,34 +702,4 @@ mydoc_Rgraphics_8:
   title: "References"
   url: "../mydoc/mydoc_Rgraphics_8.html"
   link: "<a href='../mydoc/mydoc_Rgraphics_8.html'>References</a>"
-
-mydoc_Rclustering_1:
-  title: "Introduction"
-  url: "../mydoc/mydoc_Rclustering_1.html"
-  link: "<a href='../mydoc/mydoc_Rclustering_1.html'>Introduction</a>"
-
-mydoc_Rclustering_2:
-  title: "Data Preprocessing"
-  url: "../mydoc/mydoc_Rclustering_2.html"
-  link: "<a href='../mydoc/mydoc_Rclustering_2.html'>Data Preprocessing</a>"
-
-mydoc_Rclustering_3:
-  title: "Clustering Algorithms"
-  url: "../mydoc/mydoc_Rclustering_3.html"
-  link: "<a href='../mydoc/mydoc_Rclustering_3.html'>Clustering Algorithms</a>"
-
-mydoc_Rclustering_4:
-  title: "Clustering Exercises"
-  url: "../mydoc/mydoc_Rclustering_4.html"
-  link: "<a href='../mydoc/mydoc_Rclustering_4.html'>Clustering Exercises</a>"
-
-mydoc_Rclustering_5:
-  title: "Version Information"
-  url: "../mydoc/mydoc_Rclustering_5.html"
-  link: "<a href='../mydoc/mydoc_Rclustering_5.html'>Version Information</a>"
-
-mydoc_Rclustering_6:
-  title: "References"
-  url: "../mydoc/mydoc_Rclustering_6.html"
-  link: "<a href='../mydoc/mydoc_Rclustering_6.html'>References</a>"
 
