@@ -1,7 +1,7 @@
 ---
 title: Cluster Analysis in R 
 keywords: 
-last_updated: Wed May 18 16:34:32 2016
+last_updated: Wed May 18 19:36:45 2016
 ---
 Thomas Girke (thomas.girke@ucr.edu)
 

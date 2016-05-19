@@ -1100,7 +1100,63 @@ entries:
       version: all
       output: web
 
-  - title: Cluster
+  - title: Cluster Analysis
+    audience: writers, designers
+    platform: all
+    product: all
+    version: all
+    output: web, pdf
+    items:
+
+    - title: 1. Introduction
+      url: /mydoc/mydoc_Rclustering_1.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+    - title: 2. Data Preprocessing
+      url: /mydoc/mydoc_Rclustering_2.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+    - title: 3. Clustering Algorithms
+      url: /mydoc/mydoc_Rclustering_3.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+    - title: 4. Clustering Exercises
+      url: /mydoc/mydoc_Rclustering_4.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+    - title: 5. Version Information
+      url: /mydoc/mydoc_Rclustering_5.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+    - title: 6. References
+      url: /mydoc/mydoc_Rclustering_6.html
+      audience: writers, designers
+      platform: all
+      product: all
+      version: all
+      output: web
+
+  - title: Cluster Analysis
     audience: writers, designers
     platform: all
     product: all

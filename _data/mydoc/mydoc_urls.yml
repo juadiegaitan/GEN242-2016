@@ -689,7 +689,17 @@ mydoc_Rclustering_3:
   link: "<a href='../mydoc/mydoc_Rclustering_3.html'>Clustering Algorithms</a>"
 
 mydoc_Rclustering_4:
-  title: "References"
+  title: "Clustering Exercises"
   url: "../mydoc/mydoc_Rclustering_4.html"
-  link: "<a href='../mydoc/mydoc_Rclustering_4.html'>References</a>"
+  link: "<a href='../mydoc/mydoc_Rclustering_4.html'>Clustering Exercises</a>"
+
+mydoc_Rclustering_5:
+  title: "Version Information"
+  url: "../mydoc/mydoc_Rclustering_5.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_5.html'>Version Information</a>"
+
+mydoc_Rclustering_6:
+  title: "References"
+  url: "../mydoc/mydoc_Rclustering_6.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_6.html'>References</a>"
 
