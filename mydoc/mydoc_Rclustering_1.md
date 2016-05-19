@@ -1,16 +1,16 @@
 ---
 title: Cluster Analysis in R 
 keywords: 
-last_updated: Wed May 18 20:16:41 2016
+last_updated: Wed May 18 20:20:48 2016
 ---
 Thomas Girke (thomas.girke@ucr.edu)
 
 Last update: 18 May, 2016 
 
 Alternative formats of this tutorial:
-[`Single-page .Rmd HTML`](http://girke.bioinformatics.ucr.edu/GEN242/vignettes/16_Rclustering/Rclustering.html),
-[`.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/16_Rclustering/Rclustering.Rmd),
-[`.R`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/16_Rgraphics/Rclustering.R),
+[`Single-page .Rmd HTML`](http://girke.bioinformatics.ucr.edu/GEN242/vignettes/14_Rclustering/Rclustering.html),
+[`.Rmd`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/14_Rclustering/Rclustering.Rmd),
+[`.R`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/14_Rgraphics/Rclustering.R),
 [`Slide Show`](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_slides_17.html)
 
 ## Introduction

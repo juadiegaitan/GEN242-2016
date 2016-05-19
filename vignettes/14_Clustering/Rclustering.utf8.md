@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-Note: the most recent version of this tutorial can be found <a href="http://girke.bioinformatics.ucr.edu/GEN242/vignettes/16_Rgraphics/Rclustering.html">here</a> and a slide show [here](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_slides_17.html).
+Note: the most recent version of this tutorial can be found <a href="http://girke.bioinformatics.ucr.edu/GEN242/vignettes/14_Rgraphics/Rclustering.html">here</a> and a slide show [here](http://girke.bioinformatics.ucr.edu/GEN242/mydoc/mydoc_slides_17.html).
 
 # Introduction
 
