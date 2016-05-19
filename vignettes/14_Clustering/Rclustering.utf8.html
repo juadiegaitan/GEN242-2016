@@ -1478,7 +1478,25 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rclustering_4.html">4. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rclustering_4.html">4. Clustering Exercises</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_5.html">5. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_6.html">6. References</a></li>
                     
 
                     
@@ -1716,7 +1734,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <li>Center: subtract from each value the mean of the corresponding vector</li>
       <li>Standardize: devide by standard deviation
         <ul>
-          <li>Result: <script type="math/tex">Mean = 0</script> and <script type="math/tex">STDEV = 1</script></li>
+          <li>Result: <em>Mean = 0</em> and <em>STDEV = 1</em></li>
         </ul>
       </li>
     </ol>
@@ -1727,7 +1745,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <li>Scale: divide centered vector by their <em>root mean square</em> (<em>rms</em>):
   <script type="math/tex">x_{rms} = \sqrt[]{\frac{1}{n-1}\sum_{i=1}^{n}{x_{i}{^2}}}</script>
         <ul>
-          <li>Result: <script type="math/tex">Mean = 0</script> and <script type="math/tex">STDEV = 1</script></li>
+          <li>Result: <em>Mean = 0</em> and <em>STDEV = 1</em></li>
         </ul>
       </li>
     </ol>
@@ -1742,14 +1760,14 @@ document.addEventListener("DOMContentLoaded", function() {
 <p>List of most common ones!</p>
 
 <ul>
-  <li>Euclidean distance for two profiles <script type="math/tex">X</script> and <script type="math/tex">Y</script>:
+  <li>Euclidean distance for two profiles <em>X</em> and <em>Y</em>:
 <script type="math/tex">d(X,Y) = \sqrt[]{ \sum_{i=1}^{n}{(x_{i}-y_{i})^2} }</script>
     <ul>
       <li><strong>Disadvantages</strong>: not scale invariant, not for negative correlations</li>
     </ul>
   </li>
   <li>Maximum, Manhattan, Canberra, binary, Minowski, …</li>
-  <li>Correlation-based distance: <script type="math/tex">1-r</script>
+  <li>Correlation-based distance: <em>1-r</em>
     <ul>
       <li>Pearson correlation coefficient (PCC):
 <script type="math/tex">r = \frac{n\sum_{i=1}^{n}{x_{i}y_{i}} - \sum_{i=1}^{n}{x_{i}} \sum_{i=1}^{n}{y_{i}}}{ \sqrt[]{(\sum_{i=1}^{n}{x_{i}^2} - (\sum_{i=1}^{n}{x_{i})^2}) (\sum_{i=1}^{n}{y_{i}^2} - (\sum_{i=1}^{n}{y_{i})^2})} }</script>
@@ -1825,17 +1843,9 @@ document.addEventListener("DOMContentLoaded", function() {
   <li>Search tree nodes by distance cutoff</li>
 </ol>
 
-<h3 id="create-symbolic-links">Create symbolic links</h3>
+<h3 id="examples">Examples</h3>
 
-<p>For viewing les in IGV as part of <code class="highlighter-rouge">systemPipeR</code> workflows.</p>
-
-<ul>
-  <li><code class="highlighter-rouge">systemPipeR</code>: utilities for building NGS analysis <a href="https://github.com/tgirke/systemPipeR">pipelines</a></li>
-</ul>
-
-<h2 id="example">Example</h2>
-
-<p>Using <code class="highlighter-rouge">hclust</code> and <code class="highlighter-rouge">heatmap.2</code></p>
+<h4 id="using-hclust-and-heatmap2">Using <code class="highlighter-rouge">hclust</code> and <code class="highlighter-rouge">heatmap.2</code></h4>
 
 <p><code class="highlighter-rouge">r
 library(gplots) 
@@ -1844,6 +1854,562 @@ heatmap.2(y) # Shortcut to final result
 </code></p>
 
 <p><img src="Rclustering_files/figure-html/hclust_heatmap_example-1.png" alt="" /><!-- --></p>
+
+<h4 id="stepwise-approach-with-tree-cutting">Stepwise Approach with Tree Cutting</h4>
+
+<p><code class="highlighter-rouge">r
+## Row- and column-wise clustering 
+hr &lt;- hclust(as.dist(1-cor(t(y), method="pearson")), method="complete")
+hc &lt;- hclust(as.dist(1-cor(y, method="spearman")), method="complete") 
+## Tree cutting
+mycl &lt;- cutree(hr, h=max(hr$height)/1.5); mycolhc &lt;- rainbow(length(unique(mycl)), start=0.1, end=0.9); mycolhc &lt;- mycolhc[as.vector(mycl)] 
+## Plot heatmap 
+mycol &lt;- colorpanel(40, "darkblue", "yellow", "white") # or try redgreen(75)
+heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol, scale="row", density.info="none", trace="none", RowSideColors=mycolhc) 
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/hclust_heatmap_example_setpwise-1.png" alt="" /><!-- --></p>
+
+<h2 id="k-means-clustering">K-Means Clustering</h2>
+
+<h3 id="overview-of-algorithm-1">Overview of algorithm</h3>
+
+<ol>
+  <li>Choose the number of k clusters</li>
+  <li>Randomly assign items to the k clusters</li>
+  <li>Calculate new centroid for each of the k clusters</li>
+  <li>Calculate the distance of all items to the k centroids</li>
+  <li>Assign items to closest centroid</li>
+  <li>Repeat until clusters assignments are stable</li>
+</ol>
+
+<center><img title="kmeans" src="images/kmeans.png" /></center>
+
+<h3 id="examples-1">Examples</h3>
+
+<p><code class="highlighter-rouge">r
+km &lt;- kmeans(t(scale(t(y))), 3)
+km$cluster 
+</code></p>
+
+<p><code class="highlighter-rouge">
+##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
+##    2    2    2    2    3    1    2    1    2    2    1    1    2    3    2    2    1    3    2    1 
+##  g21  g22  g23  g24  g25  g26  g27  g28  g29  g30  g31  g32  g33  g34  g35  g36  g37  g38  g39  g40 
+##    3    2    1    2    1    1    3    1    2    2    3    3    2    1    3    2    2    2    1    1 
+##  g41  g42  g43  g44  g45  g46  g47  g48  g49  g50  g51  g52  g53  g54  g55  g56  g57  g58  g59  g60 
+##    1    1    2    1    2    1    3    1    2    3    3    3    2    2    1    1    2    2    2    3 
+##  g61  g62  g63  g64  g65  g66  g67  g68  g69  g70  g71  g72  g73  g74  g75  g76  g77  g78  g79  g80 
+##    1    2    1    1    1    2    2    2    2    3    2    2    1    2    3    2    3    2    1    3 
+##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
+##    2    2    2    2    1    2    3    1    1    2    1    2    2    3    1    1    2    3    2    2
+</code></p>
+
+<h2 id="fuzzy-c-means-clustering">Fuzzy C-Means Clustering</h2>
+
+<ul>
+  <li>In contrast to strict (hard) clustering approaches, fuzzy (soft) clustering methods allow multiple cluster memberships of the clustered items [@Hathaway1996-hu].</li>
+  <li>This is commonly achieved by assigning to each item a weight of belonging to each cluster.</li>
+  <li>Thus, items at the edge of a cluster, may be in a cluster to a lesser degree than items at the center of a cluster.</li>
+  <li>Typically, each item has as many coefficients (weights) as there are clusters that sum up for each item to one.</li>
+</ul>
+
+<h3 id="examples-2">Examples</h3>
+
+<h4 id="fuzzy-clustering-with-fanny">Fuzzy Clustering with <code class="highlighter-rouge">fanny</code></h4>
+
+<p><code class="highlighter-rouge">r
+library(cluster) # Loads the cluster library.
+fannyy &lt;- fanny(y, k=4, metric = "euclidean", memb.exp = 1.2)
+round(fannyy$membership, 2)[1:4,]
+</code></p>
+
+<p><code class="highlighter-rouge">
+##    [,1] [,2] [,3] [,4]
+## g1 0.81 0.05 0.04 0.10
+## g2 0.92 0.02 0.01 0.04
+## g3 0.72 0.11 0.03 0.14
+## g4 0.01 0.95 0.01 0.02
+</code></p>
+
+<p><code class="highlighter-rouge">r
+fannyy$clustering 
+</code></p>
+
+<p><code class="highlighter-rouge">
+##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
+##    1    1    1    2    2    3    2    3    2    2    4    3    4    4    2    2    3    1    1    1 
+##  g21  g22  g23  g24  g25  g26  g27  g28  g29  g30  g31  g32  g33  g34  g35  g36  g37  g38  g39  g40 
+##    3    2    3    1    2    3    3    4    4    4    3    2    1    1    4    2    1    2    3    2 
+##  g41  g42  g43  g44  g45  g46  g47  g48  g49  g50  g51  g52  g53  g54  g55  g56  g57  g58  g59  g60 
+##    3    4    2    3    1    2    2    3    2    3    3    3    4    2    3    2    4    4    1    4 
+##  g61  g62  g63  g64  g65  g66  g67  g68  g69  g70  g71  g72  g73  g74  g75  g76  g77  g78  g79  g80 
+##    1    1    4    3    1    4    2    2    2    4    2    1    3    1    3    4    1    1    3    3 
+##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
+##    2    1    2    4    4    1    3    2    4    4    3    4    1    3    3    2    1    3    2    1
+</code></p>
+
+<h2 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h2>
+
+<p>Principal components analysis (PCA) is a data reduction technique that allows to simplify multidimensional data sets to 2 or 3 dimensions for plotting purposes and visual variance analysis.</p>
+
+<h3 id="basic-steps">Basic Steps</h3>
+
+<ul>
+  <li>Center (and standardize) data</li>
+  <li>First principal component axis
+    <ul>
+      <li>Across centroid of data cloud</li>
+      <li>Distance of each point to that line is minimized, so that it crosses the maximum variation of the data cloud</li>
+    </ul>
+  </li>
+  <li>Second principal component axis
+    <ul>
+      <li>Orthogonal to first principal component</li>
+      <li>Along maximum variation in the data</li>
+    </ul>
+  </li>
+  <li>First PCA axis becomes x-axis and second PCA axis y-axis</li>
+  <li>Continue process until the necessary number of principal components is obtained</li>
+</ul>
+
+<center><img title="pca" src="images/pca.png" /></center>
+
+<h3 id="example">Example</h3>
+
+<p><code class="highlighter-rouge">r
+pca &lt;- prcomp(y, scale=T)
+summary(pca) # Prints variance summary for all principal components
+</code></p>
+
+<p><code class="highlighter-rouge">
+## Importance of components:
+##                          PC1    PC2    PC3    PC4    PC5
+## Standard deviation     1.098 1.0351 1.0023 0.9646 0.8879
+## Proportion of Variance 0.241 0.2143 0.2009 0.1861 0.1577
+## Cumulative Proportion  0.241 0.4553 0.6562 0.8423 1.0000
+</code></p>
+
+<p><code class="highlighter-rouge">r
+plot(pca$x, pch=20, col="blue", type="n") # To plot dots, drop type="n"
+text(pca$x, rownames(pca$x), cex=0.8)
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/pca_example-1.png" alt="" /><!-- -->
+1st and 2nd principal components explain x% of variance in data.</p>
+
+<h2 id="multidimensional-scaling-mds">Multidimensional Scaling (MDS)</h2>
+
+<ul>
+  <li>Alternative dimensionality reduction approach</li>
+  <li>Represents distances in 2D or 3D space</li>
+  <li>Starts from distance matrix (PCA uses data points)</li>
+</ul>
+
+<h3 id="example-1">Example</h3>
+
+<p>The following example performs MDS analysis with <code class="highlighter-rouge">cmdscale</code> on the geographic distances among European cities.</p>
+
+<p><code class="highlighter-rouge">r
+loc &lt;- cmdscale(eurodist) 
+plot(loc[,1], -loc[,2], type="n", xlab="", ylab="", main="cmdscale(eurodist)")
+text(loc[,1], -loc[,2], rownames(loc), cex=0.8) 
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/mds_example-1.png" alt="" /><!-- --></p>
+
+<h2 id="biclustering">Biclustering</h2>
+
+<p>Finds in matrix subgroups of rows and columns which are as similar as possible to each other and as different as possible to the remaining data points.</p>
+
+<center><img title="pca" src="images/biclust.png" /></center>
+<center> Unclustered --------------------------&gt; Clustered</center>
+
+<h2 id="similarity-measures-for-clusters">Similarity Measures for Clusters</h2>
+
+<ul>
+  <li>Compare the numbers of identical and unique item pairs appearing in cluster sets</li>
+  <li>Achieved by counting the number of item pairs found in both clustering sets <em>(a)</em> as well as the pairs appearing only in the first <em>(b)</em> or the second <em>(c)</em> set.</li>
+  <li>With this a similarity coefficient, such as the Jaccard index, can be computed. The latter is defined as the size of the intersect divided by the size of the union of two sample sets: <em>a/(a+b+c)</em>.</li>
+  <li>In case of partitioning results, the Jaccard Index measures how frequently pairs of items are joined together in two clustering data sets and how often pairs are observed only in one set.</li>
+  <li>Related coefficient are the Rand Index and the Adjusted Rand Index. These indices also consider the number of pairs <em>(d)</em> that are not joined together in any of the clusters in both sets.</li>
+</ul>
+
+<h3 id="example-2">Example:</h3>
+
+<h4 id="jaccard-index-for-cluster-sets">Jaccard index for cluster sets</h4>
+
+<p>The following imports the <code class="highlighter-rouge">cindex()</code> function and computes the Jaccard Index for two sample clusters.</p>
+
+<p><code class="highlighter-rouge">r
+source("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/clusterIndex.R") 
+library(cluster); y &lt;- matrix(rnorm(5000), 1000, 5, dimnames=list(paste("g", 1:1000, sep=""), paste("t", 1:5, sep=""))); clarax &lt;- clara(y, 49); clV1 &lt;- clarax$clustering; clarax &lt;- clara(y, 50); clV2 &lt;- clarax$clustering 
+ci &lt;- cindex(clV1=clV1, clV2=clV2, self=FALSE, minSZ=1, method="jaccard")
+ci[2:3] # Returns Jaccard index and variables used to compute it 
+</code></p>
+
+<p><code class="highlighter-rouge">
+## $variables
+##     a     b     c 
+##  3888  9559 10128 
+## 
+## $Jaccard_Index
+## [1] 0.1649205
+</code></p>
+
+<h4 id="clustering-cluster-sets-with-jaccard-index">Clustering cluster sets with Jaccard index</h4>
+
+<p>The following example shows how one can cluster entire cluster result sets. First, 10 sample cluster results are created with Clara using k-values from 3 to 12. The results are stored as named clustering vectors in a list object. Then a nested sapply loop is used to generate a similarity matrix of Jaccard Indices for the clustering results. After converting the result into a distance matrix, hierarchical clustering is performed with \Rfunction{hclust}.}</p>
+
+<p><code class="highlighter-rouge">r
+clVlist &lt;- lapply(3:12, function(x) clara(y[1:30, ], k=x)$clustering); names(clVlist) &lt;- paste("k", "=", 3:12)
+d &lt;- sapply(names(clVlist), function(x) sapply(names(clVlist), function(y) cindex(clV1=clVlist[[y]], clV2=clVlist[[x]], method="jaccard")[[3]]))
+hv &lt;- hclust(as.dist(1-d))
+plot(as.dendrogram(hv), edgePar=list(col=3, lwd=4), horiz=T, main="Similarities of 10 Clara Clustering Results for k: 3-12") 
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/jaccard_index_clustering-1.png" alt="" /><!-- --></p>
+
+<ul>
+  <li>Remember: there are many additional clustering algorithms.</li>
+  <li>Additional details can be found in the Clustering Section of the <a href="http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual\#TOC-Clustering-and-Data-Mining-in-R">R/Bioconductor Manual</a>.</li>
+</ul>
+
+<h1 id="clustering-exercises">Clustering Exercises</h1>
+
+<h2 id="data-preprocessing-1">Data Preprocessing</h2>
+
+<h3 id="scaling">Scaling</h3>
+
+<p><code class="highlighter-rouge">r
+## Sample data set
+set.seed(1410)
+y &lt;- matrix(rnorm(50), 10, 5, dimnames=list(paste("g", 1:10, sep=""), 
+            paste("t", 1:5, sep="")))
+dim(y)
+</code></p>
+
+<p><code class="highlighter-rouge">
+## [1] 10  5
+</code></p>
+
+<p><code class="highlighter-rouge">r
+## Scaling
+yscaled &lt;- t(scale(t(y))) # Centers and scales y row-wise
+apply(yscaled, 1, sd)
+</code></p>
+
+<p><code class="highlighter-rouge">
+##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
+##   1   1   1   1   1   1   1   1   1   1
+</code></p>
+
+<h2 id="distance-matrices">Distance Matrices</h2>
+
+<h3 id="euclidean-distance-matrix">Euclidean distance matrix</h3>
+
+<p><code class="highlighter-rouge">r
+dist(y[1:4,], method = "euclidean")
+</code></p>
+
+<p><code class="highlighter-rouge">
+##          g1       g2       g3
+## g2 4.793697                  
+## g3 4.932658 6.354978         
+## g4 4.033789 4.788508 1.671968
+</code></p>
+
+<h3 id="correlation-based-distance-matrix">Correlation-based distance matrix</h3>
+
+<p>Correlation matrix</p>
+
+<p><code class="highlighter-rouge">r
+c &lt;- cor(t(y), method="pearson") 
+as.matrix(c)[1:4,1:4]
+</code></p>
+
+<p><code class="highlighter-rouge">
+##             g1         g2          g3         g4
+## g1  1.00000000 -0.2965885 -0.00206139 -0.4042011
+## g2 -0.29658847  1.0000000 -0.91661118 -0.4512912
+## g3 -0.00206139 -0.9166112  1.00000000  0.7435892
+## g4 -0.40420112 -0.4512912  0.74358925  1.0000000
+</code></p>
+
+<p>Correlation-based distance matrix</p>
+
+<p><code class="highlighter-rouge">r
+d &lt;- as.dist(1-c)
+as.matrix(d)[1:4,1:4]
+</code></p>
+
+<p><code class="highlighter-rouge">
+##          g1       g2        g3        g4
+## g1 0.000000 1.296588 1.0020614 1.4042011
+## g2 1.296588 0.000000 1.9166112 1.4512912
+## g3 1.002061 1.916611 0.0000000 0.2564108
+## g4 1.404201 1.451291 0.2564108 0.0000000
+</code></p>
+
+<h2 id="hierarchical-clustering-with-hclust">Hierarchical Clustering with <code class="highlighter-rouge">hclust</code></h2>
+
+<p>Hierarchical clustering with complete linkage and basic tree plotting</p>
+
+<p><code class="highlighter-rouge">r
+hr &lt;- hclust(d, method = "complete", members=NULL)
+names(hr)
+</code></p>
+
+<p><code class="highlighter-rouge">
+## [1] "merge"       "height"      "order"       "labels"      "method"      "call"       
+## [7] "dist.method"
+</code></p>
+
+<p><code class="highlighter-rouge">r
+par(mfrow = c(1, 2)); plot(hr, hang = 0.1); plot(hr, hang = -1) 
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/hclust1-1.png" alt="" /><!-- --></p>
+
+<h3 id="tree-plotting-i">Tree plotting I</h3>
+
+<p><code class="highlighter-rouge">r
+plot(as.dendrogram(hr), edgePar=list(col=3, lwd=4), horiz=T) 
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/hclust_plot_tree1-1.png" alt="" /><!-- --></p>
+
+<h3 id="tree-plotting-ii">Tree plotting II</h3>
+
+<p>The <code class="highlighter-rouge">ape</code> library provides more advanced features for tree plotting</p>
+
+<p><code class="highlighter-rouge">r
+library(ape) 
+plot.phylo(as.phylo(hr), type="p", edge.col=4, edge.width=2, 
+           show.node.label=TRUE, no.margin=TRUE)
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/hclust_plot_tree2-1.png" alt="" /><!-- --></p>
+
+<h2 id="tree-cutting">Tree Cutting</h2>
+
+<p>Accessing information in <em>hclust</em> objects</p>
+
+<p><code class="highlighter-rouge">r
+hr
+</code></p>
+
+<p><code class="highlighter-rouge">
+## 
+## Call:
+## hclust(d = d, method = "complete", members = NULL)
+## 
+## Cluster method   : complete 
+## Number of objects: 10
+</code></p>
+
+<p><code class="highlighter-rouge">r
+## Print row labels in the order they appear in the tree
+hr$labels[hr$order] 
+</code></p>
+
+<p><code class="highlighter-rouge">
+##  [1] "g10" "g3"  "g4"  "g2"  "g9"  "g6"  "g7"  "g1"  "g5"  "g8"
+</code></p>
+
+<p>Tree cutting with <code class="highlighter-rouge">cutree</code></p>
+
+<p><code class="highlighter-rouge">r
+mycl &lt;- cutree(hr, h=max(hr$height)/2)
+mycl[hr$labels[hr$order]] 
+</code></p>
+
+<p><code class="highlighter-rouge">
+## g10  g3  g4  g2  g9  g6  g7  g1  g5  g8 
+##   3   3   3   2   2   5   5   1   4   4
+</code></p>
+
+<h2 id="heatmaps">Heatmaps</h2>
+
+<h3 id="with-heatmap2">With <code class="highlighter-rouge">heatmap.2</code></h3>
+
+<p>All in one step: clustering and heatmap plotting</p>
+
+<p><code class="highlighter-rouge">r
+library(gplots)
+heatmap.2(y, col=redgreen(75))
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/heatmap2a-1.png" alt="" /><!-- --></p>
+
+<h3 id="with-pheatmap">With <code class="highlighter-rouge">pheatmap</code></h3>
+
+<p>All in one step: clustering and heatmap plotting</p>
+
+<p><code class="highlighter-rouge">r
+library(pheatmap); library("RColorBrewer")
+pheatmap(y, color=brewer.pal(9,"Blues"))
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/pheatmap-1.png" alt="" /><!-- --></p>
+
+<h3 id="customizing-heatmaps">Customizing heatmaps</h3>
+
+<p>Customizes row and column clustering and shows tree cutting result in row color bar. Additional color schemes can be found <a href="http://manuals.bioinformatics.ucr.edu/home/R\_BioCondManual\#clustering\_hc\_submap">here</a>.</p>
+
+<p><code class="highlighter-rouge">r
+hc &lt;- hclust(as.dist(1-cor(y, method="spearman")), method="complete")
+mycol &lt;- colorpanel(40, "darkblue", "yellow", "white")
+heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
+          scale="row", density.info="none", trace="none", 
+          RowSideColors=as.character(mycl))
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/heatmap2_custom-1.png" alt="" /><!-- --></p>
+
+<h2 id="k-means-clustering-with-pam">K-Means Clustering with PAM</h2>
+
+<p>Runs K-means clustering with PAM (partitioning around medoids) algorithm and shows result in color bar of hierarchical clustering result from before.</p>
+
+<p><code class="highlighter-rouge">r
+library(cluster)
+pamy &lt;- pam(d, 4)
+(kmcol &lt;- pamy$clustering)
+</code></p>
+
+<p><code class="highlighter-rouge">
+##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
+##   1   2   3   3   4   4   4   4   2   3
+</code></p>
+
+<p><code class="highlighter-rouge">r
+heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
+          scale="row", density.info="none", trace="none", 
+          RowSideColors=as.character(kmcol))
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/kmeans2-1.png" alt="" /><!-- --></p>
+
+<h2 id="k-means-fuzzy-clustering">K-Means Fuzzy Clustering</h2>
+
+<p>Performs k-means fuzzy clustering</p>
+
+<p><code class="highlighter-rouge">r
+library(cluster)
+fannyy &lt;- fanny(d, k=4, memb.exp = 1.5)
+round(fannyy$membership, 2)[1:4,]
+</code></p>
+
+<p><code class="highlighter-rouge">
+##    [,1] [,2] [,3] [,4]
+## g1 1.00 0.00 0.00 0.00
+## g2 0.00 0.99 0.00 0.00
+## g3 0.02 0.01 0.95 0.03
+## g4 0.00 0.00 0.99 0.01
+</code></p>
+
+<p><code class="highlighter-rouge">r
+fannyy$clustering 
+</code></p>
+
+<p><code class="highlighter-rouge">
+##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
+##   1   2   3   3   4   4   4   4   2   3
+</code></p>
+
+<p><code class="highlighter-rouge">r
+## Returns multiple cluster memberships for coefficient above a certain 
+## value (here &gt;0.1)
+fannyyMA &lt;- round(fannyy$membership, 2) &gt; 0.10 
+apply(fannyyMA, 1, function(x) paste(which(x), collapse="_"))
+</code></p>
+
+<p><code class="highlighter-rouge">
+##    g1    g2    g3    g4    g5    g6    g7    g8    g9   g10 
+##   "1"   "2"   "3"   "3"   "4"   "4"   "4" "2_4"   "2"   "3"
+</code></p>
+
+<h2 id="multidimensional-scaling-mds-1">Multidimensional Scaling (MDS)</h2>
+
+<p>Performs MDS analysis on the geographic distances between European cities</p>
+
+<p><code class="highlighter-rouge">r
+loc &lt;- cmdscale(eurodist) 
+## Plots the MDS results in 2D plot. The minus is required in this example to 
+## flip the plotting orientation.
+plot(loc[,1], -loc[,2], type="n", xlab="", ylab="", main="cmdscale(eurodist)")
+text(loc[,1], -loc[,2], rownames(loc), cex=0.8) 
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/cmdscale2-1.png" alt="" /><!-- --></p>
+
+<h2 id="principal-component-analysis-pca-1">Principal Component Analysis (PCA)</h2>
+
+<p>Performs PCA analysis after scaling the data. It returns a list with class <code class="highlighter-rouge">prcomp</code> that contains five components: (1) the standard deviations (sdev) of the principal components, (2) the matrix of eigenvectors (rotation), (3) the principal component data (x), (4) the centering (center) and (5) scaling (scale) used.</p>
+
+<p><code class="highlighter-rouge">r
+library(scatterplot3d)
+pca &lt;- prcomp(y, scale=TRUE)
+names(pca)
+</code></p>
+
+<p><code class="highlighter-rouge">
+## [1] "sdev"     "rotation" "center"   "scale"    "x"
+</code></p>
+
+<p><code class="highlighter-rouge">r
+summary(pca) # Prints variance summary for all principal components.
+</code></p>
+
+<p><code class="highlighter-rouge">
+## Importance of components:
+##                           PC1    PC2    PC3     PC4    PC5
+## Standard deviation     1.3611 1.1777 1.0420 0.69264 0.4416
+## Proportion of Variance 0.3705 0.2774 0.2172 0.09595 0.0390
+## Cumulative Proportion  0.3705 0.6479 0.8650 0.96100 1.0000
+</code></p>
+
+<p><code class="highlighter-rouge">r
+scatterplot3d(pca$x[,1:3], pch=20, color="blue") 
+</code></p>
+
+<p><img src="Rclustering_files/figure-html/pca2-1.png" alt="" /><!-- --></p>
+
+<h2 id="additional-exercises">Additional Exercises</h2>
+
+<p>See <a href="http://manuals.bioinformatics.ucr.edu/home/R\_BioCondManual\#TOC-Clustering-Exercises">here</a></p>
+
+<h1 id="version-information">Version Information</h1>
+
+<p><code class="highlighter-rouge">r
+sessionInfo()
+</code></p>
+
+<p><code class="highlighter-rouge">
+## R version 3.3.0 (2016-05-03)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 14.04.4 LTS
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C               LC_TIME=en_US.UTF-8       
+##  [4] LC_COLLATE=en_US.UTF-8     LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                  LC_ADDRESS=C              
+## [10] LC_TELEPHONE=C             LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  utils     datasets  grDevices methods   base     
+## 
+## other attached packages:
+## [1] scatterplot3d_0.3-36 RColorBrewer_1.1-2   pheatmap_1.0.8       ape_3.4             
+## [5] cluster_2.0.4        gplots_3.0.1         BiocStyle_2.0.0     
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_0.12.4.5      knitr_1.12.3       magrittr_1.5       munsell_0.4.3      colorspace_1.2-6  
+##  [6] lattice_0.20-33    plyr_1.8.3         stringr_1.0.0      caTools_1.17.1     tools_3.3.0       
+## [11] grid_3.3.0         nlme_3.1-127       gtable_0.2.0       KernSmooth_2.23-15 htmltools_0.3.5   
+## [16] gtools_3.5.0       yaml_2.1.13        digest_0.6.9       formatR_1.3        bitops_1.0-6      
+## [21] evaluate_0.9       rmarkdown_0.9.6    gdata_2.17.0       stringi_1.0-1      scales_0.4.0
+</code></p>
 
 <h1 id="references">References</h1>
 

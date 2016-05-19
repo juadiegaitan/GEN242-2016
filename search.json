@@ -624,10 +624,32 @@
 
 
 {
-"title": "References",
+"title": "Clustering Exercises",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rclustering_4.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Version Information",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rclustering_5.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rclustering_6.html",
 "summary": ""
 },
 
@@ -858,7 +880,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -869,18 +891,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "HW3 - Introduction to R",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_03.html",
+"url": "../mydoc/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -892,6 +903,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_homework_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "HW3 - Introduction to R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/06_Homework/mydoc_homework_03.html",
 "summary": ""
 },
 
@@ -924,7 +946,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -935,7 +957,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Internal/mydoc_internal.html",
+"url": "../mydoc/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -990,7 +1012,7 @@
 "title": "ChIP-Seq1 - Motif Prediction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_01.html",
+"url": "../mydoc/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -1001,18 +1023,7 @@
 "title": "ChIP-Seq1 - Motif Prediction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "ChIP-Seq2 - Peak Callers",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_project_02.html",
+"url": "../vignettes/17_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -1024,6 +1035,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/17_Projects/mydoc_project_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "ChIP-Seq2 - Peak Callers",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_project_02.html",
 "summary": ""
 },
 
@@ -1078,7 +1100,7 @@
 "title": "VAR-Seq1 - Comparison of Variant Callers",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_05.html",
+"url": "../vignettes/17_Projects/mydoc_project_05.html",
 "summary": ""
 },
 
@@ -1089,7 +1111,7 @@
 "title": "VAR-Seq1 - Comparison of Variant Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_05.html",
+"url": "../mydoc/mydoc_project_05.html",
 "summary": ""
 },
 
@@ -1166,7 +1188,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_01.html",
+"url": "../vignettes/04_Slides/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1177,7 +1199,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_01.html",
+"url": "../mydoc/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1210,7 +1232,7 @@
 "title": "Databases and Software for Genome Biology",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_03.html",
+"url": "../mydoc/mydoc_slides_03.html",
 "summary": ""
 },
 
@@ -1221,18 +1243,7 @@
 "title": "Databases and Software for Genome Biology",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_03.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "DNA Sequencing Technologies",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_04.html",
+"url": "../vignettes/04_Slides/mydoc_slides_03.html",
 "summary": ""
 },
 
@@ -1251,10 +1262,10 @@
 
 
 {
-"title": "Introduction to R",
+"title": "DNA Sequencing Technologies",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_05.html",
+"url": "../mydoc/mydoc_slides_04.html",
 "summary": ""
 },
 
@@ -1266,6 +1277,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_05.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to R",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_05.html",
 "summary": ""
 },
 
@@ -1298,7 +1320,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_07.html",
+"url": "../vignettes/04_Slides/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1309,7 +1331,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_07.html",
+"url": "../mydoc/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1342,7 +1364,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_09.html",
+"url": "../mydoc/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1353,7 +1375,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_09.html",
+"url": "../vignettes/04_Slides/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1408,7 +1430,7 @@
 "title": "Introduction to NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_12.html",
+"url": "../vignettes/04_Slides/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1419,18 +1441,7 @@
 "title": "Introduction to NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_12.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "ChIP-Seq Overview",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_13.html",
+"url": "../mydoc/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1449,10 +1460,10 @@
 
 
 {
-"title": "VAR-Seq Overview",
+"title": "ChIP-Seq Overview",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_14.html",
+"url": "../vignettes/04_Slides/mydoc_slides_13.html",
 "summary": ""
 },
 
@@ -1464,6 +1475,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_14.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "VAR-Seq Overview",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_14.html",
 "summary": ""
 },
 
@@ -1496,7 +1518,7 @@
 "title": "Gene Annotation, Ontologies and Enrichment Methods",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_16.html",
+"url": "../vignettes/04_Slides/mydoc_slides_16.html",
 "summary": ""
 },
 
@@ -1507,7 +1529,7 @@
 "title": "Gene Annotation, Ontologies and Enrichment Methods",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_16.html",
+"url": "../mydoc/mydoc_slides_16.html",
 "summary": ""
 },
 
@@ -2068,7 +2090,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_tutorial_01.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -2079,18 +2101,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Introduction to Biocluster and Linux",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
+"url": "../mydoc/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -2102,6 +2113,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_tutorial_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to Biocluster and Linux",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
 "summary": ""
 },
 

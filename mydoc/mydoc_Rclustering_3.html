@@ -1478,7 +1478,25 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rclustering_4.html">4. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rclustering_4.html">4. Clustering Exercises</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_5.html">5. Version Information</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rclustering_6.html">6. References</a></li>
                     
 
                     
@@ -1682,23 +1700,207 @@ $('#toc').on('click', 'a', function() {
   <li>Search tree nodes by distance cutoff</li>
 </ol>
 
-<h3 id="create-symbolic-links">Create symbolic links</h3>
+<h3 id="examples">Examples</h3>
 
-<p>For viewing les in IGV as part of <code class="highlighter-rouge">systemPipeR</code> workflows.</p>
-
-<ul>
-  <li><code class="highlighter-rouge">systemPipeR</code>: utilities for building NGS analysis <a href="https://github.com/tgirke/systemPipeR">pipelines</a></li>
-</ul>
-
-<h2 id="example">Example</h2>
-
-<p>Using <code class="highlighter-rouge">hclust</code> and <code class="highlighter-rouge">heatmap.2</code></p>
+<h4 id="using-hclust-and-heatmap2">Using <code class="highlighter-rouge">hclust</code> and <code class="highlighter-rouge">heatmap.2</code></h4>
 
 <figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">gplots</span><span class="p">)</span> 
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">),</span> <span class="m">100</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"g"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">),</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span> 
 <span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="err">#</span> <span class="n">Shortcut</span> <span class="n">to</span> <span class="n">final</span> <span class="n">result</span></code></pre></figure>
 
 <p><img src="Rclustering_files/hclust_heatmap_example-1.png" alt="" /></p>
+
+<h4 id="stepwise-approach-with-tree-cutting">Stepwise Approach with Tree Cutting</h4>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">## Row- and column-wise clustering 
+</span><span class="n">hr</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">cor</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"pearson"</span><span class="p">)),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"complete"</span><span class="p">)</span>
+<span class="n">hc</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">cor</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"spearman"</span><span class="p">)),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"complete"</span><span class="p">)</span> 
+<span class="c1">## Tree cutting
+</span><span class="n">mycl</span> <span class="o">&lt;-</span> <span class="n">cutree</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">hr</span><span class="o">$</span><span class="n">height</span><span class="p">)</span><span class="o">/</span><span class="m">1.5</span><span class="p">);</span> <span class="n">mycolhc</span> <span class="o">&lt;-</span> <span class="n">rainbow</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">mycl</span><span class="p">)),</span> <span class="n">start</span><span class="o">=</span><span class="m">0.1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="m">0.9</span><span class="p">);</span> <span class="n">mycolhc</span> <span class="o">&lt;-</span> <span class="n">mycolhc</span><span class="p">[</span><span class="n">as.vector</span><span class="p">(</span><span class="n">mycl</span><span class="p">)]</span> 
+<span class="c1">## Plot heatmap 
+</span><span class="n">mycol</span> <span class="o">&lt;-</span> <span class="n">colorpanel</span><span class="p">(</span><span class="m">40</span><span class="p">,</span> <span class="s2">"darkblue"</span><span class="p">,</span> <span class="s2">"yellow"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">)</span> <span class="c1"># or try redgreen(75)
+</span><span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">Rowv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">Colv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hc</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="n">mycol</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">"row"</span><span class="p">,</span> <span class="n">density.info</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">trace</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">RowSideColors</span><span class="o">=</span><span class="n">mycolhc</span><span class="p">)</span> </code></pre></figure>
+
+<p><img src="Rclustering_files/hclust_heatmap_example_setpwise-1.png" alt="" /></p>
+
+<h2 id="k-means-clustering">K-Means Clustering</h2>
+
+<h3 id="overview-of-algorithm-1">Overview of algorithm</h3>
+
+<ol>
+  <li>Choose the number of k clusters</li>
+  <li>Randomly assign items to the k clusters</li>
+  <li>Calculate new centroid for each of the k clusters</li>
+  <li>Calculate the distance of all items to the k centroids</li>
+  <li>Assign items to closest centroid</li>
+  <li>Repeat until clusters assignments are stable</li>
+</ol>
+
+<center><img title="kmeans" src="Rclustering_files/kmeans.png" /></center>
+
+<h3 id="examples-1">Examples</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">km</span> <span class="o">&lt;-</span> <span class="n">kmeans</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">y</span><span class="p">))),</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">km</span><span class="o">$</span><span class="n">cluster</span> </code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
+##    2    2    2    2    3    1    2    1    2    2    1    1    2    3    2    2    1    3    2    1 
+##  g21  g22  g23  g24  g25  g26  g27  g28  g29  g30  g31  g32  g33  g34  g35  g36  g37  g38  g39  g40 
+##    3    2    1    2    1    1    3    1    2    2    3    3    2    1    3    2    2    2    1    1 
+##  g41  g42  g43  g44  g45  g46  g47  g48  g49  g50  g51  g52  g53  g54  g55  g56  g57  g58  g59  g60 
+##    1    1    2    1    2    1    3    1    2    3    3    3    2    2    1    1    2    2    2    3 
+##  g61  g62  g63  g64  g65  g66  g67  g68  g69  g70  g71  g72  g73  g74  g75  g76  g77  g78  g79  g80 
+##    1    2    1    1    1    2    2    2    2    3    2    2    1    2    3    2    3    2    1    3 
+##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
+##    2    2    2    2    1    2    3    1    1    2    1    2    2    3    1    1    2    3    2    2</code></pre></figure>
+
+<h2 id="fuzzy-c-means-clustering">Fuzzy C-Means Clustering</h2>
+
+<ul>
+  <li>In contrast to strict (hard) clustering approaches, fuzzy (soft) clustering methods allow multiple cluster memberships of the clustered items (Hathaway et al., 1996).</li>
+  <li>This is commonly achieved by assigning to each item a weight of belonging to each cluster.</li>
+  <li>Thus, items at the edge of a cluster, may be in a cluster to a lesser degree than items at the center of a cluster.</li>
+  <li>Typically, each item has as many coefficients (weights) as there are clusters that sum up for each item to one.</li>
+</ul>
+
+<h3 id="examples-2">Examples</h3>
+
+<h4 id="fuzzy-clustering-with-fanny">Fuzzy Clustering with <code class="highlighter-rouge">fanny</code></h4>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span> <span class="c1"># Loads the cluster library.
+</span><span class="n">fannyy</span> <span class="o">&lt;-</span> <span class="n">fanny</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="m">4</span><span class="p">,</span> <span class="n">metric</span> <span class="o">=</span> <span class="s2">"euclidean"</span><span class="p">,</span> <span class="n">memb.exp</span> <span class="o">=</span> <span class="m">1.2</span><span class="p">)</span>
+<span class="n">round</span><span class="p">(</span><span class="n">fannyy</span><span class="o">$</span><span class="n">membership</span><span class="p">,</span> <span class="m">2</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##    [,1] [,2] [,3] [,4]
+## g1 0.81 0.05 0.04 0.10
+## g2 0.92 0.02 0.01 0.04
+## g3 0.72 0.11 0.03 0.14
+## g4 0.01 0.95 0.01 0.02</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fannyy</span><span class="o">$</span><span class="n">clustering</span> </code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
+##    1    1    1    2    2    3    2    3    2    2    4    3    4    4    2    2    3    1    1    1 
+##  g21  g22  g23  g24  g25  g26  g27  g28  g29  g30  g31  g32  g33  g34  g35  g36  g37  g38  g39  g40 
+##    3    2    3    1    2    3    3    4    4    4    3    2    1    1    4    2    1    2    3    2 
+##  g41  g42  g43  g44  g45  g46  g47  g48  g49  g50  g51  g52  g53  g54  g55  g56  g57  g58  g59  g60 
+##    3    4    2    3    1    2    2    3    2    3    3    3    4    2    3    2    4    4    1    4 
+##  g61  g62  g63  g64  g65  g66  g67  g68  g69  g70  g71  g72  g73  g74  g75  g76  g77  g78  g79  g80 
+##    1    1    4    3    1    4    2    2    2    4    2    1    3    1    3    4    1    1    3    3 
+##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
+##    2    1    2    4    4    1    3    2    4    4    3    4    1    3    3    2    1    3    2    1</code></pre></figure>
+
+<h2 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h2>
+
+<p>Principal components analysis (PCA) is a data reduction technique that allows to simplify multidimensional data sets to 2 or 3 dimensions for plotting purposes and visual variance analysis.</p>
+
+<h3 id="basic-steps">Basic Steps</h3>
+
+<ul>
+  <li>Center (and standardize) data</li>
+  <li>First principal component axis
+    <ul>
+      <li>Across centroid of data cloud</li>
+      <li>Distance of each point to that line is minimized, so that it crosses the maximum variation of the data cloud</li>
+    </ul>
+  </li>
+  <li>Second principal component axis
+    <ul>
+      <li>Orthogonal to first principal component</li>
+      <li>Along maximum variation in the data</li>
+    </ul>
+  </li>
+  <li>First PCA axis becomes x-axis and second PCA axis y-axis</li>
+  <li>Continue process until the necessary number of principal components is obtained</li>
+</ul>
+
+<center><img title="pca" src="Rclustering_files/pca.png" /></center>
+
+<h3 id="example">Example</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pca</span> <span class="o">&lt;-</span> <span class="n">prcomp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span> <span class="err">#</span> <span class="n">Prints</span> <span class="n">variance</span> <span class="n">summary</span> <span class="k">for</span> <span class="n">all</span> <span class="n">principal</span> <span class="n">components</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Importance of components:
+##                          PC1    PC2    PC3    PC4    PC5
+## Standard deviation     1.098 1.0351 1.0023 0.9646 0.8879
+## Proportion of Variance 0.241 0.2143 0.2009 0.1861 0.1577
+## Cumulative Proportion  0.241 0.4553 0.6562 0.8423 1.0000</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"n"</span><span class="p">)</span> <span class="c1"># To plot dots, drop type="n"
+</span><span class="n">text</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">,</span> <span class="n">rownames</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">),</span> <span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span></code></pre></figure>
+
+<p><img src="Rclustering_files/pca_example-1.png" alt="" />
+1st and 2nd principal components explain x% of variance in data.</p>
+
+<h2 id="multidimensional-scaling-mds">Multidimensional Scaling (MDS)</h2>
+
+<ul>
+  <li>Alternative dimensionality reduction approach</li>
+  <li>Represents distances in 2D or 3D space</li>
+  <li>Starts from distance matrix (PCA uses data points)</li>
+</ul>
+
+<h3 id="example-1">Example</h3>
+
+<p>The following example performs MDS analysis with <code class="highlighter-rouge">cmdscale</code> on the geographic distances among European cities.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">loc</span> <span class="o">&lt;-</span> <span class="n">cmdscale</span><span class="p">(</span><span class="n">eurodist</span><span class="p">)</span> 
+<span class="n">plot</span><span class="p">(</span><span class="n">loc</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="o">-</span><span class="n">loc</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"n"</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span><span class="s2">"cmdscale(eurodist)"</span><span class="p">)</span>
+<span class="n">text</span><span class="p">(</span><span class="n">loc</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="o">-</span><span class="n">loc</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">rownames</span><span class="p">(</span><span class="n">loc</span><span class="p">),</span> <span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span> </code></pre></figure>
+
+<p><img src="Rclustering_files/mds_example-1.png" alt="" /></p>
+
+<h2 id="biclustering">Biclustering</h2>
+
+<p>Finds in matrix subgroups of rows and columns which are as similar as possible to each other and as different as possible to the remaining data points.</p>
+
+<center><img title="pca" src="Rclustering_files/biclust.png" /></center>
+<center> Unclustered --------------------------&gt; Clustered</center>
+
+<h2 id="similarity-measures-for-clusters">Similarity Measures for Clusters</h2>
+
+<ul>
+  <li>Compare the numbers of identical and unique item pairs appearing in cluster sets</li>
+  <li>Achieved by counting the number of item pairs found in both clustering sets <em>(a)</em> as well as the pairs appearing only in the first <em>(b)</em> or the second <em>(c)</em> set.</li>
+  <li>With this a similarity coefficient, such as the Jaccard index, can be computed. The latter is defined as the size of the intersect divided by the size of the union of two sample sets: <em>a/(a+b+c)</em>.</li>
+  <li>In case of partitioning results, the Jaccard Index measures how frequently pairs of items are joined together in two clustering data sets and how often pairs are observed only in one set.</li>
+  <li>Related coefficient are the Rand Index and the Adjusted Rand Index. These indices also consider the number of pairs <em>(d)</em> that are not joined together in any of the clusters in both sets.</li>
+</ul>
+
+<h3 id="example-2">Example:</h3>
+
+<h4 id="jaccard-index-for-cluster-sets">Jaccard index for cluster sets</h4>
+
+<p>The following imports the <code class="highlighter-rouge">cindex()</code> function and computes the Jaccard Index for two sample clusters.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/clusterIndex.R"</span><span class="p">)</span> 
+<span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">);</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">5000</span><span class="p">),</span> <span class="m">1000</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"g"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">),</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)));</span> <span class="n">clarax</span> <span class="o">&lt;-</span> <span class="n">clara</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="m">49</span><span class="p">);</span> <span class="n">clV1</span> <span class="o">&lt;-</span> <span class="n">clarax</span><span class="o">$</span><span class="n">clustering</span><span class="p">;</span> <span class="n">clarax</span> <span class="o">&lt;-</span> <span class="n">clara</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="m">50</span><span class="p">);</span> <span class="n">clV2</span> <span class="o">&lt;-</span> <span class="n">clarax</span><span class="o">$</span><span class="n">clustering</span> 
+<span class="n">ci</span> <span class="o">&lt;-</span> <span class="n">cindex</span><span class="p">(</span><span class="n">clV1</span><span class="o">=</span><span class="n">clV1</span><span class="p">,</span> <span class="n">clV2</span><span class="o">=</span><span class="n">clV2</span><span class="p">,</span> <span class="n">self</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">minSZ</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"jaccard"</span><span class="p">)</span>
+<span class="n">ci</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">Jaccard</span> <span class="n">index</span> <span class="n">and</span> <span class="n">variables</span> <span class="n">used</span> <span class="n">to</span> <span class="n">compute</span> <span class="n">it</span> </code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## $variables
+##     a     b     c 
+##  3888  9559 10128 
+## 
+## $Jaccard_Index
+## [1] 0.1649205</code></pre></figure>
+
+<h4 id="clustering-cluster-sets-with-jaccard-index">Clustering cluster sets with Jaccard index</h4>
+
+<p>The following example shows how one can cluster entire cluster result sets. First, 10 sample cluster results are created with Clara using k-values from 3 to 12. The results are stored as named clustering vectors in a list object. Then a nested sapply loop is used to generate a similarity matrix of Jaccard Indices for the clustering results. After converting the result into a distance matrix, hierarchical clustering is performed with \Rfunction{hclust}.}</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">clVlist</span> <span class="o">&lt;-</span> <span class="n">lapply</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">12</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">clara</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">30</span><span class="p">,</span> <span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="n">x</span><span class="p">)</span><span class="o">$</span><span class="n">clustering</span><span class="p">);</span> <span class="n">names</span><span class="p">(</span><span class="n">clVlist</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"="</span><span class="p">,</span> <span class="m">3</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">clVlist</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">clVlist</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">cindex</span><span class="p">(</span><span class="n">clV1</span><span class="o">=</span><span class="n">clVlist</span><span class="p">[[</span><span class="n">y</span><span class="p">]],</span> <span class="n">clV2</span><span class="o">=</span><span class="n">clVlist</span><span class="p">[[</span><span class="n">x</span><span class="p">]],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"jaccard"</span><span class="p">)[[</span><span class="m">3</span><span class="p">]]))</span>
+<span class="n">hv</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">d</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hv</span><span class="p">),</span> <span class="n">edgePar</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">4</span><span class="p">),</span> <span class="n">horiz</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span><span class="s2">"Similarities of 10 Clara Clustering Results for k: 3-12"</span><span class="p">)</span> </code></pre></figure>
+
+<p><img src="Rclustering_files/jaccard_index_clustering-1.png" alt="" /></p>
+
+<ul>
+  <li>Remember: there are many additional clustering algorithms.</li>
+  <li>Additional details can be found in the Clustering Section of the <a href="http://manuals.bioinformatics.ucr.edu/home/R_BioCondManual\#TOC-Clustering-and-Data-Mining-in-R">R/Bioconductor Manual</a>.</li>
+</ul>
 
 
 
@@ -1716,7 +1918,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed May 18 16:34:32 2016<br/> Site last generated: May 18, 2016 <br />
+<p>Page last updated:</span> Wed May 18 19:36:45 2016<br/> Site last generated: May 18, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
