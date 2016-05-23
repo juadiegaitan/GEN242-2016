@@ -985,7 +985,7 @@ ggplot() + layout_circle(gr, geom = "ideo", fill = "gray70", radius = 7, trackWi
 
 To make the following example work, please download and unpack this [data archive](http://biocluster.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_12_16_2013/Rgraphics/data.zip) containing GFF, BAM and VCF sample files.
 
-```{r ggbio_align_variants, eval=TRUE}
+```{r ggbio_align_variants, eval=TRUE, warning=FALSE, message=FALSE}
 library(rtracklayer); library(GenomicFeatures); library(Rsamtools); library(GenomicAlignments); library(VariantAnnotation)
 ga <- readGAlignments("./data/SRR064167.fastq.bam", use.names=TRUE, param=ScanBamParam(which=GRanges("Chr5", IRanges(4000, 8000))))
 p1 <- autoplot(ga, geom = "rect")
@@ -1040,6 +1040,21 @@ library("systemPipeR")
 symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"), 
             urlbase="http://myserver.edu/~username/",
             urlfile="IGVurl.txt")
+```
+
+### Controlling IGV from R
+
+Note this may not work on all systems.
+
+```{r control_igv, eval=FALSE, warning=FALSE, message=FALSE}
+library(SRAdb)
+startIGV("lm")
+sock <- IGVsocket()
+session <- IGVsession(files=myurls, 
+                      sessionFile="session.xml", 
+           genome="A. thaliana (TAIR10)")
+IGVload(sock, session)
+IGVgoto(sock, 'Chr1:45296-47019')
 ```
 
 # References

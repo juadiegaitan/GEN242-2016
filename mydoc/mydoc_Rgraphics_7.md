@@ -1,7 +1,7 @@
 ---
 title: Genome Graphics
 keywords: 
-last_updated: Thu May 19 12:44:33 2016
+last_updated: Mon May 23 13:41:45 2016
 ---
 
 ## `ggbio`
@@ -167,5 +167,21 @@ library("systemPipeR")
 symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"), 
             urlbase="http://myserver.edu/~username/",
             urlfile="IGVurl.txt")
+{% endhighlight %}
+
+### Controlling IGV from R
+
+Note this may not work on all systems.
+
+
+{% highlight r %}
+library(SRAdb)
+startIGV("lm")
+sock <- IGVsocket()
+session <- IGVsession(files=myurls, 
+                      sessionFile="session.xml", 
+                      genome="A. thaliana (TAIR10)")
+IGVload(sock, session)
+IGVgoto(sock, 'Chr1:45296-47019')
 {% endhighlight %}
 

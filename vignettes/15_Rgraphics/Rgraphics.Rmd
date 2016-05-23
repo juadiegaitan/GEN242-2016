@@ -1042,4 +1042,19 @@ symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"),
             urlfile="IGVurl.txt")
 ```
 
+### Controlling IGV from R
+
+Note this may not work on all systems.
+
+```{r control_igv, eval=FALSE, warning=FALSE, message=FALSE}
+library(SRAdb)
+startIGV("lm")
+sock <- IGVsocket()
+session <- IGVsession(files=myurls, 
+                      sessionFile="session.xml", 
+                      genome="A. thaliana (TAIR10)")
+IGVload(sock, session)
+IGVgoto(sock, 'Chr1:45296-47019')
+```
+
 # References

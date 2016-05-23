@@ -1,7 +1,7 @@
 ---
 title: Graphics and Data Visualization in R 
 author: "Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 19 May, 2016" 
+date: "Last update: 23 May, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -1411,6 +1411,22 @@ library("systemPipeR")
 symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"), 
             urlbase="http://myserver.edu/~username/",
             urlfile="IGVurl.txt")
+```
+
+### Controlling IGV from R
+
+Note this may not work on all systems.
+
+
+```r
+library(SRAdb)
+startIGV("lm")
+sock <- IGVsocket()
+session <- IGVsession(files=myurls, 
+                      sessionFile="session.xml", 
+                      genome="A. thaliana (TAIR10)")
+IGVload(sock, session)
+IGVgoto(sock, 'Chr1:45296-47019')
 ```
 
 # References
