@@ -79,16 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -169,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -263,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1682,30 +1660,30 @@ $('#toc').on('click', 'a', function() {
 <p>Several debugging utilities are available for R. They include:</p>
 
 <ul>
-  <li><code>traceback</code></li>
-  <li><code>browser</code></li>
-  <li><code>options(error=recover)</code></li>
-  <li><code>options(error=NULL)</code></li>
-  <li><code>debug</code></li>
+  <li><code class="highlighter-rouge">traceback</code></li>
+  <li><code class="highlighter-rouge">browser</code></li>
+  <li><code class="highlighter-rouge">options(error=recover)</code></li>
+  <li><code class="highlighter-rouge">options(error=NULL)</code></li>
+  <li><code class="highlighter-rouge">debug</code></li>
 </ul>
 
 <p>The <a href="http://www.stats.uwo.ca/faculty/murdoch/software/debuggingR/">Debugging in R page</a> provides an overview of the available resources.</p>
 
 <h2 id="regular-expressions">Regular Expressions</h2>
 
-<p>R’s regular expression utilities work similar as in other languages. To learn how to use them in R, one can consult the main help page on this topic with <code>?regexp</code>.</p>
+<p>R’s regular expression utilities work similar as in other languages. To learn how to use them in R, one can consult the main help page on this topic with <code class="highlighter-rouge">?regexp</code>.</p>
 
-<p>The grep function can be used for finding patterns in strings, here letter <code>A</code> in vector <code>month.name</code>.</p>
+<p>The grep function can be used for finding patterns in strings, here letter <code class="highlighter-rouge">A</code> in vector <code class="highlighter-rouge">month.name</code>.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">month.name</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="n">month.name</span><span class="p">)]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">month.name</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="n">month.name</span><span class="p">)]</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "April"  "August"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "April"  "August"</code></pre></figure>
 
-<p>Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes <code>\</code> need to be double escaped <code>\\</code> in R.</p>
+<p>Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes <code class="highlighter-rouge">\</code> need to be double escaped <code class="highlighter-rouge">\\</code> in R.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">gsub</span><span class="p">(</span><span class="s1">'(i.*a)'</span><span class="p">,</span> <span class="s1">'xxx_\\1'</span><span class="p">,</span> <span class="s2">"virginica"</span><span class="p">,</span> <span class="n">perl</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">gsub</span><span class="p">(</span><span class="s1">'(i.*a)'</span><span class="p">,</span> <span class="s1">'xxx_\\1'</span><span class="p">,</span> <span class="s2">"virginica"</span><span class="p">,</span> <span class="n">perl</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "vxxx_irginica"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "vxxx_irginica"</code></pre></figure>
 
 <h2 id="interpreting-a-character-string-as-expression">Interpreting a Character String as Expression</h2>
 
@@ -1713,46 +1691,46 @@ $('#toc').on('click', 'a', function() {
 
 <p>Generates vector of object names in session</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mylist</span> <span class="o">&lt;-</span> <span class="n">ls</span><span class="p">()</span>
-<span class="n">mylist</span><span class="p">[</span><span class="m">1</span><span class="p">]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mylist</span> <span class="o">&lt;-</span> <span class="n">ls</span><span class="p">()</span>
+<span class="n">mylist</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "i"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "i"</code></pre></figure>
 
 <p>Executes 1st entry as expression</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">get</span><span class="p">(</span><span class="n">mylist</span><span class="p">[</span><span class="m">1</span><span class="p">])</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">get</span><span class="p">(</span><span class="n">mylist</span><span class="p">[</span><span class="m">1</span><span class="p">])</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150</code></pre></figure>
 
 <p>Alternative approach</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">eval</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">mylist</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">eval</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">mylist</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 150</code></pre></figure>
 
 <h2 id="replacement-split-and-paste-functions-for-strings">Replacement, Split and Paste Functions for Strings</h2>
 
 <p><strong>Selected examples</strong></p>
 
-<p>Substitution with back reference which inserts in this example <code>_</code> character</p>
+<p>Substitution with back reference which inserts in this example <code class="highlighter-rouge">_</code> character</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">gsub</span><span class="p">(</span><span class="s2">"(a)"</span><span class="p">,</span><span class="s2">"\\1_"</span><span class="p">,</span> <span class="n">month.name</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">perl</span><span class="o">=</span><span class="n">T</span><span class="p">)</span> 
-<span class="n">x</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">gsub</span><span class="p">(</span><span class="s2">"(a)"</span><span class="p">,</span><span class="s2">"\\1_"</span><span class="p">,</span> <span class="n">month.name</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">perl</span><span class="o">=</span><span class="n">T</span><span class="p">)</span> 
+<span class="n">x</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "Ja_nua_ry"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "Ja_nua_ry"</code></pre></figure>
 
 <p>Split string on inserted character from above</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s2">"_"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s2">"_"</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [[1]]
-## [1] "Ja"  "nua" "ry"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [[1]]
+## [1] "Ja"  "nua" "ry"</code></pre></figure>
 
 <p>Reverse a character string by splitting first all characters into vector fields</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">paste</span><span class="p">(</span><span class="n">rev</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">NULL</span><span class="p">))),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">paste</span><span class="p">(</span><span class="n">rev</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">NULL</span><span class="p">))),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "yr_aun_aJ"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "yr_aun_aJ"</code></pre></figure>
 
 <h2 id="time-date-and-sleep">Time, Date and Sleep</h2>
 
@@ -1760,46 +1738,46 @@ $('#toc').on('click', 'a', function() {
 
 <p>Return CPU (and other) times that an expression used (here ls)</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">system.time</span><span class="p">(</span><span class="n">ls</span><span class="p">())</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">system.time</span><span class="p">(</span><span class="n">ls</span><span class="p">())</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##    user  system elapsed 
-##       0       0       0</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##    user  system elapsed 
+##       0       0       0</code></pre></figure>
 
 <p>Return the current system date and time</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">date</span><span class="p">()</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">date</span><span class="p">()</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "Wed Apr 13 16:06:06 2016"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "Wed Apr 13 16:06:06 2016"</code></pre></figure>
 
 <p>Pause execution of R expressions for a given number of seconds (e.g. in loop)</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Sys.sleep</span><span class="p">(</span><span class="m">1</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">Sys.sleep</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> </code></pre></figure>
 
 <h3 id="example">Example</h3>
 
 <h4 id="import-of-specific-file-lines-with-regular-expression">Import of Specific File Lines with Regular Expression</h4>
 
-<p>The following example demonstrates the retrieval of specific lines from an external file with a regular expression. First, an external file is created with the <code>cat</code> function, all lines of this file are imported into a vector with <code>readLines</code>, the specific elements (lines) are then retieved with the <code>grep</code> function, and the resulting lines are split into vector fields with <code>strsplit</code>.</p>
+<p>The following example demonstrates the retrieval of specific lines from an external file with a regular expression. First, an external file is created with the <code class="highlighter-rouge">cat</code> function, all lines of this file are imported into a vector with <code class="highlighter-rouge">readLines</code>, the specific elements (lines) are then retieved with the <code class="highlighter-rouge">grep</code> function, and the resulting lines are split into vector fields with <code class="highlighter-rouge">strsplit</code>.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">cat</span><span class="p">(</span><span class="n">month.name</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"zzz.txt"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\n"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">cat</span><span class="p">(</span><span class="n">month.name</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"zzz.txt"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\n"</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">readLines</span><span class="p">(</span><span class="s2">"zzz.txt"</span><span class="p">)</span>
-<span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">]</span></code></pre></div>
+<span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">]</span> </code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "January"  "February" "March"    "April"    "May"      "June"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "January"  "February" "March"    "April"    "May"      "June"</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">(</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^J"</span><span class="p">,</span> <span class="n">as.character</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">perl</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">))]</span>
-<span class="n">t</span><span class="p">(</span><span class="n">as.data.frame</span><span class="p">(</span><span class="n">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">)))</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">(</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^J"</span><span class="p">,</span> <span class="n">as.character</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">perl</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">))]</span>
+<span class="n">t</span><span class="p">(</span><span class="n">as.data.frame</span><span class="p">(</span><span class="n">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">)))</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##                 [,1]  [,2] 
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##                 [,1]  [,2] 
 ## c..Jan....ary.. "Jan" "ary"
 ## c..J....ne..    "J"   "ne" 
-## c..J....ly..    "J"   "ly"</code></pre></div>
+## c..J....ly..    "J"   "ly"</code></pre></figure>
 
 <h2 id="calling-external-software">Calling External Software</h2>
 
-<p>How to run External command-line software. Here example for running <code>blastall</code> from R</p>
+<p>How to run External command-line software. Here example for running <code class="highlighter-rouge">blastall</code> from R</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">system</span><span class="p">(</span><span class="s2">"blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">system</span><span class="p">(</span><span class="s2">"blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp"</span><span class="p">)</span></code></pre></figure>
 
 
 
@@ -1817,7 +1795,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed Apr 13 16:38:00 2016<br/> Site last generated: May 19, 2016 <br />
+<p>Page last updated:</span> Wed Apr 13 16:38:00 2016<br/> Site last generated: May 23, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

@@ -445,3 +445,13 @@ tracks(Reads=p1, Coverage=p2, Variant=p3, Transcripts=p4, heights = c(0.3, 0.2, 
 ##             urlbase="http://myserver.edu/~username/",
 ##             urlfile="IGVurl.txt")
 
+## ----control_igv, eval=FALSE, warning=FALSE, message=FALSE---------------
+## library(SRAdb)
+## startIGV("lm")
+## sock <- IGVsocket()
+## session <- IGVsession(files=myurls,
+##                       sessionFile="session.xml",
+##                       genome="A. thaliana (TAIR10)")
+## IGVload(sock, session)
+## IGVgoto(sock, 'Chr1:45296-47019')
+

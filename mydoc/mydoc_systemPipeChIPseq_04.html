@@ -79,16 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -169,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -263,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1677,45 +1655,45 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<h2 id="read-mapping-with-bowtie2">Read mapping with <code>Bowtie2</code></h2>
+<h2 id="read-mapping-with-bowtie2">Read mapping with <code class="highlighter-rouge">Bowtie2</code></h2>
 
-<p>The NGS reads of this project will be aligned with <code>Bowtie2</code> against the
+<p>The NGS reads of this project will be aligned with <code class="highlighter-rouge">Bowtie2</code> against the
 reference genome sequence (Langmead et al., 2012). The parameter settings of the
-aligner are defined in the <code>bowtieSE.param</code> file. In ChIP-Seq experiments it is
+aligner are defined in the <code class="highlighter-rouge">bowtieSE.param</code> file. In ChIP-Seq experiments it is
 usually more appropriate to eliminate reads mapping to multiple locations. To
-achieve this, users want to remove the argument setting <code>-k 50 –non-deterministic</code> 
-in the <code>bowtieSE.param</code> file.</p>
+achieve this, users want to remove the argument setting <code class="highlighter-rouge">-k 50 –non-deterministic</code> 
+in the <code class="highlighter-rouge">bowtieSE.param</code> file.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/bowtieSE.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_chip_trim.txt"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/bowtieSE.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_chip_trim.txt"</span><span class="p">)</span>
 <span class="n">sysargs</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="c1"># Command-line parameters for first FASTQ file
 </span><span class="n">moduleload</span><span class="p">(</span><span class="n">modules</span><span class="p">(</span><span class="n">args</span><span class="p">))</span> <span class="c1"># Skip if a module system is not used
 </span><span class="n">system</span><span class="p">(</span><span class="s2">"bowtie2-build ./data/tair10.fasta ./data/tair10.fasta"</span><span class="p">)</span> <span class="c1"># Indexes reference genome
 </span><span class="n">runCommandline</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_bam.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></figure>
 
 <p>Check whether all BAM files have been created</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">file.exists</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">))</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">file.exists</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">))</span></code></pre></figure>
 
 <h2 id="read-and-alignment-stats">Read and alignment stats</h2>
 
 <p>The following provides an overview of the number of reads in each sample
 and how many of them aligned to the reference.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">read_statsDF</span> <span class="o">&lt;-</span> <span class="n">alignStats</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">read_statsDF</span> <span class="o">&lt;-</span> <span class="n">alignStats</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span> 
 <span class="n">write.table</span><span class="p">(</span><span class="n">read_statsDF</span><span class="p">,</span> <span class="s2">"results/alignStats.xls"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span>
-<span class="n">read.delim</span><span class="p">(</span><span class="s2">"results/alignStats.xls"</span><span class="p">)</span></code></pre></div>
+<span class="n">read.delim</span><span class="p">(</span><span class="s2">"results/alignStats.xls"</span><span class="p">)</span></code></pre></figure>
 
 <h2 id="create-symbolic-links-for-viewing-bam-files-in-igv">Create symbolic links for viewing BAM files in IGV</h2>
 
-<p>The <code>symLink2bam</code> function creates symbolic links to view the BAM alignment files in a
+<p>The <code class="highlighter-rouge">symLink2bam</code> function creates symbolic links to view the BAM alignment files in a
 genome browser such as IGV without moving these large files to a local
 system. The corresponding URLs are written to a file with a path
-specified under <code>urlfile</code>, here <code>IGVurl.txt</code>.</p>
+specified under <code class="highlighter-rouge">urlfile</code>, here <code class="highlighter-rouge">IGVurl.txt</code>.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">symLink2bam</span><span class="p">(</span><span class="n">sysargs</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">htmldir</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"~/.html/"</span><span class="p">,</span> <span class="s2">"somedir/"</span><span class="p">),</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">symLink2bam</span><span class="p">(</span><span class="n">sysargs</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">htmldir</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"~/.html/"</span><span class="p">,</span> <span class="s2">"somedir/"</span><span class="p">),</span> 
             <span class="n">urlbase</span><span class="o">=</span><span class="s2">"http://biocluster.ucr.edu/~tgirke/"</span><span class="p">,</span> 
-            <span class="n">urlfile</span><span class="o">=</span><span class="s2">"./results/IGVurl.txt"</span><span class="p">)</span></code></pre></div>
+            <span class="n">urlfile</span><span class="o">=</span><span class="s2">"./results/IGVurl.txt"</span><span class="p">)</span></code></pre></figure>
 
 
 
@@ -1733,7 +1711,7 @@ specified under <code>urlfile</code>, here <code>IGVurl.txt</code>.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed May  4 17:24:19 2016<br/> Site last generated: May 19, 2016 <br />
+<p>Page last updated:</span> Wed May  4 17:24:19 2016<br/> Site last generated: May 23, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

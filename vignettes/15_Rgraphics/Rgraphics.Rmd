@@ -79,16 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -169,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -263,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2708,6 +2686,21 @@ symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"),
             urlfile="IGVurl.txt")
 ```
 
+### Controlling IGV from R
+
+Note this may not work on all systems.
+
+```{r control_igv, eval=FALSE, warning=FALSE, message=FALSE}
+library(SRAdb)
+startIGV("lm")
+sock <- IGVsocket()
+session <- IGVsession(files=myurls, 
+                      sessionFile="session.xml", 
+                      genome="A. thaliana (TAIR10)")
+IGVload(sock, session)
+IGVgoto(sock, 'Chr1:45296-47019')
+```
+
 # References
 
 
@@ -2725,7 +2718,7 @@ symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"),
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
- Site last generated: May 19, 2016 <br />
+ Site last generated: May 23, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

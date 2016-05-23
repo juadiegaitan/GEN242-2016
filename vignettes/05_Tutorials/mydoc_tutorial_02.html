@@ -79,16 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -169,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -263,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1684,13 +1662,13 @@ $('#toc').on('click', 'a', function() {
     <p>A compute cluster is an assembly of CPU units, so called compute nodes that work together to perform many computations in parallel. To achieve this, an internal network (e.g. Infiniband interconnect) connects the nodes to a larger unit, while a head node controls the load and traffic across the entire system.</p>
   </li>
   <li>
-    <p>Usually, users log into the head node to submit their compute requests via <code>qsub</code> to a queuing system provided by resource management and scheduling software, such as TORQUE and MAUI. The queuing system distributes the processes to the compute nodes in a controlled fashion.</p>
+    <p>Usually, users log into the head node to submit their compute requests via <code class="highlighter-rouge">qsub</code> to a queuing system provided by resource management and scheduling software, such as TORQUE and MAUI. The queuing system distributes the processes to the compute nodes in a controlled fashion.</p>
   </li>
   <li>
     <p>Because the head node controls the entire system, users should never run compute jobs on the head node directly!</p>
   </li>
   <li>
-    <p>For code testing purposes, one can log into one of the nodes with <code>qsub -I</code> and run jobs interactively. Alternatively, one can log into the test node owl via ssh.</p>
+    <p>For code testing purposes, one can log into one of the nodes with <code class="highlighter-rouge">qsub -I</code> and run jobs interactively. Alternatively, one can log into the test node owl via ssh.</p>
   </li>
 </ul>
 
@@ -1720,9 +1698,9 @@ $('#toc').on('click', 'a', function() {
 <h3 id="user-traffic">User traffic</h3>
 
 <ul>
-  <li>Compute tasks need to be submitted via <code>qsub</code></li>
+  <li>Compute tasks need to be submitted via <code class="highlighter-rouge">qsub</code></li>
   <li>Biocluster headnode only for login, not for compute tasks!</li>
-  <li>Monitor cluster activity: <code>qstat</code> or <code>qstatMonitor</code></li>
+  <li>Monitor cluster activity: <code class="highlighter-rouge">qstat</code> or <code class="highlighter-rouge">qstatMonitor</code></li>
 </ul>
 
 <h3 id="manuals">Manuals</h3>
@@ -1738,7 +1716,7 @@ $('#toc').on('click', 'a', function() {
   <li>Login command on OS X or Linux</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">ssh -X user@biocluster.ucr.edu</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ssh -X user@biocluster.ucr.edu</code></pre></figure>
 
 <p>Type password</p>
 
@@ -1747,7 +1725,7 @@ $('#toc').on('click', 'a', function() {
     <p>Windows: provide same information in <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">Putty</a></p>
 
     <ul>
-      <li>Host name: <code>biocluster.ucr.edu</code></li>
+      <li>Host name: <code class="highlighter-rouge">biocluster.ucr.edu</code></li>
       <li>User name: …</li>
       <li>Password: …</li>
     </ul>
@@ -1758,43 +1736,43 @@ $('#toc').on('click', 'a', function() {
 
 <p>Finding help</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">man &lt;program_name&gt;</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">man &lt;program_name&gt;</code></pre></figure>
 
 <p>List content of current directory</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">ls</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ls</code></pre></figure>
 
 <p>Print current working directory</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">pwd</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">pwd</span></code></pre></figure>
 
 <p>Search in files and directories</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">grep</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">grep</code></pre></figure>
 
 <p>Word count</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">wc</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">wc</code></pre></figure>
 
 <p>Create directory</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">mkdir</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">mkdir</code></pre></figure>
 
 <p>Delete files and directories</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">rm</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">rm</code></pre></figure>
 
 <p>Move and rename files</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">mv</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">mv</code></pre></figure>
 
-<p>Copy files from internet to <code>pwd</code></p>
+<p>Copy files from internet to <code class="highlighter-rouge">pwd</code></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">wget</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">wget</code></pre></figure>
 
 <p>Viewing files</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">less</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">less</code></pre></figure>
 
 <h2 id="file-exchange">File Exchange</h2>
 
@@ -1808,42 +1786,42 @@ $('#toc').on('click', 'a', function() {
 
 <p><strong>SCP command-line tool</strong></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">scp file user@remotehost:/home/user/ <span class="c"># From local to remote </span>
-scp user@remotehost:/home/user/file . <span class="c"># From remote to local</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">scp file user@remotehost:/home/user/ <span class="c"># From local to remote </span>
+scp user@remotehost:/home/user/file . <span class="c"># From remote to local </span></code></pre></figure>
 
 <h2 id="std-inouterr-redirect--wildcards">STD IN/OUT/ERR, Redirect &amp; Wildcards</h2>
 
-<p>Wildcard <code>*</code> to specify many files</p>
+<p>Wildcard <code class="highlighter-rouge">*</code> to specify many files</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">file.<span class="k">*</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">file.<span class="k">*</span>                        </code></pre></figure>
 
-<p>Redirect <code>ls</code> output to file</p>
+<p>Redirect <code class="highlighter-rouge">ls</code> output to file</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">ls &gt; file</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ls &gt; file                     </code></pre></figure>
 
 <p>Specify file as input to command</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">command</span> &lt; myfile</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">command</span> &lt; myfile              </code></pre></figure>
 
 <p>Append output of command to file</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">command</span> &gt;&gt; myfile</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">command</span> &gt;&gt; myfile             </code></pre></figure>
 
-<p>Pipe <code>STDOUT</code> of one command to another command</p>
+<p>Pipe <code class="highlighter-rouge">STDOUT</code> of one command to another command</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">command1 | command2</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">command1 | command2     </code></pre></figure>
 
 <p>Turn off progress info</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">command</span> &gt; /dev/null</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">command</span> &gt; /dev/null </code></pre></figure>
 
-<p>Pipe output of <code>grep</code> to <code>wc</code></p>
+<p>Pipe output of <code class="highlighter-rouge">grep</code> to <code class="highlighter-rouge">wc</code></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">grep pattern file | wc</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">grep pattern file | wc        </code></pre></figure>
 
-<p>Print <code>STDERR</code> to file</p>
+<p>Print <code class="highlighter-rouge">STDERR</code> to file</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">grep pattern nonexistingfile 2 &gt; mystderr</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">grep pattern nonexistingfile 2 &gt; mystderr </code></pre></figure>
 
 <h2 id="homework-assignment-hw2">Homework Assignment (HW2)</h2>
 
@@ -1853,14 +1831,14 @@ scp user@remotehost:/home/user/file . <span class="c"># From remote to local</sp
 
 <p>List directories and files</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">ls -al</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ls -al </code></pre></figure>
 
-<p>The previous command shows something like this for each file/dir: <code>drwxrwxrwx</code>. The 
+<p>The previous command shows something like this for each file/dir: <code class="highlighter-rouge">drwxrwxrwx</code>. The 
 meaning of this syntax is as follows:</p>
 
 <ul>
-  <li><code>d</code>: directory</li>
-  <li><code>rwx</code>: read, write and execute permissions, respectively
+  <li><code class="highlighter-rouge">d</code>: directory</li>
+  <li><code class="highlighter-rouge">rwx</code>: read, write and execute permissions, respectively
     <ul>
       <li>first triplet: user permissions (u)</li>
       <li>second triplet: group permissions (g)</li>
@@ -1871,22 +1849,22 @@ meaning of this syntax is as follows:</p>
 
 <p>Example for assigning write and execute permissions to user, group and world</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">chmod ugo+rx my_file</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">chmod ugo+rx my_file</code></pre></figure>
 
 <ul>
-  <li><code>+</code> causes the permissions selected to be added</li>
-  <li><code>-</code> causes them to be removed</li>
-  <li><code>=</code> causes them to be the only permissions that the file has.</li>
+  <li><code class="highlighter-rouge">+</code> causes the permissions selected to be added</li>
+  <li><code class="highlighter-rouge">-</code> causes them to be removed</li>
+  <li><code class="highlighter-rouge">=</code> causes them to be the only permissions that the file has.</li>
 </ul>
 
 <p>Syntax for changing user &amp; group ownership</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">chown &lt;user&gt;:&lt;group&gt; &lt;file or dir&gt;</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">chown &lt;user&gt;:&lt;group&gt; &lt;file or dir&gt; </code></pre></figure>
 
 <h2 id="symbolic-links">Symbolic Links</h2>
 <p>Symbolic links are short nicknames to files and directories that save typing of their full paths.</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">ln -s original_filename new_nickname</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">ln -s original_filename new_nickname</code></pre></figure>
 
 <h2 id="software-and-module-system">Software and module system</h2>
 
@@ -1901,124 +1879,124 @@ meaning of this syntax is as follows:</p>
 
 <p>Print available modules</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">module avail</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">module avail</code></pre></figure>
 
 <p>Print available modules starting with R</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">module avail R</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">module avail R</code></pre></figure>
 
 <p>Load default module R</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">module load R</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">module load R</code></pre></figure>
 
 <p>Load specific module R version</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">module load R/3.2.2</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">module load R/3.2.2</code></pre></figure>
 
 <p>List loaded modules</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">module list</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">module list</code></pre></figure>
 
 <p>Unload module R</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">module unload R</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">module unload R</code></pre></figure>
 
 <p>Unload specific module R</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">module unload R/3.2.3-dev</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">module unload R/3.2.3-dev</code></pre></figure>
 
 <h2 id="big-data-storage">Big data storage</h2>
 
 <p>Each user account on biocluster comes only with 20GB of disk space. Much more disk space is 
-available in a dedicated <code>bigdata</code> directory. How much space depends on the subscription 
-of each user group. The path of <code>bigdata</code> and <code>bigdata-shared</code> is as follows:</p>
+available in a dedicated <code class="highlighter-rouge">bigdata</code> directory. How much space depends on the subscription 
+of each user group. The path of <code class="highlighter-rouge">bigdata</code> and <code class="highlighter-rouge">bigdata-shared</code> is as follows:</p>
 
 <ul>
-  <li><code>/bigdata/labname/username</code></li>
-  <li><code>/bigdata/labname/shared</code></li>
+  <li><code class="highlighter-rouge">/bigdata/labname/username</code></li>
+  <li><code class="highlighter-rouge">/bigdata/labname/shared</code></li>
 </ul>
 
-<p>All lab members share the same bigdata pool. The course number <code>gen242</code> is used as <code>labname</code>
+<p>All lab members share the same bigdata pool. The course number <code class="highlighter-rouge">gen242</code> is used as <code class="highlighter-rouge">labname</code>
 for user accounts adminstered under GEN242.</p>
 
-<p>The disk usage of <code>home</code> and <code>bigdata</code> can be monitored on the <a href="https://dashboard.bioinfo.ucr.edu/">Biocluster Dashboard</a>.</p>
+<p>The disk usage of <code class="highlighter-rouge">home</code> and <code class="highlighter-rouge">bigdata</code> can be monitored on the <a href="https://dashboard.bioinfo.ucr.edu/">Biocluster Dashboard</a>.</p>
 
 <h2 id="queuing-system">Queuing system</h2>
 
 <p>Biocluster uses Torque/Maui as queuing and load balancing system. To control user traffic, any 
-type of compute intensive jobs need to be submitted via the <code>qsub</code> (see below) to the compute 
+type of compute intensive jobs need to be submitted via the <code class="highlighter-rouge">qsub</code> (see below) to the compute 
 nodes. Much more detailed information on this topic is available in the biocluster manual 
 <a href="http://manuals.bioinformatics.ucr.edu/home/hpc">here</a>.</p>
 
-<h3 id="job-submission-with-qsub">Job submission with <code>qsub</code></h3>
+<h3 id="job-submission-with-qsub">Job submission with <code class="highlighter-rouge">qsub</code></h3>
 
-<p>Basic job submission with <code>qsub</code> without a submission script</p>
+<p>Basic job submission with <code class="highlighter-rouge">qsub</code> without a submission script</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> ’command_args’ | qsub</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nb">echo</span> ’command_args’ | qsub</code></pre></figure>
 
 <p>Alternatively, one can submit jobs via a submission script as shown below. This much more
 flexible approach is preferred for submitting scripts from the command-line.</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub script_name.sh</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qsub script_name.sh</code></pre></figure>
 
-<p>Sample submission script, here called <code>script_name.sh</code> to run <code>my_script.R</code></p>
+<p>Sample submission script, here called <code class="highlighter-rouge">script_name.sh</code> to run <code class="highlighter-rouge">my_script.R</code></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#!/bin/bash</span>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#!/bin/bash</span>
 <span class="nb">cd</span> <span class="nv">$PBS_O_WORKDIR</span>
-Rscript my_script.R</code></pre></div>
+Rscript my_script.R</code></pre></figure>
 
 <p>Interactive session: logs user into node</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -I</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -I</code></pre></figure>
 
 <p>Interactive session with specific resource requests</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q batch -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 -I</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q batch -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 -I</code></pre></figure>
 
-<p>Submit job to <code>batch</code> queue with specific resource requests (queue, nodes, cpu, memory, walltime)</p>
+<p>Submit job to <code class="highlighter-rouge">batch</code> queue with specific resource requests (queue, nodes, cpu, memory, walltime)</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q batch -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 script_name.sh</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q batch -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 script_name.sh</code></pre></figure>
 
-<p>Submit job to <code>highmem</code> queue with specific resource requests</p>
+<p>Submit job to <code class="highlighter-rouge">highmem</code> queue with specific resource requests</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q highmem -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 script_name.sh</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qsub -q highmem -l <span class="nv">nodes</span><span class="o">=</span>1:ppn<span class="o">=</span>2,mem<span class="o">=</span>8gb,walltime<span class="o">=</span>03:00:00 script_name.sh</code></pre></figure>
 
-<p><code>STDOUT</code> and <code>STDERROR</code> files generate by each job</p>
+<p><code class="highlighter-rouge">STDOUT</code> and <code class="highlighter-rouge">STDERROR</code> files generate by each job</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">SCRIPTNAME.sh.oJOBID or STDIN.oJOBID
-SCRIPTNAME.sh.eJOBID or STDIN.eJOBID</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">SCRIPTNAME.sh.oJOBID or STDIN.oJOBID
+SCRIPTNAME.sh.eJOBID or STDIN.eJOBID</code></pre></figure>
 
-<h3 id="monitoring-jobs-with-qstat">Monitoring jobs with <code>qstat</code></h3>
+<h3 id="monitoring-jobs-with-qstat">Monitoring jobs with <code class="highlighter-rouge">qstat</code></h3>
 
 <p>List all jobs in queue</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qstat</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qstat</code></pre></figure>
 
 <p>List jobs of a specific user</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qstat -u &lt;user&gt;</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qstat -u &lt;user&gt;</code></pre></figure>
 
 <p>Print more detailed information about jobs</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qstat -tf1</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qstat -tf1</code></pre></figure>
 
 <p>Custom command to summarize and visualize cluster activity</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qstatMonitor</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qstatMonitor</code></pre></figure>
 
 <h3 id="deleting-and-altering-jobs">Deleting and altering jobs</h3>
 
 <p>Delete a single job</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qdel &lt;JOBID&gt; <span class="c"># Delete single job</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qdel &lt;JOBID&gt; <span class="c"># Delete single job</span></code></pre></figure>
 
 <p>Delete all jobs of a user</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qselect -u &lt;user&gt; | xargs qdel <span class="c"># All jobs of a user</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qselect -u &lt;user&gt; | xargs qdel <span class="c"># All jobs of a user</span></code></pre></figure>
 
-<p>Altering jobs with <code>qalter</code> (here walltime)</p>
+<p>Altering jobs with <code class="highlighter-rouge">qalter</code> (here walltime)</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">qalter -l <span class="nv">walltime</span><span class="o">=</span>8:00 &lt;JOBID&gt;</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">qalter -l <span class="nv">walltime</span><span class="o">=</span>8:00 &lt;JOBID&gt;</code></pre></figure>
 
 <h2 id="textcode-editor-options">Text/code editor options</h2>
 
@@ -2041,34 +2019,34 @@ there is a lot of value of knowing how to work in an environment that is not
 restricted to a specific programming language. Therefore, this class embraces
 RStudio where it is useful, but for working on remote systems like biocluster, it 
 uses Vim and Tmux. Both are useful for many programming languages.
-Combinded with the <code>vim-r</code> plugin they also provide a powerful command-line working
+Combinded with the <code class="highlighter-rouge">vim-r</code> plugin they also provide a powerful command-line working
 environment for R. The following provides a brief introduction to this environment.</p>
 
 <h3 id="vim-overview">Vim overview</h3>
 
-<p>The following opens a file (here <code>myfile</code>) with vim</p>
+<p>The following opens a file (here <code class="highlighter-rouge">myfile</code>) with vim</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">vim myfile.txt</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">vim myfile.txt</code></pre></figure>
 
 <p>Once you are in Vim the most important commands are:</p>
 
 <ul>
-  <li><code>i</code>: The <code>i</code> key brings you into the insert mode for typing.</li>
-  <li><code>Esc</code>: The <code>Esc</code> key brings you out of the insert mode.</li>
-  <li><code>:</code>: The <code>:</code> key starts the command mode at the bottom of the screen.</li>
+  <li><code class="highlighter-rouge">i</code>: The <code class="highlighter-rouge">i</code> key brings you into the insert mode for typing.</li>
+  <li><code class="highlighter-rouge">Esc</code>: The <code class="highlighter-rouge">Esc</code> key brings you out of the insert mode.</li>
+  <li><code class="highlighter-rouge">:</code>: The <code class="highlighter-rouge">:</code> key starts the command mode at the bottom of the screen.</li>
 </ul>
 
-<p>Use the arrow keys to move your cursor in the text. Using <code>Fn Up/Down key</code> allows to page through
-the text quicker. In the following command overview, all commands starting with <code>:</code> need to be typed in the command mode. 
-All other commands are typed in the normal mode after pushing the <code>Esc</code> key.</p>
+<p>Use the arrow keys to move your cursor in the text. Using <code class="highlighter-rouge">Fn Up/Down key</code> allows to page through
+the text quicker. In the following command overview, all commands starting with <code class="highlighter-rouge">:</code> need to be typed in the command mode. 
+All other commands are typed in the normal mode after pushing the <code class="highlighter-rouge">Esc</code> key.</p>
 
 <p>Important modifier keys to control vim</p>
 
 <ul>
-  <li><code>:w</code>: save changes to file. If you are in editing mode you have to hit <code>Esc</code> first.</li>
-  <li><code>:q</code>: quit file that has not been changed</li>
-  <li><code>:wq</code>: save and quit file</li>
-  <li><code>:!q</code>: quit file without saving any changes</li>
+  <li><code class="highlighter-rouge">:w</code>: save changes to file. If you are in editing mode you have to hit <code class="highlighter-rouge">Esc</code> first.</li>
+  <li><code class="highlighter-rouge">:q</code>: quit file that has not been changed</li>
+  <li><code class="highlighter-rouge">:wq</code>: save and quit file</li>
+  <li><code class="highlighter-rouge">:!q</code>: quit file without saving any changes</li>
 </ul>
 
 <h3 id="useful-resources-for-learning-vim">Useful resources for learning vim</h3>
@@ -2088,50 +2066,50 @@ All other commands are typed in the normal mode after pushing the <code>Esc</cod
 <h3 id="basics">Basics</h3>
 
 <p>Tmux is a terminal multiplexer that allows to split terminal windows and to deattach/reattach to
-existing terminal sessions. Combinded with the <code>vim-r</code> plugin it provides a powerful command-line working 
+existing terminal sessions. Combinded with the <code class="highlighter-rouge">vim-r</code> plugin it provides a powerful command-line working 
 environment for R where users can send code from a script to the R console or command-line.
-Both tmux and the <code>vim-r</code> plugin need to be installed on a system. On Biocluster both are configured
+Both tmux and the <code class="highlighter-rouge">vim-r</code> plugin need to be installed on a system. On Biocluster both are configured
 in each user account. A detailed user manual is available <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r/vim-r">here</a>.
 The following give a short introduction into the basic usage:</p>
 
 <p><strong>1. Start tmux session</strong></p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">tmux <span class="c"># starts a new tmux session </span>
-tmux a <span class="c">#  attaches to an existing session</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">tmux <span class="c"># starts a new tmux session </span>
+tmux a <span class="c">#  attaches to an existing session </span></code></pre></figure>
 
 <p><strong>2. Open R script in vim</strong></p>
 
-<p>This can be any of these file types: <code>*.R</code>, <code>*.Rnw</code> or <code>*.Rmd</code>.</p>
+<p>This can be any of these file types: <code class="highlighter-rouge">*.R</code>, <code class="highlighter-rouge">*.Rnw</code> or <code class="highlighter-rouge">*.Rmd</code>.</p>
 
-<div class="highlight"><pre><code class="language-sh" data-lang="sh">vim myscript.R</code></pre></div>
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">vim myscript.R</code></pre></figure>
 
-<p><strong>3. Open vim-connected R session by pressing the <code>F2</code> key</strong></p>
+<p><strong>3. Open vim-connected R session by pressing the <code class="highlighter-rouge">F2</code> key</strong></p>
 
-<p>This will open an R session in a separate tmux pane. Note, in the provided <code>.tmux.conf</code> file 
-the command key binding has been reassigned from the tmux default <code>Ctrl-b</code> to <code>Ctrl-a</code>, 
-and the shortcut for starting R from vim has be reassigned from <code>\rf</code> to <code>F2</code> in the <code>.vimrc</code> 
-file. The command key binding <code>Ctrl-a</code> is the most important key sequence in order to move 
-around in tmux. For instance, the key sequence <code>Ctrl-a o</code> will switch between the vim and R 
-panes, and <code>Ctrl-a Ctrl-o</code> will swap the two panes.</p>
+<p>This will open an R session in a separate tmux pane. Note, in the provided <code class="highlighter-rouge">.tmux.conf</code> file 
+the command key binding has been reassigned from the tmux default <code class="highlighter-rouge">Ctrl-b</code> to <code class="highlighter-rouge">Ctrl-a</code>, 
+and the shortcut for starting R from vim has be reassigned from <code class="highlighter-rouge">\rf</code> to <code class="highlighter-rouge">F2</code> in the <code class="highlighter-rouge">.vimrc</code> 
+file. The command key binding <code class="highlighter-rouge">Ctrl-a</code> is the most important key sequence in order to move 
+around in tmux. For instance, the key sequence <code class="highlighter-rouge">Ctrl-a o</code> will switch between the vim and R 
+panes, and <code class="highlighter-rouge">Ctrl-a Ctrl-o</code> will swap the two panes.</p>
 
 <p><strong>4. Send R code vim to the R pane</strong></p>
 
 <p>Single lines of code can be sent from vim to the R console by pressing the space bar. To send 
 several lines at once, one can select them in vim’s visual mode and then hit the space bar. 
-Please note, the default command for sending code lines in the vim-r-plugin is <code>\l</code>. This key 
-binding has been remapped in the provided <code>.vimrc</code> file to the space bar. Most other key 
-bindings (shortcuts) still start with the <code>\</code> as LocalLeader, <em>e.g.</em> <code>\rh</code> opens the help for 
+Please note, the default command for sending code lines in the vim-r-plugin is <code class="highlighter-rouge">\l</code>. This key 
+binding has been remapped in the provided <code class="highlighter-rouge">.vimrc</code> file to the space bar. Most other key 
+bindings (shortcuts) still start with the <code class="highlighter-rouge">\</code> as LocalLeader, <em>e.g.</em> <code class="highlighter-rouge">\rh</code> opens the help for 
 a function/object where the curser is located in vim. More details on this are given below.</p>
 
 <h3 id="important-keybindings-for-vim">Important keybindings for vim</h3>
 
 <ul>
-  <li><code>&lt;F2&gt;</code>: opens vim-connected R session; remapped in <code>.vimrc</code> from default <code>\rf</code></li>
-  <li><code>&lt;spacebar&gt;</code>: sends code from vim to R; here remapped in <code>.vimrc</code> from default <code>\l</code></li>
-  <li><code>:split</code> or <code>:vsplit</code>: splits viewport (similar to pane split in tmux)</li>
-  <li><code>Ctrl-w-w</code>: jumps cursor to next viewport</li>
-  <li><code>Ctrl-w-r</code>: swaps viewports</li>
-  <li><code>Ctrl-s</code> and <code>Ctrl-x</code>: freezes/unfreezes vim (some systems)</li>
+  <li><code class="highlighter-rouge">&lt;F2&gt;</code>: opens vim-connected R session; remapped in <code class="highlighter-rouge">.vimrc</code> from default <code class="highlighter-rouge">\rf</code></li>
+  <li><code class="highlighter-rouge">&lt;spacebar&gt;</code>: sends code from vim to R; here remapped in <code class="highlighter-rouge">.vimrc</code> from default <code class="highlighter-rouge">\l</code></li>
+  <li><code class="highlighter-rouge">:split</code> or <code class="highlighter-rouge">:vsplit</code>: splits viewport (similar to pane split in tmux)</li>
+  <li><code class="highlighter-rouge">Ctrl-w-w</code>: jumps cursor to next viewport</li>
+  <li><code class="highlighter-rouge">Ctrl-w-r</code>: swaps viewports</li>
+  <li><code class="highlighter-rouge">Ctrl-s</code> and <code class="highlighter-rouge">Ctrl-x</code>: freezes/unfreezes vim (some systems)</li>
 </ul>
 
 <h3 id="important-keybindings-for-tmux">Important keybindings for tmux</h3>
@@ -2139,33 +2117,33 @@ a function/object where the curser is located in vim. More details on this are g
 <p><strong>Pane-level commands</strong></p>
 
 <ul>
-  <li><code>Ctrl-a %</code>: splits pane vertically</li>
-  <li><code>Ctrl-a "</code>: splits pane horizontally</li>
-  <li><code>Ctrl-a-o</code>: jumps cursor to next pane</li>
-  <li><code>Ctrl-a Ctrl-o</code>: swaps panes</li>
-  <li><code>Ctrl-a &lt;space bar&gt;</code>: rotates pane arrangement</li>
+  <li><code class="highlighter-rouge">Ctrl-a %</code>: splits pane vertically</li>
+  <li><code class="highlighter-rouge">Ctrl-a "</code>: splits pane horizontally</li>
+  <li><code class="highlighter-rouge">Ctrl-a-o</code>: jumps cursor to next pane</li>
+  <li><code class="highlighter-rouge">Ctrl-a Ctrl-o</code>: swaps panes</li>
+  <li><code class="highlighter-rouge">Ctrl-a &lt;space bar&gt;</code>: rotates pane arrangement</li>
 </ul>
 
 <p><strong>Window-level comands</strong></p>
 
 <ul>
-  <li><code>Ctrl-a n</code>: switches to next tmux window</li>
-  <li><code>Ctrl-a Ctrl-a</code>: switches to previous tmux window</li>
-  <li><code>Ctrl-a c</code>: creates a new tmux window</li>
-  <li><code>Ctrl-a 1</code>: switches to specific tmux window selected by number</li>
+  <li><code class="highlighter-rouge">Ctrl-a n</code>: switches to next tmux window</li>
+  <li><code class="highlighter-rouge">Ctrl-a Ctrl-a</code>: switches to previous tmux window</li>
+  <li><code class="highlighter-rouge">Ctrl-a c</code>: creates a new tmux window</li>
+  <li><code class="highlighter-rouge">Ctrl-a 1</code>: switches to specific tmux window selected by number</li>
 </ul>
 
 <p><strong>Session-level comands</strong></p>
 
 <ul>
-  <li><code>Ctrl-a d</code>: detaches from current session</li>
-  <li><code>Ctrl-a s</code>: switch between available tmux sesssions</li>
-  <li><code>$ tmux new -s &lt;name&gt;</code>: starts new session with a specific name</li>
-  <li><code>$ tmux ls</code>: lists available tmux session(s)</li>
-  <li><code>$ tmux attach -t &lt;id&gt;</code>: attaches to specific tmux session</li>
-  <li><code>$ tmux attach</code>: reattaches to session</li>
-  <li><code>$ tmux kill-session -t &lt;id&gt;</code>: kills a specific tmux session</li>
-  <li><code>Ctrl-a : kill-session</code>: kills a session from tmux command mode that can be initiated with <code>Ctrl-a :</code></li>
+  <li><code class="highlighter-rouge">Ctrl-a d</code>: detaches from current session</li>
+  <li><code class="highlighter-rouge">Ctrl-a s</code>: switch between available tmux sesssions</li>
+  <li><code class="highlighter-rouge">$ tmux new -s &lt;name&gt;</code>: starts new session with a specific name</li>
+  <li><code class="highlighter-rouge">$ tmux ls</code>: lists available tmux session(s)</li>
+  <li><code class="highlighter-rouge">$ tmux attach -t &lt;id&gt;</code>: attaches to specific tmux session</li>
+  <li><code class="highlighter-rouge">$ tmux attach</code>: reattaches to session</li>
+  <li><code class="highlighter-rouge">$ tmux kill-session -t &lt;id&gt;</code>: kills a specific tmux session</li>
+  <li><code class="highlighter-rouge">Ctrl-a : kill-session</code>: kills a session from tmux command mode that can be initiated with <code class="highlighter-rouge">Ctrl-a :</code></li>
 </ul>
 
 
@@ -2184,7 +2162,7 @@ a function/object where the curser is located in vim. More details on this are g
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> 29-Mar-16<br/> Site last generated: May 19, 2016 <br />
+<p>Page last updated:</span> 29-Mar-16<br/> Site last generated: May 23, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
