@@ -711,7 +711,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. Session Info</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. R Markdown</a></li>
                     
 
                     
@@ -720,7 +720,16 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_16.html">16. References</a></li>
+                    <li><a href="../mydoc/mydoc_Rbasics_16.html">16. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_17.html">17. References</a></li>
                     
 
                     
@@ -2659,6 +2668,20 @@ write.table(my_mw_target4, file="my_file.xls", quote=F, sep="\t", col.names = NA
 ```{r source_example, eval=FALSE}
 source("exerciseRbasics.R")
 ```
+
+# R Markdown
+
+## Overview
+
+R Markdown combines markdown (an easy to write plain text format)
+with embedded R code chunks. When compiling R Markdown reports, the 
+code components can be evaluated so that both the code and its output 
+can be included in the final document. This way reports are highly 
+reproducible by allowing to automatically regenerate them when the 
+underlying R code or data changes. R Markdown documents can be rendered to
+various formats including HTML and PDF. For rendering documents, the environment
+uses `knitr` and `pandoc`. Historically, R Markdown is an extension of the 
+older `Sweave/Latex` environment.
 
 
 # Session Info

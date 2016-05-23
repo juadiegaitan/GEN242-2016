@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>HW2 - Introduction to Biocluster and Linux  | GEN242</title>
+<title>References  | GEN242</title>
 <link rel="stylesheet" type="text/css" href="../css/syntax.css">
 <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
 <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">-->
@@ -163,7 +163,7 @@
 <script>
 function SendLinkByMail(href) {
 var subject= "GEN242 feedback";
-var body = "I have some feedback about the HW2 - Introduction to Biocluster and Linux page: ";
+var body = "I have some feedback about the References page: ";
 body += window.location.href;
 body += "";
 var uri = "mailto:?subject=";
@@ -190,7 +190,7 @@ window.location.href = uri;
                             searchInput: document.getElementById('search-input'),
                             resultsContainer: document.getElementById('results-container'),
                             dataSource: '../search.json',
-                            searchResultTemplate: '<li><a href="{url}" title="HW2 - Introduction to Biocluster and Linux">{title}</a></li>',
+                            searchResultTemplate: '<li><a href="{url}" title="References">{title}</a></li>',
                         noResultsText: 'No results found.',
                                 limit: 10,
                                 fuzzy: true,
@@ -501,7 +501,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li class="active"><a href="../mydoc/mydoc_homework_02.html">HW2 - Biocluster/Linux</a></li>
+                    <li><a href="../mydoc/mydoc_homework_02.html">HW2 - Biocluster/Linux</a></li>
                     
 
                     
@@ -729,7 +729,7 @@ window.location.href = uri;
                     
                     
                     
-                    <li><a href="../mydoc/mydoc_Rbasics_17.html">17. References</a></li>
+                    <li class="active"><a href="../mydoc/mydoc_Rbasics_17.html">17. References</a></li>
                     
 
                     
@@ -1629,7 +1629,7 @@ window.location.href = uri;
             <div class="col-md-9">
                 
                 <div class="post-header">
-   <h1 class="post-title-main">HW2 - Introduction to Biocluster and Linux</h1>
+   <h1 class="post-title-main">References</h1>
 </div>
 
 <div class="post-content">
@@ -1664,58 +1664,7 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<h2 id="topic-linux-basics">Topic: Linux Basics</h2>
-
-<p>(1) Download Halobacterium proteome and inspect it</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">wget http://biocluster.ucr.edu/~tgirke/Linux.sh <span class="c"># downloads code from this slide</span>
-module load ncbi-blast/2.2.26
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/genbank/archaea/Halobacterium_salinarum/representative/GCA_000069025.1_ASM6902v1/GCA_000069025.1_ASM6902v1_protein.faa.gz
-gunzip GCA_000069025.1_ASM6902v1_protein.faa.gz
-mv GCA_000069025.1_ASM6902v1_protein.faa halobacterium.faa
-less halobacterium.faa <span class="c"># press q to quit</span></code></pre></figure>
-
-<p>(2) How many protein sequences are stored in the downloaded file?</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">grep <span class="s1">'&gt;'</span> halobacterium.faa | wc
-grep <span class="s1">'^&gt;'</span> halobacterium.faa --count</code></pre></figure>
-
-<p>(3) How many proteins contain the pattern <code class="highlighter-rouge">WxHxxH</code> or <code class="highlighter-rouge">WxHxxHH</code>?</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">egrep <span class="s1">'W.H..H{1,2}'</span> halobacterium.faa --count</code></pre></figure>
-
-<p>(4) Use <code class="highlighter-rouge">less</code> to find IDs for pattern matches or use <code class="highlighter-rouge">awk</code></p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> halobacterium.faa | less
-awk --posix -v <span class="nv">RS</span><span class="o">=</span><span class="s1">'&gt;'</span> <span class="s1">'/W.H..(H){1,2}/ { print "&gt;" $0;}'</span> halobacterium.faa | grep <span class="s1">'^&gt;'</span> | cut -c 2- | cut -f 1 -d<span class="se">\ </span>&gt; myIDs</code></pre></figure>
-
-<p>(5) Create a BLASTable database with <code class="highlighter-rouge">formatdb</code></p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">formatdb -i halobacterium.faa -p T -o</code></pre></figure>
-
-<p>(6) Query BLASTable database by IDs stored in a file (<em>e.g.</em> <code class="highlighter-rouge">myIDs</code>)</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">fastacmd -d halobacterium.faa -i myIDs &gt; myseq.fasta</code></pre></figure>
-
-<p>(7) Run BLAST search for sequences stored in <code class="highlighter-rouge">myseq.fasta</code></p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">blastall -p blastp -i myseq.fasta -d halobacterium.faa -o blastp.out -e 1e-6 -v 10 -b 10
-blastall -p blastp -i myseq.fasta -d halobacterium.faa -m 8 -e 1e-6 &gt; blastp.tab</code></pre></figure>
-
-<p>Additional exercise material in <a href="http://manuals.bioinformatics.ucr.edu/home/linux-basics#TOC-Exercises">Linux Manual</a></p>
-
-<h2 id="homework-assignment">Homework assignment</h2>
-
-<p>Perform above analysis on the following <em>Escherichia coli</em> strain: ftp://ftp.ncbi.nih.gov/genomes/genbank/bacteria/Escherichia_coli/latest_assembly_versions/GCA_000461395.1_Esch_coli_UMEA_3592-1_V1/GCA_000461395.1_Esch_coli_UMEA_3592-1_V1_protein.faa.gz. 
-Record result from final BLAST command (with <code class="highlighter-rouge">-m 8</code>) in text file.</p>
-
-<h2 id="homework-submission">Homework submission</h2>
-
-<p>Upload result file to your private course GitHub repository under <code class="highlighter-rouge">Homework/HW2/HW2.txt</code>.</p>
-
-<h2 id="due-date">Due date</h2>
-
-<p>Most homeworks will be due one week after they are assigned. This one is due on Thu, April 7th at 6:00 PM.</p>
+<p>.</p>
 
 
 <div class="tags">
@@ -1732,7 +1681,7 @@ Record result from final BLAST command (with <code class="highlighter-rouge">-m 
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> 07-Mar-16<br/> Site last generated: May 23, 2016 <br />
+<p>Page last updated:</span> Mon May 23 14:05:23 2016<br/> Site last generated: May 23, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

@@ -173,7 +173,7 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/home.html",
+"url": "../vignettes/01_Home/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
@@ -184,7 +184,7 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/home.html",
+"url": "../mydoc/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
@@ -569,7 +569,7 @@
 
 
 {
-"title": "Session Info",
+"title": "R Markdown",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_15.html",
@@ -580,10 +580,21 @@
 
 
 {
-"title": "References",
+"title": "Session Info",
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_Rbasics_16.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "References",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_Rbasics_17.html",
 "summary": ""
 },
 
@@ -858,7 +869,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_01.html",
+"url": "../mydoc/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -869,18 +880,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "HW2 - Introduction to Biocluster and Linux",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -892,6 +892,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_homework_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "HW2 - Introduction to Biocluster and Linux",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -946,7 +957,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Internal/mydoc_internal.html",
+"url": "../mydoc/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -957,19 +968,8 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
-},
-
-
-
-
-{
-"title": "Student Paper Presentations",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_paper_presentations.html",
-"summary": ""
 },
 
 
@@ -987,10 +987,10 @@
 
 
 {
-"title": "Overview of Course Projects",
+"title": "Student Paper Presentations",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_00.html",
+"url": "../mydoc/mydoc_paper_presentations.html",
 "summary": ""
 },
 
@@ -1002,6 +1002,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/17_Projects/mydoc_project_00.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Overview of Course Projects",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -1034,7 +1045,7 @@
 "title": "ChIP-Seq2 - Peak Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_02.html",
+"url": "../mydoc/mydoc_project_02.html",
 "summary": ""
 },
 
@@ -1045,18 +1056,7 @@
 "title": "ChIP-Seq2 - Peak Callers",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_02.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "RNA-Seq1 - RNA-Seq Aligners",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_03.html",
+"url": "../vignettes/17_Projects/mydoc_project_02.html",
 "summary": ""
 },
 
@@ -1068,6 +1068,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_project_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "RNA-Seq1 - RNA-Seq Aligners",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/17_Projects/mydoc_project_03.html",
 "summary": ""
 },
 
@@ -1122,7 +1133,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_06.html",
+"url": "../vignettes/17_Projects/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -1133,7 +1144,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_06.html",
+"url": "../mydoc/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -1166,7 +1177,7 @@
 "title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/03_Schedule/mydoc_schedule.html",
+"url": "../mydoc/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -1177,7 +1188,7 @@
 "title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_schedule.html",
+"url": "../vignettes/03_Schedule/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -1364,7 +1375,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_09.html",
+"url": "../vignettes/04_Slides/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1375,18 +1386,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_09.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Sequence Analysis with R and Bioconductor",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_10.html",
+"url": "../mydoc/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1398,6 +1398,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_10.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Sequence Analysis with R and Bioconductor",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_10.html",
 "summary": ""
 },
 
@@ -1430,7 +1441,7 @@
 "title": "Introduction to NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_12.html",
+"url": "../mydoc/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1441,18 +1452,7 @@
 "title": "Introduction to NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_12.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "ChIP-Seq Overview",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_13.html",
+"url": "../vignettes/04_Slides/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1464,6 +1464,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_13.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "ChIP-Seq Overview",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_13.html",
 "summary": ""
 },
 
@@ -1496,7 +1507,7 @@
 "title": "Assembly of Genomes and Transcriptomes",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_15.html",
+"url": "../mydoc/mydoc_slides_15.html",
 "summary": ""
 },
 
@@ -1507,7 +1518,7 @@
 "title": "Assembly of Genomes and Transcriptomes",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_15.html",
+"url": "../vignettes/04_Slides/mydoc_slides_15.html",
 "summary": ""
 },
 
@@ -1540,7 +1551,7 @@
 "title": "Cluster Analysis",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_17.html",
+"url": "../mydoc/mydoc_slides_17.html",
 "summary": ""
 },
 
@@ -1551,7 +1562,7 @@
 "title": "Cluster Analysis",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_17.html",
+"url": "../vignettes/04_Slides/mydoc_slides_17.html",
 "summary": ""
 },
 
@@ -1573,7 +1584,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/mydoc_syllabus.html",
+"url": "../mydoc/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -1584,7 +1595,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_syllabus.html",
+"url": "../vignettes/01_Home/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -2112,7 +2123,7 @@
 "title": "Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_tutorial_02.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
 "summary": ""
 },
 
@@ -2123,7 +2134,7 @@
 "title": "Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
+"url": "../mydoc/mydoc_tutorial_02.html",
 "summary": ""
 },
 
