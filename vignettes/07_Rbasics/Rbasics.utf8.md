@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 14 May, 2016" 
+date: "Last update: 23 May, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -1654,6 +1654,20 @@ write.table(my_mw_target4, file="my_file.xls", quote=F, sep="\t", col.names = NA
 ```r
 source("exerciseRbasics.R")
 ```
+
+# R Markdown
+
+## Overview
+
+R Markdown combines markdown (an easy to write plain text format)
+with embedded R code chunks. When compiling R Markdown reports, the 
+code components can be evaluated so that both the code and its output 
+can be included in the final document. This way reports are highly 
+reproducible by allowing to automatically regenerate them when the 
+underlying R code or data changes. R Markdown documents can be rendered to
+various formats including HTML and PDF. For rendering documents, the environment
+uses `knitr` and `pandoc`. Historically, R Markdown is an extension of the 
+older `Sweave/Latex` environment.
 
 
 # Session Info

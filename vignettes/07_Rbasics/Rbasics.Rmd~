@@ -574,7 +574,7 @@ for using `SQLite` from the command-line are available [here](https://www.sqlite
 The following loads two `data.frames` derived from the `iris` data set (here `mydf1` and `mydf2`) 
 into an SQLite database (here `test.db`).
 
-```{r load_sqlite, eval=FALSE}
+```{r load_sqlite, eval=TRUE}
 library(RSQLite)
 mydb <- dbConnect(SQLite(), "test.db") # Creates database file test.db
 mydf1 <- data.frame(ids=paste0("id", seq_along(iris[,1])), iris)
@@ -585,19 +585,19 @@ dbWriteTable(mydb, "mydf2", mydf2)
 
 ## List names of tables in database
 
-```{r list_tables, eval=FALSE}
+```{r list_tables, eval=TRUE}
 dbListTables(mydb)
 ```
 
 ## Import table into `data.frame`
 
-```{r import_sqlite_tables, eval=FALSE}
+```{r import_sqlite_tables, eval=TRUE}
 dbGetQuery(mydb, 'SELECT * FROM mydf2')
 ```
 
 ## Query database
 
-```{r query_sqlite_tables, eval=FALSE}
+```{r query_sqlite_tables, eval=TRUE}
 dbGetQuery(mydb, 'SELECT * FROM mydf1 WHERE "Sepal.Length" < 4.6')
 ```
 
@@ -605,7 +605,7 @@ dbGetQuery(mydb, 'SELECT * FROM mydf1 WHERE "Sepal.Length" < 4.6')
 
 The two tables can be joined on the shared `ids` column as follows. 
 
-```{r join_sqlite_tables, eval=FALSE}
+```{r join_sqlite_tables, eval=TRUE}
 dbGetQuery(mydb, 'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids')
 ```
 
@@ -1015,6 +1015,20 @@ write.table(my_mw_target4, file="my_file.xls", quote=F, sep="\t", col.names = NA
 ```{r source_example, eval=FALSE}
 source("exerciseRbasics.R")
 ```
+
+# R Markdown
+
+## Overview
+
+R Markdown combines markdown (an easy to write plain text format)
+with embedded R code chunks. When compiling R Markdown reports, the 
+code components can be evaluated so that both the code and its output 
+can be included in the final document. This way reports are highly 
+reproducible by allowing to automatically regenerate them when the 
+underlying R code or data changes. R Markdown documents can be rendered to
+various formats including HTML and PDF. For rendering documents, the environment
+uses `knitr` and `pandoc`. Historically, R Markdown is an extension of the 
+older `Sweave/Latex` environment.
 
 
 # Session Info

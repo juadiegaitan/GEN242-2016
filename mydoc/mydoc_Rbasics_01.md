@@ -1,11 +1,11 @@
 ---
 title: Introduction to R 
 keywords: 
-last_updated: Sat May 14 21:39:23 2016
+last_updated: Mon May 23 14:05:23 2016
 ---
 Author: Thomas Girke
 
-Last update: 14 May, 2016 
+Last update: 23 May, 2016 
 
 Alternative formats of this vignette:
 [`Single-page .Rmd HTML`](https://htmlpreview.github.io/?https://github.com/tgirke/GEN242/blob/master/vignettes/07_Rbasics/Rbasics.html),

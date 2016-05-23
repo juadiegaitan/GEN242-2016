@@ -1,7 +1,7 @@
 ---
 title: Analysis Routine
 keywords: 
-last_updated: Sat May 14 21:39:23 2016
+last_updated: Mon May 23 14:05:23 2016
 ---
 
 ## Overview
@@ -201,5 +201,4 @@ write.table(my_mw_target4, file="my_file.xls", quote=F, sep="\t", col.names = NA
 {% highlight r %}
 source("exerciseRbasics.R")
 {% endhighlight %}
-
 
