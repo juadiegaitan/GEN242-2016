@@ -1,7 +1,7 @@
 ---
 title: Operators and Calculations
 keywords: 
-last_updated: Tue May 24 10:40:32 2016
+last_updated: Tue May 24 11:43:57 2016
 ---
 
 ## Comparison Operators

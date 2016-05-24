@@ -1,7 +1,7 @@
 ---
 title: References
 keywords: 
-last_updated: Tue May 24 10:40:32 2016
+last_updated: Tue May 24 11:43:57 2016
 ---
  
 1. Lawrence, Michael, Huber, Wolfgang, Pag\`{e}s, Herv\'{e}, Aboyoun, Patrick, Carlson, Marc, Gentleman, Robert, Morgan, Martin T, Carey, Vincent J (2013) Software for computing and annotating genomic ranges. PLoS Comput. Biol., 9: e1003118; [URL](http://dx.doi.org/10.1371/journal.pcbi.1003118)
