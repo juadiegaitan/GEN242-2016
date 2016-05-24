@@ -1,7 +1,7 @@
 ---
 title: Data Types 
 keywords: 
-last_updated: Tue May 24 09:57:53 2016
+last_updated: Tue May 24 10:17:07 2016
 ---
 
 ## Numeric data
