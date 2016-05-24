@@ -1,7 +1,7 @@
 ---
 title: R Markdown
 keywords: 
-last_updated: Tue May 24 10:17:07 2016
+last_updated: Tue May 24 10:40:32 2016
 ---
 
 ## Overview
@@ -76,14 +76,14 @@ all supported output formats. Alternatively, one can specify several output form
 
 
 {% highlight r %}
-rmarkdown::render("input.Rmd", clean=TRUE, output_format="html_document")
+rmarkdown::render("sample.Rmd", clean=TRUE, output_format="html_document")
 {% endhighlight %}
 
 The following shows how to run the rendering from the command-line.
 
 
 {% highlight sh %}
-$ echo "rmarkdown::render('input.Rmd', clean=TRUE, output_format='html_document')" | R --slave
+$ echo "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')" | R --slave
 {% endhighlight %}
 
 

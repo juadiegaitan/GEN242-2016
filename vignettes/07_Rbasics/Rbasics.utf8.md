@@ -1729,14 +1729,14 @@ all supported output formats. Alternatively, one can specify several output form
 
 
 ```r
-rmarkdown::render("input.Rmd", clean=TRUE, output_format="html_document")
+rmarkdown::render("sample.Rmd", clean=TRUE, output_format="html_document")
 ```
 
 The following shows how to run the rendering from the command-line.
 
 
 ```sh
-$ echo "rmarkdown::render('input.Rmd', clean=TRUE, output_format='html_document')" | R --slave
+$ echo "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')" | R --slave
 ```
 
 
