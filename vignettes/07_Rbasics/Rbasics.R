@@ -406,8 +406,11 @@ write.table(my_mw_target4, file="my_file.xls", quote=F, sep="\t", col.names = NA
 ## ----install_rmarkdown, eval=FALSE---------------------------------------
 ## install.packages("rmarkdown")
 
-## ----chode_chunk_name, eval=FALSE, message=FALSE-------------------------
-## rmarkdown::render("input.Rmd", output_format="html")
+## ----render_rmarkdown, eval=FALSE, message=FALSE-------------------------
+## rmarkdown::render("input.Rmd", clean=TRUE, output_format="html_document")
+
+## ----render_commandline, eval=FALSE, message=FALSE, engine="sh"----------
+## $ echo "rmarkdown::render('input.Rmd', clean=TRUE, output_format='html_document')" | R --slave
 
 ## ----kable---------------------------------------------------------------
 library(knitr)

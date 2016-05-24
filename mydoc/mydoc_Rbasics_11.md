@@ -1,7 +1,7 @@
 ---
 title: Useful R Functions
 keywords: 
-last_updated: Mon May 23 21:13:38 2016
+last_updated: Tue May 24 09:57:53 2016
 ---
 
 ## Unique entries
