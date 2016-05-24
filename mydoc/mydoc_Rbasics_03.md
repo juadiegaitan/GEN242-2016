@@ -1,7 +1,7 @@
 ---
 title: Installation of R and Add-on Packages
 keywords: 
-last_updated: Mon May 23 14:05:23 2016
+last_updated: Mon May 23 21:13:38 2016
 ---
 
 (1.) Install R for your operating system from [CRAN](http://cran.at.r-project.org/).

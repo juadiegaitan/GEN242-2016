@@ -5,3 +5,5 @@ ggplot2
 gplots
 DBI
 RSQLite
+knitr
+xtable

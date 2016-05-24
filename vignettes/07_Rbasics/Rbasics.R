@@ -403,6 +403,26 @@ write.table(my_mw_target4, file="my_file.xls", quote=F, sep="\t", col.names = NA
 ## ----source_example, eval=FALSE------------------------------------------
 ## source("exerciseRbasics.R")
 
+## ----install_rmarkdown, eval=FALSE---------------------------------------
+## install.packages("rmarkdown")
+
+## ----chode_chunk_name, eval=FALSE, message=FALSE-------------------------
+## rmarkdown::render("input.Rmd", output_format="html")
+
+## ----kable---------------------------------------------------------------
+library(knitr)
+kable(iris[1:12,])
+
+## ----some_jitter_plot, eval=TRUE-----------------------------------------
+library(ggplot2)
+dsmall <- diamonds[sample(nrow(diamonds), 1000), ]
+ggplot(dsmall, aes(color, price/carat)) + geom_jitter(alpha = I(1 / 2), aes(color=color))
+
+## ----some_custom_inserted_plot, eval=TRUE, warning=FALSE, message=FALSE----
+png("myplot.png")
+ggplot(dsmall, aes(color, price/carat)) + geom_jitter(alpha = I(1 / 2), aes(color=color))
+dev.off()
+
 ## ----sessionInfo---------------------------------------------------------
 sessionInfo()
 
