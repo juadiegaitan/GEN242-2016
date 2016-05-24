@@ -1,7 +1,7 @@
 ---
 title: Specialty Graphics
 keywords: 
-last_updated: Mon May 23 13:41:45 2016
+last_updated: Tue May 24 12:26:25 2016
 ---
 
 ## Venn Diagrams 
@@ -49,4 +49,14 @@ plot(sdfsample[1], print=FALSE)
 {% endhighlight %}
 
 ![](Rgraphics_files/specgraph_structure-1.png)
+
+## ROC Plots
+
+A variety of libraries are available for plotting receiver operating characteristic (ROC) curves in R:
+
++ [ROCR](http://rocr.bioinf.mpi-sb.mpg.de/)
++ [ROC](http://bioconductor.org/packages/release/bioc/html/ROC.html)
++ [pROC](http://web.expasy.org/pROC/)
++ [ggplot2](http://largedata.blogspot.com/2011/07/plotting-roc-curves-in-ggplot2.html)
+
 

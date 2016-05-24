@@ -1,7 +1,7 @@
 ---
 title: Graphics and Data Visualization in R 
 author: "Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 23 May, 2016" 
+date: "Last update: 24 May, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -1245,6 +1245,16 @@ plot(sdfsample[1], print=FALSE)
 ```
 
 ![](Rgraphics_files/figure-html/specgraph_structure-1.png)<!-- -->
+
+## ROC Plots
+
+A variety of libraries are available for plotting receiver operating characteristic (ROC) curves in R:
+
++ [ROCR](http://rocr.bioinf.mpi-sb.mpg.de/)
++ [ROC](http://bioconductor.org/packages/release/bioc/html/ROC.html)
++ [pROC](http://web.expasy.org/pROC/)
++ [ggplot2](http://largedata.blogspot.com/2011/07/plotting-roc-curves-in-ggplot2.html)
+
 
 # Genome Graphics
 
