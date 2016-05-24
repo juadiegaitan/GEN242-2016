@@ -1,16 +1,16 @@
 [
 
 
-
-
-
 {
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/07_Rbasics/:w",
+"url": "../vignettes/07_Rbasics/'",
 "summary": ""
 },
+
+
+
 
 
 
@@ -880,7 +880,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_01.html",
+"url": "../vignettes/06_Homework/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -891,7 +891,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_01.html",
+"url": "../mydoc/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -946,7 +946,7 @@
 "title": "HW4 - Pairwise Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_04.html",
+"url": "../vignettes/06_Homework/mydoc_homework_04.html",
 "summary": ""
 },
 
@@ -957,7 +957,7 @@
 "title": "HW4 - Pairwise Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_04.html",
+"url": "../mydoc/mydoc_homework_04.html",
 "summary": ""
 },
 
@@ -968,7 +968,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -979,7 +979,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Internal/mydoc_internal.html",
+"url": "../mydoc/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -1012,7 +1012,7 @@
 "title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_00.html",
+"url": "../vignettes/17_Projects/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -1023,18 +1023,7 @@
 "title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_00.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "ChIP-Seq1 - Motif Prediction",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_project_01.html",
+"url": "../mydoc/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -1053,10 +1042,10 @@
 
 
 {
-"title": "ChIP-Seq2 - Peak Callers",
+"title": "ChIP-Seq1 - Motif Prediction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_02.html",
+"url": "../mydoc/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -1075,10 +1064,10 @@
 
 
 {
-"title": "RNA-Seq1 - RNA-Seq Aligners",
+"title": "ChIP-Seq2 - Peak Callers",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_03.html",
+"url": "../mydoc/mydoc_project_02.html",
 "summary": ""
 },
 
@@ -1090,6 +1079,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/17_Projects/mydoc_project_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "RNA-Seq1 - RNA-Seq Aligners",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_project_03.html",
 "summary": ""
 },
 
@@ -1210,7 +1210,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_01.html",
+"url": "../vignettes/04_Slides/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1221,18 +1221,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Molecular Biology Essentials",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_02.html",
+"url": "../mydoc/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1244,6 +1233,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_02.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Molecular Biology Essentials",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_02.html",
 "summary": ""
 },
 
@@ -1298,7 +1298,7 @@
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_05.html",
+"url": "../vignettes/04_Slides/mydoc_slides_05.html",
 "summary": ""
 },
 
@@ -1309,18 +1309,7 @@
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_05.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Sequence Alignments and Similarity Searching",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_06.html",
+"url": "../mydoc/mydoc_slides_05.html",
 "summary": ""
 },
 
@@ -1339,10 +1328,10 @@
 
 
 {
-"title": "Programming in R",
+"title": "Sequence Alignments and Similarity Searching",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_07.html",
+"url": "../mydoc/mydoc_slides_06.html",
 "summary": ""
 },
 
@@ -1361,10 +1350,10 @@
 
 
 {
-"title": "Multiple Sequence Alignments",
+"title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_08.html",
+"url": "../mydoc/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1383,10 +1372,10 @@
 
 
 {
-"title": "Short Read Alignments",
+"title": "Multiple Sequence Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_09.html",
+"url": "../mydoc/mydoc_slides_08.html",
 "summary": ""
 },
 
@@ -1398,6 +1387,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Short Read Alignments",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1430,7 +1430,7 @@
 "title": "Analysis of Gene Expression Data",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_11.html",
+"url": "../vignettes/04_Slides/mydoc_slides_11.html",
 "summary": ""
 },
 
@@ -1441,7 +1441,7 @@
 "title": "Analysis of Gene Expression Data",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_11.html",
+"url": "../mydoc/mydoc_slides_11.html",
 "summary": ""
 },
 
@@ -1496,7 +1496,7 @@
 "title": "VAR-Seq Overview",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_14.html",
+"url": "../vignettes/04_Slides/mydoc_slides_14.html",
 "summary": ""
 },
 
@@ -1507,18 +1507,7 @@
 "title": "VAR-Seq Overview",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_14.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Assembly of Genomes and Transcriptomes",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_15.html",
+"url": "../mydoc/mydoc_slides_14.html",
 "summary": ""
 },
 
@@ -1537,10 +1526,10 @@
 
 
 {
-"title": "Gene Annotation, Ontologies and Enrichment Methods",
+"title": "Assembly of Genomes and Transcriptomes",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_16.html",
+"url": "../mydoc/mydoc_slides_15.html",
 "summary": ""
 },
 
@@ -1559,10 +1548,10 @@
 
 
 {
-"title": "Cluster Analysis",
+"title": "Gene Annotation, Ontologies and Enrichment Methods",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_17.html",
+"url": "../mydoc/mydoc_slides_16.html",
 "summary": ""
 },
 
@@ -1574,6 +1563,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_17.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Cluster Analysis",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_17.html",
 "summary": ""
 },
 
@@ -2151,6 +2151,17 @@
 
 
 
+
+
+
+
+{
+"title": "My First R Markdown Document",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/07_Rbasics/sample.Rmd",
+"summary": ""
+},
 
 
 

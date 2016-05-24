@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -570,6 +592,166 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_tutorial_02.html">Basic Tutorial</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Introduction</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. SQLite Databases</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Graphics in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Analysis Routine</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. R Markdown</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_16.html">16. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_17.html">17. References</a></li>
                     
 
                     
@@ -1668,83 +1850,83 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="scaling">Scaling</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">## Sample data set
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">## Sample data set
 </span><span class="n">set.seed</span><span class="p">(</span><span class="m">1410</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">50</span><span class="p">),</span> <span class="m">10</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"g"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">),</span> 
             <span class="n">paste</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span>
-<span class="n">dim</span><span class="p">(</span><span class="n">y</span><span class="p">)</span></code></pre></figure>
+<span class="n">dim</span><span class="p">(</span><span class="n">y</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 10  5</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 10  5</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">## Scaling
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">## Scaling
 </span><span class="n">yscaled</span> <span class="o">&lt;-</span> <span class="n">t</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span> <span class="c1"># Centers and scales y row-wise
-</span><span class="n">apply</span><span class="p">(</span><span class="n">yscaled</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span></code></pre></figure>
+</span><span class="n">apply</span><span class="p">(</span><span class="n">yscaled</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
-##   1   1   1   1   1   1   1   1   1   1</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
+##   1   1   1   1   1   1   1   1   1   1</code></pre></div>
 
 <h2 id="distance-matrices">Distance Matrices</h2>
 
 <h3 id="euclidean-distance-matrix">Euclidean distance matrix</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dist</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,],</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">"euclidean"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dist</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,],</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">"euclidean"</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##          g1       g2       g3
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##          g1       g2       g3
 ## g2 4.793697                  
 ## g3 4.932658 6.354978         
-## g4 4.033789 4.788508 1.671968</code></pre></figure>
+## g4 4.033789 4.788508 1.671968</code></pre></div>
 
 <h3 id="correlation-based-distance-matrix">Correlation-based distance matrix</h3>
 
 <p>Correlation matrix</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">c</span> <span class="o">&lt;-</span> <span class="n">cor</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"pearson"</span><span class="p">)</span> 
-<span class="n">as.matrix</span><span class="p">(</span><span class="n">c</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">c</span> <span class="o">&lt;-</span> <span class="n">cor</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"pearson"</span><span class="p">)</span> 
+<span class="n">as.matrix</span><span class="p">(</span><span class="n">c</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##             g1         g2          g3         g4
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##             g1         g2          g3         g4
 ## g1  1.00000000 -0.2965885 -0.00206139 -0.4042011
 ## g2 -0.29658847  1.0000000 -0.91661118 -0.4512912
 ## g3 -0.00206139 -0.9166112  1.00000000  0.7435892
-## g4 -0.40420112 -0.4512912  0.74358925  1.0000000</code></pre></figure>
+## g4 -0.40420112 -0.4512912  0.74358925  1.0000000</code></pre></div>
 
 <p>Correlation-based distance matrix</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">d</span> <span class="o">&lt;-</span> <span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">c</span><span class="p">)</span>
-<span class="n">as.matrix</span><span class="p">(</span><span class="n">d</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">d</span> <span class="o">&lt;-</span> <span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">c</span><span class="p">)</span>
+<span class="n">as.matrix</span><span class="p">(</span><span class="n">d</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##          g1       g2        g3        g4
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##          g1       g2        g3        g4
 ## g1 0.000000 1.296588 1.0020614 1.4042011
 ## g2 1.296588 0.000000 1.9166112 1.4512912
 ## g3 1.002061 1.916611 0.0000000 0.2564108
-## g4 1.404201 1.451291 0.2564108 0.0000000</code></pre></figure>
+## g4 1.404201 1.451291 0.2564108 0.0000000</code></pre></div>
 
-<h2 id="hierarchical-clustering-with-hclust">Hierarchical Clustering with <code class="highlighter-rouge">hclust</code></h2>
+<h2 id="hierarchical-clustering-with-hclust">Hierarchical Clustering with <code>hclust</code></h2>
 
 <p>Hierarchical clustering with complete linkage and basic tree plotting</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">hr</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">"complete"</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span>
-<span class="n">names</span><span class="p">(</span><span class="n">hr</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">hr</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">"complete"</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">hr</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "merge"       "height"      "order"       "labels"      "method"      "call"       
-## [7] "dist.method"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "merge"       "height"      "order"       "labels"      "method"      "call"       
+## [7] "dist.method"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">));</span> <span class="n">plot</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">hang</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">hang</span> <span class="o">=</span> <span class="m">-1</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">));</span> <span class="n">plot</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">hang</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">hang</span> <span class="o">=</span> <span class="m">-1</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rclustering_files/hclust1-1.png" alt="" /></p>
 
 <h3 id="tree-plotting-i">Tree plotting I</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">edgePar</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">4</span><span class="p">),</span> <span class="n">horiz</span><span class="o">=</span><span class="n">T</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">plot</span><span class="p">(</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">edgePar</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">4</span><span class="p">),</span> <span class="n">horiz</span><span class="o">=</span><span class="n">T</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rclustering_files/hclust_plot_tree1-1.png" alt="" /></p>
 
 <h3 id="tree-plotting-ii">Tree plotting II</h3>
 
-<p>The <code class="highlighter-rouge">ape</code> library provides more advanced features for tree plotting</p>
+<p>The <code>ape</code> library provides more advanced features for tree plotting</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ape</span><span class="p">)</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ape</span><span class="p">)</span> 
 <span class="n">plot.phylo</span><span class="p">(</span><span class="n">as.phylo</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s2">"p"</span><span class="p">,</span> <span class="n">edge.col</span><span class="o">=</span><span class="m">4</span><span class="p">,</span> <span class="n">edge.width</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> 
-           <span class="n">show.node.label</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">no.margin</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></figure>
+           <span class="n">show.node.label</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">no.margin</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rclustering_files/hclust_plot_tree2-1.png" alt="" /></p>
 
@@ -1752,45 +1934,45 @@ $('#toc').on('click', 'a', function() {
 
 <p>Accessing information in <em>hclust</em> objects</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">hr</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">hr</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## 
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## 
 ## Call:
 ## hclust(d = d, method = "complete", members = NULL)
 ## 
 ## Cluster method   : complete 
-## Number of objects: 10</code></pre></figure>
+## Number of objects: 10</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">## Print row labels in the order they appear in the tree
-</span><span class="n">hr</span><span class="o">$</span><span class="n">labels</span><span class="p">[</span><span class="n">hr</span><span class="o">$</span><span class="n">order</span><span class="p">]</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">## Print row labels in the order they appear in the tree
+</span><span class="n">hr</span><span class="o">$</span><span class="n">labels</span><span class="p">[</span><span class="n">hr</span><span class="o">$</span><span class="n">order</span><span class="p">]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] "g10" "g3"  "g4"  "g2"  "g9"  "g6"  "g7"  "g1"  "g5"  "g8"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] "g10" "g3"  "g4"  "g2"  "g9"  "g6"  "g7"  "g1"  "g5"  "g8"</code></pre></div>
 
-<p>Tree cutting with <code class="highlighter-rouge">cutree</code></p>
+<p>Tree cutting with <code>cutree</code></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mycl</span> <span class="o">&lt;-</span> <span class="n">cutree</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">hr</span><span class="o">$</span><span class="n">height</span><span class="p">)</span><span class="o">/</span><span class="m">2</span><span class="p">)</span>
-<span class="n">mycl</span><span class="p">[</span><span class="n">hr</span><span class="o">$</span><span class="n">labels</span><span class="p">[</span><span class="n">hr</span><span class="o">$</span><span class="n">order</span><span class="p">]]</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mycl</span> <span class="o">&lt;-</span> <span class="n">cutree</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">hr</span><span class="o">$</span><span class="n">height</span><span class="p">)</span><span class="o">/</span><span class="m">2</span><span class="p">)</span>
+<span class="n">mycl</span><span class="p">[</span><span class="n">hr</span><span class="o">$</span><span class="n">labels</span><span class="p">[</span><span class="n">hr</span><span class="o">$</span><span class="n">order</span><span class="p">]]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## g10  g3  g4  g2  g9  g6  g7  g1  g5  g8 
-##   3   3   3   2   2   5   5   1   4   4</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## g10  g3  g4  g2  g9  g6  g7  g1  g5  g8 
+##   3   3   3   2   2   5   5   1   4   4</code></pre></div>
 
 <h2 id="heatmaps">Heatmaps</h2>
 
-<h3 id="with-heatmap2">With <code class="highlighter-rouge">heatmap.2</code></h3>
+<h3 id="with-heatmap2">With <code>heatmap.2</code></h3>
 
 <p>All in one step: clustering and heatmap plotting</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">gplots</span><span class="p">)</span>
-<span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">redgreen</span><span class="p">(</span><span class="m">75</span><span class="p">))</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">gplots</span><span class="p">)</span>
+<span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">redgreen</span><span class="p">(</span><span class="m">75</span><span class="p">))</span></code></pre></div>
 
 <p><img src="Rclustering_files/heatmap2a-1.png" alt="" /></p>
 
-<h3 id="with-pheatmap">With <code class="highlighter-rouge">pheatmap</code></h3>
+<h3 id="with-pheatmap">With <code>pheatmap</code></h3>
 
 <p>All in one step: clustering and heatmap plotting</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">pheatmap</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="s2">"RColorBrewer"</span><span class="p">)</span>
-<span class="n">pheatmap</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="s2">"Blues"</span><span class="p">))</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">pheatmap</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="s2">"RColorBrewer"</span><span class="p">)</span>
+<span class="n">pheatmap</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="s2">"Blues"</span><span class="p">))</span></code></pre></div>
 
 <p><img src="Rclustering_files/pheatmap-1.png" alt="" /></p>
 
@@ -1798,11 +1980,11 @@ $('#toc').on('click', 'a', function() {
 
 <p>Customizes row and column clustering and shows tree cutting result in row color bar. Additional color schemes can be found <a href="http://manuals.bioinformatics.ucr.edu/home/R\_BioCondManual\#clustering\_hc\_submap">here</a>.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">hc</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">cor</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"spearman"</span><span class="p">)),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"complete"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">hc</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">cor</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"spearman"</span><span class="p">)),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"complete"</span><span class="p">)</span>
 <span class="n">mycol</span> <span class="o">&lt;-</span> <span class="n">colorpanel</span><span class="p">(</span><span class="m">40</span><span class="p">,</span> <span class="s2">"darkblue"</span><span class="p">,</span> <span class="s2">"yellow"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">)</span>
 <span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">Rowv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">Colv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hc</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="n">mycol</span><span class="p">,</span>
           <span class="n">scale</span><span class="o">=</span><span class="s2">"row"</span><span class="p">,</span> <span class="n">density.info</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">trace</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> 
-          <span class="n">RowSideColors</span><span class="o">=</span><span class="n">as.character</span><span class="p">(</span><span class="n">mycl</span><span class="p">))</span></code></pre></figure>
+          <span class="n">RowSideColors</span><span class="o">=</span><span class="n">as.character</span><span class="p">(</span><span class="n">mycl</span><span class="p">))</span></code></pre></div>
 
 <p><img src="Rclustering_files/heatmap2_custom-1.png" alt="" /></p>
 
@@ -1810,16 +1992,16 @@ $('#toc').on('click', 'a', function() {
 
 <p>Runs K-means clustering with PAM (partitioning around medoids) algorithm and shows result in color bar of hierarchical clustering result from before.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
 <span class="n">pamy</span> <span class="o">&lt;-</span> <span class="n">pam</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
-<span class="p">(</span><span class="n">kmcol</span> <span class="o">&lt;-</span> <span class="n">pamy</span><span class="o">$</span><span class="n">clustering</span><span class="p">)</span></code></pre></figure>
+<span class="p">(</span><span class="n">kmcol</span> <span class="o">&lt;-</span> <span class="n">pamy</span><span class="o">$</span><span class="n">clustering</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
-##   1   2   3   3   4   4   4   4   2   3</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
+##   1   2   3   3   4   4   4   4   2   3</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">Rowv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">Colv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hc</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="n">mycol</span><span class="p">,</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">Rowv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">Colv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hc</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="n">mycol</span><span class="p">,</span>
           <span class="n">scale</span><span class="o">=</span><span class="s2">"row"</span><span class="p">,</span> <span class="n">density.info</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">trace</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> 
-          <span class="n">RowSideColors</span><span class="o">=</span><span class="n">as.character</span><span class="p">(</span><span class="n">kmcol</span><span class="p">))</span></code></pre></figure>
+          <span class="n">RowSideColors</span><span class="o">=</span><span class="n">as.character</span><span class="p">(</span><span class="n">kmcol</span><span class="p">))</span></code></pre></div>
 
 <p><img src="Rclustering_files/kmeans2-1.png" alt="" /></p>
 
@@ -1827,60 +2009,60 @@ $('#toc').on('click', 'a', function() {
 
 <p>Performs k-means fuzzy clustering</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
 <span class="n">fannyy</span> <span class="o">&lt;-</span> <span class="n">fanny</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="m">4</span><span class="p">,</span> <span class="n">memb.exp</span> <span class="o">=</span> <span class="m">1.5</span><span class="p">)</span>
-<span class="n">round</span><span class="p">(</span><span class="n">fannyy</span><span class="o">$</span><span class="n">membership</span><span class="p">,</span> <span class="m">2</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></figure>
+<span class="n">round</span><span class="p">(</span><span class="n">fannyy</span><span class="o">$</span><span class="n">membership</span><span class="p">,</span> <span class="m">2</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##    [,1] [,2] [,3] [,4]
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##    [,1] [,2] [,3] [,4]
 ## g1 1.00 0.00 0.00 0.00
 ## g2 0.00 0.99 0.00 0.00
 ## g3 0.02 0.01 0.95 0.03
-## g4 0.00 0.00 0.99 0.01</code></pre></figure>
+## g4 0.00 0.00 0.99 0.01</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fannyy</span><span class="o">$</span><span class="n">clustering</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fannyy</span><span class="o">$</span><span class="n">clustering</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
-##   1   2   3   3   4   4   4   4   2   3</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
+##   1   2   3   3   4   4   4   4   2   3</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">## Returns multiple cluster memberships for coefficient above a certain 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1">## Returns multiple cluster memberships for coefficient above a certain 
 ## value (here &gt;0.1)
 </span><span class="n">fannyyMA</span> <span class="o">&lt;-</span> <span class="n">round</span><span class="p">(</span><span class="n">fannyy</span><span class="o">$</span><span class="n">membership</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0.10</span> 
-<span class="n">apply</span><span class="p">(</span><span class="n">fannyyMA</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">which</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">"_"</span><span class="p">))</span></code></pre></figure>
+<span class="n">apply</span><span class="p">(</span><span class="n">fannyyMA</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">which</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">"_"</span><span class="p">))</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##    g1    g2    g3    g4    g5    g6    g7    g8    g9   g10 
-##   "1"   "2"   "3"   "3"   "4"   "4"   "4" "2_4"   "2"   "3"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##    g1    g2    g3    g4    g5    g6    g7    g8    g9   g10 
+##   "1"   "2"   "3"   "3"   "4"   "4"   "4" "2_4"   "2"   "3"</code></pre></div>
 
 <h2 id="multidimensional-scaling-mds">Multidimensional Scaling (MDS)</h2>
 
 <p>Performs MDS analysis on the geographic distances between European cities</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">loc</span> <span class="o">&lt;-</span> <span class="n">cmdscale</span><span class="p">(</span><span class="n">eurodist</span><span class="p">)</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">loc</span> <span class="o">&lt;-</span> <span class="n">cmdscale</span><span class="p">(</span><span class="n">eurodist</span><span class="p">)</span> 
 <span class="c1">## Plots the MDS results in 2D plot. The minus is required in this example to 
 ## flip the plotting orientation.
 </span><span class="n">plot</span><span class="p">(</span><span class="n">loc</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="o">-</span><span class="n">loc</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"n"</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span><span class="s2">"cmdscale(eurodist)"</span><span class="p">)</span>
-<span class="n">text</span><span class="p">(</span><span class="n">loc</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="o">-</span><span class="n">loc</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">rownames</span><span class="p">(</span><span class="n">loc</span><span class="p">),</span> <span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span> </code></pre></figure>
+<span class="n">text</span><span class="p">(</span><span class="n">loc</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="o">-</span><span class="n">loc</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">rownames</span><span class="p">(</span><span class="n">loc</span><span class="p">),</span> <span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rclustering_files/cmdscale2-1.png" alt="" /></p>
 
 <h2 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h2>
 
-<p>Performs PCA analysis after scaling the data. It returns a list with class <code class="highlighter-rouge">prcomp</code> that contains five components: (1) the standard deviations (sdev) of the principal components, (2) the matrix of eigenvectors (rotation), (3) the principal component data (x), (4) the centering (center) and (5) scaling (scale) used.</p>
+<p>Performs PCA analysis after scaling the data. It returns a list with class <code>prcomp</code> that contains five components: (1) the standard deviations (sdev) of the principal components, (2) the matrix of eigenvectors (rotation), (3) the principal component data (x), (4) the centering (center) and (5) scaling (scale) used.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">scatterplot3d</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">scatterplot3d</span><span class="p">)</span>
 <span class="n">pca</span> <span class="o">&lt;-</span> <span class="n">prcomp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
-<span class="n">names</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span></code></pre></figure>
+<span class="n">names</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "sdev"     "rotation" "center"   "scale"    "x"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "sdev"     "rotation" "center"   "scale"    "x"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">summary</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span> <span class="err">#</span> <span class="n">Prints</span> <span class="n">variance</span> <span class="n">summary</span> <span class="k">for</span> <span class="n">all</span> <span class="n">principal</span> <span class="n">components.</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">summary</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span> <span class="err">#</span> <span class="n">Prints</span> <span class="n">variance</span> <span class="n">summary</span> <span class="k">for</span> <span class="n">all</span> <span class="n">principal</span> <span class="n">components.</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Importance of components:
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Importance of components:
 ##                           PC1    PC2    PC3     PC4    PC5
 ## Standard deviation     1.3611 1.1777 1.0420 0.69264 0.4416
 ## Proportion of Variance 0.3705 0.2774 0.2172 0.09595 0.0390
-## Cumulative Proportion  0.3705 0.6479 0.8650 0.96100 1.0000</code></pre></figure>
+## Cumulative Proportion  0.3705 0.6479 0.8650 0.96100 1.0000</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">scatterplot3d</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">],</span> <span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">scatterplot3d</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">],</span> <span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rclustering_files/pca2-1.png" alt="" /></p>
 
@@ -1904,7 +2086,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed May 18 20:22:45 2016<br/> Site last generated: May 23, 2016 <br />
+<p>Page last updated:</span> Wed May 18 20:22:45 2016<br/> Site last generated: May 24, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

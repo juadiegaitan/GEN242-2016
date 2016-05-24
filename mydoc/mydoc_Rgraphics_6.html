@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -570,6 +592,166 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_tutorial_02.html">Basic Tutorial</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Introduction</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. SQLite Databases</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Graphics in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Analysis Routine</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. R Markdown</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_16.html">16. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_17.html">17. References</a></li>
                     
 
                     
@@ -1666,33 +1848,33 @@ $('#toc').on('click', 'a', function() {
 -->
 <h2 id="venn-diagrams">Venn Diagrams</h2>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/overLapper.R"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/overLapper.R"</span><span class="p">)</span>
 <span class="n">setlist5</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">18</span><span class="p">),</span> <span class="n">B</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">16</span><span class="p">),</span> <span class="n">C</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">D</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">22</span><span class="p">),</span> <span class="n">E</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">18</span><span class="p">))</span>
 <span class="n">OLlist5</span> <span class="o">&lt;-</span> <span class="n">overLapper</span><span class="p">(</span><span class="n">setlist</span><span class="o">=</span><span class="n">setlist5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"_"</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"vennsets"</span><span class="p">)</span>
 <span class="n">counts</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">OLlist5</span><span class="o">$</span><span class="n">Venn_List</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
-<span class="n">vennPlot</span><span class="p">(</span><span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">ccol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">30</span><span class="p">),</span><span class="m">2</span><span class="p">),</span> <span class="n">lcex</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">ccex</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="m">1.5</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> <span class="n">rep</span><span class="p">(</span><span class="m">0.6</span><span class="p">,</span><span class="m">25</span><span class="p">),</span><span class="m">1.5</span><span class="p">))</span></code></pre></figure>
+<span class="n">vennPlot</span><span class="p">(</span><span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">ccol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">30</span><span class="p">),</span><span class="m">2</span><span class="p">),</span> <span class="n">lcex</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">ccex</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="m">1.5</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> <span class="n">rep</span><span class="p">(</span><span class="m">0.6</span><span class="p">,</span><span class="m">25</span><span class="p">),</span><span class="m">1.5</span><span class="p">))</span></code></pre></div>
 
 <p><img src="Rgraphics_files/specgraph_venn-1.png" alt="" /></p>
 
 <h2 id="compound-structures">Compound Structures</h2>
 
-<p>Plots depictions of small molecules with <code class="highlighter-rouge">ChemmineR</code> package</p>
+<p>Plots depictions of small molecules with <code>ChemmineR</code> package</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ChemmineR</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ChemmineR</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## 
-## Attaching package: 'ChemmineR'</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## 
+## Attaching package: 'ChemmineR'</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:ShortRead':
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:ShortRead':
 ## 
-##     view</code></pre></figure>
+##     view</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:S4Vectors':
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:S4Vectors':
 ## 
-##     fold</code></pre></figure>
+##     fold</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">data</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">print</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">data</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">print</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rgraphics_files/specgraph_structure-1.png" alt="" /></p>
 
@@ -1712,7 +1894,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Mon May 23 13:41:45 2016<br/> Site last generated: May 23, 2016 <br />
+<p>Page last updated:</span> Mon May 23 13:41:45 2016<br/> Site last generated: May 24, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

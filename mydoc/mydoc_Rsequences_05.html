@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -570,6 +592,166 @@ window.location.href = uri;
                     
                     
                     <li><a href="../mydoc/mydoc_tutorial_02.html">Basic Tutorial</a></li>
+                    
+
+                    
+
+                    
+                    
+                </ul>
+                
+                
+            
+            <li><a href="#">Introduction</a>
+                <ul>
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_01.html">1. Overview</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_02.html">2. R Package Repositories</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_03.html">3. Installation of R and Add-on Packages</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_04.html">4. Getting Around</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_05.html">5. Basic Syntax</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_06.html">6. Data Types</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_07.html">7. Data objects</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_08.html">8. Important Utilities</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_09.html">9. Operators and Calculations</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_10.html">10. Reading and Writing External Data</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_11.html">11. Useful R Functions</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_12.html">12. SQLite Databases</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_13.html">13. Graphics in R</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_14.html">14. Analysis Routine</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_15.html">15. R Markdown</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_16.html">16. Session Info</a></li>
+                    
+
+                    
+
+                    
+                    
+                    
+                    
+                    <li><a href="../mydoc/mydoc_Rbasics_17.html">17. References</a></li>
                     
 
                     
@@ -1679,7 +1861,7 @@ $('#toc').on('click', 'a', function() {
 at the beginning of each line are not part of the FASTQ format. They have been added 
 solely for illustration purposes.</p>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">1. @SRR038845.3 HWI-EAS038:6:1:0:1938 length=36
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">1. @SRR038845.3 HWI-EAS038:6:1:0:1938 length=36
 2. CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA
 3. +SRR038845.3 HWI-EAS038:6:1:0:1938 length=36
 4. BA@7&gt;B=&gt;:&gt;&gt;7@7@&gt;&gt;9=BAA?;&gt;52;&gt;:9=8.=A
@@ -1690,36 +1872,36 @@ solely for illustration purposes.</p>
 1. @SRR038845.53 HWI-EAS038:6:1:1:360 length=36
 2. GTTCAAAAAGAACTAAATTGTGTCAATAGAAAACTC
 3. +SRR038845.53 HWI-EAS038:6:1:1:360 length=36
-4. BBCBBBBBB@@BAB?BBBBCBC&gt;BBBAA8&gt;BBBAA@</code></pre></figure>
+4. BBCBBBBBB@@BAB?BBBBCBC&gt;BBBAA8&gt;BBBAA@</code></pre></div>
 
-<h2 id="sequence-and-quality-data-qualityscalexstringset">Sequence and Quality Data: <code class="highlighter-rouge">QualityScaleXStringSet</code></h2>
+<h2 id="sequence-and-quality-data-qualityscalexstringset">Sequence and Quality Data: <code>QualityScaleXStringSet</code></h2>
 
 <p>Phred quality scores are integers from 0-50 that are
-stored as ASCII characters after adding 33. The basic R functions <code class="highlighter-rouge">rawToChar</code> and
-<code class="highlighter-rouge">charToRaw</code> can be used to interconvert among their representations.</p>
+stored as ASCII characters after adding 33. The basic R functions <code>rawToChar</code> and
+<code>charToRaw</code> can be used to interconvert among their representations.</p>
 
 <p>Phred score interconversion</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">phred</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">9</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">phred</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">9</span>
 <span class="n">phreda</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="n">as.raw</span><span class="p">((</span><span class="n">phred</span><span class="p">)</span><span class="m">+33</span><span class="p">),</span> <span class="n">rawToChar</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
-<span class="n">phreda</span></code></pre></figure>
+<span class="n">phreda</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "\"#$%&amp;'()*"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "\"#$%&amp;'()*"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">as.integer</span><span class="p">(</span><span class="n">charToRaw</span><span class="p">(</span><span class="n">phreda</span><span class="p">))</span><span class="m">-33</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">as.integer</span><span class="p">(</span><span class="n">charToRaw</span><span class="p">(</span><span class="n">phreda</span><span class="p">))</span><span class="m">-33</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 2 3 4 5 6 7 8 9</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 2 3 4 5 6 7 8 9</code></pre></div>
 
-<p>Construct <code class="highlighter-rouge">QualityScaledDNAStringSet</code> from scratch</p>
+<p>Construct <code>QualityScaledDNAStringSet</code> from scratch</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span> <span class="c1"># Creates random sample sequence.
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span> <span class="c1"># Creates random sample sequence.
 </span><span class="n">myqlist</span> <span class="o">&lt;-</span> <span class="n">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">40</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">))</span> <span class="c1"># Creates random Phred score list.
 </span><span class="n">myqual</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">myqlist</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">toString</span><span class="p">(</span><span class="n">PhredQuality</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># Converts integer scores into ASCII characters.
 </span><span class="n">myqual</span> <span class="o">&lt;-</span> <span class="n">PhredQuality</span><span class="p">(</span><span class="n">myqual</span><span class="p">)</span> <span class="c1"># Converts to a PhredQuality object.
 </span><span class="n">dsetq1</span> <span class="o">&lt;-</span> <span class="n">QualityScaledDNAStringSet</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">myqual</span><span class="p">)</span> <span class="c1"># Combines DNAStringSet and quality data in QualityScaledDNAStringSet object.
-</span><span class="n">dsetq1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></figure>
+</span><span class="n">dsetq1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A QualityScaledDNAStringSet instance containing:
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A QualityScaledDNAStringSet instance containing:
 ## 
 ##   A DNAStringSet instance of length 2
 ##     width seq
@@ -1729,84 +1911,84 @@ stored as ASCII characters after adding 33. The basic R functions <code class="h
 ##   A PhredQuality instance of length 2
 ##     width seq
 ## [1]    20 ;;A1HH/"@2E/2D"9/(DD
-## [2]    20 A2+7.IG:-&gt;0*3I7"5H-%</code></pre></figure>
+## [2]    20 A2+7.IG:-&gt;0*3I7"5H-%</code></pre></div>
 
 <h2 id="processing-fastq-files-with-shortread">Processing FASTQ Files with ShortRead</h2>
 
-<p>The following expains the basic usage of <code class="highlighter-rouge">ShortReadQ</code> objects. To make the sample code work, 
+<p>The following expains the basic usage of <code>ShortReadQ</code> objects. To make the sample code work, 
 download and unzip this <a href="http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip">file</a> to your current working directory.
 The following code performs the download for you.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ShortRead</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ShortRead</span><span class="p">)</span>
 <span class="n">download.file</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip"</span><span class="p">,</span> <span class="s2">"data.zip"</span><span class="p">)</span>
-<span class="n">unzip</span><span class="p">(</span><span class="s2">"data.zip"</span><span class="p">)</span></code></pre></figure>
+<span class="n">unzip</span><span class="p">(</span><span class="s2">"data.zip"</span><span class="p">)</span></code></pre></div>
 
 <p>Important utilities for accessing FASTQ files</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fastq</span> <span class="o">&lt;-</span> <span class="n">list.files</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"*.fastq$"</span><span class="p">);</span> <span class="n">fastq</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"data/"</span><span class="p">,</span> <span class="n">fastq</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fastq</span> <span class="o">&lt;-</span> <span class="n">list.files</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"*.fastq$"</span><span class="p">);</span> <span class="n">fastq</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"data/"</span><span class="p">,</span> <span class="n">fastq</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
 <span class="n">names</span><span class="p">(</span><span class="n">fastq</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"flowcell6_lane"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">fastq</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"_"</span><span class="p">)</span> 
-<span class="p">(</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">readFastq</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span> <span class="err">#</span> <span class="n">Imports</span> <span class="n">first</span> <span class="n">FASTQ</span> <span class="n">file</span></code></pre></figure>
+<span class="p">(</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">readFastq</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span> <span class="err">#</span> <span class="n">Imports</span> <span class="n">first</span> <span class="n">FASTQ</span> <span class="n">file</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
-## length: 1000 reads; width: 36 cycles</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 1000 reads; width: 36 cycles</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">countLines</span><span class="p">(</span><span class="n">dirPath</span><span class="o">=</span><span class="s2">"./data"</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s2">".fastq$"</span><span class="p">)</span><span class="o">/</span><span class="m">4</span> <span class="err">#</span> <span class="n">Counts</span> <span class="n">numbers</span> <span class="n">of</span> <span class="n">reads</span> <span class="k">in</span> <span class="n">FASTQ</span> <span class="n">files</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">countLines</span><span class="p">(</span><span class="n">dirPath</span><span class="o">=</span><span class="s2">"./data"</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s2">".fastq$"</span><span class="p">)</span><span class="o">/</span><span class="m">4</span> <span class="err">#</span> <span class="n">Counts</span> <span class="n">numbers</span> <span class="n">of</span> <span class="n">reads</span> <span class="k">in</span> <span class="n">FASTQ</span> <span class="n">files</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## SRR038845.fastq SRR038846.fastq SRR038848.fastq SRR038850.fastq 
-##            1000            1000            1000            1000</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## SRR038845.fastq SRR038846.fastq SRR038848.fastq SRR038850.fastq 
+##            1000            1000            1000            1000</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">id</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">ID</span> <span class="n">field</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">id</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">ID</span> <span class="n">field</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A BStringSet instance of length 1
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A BStringSet instance of length 1
 ##     width seq
-## [1]    43 SRR038845.3 HWI-EAS038:6:1:0:1938 length=36</code></pre></figure>
+## [1]    43 SRR038845.3 HWI-EAS038:6:1:0:1938 length=36</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">sequence</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">sequence</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 1
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 1
 ##     width seq
-## [1]    36 CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA</code></pre></figure>
+## [1]    36 CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">Phred</span> <span class="n">scores</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">Phred</span> <span class="n">scores</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## class: FastqQuality
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: FastqQuality
 ## quality:
 ##   A BStringSet instance of length 1
 ##     width seq
-## [1]    36 BA@7&gt;B=&gt;:&gt;&gt;7@7@&gt;&gt;9=BAA?;&gt;52;&gt;:9=8.=A</code></pre></figure>
+## [1]    36 BA@7&gt;B=&gt;:&gt;&gt;7@7@&gt;&gt;9=BAA?;&gt;52;&gt;:9=8.=A</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">as</span><span class="p">(</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="s2">"matrix"</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">]</span> <span class="err">#</span> <span class="n">Coerces</span> <span class="n">Phred</span> <span class="n">scores</span> <span class="n">to</span> <span class="n">numeric</span> <span class="n">matrix</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">as</span><span class="p">(</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="s2">"matrix"</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">]</span> <span class="err">#</span> <span class="n">Coerces</span> <span class="n">Phred</span> <span class="n">scores</span> <span class="n">to</span> <span class="n">numeric</span> <span class="n">matrix</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
 ## [1,]   33   32   31   22   29   33   28   29   25    29    29    22
 ## [2,]   33   34   34   33   32   31   33   33   31    33    33    33
 ## [3,]   33   33   34   33   33   33   33   33   33    31    31    33
-## [4,]   33   33   33   33   31   33   28   31   28    32    33    33</code></pre></figure>
+## [4,]   33   33   33   33   31   33   28   31   28    32    33    33</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ShortReadQ</span><span class="p">(</span><span class="n">sread</span><span class="o">=</span><span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="n">quality</span><span class="o">=</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="n">id</span><span class="o">=</span><span class="n">id</span><span class="p">(</span><span class="n">fq</span><span class="p">))</span> <span class="err">#</span> <span class="n">Constructs</span> <span class="n">a</span> <span class="n">ShortReadQ</span> <span class="n">from</span> <span class="n">components</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ShortReadQ</span><span class="p">(</span><span class="n">sread</span><span class="o">=</span><span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="n">quality</span><span class="o">=</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="n">id</span><span class="o">=</span><span class="n">id</span><span class="p">(</span><span class="n">fq</span><span class="p">))</span> <span class="err">#</span> <span class="n">Constructs</span> <span class="n">a</span> <span class="n">ShortReadQ</span> <span class="n">from</span> <span class="n">components</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
-## length: 1000 reads; width: 36 cycles</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 1000 reads; width: 36 cycles</code></pre></div>
 
 <h2 id="fastq-quality-reports">FASTQ Quality Reports</h2>
 
-<h3 id="using-systempiper">Using <code class="highlighter-rouge">systemPipeR</code></h3>
+<h3 id="using-systempiper">Using <code>systemPipeR</code></h3>
 
-<p>The following <code class="highlighter-rouge">seeFastq</code> and <code class="highlighter-rouge">seeFastqPlot</code> functions generate and plot a series of useful quality statistics for a set of FASTQ files.</p>
+<p>The following <code>seeFastq</code> and <code>seeFastqPlot</code> functions generate and plot a series of useful quality statistics for a set of FASTQ files.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span>
 <span class="n">fqlist</span> <span class="o">&lt;-</span> <span class="n">seeFastq</span><span class="p">(</span><span class="n">fastq</span><span class="o">=</span><span class="n">fastq</span><span class="p">,</span> <span class="n">batchsize</span><span class="o">=</span><span class="m">800</span><span class="p">,</span> <span class="n">klength</span><span class="o">=</span><span class="m">8</span><span class="p">)</span> <span class="c1"># For real data set batchsize to at least 10^5 
-</span><span class="n">seeFastqPlot</span><span class="p">(</span><span class="n">fqlist</span><span class="p">)</span></code></pre></figure>
+</span><span class="n">seeFastqPlot</span><span class="p">(</span><span class="n">fqlist</span><span class="p">)</span></code></pre></div>
 
 <p><img src="Rsequences_files/see_fastq-1.png" alt="" /></p>
 
 <p>Handles many samples in one PDF file. For more details see <a href="http://bioconductor.org/packages/devel/bioc/vignettes/systemPipeR/inst/doc/systemPipeR.html">here</a></p>
 
-<h3 id="using-shortread">Using <code class="highlighter-rouge">ShortRead</code></h3>
+<h3 id="using-shortread">Using <code>ShortRead</code></h3>
 
-<p>The <code class="highlighter-rouge">ShortRead</code> package contains several FASTQ quality reporting functions.</p>
+<p>The <code>ShortRead</code> package contains several FASTQ quality reporting functions.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sp</span> <span class="o">&lt;-</span> <span class="n">SolexaPath</span><span class="p">(</span><span class="n">system.file</span><span class="p">(</span><span class="s1">'extdata'</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">'ShortRead'</span><span class="p">))</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sp</span> <span class="o">&lt;-</span> <span class="n">SolexaPath</span><span class="p">(</span><span class="n">system.file</span><span class="p">(</span><span class="s1">'extdata'</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">'ShortRead'</span><span class="p">))</span>
 <span class="n">fl</span> <span class="o">&lt;-</span> <span class="n">file.path</span><span class="p">(</span><span class="n">analysisPath</span><span class="p">(</span><span class="n">sp</span><span class="p">),</span> <span class="s2">"s_1_sequence.txt"</span><span class="p">)</span> 
 <span class="n">fls</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">fl</span><span class="p">,</span> <span class="n">fl</span><span class="p">)</span> 
 <span class="n">coll</span> <span class="o">&lt;-</span> <span class="n">QACollate</span><span class="p">(</span><span class="n">QAFastqSource</span><span class="p">(</span><span class="n">fls</span><span class="p">),</span> <span class="n">QAReadQuality</span><span class="p">(),</span> <span class="n">QAAdapterContamination</span><span class="p">(),</span> 
@@ -1815,92 +1997,92 @@ The following code performs the download for you.</p>
 <span class="n">x</span> <span class="o">&lt;-</span> <span class="n">qa2</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">&lt;-</span> <span class="n">report</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">if</span><span class="p">(</span><span class="n">interactive</span><span class="p">())</span>
-<span class="n">browseURL</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> </code></pre></figure>
+<span class="n">browseURL</span><span class="p">(</span><span class="n">res</span><span class="p">)</span></code></pre></div>
 
 <h2 id="filtering-and-trimming-fastq-files-with-shortread">Filtering and Trimming FASTQ Files with ShortRead</h2>
 
 <h3 id="adaptor-trimming">Adaptor trimming</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fqtrim</span> <span class="o">&lt;-</span> <span class="n">trimLRPatterns</span><span class="p">(</span><span class="n">Rpattern</span><span class="o">=</span><span class="s2">"GCCCGGGTAA"</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">fq</span><span class="p">)</span>
-<span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span> <span class="err">#</span> <span class="n">Before</span> <span class="n">trimming</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fqtrim</span> <span class="o">&lt;-</span> <span class="n">trimLRPatterns</span><span class="p">(</span><span class="n">Rpattern</span><span class="o">=</span><span class="s2">"GCCCGGGTAA"</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">fq</span><span class="p">)</span>
+<span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span> <span class="err">#</span> <span class="n">Before</span> <span class="n">trimming</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    36 CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA
-## [2]    36 CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA</code></pre></figure>
+## [2]    36 CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sread</span><span class="p">(</span><span class="n">fqtrim</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span> <span class="err">#</span> <span class="n">After</span> <span class="n">trimming</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sread</span><span class="p">(</span><span class="n">fqtrim</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span> <span class="err">#</span> <span class="n">After</span> <span class="n">trimming</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    26 CAACGAGTTCACACCTTGGCCGACAG
-## [2]    36 CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA</code></pre></figure>
+## [2]    36 CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA</code></pre></div>
 
 <h3 id="read-counting-and-duplicate-removal">Read counting and duplicate removal</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tables</span><span class="p">(</span><span class="n">fq</span><span class="p">)</span><span class="o">$</span><span class="n">distribution</span> <span class="err">#</span> <span class="n">Counts</span> <span class="n">read</span> <span class="n">occurences</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">tables</span><span class="p">(</span><span class="n">fq</span><span class="p">)</span><span class="o">$</span><span class="n">distribution</span> <span class="err">#</span> <span class="n">Counts</span> <span class="n">read</span> <span class="n">occurences</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   nOccurrences nReads
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   nOccurrences nReads
 ## 1            1    948
-## 2            2     26</code></pre></figure>
+## 2            2     26</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sum</span><span class="p">(</span><span class="n">srduplicated</span><span class="p">(</span><span class="n">fq</span><span class="p">))</span> <span class="err">#</span> <span class="n">Identifies</span> <span class="n">duplicated</span> <span class="n">reads</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">sum</span><span class="p">(</span><span class="n">srduplicated</span><span class="p">(</span><span class="n">fq</span><span class="p">))</span> <span class="err">#</span> <span class="n">Identifies</span> <span class="n">duplicated</span> <span class="n">reads</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 26</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 26</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fq</span><span class="p">[</span><span class="o">!</span><span class="n">srduplicated</span><span class="p">(</span><span class="n">fq</span><span class="p">)]</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fq</span><span class="p">[</span><span class="o">!</span><span class="n">srduplicated</span><span class="p">(</span><span class="n">fq</span><span class="p">)]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
-## length: 974 reads; width: 36 cycles</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 974 reads; width: 36 cycles</code></pre></div>
 
 <h3 id="trimming-low-quality-tails">Trimming low quality tails</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="m">30</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="m">30</span>
 <span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="n">rawToChar</span><span class="p">(</span><span class="n">as.raw</span><span class="p">(</span><span class="n">cutoff</span><span class="m">+33</span><span class="p">))</span>
-<span class="n">sread</span><span class="p">(</span><span class="n">trimTails</span><span class="p">(</span><span class="n">fq</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">successive</span><span class="o">=</span><span class="n">FALSE</span><span class="p">))[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></figure>
+<span class="n">sread</span><span class="p">(</span><span class="n">trimTails</span><span class="p">(</span><span class="n">fq</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">successive</span><span class="o">=</span><span class="n">FALSE</span><span class="p">))[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]     4 CAAC
-## [2]    20 CCAATGATTTTTTTCCGTGT</code></pre></figure>
+## [2]    20 CCAATGATTTTTTTCCGTGT</code></pre></div>
 
 <h3 id="removal-of-reads-with-phred-scores-below-a-threshold-value">Removal of reads with Phred scores below a threshold value</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="m">30</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="m">30</span>
 <span class="n">qcount</span> <span class="o">&lt;-</span> <span class="n">rowSums</span><span class="p">(</span><span class="n">as</span><span class="p">(</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="s2">"matrix"</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="m">20</span><span class="p">)</span> 
-<span class="n">fq</span><span class="p">[</span><span class="n">qcount</span> <span class="o">==</span> <span class="m">0</span><span class="p">]</span> <span class="err">#</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">reads</span> <span class="n">where</span> <span class="n">all</span> <span class="n">Phred</span> <span class="n">scores</span> <span class="o">&gt;=</span> <span class="m">20</span></code></pre></figure>
+<span class="n">fq</span><span class="p">[</span><span class="n">qcount</span> <span class="o">==</span> <span class="m">0</span><span class="p">]</span> <span class="err">#</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">reads</span> <span class="n">where</span> <span class="n">all</span> <span class="n">Phred</span> <span class="n">scores</span> <span class="o">&gt;=</span> <span class="m">20</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
-## length: 349 reads; width: 36 cycles</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 349 reads; width: 36 cycles</code></pre></div>
 
 <h3 id="removal-of-reads-with-x-ns-andor-low-complexity-segments">Removal of reads with x Ns and/or low complexity segments</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">filter1</span> <span class="o">&lt;-</span> <span class="n">nFilter</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> <span class="c1"># Keeps only reads without Ns
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">filter1</span> <span class="o">&lt;-</span> <span class="n">nFilter</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> <span class="c1"># Keeps only reads without Ns
 </span><span class="n">filter2</span> <span class="o">&lt;-</span> <span class="n">polynFilter</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">nuc</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">))</span> <span class="c1"># Removes reads with &gt;=20 of one nucleotide
 </span><span class="n">filter</span> <span class="o">&lt;-</span> <span class="n">compose</span><span class="p">(</span><span class="n">filter1</span><span class="p">,</span> <span class="n">filter2</span><span class="p">)</span>
-<span class="n">fq</span><span class="p">[</span><span class="n">filter</span><span class="p">(</span><span class="n">fq</span><span class="p">)]</span></code></pre></figure>
+<span class="n">fq</span><span class="p">[</span><span class="n">filter</span><span class="p">(</span><span class="n">fq</span><span class="p">)]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
-## length: 989 reads; width: 36 cycles</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## class: ShortReadQ
+## length: 989 reads; width: 36 cycles</code></pre></div>
 
 <h2 id="memory-efficient-fastq-processing">Memory Efficient FASTQ Processing</h2>
 
-<p>Streaming through FASTQ files with <code class="highlighter-rouge">FastqStreamer</code> and random sampling reads with <code class="highlighter-rouge">FastqSampler</code></p>
+<p>Streaming through FASTQ files with <code>FastqStreamer</code> and random sampling reads with <code>FastqSampler</code></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">FastqStreamer</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">))</span> <span class="c1"># Imports first 50 reads 
-</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">FastqSampler</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">))</span> <span class="err">#</span> <span class="n">Random</span> <span class="n">samples</span> <span class="m">50</span> <span class="n">reads</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">FastqStreamer</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">))</span> <span class="c1"># Imports first 50 reads 
+</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">FastqSampler</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">))</span> <span class="err">#</span> <span class="n">Random</span> <span class="n">samples</span> <span class="m">50</span> <span class="n">reads</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning: closing unused connection 5 (data/SRR038845.fastq)</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Warning: closing unused connection 5 (data/SRR038845.fastq)</code></pre></div>
 
 <p>Streaming through a FASTQ file while applying filtering/trimming functions and writing the results to a new file
- here <code class="highlighter-rouge">SRR038845.fastq_sub</code> in <code class="highlighter-rouge">data</code> directory.</p>
+ here <code>SRR038845.fastq_sub</code> in <code>data</code> directory.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FastqStreamer</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">)</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FastqStreamer</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">)</span> 
 <span class="k">while</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">f</span><span class="p">)))</span> <span class="p">{</span>
 	<span class="n">fqsub</span> <span class="o">&lt;-</span> <span class="n">fq</span><span class="p">[</span><span class="n">grepl</span><span class="p">(</span><span class="s2">"^TT"</span><span class="p">,</span> <span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">))]</span> 
 	<span class="n">writeFastq</span><span class="p">(</span><span class="n">fqsub</span><span class="p">,</span> <span class="n">paste</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="s2">"sub"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"_"</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="n">close</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></code></pre></figure>
+<span class="n">close</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></code></pre></div>
 
 
 
@@ -1918,7 +2100,7 @@ The following code performs the download for you.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sat Apr 30 19:54:48 2016<br/> Site last generated: May 23, 2016 <br />
+<p>Page last updated:</span> Sat Apr 30 19:54:48 2016<br/> Site last generated: May 24, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
