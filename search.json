@@ -5,6 +5,17 @@
 
 
 {
+"title": "Introduction to R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/07_Rbasics/:w",
+"summary": ""
+},
+
+
+
+
+{
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
@@ -891,7 +902,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -902,18 +913,7 @@
 "title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "HW3 - Introduction to R",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_homework_03.html",
+"url": "../mydoc/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -925,6 +925,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/06_Homework/mydoc_homework_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "HW3 - Introduction to R",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_homework_03.html",
 "summary": ""
 },
 
@@ -1001,7 +1012,7 @@
 "title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_00.html",
+"url": "../mydoc/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -1012,7 +1023,7 @@
 "title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_00.html",
+"url": "../vignettes/17_Projects/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -1089,7 +1100,7 @@
 "title": "RNA-Seq2 - DEG Methods",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_04.html",
+"url": "../vignettes/17_Projects/mydoc_project_04.html",
 "summary": ""
 },
 
@@ -1100,7 +1111,7 @@
 "title": "RNA-Seq2 - DEG Methods",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_04.html",
+"url": "../mydoc/mydoc_project_04.html",
 "summary": ""
 },
 
@@ -1155,7 +1166,7 @@
 "title": "Data Management for Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_07.html",
+"url": "../vignettes/17_Projects/mydoc_project_07.html",
 "summary": ""
 },
 
@@ -1166,18 +1177,7 @@
 "title": "Data Management for Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_07.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Course Schedule",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_schedule.html",
+"url": "../mydoc/mydoc_project_07.html",
 "summary": ""
 },
 
@@ -1196,10 +1196,10 @@
 
 
 {
-"title": "Course Introduction",
+"title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_01.html",
+"url": "../mydoc/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -1211,6 +1211,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Course Introduction",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1243,7 +1254,7 @@
 "title": "Databases and Software for Genome Biology",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_03.html",
+"url": "../vignettes/04_Slides/mydoc_slides_03.html",
 "summary": ""
 },
 
@@ -1254,7 +1265,7 @@
 "title": "Databases and Software for Genome Biology",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_03.html",
+"url": "../mydoc/mydoc_slides_03.html",
 "summary": ""
 },
 
@@ -1287,7 +1298,7 @@
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_05.html",
+"url": "../mydoc/mydoc_slides_05.html",
 "summary": ""
 },
 
@@ -1298,7 +1309,7 @@
 "title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_05.html",
+"url": "../vignettes/04_Slides/mydoc_slides_05.html",
 "summary": ""
 },
 
@@ -1331,7 +1342,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_07.html",
+"url": "../mydoc/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1342,18 +1353,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_07.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Multiple Sequence Alignments",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_08.html",
+"url": "../vignettes/04_Slides/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1372,10 +1372,10 @@
 
 
 {
-"title": "Short Read Alignments",
+"title": "Multiple Sequence Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_09.html",
+"url": "../vignettes/04_Slides/mydoc_slides_08.html",
 "summary": ""
 },
 
@@ -1387,6 +1387,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Short Read Alignments",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1419,7 +1430,7 @@
 "title": "Analysis of Gene Expression Data",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_11.html",
+"url": "../mydoc/mydoc_slides_11.html",
 "summary": ""
 },
 
@@ -1430,18 +1441,7 @@
 "title": "Analysis of Gene Expression Data",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_11.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Introduction to NGS Workflows",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_12.html",
+"url": "../vignettes/04_Slides/mydoc_slides_11.html",
 "summary": ""
 },
 
@@ -1453,6 +1453,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_12.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to NGS Workflows",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1529,7 +1540,7 @@
 "title": "Gene Annotation, Ontologies and Enrichment Methods",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_16.html",
+"url": "../mydoc/mydoc_slides_16.html",
 "summary": ""
 },
 
@@ -1540,7 +1551,7 @@
 "title": "Gene Annotation, Ontologies and Enrichment Methods",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_16.html",
+"url": "../vignettes/04_Slides/mydoc_slides_16.html",
 "summary": ""
 },
 
@@ -1584,7 +1595,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_syllabus.html",
+"url": "../vignettes/01_Home/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -1595,7 +1606,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/mydoc_syllabus.html",
+"url": "../mydoc/mydoc_syllabus.html",
 "summary": ""
 },
 

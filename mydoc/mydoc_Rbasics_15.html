@@ -1666,15 +1666,187 @@ $('#toc').on('click', 'a', function() {
 -->
 <h2 id="overview">Overview</h2>
 
-<p>R Markdown combines markdown (an easy to write plain text format)
-with embedded R code chunks. When compiling R Markdown reports, the 
-code components can be evaluated so that both the code and its output 
-can be included in the final document. This way reports are highly 
-reproducible by allowing to automatically regenerate them when the 
-underlying R code or data changes. R Markdown documents can be rendered to
-various formats including HTML and PDF. For rendering documents, the environment
-uses <code class="highlighter-rouge">knitr</code> and <code class="highlighter-rouge">pandoc</code>. Historically, R Markdown is an extension of the 
-older <code class="highlighter-rouge">Sweave/Latex</code> environment.</p>
+<p>R Markdown combines markdown (an easy to write plain text format) with embedded
+R code chunks. When compiling R Markdown documents, the code components can be
+evaluated so that both the code and its output can be included in the final
+document. This way reports are highly reproducible by allowing to automatically
+regenerate them when the underlying R code or data changes. R Markdown
+documents (<code class="highlighter-rouge">.Rmd</code> files) can be rendered to various formats including HTML and
+PDF. The R code in an <code class="highlighter-rouge">.Rmd</code> document is processed by <code class="highlighter-rouge">knitr</code>, while the
+resulting <code class="highlighter-rouge">.md</code> file is rendered by <code class="highlighter-rouge">pandoc</code> to the final output formats
+(<em>e.g.</em> HTML or PDF). Historically, R Markdown is an extension of the older
+<code class="highlighter-rouge">Sweave/Latex</code> environment. Rendering of mathematical expressions and reference
+management are also supported by R Markdown using embedded Latex syntax and
+Bibtex, respectively.</p>
+
+<h2 id="quick-start">Quick Start</h2>
+
+<h3 id="install-r-markdown">Install R Markdown</h3>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">install.packages</span><span class="p">(</span><span class="s2">"rmarkdown"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="initialize-a-new-r-markdown-rmd-script">Initialize a new R Markdown (<code class="highlighter-rouge">Rmd</code>) script</h3>
+
+<p>To minimize typing, it can be helful to start with an R Markdown template like this <a href="">one</a>
+and then modify it as needed. Note the file name of an R Markdown scirpt needs to have the 
+extension <code class="highlighter-rouge">.Rmd</code>.</p>
+
+<h3 id="metadata-section">Metadata section</h3>
+
+<p>The metadata section (YAML header) in an R Markdown script defines how it will be processed and 
+rendered. The metadata section also includes both title, author, and date information as well as 
+options for customizing the output format. For instance, PDF and HTML output can be defined 
+with <code class="highlighter-rouge">pdf_document</code> and <code class="highlighter-rouge">html_document</code>, respectively. The <code class="highlighter-rouge">BiocStyle::</code> prefix will use the
+formatting style of the <a href="http://bioconductor.org/packages/release/bioc/html/BiocStyle.html"><code class="highlighter-rouge">BiocStyle</code></a> 
+package from Bioconductor.</p>
+
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt"> ---
+title: "My first R Markdown Document"
+author: "Author: First Last"
+date: "Last update: 23 May, 2016"
+output:
+  BiocStyle::pdf_document:
+    toc: true
+    toc_depth: 3
+    fig_caption: yes
+  BiocStyle::html_document:
+    toc: true
+    toc_depth: 3
+    fig_caption: yes
+
+fontsize: 14pt
+bibliography: bibtex.bib
+ ---</code></pre></figure>
+
+<h3 id="render-rmd-script">Render <code class="highlighter-rouge">Rmd</code> script</h3>
+
+<p>An R Markdown script can be evaluated and rendered with the following <code class="highlighter-rouge">render</code> command or by pressing the <code class="highlighter-rouge">knit</code> button in RStudio.
+The <code class="highlighter-rouge">output_format</code> argument defines the format of the output (<em>e.g.</em> <code class="highlighter-rouge">html_document</code>). The setting <code class="highlighter-rouge">output_format="all"</code> will generate 
+all supported output formats. Alternatively, one can specify several output formats in the metadata section.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">rmarkdown</span><span class="o">::</span><span class="n">render</span><span class="p">(</span><span class="s2">"input.Rmd"</span><span class="p">,</span> <span class="n">output_format</span><span class="o">=</span><span class="s2">"html"</span><span class="p">)</span></code></pre></figure>
+
+<h3 id="r-code-chunks">R code chunks</h3>
+
+<p>R Code Chunks can be embedded in an R Markdown script by using three backticks along with 
+certain modifier syntax to initialize a code chunk and another three to terminate it. 
+The following shows an example of such a code chunk.</p>
+
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">	```\{r code_chunk_name, eval=FALSE\}
+	x &lt;- 1:10
+	```</code></pre></figure>
+
+<p>The code chunk options are provided within the braces of the first line. The following explains the meaning of the 
+most important options:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">r</code>: specifies language for code chunk, here R</li>
+  <li><code class="highlighter-rouge">chode_chunk_name</code>: name of code chunk; this name needs to be unique</li>
+  <li><code class="highlighter-rouge">eval</code>: if assigned <code class="highlighter-rouge">TRUE</code> the code will be evaluated</li>
+  <li><code class="highlighter-rouge">warning</code>: if assigned <code class="highlighter-rouge">FALSE</code> warnings will not be shown</li>
+  <li><code class="highlighter-rouge">message</code>: if assigned <code class="highlighter-rouge">FALSE</code> messages will not be shown</li>
+  <li><code class="highlighter-rouge">cache</code>: if assigned <code class="highlighter-rouge">TRUE</code> results will be cached to reuse in future rendering instances</li>
+  <li><code class="highlighter-rouge">fig.height</code>: allows to specify height of figures in inches</li>
+  <li><code class="highlighter-rouge">fig.width</code>: allows to specify width of figures in inches</li>
+</ul>
+
+<p>For more details on code chunk options see <a href="https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf">here</a>.</p>
+
+<h3 id="learning-markdown">Learning Markdown</h3>
+
+<p>The basic syntax of Markdown and derivatives like kramdown is extremely easy to learn. Rather
+than providing another introduction on this topic, here are some useful sites for learning Markdown:</p>
+
+<ul>
+  <li><a href="https://guides.github.com/features/mastering-markdown/">Markdown Intro on GitHub</a></li>
+  <li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheet Sheet</a></li>
+  <li><a href="http://rmarkdown.rstudio.com/authoring_basics.html">Markdown Basics from RStudio</a></li>
+  <li><a href="http://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown Cheat Sheet</a></li>
+  <li><a href="http://kramdown.gettalong.org/syntax.html">kramdown Syntax</a></li>
+</ul>
+
+<h3 id="tables">Tables</h3>
+
+<p>There are several ways to render tables. First, they can be printed within the R code chunks. Second, 
+nice formatted table can be generated with the functions <code class="highlighter-rouge">kable</code>, <code class="highlighter-rouge">pander</code> or <code class="highlighter-rouge">xtable</code>. The following
+example uses <code class="highlighter-rouge">kable</code> from the <code class="highlighter-rouge">knitr</code> package.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">knitr</span><span class="p">)</span>
+<span class="n">kable</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,])</span></code></pre></figure>
+
+<h2 id="sepallength---sepalwidth---petallength---petalwidth--species">Sepal.Length   Sepal.Width   Petal.Length   Petal.Width  Species</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>      5.1           3.5            1.4           0.2  setosa  
+      4.9           3.0            1.4           0.2  setosa  
+      4.7           3.2            1.3           0.2  setosa  
+      4.6           3.1            1.5           0.2  setosa  
+      5.0           3.6            1.4           0.2  setosa  
+      5.4           3.9            1.7           0.4  setosa  
+      4.6           3.4            1.4           0.3  setosa  
+      5.0           3.4            1.5           0.2  setosa  
+      4.4           2.9            1.4           0.2  setosa  
+      4.9           3.1            1.5           0.1  setosa  
+      5.4           3.7            1.5           0.2  setosa  
+      4.8           3.4            1.6           0.2  setosa  
+</code></pre>
+</div>
+
+<h3 id="figures">Figures</h3>
+
+<p>Plots generated by the R code chunks in an R Markdown document can be automatically 
+inserted in the output file. The size of the figure can be controlled with the <code class="highlighter-rouge">fig.height</code>
+and <code class="highlighter-rouge">fig.width</code> arguments.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="n">dsmall</span> <span class="o">&lt;-</span> <span class="n">diamonds</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="n">nrow</span><span class="p">(</span><span class="n">diamonds</span><span class="p">),</span> <span class="m">1000</span><span class="p">),</span> <span class="p">]</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">I</span><span class="p">(</span><span class="m">1</span> <span class="o">/</span> <span class="m">2</span><span class="p">),</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">))</span></code></pre></figure>
+
+<p><img src="Rbasics_files/some_jitter_plot-1.png" alt="" /></p>
+
+<p>Sometimes it can be useful to explicitly write an image to a file and then insert that 
+image by referencing its file name. For instance, this can be useful for time consuming 
+analyses. The following code will generate a file named <code class="highlighter-rouge">myplot.png</code>. To insert the file 
+in the rendered document, one can use standard Markdown or HTML syntax, <em>e.g.</em>: <code class="highlighter-rouge">&lt;img src="Rbasics_files/myplot.png"/&gt;</code>.</p>
+
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">png</span><span class="p">(</span><span class="s2">"myplot.png"</span><span class="p">)</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">I</span><span class="p">(</span><span class="m">1</span> <span class="o">/</span> <span class="m">2</span><span class="p">),</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">))</span>
+<span class="n">dev.off</span><span class="p">()</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## png 
+##   2</code></pre></figure>
+
+<center><img title="some_title" src="Rbasics_files/myplot.png" /></center>
+
+<h3 id="inline-r-code">Inline R code</h3>
+
+<p>To evaluate R code inline, one can enclose an R expression with a single back-tick
+followed by <code class="highlighter-rouge">r</code> and then the actual expression.  For instance, the back-ticked version 
+of ‘r 1 + 1’ evaluates to 2 and ‘r pi’ evaluates to 3.1415927.</p>
+
+<h3 id="mathematical-expressions">Mathematical expressions</h3>
+
+<p>To render mathematical expressions, one can use standard Latex syntax. When expressions are 
+enclosed with single <code class="highlighter-rouge">$</code> signs then they will be shown inline, while 
+enclosing them with double <code class="highlighter-rouge">$$</code> will show them in display mode. For instance, the following 
+Latex syntax <code class="highlighter-rouge">d(X,Y) = \sqrt[]{ \sum_{i=1}^{n}{(x_{i}-y_{i})^2} }</code> renders in display mode as follows:</p>
+
+<script type="math/tex; mode=display">d(X,Y) = \sqrt[]{ \sum_{i=1}^{n}{(x_{i}-y_{i})^2} }</script>
+
+<h3 id="citations-and-bibliographies">Citations and bibliographies</h3>
+
+<p>Citations and bibliographies can be autogenerated in R Markdown in a similar
+way as in Latex/Bibtex. Reference collections should be stored in a separate
+file in Bibtex or other supported formats. To cite a publication in an R Markdown 
+script, one uses the syntax <code class="highlighter-rouge">(@&lt;id1&gt;)</code> where <code class="highlighter-rouge">&lt;id1&gt;</code> needs to be replaced with a 
+reference identifier present in the Bibtex database listed in the metadata section 
+of the R Markdown script  (<em>e.g.</em> <code class="highlighter-rouge">bibtex.bib</code>). For instance, to cite Lawrence et al. 
+(2013), one  uses its reference identifier (<em>e.g.</em> <code class="highlighter-rouge">Lawrence2013-kt</code>) as <code class="highlighter-rouge">&lt;id1&gt;</code>. This will
+place the citation (Lawrence et al., 2013) inline in the text and add the corresponding
+reference to a reference list at the end of the output document. For the latter a 
+special section called <code class="highlighter-rouge">References</code> needs to be specified at the end of the R Markdown script.
+To fine control the formatting of citations and reference lists, users want to consult this 
+the corresponding <a href="http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">R Markdown page</a>.
+Also, for general reference management and outputting references in Bibtex format <a href="https://paperpile.com/features">Paperpile</a> 
+can be very helpful.</p>
 
 
 
@@ -1692,7 +1864,7 @@ older <code class="highlighter-rouge">Sweave/Latex</code> environment.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Mon May 23 14:05:23 2016<br/> Site last generated: May 23, 2016 <br />
+<p>Page last updated:</span> Mon May 23 21:13:38 2016<br/> Site last generated: May 23, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
