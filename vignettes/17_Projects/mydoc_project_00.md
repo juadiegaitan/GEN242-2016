@@ -31,14 +31,14 @@ before June 8. The expected structure of the final project report is outlined be
 
 1. Abstract
 2. Introduction
-3. Results and Discussion
-    + Includes all components of NGS workflow as well as challenge project
-4. Conclusions
-4. Methods
+3. Methods
     + Short description of methods used by NGS workflow
     + Detailed description of methods used for challenge project
-5. Acknowledgments
-6. References
-7. Supplement (optional)
+4. Results and Discussion
+    + Includes all components of NGS workflow as well as challenge project
+5. Conclusions
+6. Acknowledgments
+7. References
+8. Supplement (optional)
 
 
