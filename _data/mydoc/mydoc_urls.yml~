@@ -95,8 +95,18 @@ mydoc_slides_15:
 
 mydoc_slides_16:
   title: "Gene Set Enrichment"
-  url: "../mydoc_slides_15.html"
+  url: "../mydoc_slides_16.html"
   link: "<a href='../mydoc_slides_16.html'>Gene Set Enrichment</a>"
+
+mydoc_slides_17:
+  title: "Cluster Analysis"
+  url: "../mydoc_slides_17.html"
+  link: "<a href='../mydoc_slides_17.html'>Gene Set Enrichment</a>"
+
+mydoc_slides_18:
+  title: "Sequence Family Modeling with HMMs"
+  url: "../mydoc_slides_18.html"
+  link: "<a href='../mydoc_slides_18.html'>Sequence Family Modeling with HMMs</a>"
 
 mydoc_tutorial_01:
   title: "GitHub"
@@ -548,6 +558,36 @@ mydoc_systemPipeVARseq_14:
   url: "../mydoc/mydoc_systemPipeVARseq_14.html"
   link: "<a href='../mydoc/mydoc_systemPipeVARseq_14.html'>References</a>"
 
+mydoc_Rclustering_1:
+  title: "Introduction"
+  url: "../mydoc/mydoc_Rclustering_1.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_1.html'>Introduction</a>"
+
+mydoc_Rclustering_2:
+  title: "Data Preprocessing"
+  url: "../mydoc/mydoc_Rclustering_2.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_2.html'>Data Preprocessing</a>"
+
+mydoc_Rclustering_3:
+  title: "Clustering Algorithms"
+  url: "../mydoc/mydoc_Rclustering_3.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_3.html'>Clustering Algorithms</a>"
+
+mydoc_Rclustering_4:
+  title: "Clustering Exercises"
+  url: "../mydoc/mydoc_Rclustering_4.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_4.html'>Clustering Exercises</a>"
+
+mydoc_Rclustering_5:
+  title: "Version Information"
+  url: "../mydoc/mydoc_Rclustering_5.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_5.html'>Version Information</a>"
+
+mydoc_Rclustering_6:
+  title: "References"
+  url: "../mydoc/mydoc_Rclustering_6.html"
+  link: "<a href='../mydoc/mydoc_Rclustering_6.html'>References</a>"
+
 mydoc_Rbasics_01:
   title: "Overview"
   url: "../mydoc/mydoc_Rbasics_01.html"
@@ -619,14 +659,19 @@ mydoc_Rbasics_14:
   link: "<a href='../mydoc/mydoc_Rbasics_14.html'>Analysis Routine</a>"
 
 mydoc_Rbasics_15:
-  title: "Session Info"
+  title: "R Markdown"
   url: "../mydoc/mydoc_Rbasics_15.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_15.html'>Session Info</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_15.html'>R Markdown</a>"
 
 mydoc_Rbasics_16:
-  title: "References"
+  title: "Session Info"
   url: "../mydoc/mydoc_Rbasics_16.html"
-  link: "<a href='../mydoc/mydoc_Rbasics_16.html'>References</a>"
+  link: "<a href='../mydoc/mydoc_Rbasics_16.html'>Session Info</a>"
+
+mydoc_Rbasics_17:
+  title: "References"
+  url: "../mydoc/mydoc_Rbasics_17.html"
+  link: "<a href='../mydoc/mydoc_Rbasics_17.html'>References</a>"
 
 mydoc_Rgraphics_1:
   title: "Overview"

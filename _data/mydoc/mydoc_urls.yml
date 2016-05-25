@@ -103,6 +103,16 @@ mydoc_slides_17:
   url: "../mydoc_slides_17.html"
   link: "<a href='../mydoc_slides_17.html'>Gene Set Enrichment</a>"
 
+mydoc_slides_18:
+  title: "Sequence Family Modeling with HMMs"
+  url: "../mydoc_slides_18.html"
+  link: "<a href='../mydoc_slides_18.html'>Sequence Family Modeling with HMMs</a>"
+
+mydoc_slides_19:
+  title: "Introduction to Phylogenetics"
+  url: "../mydoc_slides_19.html"
+  link: "<a href='../mydoc_slides_19.html'>Introduction to Phylogenetics</a>"
+
 mydoc_tutorial_01:
   title: "GitHub"
   url: "../mydoc_tutorial_01.html"

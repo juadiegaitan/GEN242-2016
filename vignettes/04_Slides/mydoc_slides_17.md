@@ -1,8 +1,8 @@
 ---
-title: Cluster Analysis
-last_updated: 15-May-16
+title: Profile HMMs for Sequence Family Modeling
+last_updated: 26-May-16
 ---
 
-<iframe src="https://docs.google.com/presentation/d/1QCvrh69MZwqkCT-lFp6UViJlheQSJ0D9pEIfIs6wIZw/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://drive.google.com/open?id=0B-lLYVUOliJFWlBoSy0xc3RxRkE" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 
