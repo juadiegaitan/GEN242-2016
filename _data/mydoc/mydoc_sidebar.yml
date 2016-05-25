@@ -228,7 +228,7 @@ entries:
       version: all
       output: web
     
-    - title: Sequence Family Modeling with HMMs
+    - title: Profile HMMs
       url: /mydoc/mydoc_slides_18.html
       audience: writers, designers
       platform: all
