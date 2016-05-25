@@ -1559,7 +1559,7 @@
 
 
 {
-"title": "Cluster Analysis",
+"title": "Profile HMMs for Sequence Family Modeling",
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_17.html",
@@ -1574,6 +1574,39 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_17.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Profile HMMs for Sequence Family Modeling",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_18.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Profile HMMs for Sequence Family Modeling",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_18.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to Phylogenetics",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_19.html",
 "summary": ""
 },
 
