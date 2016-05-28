@@ -79,16 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -169,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -263,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1704,54 +1682,54 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<p>The function <code>variantReport</code> generates a variant report using
-utilities provided by the <code>VariantAnnotation</code> package. The report for
+<p>The function <code class="highlighter-rouge">variantReport</code> generates a variant report using
+utilities provided by the <code class="highlighter-rouge">VariantAnnotation</code> package. The report for
 each sample is written to a tabular file containing genomic context annotations
 (<em>e.g.</em> coding or non-coding SNPs, amino acid changes, IDs of affected
 genes, etc.) along with confidence statistics for each variant. The parameter
-file <code>annotate_vars.param</code> defines the paths to the input and output
-files which are stored in a new <code>SYSargs</code> instance.</p>
+file <code class="highlighter-rouge">annotate_vars.param</code> defines the paths to the input and output
+files which are stored in a new <code class="highlighter-rouge">SYSargs</code> instance.</p>
 
 <h2 id="basics-of-annotating-variants">Basics of annotating variants</h2>
 
-<p>Variants overlapping with common annotation features can be identified with <code>locateVariants</code>.</p>
+<p>Variants overlapping with common annotation features can be identified with <code class="highlighter-rouge">locateVariants</code>.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"GenomicFeatures"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"GenomicFeatures"</span><span class="p">)</span>
 <span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_gatk_filtered.txt"</span><span class="p">)</span>
 <span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">loadDb</span><span class="p">(</span><span class="s2">"./data/tair10.sqlite"</span><span class="p">)</span>
 <span class="n">vcf</span> <span class="o">&lt;-</span> <span class="n">readVcf</span><span class="p">(</span><span class="n">infile1</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">],</span> <span class="s2">"A. thaliana"</span><span class="p">)</span>
-<span class="n">locateVariants</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">txdb</span><span class="p">,</span> <span class="n">CodingVariants</span><span class="p">())</span></code></pre></div>
+<span class="n">locateVariants</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">txdb</span><span class="p">,</span> <span class="n">CodingVariants</span><span class="p">())</span></code></pre></figure>
 
 <p>Synonymous/non-synonymous variants of coding sequences are computed by the predictCoding function for variants overlapping with coding regions.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fa</span> <span class="o">&lt;-</span> <span class="n">FaFile</span><span class="p">(</span><span class="n">systemPipeR</span><span class="o">::</span><span class="n">reference</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
-<span class="n">predictCoding</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">txdb</span><span class="p">,</span> <span class="n">seqSource</span><span class="o">=</span><span class="n">fa</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">fa</span> <span class="o">&lt;-</span> <span class="n">FaFile</span><span class="p">(</span><span class="n">systemPipeR</span><span class="o">::</span><span class="n">reference</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+<span class="n">predictCoding</span><span class="p">(</span><span class="n">vcf</span><span class="p">,</span> <span class="n">txdb</span><span class="p">,</span> <span class="n">seqSource</span><span class="o">=</span><span class="n">fa</span><span class="p">)</span></code></pre></figure>
 
-<h2 id="annotate-filtered-variants-called-by-gatk">Annotate filtered variants called by <code>GATK</code></h2>
+<h2 id="annotate-filtered-variants-called-by-gatk">Annotate filtered variants called by <code class="highlighter-rouge">GATK</code></h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"GenomicFeatures"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"GenomicFeatures"</span><span class="p">)</span>
 <span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_gatk_filtered.txt"</span><span class="p">)</span>
 <span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">loadDb</span><span class="p">(</span><span class="s2">"./data/tair10.sqlite"</span><span class="p">)</span>
 <span class="n">fa</span> <span class="o">&lt;-</span> <span class="n">FaFile</span><span class="p">(</span><span class="n">systemPipeR</span><span class="o">::</span><span class="n">reference</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
-<span class="n">suppressAll</span><span class="p">(</span><span class="n">variantReport</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">txdb</span><span class="o">=</span><span class="n">txdb</span><span class="p">,</span> <span class="n">fa</span><span class="o">=</span><span class="n">fa</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s2">"A. thaliana"</span><span class="p">))</span></code></pre></div>
+<span class="n">suppressAll</span><span class="p">(</span><span class="n">variantReport</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">txdb</span><span class="o">=</span><span class="n">txdb</span><span class="p">,</span> <span class="n">fa</span><span class="o">=</span><span class="n">fa</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s2">"A. thaliana"</span><span class="p">))</span></code></pre></figure>
 
-<h2 id="annotate-filtered-variants-called-by-bcftools">Annotate filtered variants called by <code>BCFtools</code></h2>
+<h2 id="annotate-filtered-variants-called-by-bcftools">Annotate filtered variants called by <code class="highlighter-rouge">BCFtools</code></h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_sambcf_filtered.txt"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_sambcf_filtered.txt"</span><span class="p">)</span>
 <span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">loadDb</span><span class="p">(</span><span class="s2">"./data/tair10.sqlite"</span><span class="p">)</span>
 <span class="n">fa</span> <span class="o">&lt;-</span> <span class="n">FaFile</span><span class="p">(</span><span class="n">systemPipeR</span><span class="o">::</span><span class="n">reference</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
-<span class="n">suppressAll</span><span class="p">(</span><span class="n">variantReport</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">txdb</span><span class="o">=</span><span class="n">txdb</span><span class="p">,</span> <span class="n">fa</span><span class="o">=</span><span class="n">fa</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s2">"A. thaliana"</span><span class="p">))</span></code></pre></div>
+<span class="n">suppressAll</span><span class="p">(</span><span class="n">variantReport</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">txdb</span><span class="o">=</span><span class="n">txdb</span><span class="p">,</span> <span class="n">fa</span><span class="o">=</span><span class="n">fa</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s2">"A. thaliana"</span><span class="p">))</span></code></pre></figure>
 
-<h2 id="annotate-filtered-variants-called-by-varianttools">Annotate filtered variants called by <code>VariantTools</code></h2>
+<h2 id="annotate-filtered-variants-called-by-varianttools">Annotate filtered variants called by <code class="highlighter-rouge">VariantTools</code></h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_vartools_filtered.txt"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/annotate_vars.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_vartools_filtered.txt"</span><span class="p">)</span>
 <span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">loadDb</span><span class="p">(</span><span class="s2">"./data/tair10.sqlite"</span><span class="p">)</span>
 <span class="n">fa</span> <span class="o">&lt;-</span> <span class="n">FaFile</span><span class="p">(</span><span class="n">systemPipeR</span><span class="o">::</span><span class="n">reference</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
-<span class="n">suppressAll</span><span class="p">(</span><span class="n">variantReport</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">txdb</span><span class="o">=</span><span class="n">txdb</span><span class="p">,</span> <span class="n">fa</span><span class="o">=</span><span class="n">fa</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s2">"A. thaliana"</span><span class="p">))</span></code></pre></div>
+<span class="n">suppressAll</span><span class="p">(</span><span class="n">variantReport</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">txdb</span><span class="o">=</span><span class="n">txdb</span><span class="p">,</span> <span class="n">fa</span><span class="o">=</span><span class="n">fa</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s2">"A. thaliana"</span><span class="p">))</span></code></pre></figure>
 
 <p>View annotation result for single sample</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">read.delim</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">])[</span><span class="m">38</span><span class="o">:</span><span class="m">40</span><span class="p">,]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">read.delim</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">])[</span><span class="m">38</span><span class="o">:</span><span class="m">40</span><span class="p">,]</span></code></pre></figure>
 
 
 
@@ -1769,7 +1747,7 @@ files which are stored in a new <code>SYSargs</code> instance.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Thu May  5 11:37:34 2016<br/> Site last generated: May 25, 2016 <br />
+<p>Page last updated:</span> Thu May  5 11:37:34 2016<br/> Site last generated: May 27, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

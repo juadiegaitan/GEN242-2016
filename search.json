@@ -880,7 +880,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_01.html",
+"url": "../mydoc/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -891,18 +891,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "HW2 - Introduction to Biocluster and Linux",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -921,10 +910,10 @@
 
 
 {
-"title": "HW3 - Introduction to R",
+"title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_03.html",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -936,6 +925,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_homework_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "HW3 - Introduction to R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/06_Homework/mydoc_homework_03.html",
 "summary": ""
 },
 
@@ -1012,7 +1012,7 @@
 "title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_00.html",
+"url": "../mydoc/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -1023,18 +1023,7 @@
 "title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_00.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "ChIP-Seq1 - Motif Prediction",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_01.html",
+"url": "../vignettes/17_Projects/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -1053,10 +1042,10 @@
 
 
 {
-"title": "ChIP-Seq2 - Peak Callers",
+"title": "ChIP-Seq1 - Motif Prediction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_02.html",
+"url": "../vignettes/17_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -1075,10 +1064,10 @@
 
 
 {
-"title": "RNA-Seq1 - RNA-Seq Aligners",
+"title": "ChIP-Seq2 - Peak Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_03.html",
+"url": "../vignettes/17_Projects/mydoc_project_02.html",
 "summary": ""
 },
 
@@ -1090,6 +1079,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_project_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "RNA-Seq1 - RNA-Seq Aligners",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/17_Projects/mydoc_project_03.html",
 "summary": ""
 },
 
@@ -1122,7 +1122,7 @@
 "title": "VAR-Seq1 - Comparison of Variant Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_05.html",
+"url": "../mydoc/mydoc_project_05.html",
 "summary": ""
 },
 
@@ -1133,18 +1133,7 @@
 "title": "VAR-Seq1 - Comparison of Variant Callers",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_05.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "VAR-Seq2 - Functional Prediction of Variants",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_06.html",
+"url": "../vignettes/17_Projects/mydoc_project_05.html",
 "summary": ""
 },
 
@@ -1163,10 +1152,10 @@
 
 
 {
-"title": "Data Management for Course Projects",
+"title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_07.html",
+"url": "../vignettes/17_Projects/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -1178,6 +1167,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_project_07.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Data Management for Course Projects",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/17_Projects/mydoc_project_07.html",
 "summary": ""
 },
 
@@ -1210,7 +1210,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_01.html",
+"url": "../mydoc/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1221,18 +1221,7 @@
 "title": "Course Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Molecular Biology Essentials",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_02.html",
+"url": "../vignettes/04_Slides/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1251,10 +1240,10 @@
 
 
 {
-"title": "Databases and Software for Genome Biology",
+"title": "Molecular Biology Essentials",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_03.html",
+"url": "../vignettes/04_Slides/mydoc_slides_02.html",
 "summary": ""
 },
 
@@ -1273,10 +1262,10 @@
 
 
 {
-"title": "DNA Sequencing Technologies",
+"title": "Databases and Software for Genome Biology",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_04.html",
+"url": "../vignettes/04_Slides/mydoc_slides_03.html",
 "summary": ""
 },
 
@@ -1295,10 +1284,10 @@
 
 
 {
-"title": "Introduction to R",
+"title": "DNA Sequencing Technologies",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_05.html",
+"url": "../vignettes/04_Slides/mydoc_slides_04.html",
 "summary": ""
 },
 
@@ -1317,10 +1306,10 @@
 
 
 {
-"title": "Sequence Alignments and Similarity Searching",
+"title": "Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_06.html",
+"url": "../vignettes/04_Slides/mydoc_slides_05.html",
 "summary": ""
 },
 
@@ -1339,10 +1328,10 @@
 
 
 {
-"title": "Programming in R",
+"title": "Sequence Alignments and Similarity Searching",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_07.html",
+"url": "../vignettes/04_Slides/mydoc_slides_06.html",
 "summary": ""
 },
 
@@ -1354,6 +1343,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_07.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Programming in R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1386,7 +1386,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_09.html",
+"url": "../mydoc/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1397,7 +1397,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_09.html",
+"url": "../vignettes/04_Slides/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1430,7 +1430,7 @@
 "title": "Analysis of Gene Expression Data",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_11.html",
+"url": "../mydoc/mydoc_slides_11.html",
 "summary": ""
 },
 
@@ -1441,18 +1441,7 @@
 "title": "Analysis of Gene Expression Data",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_11.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Introduction to NGS Workflows",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_12.html",
+"url": "../vignettes/04_Slides/mydoc_slides_11.html",
 "summary": ""
 },
 
@@ -1464,6 +1453,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_12.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to NGS Workflows",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1559,17 +1559,6 @@
 
 
 {
-"title": "Profile HMMs for Sequence Family Modeling",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_17.html",
-"summary": ""
-},
-
-
-
-
-{
 "title": "Cluster Analysis",
 "tags": "",
 "keywords": "",
@@ -1584,7 +1573,7 @@
 "title": "Profile HMMs for Sequence Family Modeling",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_18.html",
+"url": "../vignettes/04_Slides/mydoc_slides_17.html",
 "summary": ""
 },
 
@@ -1603,10 +1592,10 @@
 
 
 {
-"title": "Introduction to Phylogenetics",
+"title": "Profile HMMs for Sequence Family Modeling",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_19.html",
+"url": "../vignettes/04_Slides/mydoc_slides_18.html",
 "summary": ""
 },
 
@@ -1618,6 +1607,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_19.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to Phylogenetics",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_19.html",
 "summary": ""
 },
 
