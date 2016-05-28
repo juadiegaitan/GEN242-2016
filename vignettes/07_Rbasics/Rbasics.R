@@ -411,6 +411,7 @@ write.table(my_mw_target4, file="my_file.xls", quote=F, sep="\t", col.names = NA
 
 ## ----render_commandline, eval=FALSE, message=FALSE, engine="sh"----------
 ## $ echo "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')" | R --slave
+## $ Rscript -e "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')"
 
 ## ----kable---------------------------------------------------------------
 library(knitr)
