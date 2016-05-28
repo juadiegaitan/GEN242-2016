@@ -1,11 +1,11 @@
 ---
 title: Graphics and Data Visualization in R 
 keywords: 
-last_updated: Tue May 24 12:26:25 2016
+last_updated: Fri May 27 17:09:46 2016
 ---
 Thomas Girke (thomas.girke@ucr.edu)
 
-Last update: 24 May, 2016 
+Last update: 27 May, 2016 
 
 Alternative formats of this tutorial:
 [`Single-page .Rmd HTML`](http://girke.bioinformatics.ucr.edu/GEN242/vignettes/15_Rgraphics/Rgraphics.html),

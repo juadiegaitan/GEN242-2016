@@ -1,7 +1,7 @@
 ---
 title: Specialty Graphics
 keywords: 
-last_updated: Tue May 24 12:26:25 2016
+last_updated: Fri May 27 17:09:46 2016
 ---
 
 ## Venn Diagrams 
@@ -58,5 +58,24 @@ A variety of libraries are available for plotting receiver operating characteris
 + [ROC](http://bioconductor.org/packages/release/bioc/html/ROC.html)
 + [pROC](http://web.expasy.org/pROC/)
 + [ggplot2](http://largedata.blogspot.com/2011/07/plotting-roc-curves-in-ggplot2.html)
+
+## Trees 
+
+The [`ape`](http://ape-package.ird.fr/ape_screenshots.html) package provides many useful utilities for phylogenetic analysis and tree plotting. Another useful package for 
+plotting trees is [`ggtree`](http://bioconductor.org/packages/release/bioc/html/ggtree.html). The following example plots two trees face to face with links to identical
+leaf labels.
+
+
+{% highlight r %}
+library(ape)
+tree1 <- rtree(40)
+tree2 <- rtree(20)
+association <- cbind(tree2$tip.label, tree2$tip.label)
+cophyloplot(tree1, tree2, assoc = association,
+            length.line = 4, space = 28, gap = 3)
+{% endhighlight %}
+
+![](Rgraphics_files/trees_ape1-1.png)
+
 
 

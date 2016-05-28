@@ -387,6 +387,14 @@ library(ChemmineR)
 data(sdfsample)
 plot(sdfsample[1], print=FALSE)
 
+## ----trees_ape1, eval=TRUE-----------------------------------------------
+library(ape)
+tree1 <- rtree(40)
+tree2 <- rtree(20)
+association <- cbind(tree2$tip.label, tree2$tip.label)
+cophyloplot(tree1, tree2, assoc = association,
+            length.line = 4, space = 28, gap = 3)
+
 ## ----ggbio_align, eval=TRUE, warning=FALSE, message=FALSE----------------
 library(ggbio)
 df1 <- data.frame(time = 1:100, score = sin((1:100)/20)*10)

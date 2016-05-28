@@ -1,7 +1,7 @@
 ---
 title: Graphics and Data Visualization in R 
 author: "Thomas Girke (thomas.girke@ucr.edu)"
-date: "Last update: 24 May, 2016" 
+date: "Last update: 27 May, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -1254,6 +1254,25 @@ A variety of libraries are available for plotting receiver operating characteris
 + [ROC](http://bioconductor.org/packages/release/bioc/html/ROC.html)
 + [pROC](http://web.expasy.org/pROC/)
 + [ggplot2](http://largedata.blogspot.com/2011/07/plotting-roc-curves-in-ggplot2.html)
+
+## Trees 
+
+The [`ape`](http://ape-package.ird.fr/ape_screenshots.html) package provides many useful utilities for phylogenetic analysis and tree plotting. Another useful package for 
+plotting trees is [`ggtree`](http://bioconductor.org/packages/release/bioc/html/ggtree.html). The following example plots two trees face to face with links to identical
+leaf labels.
+
+
+```r
+library(ape)
+tree1 <- rtree(40)
+tree2 <- rtree(20)
+association <- cbind(tree2$tip.label, tree2$tip.label)
+cophyloplot(tree1, tree2, assoc = association,
+            length.line = 4, space = 28, gap = 3)
+```
+
+![](Rgraphics_files/figure-html/trees_ape1-1.png)\
+
 
 
 # Genome Graphics
