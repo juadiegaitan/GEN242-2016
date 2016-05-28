@@ -1,7 +1,7 @@
 ---
 title: R Markdown
 keywords: 
-last_updated: Tue May 24 11:43:57 2016
+last_updated: Fri May 27 19:46:57 2016
 ---
 
 ## Overview
@@ -56,7 +56,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 24 May, 2016"
+date: "Last update: 27 May, 2016"
 output:
   BiocStyle::html_document:
     toc: true
@@ -79,11 +79,12 @@ all supported output formats. Alternatively, one can specify several output form
 rmarkdown::render("sample.Rmd", clean=TRUE, output_format="html_document")
 {% endhighlight %}
 
-The following shows how to run the rendering from the command-line.
+The following shows two options how to run the rendering from the command-line.
 
 
 {% highlight sh %}
 $ echo "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')" | R --slave
+$ Rscript -e "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')"
 {% endhighlight %}
 
 
@@ -142,8 +143,7 @@ kable(iris[1:12,])
 
 
 
-{% highlight r %}
- Sepal.Length   Sepal.Width   Petal.Length   Petal.Width  Species 
+##  Sepal.Length   Sepal.Width   Petal.Length   Petal.Width  Species 
           5.1           3.5            1.4           0.2  setosa  
           4.9           3.0            1.4           0.2  setosa  
           4.7           3.2            1.3           0.2  setosa  
@@ -156,7 +156,6 @@ kable(iris[1:12,])
           4.9           3.1            1.5           0.1  setosa  
           5.4           3.7            1.5           0.2  setosa  
           4.8           3.4            1.6           0.2  setosa  
-{% endhighlight %}
 
 ### Figures
 

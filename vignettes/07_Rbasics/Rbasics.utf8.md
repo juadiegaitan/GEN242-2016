@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 24 May, 2016" 
+date: "Last update: 27 May, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -1709,7 +1709,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 24 May, 2016"
+date: "Last update: 27 May, 2016"
 output:
   BiocStyle::html_document:
     toc: true
@@ -1732,11 +1732,12 @@ all supported output formats. Alternatively, one can specify several output form
 rmarkdown::render("sample.Rmd", clean=TRUE, output_format="html_document")
 ```
 
-The following shows how to run the rendering from the command-line.
+The following shows two options how to run the rendering from the command-line.
 
 
 ```sh
 $ echo "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')" | R --slave
+$ Rscript -e "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')"
 ```
 
 
