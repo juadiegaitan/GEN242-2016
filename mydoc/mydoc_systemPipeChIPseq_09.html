@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1682,17 +1704,17 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<p>The <code class="highlighter-rouge">runDiff</code> function performs differential binding analysis in batch mode for
-several count tables using <code class="highlighter-rouge">edgeR</code> or <code class="highlighter-rouge">DESeq2</code> (Robinson et al., 2010; Love et al., 2014).
-Internally, it calls the functions <code class="highlighter-rouge">run_edgeR</code> and <code class="highlighter-rouge">run_DESeq2</code>. It also returns 
-the filtering results and plots from the downstream <code class="highlighter-rouge">filterDEGs</code> function using 
-the fold change and FDR cutoffs provided under the <code class="highlighter-rouge">dbrfilter</code> argument.</p>
+<p>The <code>runDiff</code> function performs differential binding analysis in batch mode for
+several count tables using <code>edgeR</code> or <code>DESeq2</code> (Robinson et al., 2010; Love et al., 2014).
+Internally, it calls the functions <code>run_edgeR</code> and <code>run_DESeq2</code>. It also returns 
+the filtering results and plots from the downstream <code>filterDEGs</code> function using 
+the fold change and FDR cutoffs provided under the <code>dbrfilter</code> argument.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args_diff</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/rundiff.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_countDF.txt"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">args_diff</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/rundiff.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets_countDF.txt"</span><span class="p">)</span>
 <span class="n">cmp</span> <span class="o">&lt;-</span> <span class="n">readComp</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="n">args_bam</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"matrix"</span><span class="p">)</span> 
 <span class="n">dbrlist</span> <span class="o">&lt;-</span> <span class="n">runDiff</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args_diff</span><span class="p">,</span> <span class="n">diffFct</span><span class="o">=</span><span class="n">run_edgeR</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targetsin</span><span class="p">(</span><span class="n">args_bam</span><span class="p">),</span> 
                     <span class="n">cmp</span><span class="o">=</span><span class="n">cmp</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">independent</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">dbrfilter</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">Fold</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">FDR</span><span class="o">=</span><span class="m">1</span><span class="p">))</span>
-<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args_diff</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_rundiff.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></figure>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args_diff</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_rundiff.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span></code></pre></div>
 
 
 
@@ -1710,7 +1732,7 @@ the fold change and FDR cutoffs provided under the <code class="highlighter-roug
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed May  4 17:24:19 2016<br/> Site last generated: May 27, 2016 <br />
+<p>Page last updated:</span> Wed May  4 17:24:19 2016<br/> Site last generated: May 29, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

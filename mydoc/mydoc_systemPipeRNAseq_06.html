@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1683,56 +1705,56 @@ $('#toc').on('click', 'a', function() {
     
 -->
 <p>The analysis of differentially expressed genes (DEGs) is performed with
-the glm method of the <code class="highlighter-rouge">edgeR</code> package (Robinson et al., 2010). The sample
+the glm method of the <code>edgeR</code> package (Robinson et al., 2010). The sample
 comparisons used by this analysis are defined in the header lines of the 
-<code class="highlighter-rouge">targets.txt</code> file starting with <code class="highlighter-rouge">&lt;CMP&gt;</code>.</p>
+<code>targets.txt</code> file starting with <code>&lt;CMP&gt;</code>.</p>
 
-<h2 id="run-edger">Run <code class="highlighter-rouge">edgeR</code></h2>
+<h2 id="run-edger">Run <code>edgeR</code></h2>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">edgeR</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">edgeR</span><span class="p">)</span>
 <span class="n">countDF</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="s2">"results/countDFeByg.xls"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">check.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> 
 <span class="n">targets</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="s2">"targets.txt"</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">"#"</span><span class="p">)</span>
 <span class="n">cmp</span> <span class="o">&lt;-</span> <span class="n">readComp</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"targets.txt"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"matrix"</span><span class="p">,</span> <span class="n">delim</span><span class="o">=</span><span class="s2">"-"</span><span class="p">)</span>
-<span class="n">edgeDF</span> <span class="o">&lt;-</span> <span class="n">run_edgeR</span><span class="p">(</span><span class="n">countDF</span><span class="o">=</span><span class="n">countDF</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span> <span class="n">cmp</span><span class="o">=</span><span class="n">cmp</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">independent</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">mdsplot</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></figure>
+<span class="n">edgeDF</span> <span class="o">&lt;-</span> <span class="n">run_edgeR</span><span class="p">(</span><span class="n">countDF</span><span class="o">=</span><span class="n">countDF</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span> <span class="n">cmp</span><span class="o">=</span><span class="n">cmp</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">independent</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">mdsplot</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span></code></pre></div>
 
 <p>Add gene descriptions</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"biomaRt"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="s2">"biomaRt"</span><span class="p">)</span>
 <span class="n">m</span> <span class="o">&lt;-</span> <span class="n">useMart</span><span class="p">(</span><span class="s2">"plants_mart"</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="s2">"athaliana_eg_gene"</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span>
 <span class="n">desc</span> <span class="o">&lt;-</span> <span class="n">getBM</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"tair_locus"</span><span class="p">,</span> <span class="s2">"description"</span><span class="p">),</span> <span class="n">mart</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
 <span class="n">desc</span> <span class="o">&lt;-</span> <span class="n">desc</span><span class="p">[</span><span class="o">!</span><span class="n">duplicated</span><span class="p">(</span><span class="n">desc</span><span class="p">[,</span><span class="m">1</span><span class="p">]),]</span>
 <span class="n">descv</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">desc</span><span class="p">[,</span><span class="m">2</span><span class="p">]);</span> <span class="n">names</span><span class="p">(</span><span class="n">descv</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">desc</span><span class="p">[,</span><span class="m">1</span><span class="p">])</span>
 <span class="n">edgeDF</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">edgeDF</span><span class="p">,</span> <span class="n">Desc</span><span class="o">=</span><span class="n">descv</span><span class="p">[</span><span class="n">rownames</span><span class="p">(</span><span class="n">edgeDF</span><span class="p">)],</span> <span class="n">check.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
-<span class="n">write.table</span><span class="p">(</span><span class="n">edgeDF</span><span class="p">,</span> <span class="s2">"./results/edgeRglm_allcomp.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">,</span> <span class="n">col.names</span> <span class="o">=</span> <span class="n">NA</span><span class="p">)</span></code></pre></figure>
+<span class="n">write.table</span><span class="p">(</span><span class="n">edgeDF</span><span class="p">,</span> <span class="s2">"./results/edgeRglm_allcomp.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">,</span> <span class="n">col.names</span> <span class="o">=</span> <span class="n">NA</span><span class="p">)</span></code></pre></div>
 
 <h2 id="plot-deg-results">Plot DEG results</h2>
 
 <p>Filter and plot DEG results for up and down regulated genes. The
 definition of <em>up</em> and <em>down</em> is given in the corresponding help
-file. To open it, type <code class="highlighter-rouge">?filterDEGs</code> in the R console.</p>
+file. To open it, type <code>?filterDEGs</code> in the R console.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">edgeDF</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="s2">"results/edgeRglm_allcomp.xls"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">check.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">edgeDF</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="s2">"results/edgeRglm_allcomp.xls"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">check.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> 
 <span class="n">pdf</span><span class="p">(</span><span class="s2">"results/DEGcounts.pdf"</span><span class="p">)</span>
 <span class="n">DEG_list</span> <span class="o">&lt;-</span> <span class="n">filterDEGs</span><span class="p">(</span><span class="n">degDF</span><span class="o">=</span><span class="n">edgeDF</span><span class="p">,</span> <span class="n">filter</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">Fold</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">FDR</span><span class="o">=</span><span class="m">20</span><span class="p">))</span>
 <span class="n">dev.off</span><span class="p">()</span>
-<span class="n">write.table</span><span class="p">(</span><span class="n">DEG_list</span><span class="o">$</span><span class="n">Summary</span><span class="p">,</span> <span class="s2">"./results/DEGcounts.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span></code></pre></figure>
+<span class="n">write.table</span><span class="p">(</span><span class="n">DEG_list</span><span class="o">$</span><span class="n">Summary</span><span class="p">,</span> <span class="s2">"./results/DEGcounts.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span></code></pre></div>
 
 <p><img src="systemPipeRNAseq_files/DEGcounts.png" alt="" /></p>
 <div align="center">Figure 3: Up and down regulated DEGs with FDR of 1%</div>
 
 <h2 id="venn-diagrams-of-deg-sets">Venn diagrams of DEG sets</h2>
 
-<p>The <code class="highlighter-rouge">overLapper</code> function can compute Venn intersects for large numbers of sample
+<p>The <code>overLapper</code> function can compute Venn intersects for large numbers of sample
 sets (up to 20 or more) and plots 2-5 way Venn diagrams. A useful
 feature is the possiblity to combine the counts from several Venn
 comparisons with the same number of sample sets in a single Venn diagram
 (here for 4 up and down DEG sets).</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vennsetup</span> <span class="o">&lt;-</span> <span class="n">overLapper</span><span class="p">(</span><span class="n">DEG_list</span><span class="o">$</span><span class="n">Up</span><span class="p">[</span><span class="m">6</span><span class="o">:</span><span class="m">9</span><span class="p">],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"vennsets"</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">vennsetup</span> <span class="o">&lt;-</span> <span class="n">overLapper</span><span class="p">(</span><span class="n">DEG_list</span><span class="o">$</span><span class="n">Up</span><span class="p">[</span><span class="m">6</span><span class="o">:</span><span class="m">9</span><span class="p">],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"vennsets"</span><span class="p">)</span>
 <span class="n">vennsetdown</span> <span class="o">&lt;-</span> <span class="n">overLapper</span><span class="p">(</span><span class="n">DEG_list</span><span class="o">$</span><span class="n">Down</span><span class="p">[</span><span class="m">6</span><span class="o">:</span><span class="m">9</span><span class="p">],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"vennsets"</span><span class="p">)</span>
 <span class="n">pdf</span><span class="p">(</span><span class="s2">"results/vennplot.pdf"</span><span class="p">)</span>
 <span class="n">vennPlot</span><span class="p">(</span><span class="n">list</span><span class="p">(</span><span class="n">vennsetup</span><span class="p">,</span> <span class="n">vennsetdown</span><span class="p">),</span> <span class="n">mymain</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">mysub</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">colmode</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">ccol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"red"</span><span class="p">))</span>
-<span class="n">dev.off</span><span class="p">()</span></code></pre></figure>
+<span class="n">dev.off</span><span class="p">()</span></code></pre></div>
 
 <p><img src="systemPipeRNAseq_files/vennplot.png" alt="" /></p>
 <div align="center">Figure 4: Venn Diagram for 4 Up and Down DEG Sets</div>
@@ -1753,7 +1775,7 @@ comparisons with the same number of sample sets in a single Venn diagram
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sun May  1 18:33:14 2016<br/> Site last generated: May 27, 2016 <br />
+<p>Page last updated:</span> Sun May  1 18:33:14 2016<br/> Site last generated: May 29, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

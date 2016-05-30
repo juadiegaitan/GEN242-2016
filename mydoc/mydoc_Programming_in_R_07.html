@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1684,18 +1706,18 @@ $('#toc').on('click', 'a', function() {
 -->
 <h2 id="short-overview-of-package-building-process">Short Overview of Package Building Process</h2>
 
-<p>R packages can be built with the <code class="highlighter-rouge">package.skeleton</code> function. The given example will create a directory named <code class="highlighter-rouge">mypackage</code> containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the <code class="highlighter-rouge">code_files</code> argument. The basic structure of the package directory is described <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack">here</a>. The package directory will also contain a file named <code class="highlighter-rouge">Read-and-delete-me</code> with instructions for completing the package:</p>
+<p>R packages can be built with the <code>package.skeleton</code> function. The given example will create a directory named <code>mypackage</code> containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the <code>code_files</code> argument. The basic structure of the package directory is described <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack">here</a>. The package directory will also contain a file named <code>Read-and-delete-me</code> with instructions for completing the package:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">package.skeleton</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"mypackage"</span><span class="p">,</span> <span class="n">code_files</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"script1.R"</span><span class="p">,</span> <span class="s2">"script2.R"</span><span class="p">))</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">package.skeleton</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"mypackage"</span><span class="p">,</span> <span class="n">code_files</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"script1.R"</span><span class="p">,</span> <span class="s2">"script2.R"</span><span class="p">))</span></code></pre></div>
 
 <p>Once a package skeleton is available one can build the package from the command-line (Linux/OS X). This will create a tarball of the package with its version number encoded in the file name. Subequently, the package tarball needs to be checked for errors with:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">R</span> <span class="n">CMD</span> <span class="n">build</span> <span class="n">mypackage</span>
-<span class="n">R</span> <span class="n">CMD</span> <span class="n">check</span> <span class="n">mypackage_1.0.tar.gz</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">R</span> <span class="n">CMD</span> <span class="n">build</span> <span class="n">mypackage</span>
+<span class="n">R</span> <span class="n">CMD</span> <span class="n">check</span> <span class="n">mypackage_1.0.tar.gz</span></code></pre></div>
 
 <p>Install package from source</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">install.packages</span><span class="p">(</span><span class="s2">"mypackage_1.0.tar.gz"</span><span class="p">,</span> <span class="n">repos</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">install.packages</span><span class="p">(</span><span class="s2">"mypackage_1.0.tar.gz"</span><span class="p">,</span> <span class="n">repos</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span></code></pre></div>
 
 <p>For more details see <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#TOC-Building-R-Packages">here</a></p>
 
@@ -1715,7 +1737,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: May 27, 2016 <br />
+<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: May 29, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
