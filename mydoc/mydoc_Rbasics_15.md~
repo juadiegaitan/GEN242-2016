@@ -1,7 +1,7 @@
 ---
 title: R Markdown
 keywords: 
-last_updated: Fri May 27 19:46:57 2016
+last_updated: Sun May 29 19:35:43 2016
 ---
 
 ## Overview
@@ -56,7 +56,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 27 May, 2016"
+date: "Last update: 29 May, 2016"
 output:
   BiocStyle::html_document:
     toc: true
@@ -83,11 +83,23 @@ The following shows two options how to run the rendering from the command-line.
 
 
 {% highlight sh %}
-$ echo "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')" | R --slave
-$ Rscript -e "rmarkdown::render('sample.Rmd', clean=TRUE, output_format='html_document')"
+$ echo "rmarkdown::render('sample.Rmd', clean=TRUE)" | R --slave
+$ Rscript -e "rmarkdown::render('sample.Rmd', clean=TRUE)"
 {% endhighlight %}
 
+Alternatively, one can use a Makefile to evaluate and render an R Markdown
+script. A sample Makefile for rendering the above `sample.Rmd` can be
+downloaded [`here`](https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/07_Rbasics/Makefile).
+To apply it to a custom `Rmd` file, one needs open the Makefile in a text
+editor and change the value assigned to `MAIN` (line 13) to the base name of
+the corresponding `.Rmd` file (_e.g._ assign `systemPipeRNAseq` if the file
+name is `systemPipeRNAseq.Rmd`).  To execute the `Makefile`, run the following
+command from the command-line.
 
+
+{% highlight sh %}
+$ make -B
+{% endhighlight %}
 
 ### R code chunks
 

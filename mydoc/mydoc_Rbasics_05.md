@@ -1,7 +1,7 @@
 ---
 title: Basic Syntax
 keywords: 
-last_updated: Fri May 27 19:46:57 2016
+last_updated: Sun May 29 19:35:43 2016
 ---
 
 General R command syntax
