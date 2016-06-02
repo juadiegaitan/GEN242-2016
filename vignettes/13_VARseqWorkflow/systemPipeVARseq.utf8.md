@@ -1,7 +1,7 @@
 ---
 title: VAR-Seq Workflow Template 
 author: "First/last name (first.last@ucr.edu)"
-date: "Last update: 05 May, 2016" 
+date: "Last update: 01 June, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -311,8 +311,9 @@ provided by `systemPipeRdata`.
 
 
 ```r
-moduleload("picard/1.130")
+moduleload("picard/1.130"); moduleload("samtools/1.3")
 system("picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict")
+system("samtools faidx data/tair10.fasta")
 args <- systemArgs(sysma="param/gatk.param", mytargets="targets_bam.txt")
 resources <- list(walltime="20:00:00", nodes=paste0("1:ppn=", 1), memory="10gb")
 reg <- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01",

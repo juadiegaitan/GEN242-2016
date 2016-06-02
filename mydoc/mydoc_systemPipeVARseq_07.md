@@ -1,7 +1,7 @@
 ---
 title: Annotate filtered variants
 keywords: 
-last_updated: Thu May  5 11:37:34 2016
+last_updated: Wed Jun  1 20:48:34 2016
 ---
 
 The function `variantReport` generates a variant report using

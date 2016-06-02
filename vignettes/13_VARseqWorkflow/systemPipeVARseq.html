@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="header">
 <h1 class="title">VAR-Seq Workflow Template</h1>
 <h4 class="author"><em>First/last name (<a href="mailto:first.last@ucr.edu">first.last@ucr.edu</a>)</em></h4>
-<h4 class="date"><em>Last update: 05 May, 2016</em></h4>
+<h4 class="date"><em>Last update: 01 June, 2016</em></h4>
 </div>
 
 <h1>Contents</h1>
@@ -290,8 +290,9 @@ write.table(read_statsDF, &quot;results/alignStats.xls&quot;, row.names=FALSE, q
 <div id="variant-calling-with-gatk" class="section level2">
 <h2><span class="header-section-number">5.1</span> Variant calling with <code>GATK</code></h2>
 <p>The following creates in the inital step a new <code>targets</code> file (<code>targets_bam.txt</code>). The first column of this file gives the paths to the BAM files created in the alignment step. The new targets file and the parameter file <code>gatk.param</code> are used to create a new <code>SYSargs</code> instance for running GATK. Since GATK involves many processing steps, it is executed by a bash script <code>gatk_run.sh</code> where the user can specify the detailed run parameters. All three files are expected to be located in the current working directory. Samples files for <code>gatk.param</code> and <code>gatk_run.sh</code> are available in the <code>param</code> subdirectory provided by <code>systemPipeRdata</code>.</p>
-<pre class="r"><code>moduleload(&quot;picard/1.130&quot;)
+<pre class="r"><code>moduleload(&quot;picard/1.130&quot;); moduleload(&quot;samtools/1.3&quot;)
 system(&quot;picard CreateSequenceDictionary R=./data/tair10.fasta O=./data/tair10.dict&quot;)
+system(&quot;samtools faidx data/tair10.fasta&quot;)
 args &lt;- systemArgs(sysma=&quot;param/gatk.param&quot;, mytargets=&quot;targets_bam.txt&quot;)
 resources &lt;- list(walltime=&quot;20:00:00&quot;, nodes=paste0(&quot;1:ppn=&quot;, 1), memory=&quot;10gb&quot;)
 reg &lt;- clusterRun(args, conffile=&quot;.BatchJobs.R&quot;, template=&quot;torque.tmpl&quot;, Njobs=18, runid=&quot;01&quot;,
