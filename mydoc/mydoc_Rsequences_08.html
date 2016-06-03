@@ -79,16 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -169,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -263,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1712,7 +1690,7 @@ At the same time the function should remove low quality tails from the reads.
 The following function accomplishes the first step. Expand this function so
 that it performs the second step as well.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">demultiplex</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">barcode</span><span class="p">,</span> <span class="n">nreads</span><span class="p">)</span> <span class="p">{</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">demultiplex</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">barcode</span><span class="p">,</span> <span class="n">nreads</span><span class="p">)</span> <span class="p">{</span>
 	<span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FastqStreamer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nreads</span><span class="p">)</span> 
 	<span class="k">while</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">f</span><span class="p">)))</span> <span class="p">{</span>
 		<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">barcode</span><span class="p">)</span> <span class="p">{</span>
@@ -1725,12 +1703,12 @@ that it performs the second step as well.</p>
 	<span class="p">}</span>
 	<span class="n">close</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="n">demultiplex</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">barcode</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"TT"</span><span class="p">,</span> <span class="s2">"AA"</span><span class="p">,</span> <span class="s2">"GG"</span><span class="p">),</span> <span class="n">nreads</span><span class="o">=</span><span class="m">50</span><span class="p">)</span></code></pre></div>
+<span class="n">demultiplex</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">barcode</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"TT"</span><span class="p">,</span> <span class="s2">"AA"</span><span class="p">,</span> <span class="s2">"GG"</span><span class="p">),</span> <span class="n">nreads</span><span class="o">=</span><span class="m">50</span><span class="p">)</span></code></pre></figure>
 
 <h2 id="hw6b---sequence-parsing">HW6b - Sequence Parsing</h2>
 
 <ul>
-  <li>Download <code>GFF</code> from <em>Halobacterium sp</em>  <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff">here</a></li>
+  <li>Download <code class="highlighter-rouge">GFF</code> from <em>Halobacterium sp</em>  <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff">here</a></li>
   <li>Download genome sequence from -Halobacterium sp_ <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.fna">here</a></li>
   <li><strong>Task 1</strong> Extract gene ranges, parse their sequences from genome and translate them into proteins</li>
   <li><strong>Task 2</strong> Reduce overlapping genes and parse their sequences from genome</li>
@@ -1739,7 +1717,7 @@ that it performs the second step as well.</p>
 
 <p><strong>Useful commands</strong></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff"</span><span class="p">,</span> <span class="s2">"data/AE004437.gff"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff"</span><span class="p">,</span> <span class="s2">"data/AE004437.gff"</span><span class="p">)</span>
 <span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.fna"</span><span class="p">,</span> <span class="s2">"data/AE004437.fna"</span><span class="p">)</span>
 <span class="n">chr</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"data/AE004437.fna"</span><span class="p">)</span>
 <span class="n">gff</span> <span class="o">&lt;-</span> <span class="n">import</span><span class="p">(</span><span class="s2">"data/AE004437.gff"</span><span class="p">)</span>
@@ -1752,7 +1730,7 @@ that it performs the second step as well.</p>
 <span class="n">neg</span> <span class="o">&lt;-</span> <span class="n">values</span><span class="p">(</span><span class="n">gffgene</span><span class="p">[</span><span class="n">strand</span><span class="p">(</span><span class="n">gffgene</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"-"</span><span class="p">])[,</span><span class="s2">"locus_tag"</span><span class="p">]</span>
 <span class="n">p2</span> <span class="o">&lt;-</span> <span class="n">translate</span><span class="p">(</span><span class="n">reverseComplement</span><span class="p">(</span><span class="n">gene</span><span class="p">[</span><span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">)</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">neg</span><span class="p">]))</span>
 <span class="n">names</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">[</span><span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">)</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">neg</span><span class="p">])</span>
-<span class="n">writeXStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">),</span> <span class="s2">"./data/mypep.fasta"</span><span class="p">)</span></code></pre></div>
+<span class="n">writeXStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">),</span> <span class="s2">"./data/mypep.fasta"</span><span class="p">)</span></code></pre></figure>
 
 <h2 id="homework-submission">Homework submission</h2>
 <p>Submit the homework results in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.</p>
@@ -1781,7 +1759,7 @@ that it performs the second step as well.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sat Apr 30 19:54:48 2016<br/> Site last generated: Jun 1, 2016 <br />
+<p>Page last updated:</span> Sat Apr 30 19:54:48 2016<br/> Site last generated: Jun 2, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

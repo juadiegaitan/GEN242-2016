@@ -79,16 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -169,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -263,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1706,33 +1684,33 @@ $('#toc').on('click', 'a', function() {
 -->
 <h2 id="venn-diagrams">Venn Diagrams</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/overLapper.R"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">source</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/overLapper.R"</span><span class="p">)</span>
 <span class="n">setlist5</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">18</span><span class="p">),</span> <span class="n">B</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">16</span><span class="p">),</span> <span class="n">C</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">D</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">22</span><span class="p">),</span> <span class="n">E</span><span class="o">=</span><span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">18</span><span class="p">))</span>
 <span class="n">OLlist5</span> <span class="o">&lt;-</span> <span class="n">overLapper</span><span class="p">(</span><span class="n">setlist</span><span class="o">=</span><span class="n">setlist5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"_"</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"vennsets"</span><span class="p">)</span>
 <span class="n">counts</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">OLlist5</span><span class="o">$</span><span class="n">Venn_List</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span>
-<span class="n">vennPlot</span><span class="p">(</span><span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">ccol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">30</span><span class="p">),</span><span class="m">2</span><span class="p">),</span> <span class="n">lcex</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">ccex</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="m">1.5</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> <span class="n">rep</span><span class="p">(</span><span class="m">0.6</span><span class="p">,</span><span class="m">25</span><span class="p">),</span><span class="m">1.5</span><span class="p">))</span></code></pre></div>
+<span class="n">vennPlot</span><span class="p">(</span><span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span> <span class="n">ccol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">30</span><span class="p">),</span><span class="m">2</span><span class="p">),</span> <span class="n">lcex</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">ccex</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">rep</span><span class="p">(</span><span class="m">1.5</span><span class="p">,</span><span class="m">5</span><span class="p">),</span> <span class="n">rep</span><span class="p">(</span><span class="m">0.6</span><span class="p">,</span><span class="m">25</span><span class="p">),</span><span class="m">1.5</span><span class="p">))</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/specgraph_venn-1.png" alt="" /></p>
 
 <h2 id="compound-structures">Compound Structures</h2>
 
-<p>Plots depictions of small molecules with <code>ChemmineR</code> package</p>
+<p>Plots depictions of small molecules with <code class="highlighter-rouge">ChemmineR</code> package</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ChemmineR</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ChemmineR</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## 
-## Attaching package: 'ChemmineR'</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## 
+## Attaching package: 'ChemmineR'</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:ShortRead':
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:ShortRead':
 ## 
-##     view</code></pre></div>
+##     view</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:S4Vectors':
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## The following object is masked from 'package:S4Vectors':
 ## 
-##     fold</code></pre></div>
+##     fold</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">data</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">)</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">print</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">data</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">)</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sdfsample</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">print</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/specgraph_structure-1.png" alt="" /></p>
 
@@ -1749,16 +1727,16 @@ $('#toc').on('click', 'a', function() {
 
 <h2 id="trees">Trees</h2>
 
-<p>The <a href="http://ape-package.ird.fr/ape_screenshots.html"><code>ape</code></a> package provides many useful utilities for phylogenetic analysis and tree plotting. Another useful package for 
-plotting trees is <a href="http://bioconductor.org/packages/release/bioc/html/ggtree.html"><code>ggtree</code></a>. The following example plots two trees face to face with links to identical
+<p>The <a href="http://ape-package.ird.fr/ape_screenshots.html"><code class="highlighter-rouge">ape</code></a> package provides many useful utilities for phylogenetic analysis and tree plotting. Another useful package for 
+plotting trees is <a href="http://bioconductor.org/packages/release/bioc/html/ggtree.html"><code class="highlighter-rouge">ggtree</code></a>. The following example plots two trees face to face with links to identical
 leaf labels.</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ape</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ape</span><span class="p">)</span>
 <span class="n">tree1</span> <span class="o">&lt;-</span> <span class="n">rtree</span><span class="p">(</span><span class="m">40</span><span class="p">)</span>
 <span class="n">tree2</span> <span class="o">&lt;-</span> <span class="n">rtree</span><span class="p">(</span><span class="m">20</span><span class="p">)</span>
 <span class="n">association</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">tree2</span><span class="o">$</span><span class="n">tip.label</span><span class="p">,</span> <span class="n">tree2</span><span class="o">$</span><span class="n">tip.label</span><span class="p">)</span>
 <span class="n">cophyloplot</span><span class="p">(</span><span class="n">tree1</span><span class="p">,</span> <span class="n">tree2</span><span class="p">,</span> <span class="n">assoc</span> <span class="o">=</span> <span class="n">association</span><span class="p">,</span>
-            <span class="n">length.line</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">space</span> <span class="o">=</span> <span class="m">28</span><span class="p">,</span> <span class="n">gap</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span></code></pre></div>
+            <span class="n">length.line</span> <span class="o">=</span> <span class="m">4</span><span class="p">,</span> <span class="n">space</span> <span class="o">=</span> <span class="m">28</span><span class="p">,</span> <span class="n">gap</span> <span class="o">=</span> <span class="m">3</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/trees_ape1-1.png" alt="" /></p>
 
@@ -1778,7 +1756,7 @@ leaf labels.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Fri May 27 17:09:46 2016<br/> Site last generated: Jun 1, 2016 <br />
+<p>Page last updated:</span> Fri May 27 17:09:46 2016<br/> Site last generated: Jun 2, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

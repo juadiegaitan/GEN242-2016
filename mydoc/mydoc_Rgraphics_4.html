@@ -79,16 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -169,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -263,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1705,7 +1683,7 @@ $('#toc').on('click', 'a', function() {
     
 -->
 <ul>
-  <li>What is <code>lattice</code>?
+  <li>What is <code class="highlighter-rouge">lattice</code>?
     <ul>
       <li>High-level graphics system</li>
       <li>Developed by Deepayan Sarkar</li>
@@ -1725,27 +1703,27 @@ $('#toc').on('click', 'a', function() {
 
 <p>Open a list of all functions available in the lattice package</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">help</span><span class="o">=</span><span class="n">lattice</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">help</span><span class="o">=</span><span class="n">lattice</span><span class="p">)</span> </code></pre></figure>
 
 <p>Accessing and changing global parameters:</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">?</span><span class="n">lattice.options</span>
-<span class="o">?</span><span class="n">trellis.device</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="o">?</span><span class="n">lattice.options</span>
+<span class="o">?</span><span class="n">trellis.device</span></code></pre></figure>
 
 <h2 id="scatter-plot-sample">Scatter Plot Sample</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">lattice</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">lattice</span><span class="p">)</span>
 <span class="n">p1</span> <span class="o">&lt;-</span> <span class="n">xyplot</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">8</span> <span class="o">~</span> <span class="m">1</span><span class="o">:</span><span class="m">8</span> <span class="o">|</span> <span class="n">rep</span><span class="p">(</span><span class="n">LETTERS</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">each</span><span class="o">=</span><span class="m">2</span><span class="p">),</span> <span class="n">as.table</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span> 
-<span class="n">plot</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span></code></pre></div>
+<span class="n">plot</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/scatter_plot_lattice-1.png" alt="" /></p>
 
 <h2 id="line-plot-sample">Line Plot Sample</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">lattice</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">lattice</span><span class="p">)</span>
 <span class="n">p2</span> <span class="o">&lt;-</span> <span class="n">parallelplot</span><span class="p">(</span><span class="o">~</span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span> <span class="o">|</span> <span class="n">Species</span><span class="p">,</span> <span class="n">iris</span><span class="p">,</span> <span class="n">horizontal.axis</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">,</span> 
               <span class="n">layout</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>  
-<span class="n">plot</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span></code></pre></div>
+<span class="n">plot</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/line_plot_lattice-1.png" alt="" /></p>
 
@@ -1765,7 +1743,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Fri May 27 17:09:46 2016<br/> Site last generated: Jun 1, 2016 <br />
+<p>Page last updated:</span> Fri May 27 17:09:46 2016<br/> Site last generated: Jun 2, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

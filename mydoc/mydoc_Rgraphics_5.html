@@ -79,16 +79,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
                 
                 
                 
@@ -169,8 +159,6 @@
                 <!-- special insertion -->
 
                
-                
-                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -263,16 +251,6 @@ window.location.href = uri;
 
 
         
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1705,13 +1683,13 @@ $('#toc').on('click', 'a', function() {
     
 -->
 <ul>
-  <li>What is <code>ggplot2</code>?
+  <li>What is <code class="highlighter-rouge">ggplot2</code>?
     <ul>
       <li>High-level graphics system</li>
       <li>Implements grammar of graphics from <a href="http://www.amazon.com/Grammar-Graphics-Leland-Wilkinson/dp/0387987746">Leland Wilkinson</a></li>
       <li>Streamlines many graphics workflows for complex plots</li>
-      <li>Syntax centered around main <code>ggplot</code> function</li>
-      <li>Simpler <code>qplot</code> function provides many shortcuts</li>
+      <li>Syntax centered around main <code class="highlighter-rouge">ggplot</code> function</li>
+      <li>Simpler <code class="highlighter-rouge">qplot</code> function provides many shortcuts</li>
     </ul>
   </li>
   <li>Documentation and Help
@@ -1724,238 +1702,238 @@ $('#toc').on('click', 'a', function() {
   </li>
 </ul>
 
-<h2 id="ggplot2-usage"><code>ggplot2</code> Usage</h2>
+<h2 id="ggplot2-usage"><code class="highlighter-rouge">ggplot2</code> Usage</h2>
 
 <ul>
-  <li><code>ggplot</code> function accepts two arguments
+  <li><code class="highlighter-rouge">ggplot</code> function accepts two arguments
     <ul>
       <li>Data set to be plotted</li>
-      <li>Aesthetic mappings provided by <code>aes</code> function</li>
+      <li>Aesthetic mappings provided by <code class="highlighter-rouge">aes</code> function</li>
     </ul>
   </li>
-  <li>Additional parameters such as geometric objects (<em>e.g.</em> points, lines, bars) are passed on by appending them with <code>+</code> as separator.</li>
-  <li>List of available <code>geom_*</code> functions see <a href="http://docs.ggplot2.org/current/">here</a></li>
-  <li>Settings of plotting theme can be accessed with the command <code>theme_get()</code> and its settings can be changed with <code>theme()</code>.</li>
+  <li>Additional parameters such as geometric objects (<em>e.g.</em> points, lines, bars) are passed on by appending them with <code class="highlighter-rouge">+</code> as separator.</li>
+  <li>List of available <code class="highlighter-rouge">geom_*</code> functions see <a href="http://docs.ggplot2.org/current/">here</a></li>
+  <li>Settings of plotting theme can be accessed with the command <code class="highlighter-rouge">theme_get()</code> and its settings can be changed with <code class="highlighter-rouge">theme()</code>.</li>
   <li>Preferred input data object
     <ul>
-      <li><code>qplot</code>: <code>data.frame</code> (support for <code>vector</code>, <code>matrix</code>, <code>...</code>)</li>
-      <li><code>ggplot</code>: <code>data.frame</code></li>
+      <li><code class="highlighter-rouge">qplot</code>: <code class="highlighter-rouge">data.frame</code> (support for <code class="highlighter-rouge">vector</code>, <code class="highlighter-rouge">matrix</code>, <code class="highlighter-rouge">...</code>)</li>
+      <li><code class="highlighter-rouge">ggplot</code>: <code class="highlighter-rouge">data.frame</code></li>
     </ul>
   </li>
   <li>Packages with convenience utilities to create expected inputs
     <ul>
-      <li><code>plyr</code></li>
-      <li><code>reshape</code></li>
+      <li><code class="highlighter-rouge">plyr</code></li>
+      <li><code class="highlighter-rouge">reshape</code></li>
     </ul>
   </li>
 </ul>
 
-<h2 id="qplot-function"><code>qplot</code> Function</h2>
+<h2 id="qplot-function"><code class="highlighter-rouge">qplot</code> Function</h2>
 
-<p>The syntax of <code>qplot</code> is similar as R’s basic <code>plot</code> function</p>
+<p>The syntax of <code class="highlighter-rouge">qplot</code> is similar as R’s basic <code class="highlighter-rouge">plot</code> function</p>
 
 <ul>
   <li>Arguments
     <ul>
-      <li><code>x</code>: x-coordinates (<em>e.g.</em> <code>col1</code>)</li>
-      <li><code>y</code>: y-coordinates (<em>e.g.</em> <code>col2</code>)</li>
-      <li><code>data</code>: data frame with corresponding column names</li>
-      <li><code>xlim, ylim</code>: <em>e.g.</em> <code>xlim=c(0,10)</code></li>
-      <li><code>log</code>: <em>e.g.</em> <code>log="x"</code> or <code>log="xy"</code></li>
-      <li><code>main</code>: main title; see <code>?plotmath</code> for mathematical formula</li>
-      <li><code>xlab, ylab</code>: labels for the x- and y-axes</li>
-      <li><code>color</code>, <code>shape</code>, <code>size</code></li>
-      <li><code>...</code>: many arguments accepted by <code>plot</code> function</li>
+      <li><code class="highlighter-rouge">x</code>: x-coordinates (<em>e.g.</em> <code class="highlighter-rouge">col1</code>)</li>
+      <li><code class="highlighter-rouge">y</code>: y-coordinates (<em>e.g.</em> <code class="highlighter-rouge">col2</code>)</li>
+      <li><code class="highlighter-rouge">data</code>: data frame with corresponding column names</li>
+      <li><code class="highlighter-rouge">xlim, ylim</code>: <em>e.g.</em> <code class="highlighter-rouge">xlim=c(0,10)</code></li>
+      <li><code class="highlighter-rouge">log</code>: <em>e.g.</em> <code class="highlighter-rouge">log="x"</code> or <code class="highlighter-rouge">log="xy"</code></li>
+      <li><code class="highlighter-rouge">main</code>: main title; see <code class="highlighter-rouge">?plotmath</code> for mathematical formula</li>
+      <li><code class="highlighter-rouge">xlab, ylab</code>: labels for the x- and y-axes</li>
+      <li><code class="highlighter-rouge">color</code>, <code class="highlighter-rouge">shape</code>, <code class="highlighter-rouge">size</code></li>
+      <li><code class="highlighter-rouge">...</code>: many arguments accepted by <code class="highlighter-rouge">plot</code> function</li>
     </ul>
   </li>
 </ul>
 
-<h2 id="qplot-scatter-plot-basics"><code>qplot</code>: scatter plot basics</h2>
+<h2 id="qplot-scatter-plot-basics"><code class="highlighter-rouge">qplot</code>: scatter plot basics</h2>
 
 <p>Create sample data</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span> <span class="n">cat</span> <span class="o">&lt;-</span> <span class="n">rep</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">),</span> <span class="m">5</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="m">10</span><span class="p">);</span> <span class="n">cat</span> <span class="o">&lt;-</span> <span class="n">rep</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">),</span> <span class="m">5</span><span class="p">)</span></code></pre></figure>
 
 <p>Simple scatter plot</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/qplot_scatter_plot-1.png" alt="" /></p>
 
 <p>Prints dots with different sizes and colors</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cat</span><span class="p">,</span> 
-      <span class="n">main</span><span class="o">=</span><span class="s2">"Dot Size and Color Relative to Some Values"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cat</span><span class="p">,</span> 
+      <span class="n">main</span><span class="o">=</span><span class="s2">"Dot Size and Color Relative to Some Values"</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/qplot_scatter_plot_dot_param-1.png" alt="" /></p>
 
 <p>Drops legend</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span> <span class="o">+</span> 
-      <span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span> <span class="o">+</span> 
+      <span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/qplot_scatter_plot_no_legend-1.png" alt="" /></p>
 
 <p>Plot different shapes</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">5</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="m">5</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">cat</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/qplot_scatter_plot_shapes-1.png" alt="" /></p>
 
 <h3 id="colored-groups">Colored groups</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cat</span><span class="p">,</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">qplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="s2">"point"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cat</span><span class="p">,</span> 
             <span class="n">main</span><span class="o">=</span><span class="s2">"Dot Size and Color Relative to Some Values"</span><span class="p">)</span> <span class="o">+</span> 
      <span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/qplot_scatter_plot_colored_groups-1.png" alt="" /></p>
 
 <h3 id="regression-line">Regression line</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">set.seed</span><span class="p">(</span><span class="m">1410</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">set.seed</span><span class="p">(</span><span class="m">1410</span><span class="p">)</span>
 <span class="n">dsmall</span> <span class="o">&lt;-</span> <span class="n">diamonds</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="n">nrow</span><span class="p">(</span><span class="n">diamonds</span><span class="p">),</span> <span class="m">1000</span><span class="p">),</span> <span class="p">]</span>
 <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">qplot</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dsmall</span><span class="p">)</span> <span class="o">+</span>
            <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">"lm"</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/qplot_scatter_regression_line-1.png" alt="" /></p>
 
 <h3 id="local-regression-curve-loess">Local regression curve (loess)</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">qplot</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"point"</span><span class="p">,</span> <span class="s2">"smooth"</span><span class="p">))</span> 
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="err">#</span> <span class="n">Setting</span> <span class="n">se</span><span class="o">=</span><span class="n">FALSE</span> <span class="n">removes</span> <span class="n">error</span> <span class="n">shade</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">qplot</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">geom</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"point"</span><span class="p">,</span> <span class="s2">"smooth"</span><span class="p">))</span> 
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="err">#</span> <span class="n">Setting</span> <span class="n">se</span><span class="o">=</span><span class="n">FALSE</span> <span class="n">removes</span> <span class="n">error</span> <span class="n">shade</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/qplot_scatter_regression_loess-1.png" alt="" /></p>
 
-<h2 id="ggplot-function"><code>ggplot</code> Function</h2>
+<h2 id="ggplot-function"><code class="highlighter-rouge">ggplot</code> Function</h2>
 
 <ul>
-  <li>More important than <code>qplot</code> to access full functionality of <code>ggplot2</code></li>
+  <li>More important than <code class="highlighter-rouge">qplot</code> to access full functionality of <code class="highlighter-rouge">ggplot2</code></li>
   <li>Main arguments
     <ul>
-      <li>data set, usually a <code>data.frame</code></li>
-      <li>aesthetic mappings provided by <code>aes</code> function</li>
+      <li>data set, usually a <code class="highlighter-rouge">data.frame</code></li>
+      <li>aesthetic mappings provided by <code class="highlighter-rouge">aes</code> function</li>
     </ul>
   </li>
-  <li>General <code>ggplot</code> syntax
+  <li>General <code class="highlighter-rouge">ggplot</code> syntax
     <ul>
-      <li><code>ggplot(data, aes(...)) + geom() + ... + stat() + ...</code></li>
+      <li><code class="highlighter-rouge">ggplot(data, aes(...)) + geom() + ... + stat() + ...</code></li>
     </ul>
   </li>
   <li>Layer specifications
     <ul>
-      <li><code>geom(mapping, data, ..., geom, position)</code></li>
-      <li><code>stat(mapping, data, ..., stat, position)</code></li>
+      <li><code class="highlighter-rouge">geom(mapping, data, ..., geom, position)</code></li>
+      <li><code class="highlighter-rouge">stat(mapping, data, ..., stat, position)</code></li>
     </ul>
   </li>
   <li>Additional components
     <ul>
-      <li><code>scales</code></li>
-      <li><code>coordinates</code></li>
-      <li><code>facet</code></li>
+      <li><code class="highlighter-rouge">scales</code></li>
+      <li><code class="highlighter-rouge">coordinates</code></li>
+      <li><code class="highlighter-rouge">facet</code></li>
     </ul>
   </li>
-  <li><code>aes()</code> mappings can be passed on to all components (<code>ggplot, geom</code>, etc.). Effects are global when passed on to <code>ggplot()</code> and local for other components.
+  <li><code class="highlighter-rouge">aes()</code> mappings can be passed on to all components (<code class="highlighter-rouge">ggplot, geom</code>, etc.). Effects are global when passed on to <code class="highlighter-rouge">ggplot()</code> and local for other components.
     <ul>
-      <li><code>x, y</code></li>
-      <li><code>color</code>: grouping vector (factor)</li>
-      <li><code>group</code>: grouping vector (factor)</li>
+      <li><code class="highlighter-rouge">x, y</code></li>
+      <li><code class="highlighter-rouge">color</code>: grouping vector (factor)</li>
+      <li><code class="highlighter-rouge">group</code>: grouping vector (factor)</li>
     </ul>
   </li>
 </ul>
 
-<h3 id="changing-plotting-themes-in-ggplot">Changing Plotting Themes in <code>ggplot</code></h3>
+<h3 id="changing-plotting-themes-in-ggplot">Changing Plotting Themes in <code class="highlighter-rouge">ggplot</code></h3>
 
 <ul>
-  <li>Theme settings can be accessed with <code>theme_get()</code></li>
-  <li>Their settings can be changed with <code>theme()</code></li>
+  <li>Theme settings can be accessed with <code class="highlighter-rouge">theme_get()</code></li>
+  <li>Their settings can be changed with <code class="highlighter-rouge">theme()</code></li>
 </ul>
 
 <p>Example how to change background color to white</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">...</span> <span class="o">+</span> <span class="n">theme</span><span class="p">(</span><span class="n">panel.background</span><span class="o">=</span><span class="n">element_rect</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">"white"</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s2">"black"</span><span class="p">))</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="k">...</span> <span class="o">+</span> <span class="n">theme</span><span class="p">(</span><span class="n">panel.background</span><span class="o">=</span><span class="n">element_rect</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">"white"</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s2">"black"</span><span class="p">))</span> </code></pre></figure>
 
-<h3 id="storing-ggplot-specifications">Storing <code>ggplot</code> Specifications</h3>
+<h3 id="storing-ggplot-specifications">Storing <code class="highlighter-rouge">ggplot</code> Specifications</h3>
 
 <p>Plots and layers can be stored in variables</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> 
-<span class="n">p</span> <span class="err">#</span> <span class="n">or</span> <span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> 
+<span class="n">p</span> <span class="err">#</span> <span class="n">or</span> <span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
 
 <p>Returns information about data and aesthetic mappings followed by each layer</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">summary</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">summary</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p>Print dots with different sizes and colors</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">bestfit</span> <span class="o">&lt;-</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">methodw</span> <span class="o">=</span> <span class="s2">"lm"</span><span class="p">,</span> <span class="n">se</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">(</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="m">0.5</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
-<span class="n">p</span> <span class="o">+</span> <span class="n">bestfit</span> <span class="err">#</span> <span class="n">Plot</span> <span class="n">with</span> <span class="n">custom</span> <span class="n">regression</span> <span class="n">line</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">bestfit</span> <span class="o">&lt;-</span> <span class="n">geom_smooth</span><span class="p">(</span><span class="n">methodw</span> <span class="o">=</span> <span class="s2">"lm"</span><span class="p">,</span> <span class="n">se</span> <span class="o">=</span> <span class="n">F</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">alpha</span><span class="p">(</span><span class="s2">"steelblue"</span><span class="p">,</span> <span class="m">0.5</span><span class="p">),</span> <span class="n">size</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">+</span> <span class="n">bestfit</span> <span class="err">#</span> <span class="n">Plot</span> <span class="n">with</span> <span class="n">custom</span> <span class="n">regression</span> <span class="n">line</span></code></pre></figure>
 
 <p>Syntax to pass on other data sets</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">%+%</span> <span class="n">diamonds</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="n">nrow</span><span class="p">(</span><span class="n">diamonds</span><span class="p">),</span> <span class="m">100</span><span class="p">),]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">%+%</span> <span class="n">diamonds</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="n">nrow</span><span class="p">(</span><span class="n">diamonds</span><span class="p">),</span> <span class="m">100</span><span class="p">),]</span> </code></pre></figure>
 
-<p>Saves plot stored in variable <code>p</code> to file</p>
+<p>Saves plot stored in variable <code class="highlighter-rouge">p</code> to file</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggsave</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"myplot.pdf"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggsave</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"myplot.pdf"</span><span class="p">)</span> </code></pre></figure>
 
-<h2 id="ggplot-scatter-plots"><code>ggplot</code>: scatter plots</h2>
+<h2 id="ggplot-scatter-plots"><code class="highlighter-rouge">ggplot</code>: scatter plots</h2>
 
 <h3 id="basic-example">Basic example</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">))</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">))</span> <span class="o">+</span> 
             <span class="n">geom_point</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">4</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_scatter_plot1-1.png" alt="" /></p>
 
 <h3 id="regression-line-1">Regression line</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> 
             <span class="n">geom_smooth</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">"lm"</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> <span class="o">+</span>
     	    <span class="n">theme</span><span class="p">(</span><span class="n">panel.background</span><span class="o">=</span><span class="n">element_rect</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="s2">"white"</span><span class="p">,</span> <span class="n">colour</span> <span class="o">=</span> <span class="s2">"black"</span><span class="p">))</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_regression_line-1.png" alt="" /></p>
 
 <h3 id="several-regression-lines">Several regression lines</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">color</span><span class="p">))</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">color</span><span class="p">))</span> <span class="o">+</span> 
             <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">2</span><span class="p">)</span> <span class="o">+</span> 
             <span class="n">geom_smooth</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">),</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">"lm"</span><span class="p">,</span> <span class="n">se</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> 
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_many_regression_lines-1.png" alt="" /></p>
 
 <h3 id="local-regression-curve-loess-1">Local regression curve (loess)</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">()</span> 
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="err">#</span> <span class="n">Setting</span> <span class="n">se</span><span class="o">=</span><span class="n">FALSE</span> <span class="n">removes</span> <span class="n">error</span> <span class="n">shade</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">,</span> <span class="n">price</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">()</span> <span class="o">+</span> <span class="n">geom_smooth</span><span class="p">()</span> 
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="err">#</span> <span class="n">Setting</span> <span class="n">se</span><span class="o">=</span><span class="n">FALSE</span> <span class="n">removes</span> <span class="n">error</span> <span class="n">shade</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_loess_regression-1.png" alt="" /></p>
 
-<h2 id="ggplot-line-plot"><code>ggplot</code>: line plot</h2>
+<h2 id="ggplot-line-plot"><code class="highlighter-rouge">ggplot</code>: line plot</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Petal.Length</span><span class="p">,</span> <span class="n">Petal.Width</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">Species</span><span class="p">,</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Petal.Length</span><span class="p">,</span> <span class="n">Petal.Width</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">Species</span><span class="p">,</span> 
             <span class="n">color</span><span class="o">=</span><span class="n">Species</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">()</span> 
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_line_plot-1.png" alt="" /></p>
 
 <h2 id="faceting">Faceting</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Sepal.Length</span><span class="p">,</span> <span class="n">Sepal.Width</span><span class="p">))</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Sepal.Length</span><span class="p">,</span> <span class="n">Sepal.Width</span><span class="p">))</span> <span class="o">+</span> 
     	    <span class="n">geom_line</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Species</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> <span class="o">+</span> 
             <span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">Species</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_line_plot_faceting-1.png" alt="" /></p>
 
 <h3 id="exercise-3">Exercise 3</h3>
 
-<p>Scatter plots with <code>ggplot2</code></p>
+<p>Scatter plots with <code class="highlighter-rouge">ggplot2</code></p>
 
 <ul>
   <li><strong>Task 1</strong>: Generate scatter plot for first two columns in \Rfunction{iris} data frame and color dots by its \Rfunction{Species} column.</li>
@@ -1963,111 +1941,111 @@ $('#toc').on('click', 'a', function() {
   <li><strong>Task 3</strong>: Generate corresponding line plot with faceting show individual data sets in saparate plots.</li>
 </ul>
 
-<p>Structure of <code>iris</code> data set</p>
+<p>Structure of <code class="highlighter-rouge">iris</code> data set</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "data.frame"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "data.frame"</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
 ## 3          4.7         3.2          1.3         0.2  setosa
-## 4          4.6         3.1          1.5         0.2  setosa</code></pre></div>
+## 4          4.6         3.1          1.5         0.2  setosa</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## 
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## 
 ##     setosa versicolor  virginica 
-##         50         50         50</code></pre></div>
+##         50         50         50</code></pre></figure>
 
 <h2 id="bar-plots">Bar plots</h2>
 
-<p>Sample Set: the following transforms the <code>iris</code> data set into a ggplot2-friendly format.</p>
+<p>Sample Set: the following transforms the <code class="highlighter-rouge">iris</code> data set into a ggplot2-friendly format.</p>
 
-<p>Calculate mean values for aggregates given by <code>Species</code> column in <code>iris</code> data set</p>
+<p>Calculate mean values for aggregates given by <code class="highlighter-rouge">Species</code> column in <code class="highlighter-rouge">iris</code> data set</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris_mean</span> <span class="o">&lt;-</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">by</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">Species</span><span class="o">=</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">),</span> <span class="n">FUN</span><span class="o">=</span><span class="n">mean</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris_mean</span> <span class="o">&lt;-</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">by</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">Species</span><span class="o">=</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">),</span> <span class="n">FUN</span><span class="o">=</span><span class="n">mean</span><span class="p">)</span> </code></pre></figure>
 
-<p>Calculate standard deviations for aggregates given by <code>Species</code> column in <code>iris</code> data set</p>
+<p>Calculate standard deviations for aggregates given by <code class="highlighter-rouge">Species</code> column in <code class="highlighter-rouge">iris</code> data set</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris_sd</span> <span class="o">&lt;-</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">by</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">Species</span><span class="o">=</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">),</span> <span class="n">FUN</span><span class="o">=</span><span class="n">sd</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris_sd</span> <span class="o">&lt;-</span> <span class="n">aggregate</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">by</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">Species</span><span class="o">=</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">),</span> <span class="n">FUN</span><span class="o">=</span><span class="n">sd</span><span class="p">)</span> </code></pre></figure>
 
-<p>Reformat <code>iris_mean</code> with <code>melt</code></p>
+<p>Reformat <code class="highlighter-rouge">iris_mean</code> with <code class="highlighter-rouge">melt</code></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">reshape2</span><span class="p">)</span> <span class="c1"># Defines melt function
-</span><span class="n">df_mean</span> <span class="o">&lt;-</span> <span class="n">melt</span><span class="p">(</span><span class="n">iris_mean</span><span class="p">,</span> <span class="n">id.vars</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"Species"</span><span class="p">),</span> <span class="n">variable.name</span> <span class="o">=</span> <span class="s2">"Samples"</span><span class="p">,</span> <span class="n">value.name</span><span class="o">=</span><span class="s2">"Values"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">reshape2</span><span class="p">)</span> <span class="c1"># Defines melt function
+</span><span class="n">df_mean</span> <span class="o">&lt;-</span> <span class="n">melt</span><span class="p">(</span><span class="n">iris_mean</span><span class="p">,</span> <span class="n">id.vars</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"Species"</span><span class="p">),</span> <span class="n">variable.name</span> <span class="o">=</span> <span class="s2">"Samples"</span><span class="p">,</span> <span class="n">value.name</span><span class="o">=</span><span class="s2">"Values"</span><span class="p">)</span></code></pre></figure>
 
-<p>Reformat <code>iris_sd</code> with <code>melt</code></p>
+<p>Reformat <code class="highlighter-rouge">iris_sd</code> with <code class="highlighter-rouge">melt</code></p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df_sd</span> <span class="o">&lt;-</span> <span class="n">melt</span><span class="p">(</span><span class="n">iris_sd</span><span class="p">,</span> <span class="n">id.vars</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"Species"</span><span class="p">),</span> <span class="n">variable.name</span> <span class="o">=</span> <span class="s2">"Samples"</span><span class="p">,</span> <span class="n">value.name</span><span class="o">=</span><span class="s2">"Values"</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df_sd</span> <span class="o">&lt;-</span> <span class="n">melt</span><span class="p">(</span><span class="n">iris_sd</span><span class="p">,</span> <span class="n">id.vars</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"Species"</span><span class="p">),</span> <span class="n">variable.name</span> <span class="o">=</span> <span class="s2">"Samples"</span><span class="p">,</span> <span class="n">value.name</span><span class="o">=</span><span class="s2">"Values"</span><span class="p">)</span></code></pre></figure>
 
 <p>Define standard deviation limits</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">limits</span> <span class="o">&lt;-</span> <span class="n">aes</span><span class="p">(</span><span class="n">ymax</span> <span class="o">=</span> <span class="n">df_mean</span><span class="p">[,</span><span class="s2">"Values"</span><span class="p">]</span> <span class="o">+</span> <span class="n">df_sd</span><span class="p">[,</span><span class="s2">"Values"</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="n">df_mean</span><span class="p">[,</span><span class="s2">"Values"</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_sd</span><span class="p">[,</span><span class="s2">"Values"</span><span class="p">])</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">limits</span> <span class="o">&lt;-</span> <span class="n">aes</span><span class="p">(</span><span class="n">ymax</span> <span class="o">=</span> <span class="n">df_mean</span><span class="p">[,</span><span class="s2">"Values"</span><span class="p">]</span> <span class="o">+</span> <span class="n">df_sd</span><span class="p">[,</span><span class="s2">"Values"</span><span class="p">],</span> <span class="n">ymin</span><span class="o">=</span><span class="n">df_mean</span><span class="p">[,</span><span class="s2">"Values"</span><span class="p">]</span> <span class="o">-</span> <span class="n">df_sd</span><span class="p">[,</span><span class="s2">"Values"</span><span class="p">])</span></code></pre></figure>
 
 <h3 id="verical-orientation">Verical orientation</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">Species</span><span class="p">))</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">Species</span><span class="p">))</span> <span class="o">+</span> 
 	    <span class="n">geom_bar</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="s2">"dodge"</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/iris_mean_bar_plot-1.png" alt="" /></p>
 
 <h3 id="horizontal-orientation">Horizontal orientation</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">Species</span><span class="p">))</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">Species</span><span class="p">))</span> <span class="o">+</span> 
             <span class="n">geom_bar</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="s2">"dodge"</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span> <span class="o">+</span> <span class="n">coord_flip</span><span class="p">()</span> <span class="o">+</span> 
             <span class="n">theme</span><span class="p">(</span><span class="n">axis.text.y</span><span class="o">=</span><span class="n">element_text</span><span class="p">(</span><span class="n">angle</span><span class="o">=</span><span class="m">0</span><span class="p">,</span> <span class="n">hjust</span><span class="o">=</span><span class="m">1</span><span class="p">))</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/iris_mean_bar_plot_sideways-1.png" alt="" /></p>
 
 <h3 id="faceting-1">Faceting</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">Species</span><span class="p">),</span> <span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_bar</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">Species</span><span class="p">),</span> <span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span> <span class="o">+</span> 
             <span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">Species</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/iris_mean_bar_plot_facetting-1.png" alt="" /></p>
 
 <h3 id="error-bars">Error bars</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">Species</span><span class="p">))</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">Species</span><span class="p">))</span> <span class="o">+</span> 
 	    <span class="n">geom_bar</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="s2">"dodge"</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_errorbar</span><span class="p">(</span><span class="n">limits</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">"dodge"</span><span class="p">)</span> 
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/iris_mean_bar_plot_error-1.png" alt="" /></p>
 
 <h3 id="mirrored">Mirrored</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"Above"</span><span class="p">,</span> <span class="s2">"Below"</span><span class="p">),</span> <span class="n">each</span><span class="o">=</span><span class="m">10</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">runif</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">runif</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">-1</span><span class="p">,</span> <span class="m">0</span><span class="p">)))</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">group</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"Above"</span><span class="p">,</span> <span class="s2">"Below"</span><span class="p">),</span> <span class="n">each</span><span class="o">=</span><span class="m">10</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="n">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">runif</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">runif</span><span class="p">(</span><span class="m">10</span><span class="p">,</span> <span class="m">-1</span><span class="p">,</span> <span class="m">0</span><span class="p">)))</span>
 <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">group</span><span class="p">))</span> <span class="o">+</span> 
 	    <span class="n">geom_bar</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot2_mirrored_barplot-1.png" alt="" /></p>
 
 <h2 id="changing-color-settings">Changing Color Settings</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">RColorBrewer</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">RColorBrewer</span><span class="p">)</span>
 <span class="c1"># display.brewer.all() 
 </span><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">Species</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Species</span><span class="p">))</span> <span class="o">+</span>
             <span class="n">geom_bar</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="s2">"dodge"</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_errorbar</span><span class="p">(</span><span class="n">limits</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">"dodge"</span><span class="p">)</span> <span class="o">+</span> 
             <span class="n">scale_fill_brewer</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s2">"Blues"</span><span class="p">)</span> <span class="o">+</span> <span class="n">scale_color_brewer</span><span class="p">(</span><span class="n">palette</span> <span class="o">=</span> <span class="s2">"Greys"</span><span class="p">)</span> 
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot2_color1-1.png" alt="" /></p>
 
 <h3 id="using-standard-colors">Using standard colors</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">Species</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Species</span><span class="p">))</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df_mean</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">Species</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Species</span><span class="p">))</span> <span class="o">+</span> 
             <span class="n">geom_bar</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="s2">"dodge"</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_errorbar</span><span class="p">(</span><span class="n">limits</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s2">"dodge"</span><span class="p">)</span> <span class="o">+</span> 
             <span class="n">scale_fill_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"green3"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">))</span> <span class="o">+</span> 
             <span class="n">scale_color_manual</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"red"</span><span class="p">,</span> <span class="s2">"green3"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">))</span> 
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot2_color2-1.png" alt="" /></p>
 
@@ -2076,66 +2054,66 @@ $('#toc').on('click', 'a', function() {
 <p>Bar plots</p>
 
 <ul>
-  <li><strong>Task 1</strong>: Calculate the mean values for the <code>Species</code> components of the first four columns in the <code>iris</code> data set. Use the <code>melt</code> function from the <code>reshape2</code> package to bring the data into the expected format for <code>ggplot</code>.</li>
+  <li><strong>Task 1</strong>: Calculate the mean values for the <code class="highlighter-rouge">Species</code> components of the first four columns in the <code class="highlighter-rouge">iris</code> data set. Use the <code class="highlighter-rouge">melt</code> function from the <code class="highlighter-rouge">reshape2</code> package to bring the data into the expected format for <code class="highlighter-rouge">ggplot</code>.</li>
   <li><strong>Task 2</strong>: Generate two bar plots: one with stacked bars and one with horizontally arranged bars.</li>
 </ul>
 
 <p>Structure of iris data set</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">class</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "data.frame"</code></pre></div>
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "data.frame"</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
 ## 3          4.7         3.2          1.3         0.2  setosa
-## 4          4.6         3.1          1.5         0.2  setosa</code></pre></div>
+## 4          4.6         3.1          1.5         0.2  setosa</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">)</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">## 
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## 
 ##     setosa versicolor  virginica 
-##         50         50         50</code></pre></div>
+##         50         50         50</code></pre></figure>
 
 <h2 id="data-reformatting-example">Data reformatting example</h2>
 
 <p>Here for line plot</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">),</span> <span class="m">100</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"g"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">),</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"Sample"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">),</span> <span class="m">100</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"g"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">),</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"Sample"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span>
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">Position</span><span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">y</span><span class="p">[,</span><span class="m">1</span><span class="p">]),</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">y</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="p">]</span> <span class="err">#</span> <span class="n">First</span> <span class="n">rows</span> <span class="n">of</span> <span class="n">input</span> <span class="n">format</span> <span class="n">expected</span> <span class="n">by</span> <span class="n">melt</span><span class="p">()</span></code></pre></div>
+<span class="n">y</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="p">]</span> <span class="err">#</span> <span class="n">First</span> <span class="n">rows</span> <span class="n">of</span> <span class="n">input</span> <span class="n">format</span> <span class="n">expected</span> <span class="n">by</span> <span class="n">melt</span><span class="p">()</span></code></pre></figure>
 
-<div class="highlight"><pre><code class="language-txt" data-lang="txt">##    Position    Sample1    Sample2    Sample3    Sample4    Sample5
+<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##    Position    Sample1    Sample2    Sample3    Sample4    Sample5
 ## g1        1 1.32942477 -1.2084007 -0.1958190 -0.4236177  1.7139697
 ## g2        2 0.92190035 -0.3471160  3.3238031 -1.2340292 -0.3985408
 ## g3        3 0.01878173  0.8007423 -0.1884464 -0.7419688 -0.5565102
-## g4        4 1.95620993  1.7876584 -0.4402745  0.3671016  0.3966960</code></pre></div>
+## g4        4 1.95620993  1.7876584 -0.4402745  0.3671016  0.3966960</code></pre></figure>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">melt</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">id.vars</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"Position"</span><span class="p">),</span> <span class="n">variable.name</span> <span class="o">=</span> <span class="s2">"Samples"</span><span class="p">,</span> <span class="n">value.name</span><span class="o">=</span><span class="s2">"Values"</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">melt</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">id.vars</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"Position"</span><span class="p">),</span> <span class="n">variable.name</span> <span class="o">=</span> <span class="s2">"Samples"</span><span class="p">,</span> <span class="n">value.name</span><span class="o">=</span><span class="s2">"Values"</span><span class="p">)</span>
 <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Position</span><span class="p">,</span> <span class="n">Values</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_line</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Samples</span><span class="p">))</span> <span class="o">+</span> <span class="n">facet_wrap</span><span class="p">(</span><span class="o">~</span><span class="n">Samples</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_melt_data-1.png" alt="" /></p>
 
 <p>Same data can be represented in box plot as follows</p>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">Samples</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">Samples</span><span class="p">,</span> <span class="n">Values</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">Samples</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span></code></pre></figure>
 
 <h2 id="jitter-plots">Jitter Plots</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">))</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">))</span> <span class="o">+</span> 
             <span class="n">geom_jitter</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">I</span><span class="p">(</span><span class="m">1</span> <span class="o">/</span> <span class="m">2</span><span class="p">),</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">))</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_jitter_plot-1.png" alt="" /></p>
 
 <h2 id="box-plots">Box plots</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_box_plot2-1.png" alt="" /></p>
 
@@ -2143,49 +2121,49 @@ $('#toc').on('click', 'a', function() {
 
 <h3 id="line-coloring">Line coloring</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_density</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">))</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_density</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="n">color</span><span class="p">))</span>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_density_plot_linecol-1.png" alt="" /></p>
 
 <h3 id="area-coloring">Area coloring</h3>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_density</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">color</span><span class="p">))</span>
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">carat</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_density</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">fill</span> <span class="o">=</span> <span class="n">color</span><span class="p">))</span>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_density_plot_areacol-1.png" alt="" /></p>
 
 <h2 id="histograms">Histograms</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Sepal.Width</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_histogram</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="err">.</span><span class="n">.density..</span><span class="p">,</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Sepal.Width</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_histogram</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">y</span> <span class="o">=</span> <span class="err">.</span><span class="n">.density..</span><span class="p">,</span> 
             <span class="n">fill</span> <span class="o">=</span> <span class="err">.</span><span class="n">.count..</span><span class="p">),</span> <span class="n">binwidth</span><span class="o">=</span><span class="m">0.2</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_density</span><span class="p">()</span>  
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_histogram-1.png" alt="" /></p>
 
 <h2 id="pie-chart">Pie Chart</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="n">rep</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"mouse"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"bird"</span><span class="p">,</span> <span class="s2">"fly"</span><span class="p">)),</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">df</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">variable</span><span class="o">=</span><span class="n">rep</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"cat"</span><span class="p">,</span> <span class="s2">"mouse"</span><span class="p">,</span> <span class="s2">"dog"</span><span class="p">,</span> <span class="s2">"bird"</span><span class="p">,</span> <span class="s2">"fly"</span><span class="p">)),</span> 
                  <span class="n">value</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">2</span><span class="p">))</span> 
 <span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">variable</span><span class="p">))</span> <span class="o">+</span> 
             <span class="n">geom_bar</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span> <span class="o">+</span> 
             <span class="n">coord_polar</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">pi</span> <span class="o">/</span> <span class="m">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">ggtitle</span><span class="p">(</span><span class="s2">"Pie Chart"</span><span class="p">)</span> 
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_pie_chart-1.png" alt="" /></p>
 
 <h2 id="wind-rose-pie-chart">Wind Rose Pie Chart</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">variable</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">variable</span><span class="p">))</span> <span class="o">+</span> 
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">variable</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">value</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="n">variable</span><span class="p">))</span> <span class="o">+</span> 
        <span class="n">geom_bar</span><span class="p">(</span><span class="n">width</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">"identity"</span><span class="p">)</span> <span class="o">+</span> <span class="n">coord_polar</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">pi</span> <span class="o">/</span> <span class="m">3</span><span class="p">)</span> <span class="o">+</span> 
        <span class="n">ggtitle</span><span class="p">(</span><span class="s2">"Pie Chart"</span><span class="p">)</span> 
-<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> </code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_windrose_pie_chart-1.png" alt="" /></p>
 
 <h2 id="arranging-graphics-on-page">Arranging Graphics on Page</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_jitter</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">4</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="n">I</span><span class="p">(</span><span class="m">1</span> <span class="o">/</span> <span class="m">1.5</span><span class="p">),</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span>
 <span class="n">c</span> <span class="o">&lt;-</span> <span class="n">ggplot</span><span class="p">(</span><span class="n">dsmall</span><span class="p">,</span> <span class="n">aes</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">price</span><span class="o">/</span><span class="n">carat</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">))</span> <span class="o">+</span> <span class="n">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> <span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">)</span>
@@ -2193,15 +2171,15 @@ $('#toc').on('click', 'a', function() {
 </span><span class="n">pushViewport</span><span class="p">(</span><span class="n">viewport</span><span class="p">(</span><span class="n">layout</span> <span class="o">=</span> <span class="n">grid.layout</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">)))</span> <span class="c1"># Assign to device viewport with 2 by 2 grid layout 
 </span><span class="n">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">vp</span> <span class="o">=</span> <span class="n">viewport</span><span class="p">(</span><span class="n">layout.pos.row</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">layout.pos.col</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">))</span>
 <span class="n">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">vp</span> <span class="o">=</span> <span class="n">viewport</span><span class="p">(</span><span class="n">layout.pos.row</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">layout.pos.col</span> <span class="o">=</span> <span class="m">1</span><span class="p">))</span>
-<span class="n">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">vp</span> <span class="o">=</span> <span class="n">viewport</span><span class="p">(</span><span class="n">layout.pos.row</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">layout.pos.col</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="m">0.8</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="m">0.8</span><span class="p">))</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">vp</span> <span class="o">=</span> <span class="n">viewport</span><span class="p">(</span><span class="n">layout.pos.row</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">layout.pos.col</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="m">0.8</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="m">0.8</span><span class="p">))</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_arrange_graphics-1.png" alt="" /></p>
 
 <h2 id="inserting-graphics-into-plots">Inserting Graphics into Plots</h2>
 
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
 <span class="n">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">vp</span><span class="o">=</span><span class="n">viewport</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="m">0.8</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="m">0.8</span><span class="p">))</span></code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">vp</span><span class="o">=</span><span class="n">viewport</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="m">0.3</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="m">0.8</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="m">0.8</span><span class="p">))</span></code></pre></figure>
 
 <p><img src="Rgraphics_files/ggplot_insert_graphics-1.png" alt="" /></p>
 
@@ -2221,7 +2199,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Fri May 27 17:09:46 2016<br/> Site last generated: Jun 1, 2016 <br />
+<p>Page last updated:</span> Fri May 27 17:09:46 2016<br/> Site last generated: Jun 2, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
