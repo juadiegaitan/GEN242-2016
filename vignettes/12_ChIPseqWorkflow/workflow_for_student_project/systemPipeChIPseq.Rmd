@@ -326,24 +326,25 @@ here `*.peaks.annotated.xls`.
 
 Same as in previous step but using the `ChIPseeker` package for annotating the peaks.
 
+To make the subsequent steps work, please use the annotations from the `ChIPpeakAnno` package.
 ```{r chip_peak_seeker, eval=FALSE}
-library(ChIPseeker)
-for(i in seq(along=args)) {
-    peakAnno <- annotatePeak(infile1(args)[i], TxDb=txdb, verbose=FALSE)
-    df <- as.data.frame(peakAnno)
-    write.table(df, outpaths(args[i]), quote=FALSE, row.names=FALSE, sep="\t")
-}
-writeTargetsout(x=args, file="targets_peakanno.txt", overwrite=TRUE)
+# library(ChIPseeker)
+# for(i in seq(along=args)) {
+#    peakAnno <- annotatePeak(infile1(args)[i], TxDb=txdb, verbose=FALSE)
+#    df <- as.data.frame(peakAnno)
+#    write.table(df, outpaths(args[i]), quote=FALSE, row.names=FALSE, sep="\t")
+# }
+# writeTargetsout(x=args, file="targets_peakanno.txt", overwrite=TRUE)
 ```
 
 Summary plots provided by the `ChIPseeker` package. Here applied only to one sample
 for demonstration purposes.
 
 ```{r chip_peak_seeker_plots, eval=FALSE}
-peak <- readPeakFile(infile1(args)[1])
-covplot(peak, weightCol="X.log10.pvalue.")
-peakHeatmap(outpaths(args)[1], TxDb=txdb, upstream=1000, downstream=1000, color="red")
-plotAvgProf2(outpaths(args)[1], TxDb=txdb, upstream=1000, downstream=1000, xlab="Genomic Region (5'->3')", ylab = "Read Count Frequency")
+# peak <- readPeakFile(infile1(args)[1])
+# covplot(peak, weightCol="X.log10.pvalue.")
+# peakHeatmap(outpaths(args)[1], TxDb=txdb, upstream=1000, downstream=1000, color="red")
+# plotAvgProf2(outpaths(args)[1], TxDb=txdb, upstream=1000, downstream=1000, xlab="Genomic Region (5'->3')", ylab = "Read Count Frequency")
 ```
 
 # Count reads overlapping peaks
