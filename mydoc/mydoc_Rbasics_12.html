@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1682,40 +1704,40 @@ $('#toc').on('click', 'a', function() {
     <a target="_blank" href="https://github.com/tgirke/manuals/tree/master/mydoc/" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit me</a>
     
 -->
-<p><code class="highlighter-rouge">SQLite</code> is a lightweight relational database solution. The <code class="highlighter-rouge">RSQLite</code> package provides an easy to use interface to create, manage and query <code class="highlighter-rouge">SQLite</code> databases directly from R. Basic instructions
-for using <code class="highlighter-rouge">SQLite</code> from the command-line are available <a href="https://www.sqlite.org/cli.html">here</a>. A short introduction to <code class="highlighter-rouge">RSQLite</code> is available <a href="https://github.com/rstats-db/RSQLite/blob/master/vignettes/RSQLite.Rmd">here</a>.</p>
+<p><code>SQLite</code> is a lightweight relational database solution. The <code>RSQLite</code> package provides an easy to use interface to create, manage and query <code>SQLite</code> databases directly from R. Basic instructions
+for using <code>SQLite</code> from the command-line are available <a href="https://www.sqlite.org/cli.html">here</a>. A short introduction to <code>RSQLite</code> is available <a href="https://github.com/rstats-db/RSQLite/blob/master/vignettes/RSQLite.Rmd">here</a>.</p>
 
 <h2 id="loading-data-into-sqlite-databases">Loading data into SQLite databases</h2>
 
-<p>The following loads two <code class="highlighter-rouge">data.frames</code> derived from the <code class="highlighter-rouge">iris</code> data set (here <code class="highlighter-rouge">mydf1</code> and <code class="highlighter-rouge">mydf2</code>) 
-into an SQLite database (here <code class="highlighter-rouge">test.db</code>).</p>
+<p>The following loads two <code>data.frames</code> derived from the <code>iris</code> data set (here <code>mydf1</code> and <code>mydf2</code>) 
+into an SQLite database (here <code>test.db</code>).</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">RSQLite</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">RSQLite</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## Loading required package: DBI</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## Loading required package: DBI</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydb</span> <span class="o">&lt;-</span> <span class="n">dbConnect</span><span class="p">(</span><span class="n">SQLite</span><span class="p">(),</span> <span class="s2">"test.db"</span><span class="p">)</span> <span class="c1"># Creates database file test.db
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">mydb</span> <span class="o">&lt;-</span> <span class="n">dbConnect</span><span class="p">(</span><span class="n">SQLite</span><span class="p">(),</span> <span class="s2">"test.db"</span><span class="p">)</span> <span class="c1"># Creates database file test.db
 </span><span class="n">mydf1</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="n">paste0</span><span class="p">(</span><span class="s2">"id"</span><span class="p">,</span> <span class="n">seq_along</span><span class="p">(</span><span class="n">iris</span><span class="p">[,</span><span class="m">1</span><span class="p">])),</span> <span class="n">iris</span><span class="p">)</span>
 <span class="n">mydf2</span> <span class="o">&lt;-</span> <span class="n">mydf1</span><span class="p">[</span><span class="n">sample</span><span class="p">(</span><span class="n">seq_along</span><span class="p">(</span><span class="n">mydf1</span><span class="p">[,</span><span class="m">1</span><span class="p">]),</span> <span class="m">10</span><span class="p">),]</span>
-<span class="n">dbWriteTable</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s2">"mydf1"</span><span class="p">,</span> <span class="n">mydf1</span><span class="p">)</span></code></pre></figure>
+<span class="n">dbWriteTable</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s2">"mydf1"</span><span class="p">,</span> <span class="n">mydf1</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] TRUE</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] TRUE</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbWriteTable</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s2">"mydf2"</span><span class="p">,</span> <span class="n">mydf2</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbWriteTable</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s2">"mydf2"</span><span class="p">,</span> <span class="n">mydf2</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] TRUE</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] TRUE</code></pre></div>
 
 <h2 id="list-names-of-tables-in-database">List names of tables in database</h2>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbListTables</span><span class="p">(</span><span class="n">mydb</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbListTables</span><span class="p">(</span><span class="n">mydb</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "mydf1" "mydf2"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "mydf1" "mydf2"</code></pre></div>
 
-<h2 id="import-table-into-dataframe">Import table into <code class="highlighter-rouge">data.frame</code></h2>
+<h2 id="import-table-into-dataframe">Import table into <code>data.frame</code></h2>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbGetQuery</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s1">'SELECT * FROM mydf2'</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbGetQuery</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s1">'SELECT * FROM mydf2'</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
 ## 1  id115          5.8         2.8          5.1         2.4  virginica
 ## 2   id73          6.3         2.5          4.9         1.5 versicolor
 ## 3   id80          5.7         2.6          3.5         1.0 versicolor
@@ -1725,26 +1747,26 @@ into an SQLite database (here <code class="highlighter-rouge">test.db</code>).</
 ## 7  id126          7.2         3.2          6.0         1.8  virginica
 ## 8    id2          4.9         3.0          1.4         0.2     setosa
 ## 9   id91          5.5         2.6          4.4         1.2 versicolor
-## 10  id20          5.1         3.8          1.5         0.3     setosa</code></pre></figure>
+## 10  id20          5.1         3.8          1.5         0.3     setosa</code></pre></div>
 
 <h2 id="query-database">Query database</h2>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbGetQuery</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s1">'SELECT * FROM mydf1 WHERE "Sepal.Length" &lt; 4.6'</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbGetQuery</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s1">'SELECT * FROM mydf1 WHERE "Sepal.Length" &lt; 4.6'</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##    ids Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##    ids Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1  id9          4.4         2.9          1.4         0.2  setosa
 ## 2 id14          4.3         3.0          1.1         0.1  setosa
 ## 3 id39          4.4         3.0          1.3         0.2  setosa
 ## 4 id42          4.5         2.3          1.3         0.3  setosa
-## 5 id43          4.4         3.2          1.3         0.2  setosa</code></pre></figure>
+## 5 id43          4.4         3.2          1.3         0.2  setosa</code></pre></div>
 
 <h2 id="join-tables">Join tables</h2>
 
-<p>The two tables can be joined on the shared <code class="highlighter-rouge">ids</code> column as follows.</p>
+<p>The two tables can be joined on the shared <code>ids</code> column as follows.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbGetQuery</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s1">'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids'</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">dbGetQuery</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s1">'SELECT * FROM mydf1, mydf2 WHERE mydf1.ids = mydf2.ids'</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species   ids Sepal.Length
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##      ids Sepal.Length Sepal.Width Petal.Length Petal.Width    Species   ids Sepal.Length
 ## 1    id2          4.9         3.0          1.4         0.2     setosa   id2          4.9
 ## 2   id20          5.1         3.8          1.5         0.3     setosa  id20          5.1
 ## 3   id63          6.0         2.2          4.0         1.0 versicolor  id63          6.0
@@ -1765,7 +1787,7 @@ into an SQLite database (here <code class="highlighter-rouge">test.db</code>).</
 ## 7          2.5          3.0         1.1 versicolor
 ## 8          2.8          5.1         2.4  virginica
 ## 9          2.8          6.7         2.0  virginica
-## 10         3.2          6.0         1.8  virginica</code></pre></figure>
+## 10         3.2          6.0         1.8  virginica</code></pre></div>
 
 
 
@@ -1783,7 +1805,7 @@ into an SQLite database (here <code class="highlighter-rouge">test.db</code>).</
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sun May 29 19:35:43 2016<br/> Site last generated: Jun 2, 2016 <br />
+<p>Page last updated:</span> Sun May 29 19:35:43 2016<br/> Site last generated: Jun 3, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

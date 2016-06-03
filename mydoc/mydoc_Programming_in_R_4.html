@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1688,15 +1710,15 @@ $('#toc').on('click', 'a', function() {
 
 <p><strong>Syntax</strong> to define function</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span> <span class="p">{</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span> <span class="p">{</span> 
 	<span class="n">function_body</span> 
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span></code></pre></div>
 
 <p><strong>Syntax</strong> to call functions</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="k">...</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="k">...</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="k">...</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="k">...</span><span class="p">)</span></code></pre></div>
 
-<p>The value returned by a function is the value of the function body, which is usually an unassigned final expression, <em>e.g.</em>: <code class="highlighter-rouge">return()</code></p>
+<p>The value returned by a function is the value of the function body, which is usually an unassigned final expression, <em>e.g.</em>: <code>return()</code></p>
 
 <h2 id="function-syntax-rules">Function Syntax Rules</h2>
 
@@ -1705,9 +1727,9 @@ $('#toc').on('click', 'a', function() {
 <ul>
   <li>Functions are defined by
     <ol>
-      <li>The assignment with the keyword <code class="highlighter-rouge">function</code></li>
-      <li>The declaration of arguments/variables (<code class="highlighter-rouge">arg1, arg2, ...</code>)</li>
-      <li>The definition of operations (<code class="highlighter-rouge">function_body</code>) that perform computations on the provided arguments. A function name needs to be assigned to call the function.</li>
+      <li>The assignment with the keyword <code>function</code></li>
+      <li>The declaration of arguments/variables (<code>arg1, arg2, ...</code>)</li>
+      <li>The definition of operations (<code>function_body</code>) that perform computations on the provided arguments. A function name needs to be assigned to call the function.</li>
     </ol>
   </li>
 </ul>
@@ -1721,7 +1743,7 @@ $('#toc').on('click', 'a', function() {
 <p><strong>Arguments</strong></p>
 
 <ul>
-  <li>It is often useful to provide default values for arguments (<em>e.g.</em>: <code class="highlighter-rouge">arg1=1:10</code>). This way they don’t need to be provided in a function call. The argument list can also be left empty (<code class="highlighter-rouge">myfct &lt;- function() { fct_body }</code>) when a function is expected to return always the same value(s). The argument <code class="highlighter-rouge">...</code> can be used to allow one function to pass on argument settings to another.</li>
+  <li>It is often useful to provide default values for arguments (<em>e.g.</em>: <code>arg1=1:10</code>). This way they don’t need to be provided in a function call. The argument list can also be left empty (<code>myfct &lt;- function() { fct_body }</code>) when a function is expected to return always the same value(s). The argument <code>...</code> can be used to allow one function to pass on argument settings to another.</li>
 </ul>
 
 <p><strong>Body</strong></p>
@@ -1739,50 +1761,50 @@ $('#toc').on('click', 'a', function() {
 <p><strong>Scope</strong></p>
 
 <ul>
-  <li>Variables created inside a function exist only for the life time of a function. Thus, they are not accessible outside of the function. To force variables in functions to exist globally, one can use the double assignment operator: <code class="highlighter-rouge">&lt;&lt;-</code></li>
+  <li>Variables created inside a function exist only for the life time of a function. Thus, they are not accessible outside of the function. To force variables in functions to exist globally, one can use the double assignment operator: <code>&lt;&lt;-</code></li>
 </ul>
 
 <h2 id="examples">Examples</h2>
 
 <p><strong>Define sample function</strong></p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="o">=</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="o">=</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span> 
 	<span class="n">z1</span> <span class="o">&lt;-</span> <span class="n">x1</span> <span class="o">/</span> <span class="n">x1</span>
 	<span class="n">z2</span> <span class="o">&lt;-</span> <span class="n">x2</span> <span class="o">*</span> <span class="n">x2</span>
         <span class="n">myvec</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">)</span> 
         <span class="k">return</span><span class="p">(</span><span class="n">myvec</span><span class="p">)</span>
-<span class="p">}</span> </code></pre></figure>
+<span class="p">}</span></code></pre></div>
 
 <p><strong>Function usage</strong></p>
 
 <p>Apply function to values 2 and 5</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span><span class="p">(</span><span class="n">x1</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">x2</span><span class="o">=</span><span class="m">5</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span><span class="p">(</span><span class="n">x1</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">x2</span><span class="o">=</span><span class="m">5</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1]  1 25</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1]  1 25</code></pre></div>
 
 <p>Run without argument names</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1]  1 25</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1]  1 25</code></pre></div>
 
 <p>Makes use of default value ‘5’</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span><span class="p">(</span><span class="n">x1</span><span class="o">=</span><span class="m">2</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span><span class="p">(</span><span class="n">x1</span><span class="o">=</span><span class="m">2</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1]  1 25</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1]  1 25</code></pre></div>
 
 <p>Print function definition (often unintended)</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myfct</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## function(x1, x2=5) { 
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## function(x1, x2=5) { 
 ## 	z1 &lt;- x1 / x1
 ## 	z2 &lt;- x2 * x2
 ##         myvec &lt;- c(z1, z2) 
 ##         return(myvec)
-## }</code></pre></figure>
+## }</code></pre></div>
 
 
 
@@ -1800,7 +1822,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Wed Apr 13 16:38:00 2016<br/> Site last generated: Jun 2, 2016 <br />
+<p>Page last updated:</span> Wed Apr 13 16:38:00 2016<br/> Site last generated: Jun 3, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

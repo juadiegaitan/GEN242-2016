@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1684,65 +1706,65 @@ $('#toc').on('click', 'a', function() {
 -->
 <h2 id="reverse-and-complement-of-dna">Reverse and complement of DNA</h2>
 
-<p><strong>Task 1</strong>: Write a <code class="highlighter-rouge">RevComp</code> function that returns the reverse and complement of a DNA sequence string. Include an argument that will allow to return only the reversed sequence, the complemented sequence or the reversed and complemented sequence. The following R functions will be useful for the implementation:</p>
+<p><strong>Task 1</strong>: Write a <code>RevComp</code> function that returns the reverse and complement of a DNA sequence string. Include an argument that will allow to return only the reversed sequence, the complemented sequence or the reversed and complemented sequence. The following R functions will be useful for the implementation:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"ATGCATTGGACGTTAG"</span><span class="p">)</span>  
-<span class="n">x</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"ATGCATTGGACGTTAG"</span><span class="p">)</span>  
+<span class="n">x</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "ATGCATTGGACGTTAG"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "ATGCATTGGACGTTAG"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">substring</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="n">nchar</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="m">1</span><span class="o">:</span><span class="n">nchar</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> 
-<span class="n">x</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">substring</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="n">nchar</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="m">1</span><span class="o">:</span><span class="n">nchar</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> 
+<span class="n">x</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] "A" "T" "G" "C" "A" "T" "T" "G" "G" "A" "C" "G" "T" "T" "A" "G"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] "A" "T" "G" "C" "A" "T" "T" "G" "G" "A" "C" "G" "T" "T" "A" "G"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">rev</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
-<span class="n">x</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">rev</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+<span class="n">x</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] "G" "A" "T" "T" "G" "C" "A" "G" "G" "T" "T" "A" "C" "G" "T" "A"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##  [1] "G" "A" "T" "T" "G" "C" "A" "G" "G" "T" "T" "A" "C" "G" "T" "A"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
-<span class="n">x</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">x</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "GATTGCAGGTTACGTA"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "GATTGCAGGTTACGTA"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">chartr</span><span class="p">(</span><span class="s2">"ATGC"</span><span class="p">,</span> <span class="s2">"TACG"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">chartr</span><span class="p">(</span><span class="s2">"ATGC"</span><span class="p">,</span> <span class="s2">"TACG"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "CTAACGTCCAATGCAT"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "CTAACGTCCAATGCAT"</code></pre></div>
 
-<p><strong>Task 2</strong>: Write a function that applies the <code class="highlighter-rouge">RevComp</code> function to many sequences stored in a vector.</p>
+<p><strong>Task 2</strong>: Write a function that applies the <code>RevComp</code> function to many sequences stored in a vector.</p>
 
 <h2 id="translate-dna-into-protein">Translate DNA into Protein</h2>
 
 <p><strong>Task 3</strong>: Write a function that will translate one or many DNA sequences in all three reading frames into proteins. The following commands will simplify this task:</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">AAdf</span> <span class="o">&lt;-</span> <span class="n">read.table</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span> 
-<span class="n">AAdf</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">AAdf</span> <span class="o">&lt;-</span> <span class="n">read.table</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span> 
+<span class="n">AAdf</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   Codon AA_1 AA_3 AA_Full AntiCodon
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   Codon AA_1 AA_3 AA_Full AntiCodon
 ## 1   TCA    S  Ser  Serine       TGA
 ## 2   TCG    S  Ser  Serine       CGA
 ## 3   TCC    S  Ser  Serine       GGA
-## 4   TCT    S  Ser  Serine       AGA</code></pre></figure>
+## 4   TCT    S  Ser  Serine       AGA</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">AAv</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">AAdf</span><span class="p">[,</span><span class="m">2</span><span class="p">])</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">AAv</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">AAdf</span><span class="p">[,</span><span class="m">2</span><span class="p">])</span> 
 <span class="n">names</span><span class="p">(</span><span class="n">AAv</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">AAdf</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span> 
-<span class="n">AAv</span></code></pre></figure>
+<span class="n">AAv</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## TCA TCG TCC TCT TTT TTC TTA TTG TAT TAC TAA TAG TGT TGC TGA TGG CTA CTG CTC CTT CCA CCG CCC CCT CAT 
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## TCA TCG TCC TCT TTT TTC TTA TTG TAT TAC TAA TAG TGT TGC TGA TGG CTA CTG CTC CTT CCA CCG CCC CCT CAT 
 ## "S" "S" "S" "S" "F" "F" "L" "L" "Y" "Y" "*" "*" "C" "C" "*" "W" "L" "L" "L" "L" "P" "P" "P" "P" "H" 
 ## CAC CAA CAG CGA CGG CGC CGT ATT ATC ATA ATG ACA ACG ACC ACT AAT AAC AAA AAG AGT AGC AGA AGG GTA GTG 
 ## "H" "Q" "Q" "R" "R" "R" "R" "I" "I" "I" "M" "T" "T" "T" "T" "N" "N" "K" "K" "S" "S" "R" "R" "V" "V" 
 ## GTC GTT GCA GCG GCC GCT GAT GAC GAA GAG GGA GGG GGC GGT 
-## "V" "V" "A" "A" "A" "A" "D" "D" "E" "E" "G" "G" "G" "G"</code></pre></figure>
+## "V" "V" "A" "A" "A" "A" "D" "D" "E" "E" "G" "G" "G" "G"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">gsub</span><span class="p">(</span><span class="s2">"(...)"</span><span class="p">,</span> <span class="s2">"\\1_"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">gsub</span><span class="p">(</span><span class="s2">"(...)"</span><span class="p">,</span> <span class="s2">"\\1_"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">unlist</span><span class="p">(</span><span class="n">strsplit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">))</span> 
 <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">y</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^...$"</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span> 
-<span class="n">AAv</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> </code></pre></figure>
+<span class="n">AAv</span><span class="p">[</span><span class="n">y</span><span class="p">]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## GAT TGC AGG TTA CGT 
-## "D" "C" "R" "L" "R"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## GAT TGC AGG TTA CGT 
+## "D" "C" "R" "L" "R"</code></pre></div>
 
 <h2 id="homework-submission">Homework submission</h2>
 <p>Submit the 3 functions in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.</p>
@@ -1771,7 +1793,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: Jun 2, 2016 <br />
+<p>Page last updated:</span> Sat Apr 23 15:51:22 2016<br/> Site last generated: Jun 3, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

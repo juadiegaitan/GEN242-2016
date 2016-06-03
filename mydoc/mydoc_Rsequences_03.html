@@ -79,6 +79,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
@@ -159,6 +169,8 @@
                 <!-- special insertion -->
 
                
+                
+                
                 <!-- Send feedback function -->
 <script>
 function SendLinkByMail(href) {
@@ -251,6 +263,16 @@ window.location.href = uri;
 
 
         
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1688,82 +1710,82 @@ $('#toc').on('click', 'a', function() {
 
 <p>Generate sample sequence data set</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"ATGCAGACATAGTG"</span><span class="p">,</span> <span class="s2">"ATGAACATAGATCC"</span><span class="p">,</span> <span class="s2">"GTACAGATCAC"</span><span class="p">)</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"ATGCAGACATAGTG"</span><span class="p">,</span> <span class="s2">"ATGAACATAGATCC"</span><span class="p">,</span> <span class="s2">"GTACAGATCAC"</span><span class="p">)</span></code></pre></div>
 
 <p>String searching with regular expression support</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"ATG"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)]</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"ATG"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "ATGCAGACATAGTG" "ATGAACATAGATCC"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "ATGCAGACATAGTG" "ATGAACATAGATCC"</code></pre></div>
 
-<p>Searches <code class="highlighter-rouge">myseq</code> for first match of pattern “AT”</p>
+<p>Searches <code>myseq</code> for first match of pattern “AT”</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos1</span> <span class="o">&lt;-</span> <span class="n">regexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> 
-<span class="n">as.numeric</span><span class="p">(</span><span class="n">pos1</span><span class="p">);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">position</span> <span class="n">information</span> <span class="n">of</span> <span class="n">matches</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos1</span> <span class="o">&lt;-</span> <span class="n">regexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> 
+<span class="n">as.numeric</span><span class="p">(</span><span class="n">pos1</span><span class="p">);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">position</span> <span class="n">information</span> <span class="n">of</span> <span class="n">matches</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 1 7</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 1 7</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2 2</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2 2</code></pre></div>
 
-<p>Searches <code class="highlighter-rouge">myseq</code> for all matches of pattern “AT”</p>
+<p>Searches <code>myseq</code> for all matches of pattern “AT”</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos2</span> <span class="o">&lt;-</span> <span class="n">gregexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> 
-<span class="n">as.numeric</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">positions</span> <span class="n">of</span> <span class="n">matches</span> <span class="k">in</span> <span class="n">first</span> <span class="n">sequence</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">pos2</span> <span class="o">&lt;-</span> <span class="n">gregexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> 
+<span class="n">as.numeric</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span><span class="o">$</span><span class="n">match.length</span> <span class="err">#</span> <span class="n">Returns</span> <span class="n">positions</span> <span class="n">of</span> <span class="n">matches</span> <span class="k">in</span> <span class="n">first</span> <span class="n">sequence</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 9</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 1 9</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 2 2</code></pre></div>
 
 <p>String substitution with regular expression support</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">gsub</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="s2">"atg"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> </code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">gsub</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="s2">"atg"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "atgCAGACATAGTG" "atgAACATAGATCC" "GTACAGATCAC"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "atgCAGACATAGTG" "atgAACATAGATCC" "GTACAGATCAC"</code></pre></div>
 
 <h3 id="positional-parsing">Positional parsing</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">nchar</span><span class="p">(</span><span class="n">myseq</span><span class="p">)</span> <span class="err">#</span> <span class="n">Computes</span> <span class="n">length</span> <span class="n">of</span> <span class="n">strings</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">nchar</span><span class="p">(</span><span class="n">myseq</span><span class="p">)</span> <span class="err">#</span> <span class="n">Computes</span> <span class="n">length</span> <span class="n">of</span> <span class="n">strings</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 14 14 11</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] 14 14 11</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">substring</span><span class="p">(</span><span class="n">myseq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="p">))</span> <span class="err">#</span> <span class="n">Positional</span> <span class="n">parsing</span> <span class="n">of</span> <span class="n">several</span> <span class="n">fragments</span> <span class="n">from</span> <span class="n">one</span> <span class="n">string</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">substring</span><span class="p">(</span><span class="n">myseq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="p">))</span> <span class="err">#</span> <span class="n">Positional</span> <span class="n">parsing</span> <span class="n">of</span> <span class="n">several</span> <span class="n">fragments</span> <span class="n">from</span> <span class="n">one</span> <span class="n">string</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "AT"  "GCA"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "AT"  "GCA"</code></pre></div>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">substring</span><span class="p">(</span><span class="n">myseq</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">10</span><span class="p">))</span> <span class="err">#</span> <span class="n">Positional</span> <span class="n">parsing</span> <span class="n">of</span> <span class="n">many</span> <span class="n">strings</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">substring</span><span class="p">(</span><span class="n">myseq</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">10</span><span class="p">))</span> <span class="err">#</span> <span class="n">Positional</span> <span class="n">parsing</span> <span class="n">of</span> <span class="n">many</span> <span class="n">strings</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "AT"   "AAC"  "ATCA"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "AT"   "AAC"  "ATCA"</code></pre></div>
 
 <h2 id="random-sequence-generation">Random Sequence Generation</h2>
 
 <h3 id="random-dna-sequences-of-any-length">Random DNA sequences of any length</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">rand</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="n">sample</span><span class="p">(</span><span class="m">10</span><span class="o">:</span><span class="m">20</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">))</span>
-<span class="n">rand</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">rand</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="n">sample</span><span class="p">(</span><span class="m">10</span><span class="o">:</span><span class="m">20</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">))</span>
+<span class="n">rand</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "TTGGTGCCCGCACACGT" "TACTCACGAC"        "AGCTCAACCTAGTTTCG"</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## [1] "TTGGTGCCCGCACACGT" "TACTCACGAC"        "AGCTCAACCTAGTTTCG"</code></pre></div>
 
 <h3 id="count-identical-sequences">Count identical sequences</h3>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">rand</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">rand</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span></code></pre></figure>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">table</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">rand</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">rand</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">## 
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">## 
 ##    AGCTCAACCTAGTTTCG CGCTGCTTGGCCCAGCTGAC           TACTCACGAC    TTGGTGCCCGCACACGT 
-##                    1                    1                    1                    2</code></pre></figure>
+##                    1                    1                    1                    2</code></pre></div>
 
 <h3 id="extract-reads-from-reference">Extract reads from reference</h3>
 
-<p>Note: this requires <code class="highlighter-rouge">Biostrings</code> package.</p>
+<p>Note: this requires <code>Biostrings</code> package.</p>
 
-<figure class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
 <span class="n">ref</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="m">100000</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">))</span>
 <span class="n">randstart</span> <span class="o">&lt;-</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span><span class="m">-15</span><span class="p">),</span> <span class="m">1000</span><span class="p">)</span>
 <span class="n">randreads</span> <span class="o">&lt;-</span> <span class="n">Views</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="n">randstart</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">15</span><span class="p">)</span>
 <span class="n">rand_set</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">randreads</span><span class="p">)</span>
-<span class="n">unlist</span><span class="p">(</span><span class="n">rand_set</span><span class="p">)</span></code></pre></figure>
+<span class="n">unlist</span><span class="p">(</span><span class="n">rand_set</span><span class="p">)</span></code></pre></div>
 
-<figure class="highlight"><pre><code class="language-txt" data-lang="txt">##   15000-letter "DNAString" instance
-## seq: TTTTTTAAAGATCGTTCTACACCGGATGCCTTGCTGTGCTGATCTT...CCGTATTCCAACTATACTCCTCCGACCGTTAGATCGGTAGGTGCGG</code></pre></figure>
+<div class="highlight"><pre><code class="language-txt" data-lang="txt">##   15000-letter "DNAString" instance
+## seq: TTTTTTAAAGATCGTTCTACACCGGATGCCTTGCTGTGCTGATCTT...CCGTATTCCAACTATACTCCTCCGACCGTTAGATCGGTAGGTGCGG</code></pre></div>
 
 
 
@@ -1781,7 +1803,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
-<p>Page last updated:</span> Sat Apr 30 19:54:48 2016<br/> Site last generated: Jun 2, 2016 <br />
+<p>Page last updated:</span> Sat Apr 30 19:54:48 2016<br/> Site last generated: Jun 3, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
