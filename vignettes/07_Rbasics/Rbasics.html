@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="header">
 <h1 class="title">Introduction to R</h1>
 <h4 class="author"><em>Author: Thomas Girke</em></h4>
-<h4 class="date"><em>Last update: 29 May, 2016</em></h4>
+<h4 class="date"><em>Last update: 18 June, 2016</em></h4>
 </div>
 
 <h1>Contents</h1>
@@ -594,6 +594,13 @@ x &gt; y &amp; x &gt; 5</code></pre>
 <p>Import of Excel file. Note: working with tab- or comma-delimited files is more flexible and preferred.</p>
 <pre class="r"><code>library(gdata)
 myDF &lt;- read.xls&quot;myData.xls&quot;)</code></pre>
+<p>Import of Google Sheets. The following example imports a sample Google Sheet from <a href="https://docs.google.com/spreadsheets/d/1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM/edit#gid=472150521">here</a>. Detailed instructions for interacting from R with Google Sheets with the required <code>googlesheets</code> package are <a href="https://github.com/jennybc/googlesheets">here</a>.</p>
+<pre class="r"><code>library(&quot;googlesheets&quot;); library(&quot;dplyr&quot;); library(knitr)
+sheetid &lt;-&quot;1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM&quot;
+gap &lt;- gs_key(sheetid)
+mysheet &lt;- gs_read(gap, skip=4)
+myDF &lt;- as.data.frame(mysheet)
+myDF</code></pre>
 </div>
 <div id="export-of-tabular-data" class="section level2">
 <h2><span class="header-section-number">10.2</span> Export of tabular data</h2>
@@ -1152,7 +1159,7 @@ data.frame(my_mw_target4, mean=mymean, stdev=mystdev)[1:2,5:12] </code></pre>
 <pre><code> ---
 title: &quot;My First R Markdown Document&quot;
 author: &quot;Author: First Last&quot;
-date: &quot;Last update: 29 May, 2016&quot;
+date: &quot;Last update: 18 June, 2016&quot;
 output:
   BiocStyle::html_document:
     toc: true
