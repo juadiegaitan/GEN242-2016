@@ -1,7 +1,7 @@
 ---
 title: Reading and Writing External Data
 keywords: 
-last_updated: Sun May 29 19:35:43 2016
+last_updated: Sat Jun 18 14:32:13 2016
 ---
 ## Import of tabular data
 
@@ -17,6 +17,20 @@ Import of Excel file. Note: working with tab- or comma-delimited files is more f
 library(gdata)
 myDF <- read.xls"myData.xls")
 {% endhighlight %}
+
+Import of Google Sheets. The following example imports a sample Google Sheet from [here](https://docs.google.com/spreadsheets/d/1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM/edit#gid=472150521).
+Detailed instructions for interacting from R with Google Sheets with the required `googlesheets` package are [here](https://github.com/jennybc/googlesheets).
+
+
+{% highlight r %}
+library("googlesheets"); library("dplyr"); library(knitr)
+sheetid <-"1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM"
+gap <- gs_key(sheetid)
+mysheet <- gs_read(gap, skip=4)
+myDF <- as.data.frame(mysheet)
+myDF
+{% endhighlight %}
+
 
 ## Export of tabular data
 

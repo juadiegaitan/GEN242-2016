@@ -1,7 +1,7 @@
 ---
 title: Important Utilities
 keywords: 
-last_updated: Sun May 29 19:35:43 2016
+last_updated: Sat Jun 18 14:32:13 2016
 ---
 	
 ## Combining Objects

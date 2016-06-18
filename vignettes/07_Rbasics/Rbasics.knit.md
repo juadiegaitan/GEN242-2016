@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 29 May, 2016" 
+date: "Last update: 18 June, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -804,6 +804,20 @@ Import of Excel file. Note: working with tab- or comma-delimited files is more f
 library(gdata)
 myDF <- read.xls"myData.xls")
 ```
+
+Import of Google Sheets. The following example imports a sample Google Sheet from [here](https://docs.google.com/spreadsheets/d/1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM/edit#gid=472150521).
+Detailed instructions for interacting from R with Google Sheets with the required `googlesheets` package are [here](https://github.com/jennybc/googlesheets).
+
+
+```r
+library("googlesheets"); library("dplyr"); library(knitr)
+sheetid <-"1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM"
+gap <- gs_key(sheetid)
+mysheet <- gs_read(gap, skip=4)
+myDF <- as.data.frame(mysheet)
+myDF
+```
+
 
 ## Export of tabular data
 
@@ -1709,7 +1723,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 29 May, 2016"
+date: "Last update: 18 June, 2016"
 output:
   BiocStyle::html_document:
     toc: true

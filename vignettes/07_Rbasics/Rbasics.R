@@ -183,6 +183,14 @@ apply(iris[1:6,1:3], 1, mean)
 ## library(gdata)
 ## myDF <- read.xls"myData.xls")
 
+## ----read_gs, eval=FALSE-------------------------------------------------
+## library("googlesheets"); library("dplyr"); library(knitr)
+## sheetid <-"1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM"
+## gap <- gs_key(sheetid)
+## mysheet <- gs_read(gap, skip=4)
+## myDF <- as.data.frame(mysheet)
+## myDF
+
 ## ----write_table, eval=FALSE---------------------------------------------
 ## write.table(myDF, file="myfile.xls", sep="\t", quote=FALSE, col.names=NA)
 
