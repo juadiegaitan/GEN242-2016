@@ -173,7 +173,7 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/home.html",
+"url": "../mydoc/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
@@ -184,7 +184,7 @@
 "title": "Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/home.html",
+"url": "../vignettes/01_Home/home.html",
 "summary": "GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>."
 },
 
@@ -869,7 +869,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_01.html",
+"url": "../mydoc/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -880,18 +880,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_01.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "HW2 - Introduction to Biocluster and Linux",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_02.html",
+"url": "../vignettes/06_Homework/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -910,10 +899,10 @@
 
 
 {
-"title": "HW3 - Introduction to R",
+"title": "HW2 - Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_03.html",
+"url": "../vignettes/06_Homework/mydoc_homework_02.html",
 "summary": ""
 },
 
@@ -925,6 +914,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_homework_03.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "HW3 - Introduction to R",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/06_Homework/mydoc_homework_03.html",
 "summary": ""
 },
 
@@ -957,7 +957,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/02_Internal/mydoc_internal.html",
+"url": "../mydoc/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -968,7 +968,7 @@
 "title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
+"url": "../vignettes/02_Internal/mydoc_internal.html",
 "summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
@@ -1045,7 +1045,7 @@
 "title": "ChIP-Seq2 - Peak Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_02.html",
+"url": "../mydoc/mydoc_project_02.html",
 "summary": ""
 },
 
@@ -1056,7 +1056,7 @@
 "title": "ChIP-Seq2 - Peak Callers",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_02.html",
+"url": "../vignettes/17_Projects/mydoc_project_02.html",
 "summary": ""
 },
 
@@ -1133,7 +1133,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_06.html",
+"url": "../mydoc/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -1144,18 +1144,7 @@
 "title": "VAR-Seq2 - Functional Prediction of Variants",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_06.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Data Management for Course Projects",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_07.html",
+"url": "../vignettes/17_Projects/mydoc_project_06.html",
 "summary": ""
 },
 
@@ -1174,10 +1163,10 @@
 
 
 {
-"title": "Course Schedule",
+"title": "Data Management for Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/03_Schedule/mydoc_schedule.html",
+"url": "../vignettes/17_Projects/mydoc_project_07.html",
 "summary": ""
 },
 
@@ -1196,10 +1185,10 @@
 
 
 {
-"title": "Course Introduction",
+"title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_01.html",
+"url": "../vignettes/03_Schedule/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -1211,6 +1200,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Course Introduction",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1331,7 +1331,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_07.html",
+"url": "../mydoc/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1342,18 +1342,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_07.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Multiple Sequence Alignments",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_08.html",
+"url": "../vignettes/04_Slides/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1372,10 +1361,10 @@
 
 
 {
-"title": "Short Read Alignments",
+"title": "Multiple Sequence Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_09.html",
+"url": "../vignettes/04_Slides/mydoc_slides_08.html",
 "summary": ""
 },
 
@@ -1387,6 +1376,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_09.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Short Read Alignments",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1419,7 +1419,7 @@
 "title": "Analysis of Gene Expression Data",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_11.html",
+"url": "../mydoc/mydoc_slides_11.html",
 "summary": ""
 },
 
@@ -1430,7 +1430,7 @@
 "title": "Analysis of Gene Expression Data",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_11.html",
+"url": "../vignettes/04_Slides/mydoc_slides_11.html",
 "summary": ""
 },
 
@@ -1463,7 +1463,7 @@
 "title": "ChIP-Seq Overview",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_13.html",
+"url": "../mydoc/mydoc_slides_13.html",
 "summary": ""
 },
 
@@ -1474,7 +1474,7 @@
 "title": "ChIP-Seq Overview",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_13.html",
+"url": "../vignettes/04_Slides/mydoc_slides_13.html",
 "summary": ""
 },
 
@@ -1573,7 +1573,7 @@
 "title": "Profile HMMs for Sequence Family Modeling",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_18.html",
+"url": "../mydoc/mydoc_slides_18.html",
 "summary": ""
 },
 
@@ -1584,18 +1584,7 @@
 "title": "Profile HMMs for Sequence Family Modeling",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_18.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Introduction to Phylogenetics",
-"tags": "",
-"keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_19.html",
+"url": "../vignettes/04_Slides/mydoc_slides_18.html",
 "summary": ""
 },
 
@@ -1607,6 +1596,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_slides_19.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Introduction to Phylogenetics",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/04_Slides/mydoc_slides_19.html",
 "summary": ""
 },
 
@@ -1628,7 +1628,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/mydoc_syllabus.html",
+"url": "../mydoc/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -1639,7 +1639,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_syllabus.html",
+"url": "../vignettes/01_Home/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -2167,7 +2167,7 @@
 "title": "Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
+"url": "../mydoc/mydoc_tutorial_02.html",
 "summary": ""
 },
 
@@ -2178,7 +2178,7 @@
 "title": "Introduction to Biocluster and Linux",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_tutorial_02.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_02.html",
 "summary": ""
 },
 
@@ -2209,7 +2209,7 @@
 "title": "ChIP-Seq Workflow Template",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/12_ChIPseqWorkflow/workflow_for_student_project/systemPipeChIPseq.Rmd",
+"url": "../vignettes/12_ChIPseqWorkflow/systemPipeChIPseq.Rmd",
 "summary": ""
 },
 
@@ -2220,7 +2220,7 @@
 "title": "ChIP-Seq Workflow Template",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/12_ChIPseqWorkflow/systemPipeChIPseq.Rmd",
+"url": "../vignettes/12_ChIPseqWorkflow/workflow_for_student_project/systemPipeChIPseq.Rmd",
 "summary": ""
 },
 
