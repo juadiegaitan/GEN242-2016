@@ -1,7 +1,7 @@
 ---
 title: Reading and Writing External Data
 keywords: 
-last_updated: Sat Jun 18 14:32:13 2016
+last_updated: Mon Jun 20 15:08:54 2016
 ---
 ## Import of tabular data
 
@@ -24,13 +24,13 @@ Detailed instructions for interacting from R with Google Sheets with the require
 
 {% highlight r %}
 library("googlesheets"); library("dplyr"); library(knitr)
+gs_auth() # Creates authorizaton token (.httr-oauth) in current directory if not present
 sheetid <-"1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM"
 gap <- gs_key(sheetid)
 mysheet <- gs_read(gap, skip=4)
 myDF <- as.data.frame(mysheet)
 myDF
 {% endhighlight %}
-
 
 ## Export of tabular data
 

@@ -1,7 +1,7 @@
 ---
 title: SQLite Databases
 keywords: 
-last_updated: Sat Jun 18 14:32:13 2016
+last_updated: Mon Jun 20 15:08:54 2016
 ---
 
 `SQLite` is a lightweight relational database solution. The `RSQLite` package provides an easy to use interface to create, manage and query `SQLite` databases directly from R. Basic instructions

@@ -1,7 +1,7 @@
 ---
 title: Graphics in R
 keywords: 
-last_updated: Sat Jun 18 14:32:13 2016
+last_updated: Mon Jun 20 15:08:54 2016
 ---
 
 ## Advantages

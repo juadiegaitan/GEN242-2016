@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 18 June, 2016" 
+date: "Last update: 20 June, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -811,13 +811,13 @@ Detailed instructions for interacting from R with Google Sheets with the require
 
 ```r
 library("googlesheets"); library("dplyr"); library(knitr)
+gs_auth() # Creates authorizaton token (.httr-oauth) in current directory if not present
 sheetid <-"1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM"
 gap <- gs_key(sheetid)
 mysheet <- gs_read(gap, skip=4)
 myDF <- as.data.frame(mysheet)
 myDF
 ```
-
 
 ## Export of tabular data
 
@@ -1723,7 +1723,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 18 June, 2016"
+date: "Last update: 20 June, 2016"
 output:
   BiocStyle::html_document:
     toc: true

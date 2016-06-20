@@ -185,6 +185,7 @@ apply(iris[1:6,1:3], 1, mean)
 
 ## ----read_gs, eval=FALSE-------------------------------------------------
 ## library("googlesheets"); library("dplyr"); library(knitr)
+## gs_auth() # Creates authorizaton token (.httr-oauth) in current directory if not present
 ## sheetid <-"1U-32UcwZP1k3saKeaH1mbvEAOfZRdNHNkWK2GI1rpPM"
 ## gap <- gs_key(sheetid)
 ## mysheet <- gs_read(gap, skip=4)
