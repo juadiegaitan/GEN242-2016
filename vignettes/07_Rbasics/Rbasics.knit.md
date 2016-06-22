@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R" 
 author: "Author: Thomas Girke"
-date: "Last update: 20 June, 2016" 
+date: "Last update: 21 June, 2016" 
 output:
   BiocStyle::html_document:
     toc: true
@@ -1723,7 +1723,7 @@ package from Bioconductor.
  ---
 title: "My First R Markdown Document"
 author: "Author: First Last"
-date: "Last update: 20 June, 2016"
+date: "Last update: 21 June, 2016"
 output:
   BiocStyle::html_document:
     toc: true
