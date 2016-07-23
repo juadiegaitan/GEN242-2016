@@ -35,4 +35,4 @@ students with interest in computational biology.
 
 It is possible to audit this class. However, due to the emphasis on active participation
 in practicals and course projects, students usually learn much more if they enroll into the
-class rather than auditing it in a passive manner. zzz
+class rather than auditing it in a passive manner.
