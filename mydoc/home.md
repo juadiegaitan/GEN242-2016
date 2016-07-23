@@ -1,9 +1,13 @@
 ---
 title: Introduction
-audience: field engineers, clients
+audience: 'field engineers, clients'
 type: first_page
 homepage: true
-summary: GEN242 is a graduate class taught at the University of California, Riverside. Currently, the main instructor is <a href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>.
+summary: >-
+  GEN242 is a graduate class taught at the University of California, Riverside.
+  Currently, the main instructor is <a
+  href="http://girke.bioinformatics.ucr.edu/">Thomas Girke</a>.
+published: true
 ---
 
 <img align="right" title="gen242logo" src="GEN242_home_images/logo1.jpg"><img/>
@@ -31,5 +35,4 @@ students with interest in computational biology.
 
 It is possible to audit this class. However, due to the emphasis on active participation
 in practicals and course projects, students usually learn much more if they enroll into the
-class rather than auditing it in a passive manner. 
-
+class rather than auditing it in a passive manner. zzz
