@@ -1813,27 +1813,27 @@ More details can be found in the R &amp; BioConductor manual <a href="http://man
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
-if(TRUE) { 
-	statements_1 
-} else { 
-	statements_2 
-}
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="n">TRUE</span><span class="p">)</span> <span class="p">{</span> 
+	<span class="n">statements_1</span> 
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span> 
+	<span class="n">statements_2</span> 
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
-if(1==0) { 
-	print(1) 
-} else { 
-	print(2) 
-}
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="m">1</span><span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span> 
+	<span class="n">print</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> 
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span> 
+	<span class="n">print</span><span class="p">(</span><span class="m">2</span><span class="p">)</span> 
+<span class="p">}</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 2
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 2
+</code></pre>
+</div>
 
 <h2 id="conditional-executions-ifelse-statements">Conditional Executions: <code class="highlighter-rouge">ifelse</code> Statements</h2>
 
@@ -1841,19 +1841,19 @@ if(1==0) {
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
-ifelse(test, true_value, false_value)
-</code>
-<strong>Example</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ifelse</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">true_value</span><span class="p">,</span> <span class="n">false_value</span><span class="p">)</span>
+</code></pre>
+</div>
+<p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
-x &lt;- 1:10 
-ifelse(x&lt;5, x, 0)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span> 
+<span class="n">ifelse</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="m">5</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  [1] 1 2 3 4 0 0 0 0 0 0
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>##  [1] 1 2 3 4 0 0 0 0 0 0
+</code></pre>
+</div>
 
 <h1 id="loops">Loops</h1>
 
@@ -1863,41 +1863,41 @@ ifelse(x&lt;5, x, 0)
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
-for(variable in sequence) { 
-	statements 
-}
-</code>
-<strong>Example</strong></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">for</span><span class="p">(</span><span class="n">variable</span> <span class="k">in</span> <span class="n">sequence</span><span class="p">)</span> <span class="p">{</span> 
+	<span class="n">statements</span> 
+<span class="p">}</span>
+</code></pre>
+</div>
+<p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
-mydf &lt;- iris
-myve &lt;- NULL
-for(i in seq(along=mydf[,1])) {
-	myve &lt;- c(myve, mean(as.numeric(mydf[i,1:3])))
-}
-myve[1:8]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mydf</span> <span class="o">&lt;-</span> <span class="n">iris</span>
+<span class="n">myve</span> <span class="o">&lt;-</span> <span class="n">NULL</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">mydf</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span> <span class="p">{</span>
+	<span class="n">myve</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">myve</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">mydf</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">])))</span>
+<span class="p">}</span>
+<span class="n">myve</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
+</code></pre>
+</div>
 
 <p><strong>Note:</strong> Inject into objecs is much faster than append approach with <code class="highlighter-rouge">c</code>, <code class="highlighter-rouge">cbind</code>, etc.</p>
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
-myve &lt;- numeric(length(mydf[,1]))
-for(i in seq(along=myve)) {
-	myve[i] &lt;- mean(as.numeric(mydf[i,1:3]))
-}
-myve[1:8]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myve</span> <span class="o">&lt;-</span> <span class="n">numeric</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">mydf</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">myve</span><span class="p">))</span> <span class="p">{</span>
+	<span class="n">myve</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">mean</span><span class="p">(</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">mydf</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]))</span>
+<span class="p">}</span>
+<span class="n">myve</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
+</code></pre>
+</div>
 
 <h3 id="conditional-stop-of-loops">Conditional Stop of Loops</h3>
 
@@ -1905,17 +1905,17 @@ myve[1:8]
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
-x &lt;- 1:10
-z &lt;- NULL
-for(i in seq(along=x)) { 
-	if(x[i] &lt; 5) { 
-		z &lt;- c(z, x[i]-1)  
-	} else { 
-		stop("values need to be &lt; 5") 
-	}
-}
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span>
+<span class="n">z</span> <span class="o">&lt;-</span> <span class="n">NULL</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">x</span><span class="p">))</span> <span class="p">{</span> 
+	<span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="m">5</span><span class="p">)</span> <span class="p">{</span> 
+		<span class="n">z</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="m">-1</span><span class="p">)</span>  
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span> 
+		<span class="n">stop</span><span class="p">(</span><span class="s2">"values need to be &lt; 5"</span><span class="p">)</span> 
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <h2 id="while-loop"><code class="highlighter-rouge">while</code> loop</h2>
 
@@ -1923,27 +1923,27 @@ for(i in seq(along=x)) {
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
-while(condition) {
-	statements
-}
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">while</span><span class="p">(</span><span class="n">condition</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">statements</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
-z &lt;- 0
-while(z&lt;5) { 
-	z &lt;- z + 2
-	print(z)  
-}
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">z</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="k">while</span><span class="p">(</span><span class="n">z</span><span class="o">&lt;</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span> 
+	<span class="n">z</span> <span class="o">&lt;-</span> <span class="n">z</span> <span class="o">+</span> <span class="m">2</span>
+	<span class="n">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>  
+<span class="p">}</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 2
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 2
 ## [1] 4
 ## [1] 6
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="the-apply-function-family">The <code class="highlighter-rouge">apply</code> Function Family</h2>
 
@@ -1951,9 +1951,9 @@ while(z&lt;5) {
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
-apply(X, MARGIN, FUN, ARGs)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">apply</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">MARGIN</span><span class="p">,</span> <span class="n">FUN</span><span class="p">,</span> <span class="n">ARGs</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><strong>Arguments</strong></p>
 
@@ -1966,14 +1966,14 @@ apply(X, MARGIN, FUN, ARGs)
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
-apply(iris[1:8,1:3], 1, mean)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">apply</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">8</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">],</span> <span class="m">1</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##        1        2        3        4        5        6        7        8 
+<div class="highlighter-rouge"><pre class="highlight"><code>##        1        2        3        4        5        6        7        8 
 ## 3.333333 3.100000 3.066667 3.066667 3.333333 3.666667 3.133333 3.300000
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="tapply"><code class="highlighter-rouge">tapply</code></h3>
 
@@ -1981,30 +1981,30 @@ apply(iris[1:8,1:3], 1, mean)
 
 <p><strong>Syntax</strong></p>
 
-<p><code class="highlighter-rouge">r
-tapply(vector, factor, FUN)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">tapply</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">factor</span><span class="p">,</span> <span class="n">FUN</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><strong>Example</strong></p>
 
-<p><code class="highlighter-rouge">r
-iris[1:2,]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+<div class="highlighter-rouge"><pre class="highlight"><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 ## 1          5.1         3.5          1.4         0.2  setosa
 ## 2          4.9         3.0          1.4         0.2  setosa
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-tapply(iris$Sepal.Length, iris$Species, mean)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">tapply</span><span class="p">(</span><span class="n">iris</span><span class="o">$</span><span class="n">Sepal.Length</span><span class="p">,</span> <span class="n">iris</span><span class="o">$</span><span class="n">Species</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##     setosa versicolor  virginica 
+<div class="highlighter-rouge"><pre class="highlight"><code>##     setosa versicolor  virginica 
 ##      5.006      5.936      6.588
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="sapply-and-lapply"><code class="highlighter-rouge">sapply</code> and <code class="highlighter-rouge">lapply</code></h3>
 
@@ -2012,13 +2012,12 @@ tapply(iris$Sepal.Length, iris$Species, mean)
 
 <p><strong>Examples</strong></p>
 
-<p><code class="highlighter-rouge">r
-x &lt;- list(a = 1:10, beta = exp(-3:3), logic = c(TRUE,FALSE,FALSE,TRUE))
-lapply(x, mean)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="n">exp</span><span class="p">(</span><span class="m">-3</span><span class="o">:</span><span class="m">3</span><span class="p">),</span> <span class="n">logic</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="n">TRUE</span><span class="p">,</span><span class="n">FALSE</span><span class="p">,</span><span class="n">FALSE</span><span class="p">,</span><span class="n">TRUE</span><span class="p">))</span>
+<span class="n">lapply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## $a
+<div class="highlighter-rouge"><pre class="highlight"><code>## $a
 ## [1] 5.5
 ## 
 ## $beta
@@ -2026,23 +2025,24 @@ lapply(x, mean)
 ## 
 ## $logic
 ## [1] 0.5
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-sapply(x, mean)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sapply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##        a     beta    logic 
+<div class="highlighter-rouge"><pre class="highlight"><code>##        a     beta    logic 
 ## 5.500000 4.535125 0.500000
-</code></p>
+</code></pre>
+</div>
 
 <p>Often used in combination with a function definition:</p>
 
-<p><code class="highlighter-rouge">r
-lapply(names(x), function(x) mean(x))
-sapply(names(x), function(x) mean(x))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">lapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</code></pre>
+</div>
 
 <h1 id="functions">Functions</h1>
 
@@ -2052,17 +2052,17 @@ sapply(names(x), function(x) mean(x))
 
 <p><strong>Syntax</strong> to define function</p>
 
-<p><code class="highlighter-rouge">r
-myfct &lt;- function(arg1, arg2, ...) { 
-	function_body 
-}
-</code>
-<strong>Syntax</strong> to call functions</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myfct</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="k">...</span><span class="p">)</span> <span class="p">{</span> 
+	<span class="n">function_body</span> 
+<span class="p">}</span>
+</code></pre>
+</div>
+<p><strong>Syntax</strong> to call functions</p>
 
-<p><code class="highlighter-rouge">r
-myfct(arg1=..., arg2=...)
-</code>
-The value returned by a function is the value of the function body, which is usually an unassigned final expression, <em>e.g.</em>: <code class="highlighter-rouge">return()</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myfct</span><span class="p">(</span><span class="n">arg1</span><span class="o">=</span><span class="k">...</span><span class="p">,</span> <span class="n">arg2</span><span class="o">=</span><span class="k">...</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>The value returned by a function is the value of the function body, which is usually an unassigned final expression, <em>e.g.</em>: <code class="highlighter-rouge">return()</code></p>
 
 <h2 id="function-syntax-rules">Function Syntax Rules</h2>
 
@@ -2112,60 +2112,60 @@ The value returned by a function is the value of the function body, which is usu
 
 <p><strong>Define sample function</strong></p>
 
-<p><code class="highlighter-rouge">r
-myfct &lt;- function(x1, x2=5) { 
-	z1 &lt;- x1 / x1
-	z2 &lt;- x2 * x2
-        myvec &lt;- c(z1, z2) 
-        return(myvec)
-} 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myfct</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="o">=</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span> 
+	<span class="n">z1</span> <span class="o">&lt;-</span> <span class="n">x1</span> <span class="o">/</span> <span class="n">x1</span>
+	<span class="n">z2</span> <span class="o">&lt;-</span> <span class="n">x2</span> <span class="o">*</span> <span class="n">x2</span>
+        <span class="n">myvec</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">z1</span><span class="p">,</span> <span class="n">z2</span><span class="p">)</span> 
+        <span class="k">return</span><span class="p">(</span><span class="n">myvec</span><span class="p">)</span>
+<span class="p">}</span> 
+</code></pre>
+</div>
 
 <p><strong>Function usage</strong></p>
 
 <p>Apply function to values <code class="highlighter-rouge">2</code> and <code class="highlighter-rouge">5</code></p>
 
-<p><code class="highlighter-rouge">r
-myfct(x1=2, x2=5) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myfct</span><span class="p">(</span><span class="n">x1</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">x2</span><span class="o">=</span><span class="m">5</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1]  1 25
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1]  1 25
+</code></pre>
+</div>
 
 <p>Run without argument names</p>
 
-<p><code class="highlighter-rouge">r
-myfct(2, 5) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myfct</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1]  1 25
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1]  1 25
+</code></pre>
+</div>
 
 <p>Makes use of default value <code class="highlighter-rouge">5</code></p>
 
-<p><code class="highlighter-rouge">r
-myfct(x1=2) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myfct</span><span class="p">(</span><span class="n">x1</span><span class="o">=</span><span class="m">2</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1]  1 25
-</code>
-Print function definition (often unintended)</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1]  1 25
+</code></pre>
+</div>
+<p>Print function definition (often unintended)</p>
 
-<p><code class="highlighter-rouge">r
-myfct 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myfct</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## function(x1, x2=5) { 
+<div class="highlighter-rouge"><pre class="highlight"><code>## function(x1, x2=5) { 
 ## 	z1 &lt;- x1 / x1
 ## 	z2 &lt;- x2 * x2
 ##         myvec &lt;- c(z1, z2) 
 ##         return(myvec)
 ## }
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="useful-utilities">Useful Utilities</h1>
 
@@ -2191,25 +2191,25 @@ myfct
 
 <p>The grep function can be used for finding patterns in strings, here letter <code class="highlighter-rouge">A</code> in vector <code class="highlighter-rouge">month.name</code>.</p>
 
-<p><code class="highlighter-rouge">r
-month.name[grep("A", month.name)] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">month.name</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span> <span class="n">month.name</span><span class="p">)]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "April"  "August"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "April"  "August"
+</code></pre>
+</div>
 
 <h3 id="string-substitution-with-gsub">String substitution with <code class="highlighter-rouge">gsub</code></h3>
 
 <p>Example for using regular expressions to substitute a pattern by another one using a back reference. Remember: single escapes <code class="highlighter-rouge">\</code> need to be double escaped <code class="highlighter-rouge">\\</code> in R.</p>
 
-<p><code class="highlighter-rouge">r
-gsub('(i.*a)', 'xxx_\\1', "virginica", perl = TRUE) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gsub</span><span class="p">(</span><span class="s1">'(i.*a)'</span><span class="p">,</span> <span class="s1">'xxx_\\1'</span><span class="p">,</span> <span class="s2">"virginica"</span><span class="p">,</span> <span class="n">perl</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "vxxx_irginica"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "vxxx_irginica"
+</code></pre>
+</div>
 
 <h2 id="interpreting-a-character-string-as-expression">Interpreting a Character String as Expression</h2>
 
@@ -2217,34 +2217,34 @@ gsub('(i.*a)', 'xxx_\\1', "virginica", perl = TRUE)
 
 <p>Generates vector of object names in session</p>
 
-<p><code class="highlighter-rouge">r
-mylist &lt;- ls()
-mylist[1] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mylist</span> <span class="o">&lt;-</span> <span class="n">ls</span><span class="p">()</span>
+<span class="n">mylist</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "i"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "i"
+</code></pre>
+</div>
 
 <p>Executes 1st entry as expression</p>
 
-<p><code class="highlighter-rouge">r
-get(mylist[1])
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">get</span><span class="p">(</span><span class="n">mylist</span><span class="p">[</span><span class="m">1</span><span class="p">])</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 150
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 150
+</code></pre>
+</div>
 
 <p>Alternative approach</p>
 
-<p><code class="highlighter-rouge">r
-eval(parse(text=mylist[1])) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">eval</span><span class="p">(</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">mylist</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 150
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 150
+</code></pre>
+</div>
 
 <h2 id="replacement-split-and-paste-functions-for-strings">Replacement, Split and Paste Functions for Strings</h2>
 
@@ -2252,35 +2252,35 @@ eval(parse(text=mylist[1]))
 
 <p>Substitution with back reference which inserts in this example <code class="highlighter-rouge">_</code> character</p>
 
-<p><code class="highlighter-rouge">r
-x &lt;- gsub("(a)","\\1_", month.name[1], perl=T) 
-x
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">gsub</span><span class="p">(</span><span class="s2">"(a)"</span><span class="p">,</span><span class="s2">"\\1_"</span><span class="p">,</span> <span class="n">month.name</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">perl</span><span class="o">=</span><span class="n">T</span><span class="p">)</span> 
+<span class="n">x</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "Ja_nua_ry"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "Ja_nua_ry"
+</code></pre>
+</div>
 
 <p>Split string on inserted character from above</p>
 
-<p><code class="highlighter-rouge">r
-strsplit(x,"_")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s2">"_"</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [[1]]
+<div class="highlighter-rouge"><pre class="highlight"><code>## [[1]]
 ## [1] "Ja"  "nua" "ry"
-</code></p>
+</code></pre>
+</div>
 
 <p>Reverse a character string by splitting first all characters into vector fields</p>
 
-<p><code class="highlighter-rouge">r
-paste(rev(unlist(strsplit(x, NULL))), collapse="") 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">paste</span><span class="p">(</span><span class="n">rev</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">NULL</span><span class="p">))),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "yr_aun_aJ"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "yr_aun_aJ"
+</code></pre>
+</div>
 
 <h2 id="time-date-and-sleep">Time, Date and Sleep</h2>
 
@@ -2288,30 +2288,30 @@ paste(rev(unlist(strsplit(x, NULL))), collapse="")
 
 <p>Return CPU (and other) times that an expression used (here ls)</p>
 
-<p><code class="highlighter-rouge">r
-system.time(ls()) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">system.time</span><span class="p">(</span><span class="n">ls</span><span class="p">())</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##    user  system elapsed 
+<div class="highlighter-rouge"><pre class="highlight"><code>##    user  system elapsed 
 ##       0       0       0
-</code></p>
+</code></pre>
+</div>
 
 <p>Return the current system date and time</p>
 
-<p><code class="highlighter-rouge">r
-date() 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">date</span><span class="p">()</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "Wed Apr 13 16:06:06 2016"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "Wed Apr 13 16:06:06 2016"
+</code></pre>
+</div>
 
 <p>Pause execution of R expressions for a given number of seconds (e.g. in loop)</p>
 
-<p><code class="highlighter-rouge">r
-Sys.sleep(1) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">Sys.sleep</span><span class="p">(</span><span class="m">1</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <h3 id="example">Example</h3>
 
@@ -2319,34 +2319,34 @@ Sys.sleep(1)
 
 <p>The following example demonstrates the retrieval of specific lines from an external file with a regular expression. First, an external file is created with the <code class="highlighter-rouge">cat</code> function, all lines of this file are imported into a vector with <code class="highlighter-rouge">readLines</code>, the specific elements (lines) are then retieved with the <code class="highlighter-rouge">grep</code> function, and the resulting lines are split into vector fields with <code class="highlighter-rouge">strsplit</code>.</p>
 
-<p><code class="highlighter-rouge">r
-cat(month.name, file="zzz.txt", sep="\n")
-x &lt;- readLines("zzz.txt")
-x[1:6] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">cat</span><span class="p">(</span><span class="n">month.name</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"zzz.txt"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\n"</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">readLines</span><span class="p">(</span><span class="s2">"zzz.txt"</span><span class="p">)</span>
+<span class="n">x</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "January"  "February" "March"    "April"    "May"      "June"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "January"  "February" "March"    "April"    "May"      "June"
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-x &lt;- x[c(grep("^J", as.character(x), perl = TRUE))]
-t(as.data.frame(strsplit(x, "u")))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">x</span><span class="p">[</span><span class="n">c</span><span class="p">(</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^J"</span><span class="p">,</span> <span class="n">as.character</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">perl</span> <span class="o">=</span> <span class="n">TRUE</span><span class="p">))]</span>
+<span class="n">t</span><span class="p">(</span><span class="n">as.data.frame</span><span class="p">(</span><span class="n">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">"u"</span><span class="p">)))</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##                 [,1]  [,2] 
+<div class="highlighter-rouge"><pre class="highlight"><code>##                 [,1]  [,2] 
 ## c..Jan....ary.. "Jan" "ary"
 ## c..J....ne..    "J"   "ne" 
 ## c..J....ly..    "J"   "ly"
-</code>
-## Calling External Software</p>
+</code></pre>
+</div>
+<p>## Calling External Software</p>
 
 <p>External command-line software can be called with <code class="highlighter-rouge">system</code>. The following example calls <code class="highlighter-rouge">blastall</code> from R</p>
 
-<p><code class="highlighter-rouge">r
-system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">system</span><span class="p">(</span><span class="s2">"blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h1 id="running-r-scripts">Running R Scripts</h1>
 
@@ -2354,31 +2354,31 @@ system("blastall -p blastp -i seq.fasta -d uniprot -o seq.blastp")
 
 <h3 id="r-console">R console</h3>
 
-<p><code class="highlighter-rouge">r
-source("my_script.R")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">source</span><span class="p">(</span><span class="s2">"my_script.R"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h3 id="command-line">Command-line</h3>
 
-<p><code class="highlighter-rouge">sh
-Rscript my_script.R # or just ./myscript.R after making it executable
-R CMD BATCH my_script.R # Alternative way 1 
-R --slave &lt; my_script.R # Alternative way 2
-</code>
-### Passing arguments from command-line to R</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Rscript my_script.R <span class="c"># or just ./myscript.R after making it executable</span>
+R CMD BATCH my_script.R <span class="c"># Alternative way 1 </span>
+R --slave &lt; my_script.R <span class="c"># Alternative way 2</span>
+</code></pre>
+</div>
+<p>### Passing arguments from command-line to R</p>
 
 <p>Create an R script named <code class="highlighter-rouge">test.R</code> with the following content:</p>
 
-<p><code class="highlighter-rouge">sh
-myarg &lt;- commandArgs()
-print(iris[1:myarg[6], ])
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>myarg &lt;- commandArgs<span class="o">()</span>
+print<span class="o">(</span>iris[1:myarg[6], <span class="o">])</span>
+</code></pre>
+</div>
 
 <p>Then run it from the command-line like this:</p>
 
-<p><code class="highlighter-rouge">sh
-Rscript test.R 10
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Rscript test.R 10
+</code></pre>
+</div>
 
 <p>In the given example the number <code class="highlighter-rouge">10</code> is passed on from the command-line as an argument to the R script which is used to return to <code class="highlighter-rouge">STDOUT</code> the first 10 rows of the <code class="highlighter-rouge">iris</code> sample data. If several arguments are provided, they will be interpreted as one string and need to be split in R with the strsplit function. A more detailed example can be found <a href="http://manuals.bioinformatics.ucr.edu/home/ht-seq\#TOC-Quality-Reports-of-FASTQ-Files-">here</a>.</p>
 
@@ -2388,22 +2388,22 @@ Rscript test.R 10
 
 <p>R packages can be built with the <code class="highlighter-rouge">package.skeleton</code> function. The given example will create a directory named <code class="highlighter-rouge">mypackage</code> containing the skeleton of the package for all functions, methods and classes defined in the R script(s) passed on to the <code class="highlighter-rouge">code_files</code> argument. The basic structure of the package directory is described <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#Progr_pack">here</a>. The package directory will also contain a file named <code class="highlighter-rouge">Read-and-delete-me</code> with instructions for completing the package:</p>
 
-<p><code class="highlighter-rouge">r
-package.skeleton(name="mypackage", code_files=c("script1.R", "script2.R"))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">package.skeleton</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"mypackage"</span><span class="p">,</span> <span class="n">code_files</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"script1.R"</span><span class="p">,</span> <span class="s2">"script2.R"</span><span class="p">))</span>
+</code></pre>
+</div>
 
 <p>Once a package skeleton is available one can build the package from the command-line (Linux/OS X). This will create a tarball of the package with its version number encoded in the file name. Subequently, the package tarball needs to be checked for errors with:</p>
 
-<p><code class="highlighter-rouge">r
-R CMD build mypackage
-R CMD check mypackage_1.0.tar.gz
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">R</span> <span class="n">CMD</span> <span class="n">build</span> <span class="n">mypackage</span>
+<span class="n">R</span> <span class="n">CMD</span> <span class="n">check</span> <span class="n">mypackage_1.0.tar.gz</span>
+</code></pre>
+</div>
 
 <p>Install package from source</p>
 
-<p><code class="highlighter-rouge">r
-install.packages("mypackage_1.0.tar.gz", repos=NULL) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">install.packages</span><span class="p">(</span><span class="s2">"mypackage_1.0.tar.gz"</span><span class="p">,</span> <span class="n">repos</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <p>For more details see <a href="http://manuals.bioinformatics.ucr.edu/home/programming-in-r#TOC-Building-R-Packages">here</a></p>
 
@@ -2415,91 +2415,91 @@ install.packages("mypackage_1.0.tar.gz", repos=NULL)
 
 <p><strong>Task 1.1</strong>: Compute the mean of each row in <code class="highlighter-rouge">myMA</code> by applying the mean function in a <code class="highlighter-rouge">for</code> loop.</p>
 
-<p><code class="highlighter-rouge">r
-myMA &lt;- matrix(rnorm(500), 100, 5, dimnames=list(1:100, paste("C", 1:5, sep="")))
-myve_for &lt;- NULL
-for(i in seq(along=myMA[,1])) {
-	myve_for &lt;- c(myve_for, mean(as.numeric(myMA[i, ])))
-}
-myResult &lt;- cbind(myMA, mean_for=myve_for)
-myResult[1:4, ]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myMA</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">),</span> <span class="m">100</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"C"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span>
+<span class="n">myve_for</span> <span class="o">&lt;-</span> <span class="n">NULL</span>
+<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">myMA</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span> <span class="p">{</span>
+	<span class="n">myve_for</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">myve_for</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">myMA</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">])))</span>
+<span class="p">}</span>
+<span class="n">myResult</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">myMA</span><span class="p">,</span> <span class="n">mean_for</span><span class="o">=</span><span class="n">myve_for</span><span class="p">)</span>
+<span class="n">myResult</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##           C1         C2         C3          C4         C5   mean_for
+<div class="highlighter-rouge"><pre class="highlight"><code>##           C1         C2         C3          C4         C5   mean_for
 ## 1 -0.9832766  0.8446066  0.4196481  0.23814667  0.3493797  0.1737009
 ## 2  1.2980835  0.6924483  0.5996748 -0.51642965  0.6701380  0.5487830
 ## 3 -1.1466949  0.6752775 -0.9384848  0.07464206 -0.7651351 -0.4200791
 ## 4  0.8122978 -1.3107710  0.6664631  0.12316103 -0.1726270  0.0237048
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="while-loop-1"><code class="highlighter-rouge">while</code> loop</h3>
 
 <p><strong>Task 1.2</strong>: Compute the mean of each row in <code class="highlighter-rouge">myMA</code> by applying the mean function in a <code class="highlighter-rouge">while</code> loop.</p>
 
-<p><code class="highlighter-rouge">r
-z &lt;- 1
-myve_while &lt;- NULL
-while(z &lt;= length(myMA[,1])) {
-	myve_while &lt;- c(myve_while, mean(as.numeric(myMA[z, ])))
-	z &lt;- z + 1
-}
-myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while)
-myResult[1:4, -c(1,2)]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">z</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="n">myve_while</span> <span class="o">&lt;-</span> <span class="n">NULL</span>
+<span class="k">while</span><span class="p">(</span><span class="n">z</span> <span class="o">&lt;=</span> <span class="n">length</span><span class="p">(</span><span class="n">myMA</span><span class="p">[,</span><span class="m">1</span><span class="p">]))</span> <span class="p">{</span>
+	<span class="n">myve_while</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">myve_while</span><span class="p">,</span> <span class="n">mean</span><span class="p">(</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">myMA</span><span class="p">[</span><span class="n">z</span><span class="p">,</span> <span class="p">])))</span>
+	<span class="n">z</span> <span class="o">&lt;-</span> <span class="n">z</span> <span class="o">+</span> <span class="m">1</span>
+<span class="p">}</span>
+<span class="n">myResult</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">myMA</span><span class="p">,</span> <span class="n">mean_for</span><span class="o">=</span><span class="n">myve_for</span><span class="p">,</span> <span class="n">mean_while</span><span class="o">=</span><span class="n">myve_while</span><span class="p">)</span>
+<span class="n">myResult</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="o">-</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">)]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##           C3          C4         C5   mean_for mean_while
+<div class="highlighter-rouge"><pre class="highlight"><code>##           C3          C4         C5   mean_for mean_while
 ## 1  0.4196481  0.23814667  0.3493797  0.1737009  0.1737009
 ## 2  0.5996748 -0.51642965  0.6701380  0.5487830  0.5487830
 ## 3 -0.9384848  0.07464206 -0.7651351 -0.4200791 -0.4200791
 ## 4  0.6664631  0.12316103 -0.1726270  0.0237048  0.0237048
-</code>
-<strong>Task 1.3</strong>: Confirm that the results from both mean calculations are identical</p>
+</code></pre>
+</div>
+<p><strong>Task 1.3</strong>: Confirm that the results from both mean calculations are identical</p>
 
-<p><code class="highlighter-rouge">r
-all(myResult[,6] == myResult[,7])
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">all</span><span class="p">(</span><span class="n">myResult</span><span class="p">[,</span><span class="m">6</span><span class="p">]</span> <span class="o">==</span> <span class="n">myResult</span><span class="p">[,</span><span class="m">7</span><span class="p">])</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] TRUE
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] TRUE
+</code></pre>
+</div>
 
 <h3 id="apply-loop"><code class="highlighter-rouge">apply</code> loop</h3>
 
 <p><strong>Task 1.4</strong>: Compute the mean of each row in myMA by applying the mean function in an <code class="highlighter-rouge">apply</code> loop</p>
 
-<p><code class="highlighter-rouge">r
-myve_apply &lt;- apply(myMA, 1, mean)
-myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply)
-myResult[1:4, -c(1,2)]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myve_apply</span> <span class="o">&lt;-</span> <span class="n">apply</span><span class="p">(</span><span class="n">myMA</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">mean</span><span class="p">)</span>
+<span class="n">myResult</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">myMA</span><span class="p">,</span> <span class="n">mean_for</span><span class="o">=</span><span class="n">myve_for</span><span class="p">,</span> <span class="n">mean_while</span><span class="o">=</span><span class="n">myve_while</span><span class="p">,</span> <span class="n">mean_apply</span><span class="o">=</span><span class="n">myve_apply</span><span class="p">)</span>
+<span class="n">myResult</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="o">-</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">)]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##           C3          C4         C5   mean_for mean_while mean_apply
+<div class="highlighter-rouge"><pre class="highlight"><code>##           C3          C4         C5   mean_for mean_while mean_apply
 ## 1  0.4196481  0.23814667  0.3493797  0.1737009  0.1737009  0.1737009
 ## 2  0.5996748 -0.51642965  0.6701380  0.5487830  0.5487830  0.5487830
 ## 3 -0.9384848  0.07464206 -0.7651351 -0.4200791 -0.4200791 -0.4200791
 ## 4  0.6664631  0.12316103 -0.1726270  0.0237048  0.0237048  0.0237048
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="avoiding-loops">Avoiding loops</h3>
 
 <p><strong>Task 1.5</strong>: When operating on large data sets it is much faster to use the rowMeans function</p>
 
-<p><code class="highlighter-rouge">r
-mymean &lt;- rowMeans(myMA)
-myResult &lt;- cbind(myMA, mean_for=myve_for, mean_while=myve_while, mean_apply=myve_apply, mean_int=mymean)
-myResult[1:4, -c(1,2,3)]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mymean</span> <span class="o">&lt;-</span> <span class="n">rowMeans</span><span class="p">(</span><span class="n">myMA</span><span class="p">)</span>
+<span class="n">myResult</span> <span class="o">&lt;-</span> <span class="n">cbind</span><span class="p">(</span><span class="n">myMA</span><span class="p">,</span> <span class="n">mean_for</span><span class="o">=</span><span class="n">myve_for</span><span class="p">,</span> <span class="n">mean_while</span><span class="o">=</span><span class="n">myve_while</span><span class="p">,</span> <span class="n">mean_apply</span><span class="o">=</span><span class="n">myve_apply</span><span class="p">,</span> <span class="n">mean_int</span><span class="o">=</span><span class="n">mymean</span><span class="p">)</span>
+<span class="n">myResult</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="o">-</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">)]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##            C4         C5   mean_for mean_while mean_apply   mean_int
+<div class="highlighter-rouge"><pre class="highlight"><code>##            C4         C5   mean_for mean_while mean_apply   mean_int
 ## 1  0.23814667  0.3493797  0.1737009  0.1737009  0.1737009  0.1737009
 ## 2 -0.51642965  0.6701380  0.5487830  0.5487830  0.5487830  0.5487830
 ## 3  0.07464206 -0.7651351 -0.4200791 -0.4200791 -0.4200791 -0.4200791
 ## 4  0.12316103 -0.1726270  0.0237048  0.0237048  0.0237048  0.0237048
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="exercise-2">Exercise 2</h2>
 
@@ -2507,38 +2507,38 @@ myResult[1:4, -c(1,2,3)]
 
 <p><strong>Task 2.1</strong>: Use the following code as basis to implement a function that allows the user to compute the mean for any combination of columns in a matrix or data frame. The first argument of this function should specify the input data set, the second the mathematical function to be passed on (<em>e.g.</em> <code class="highlighter-rouge">mean</code>, <code class="highlighter-rouge">sd</code>, <code class="highlighter-rouge">max</code>) and the third one should allow the selection of the columns by providing a grouping vector.</p>
 
-<p><code class="highlighter-rouge">r
-myMA &lt;- matrix(rnorm(100000), 10000, 10, dimnames=list(1:10000, paste("C", 1:10, sep="")))
-myMA[1:2,]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myMA</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">100000</span><span class="p">),</span> <span class="m">10000</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10000</span><span class="p">,</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"C"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span>
+<span class="n">myMA</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">,]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##           C1         C2         C3        C4         C5        C6         C7         C8         C9
+<div class="highlighter-rouge"><pre class="highlight"><code>##           C1         C2         C3        C4         C5        C6         C7         C8         C9
 ## 1 0.17958477 -0.5714262 -0.8866647  2.463907 -0.8126814 -0.933438 -0.8118745 -0.5546591 -0.9026947
 ## 2 0.04191538  1.2456075  0.4953736 -2.703100  0.2055566 -1.945671 -2.8696620 -1.5043589 -1.8783809
 ##          C10
 ## 1 -0.5698361
 ## 2 -1.6321152
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-myList &lt;- tapply(colnames(myMA), c(1,1,1,2,2,2,3,3,4,4), list) 
-names(myList) &lt;- sapply(myList, paste, collapse="_")
-myMAmean &lt;- sapply(myList, function(x) apply(myMA[,x], 1, mean))
-myMAmean[1:4,] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myList</span> <span class="o">&lt;-</span> <span class="n">tapply</span><span class="p">(</span><span class="n">colnames</span><span class="p">(</span><span class="n">myMA</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">4</span><span class="p">),</span> <span class="n">list</span><span class="p">)</span> 
+<span class="n">names</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span> <span class="n">paste</span><span class="p">,</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">"_"</span><span class="p">)</span>
+<span class="n">myMAmean</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">apply</span><span class="p">(</span><span class="n">myMA</span><span class="p">[,</span><span class="n">x</span><span class="p">],</span> <span class="m">1</span><span class="p">,</span> <span class="n">mean</span><span class="p">))</span>
+<span class="n">myMAmean</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##     C1_C2_C3   C4_C5_C6      C7_C8     C9_C10
+<div class="highlighter-rouge"><pre class="highlight"><code>##     C1_C2_C3   C4_C5_C6      C7_C8     C9_C10
 ## 1 -0.4261687  0.2392626 -0.6832668 -0.7362654
 ## 2  0.5942988 -1.4810715 -2.1870104 -1.7552480
 ## 3  0.1217488 -0.7225502 -0.6295343  0.4990018
 ## 4 -0.9118941 -0.3107419  0.3284317 -0.5693107
-</code>
-&lt;!—
-Solution</p>
+</code></pre>
+</div>
+<!---
+Solution
 
-<p>–&gt;</p>
+-->
 
 <h2 id="exercise-3">Exercise 3</h2>
 
@@ -2546,14 +2546,13 @@ Solution</p>
 
 <p><strong>Task 3.1</strong>: Create a sample list populated with character vectors of different lengths</p>
 
-<p><code class="highlighter-rouge">r
-setlist &lt;- lapply(11:30, function(x) sample(letters, x, replace=TRUE))
-names(setlist) &lt;- paste("S", seq(along=setlist), sep="") 
-setlist[1:6]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">setlist</span> <span class="o">&lt;-</span> <span class="n">lapply</span><span class="p">(</span><span class="m">11</span><span class="o">:</span><span class="m">30</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">sample</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">TRUE</span><span class="p">))</span>
+<span class="n">names</span><span class="p">(</span><span class="n">setlist</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"S"</span><span class="p">,</span> <span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">setlist</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span> 
+<span class="n">setlist</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">6</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## $S1
+<div class="highlighter-rouge"><pre class="highlight"><code>## $S1
 ##  [1] "x" "r" "j" "n" "l" "z" "b" "o" "v" "j" "i"
 ## 
 ## $S2
@@ -2570,19 +2569,19 @@ setlist[1:6]
 ## 
 ## $S6
 ##  [1] "c" "l" "h" "v" "e" "a" "i" "u" "g" "h" "s" "f" "u" "b" "e" "y"
-</code></p>
+</code></pre>
+</div>
 
 <p><strong>Task 3.2</strong>: Compute the length for all pairwise intersects of the vectors stored in <code class="highlighter-rouge">setlist</code>. The intersects can be determined with the <code class="highlighter-rouge">%in%</code> function like this: <code class="highlighter-rouge">sum(setlist[[1]] %in% setlist[[2]])</code></p>
 
-<p><code class="highlighter-rouge">r
-setlist &lt;- sapply(setlist, unique)
-olMA &lt;- sapply(names(setlist), function(x) sapply(names(setlist), 
-               function(y) sum(setlist[[x]] %in% setlist[[y]])))
-olMA[1:12,] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">setlist</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">setlist</span><span class="p">,</span> <span class="n">unique</span><span class="p">)</span>
+<span class="n">olMA</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">setlist</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">setlist</span><span class="p">),</span> 
+               <span class="k">function</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">sum</span><span class="p">(</span><span class="n">setlist</span><span class="p">[[</span><span class="n">x</span><span class="p">]]</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">setlist</span><span class="p">[[</span><span class="n">y</span><span class="p">]])))</span>
+<span class="n">olMA</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">,]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##     S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20
+<div class="highlighter-rouge"><pre class="highlight"><code>##     S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S18 S19 S20
 ## S1  10  3  4  3  6  4  6  6  7   8   7   2   5   8   8   8   8   7   8   7
 ## S2   3 10  3  3  3  6  7  4  7   2   5   6   4   8   7   6   8   6   7   7
 ## S3   4  3  9  3  3  4  4  5  4   5   5   3   4   5   7   7   8   5   5   5
@@ -2595,12 +2594,13 @@ olMA[1:12,]
 ## S10  8  2  5  5  6  5  5  9  7  13   8   6   6   6  10  11   9   9   8   9
 ## S11  7  5  5  5  7  7  9 10  8   8  15   7   9  11  11  10  12  11  12  10
 ## S12  2  6  3  7  7  8  4  7  7   6   7  14   8  10  11   9  11   9   9   8
-</code>
-<strong>Task 3.3</strong> Plot the resulting intersect matrix as heat map. The <code class="highlighter-rouge">image</code> or the <code class="highlighter-rouge">heatmap.2</code> function from the <code class="highlighter-rouge">gplots</code> library can be used for this.</p>
+</code></pre>
+</div>
+<p><strong>Task 3.3</strong> Plot the resulting intersect matrix as heat map. The <code class="highlighter-rouge">image</code> or the <code class="highlighter-rouge">heatmap.2</code> function from the <code class="highlighter-rouge">gplots</code> library can be used for this.</p>
 
-<p><code class="highlighter-rouge">r
-image(olMA)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">image</span><span class="p">(</span><span class="n">olMA</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><img src="Programming_in_R_files/figure-html/nested_loops3-1.png" alt="" />\</p>
 
@@ -2610,23 +2610,23 @@ image(olMA)
 
 <p><strong>Task 4.1</strong>: Save one or more of your functions to a file called <code class="highlighter-rouge">script.R</code> and build the package with the <code class="highlighter-rouge">package.skeleton</code> function.</p>
 
-<p><code class="highlighter-rouge">r
-package.skeleton(name="mypackage", code_files=c("script1.R"), namespace=TRUE)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">package.skeleton</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"mypackage"</span><span class="p">,</span> <span class="n">code_files</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"script1.R"</span><span class="p">),</span> <span class="n">namespace</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><strong>Task 4.2</strong>: Build tarball of the package</p>
 
-<p><code class="highlighter-rouge">r
-system("R CMD build mypackage")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">system</span><span class="p">(</span><span class="s2">"R CMD build mypackage"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><strong>Task 4.3</strong>: Install and use package</p>
 
-<p><code class="highlighter-rouge">r
-install.packages("mypackage_1.0.tar.gz", repos=NULL, type="source")
-library(mypackage)
-?myMAcomp # Opens help for function defined by mypackage
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">install.packages</span><span class="p">(</span><span class="s2">"mypackage_1.0.tar.gz"</span><span class="p">,</span> <span class="n">repos</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"source"</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="n">mypackage</span><span class="p">)</span>
+<span class="o">?</span><span class="n">myMAcomp</span> <span class="c1"># Opens help for function defined by mypackage
+</span></code></pre>
+</div>
 
 <h1 id="homework-5">Homework 5</h1>
 
@@ -2634,49 +2634,49 @@ library(mypackage)
 
 <p><strong>Task 1</strong>: Write a <code class="highlighter-rouge">RevComp</code> function that returns the reverse and complement of a DNA sequence string. Include an argument that will allow to return only the reversed sequence, the complemented sequence or the reversed and complemented sequence. The following R functions will be useful for the implementation:</p>
 
-<p><code class="highlighter-rouge">r
-x &lt;- c("ATGCATTGGACGTTAG")  
-x
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"ATGCATTGGACGTTAG"</span><span class="p">)</span>  
+<span class="n">x</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "ATGCATTGGACGTTAG"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "ATGCATTGGACGTTAG"
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-x &lt;- substring(x, 1:nchar(x), 1:nchar(x)) 
-x
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">substring</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="n">nchar</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="m">1</span><span class="o">:</span><span class="n">nchar</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> 
+<span class="n">x</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  [1] "A" "T" "G" "C" "A" "T" "T" "G" "G" "A" "C" "G" "T" "T" "A" "G"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>##  [1] "A" "T" "G" "C" "A" "T" "T" "G" "G" "A" "C" "G" "T" "T" "A" "G"
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-x &lt;- rev(x) 
-x
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">rev</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+<span class="n">x</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  [1] "G" "A" "T" "T" "G" "C" "A" "G" "G" "T" "T" "A" "C" "G" "T" "A"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>##  [1] "G" "A" "T" "T" "G" "C" "A" "G" "G" "T" "T" "A" "C" "G" "T" "A"
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-x &lt;- paste(x, collapse="")
-x
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">x</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">x</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "GATTGCAGGTTACGTA"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "GATTGCAGGTTACGTA"
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-chartr("ATGC", "TACG", x) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">chartr</span><span class="p">(</span><span class="s2">"ATGC"</span><span class="p">,</span> <span class="s2">"TACG"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "CTAACGTCCAATGCAT"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "CTAACGTCCAATGCAT"
+</code></pre>
+</div>
 
 <p><strong>Task 2</strong>: Write a function that applies the <code class="highlighter-rouge">RevComp</code> function to many sequences stored in a vector.</p>
 
@@ -2684,45 +2684,45 @@ chartr("ATGC", "TACG", x)
 
 <p><strong>Task 3</strong>: Write a function that will translate one or many DNA sequences in all three reading frames into proteins. The following commands will simplify this task:</p>
 
-<p><code class="highlighter-rouge">r
-AAdf &lt;- read.table(file="http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt", header=TRUE, sep="\t") 
-AAdf[1:4,]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">AAdf</span> <span class="o">&lt;-</span> <span class="n">read.table</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/AA.txt"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span> 
+<span class="n">AAdf</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   Codon AA_1 AA_3 AA_Full AntiCodon
+<div class="highlighter-rouge"><pre class="highlight"><code>##   Codon AA_1 AA_3 AA_Full AntiCodon
 ## 1   TCA    S  Ser  Serine       TGA
 ## 2   TCG    S  Ser  Serine       CGA
 ## 3   TCC    S  Ser  Serine       GGA
 ## 4   TCT    S  Ser  Serine       AGA
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-AAv &lt;- as.character(AAdf[,2]) 
-names(AAv) &lt;- AAdf[,1] 
-AAv
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">AAv</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">AAdf</span><span class="p">[,</span><span class="m">2</span><span class="p">])</span> 
+<span class="n">names</span><span class="p">(</span><span class="n">AAv</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">AAdf</span><span class="p">[,</span><span class="m">1</span><span class="p">]</span> 
+<span class="n">AAv</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## TCA TCG TCC TCT TTT TTC TTA TTG TAT TAC TAA TAG TGT TGC TGA TGG CTA CTG CTC CTT CCA CCG CCC CCT CAT 
+<div class="highlighter-rouge"><pre class="highlight"><code>## TCA TCG TCC TCT TTT TTC TTA TTG TAT TAC TAA TAG TGT TGC TGA TGG CTA CTG CTC CTT CCA CCG CCC CCT CAT 
 ## "S" "S" "S" "S" "F" "F" "L" "L" "Y" "Y" "*" "*" "C" "C" "*" "W" "L" "L" "L" "L" "P" "P" "P" "P" "H" 
 ## CAC CAA CAG CGA CGG CGC CGT ATT ATC ATA ATG ACA ACG ACC ACT AAT AAC AAA AAG AGT AGC AGA AGG GTA GTG 
 ## "H" "Q" "Q" "R" "R" "R" "R" "I" "I" "I" "M" "T" "T" "T" "T" "N" "N" "K" "K" "S" "S" "R" "R" "V" "V" 
 ## GTC GTT GCA GCG GCC GCT GAT GAC GAA GAG GGA GGG GGC GGT 
 ## "V" "V" "A" "A" "A" "A" "D" "D" "E" "E" "G" "G" "G" "G"
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-y &lt;- gsub("(...)", "\\1_", x) 
-y &lt;- unlist(strsplit(y, "_")) 
-y &lt;- y[grep("^...$", y)] 
-AAv[y] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">y</span> <span class="o">&lt;-</span> <span class="n">gsub</span><span class="p">(</span><span class="s2">"(...)"</span><span class="p">,</span> <span class="s2">"\\1_"</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="n">unlist</span><span class="p">(</span><span class="n">strsplit</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">))</span> 
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="n">y</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^...$"</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span> 
+<span class="n">AAv</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GAT TGC AGG TTA CGT 
+<div class="highlighter-rouge"><pre class="highlight"><code>## GAT TGC AGG TTA CGT 
 ## "D" "C" "R" "L" "R"
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="homework-submission">Homework submission</h2>
 <p>Submit the 3 functions in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.</p>
@@ -2737,12 +2737,11 @@ AAv[y]
 
 <h1 id="session-info">Session Info</h1>
 
-<p><code class="highlighter-rouge">r
-sessionInfo()
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sessionInfo</span><span class="p">()</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## R version 3.2.4 Revised (2016-03-16 r70336)
+<div class="highlighter-rouge"><pre class="highlight"><code>## R version 3.2.4 Revised (2016-03-16 r70336)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 14.04.4 LTS
 ## 
@@ -2763,7 +2762,8 @@ sessionInfo()
 ##  [6] gtable_0.1.2     formatR_1.2.1    magrittr_1.5     evaluate_0.8     scales_0.3.0    
 ## [11] stringi_1.0-1    rmarkdown_0.9.2  tools_3.2.4      stringr_1.0.0    munsell_0.4.2   
 ## [16] yaml_2.1.13      colorspace_1.2-6 htmltools_0.3    knitr_1.12
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="references">References</h1>
 
@@ -2783,7 +2783,7 @@ sessionInfo()
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
- Site last generated: Jun 21, 2016 <br />
+ Site last generated: Aug 11, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

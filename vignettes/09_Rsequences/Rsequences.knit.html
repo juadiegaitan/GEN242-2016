@@ -1749,10 +1749,10 @@ document.addEventListener("DOMContentLoaded", function() {
 the following lines in the R console. Please also make sure that you have a recent R version
 installed on your system. R versions <code class="highlighter-rouge">3.2.x</code> or higher are recommended.</p>
 
-<p><code class="highlighter-rouge">r
-source("https://bioconductor.org/biocLite.R")
-biocLite(c("Biostrings", "GenomicRanges", "GenomicRanges", "rtracklayer", "systemPipeR", "seqLogo", "ShortRead"))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">source</span><span class="p">(</span><span class="s2">"https://bioconductor.org/biocLite.R"</span><span class="p">)</span>
+<span class="n">biocLite</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"Biostrings"</span><span class="p">,</span> <span class="s2">"GenomicRanges"</span><span class="p">,</span> <span class="s2">"GenomicRanges"</span><span class="p">,</span> <span class="s2">"rtracklayer"</span><span class="p">,</span> <span class="s2">"systemPipeR"</span><span class="p">,</span> <span class="s2">"seqLogo"</span><span class="p">,</span> <span class="s2">"ShortRead"</span><span class="p">))</span>
+</code></pre>
+</div>
 
 <h1 id="strings-in-r-base">Strings in R Base</h1>
 
@@ -1762,128 +1762,128 @@ biocLite(c("Biostrings", "GenomicRanges", "GenomicRanges", "rtracklayer", "syste
 
 <p>Generate sample sequence data set</p>
 
-<p><code class="highlighter-rouge">r
-myseq &lt;- c("ATGCAGACATAGTG", "ATGAACATAGATCC", "GTACAGATCAC")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"ATGCAGACATAGTG"</span><span class="p">,</span> <span class="s2">"ATGAACATAGATCC"</span><span class="p">,</span> <span class="s2">"GTACAGATCAC"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p>String searching with regular expression support</p>
 
-<p><code class="highlighter-rouge">r
-myseq[grep("ATG", myseq)] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"ATG"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "ATGCAGACATAGTG" "ATGAACATAGATCC"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "ATGCAGACATAGTG" "ATGAACATAGATCC"
+</code></pre>
+</div>
 
 <p>Searches <code class="highlighter-rouge">myseq</code> for first match of pattern “AT”</p>
 
-<p><code class="highlighter-rouge">r
-pos1 &lt;- regexpr("AT", myseq) 
-as.numeric(pos1); attributes(pos1)$match.length # Returns position information of matches
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pos1</span> <span class="o">&lt;-</span> <span class="n">regexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> 
+<span class="n">as.numeric</span><span class="p">(</span><span class="n">pos1</span><span class="p">);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span><span class="o">$</span><span class="n">match.length</span> <span class="c1"># Returns position information of matches
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 1 1 7
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 1 1 7
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 2 2 2
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 2 2 2
+</code></pre>
+</div>
 
 <p>Searches <code class="highlighter-rouge">myseq</code> for all matches of pattern “AT”</p>
 
-<p><code class="highlighter-rouge">r
-pos2 &lt;- gregexpr("AT", myseq) 
-as.numeric(pos2[[1]]); attributes(pos2[[1]])$match.length # Returns positions of matches in first sequence
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pos2</span> <span class="o">&lt;-</span> <span class="n">gregexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> 
+<span class="n">as.numeric</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span><span class="o">$</span><span class="n">match.length</span> <span class="c1"># Returns positions of matches in first sequence
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 1 9
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 1 9
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 2 2
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 2 2
+</code></pre>
+</div>
 
 <p>String substitution with regular expression support</p>
 
-<p><code class="highlighter-rouge">r
-gsub("^ATG", "atg", myseq) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gsub</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="s2">"atg"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "atgCAGACATAGTG" "atgAACATAGATCC" "GTACAGATCAC"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "atgCAGACATAGTG" "atgAACATAGATCC" "GTACAGATCAC"
+</code></pre>
+</div>
 
 <h3 id="positional-parsing">Positional parsing</h3>
 
-<p><code class="highlighter-rouge">r
-nchar(myseq) # Computes length of strings
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">nchar</span><span class="p">(</span><span class="n">myseq</span><span class="p">)</span> <span class="c1"># Computes length of strings
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 14 14 11
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 14 14 11
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-substring(myseq[1], c(1,3), c(2,5)) # Positional parsing of several fragments from one string
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">substring</span><span class="p">(</span><span class="n">myseq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">5</span><span class="p">))</span> <span class="c1"># Positional parsing of several fragments from one string
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "AT"  "GCA"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "AT"  "GCA"
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-substring(myseq, c(1,4,7), c(2,6,10)) # Positional parsing of many strings
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">substring</span><span class="p">(</span><span class="n">myseq</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">4</span><span class="p">,</span><span class="m">7</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">10</span><span class="p">))</span> <span class="c1"># Positional parsing of many strings
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "AT"   "AAC"  "ATCA"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "AT"   "AAC"  "ATCA"
+</code></pre>
+</div>
 
 <h2 id="random-sequence-generation">Random Sequence Generation</h2>
 
 <h3 id="random-dna-sequences-of-any-length">Random DNA sequences of any length</h3>
 
-<p><code class="highlighter-rouge">r
-rand &lt;- sapply(1:100, function(x) paste(sample(c("A","T","G","C"), sample(10:20), replace=T), collapse=""))
-rand[1:3]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">rand</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="n">sample</span><span class="p">(</span><span class="m">10</span><span class="o">:</span><span class="m">20</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">))</span>
+<span class="n">rand</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "TTGGTGCCCGCACACGT" "TACTCACGAC"        "AGCTCAACCTAGTTTCG"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "TTGGTGCCCGCACACGT" "TACTCACGAC"        "AGCTCAACCTAGTTTCG"
+</code></pre>
+</div>
 
 <h3 id="count-identical-sequences">Count identical sequences</h3>
 
-<p><code class="highlighter-rouge">r
-table(c(rand[1:4], rand[1]))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">table</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">rand</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">rand</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## 
+<div class="highlighter-rouge"><pre class="highlight"><code>## 
 ##    AGCTCAACCTAGTTTCG CGCTGCTTGGCCCAGCTGAC           TACTCACGAC    TTGGTGCCCGCACACGT 
 ##                    1                    1                    1                    2
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="extract-reads-from-reference">Extract reads from reference</h3>
 
 <p>Note: this requires <code class="highlighter-rouge">Biostrings</code> package.</p>
 
-<p><code class="highlighter-rouge">r
-library(Biostrings)
-ref &lt;- DNAString(paste(sample(c("A","T","G","C"), 100000, replace=T), collapse=""))
-randstart &lt;- sample(1:(length(ref)-15), 1000)
-randreads &lt;- Views(ref, randstart, width=15)
-rand_set &lt;- DNAStringSet(randreads)
-unlist(rand_set)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
+<span class="n">ref</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="m">100000</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">))</span>
+<span class="n">randstart</span> <span class="o">&lt;-</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">ref</span><span class="p">)</span><span class="m">-15</span><span class="p">),</span> <span class="m">1000</span><span class="p">)</span>
+<span class="n">randreads</span> <span class="o">&lt;-</span> <span class="n">Views</span><span class="p">(</span><span class="n">ref</span><span class="p">,</span> <span class="n">randstart</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">15</span><span class="p">)</span>
+<span class="n">rand_set</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">randreads</span><span class="p">)</span>
+<span class="n">unlist</span><span class="p">(</span><span class="n">rand_set</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   15000-letter "DNAString" instance
+<div class="highlighter-rouge"><pre class="highlight"><code>##   15000-letter "DNAString" instance
 ## seq: TTTTTTAAAGATCGTTCTACACCGGATGCCTTGCTGTGCTGATCTT...CCGTATTCCAACTATACTCCTCCGACCGTTAGATCGGTAGGTGCGG
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="sequences-in-bioconductor">Sequences in Bioconductor</h1>
 
@@ -1921,43 +1921,43 @@ unlist(rand_set)
 <p>Download the following sequences to your current working directory and then import them into R: 
 <a href="ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn">ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn</a></p>
 
-<p><code class="highlighter-rouge">r
-dir.create("data", showWarnings = FALSE)
-# system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn")
-download.file("ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn", "data/AE004437.ffn")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">dir.create</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">showWarnings</span> <span class="o">=</span> <span class="n">FALSE</span><span class="p">)</span>
+<span class="c1"># system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn")
+</span><span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.ffn"</span><span class="p">,</span> <span class="s2">"data/AE004437.ffn"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p>Import FASTA file with <code class="highlighter-rouge">readDNAStringSet</code></p>
 
-<p><code class="highlighter-rouge">r
-myseq &lt;- readDNAStringSet("data/AE004437.ffn")
-myseq[1:3]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"data/AE004437.ffn"</span><span class="p">)</span>
+<span class="n">myseq</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 3
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 3
 ##     width seq                                                                   names               
 ## [1]  1206 ATGACTCGGCGGTCTCGTGTCGGTGCCGGCCTC...GTCGTCGTTGTTCGACGCTGGCGGAACCCATGA gi|12057215|gb|AE...
 ## [2]   666 ATGAGCATCATCGAACTCGAAGGCGTGGTCAAA...GTCAACCTCGTCGATGGGGTGTTACACACGTGA gi|12057215|gb|AE...
 ## [3]  1110 ATGGCGTGGCGGAACCTCGGGCGGAACCGCGTG...AACGATCCGCCCGTCGAGGCGCTCGGCGAATGA gi|12057215|gb|AE...
-</code></p>
+</code></pre>
+</div>
 
 <p>Subset sequences with regular expression on sequence name field</p>
 
-<p><code class="highlighter-rouge">r
-sub &lt;- myseq[grep("99.*", names(myseq))]
-length(sub)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sub</span> <span class="o">&lt;-</span> <span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"99.*"</span><span class="p">,</span> <span class="n">names</span><span class="p">(</span><span class="n">myseq</span><span class="p">))]</span>
+<span class="n">length</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 170
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 170
+</code></pre>
+</div>
 
 <p>Export subsetted sequences to FASTA file</p>
 
-<p><code class="highlighter-rouge">r
-writeXStringSet(sub, file="./data/AE004437sub.ffn", width=80)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">writeXStringSet</span><span class="p">(</span><span class="n">sub</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"./data/AE004437sub.ffn"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">80</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p>Now inspect exported sequence file <code class="highlighter-rouge">AE004437sub.ffn</code> in a text editor</p>
 
@@ -1965,122 +1965,121 @@ writeXStringSet(sub, file="./data/AE004437sub.ffn", width=80)
 
 <p>The <code class="highlighter-rouge">XString</code> stores the different types of biosequences in dedicated containers</p>
 
-<p><code class="highlighter-rouge">r
-library(Biostrings)
-d &lt;- DNAString("GCATAT-TAC")
-d
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">Biostrings</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="s2">"GCATAT-TAC"</span><span class="p">)</span>
+<span class="n">d</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   10-letter "DNAString" instance
+<div class="highlighter-rouge"><pre class="highlight"><code>##   10-letter "DNAString" instance
 ## seq: GCATAT-TAC
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-d[1:4]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">d</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   4-letter "DNAString" instance
+<div class="highlighter-rouge"><pre class="highlight"><code>##   4-letter "DNAString" instance
 ## seq: GCAT
-</code></p>
+</code></pre>
+</div>
 
 <p>RNA sequences</p>
 
-<p><code class="highlighter-rouge">r
-r &lt;- RNAString("GCAUAU-UAC") 
-r &lt;- RNAString(d) # Converts d to RNAString object
-r
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">r</span> <span class="o">&lt;-</span> <span class="n">RNAString</span><span class="p">(</span><span class="s2">"GCAUAU-UAC"</span><span class="p">)</span> 
+<span class="n">r</span> <span class="o">&lt;-</span> <span class="n">RNAString</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="c1"># Converts d to RNAString object
+</span><span class="n">r</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   10-letter "RNAString" instance
+<div class="highlighter-rouge"><pre class="highlight"><code>##   10-letter "RNAString" instance
 ## seq: GCAUAU-UAC
-</code>
-Protein sequences</p>
+</code></pre>
+</div>
+<p>Protein sequences</p>
 
-<p><code class="highlighter-rouge">r
-p &lt;- AAString("HCWYHH")
-p
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">p</span> <span class="o">&lt;-</span> <span class="n">AAString</span><span class="p">(</span><span class="s2">"HCWYHH"</span><span class="p">)</span>
+<span class="n">p</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   6-letter "AAString" instance
+<div class="highlighter-rouge"><pre class="highlight"><code>##   6-letter "AAString" instance
 ## seq: HCWYHH
-</code></p>
+</code></pre>
+</div>
 
 <p>Any type of character strings</p>
 
-<p><code class="highlighter-rouge">r
-b &lt;- BString("I store any set of characters. Other XString objects store only the IUPAC characters.")
-b
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">b</span> <span class="o">&lt;-</span> <span class="n">BString</span><span class="p">(</span><span class="s2">"I store any set of characters. Other XString objects store only the IUPAC characters."</span><span class="p">)</span>
+<span class="n">b</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   85-letter "BString" instance
+<div class="highlighter-rouge"><pre class="highlight"><code>##   85-letter "BString" instance
 ## seq: I store any set of characters. Other XString objects store only the IUPAC characters.
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="working-with-xstringset-containers">Working with <code class="highlighter-rouge">XStringSet</code> Containers</h2>
 
 <p><code class="highlighter-rouge">XStringSet</code> containers allow to store many biosequences in one object</p>
 
-<p><code class="highlighter-rouge">r
-dset &lt;- DNAStringSet(c("GCATATTAC", "AATCGATCC", "GCATATTAC")) 
-names(dset) &lt;- c("seq1", "seq2", "seq3") # Assigns names
-dset[1:2]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">dset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCATATTAC"</span><span class="p">,</span> <span class="s2">"AATCGATCC"</span><span class="p">,</span> <span class="s2">"GCATATTAC"</span><span class="p">))</span> 
+<span class="n">names</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="s2">"seq1"</span><span class="p">,</span> <span class="s2">"seq2"</span><span class="p">,</span> <span class="s2">"seq3"</span><span class="p">)</span> <span class="c1"># Assigns names
+</span><span class="n">dset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 2
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 2
 ##     width seq                                                                   names               
 ## [1]     9 GCATATTAC                                                             seq1
 ## [2]     9 AATCGATCC                                                             seq2
-</code></p>
+</code></pre>
+</div>
 
 <p>Important utilities for <code class="highlighter-rouge">XStringSet</code> containers</p>
 
-<p><code class="highlighter-rouge">r
-width(dset) # Returns the length of each sequences
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">width</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="c1"># Returns the length of each sequences
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 9 9 9
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 9 9 9
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-d &lt;- dset[[1]] # The [[ subsetting operator returns a single entry as XString object
-dset2 &lt;- c(dset, dset) # Appends/concatenates two XStringSet objects
-dsetchar &lt;- as.character(dset) # Converts XStringSet to named vector 
-dsetone &lt;- unlist(dset) # Collapses many sequences to a single one stored in a DNAString container
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">d</span> <span class="o">&lt;-</span> <span class="n">dset</span><span class="p">[[</span><span class="m">1</span><span class="p">]]</span> <span class="c1"># The [[ subsetting operator returns a single entry as XString object
+</span><span class="n">dset2</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">dset</span><span class="p">)</span> <span class="c1"># Appends/concatenates two XStringSet objects
+</span><span class="n">dsetchar</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="c1"># Converts XStringSet to named vector 
+</span><span class="n">dsetone</span> <span class="o">&lt;-</span> <span class="n">unlist</span><span class="p">(</span><span class="n">dset</span><span class="p">)</span> <span class="c1"># Collapses many sequences to a single one stored in a DNAString container
+</span></code></pre>
+</div>
 
 <p>Sequence subsetting by positions:</p>
 
-<p><code class="highlighter-rouge">r
-DNAStringSet(dset, start=c(1,2,3), end=c(4,8,5)) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">8</span><span class="p">,</span><span class="m">5</span><span class="p">))</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 3
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 3
 ##     width seq                                                                   names               
 ## [1]     4 GCAT                                                                  seq1
 ## [2]     7 ATCGATC                                                               seq2
 ## [3]     3 ATA                                                                   seq3
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="multiple-alignment-class">Multiple Alignment Class</h2>
 
 <p>The <code class="highlighter-rouge">XMultipleAlignment</code> class stores the different types of multiple sequence alignments:</p>
 
-<p><code class="highlighter-rouge">r
-origMAlign &lt;- readDNAMultipleAlignment(filepath = system.file("extdata",
-              "msx2_mRNA.aln", package = "Biostrings"), format = "clustal")
-origMAlign
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">origMAlign</span> <span class="o">&lt;-</span> <span class="n">readDNAMultipleAlignment</span><span class="p">(</span><span class="n">filepath</span> <span class="o">=</span> <span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span>
+              <span class="s2">"msx2_mRNA.aln"</span><span class="p">,</span> <span class="n">package</span> <span class="o">=</span> <span class="s2">"Biostrings"</span><span class="p">),</span> <span class="n">format</span> <span class="o">=</span> <span class="s2">"clustal"</span><span class="p">)</span>
+<span class="n">origMAlign</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## DNAMultipleAlignment with 8 rows and 2343 columns
+<div class="highlighter-rouge"><pre class="highlight"><code>## DNAMultipleAlignment with 8 rows and 2343 columns
 ##      aln                                                                        names               
 ## [1] -----TCCCGTCTCCGCAGCAAAAAAGTTTGAGTCG...TTGTCCAAACTCACAATTAAAAAAAAAAAAAAAAA gi|84452153|ref|N...
 ## [2] ------------------------------------...----------------------------------- gi|208431713|ref|...
@@ -2090,68 +2089,69 @@ origMAlign
 ## [6] ------------------------------------...----------------------------------- gi|148540149|ref|...
 ## [7] --------------CGGCTCCGCAGCGCCTCACTCG...----------------------------------- gi|45383056|ref|N...
 ## [8] GGGGGAGACTTCAGAAGTTGTTGTCCTCTCCGCTGA...----------------------------------- gi|213515133|ref|...
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="basic-sequence-manipulations">Basic Sequence Manipulations</h2>
 
 <h3 id="reverse-and-complement">Reverse and Complement</h3>
 
-<p><code class="highlighter-rouge">r
-randset &lt;- DNAStringSet(rand)
-complement(randset[1:2])
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">randset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">rand</span><span class="p">)</span>
+<span class="n">complement</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 2
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    17 AACCACGGGCGTGTGCA
 ## [2]    10 ATGAGTGCTG
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-reverse(randset[1:2])
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">reverse</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 2
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    17 TGCACACGCCCGTGGTT
 ## [2]    10 CAGCACTCAT
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-reverseComplement(randset[1:2])
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">reverseComplement</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 2
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    17 ACGTGTGCGGGCACCAA
 ## [2]    10 GTCGTGAGTA
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="translate-dna-into-protein">Translate DNA into Protein</h2>
 
-<p><code class="highlighter-rouge">r
-translate(randset[1:2])
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">translate</span><span class="p">(</span><span class="n">randset</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">])</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[1]]':
+<div class="highlighter-rouge"><pre class="highlight"><code>## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[1]]':
 ## last 2 bases were ignored
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[2]]':
+<div class="highlighter-rouge"><pre class="highlight"><code>## Warning in .Call2("DNAStringSet_translate", x, skip_code, dna_codes[codon_alphabet], : in 'x[[2]]':
 ## last base was ignored
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A AAStringSet instance of length 2
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A AAStringSet instance of length 2
 ##     width seq
 ## [1]     5 LVPAH
 ## [2]     3 YSR
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="pattern-matching">Pattern Matching</h2>
 
@@ -2159,60 +2159,59 @@ translate(randset[1:2])
 
 <p>Find pattern matches in reference</p>
 
-<p><code class="highlighter-rouge">r
-myseq1 &lt;- readDNAStringSet("./data/AE004437.ffn") 
-mypos &lt;- matchPattern("ATGGTG", myseq1[[1]], max.mismatch=1) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myseq1</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"./data/AE004437.ffn"</span><span class="p">)</span> 
+<span class="n">mypos</span> <span class="o">&lt;-</span> <span class="n">matchPattern</span><span class="p">(</span><span class="s2">"ATGGTG"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <p>Count only the corresponding matches</p>
 
-<p><code class="highlighter-rouge">r
-countPattern("ATGGCT", myseq1[[1]], max.mismatch=1) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">countPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 3
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 3
+</code></pre>
+</div>
 
 <p>Count matches in many sequences</p>
 
-<p><code class="highlighter-rouge">r
-vcountPattern("ATGGCT", myseq1, max.mismatch=1)[1:20]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">vcountPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">,</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  [1] 3 0 5 4 1 2 2 1 4 3 0 0 1 2 0 1 4 0 0 1
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>##  [1] 3 0 5 4 1 2 2 1 4 3 0 0 1 2 0 1 4 0 0 1
+</code></pre>
+</div>
 
 <p>Results shown in DNAStringSet object</p>
 
-<p><code class="highlighter-rouge">r
-tmp &lt;- c(DNAStringSet("ATGGTG"), DNAStringSet(mypos)) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">tmp</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="s2">"ATGGTG"</span><span class="p">),</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">mypos</span><span class="p">))</span> 
+</code></pre>
+</div>
 
 <p>Return a consensus  matrix for query and hits</p>
 
-<p><code class="highlighter-rouge">r
-consensusMatrix(tmp)[1:4,] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">consensusMatrix</span><span class="p">(</span><span class="n">tmp</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   [,1] [,2] [,3] [,4] [,5] [,6]
+<div class="highlighter-rouge"><pre class="highlight"><code>##   [,1] [,2] [,3] [,4] [,5] [,6]
 ## A    3    0    0    0    0    0
 ## C    1    1    0    0    0    0
 ## G    0    0    4    4    1    4
 ## T    0    3    0    0    3    0
-</code></p>
+</code></pre>
+</div>
 
 <p>Find all pattern matches in reference</p>
 
-<p><code class="highlighter-rouge">r
-myvpos &lt;- vmatchPattern("ATGGCT", myseq1, max.mismatch=1) 
-myvpos # The results are stored as MIndex object.
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myvpos</span> <span class="o">&lt;-</span> <span class="n">vmatchPattern</span><span class="p">(</span><span class="s2">"ATGGCT"</span><span class="p">,</span> <span class="n">myseq1</span><span class="p">,</span> <span class="n">max.mismatch</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> 
+<span class="n">myvpos</span> <span class="c1"># The results are stored as MIndex object.
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## MIndex object of length 2058
+<div class="highlighter-rouge"><pre class="highlight"><code>## MIndex object of length 2058
 ## $`gi|12057215|gb|AE004437.1|:248-1453 Halobacterium sp. NRC-1, complete genome`
 ## IRanges of length 3
 ##     start end width
@@ -2234,119 +2233,120 @@ myvpos # The results are stored as MIndex object.
 ## 
 ## ...
 ## &lt;2055 more elements&gt;
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-Views(myseq1[[1]], start(myvpos[[1]]), end(myvpos[[1]])) # Retrieves the result for single entry
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="m">1</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="m">1</span><span class="p">]]))</span> <span class="c1"># Retrieves the result for single entry
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   Views on a 1206-letter DNAString subject
+<div class="highlighter-rouge"><pre class="highlight"><code>##   Views on a 1206-letter DNAString subject
 ## subject: ATGACTCGGCGGTCTCGTGTCGGTGCCGGCCTCGCAGCCATTGT...TTGCGATCGTCGTCGTCGTTGTTCGACGCTGGCGGAACCCATGA
 ## views:
 ##     start end width
 ## [1]     1   6     6 [ATGACT]
 ## [2]   383 388     6 [ATGGCA]
 ## [3]   928 933     6 [ATGACT]
-</code></p>
+</code></pre>
+</div>
 
 <p>Return all matches</p>
 
-<p><code class="highlighter-rouge">r
-sapply(seq(along=myseq1), function(x) 
-       as.character(Views(myseq1[[x]], start(myvpos[[x]]), end(myvpos[[x]]))))[1:4] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sapply</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">myseq1</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> 
+       <span class="n">as.character</span><span class="p">(</span><span class="n">Views</span><span class="p">(</span><span class="n">myseq1</span><span class="p">[[</span><span class="n">x</span><span class="p">]],</span> <span class="n">start</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]),</span> <span class="n">end</span><span class="p">(</span><span class="n">myvpos</span><span class="p">[[</span><span class="n">x</span><span class="p">]]))))[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span> 
+</code></pre>
+</div>
 
 <h3 id="pattern-matching-with-regular-expression-support">Pattern matching with regular expression support</h3>
 
-<p><code class="highlighter-rouge">r
-myseq &lt;- DNAStringSet(c("ATGCAGACATAGTG", "ATGAACATAGATCC", "GTACAGATCAC"))
-myseq[grep("^ATG", myseq, perl=TRUE)] # String searching with regular expression support
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">myseq</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"ATGCAGACATAGTG"</span><span class="p">,</span> <span class="s2">"ATGAACATAGATCC"</span><span class="p">,</span> <span class="s2">"GTACAGATCAC"</span><span class="p">))</span>
+<span class="n">myseq</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">,</span> <span class="n">perl</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)]</span> <span class="c1"># String searching with regular expression support
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 2
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    14 ATGCAGACATAGTG
 ## [2]    14 ATGAACATAGATCC
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-pos1 &lt;- regexpr("AT", myseq) # Searches 'myseq' for first match of pattern "AT"
-as.numeric(pos1); attributes(pos1)$match.length # Returns position information of matches
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pos1</span> <span class="o">&lt;-</span> <span class="n">regexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> <span class="c1"># Searches 'myseq' for first match of pattern "AT"
+</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">pos1</span><span class="p">);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos1</span><span class="p">)</span><span class="o">$</span><span class="n">match.length</span> <span class="c1"># Returns position information of matches
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 1 1 7
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 1 1 7
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 2 2 2
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 2 2 2
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-pos2 &lt;- gregexpr("AT", myseq) # Searches 'myseq' for all matches of pattern "AT"
-as.numeric(pos2[[1]]); attributes(pos2[[1]])$match.length # Match positions in first sequence
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pos2</span> <span class="o">&lt;-</span> <span class="n">gregexpr</span><span class="p">(</span><span class="s2">"AT"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">)</span> <span class="c1"># Searches 'myseq' for all matches of pattern "AT"
+</span><span class="n">as.numeric</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]]);</span> <span class="n">attributes</span><span class="p">(</span><span class="n">pos2</span><span class="p">[[</span><span class="m">1</span><span class="p">]])</span><span class="o">$</span><span class="n">match.length</span> <span class="c1"># Match positions in first sequence
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 1 9
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 1 9
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 2 2
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 2 2
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-DNAStringSet(gsub("^ATG", "NNN", myseq)) # String substitution with regular expression support
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">gsub</span><span class="p">(</span><span class="s2">"^ATG"</span><span class="p">,</span> <span class="s2">"NNN"</span><span class="p">,</span> <span class="n">myseq</span><span class="p">))</span> <span class="c1"># String substitution with regular expression support
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 3
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 3
 ##     width seq
 ## [1]    14 NNNCAGACATAGTG
 ## [2]    14 NNNAACATAGATCC
 ## [3]    11 GTACAGATCAC
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="pwm-viewing-and-searching">PWM Viewing and Searching</h2>
 
-<p><code class="highlighter-rouge">r
-library(seqLogo) 
-pwm &lt;- PWM(DNAStringSet(c("GCT", "GGT", "GCA"))) 
-pwm
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">seqLogo</span><span class="p">)</span> 
+<span class="n">pwm</span> <span class="o">&lt;-</span> <span class="n">PWM</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"GCT"</span><span class="p">,</span> <span class="s2">"GGT"</span><span class="p">,</span> <span class="s2">"GCA"</span><span class="p">)))</span> 
+<span class="n">pwm</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##        [,1]      [,2]      [,3]
+<div class="highlighter-rouge"><pre class="highlight"><code>##        [,1]      [,2]      [,3]
 ## A 0.0000000 0.0000000 0.2312611
 ## C 0.0000000 0.3157205 0.0000000
 ## G 0.3685591 0.2312611 0.0000000
 ## T 0.0000000 0.0000000 0.3157205
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-seqLogo(t(t(pwm) * 1/colSums(pwm)))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">seqLogo</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">pwm</span><span class="p">)</span> <span class="o">*</span> <span class="m">1</span><span class="o">/</span><span class="n">colSums</span><span class="p">(</span><span class="n">pwm</span><span class="p">)))</span>
+</code></pre>
+</div>
 
 <p><img src="Rsequences_files/figure-html/pwm_logo-1.png" alt="" />\</p>
 
 <p>Search sequence for PWM matches with score better than <code class="highlighter-rouge">min.score</code></p>
 
-<p><code class="highlighter-rouge">r
-chr &lt;- DNAString("AAAGCTAAAGGTAAAGCAAAA") 
-matchPWM(pwm, chr, min.score=0.9) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">chr</span> <span class="o">&lt;-</span> <span class="n">DNAString</span><span class="p">(</span><span class="s2">"AAAGCTAAAGGTAAAGCAAAA"</span><span class="p">)</span> 
+<span class="n">matchPWM</span><span class="p">(</span><span class="n">pwm</span><span class="p">,</span> <span class="n">chr</span><span class="p">,</span> <span class="n">min.score</span><span class="o">=</span><span class="m">0.9</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   Views on a 21-letter DNAString subject
+<div class="highlighter-rouge"><pre class="highlight"><code>##   Views on a 21-letter DNAString subject
 ## subject: AAAGCTAAAGGTAAAGCAAAA
 ## views:
 ##     start end width
 ## [1]     4   6     3 [GCT]
 ## [2]    10  12     3 [GGT]
 ## [3]    16  18     3 [GCA]
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="ngs-sequences">NGS Sequences</h1>
 
@@ -2365,8 +2365,7 @@ matchPWM(pwm, chr, min.score=0.9)
 at the beginning of each line are not part of the FASTQ format. They have been added 
 solely for illustration purposes.</p>
 
-<p><code class="highlighter-rouge">
-1. @SRR038845.3 HWI-EAS038:6:1:0:1938 length=36
+<div class="highlighter-rouge"><pre class="highlight"><code>1. @SRR038845.3 HWI-EAS038:6:1:0:1938 length=36
 2. CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA
 3. +SRR038845.3 HWI-EAS038:6:1:0:1938 length=36
 4. BA@7&gt;B=&gt;:&gt;&gt;7@7@&gt;&gt;9=BAA?;&gt;52;&gt;:9=8.=A
@@ -2378,7 +2377,8 @@ solely for illustration purposes.</p>
 2. GTTCAAAAAGAACTAAATTGTGTCAATAGAAAACTC
 3. +SRR038845.53 HWI-EAS038:6:1:1:360 length=36
 4. BBCBBBBBB@@BAB?BBBBCBC&gt;BBBAA8&gt;BBBAA@
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="sequence-and-quality-data-qualityscalexstringset">Sequence and Quality Data: <code class="highlighter-rouge">QualityScaleXStringSet</code></h2>
 
@@ -2388,37 +2388,36 @@ stored as ASCII characters after adding 33. The basic R functions <code class="h
 
 <p>Phred score interconversion</p>
 
-<p><code class="highlighter-rouge">r
-phred &lt;- 1:9
-phreda &lt;- paste(sapply(as.raw((phred)+33), rawToChar), collapse="")
-phreda
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">phred</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="m">9</span>
+<span class="n">phreda</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="n">as.raw</span><span class="p">((</span><span class="n">phred</span><span class="p">)</span><span class="m">+33</span><span class="p">),</span> <span class="n">rawToChar</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">phreda</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "\"#$%&amp;'()*"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "\"#$%&amp;'()*"
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-as.integer(charToRaw(phreda))-33 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">as.integer</span><span class="p">(</span><span class="n">charToRaw</span><span class="p">(</span><span class="n">phreda</span><span class="p">))</span><span class="m">-33</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 1 2 3 4 5 6 7 8 9
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 1 2 3 4 5 6 7 8 9
+</code></pre>
+</div>
 
 <p>Construct <code class="highlighter-rouge">QualityScaledDNAStringSet</code> from scratch</p>
 
-<p><code class="highlighter-rouge">r
-dset &lt;- DNAStringSet(sapply(1:100, function(x) paste(sample(c("A","T","G","C"), 20, replace=T), collapse=""))) # Creates random sample sequence.
-myqlist &lt;- lapply(1:100, function(x) sample(1:40, 20, replace=T)) # Creates random Phred score list.
-myqual &lt;- sapply(myqlist, function(x) toString(PhredQuality(x))) # Converts integer scores into ASCII characters.
-myqual &lt;- PhredQuality(myqual) # Converts to a PhredQuality object.
-dsetq1 &lt;- QualityScaledDNAStringSet(dset, myqual) # Combines DNAStringSet and quality data in QualityScaledDNAStringSet object.
-dsetq1[1:2]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">dset</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span> <span class="c1"># Creates random sample sequence.
+</span><span class="n">myqlist</span> <span class="o">&lt;-</span> <span class="n">lapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">sample</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">40</span><span class="p">,</span> <span class="m">20</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">))</span> <span class="c1"># Creates random Phred score list.
+</span><span class="n">myqual</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">myqlist</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">toString</span><span class="p">(</span><span class="n">PhredQuality</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span> <span class="c1"># Converts integer scores into ASCII characters.
+</span><span class="n">myqual</span> <span class="o">&lt;-</span> <span class="n">PhredQuality</span><span class="p">(</span><span class="n">myqual</span><span class="p">)</span> <span class="c1"># Converts to a PhredQuality object.
+</span><span class="n">dsetq1</span> <span class="o">&lt;-</span> <span class="n">QualityScaledDNAStringSet</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">myqual</span><span class="p">)</span> <span class="c1"># Combines DNAStringSet and quality data in QualityScaledDNAStringSet object.
+</span><span class="n">dsetq1</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A QualityScaledDNAStringSet instance containing:
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A QualityScaledDNAStringSet instance containing:
 ## 
 ##   A DNAStringSet instance of length 2
 ##     width seq
@@ -2429,7 +2428,8 @@ dsetq1[1:2]
 ##     width seq
 ## [1]    20 ;;A1HH/"@2E/2D"9/(DD
 ## [2]    20 A2+7.IG:-&gt;0*3I7"5H-%
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="processing-fastq-files-with-shortread">Processing FASTQ Files with ShortRead</h2>
 
@@ -2437,86 +2437,86 @@ dsetq1[1:2]
 download and unzip this <a href="http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip">file</a> to your current working directory.
 The following code performs the download for you.</p>
 
-<p><code class="highlighter-rouge">r
-library(ShortRead)
-download.file("http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip", "data.zip")
-unzip("data.zip")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ShortRead</span><span class="p">)</span>
+<span class="n">download.file</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/HTML_Presentations/Manuals/Workshop_Dec_6_10_2012/Rsequences/data.zip"</span><span class="p">,</span> <span class="s2">"data.zip"</span><span class="p">)</span>
+<span class="n">unzip</span><span class="p">(</span><span class="s2">"data.zip"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p>Important utilities for accessing FASTQ files</p>
 
-<p><code class="highlighter-rouge">r
-fastq &lt;- list.files("data", "*.fastq$"); fastq &lt;- paste("data/", fastq, sep="")
-names(fastq) &lt;- paste("flowcell6_lane", 1:length(fastq), sep="_") 
-(fq &lt;- readFastq(fastq[1])) # Imports first FASTQ file
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fastq</span> <span class="o">&lt;-</span> <span class="n">list.files</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="s2">"*.fastq$"</span><span class="p">);</span> <span class="n">fastq</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"data/"</span><span class="p">,</span> <span class="n">fastq</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">fastq</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"flowcell6_lane"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">fastq</span><span class="p">),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"_"</span><span class="p">)</span> 
+<span class="p">(</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">readFastq</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">]))</span> <span class="c1"># Imports first FASTQ file
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## class: ShortReadQ
+<div class="highlighter-rouge"><pre class="highlight"><code>## class: ShortReadQ
 ## length: 1000 reads; width: 36 cycles
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-countLines(dirPath="./data", pattern=".fastq$")/4 # Counts numbers of reads in FASTQ files
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">countLines</span><span class="p">(</span><span class="n">dirPath</span><span class="o">=</span><span class="s2">"./data"</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s2">".fastq$"</span><span class="p">)</span><span class="o">/</span><span class="m">4</span> <span class="c1"># Counts numbers of reads in FASTQ files
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## SRR038845.fastq SRR038846.fastq SRR038848.fastq SRR038850.fastq 
+<div class="highlighter-rouge"><pre class="highlight"><code>## SRR038845.fastq SRR038846.fastq SRR038848.fastq SRR038850.fastq 
 ##            1000            1000            1000            1000
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-id(fq)[1] # Returns ID field
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">id</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="c1"># Returns ID field
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A BStringSet instance of length 1
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A BStringSet instance of length 1
 ##     width seq
 ## [1]    43 SRR038845.3 HWI-EAS038:6:1:0:1938 length=36
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-sread(fq)[1] # Returns sequence
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="c1"># Returns sequence
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 1
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 1
 ##     width seq
 ## [1]    36 CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-quality(fq)[1] # Returns Phred scores 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="c1"># Returns Phred scores 
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## class: FastqQuality
+<div class="highlighter-rouge"><pre class="highlight"><code>## class: FastqQuality
 ## quality:
 ##   A BStringSet instance of length 1
 ##     width seq
 ## [1]    36 BA@7&gt;B=&gt;:&gt;&gt;7@7@&gt;&gt;9=BAA?;&gt;52;&gt;:9=8.=A
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-as(quality(fq), "matrix")[1:4,1:12] # Coerces Phred scores to numeric matrix
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">as</span><span class="p">(</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="s2">"matrix"</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">]</span> <span class="c1"># Coerces Phred scores to numeric matrix
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
+<div class="highlighter-rouge"><pre class="highlight"><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12]
 ## [1,]   33   32   31   22   29   33   28   29   25    29    29    22
 ## [2,]   33   34   34   33   32   31   33   33   31    33    33    33
 ## [3,]   33   33   34   33   33   33   33   33   33    31    31    33
 ## [4,]   33   33   33   33   31   33   28   31   28    32    33    33
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-ShortReadQ(sread=sread(fq), quality=quality(fq), id=id(fq)) # Constructs a ShortReadQ from components
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ShortReadQ</span><span class="p">(</span><span class="n">sread</span><span class="o">=</span><span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="n">quality</span><span class="o">=</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="n">id</span><span class="o">=</span><span class="n">id</span><span class="p">(</span><span class="n">fq</span><span class="p">))</span> <span class="c1"># Constructs a ShortReadQ from components
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## class: ShortReadQ
+<div class="highlighter-rouge"><pre class="highlight"><code>## class: ShortReadQ
 ## length: 1000 reads; width: 36 cycles
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="fastq-quality-reports">FASTQ Quality Reports</h2>
 
@@ -2524,11 +2524,11 @@ ShortReadQ(sread=sread(fq), quality=quality(fq), id=id(fq)) # Constructs a Short
 
 <p>The following <code class="highlighter-rouge">seeFastq</code> and <code class="highlighter-rouge">seeFastqPlot</code> functions generate and plot a series of useful quality statistics for a set of FASTQ files.</p>
 
-<p><code class="highlighter-rouge">r
-library(systemPipeR)
-fqlist &lt;- seeFastq(fastq=fastq, batchsize=800, klength=8) # For real data set batchsize to at least 10^5 
-seeFastqPlot(fqlist)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span>
+<span class="n">fqlist</span> <span class="o">&lt;-</span> <span class="n">seeFastq</span><span class="p">(</span><span class="n">fastq</span><span class="o">=</span><span class="n">fastq</span><span class="p">,</span> <span class="n">batchsize</span><span class="o">=</span><span class="m">800</span><span class="p">,</span> <span class="n">klength</span><span class="o">=</span><span class="m">8</span><span class="p">)</span> <span class="c1"># For real data set batchsize to at least 10^5 
+</span><span class="n">seeFastqPlot</span><span class="p">(</span><span class="n">fqlist</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><img src="Rsequences_files/figure-html/see_fastq-1.png" alt="" />\</p>
 
@@ -2538,140 +2538,140 @@ seeFastqPlot(fqlist)
 
 <p>The <code class="highlighter-rouge">ShortRead</code> package contains several FASTQ quality reporting functions.</p>
 
-<p><code class="highlighter-rouge">r
-sp &lt;- SolexaPath(system.file('extdata', package='ShortRead'))
-fl &lt;- file.path(analysisPath(sp), "s_1_sequence.txt") 
-fls &lt;- c(fl, fl) 
-coll &lt;- QACollate(QAFastqSource(fls), QAReadQuality(), QAAdapterContamination(), 
-	    QANucleotideUse(), QAQualityUse(), QASequenceUse(), QAFrequentSequence(n=10), 
-		QANucleotideByCycle(), QAQualityByCycle())
-x &lt;- qa2(coll, verbose=TRUE)
-res &lt;- report(x)
-if(interactive())
-browseURL(res) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sp</span> <span class="o">&lt;-</span> <span class="n">SolexaPath</span><span class="p">(</span><span class="n">system.file</span><span class="p">(</span><span class="s1">'extdata'</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s1">'ShortRead'</span><span class="p">))</span>
+<span class="n">fl</span> <span class="o">&lt;-</span> <span class="n">file.path</span><span class="p">(</span><span class="n">analysisPath</span><span class="p">(</span><span class="n">sp</span><span class="p">),</span> <span class="s2">"s_1_sequence.txt"</span><span class="p">)</span> 
+<span class="n">fls</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">fl</span><span class="p">,</span> <span class="n">fl</span><span class="p">)</span> 
+<span class="n">coll</span> <span class="o">&lt;-</span> <span class="n">QACollate</span><span class="p">(</span><span class="n">QAFastqSource</span><span class="p">(</span><span class="n">fls</span><span class="p">),</span> <span class="n">QAReadQuality</span><span class="p">(),</span> <span class="n">QAAdapterContamination</span><span class="p">(),</span> 
+	    <span class="n">QANucleotideUse</span><span class="p">(),</span> <span class="n">QAQualityUse</span><span class="p">(),</span> <span class="n">QASequenceUse</span><span class="p">(),</span> <span class="n">QAFrequentSequence</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="m">10</span><span class="p">),</span> 
+		<span class="n">QANucleotideByCycle</span><span class="p">(),</span> <span class="n">QAQualityByCycle</span><span class="p">())</span>
+<span class="n">x</span> <span class="o">&lt;-</span> <span class="n">qa2</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">&lt;-</span> <span class="n">report</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="n">interactive</span><span class="p">())</span>
+<span class="n">browseURL</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <h2 id="filtering-and-trimming-fastq-files-with-shortread">Filtering and Trimming FASTQ Files with ShortRead</h2>
 
 <h3 id="adaptor-trimming">Adaptor trimming</h3>
 
-<p><code class="highlighter-rouge">r
-fqtrim &lt;- trimLRPatterns(Rpattern="GCCCGGGTAA", subject=fq)
-sread(fq)[1:2] # Before trimming
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fqtrim</span> <span class="o">&lt;-</span> <span class="n">trimLRPatterns</span><span class="p">(</span><span class="n">Rpattern</span><span class="o">=</span><span class="s2">"GCCCGGGTAA"</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="n">fq</span><span class="p">)</span>
+<span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span> <span class="c1"># Before trimming
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 2
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    36 CAACGAGTTCACACCTTGGCCGACAGGCCCGGGTAA
 ## [2]    36 CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-sread(fqtrim)[1:2] # After trimming
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sread</span><span class="p">(</span><span class="n">fqtrim</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span> <span class="c1"># After trimming
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 2
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]    26 CAACGAGTTCACACCTTGGCCGACAG
 ## [2]    36 CCAATGATTTTTTTCCGTGTTTCAGAATACGGTTAA
-</code>
-### Read counting and duplicate removal</p>
+</code></pre>
+</div>
+<p>### Read counting and duplicate removal</p>
 
-<p><code class="highlighter-rouge">r
-tables(fq)$distribution # Counts read occurences
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">tables</span><span class="p">(</span><span class="n">fq</span><span class="p">)</span><span class="o">$</span><span class="n">distribution</span> <span class="c1"># Counts read occurences
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   nOccurrences nReads
+<div class="highlighter-rouge"><pre class="highlight"><code>##   nOccurrences nReads
 ## 1            1    948
 ## 2            2     26
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-sum(srduplicated(fq)) # Identifies duplicated reads
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sum</span><span class="p">(</span><span class="n">srduplicated</span><span class="p">(</span><span class="n">fq</span><span class="p">))</span> <span class="c1"># Identifies duplicated reads
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 26
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 26
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-fq[!srduplicated(fq)]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fq</span><span class="p">[</span><span class="o">!</span><span class="n">srduplicated</span><span class="p">(</span><span class="n">fq</span><span class="p">)]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## class: ShortReadQ
+<div class="highlighter-rouge"><pre class="highlight"><code>## class: ShortReadQ
 ## length: 974 reads; width: 36 cycles
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="trimming-low-quality-tails">Trimming low quality tails</h3>
 
-<p><code class="highlighter-rouge">r
-cutoff &lt;- 30
-cutoff &lt;- rawToChar(as.raw(cutoff+33))
-sread(trimTails(fq, k=2, a=cutoff, successive=FALSE))[1:2]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="m">30</span>
+<span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="n">rawToChar</span><span class="p">(</span><span class="n">as.raw</span><span class="p">(</span><span class="n">cutoff</span><span class="m">+33</span><span class="p">))</span>
+<span class="n">sread</span><span class="p">(</span><span class="n">trimTails</span><span class="p">(</span><span class="n">fq</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">cutoff</span><span class="p">,</span> <span class="n">successive</span><span class="o">=</span><span class="n">FALSE</span><span class="p">))[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 2
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 2
 ##     width seq
 ## [1]     4 CAAC
 ## [2]    20 CCAATGATTTTTTTCCGTGT
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="removal-of-reads-with-phred-scores-below-a-threshold-value">Removal of reads with Phred scores below a threshold value</h3>
 
-<p><code class="highlighter-rouge">r
-cutoff &lt;- 30
-qcount &lt;- rowSums(as(quality(fq), "matrix") &lt;= 20) 
-fq[qcount == 0] # Number of reads where all Phred scores &gt;= 20
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">cutoff</span> <span class="o">&lt;-</span> <span class="m">30</span>
+<span class="n">qcount</span> <span class="o">&lt;-</span> <span class="n">rowSums</span><span class="p">(</span><span class="n">as</span><span class="p">(</span><span class="n">quality</span><span class="p">(</span><span class="n">fq</span><span class="p">),</span> <span class="s2">"matrix"</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="m">20</span><span class="p">)</span> 
+<span class="n">fq</span><span class="p">[</span><span class="n">qcount</span> <span class="o">==</span> <span class="m">0</span><span class="p">]</span> <span class="c1"># Number of reads where all Phred scores &gt;= 20
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## class: ShortReadQ
+<div class="highlighter-rouge"><pre class="highlight"><code>## class: ShortReadQ
 ## length: 349 reads; width: 36 cycles
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="removal-of-reads-with-x-ns-andor-low-complexity-segments">Removal of reads with x Ns and/or low complexity segments</h3>
 
-<p><code class="highlighter-rouge">r
-filter1 &lt;- nFilter(threshold=1) # Keeps only reads without Ns
-filter2 &lt;- polynFilter(threshold=20, nuc=c("A","T","G","C")) # Removes reads with &gt;=20 of one nucleotide
-filter &lt;- compose(filter1, filter2)
-fq[filter(fq)]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">filter1</span> <span class="o">&lt;-</span> <span class="n">nFilter</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="m">1</span><span class="p">)</span> <span class="c1"># Keeps only reads without Ns
+</span><span class="n">filter2</span> <span class="o">&lt;-</span> <span class="n">polynFilter</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">nuc</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">))</span> <span class="c1"># Removes reads with &gt;=20 of one nucleotide
+</span><span class="n">filter</span> <span class="o">&lt;-</span> <span class="n">compose</span><span class="p">(</span><span class="n">filter1</span><span class="p">,</span> <span class="n">filter2</span><span class="p">)</span>
+<span class="n">fq</span><span class="p">[</span><span class="n">filter</span><span class="p">(</span><span class="n">fq</span><span class="p">)]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## class: ShortReadQ
+<div class="highlighter-rouge"><pre class="highlight"><code>## class: ShortReadQ
 ## length: 989 reads; width: 36 cycles
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="memory-efficient-fastq-processing">Memory Efficient FASTQ Processing</h2>
 
 <p>Streaming through FASTQ files with <code class="highlighter-rouge">FastqStreamer</code> and random sampling reads with <code class="highlighter-rouge">FastqSampler</code></p>
 
-<p><code class="highlighter-rouge">r
-fq &lt;- yield(FastqStreamer(fastq[1], 50)) # Imports first 50 reads 
-fq &lt;- yield(FastqSampler(fastq[1], 50)) # Random samples 50 reads 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">FastqStreamer</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">))</span> <span class="c1"># Imports first 50 reads 
+</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">FastqSampler</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">))</span> <span class="c1"># Random samples 50 reads 
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## Warning: closing unused connection 5 (data/SRR038845.fastq)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## Warning: closing unused connection 5 (data/SRR038845.fastq)
+</code></pre>
+</div>
 
 <p>Streaming through a FASTQ file while applying filtering/trimming functions and writing the results to a new file
  here <code class="highlighter-rouge">SRR038845.fastq_sub</code> in <code class="highlighter-rouge">data</code> directory.</p>
 
-<p><code class="highlighter-rouge">r
-f &lt;- FastqStreamer(fastq[1], 50) 
-while(length(fq &lt;- yield(f))) {
-	fqsub &lt;- fq[grepl("^TT", sread(fq))] 
-	writeFastq(fqsub, paste(fastq[1], "sub", sep="_"), mode="a", compress=FALSE)
-}
-close(f)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FastqStreamer</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="m">50</span><span class="p">)</span> 
+<span class="k">while</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">f</span><span class="p">)))</span> <span class="p">{</span>
+	<span class="n">fqsub</span> <span class="o">&lt;-</span> <span class="n">fq</span><span class="p">[</span><span class="n">grepl</span><span class="p">(</span><span class="s2">"^TT"</span><span class="p">,</span> <span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">))]</span> 
+	<span class="n">writeFastq</span><span class="p">(</span><span class="n">fqsub</span><span class="p">,</span> <span class="n">paste</span><span class="p">(</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="s2">"sub"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"_"</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">close</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h1 id="range-operations">Range Operations</h1>
 
@@ -2687,22 +2687,21 @@ close(f)
 
 <h3 id="construct-granges-object">Construct <code class="highlighter-rouge">GRanges</code> Object</h3>
 
-<p><code class="highlighter-rouge">r
-library(GenomicRanges); library(rtracklayer)
-gr &lt;- GRanges(seqnames = Rle(c("chr1", "chr2", "chr1", "chr3"), c(1, 3, 2, 4)), ranges = IRanges(1:10, end = 7:16, names = head(letters, 10)), strand = Rle(strand(c("-", "+", "*", "+", "-")), c(1, 2, 2, 3, 2)), score = 1:10, GC = seq(1, 0, length = 10)) # Example of creating a GRanges object with its constructor function.
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">GenomicRanges</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">rtracklayer</span><span class="p">)</span>
+<span class="n">gr</span> <span class="o">&lt;-</span> <span class="n">GRanges</span><span class="p">(</span><span class="n">seqnames</span> <span class="o">=</span> <span class="n">Rle</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"chr1"</span><span class="p">,</span> <span class="s2">"chr2"</span><span class="p">,</span> <span class="s2">"chr1"</span><span class="p">,</span> <span class="s2">"chr3"</span><span class="p">),</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">)),</span> <span class="n">ranges</span> <span class="o">=</span> <span class="n">IRanges</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="m">7</span><span class="o">:</span><span class="m">16</span><span class="p">,</span> <span class="n">names</span> <span class="o">=</span> <span class="n">head</span><span class="p">(</span><span class="n">letters</span><span class="p">,</span> <span class="m">10</span><span class="p">)),</span> <span class="n">strand</span> <span class="o">=</span> <span class="n">Rle</span><span class="p">(</span><span class="n">strand</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"-"</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">,</span> <span class="s2">"*"</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">)),</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="p">)),</span> <span class="n">score</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">GC</span> <span class="o">=</span> <span class="n">seq</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="m">10</span><span class="p">))</span> <span class="c1"># Example of creating a GRanges object with its constructor function.
+</span></code></pre>
+</div>
 
 <h3 id="import-gff-into-granges-object">Import GFF into <code class="highlighter-rouge">GRanges</code> Object</h3>
 
-<p><code class="highlighter-rouge">r
-gff &lt;- import.gff("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/gff3.gff") # Imports a simplified GFF3 genome annotation file.
-seqlengths(gff) &lt;- end(ranges(gff[which(values(gff)[,"type"]=="chromosome"),])) 
-names(gff) &lt;- 1:length(gff) # Assigns names to corresponding slot
-gff[1:4,]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gff</span> <span class="o">&lt;-</span> <span class="n">import.gff</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/gff3.gff"</span><span class="p">)</span> <span class="c1"># Imports a simplified GFF3 genome annotation file.
+</span><span class="n">seqlengths</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">end</span><span class="p">(</span><span class="n">ranges</span><span class="p">(</span><span class="n">gff</span><span class="p">[</span><span class="n">which</span><span class="p">(</span><span class="n">values</span><span class="p">(</span><span class="n">gff</span><span class="p">)[,</span><span class="s2">"type"</span><span class="p">]</span><span class="o">==</span><span class="s2">"chromosome"</span><span class="p">),]))</span> 
+<span class="n">names</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="m">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span> <span class="c1"># Assigns names to corresponding slot
+</span><span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 4 ranges and 10 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 4 ranges and 10 metadata columns:
 ##     seqnames           ranges strand |   source       type     score     phase                  ID
 ##        &lt;Rle&gt;        &lt;IRanges&gt;  &lt;Rle&gt; | &lt;factor&gt;   &lt;factor&gt; &lt;numeric&gt; &lt;integer&gt;         &lt;character&gt;
 ##   1     Chr1 [   1, 30427671]      + |   TAIR10 chromosome      &lt;NA&gt;      &lt;NA&gt;                Chr1
@@ -2717,28 +2716,29 @@ gff[1:4,]
 ##   4 AT1G01010.1                                            &lt;NA&gt;  AT1G01010.1
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="coerce-granges-object-to-dataframe">Coerce <code class="highlighter-rouge">GRanges</code> object to <code class="highlighter-rouge">data.frame</code></h3>
 
-<p><code class="highlighter-rouge">r
-as.data.frame(gff)[1:4, 1:7]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">as.data.frame</span><span class="p">(</span><span class="n">gff</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">7</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   seqnames start      end    width strand source       type
+<div class="highlighter-rouge"><pre class="highlight"><code>##   seqnames start      end    width strand source       type
 ## 1     Chr1     1 30427671 30427671      + TAIR10 chromosome
 ## 2     Chr1  3631     5899     2269      + TAIR10       gene
 ## 3     Chr1  3631     5899     2269      + TAIR10       mRNA
 ## 4     Chr1  3760     5630     1871      + TAIR10    protein
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="coerce-granges-to-rangeddata-object-and-vice-versa">Coerce <code class="highlighter-rouge">GRanges</code> to <code class="highlighter-rouge">RangedData</code> object and vice versa</h3>
 
-<p><code class="highlighter-rouge">r
-gff_rd &lt;- as(gff, "RangedData") 
-gff_gr &lt;- as(gff_rd, "GRanges") 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gff_rd</span> <span class="o">&lt;-</span> <span class="n">as</span><span class="p">(</span><span class="n">gff</span><span class="p">,</span> <span class="s2">"RangedData"</span><span class="p">)</span> 
+<span class="n">gff_gr</span> <span class="o">&lt;-</span> <span class="n">as</span><span class="p">(</span><span class="n">gff_rd</span><span class="p">,</span> <span class="s2">"GRanges"</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <h2 id="utilities-for-range-containers">Utilities for Range Containers</h2>
 
@@ -2746,12 +2746,11 @@ gff_gr &lt;- as(gff_rd, "GRanges")
 
 <p>Subsetting and replacement</p>
 
-<p><code class="highlighter-rouge">r
-gff[1:4]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 4 ranges and 10 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 4 ranges and 10 metadata columns:
 ##     seqnames           ranges strand |   source       type     score     phase                  ID
 ##        &lt;Rle&gt;        &lt;IRanges&gt;  &lt;Rle&gt; | &lt;factor&gt;   &lt;factor&gt; &lt;numeric&gt; &lt;integer&gt;         &lt;character&gt;
 ##   1     Chr1 [   1, 30427671]      + |   TAIR10 chromosome      &lt;NA&gt;      &lt;NA&gt;                Chr1
@@ -2766,14 +2765,14 @@ gff[1:4]
 ##   4 AT1G01010.1                                            &lt;NA&gt;  AT1G01010.1
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-gff[1:4, c("type", "ID")] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="n">c</span><span class="p">(</span><span class="s2">"type"</span><span class="p">,</span> <span class="s2">"ID"</span><span class="p">)]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 4 ranges and 2 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 4 ranges and 2 metadata columns:
 ##     seqnames           ranges strand |       type                  ID
 ##        &lt;Rle&gt;        &lt;IRanges&gt;  &lt;Rle&gt; |   &lt;factor&gt;         &lt;character&gt;
 ##   1     Chr1 [   1, 30427671]      + | chromosome                Chr1
@@ -2782,20 +2781,20 @@ gff[1:4, c("type", "ID")]
 ##   4     Chr1 [3760,     5630]      + |    protein AT1G01010.1-Protein
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-gff[2] &lt;- gff[3] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gff</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">gff</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> 
+</code></pre>
+</div>
 
 <p>GRanges objects can be concatenated with the <code class="highlighter-rouge">c</code> function</p>
 
-<p><code class="highlighter-rouge">r
-c(gff[1:2], gff[401:402]) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">c</span><span class="p">(</span><span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">2</span><span class="p">],</span> <span class="n">gff</span><span class="p">[</span><span class="m">401</span><span class="o">:</span><span class="m">402</span><span class="p">])</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 4 ranges and 10 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 4 ranges and 10 metadata columns:
 ##       seqnames           ranges strand |   source           type     score     phase
 ##          &lt;Rle&gt;        &lt;IRanges&gt;  &lt;Rle&gt; | &lt;factor&gt;       &lt;factor&gt; &lt;numeric&gt; &lt;integer&gt;
 ##     1     Chr1 [   1, 30427671]      + |   TAIR10     chromosome      &lt;NA&gt;      &lt;NA&gt;
@@ -2810,27 +2809,27 @@ c(gff[1:2], gff[401:402])
 ##   402                &lt;NA&gt;        &lt;NA&gt;                     AT5G01015.2        &lt;NA&gt;         &lt;NA&gt;
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
 <p>Acessor functions</p>
 
-<p><code class="highlighter-rouge">r
-seqnames(gff)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">seqnames</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## factor-Rle of length 449 with 7 runs
+<div class="highlighter-rouge"><pre class="highlight"><code>## factor-Rle of length 449 with 7 runs
 ##   Lengths:   72   22   38  118  172   13   14
 ##   Values : Chr1 Chr2 Chr3 Chr4 Chr5 ChrC ChrM
 ## Levels(7): Chr1 Chr2 Chr3 Chr4 Chr5 ChrC ChrM
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-ranges(gff)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">ranges</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## IRanges of length 449
+<div class="highlighter-rouge"><pre class="highlight"><code>## IRanges of length 449
 ##       start      end    width names
 ## [1]       1 30427671 30427671     1
 ## [2]    3631     5899     2269     2
@@ -2843,60 +2842,60 @@ ranges(gff)
 ## [447] 11918    12241      324   447
 ## [448] 11918    12241      324   448
 ## [449] 11918    12241      324   449
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-strand(gff)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">strand</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## factor-Rle of length 449 with 13 runs
+<div class="highlighter-rouge"><pre class="highlight"><code>## factor-Rle of length 449 with 13 runs
 ##   Lengths:  18  54  28  21  12 117   1 171   1  12   1   8   5
 ##   Values :   +   -   +   -   +   -   +   -   +   -   +   -   +
 ## Levels(3): + - *
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-seqlengths(gff) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">seqlengths</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##     Chr1     Chr2     Chr3     Chr4     Chr5     ChrC     ChrM 
+<div class="highlighter-rouge"><pre class="highlight"><code>##     Chr1     Chr2     Chr3     Chr4     Chr5     ChrC     ChrM 
 ## 30427671 19698289 23459830 18585056 26975502   154478   366924
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-start(gff[1:4])
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">start</span><span class="p">(</span><span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1]    1 3631 3631 3760
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1]    1 3631 3631 3760
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-end(gff[1:4])
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">end</span><span class="p">(</span><span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 30427671     5899     5899     5630
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 30427671     5899     5899     5630
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-width(gff[1:4]) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">width</span><span class="p">(</span><span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 30427671     2269     2269     1871
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 30427671     2269     2269     1871
+</code></pre>
+</div>
 
 <p>Accessing metadata component</p>
 
-<p><code class="highlighter-rouge">r
-values(gff) # or elementMetadata(gff)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">values</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span> <span class="c1"># or elementMetadata(gff)
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## DataFrame with 449 rows and 10 columns
+<div class="highlighter-rouge"><pre class="highlight"><code>## DataFrame with 449 rows and 10 columns
 ##       source       type     score     phase                  ID        Name                Note
 ##     &lt;factor&gt;   &lt;factor&gt; &lt;numeric&gt; &lt;integer&gt;         &lt;character&gt; &lt;character&gt;     &lt;CharacterList&gt;
 ## 1     TAIR10 chromosome        NA        NA                Chr1        Chr1                    
@@ -2923,26 +2922,26 @@ values(gff) # or elementMetadata(gff)
 ## 447                                          NA  ATMG00030.1
 ## 448                     ATMG00030.1          NA           NA
 ## 449 ATMG00030.1,ATMG00030.1-Protein          NA           NA
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-values(gff)[, "type"][1:20] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">values</span><span class="p">(</span><span class="n">gff</span><span class="p">)[,</span> <span class="s2">"type"</span><span class="p">][</span><span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  [1] chromosome      mRNA            mRNA            protein         exon            five_prime_UTR 
+<div class="highlighter-rouge"><pre class="highlight"><code>##  [1] chromosome      mRNA            mRNA            protein         exon            five_prime_UTR 
 ##  [7] CDS             exon            CDS             exon            CDS             exon           
 ## [13] CDS             exon            CDS             exon            CDS             three_prime_UTR
 ## [19] gene            mRNA           
 ## Levels: chromosome gene mRNA protein exon five_prime_UTR CDS three_prime_UTR rRNA tRNA
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-gff[elementMetadata(gff)[ ,"type"] == "gene"] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gff</span><span class="p">[</span><span class="n">elementMetadata</span><span class="p">(</span><span class="n">gff</span><span class="p">)[</span> <span class="p">,</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"gene"</span><span class="p">]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 21 ranges and 10 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 21 ranges and 10 metadata columns:
 ##       seqnames         ranges strand   |   source     type     score     phase          ID
 ##          &lt;Rle&gt;      &lt;IRanges&gt;  &lt;Rle&gt;   | &lt;factor&gt; &lt;factor&gt; &lt;numeric&gt; &lt;integer&gt; &lt;character&gt;
 ##    19     Chr1 [ 5928,  8737]      -   |   TAIR10     gene      &lt;NA&gt;      &lt;NA&gt;   AT1G01020
@@ -2971,30 +2970,30 @@ gff[elementMetadata(gff)[ ,"type"] == "gene"]
 ##   445   ATMG00030 protein_coding_gene                        &lt;NA&gt;         &lt;NA&gt;
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="useful-utilities-for-granges-objects">Useful utilities for GRanges objects</h3>
 
 <p>Remove chromosome ranges</p>
 
-<p><code class="highlighter-rouge">r
-gff &lt;- gff[values(gff)$type != "chromosome"] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gff</span> <span class="o">&lt;-</span> <span class="n">gff</span><span class="p">[</span><span class="n">values</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span><span class="o">$</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"chromosome"</span><span class="p">]</span> 
+</code></pre>
+</div>
 
 <p>Erase the strand information</p>
 
-<p><code class="highlighter-rouge">r
-strand(gff) &lt;- "*" 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">strand</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="s2">"*"</span> 
+</code></pre>
+</div>
 
 <p>Collapses overlapping ranges to continuous ranges.</p>
 
-<p><code class="highlighter-rouge">r
-reduce(gff) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">reduce</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 22 ranges and 0 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 22 ranges and 0 metadata columns:
 ##        seqnames         ranges strand
 ##           &lt;Rle&gt;      &lt;IRanges&gt;  &lt;Rle&gt;
 ##    [1]     Chr1 [ 3631,  5899]      *
@@ -3010,16 +3009,16 @@ reduce(gff)
 ##   [22]     ChrM [11918, 12241]      *
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
 <p>Return uncovered regions</p>
 
-<p><code class="highlighter-rouge">r
-gaps(gff) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gaps</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 43 ranges and 0 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 43 ranges and 0 metadata columns:
 ##        seqnames           ranges strand
 ##           &lt;Rle&gt;        &lt;IRanges&gt;  &lt;Rle&gt;
 ##    [1]     Chr1 [   1, 30427671]      +
@@ -3035,16 +3034,16 @@ gaps(gff)
 ##   [43]     ChrM  [12242, 366924]      *
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
 <p>Return disjoint ranges</p>
 
-<p><code class="highlighter-rouge">r
-disjoin(gff)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">disjoin</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 211 ranges and 0 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 211 ranges and 0 metadata columns:
 ##         seqnames         ranges strand
 ##            &lt;Rle&gt;      &lt;IRanges&gt;  &lt;Rle&gt;
 ##     [1]     Chr1   [3631, 3759]      *
@@ -3060,16 +3059,16 @@ disjoin(gff)
 ##   [211]     ChrM [11918, 12241]      *
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
 <p>Returns coverage of ranges</p>
 
-<p><code class="highlighter-rouge">r
-coverage(gff)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">coverage</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## RleList of length 7
+<div class="highlighter-rouge"><pre class="highlight"><code>## RleList of length 7
 ## $Chr1
 ## integer-Rle of length 30427671 with 45 runs
 ##   Lengths:     3630      129      154       82      281 ...      233      161      380 30413957
@@ -3097,16 +3096,16 @@ coverage(gff)
 ## 
 ## ...
 ## &lt;2 more elements&gt;
-</code></p>
+</code></pre>
+</div>
 
 <p>Return the index pairings for overlapping ranges</p>
 
-<p><code class="highlighter-rouge">r
-findOverlaps(gff, gff[1:4]) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">findOverlaps</span><span class="p">(</span><span class="n">gff</span><span class="p">,</span> <span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## Hits object with 55 hits and 0 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## Hits object with 55 hits and 0 metadata columns:
 ##        queryHits subjectHits
 ##        &lt;integer&gt;   &lt;integer&gt;
 ##    [1]         1           1
@@ -3123,29 +3122,29 @@ findOverlaps(gff, gff[1:4])
 ##   -------
 ##   queryLength: 442
 ##   subjectLength: 4
-</code></p>
+</code></pre>
+</div>
 
 <p>Counts overlapping ranges</p>
 
-<p><code class="highlighter-rouge">r
-countOverlaps(gff, gff[1:4])[1:40]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">countOverlaps</span><span class="p">(</span><span class="n">gff</span><span class="p">,</span> <span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])[</span><span class="m">1</span><span class="o">:</span><span class="m">40</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 
+<div class="highlighter-rouge"><pre class="highlight"><code>##  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 
 ##  4  4  4  4  3  4  3  3  3  3  3  3  3  3  3  3  2  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 
 ## 35 36 37 38 39 40 41 
 ##  0  0  0  0  0  0  0
-</code></p>
+</code></pre>
+</div>
 
 <p>Return only overlapping ranges</p>
 
-<p><code class="highlighter-rouge">r
-subsetByOverlaps(gff, gff[1:4]) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">subsetByOverlaps</span><span class="p">(</span><span class="n">gff</span><span class="p">,</span> <span class="n">gff</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">])</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 17 ranges and 10 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 17 ranges and 10 metadata columns:
 ##       seqnames       ranges strand   |   source            type     score     phase
 ##          &lt;Rle&gt;    &lt;IRanges&gt;  &lt;Rle&gt;   | &lt;factor&gt;        &lt;factor&gt; &lt;numeric&gt; &lt;integer&gt;
 ##     2     Chr1 [3631, 5899]      *   |   TAIR10            mRNA      &lt;NA&gt;      &lt;NA&gt;
@@ -3187,17 +3186,17 @@ subsetByOverlaps(gff, gff[1:4])
 ##    18         &lt;NA&gt;
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="grangeslist-objects">GRangesList Objects</h2>
 
-<p><code class="highlighter-rouge">r
-sp &lt;- split(gff, seq(along=gff)) # Stores every range in separate component of a GRangesList object
-split(gff, seqnames(gff)) # Stores ranges of each chromosome in separate component.
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sp</span> <span class="o">&lt;-</span> <span class="n">split</span><span class="p">(</span><span class="n">gff</span><span class="p">,</span> <span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">gff</span><span class="p">))</span> <span class="c1"># Stores every range in separate component of a GRangesList object
+</span><span class="n">split</span><span class="p">(</span><span class="n">gff</span><span class="p">,</span> <span class="n">seqnames</span><span class="p">(</span><span class="n">gff</span><span class="p">))</span> <span class="c1"># Stores ranges of each chromosome in separate component.
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRangesList object of length 7:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRangesList object of length 7:
 ## $Chr1 
 ## GRanges object with 71 ranges and 10 metadata columns:
 ##       seqnames         ranges strand   |   source            type     score     phase
@@ -3244,14 +3243,14 @@ split(gff, seqnames(gff)) # Stores ranges of each chromosome in separate compone
 ## &lt;6 more elements&gt;
 ## -------
 ## seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-unlist(sp) # Returns data as GRanges object
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">unlist</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span> <span class="c1"># Returns data as GRanges object
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 442 ranges and 10 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 442 ranges and 10 metadata columns:
 ##           seqnames         ranges strand   |   source           type     score     phase
 ##              &lt;Rle&gt;      &lt;IRanges&gt;  &lt;Rle&gt;   | &lt;factor&gt;       &lt;factor&gt; &lt;numeric&gt; &lt;integer&gt;
 ##       1.2     Chr1   [3631, 5899]      *   |   TAIR10           mRNA      &lt;NA&gt;      &lt;NA&gt;
@@ -3293,14 +3292,14 @@ unlist(sp) # Returns data as GRanges object
 ##   442.449        &lt;NA&gt;         &lt;NA&gt;
 ##   -------
 ##   seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-sp[1:4, "type"] # Subsetting of GRangesList objects is similar to GRanges objects.
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sp</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span> <span class="s2">"type"</span><span class="p">]</span> <span class="c1"># Subsetting of GRangesList objects is similar to GRanges objects.
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRangesList object of length 4:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRangesList object of length 4:
 ## $1 
 ## GRanges object with 1 range and 1 metadata column:
 ##     seqnames       ranges strand |     type
@@ -3321,14 +3320,14 @@ sp[1:4, "type"] # Subsetting of GRangesList objects is similar to GRanges object
 ## &lt;1 more element&gt;
 ## -------
 ## seqinfo: 7 sequences from an unspecified genome
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-lapply(sp[1:4], length) # Looping over GRangesList objects similar to lists
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">lapply</span><span class="p">(</span><span class="n">sp</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span> <span class="n">length</span><span class="p">)</span> <span class="c1"># Looping over GRangesList objects similar to lists
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## $`1`
+<div class="highlighter-rouge"><pre class="highlight"><code>## $`1`
 ## [1] 1
 ## 
 ## $`2`
@@ -3339,20 +3338,20 @@ lapply(sp[1:4], length) # Looping over GRangesList objects similar to lists
 ## 
 ## $`4`
 ## [1] 1
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="transcript-ranges">Transcript Ranges</h1>
 
 <p>Storing annotation ranges in <code class="highlighter-rouge">TranscriptDb</code> databases makes many operations more robust and convenient.</p>
 
-<p><code class="highlighter-rouge">r
-library(GenomicFeatures)
-download.file("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/gff3.gff", "data/gff3.gff")
-txdb &lt;- makeTxDbFromGFF(file="data/gff3.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">GenomicFeatures</span><span class="p">)</span>
+<span class="n">download.file</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/Samples/gff3.gff"</span><span class="p">,</span> <span class="s2">"data/gff3.gff"</span><span class="p">)</span>
+<span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">makeTxDbFromGFF</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"data/gff3.gff"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"gff"</span><span class="p">,</span> <span class="n">dataSource</span><span class="o">=</span><span class="s2">"TAIR"</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s2">"Arabidopsis thaliana"</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## Warning in .extract_exons_from_GRanges(cds_IDX, gr, ID, Name, Parent, feature = "cds", : The following orphan CDS were dropped (showing only the 6 first):
+<div class="highlighter-rouge"><pre class="highlight"><code>## Warning in .extract_exons_from_GRanges(cds_IDX, gr, ID, Name, Parent, feature = "cds", : The following orphan CDS were dropped (showing only the 6 first):
 ##   seqid start  end strand   ID              Parent Name
 ## 1  Chr1  3760 3913      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
 ## 2  Chr1  3996 4276      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
@@ -3360,14 +3359,14 @@ txdb &lt;- makeTxDbFromGFF(file="data/gff3.gff", format="gff", dataSource="TAIR"
 ## 4  Chr1  4706 5095      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
 ## 5  Chr1  5174 5326      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
 ## 6  Chr1  5439 5630      + &lt;NA&gt; AT1G01010.1-Protein &lt;NA&gt;
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-saveDb(txdb, file="./data/TAIR10.sqlite")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">saveDb</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"./data/TAIR10.sqlite"</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## TxDb object:
+<div class="highlighter-rouge"><pre class="highlight"><code>## TxDb object:
 ## # Db type: TxDb
 ## # Supporting package: GenomicFeatures
 ## # Data source: TAIR
@@ -3383,15 +3382,15 @@ saveDb(txdb, file="./data/TAIR10.sqlite")
 ## # GenomicFeatures version at creation time: 1.22.6
 ## # RSQLite version at creation time: 1.0.0
 ## # DBSCHEMAVERSION: 1.1
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-txdb &lt;- loadDb("./data/TAIR10.sqlite")
-transcripts(txdb)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">loadDb</span><span class="p">(</span><span class="s2">"./data/TAIR10.sqlite"</span><span class="p">)</span>
+<span class="n">transcripts</span><span class="p">(</span><span class="n">txdb</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRanges object with 28 ranges and 2 metadata columns:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRanges object with 28 ranges and 2 metadata columns:
 ##        seqnames         ranges strand   |     tx_id     tx_name
 ##           &lt;Rle&gt;      &lt;IRanges&gt;  &lt;Rle&gt;   | &lt;integer&gt; &lt;character&gt;
 ##    [1]     Chr1 [ 3631,  5899]      +   |         1 AT1G01010.1
@@ -3407,14 +3406,14 @@ transcripts(txdb)
 ##   [28]     ChrM [ 8848, 11415]      -   |        28 ATMG00020.1
 ##   -------
 ##   seqinfo: 7 sequences (2 circular) from an unspecified genome; no seqlengths
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-transcriptsBy(txdb, by = "gene")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">transcriptsBy</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s2">"gene"</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRangesList object of length 22:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRangesList object of length 22:
 ## $AT1G01010 
 ## GRanges object with 1 range and 2 metadata columns:
 ##       seqnames       ranges strand |     tx_id     tx_name
@@ -3436,14 +3435,14 @@ transcriptsBy(txdb, by = "gene")
 ## &lt;19 more elements&gt;
 ## -------
 ## seqinfo: 7 sequences (2 circular) from an unspecified genome; no seqlengths
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-exonsBy(txdb, by = "gene")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">exonsBy</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">by</span> <span class="o">=</span> <span class="s2">"gene"</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## GRangesList object of length 22:
+<div class="highlighter-rouge"><pre class="highlight"><code>## GRangesList object of length 22:
 ## $AT1G01010 
 ## GRanges object with 6 ranges and 2 metadata columns:
 ##       seqnames       ranges strand |   exon_id   exon_name
@@ -3480,42 +3479,42 @@ exonsBy(txdb, by = "gene")
 ## &lt;19 more elements&gt;
 ## -------
 ## seqinfo: 7 sequences (2 circular) from an unspecified genome; no seqlengths
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="txdb-from-biomart"><code class="highlighter-rouge">txdb</code> from BioMart</h2>
 
 <p>Alternative sources for creating <code class="highlighter-rouge">txdb</code> databases are BioMart, Bioc annotation packages, UCSC, etc. The following shows how to create a <code class="highlighter-rouge">txdb</code> from BioMart.</p>
 
-<p><code class="highlighter-rouge">r
-library(GenomicFeatures); library("biomaRt")
-txdb &lt;- makeTxDbFromBiomart(biomart = "plants_mart", dataset = "athaliana_eg_gene", host="plants.ensembl.org")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">GenomicFeatures</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="s2">"biomaRt"</span><span class="p">)</span>
+<span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">makeTxDbFromBiomart</span><span class="p">(</span><span class="n">biomart</span> <span class="o">=</span> <span class="s2">"plants_mart"</span><span class="p">,</span> <span class="n">dataset</span> <span class="o">=</span> <span class="s2">"athaliana_eg_gene"</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p>The following steps are useful to find out what is availble in BioMart.</p>
 
-<p><code class="highlighter-rouge">r
-listMarts() # Lists BioMart databases
-listMarts(host="plants.ensembl.org")
-mymart &lt;- useMart("plants_mart", host="plants.ensembl.org") # Select one, here plants_mart_25
-listDatasets(mymart) # List datasets available in the selected BioMart database
-mymart &lt;- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
-listAttributes(mymart) # List available features 
-getBM(attributes=c("ensembl_gene_id", "description"), mart=mymart)[1:4,]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">listMarts</span><span class="p">()</span> <span class="c1"># Lists BioMart databases
+</span><span class="n">listMarts</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span>
+<span class="n">mymart</span> <span class="o">&lt;-</span> <span class="n">useMart</span><span class="p">(</span><span class="s2">"plants_mart"</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span> <span class="c1"># Select one, here plants_mart_25
+</span><span class="n">listDatasets</span><span class="p">(</span><span class="n">mymart</span><span class="p">)</span> <span class="c1"># List datasets available in the selected BioMart database
+</span><span class="n">mymart</span> <span class="o">&lt;-</span> <span class="n">useMart</span><span class="p">(</span><span class="s2">"plants_mart"</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="s2">"athaliana_eg_gene"</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span>
+<span class="n">listAttributes</span><span class="p">(</span><span class="n">mymart</span><span class="p">)</span> <span class="c1"># List available features 
+</span><span class="n">getBM</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"ensembl_gene_id"</span><span class="p">,</span> <span class="s2">"description"</span><span class="p">),</span> <span class="n">mart</span><span class="o">=</span><span class="n">mymart</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
+</code></pre>
+</div>
 
 <h2 id="efficient-sequence-parsing-with-getseq">Efficient Sequence Parsing with <code class="highlighter-rouge">getSeq</code></h2>
 
 <p>The following parses all annotation ranges provided by <code class="highlighter-rouge">GRanges</code> object (e.g. <code class="highlighter-rouge">gff</code>) from a genome sequence stored in a local file.</p>
 
-<p><code class="highlighter-rouge">r
-gff &lt;- gff[values(gff)$type != "chromosome"] # Remove chromosome ranges
-rand &lt;- DNAStringSet(sapply(unique(as.character(seqnames(gff))), function(x) paste(sample(c("A","T","G","C"), 200000, replace=T), collapse="")))
-writeXStringSet(DNAStringSet(rand), "./data/test")
-getSeq(FaFile("./data/test"), gff)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gff</span> <span class="o">&lt;-</span> <span class="n">gff</span><span class="p">[</span><span class="n">values</span><span class="p">(</span><span class="n">gff</span><span class="p">)</span><span class="o">$</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"chromosome"</span><span class="p">]</span> <span class="c1"># Remove chromosome ranges
+</span><span class="n">rand</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">sapply</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">as.character</span><span class="p">(</span><span class="n">seqnames</span><span class="p">(</span><span class="n">gff</span><span class="p">))),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">sample</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"T"</span><span class="p">,</span><span class="s2">"G"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">),</span> <span class="m">200000</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">T</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span>
+<span class="n">writeXStringSet</span><span class="p">(</span><span class="n">DNAStringSet</span><span class="p">(</span><span class="n">rand</span><span class="p">),</span> <span class="s2">"./data/test"</span><span class="p">)</span>
+<span class="n">getSeq</span><span class="p">(</span><span class="n">FaFile</span><span class="p">(</span><span class="s2">"./data/test"</span><span class="p">),</span> <span class="n">gff</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   A DNAStringSet instance of length 442
+<div class="highlighter-rouge"><pre class="highlight"><code>##   A DNAStringSet instance of length 442
 ##       width seq                                                                 names               
 ##   [1]  2269 TAATCCCGCCAGGGGTACCTTACAATGAGACG...CGTCGCAGCTAAACCTAGTATGTTCTATATAC Chr1
 ##   [2]  2269 TAATCCCGCCAGGGGTACCTTACAATGAGACG...CGTCGCAGCTAAACCTAGTATGTTCTATATAC Chr1
@@ -3528,7 +3527,8 @@ getSeq(FaFile("./data/test"), gff)
 ## [440]   324 TCCCCTCCCAGCCTCCTAGAGGTGACGAGGAT...GACGGGGGGAAATGCTGTAGTCTCAAATGACC ChrM
 ## [441]   324 TCCCCTCCCAGCCTCCTAGAGGTGACGAGGAT...GACGGGGGGAAATGCTGTAGTCTCAAATGACC ChrM
 ## [442]   324 TCCCCTCCCAGCCTCCTAGAGGTGACGAGGAT...GACGGGGGGAAATGCTGTAGTCTCAAATGACC ChrM
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="homework-6">Homework 6</h1>
 
@@ -3540,22 +3540,22 @@ At the same time the function should remove low quality tails from the reads.
 The following function accomplishes the first step. Expand this function so
 that it performs the second step as well.</p>
 
-<p><code class="highlighter-rouge">r
-demultiplex &lt;- function(x, barcode, nreads) {
-	f &lt;- FastqStreamer(x, nreads) 
-	while(length(fq &lt;- yield(f))) {
-		for(i in barcode) {
-			pattern &lt;- paste("^", i, sep="")
-			fqsub &lt;- fq[grepl(pattern, sread(fq))] 
-			if(length(fqsub) &gt; 0) {
-				writeFastq(fqsub, paste(x, i, sep="_"), mode="a", compress=FALSE)
-			}
-		}
-	}
-	close(f)
-}
-demultiplex(x=fastq[1], barcode=c("TT", "AA", "GG"), nreads=50)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">demultiplex</span> <span class="o">&lt;-</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">barcode</span><span class="p">,</span> <span class="n">nreads</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">f</span> <span class="o">&lt;-</span> <span class="n">FastqStreamer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nreads</span><span class="p">)</span> 
+	<span class="k">while</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">fq</span> <span class="o">&lt;-</span> <span class="n">yield</span><span class="p">(</span><span class="n">f</span><span class="p">)))</span> <span class="p">{</span>
+		<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="k">in</span> <span class="n">barcode</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">pattern</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"^"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+			<span class="n">fqsub</span> <span class="o">&lt;-</span> <span class="n">fq</span><span class="p">[</span><span class="n">grepl</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">sread</span><span class="p">(</span><span class="n">fq</span><span class="p">))]</span> 
+			<span class="k">if</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">fqsub</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+				<span class="n">writeFastq</span><span class="p">(</span><span class="n">fqsub</span><span class="p">,</span> <span class="n">paste</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"_"</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="n">close</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">demultiplex</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">fastq</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">barcode</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"TT"</span><span class="p">,</span> <span class="s2">"AA"</span><span class="p">,</span> <span class="s2">"GG"</span><span class="p">),</span> <span class="n">nreads</span><span class="o">=</span><span class="m">50</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h2 id="hw6b---sequence-parsing">HW6b - Sequence Parsing</h2>
 
@@ -3569,22 +3569,22 @@ demultiplex(x=fastq[1], barcode=c("TT", "AA", "GG"), nreads=50)
 
 <p><strong>Useful commands</strong></p>
 
-<p><code class="highlighter-rouge">r
-download.file("ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff", "data/AE004437.gff")
-download.file("ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.fna", "data/AE004437.fna")
-chr &lt;- readDNAStringSet("data/AE004437.fna")
-gff &lt;- import("data/AE004437.gff")
-gffgene &lt;- gff[values(gff)[,"type"]=="gene"]
-gene &lt;- DNAStringSet(Views(chr[[1]], IRanges(start(gffgene), end(gffgene))))
-names(gene) &lt;- values(gffgene)[,"locus_tag"]
-pos &lt;- values(gffgene[strand(gffgene) == "+"])[,"locus_tag"]
-p1 &lt;- translate(gene[names(gene) %in% pos])
-names(p1) &lt;- names(gene[names(gene) %in% pos])
-neg &lt;- values(gffgene[strand(gffgene) == "-"])[,"locus_tag"]
-p2 &lt;- translate(reverseComplement(gene[names(gene) %in% neg]))
-names(p2) &lt;- names(gene[names(gene) %in% neg])
-writeXStringSet(c(p1, p2), "./data/mypep.fasta")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.gff"</span><span class="p">,</span> <span class="s2">"data/AE004437.gff"</span><span class="p">)</span>
+<span class="n">download.file</span><span class="p">(</span><span class="s2">"ftp://ftp.ncbi.nlm.nih.gov/genomes/archive/old_genbank/Bacteria/Halobacterium_sp_uid217/AE004437.fna"</span><span class="p">,</span> <span class="s2">"data/AE004437.fna"</span><span class="p">)</span>
+<span class="n">chr</span> <span class="o">&lt;-</span> <span class="n">readDNAStringSet</span><span class="p">(</span><span class="s2">"data/AE004437.fna"</span><span class="p">)</span>
+<span class="n">gff</span> <span class="o">&lt;-</span> <span class="n">import</span><span class="p">(</span><span class="s2">"data/AE004437.gff"</span><span class="p">)</span>
+<span class="n">gffgene</span> <span class="o">&lt;-</span> <span class="n">gff</span><span class="p">[</span><span class="n">values</span><span class="p">(</span><span class="n">gff</span><span class="p">)[,</span><span class="s2">"type"</span><span class="p">]</span><span class="o">==</span><span class="s2">"gene"</span><span class="p">]</span>
+<span class="n">gene</span> <span class="o">&lt;-</span> <span class="n">DNAStringSet</span><span class="p">(</span><span class="n">Views</span><span class="p">(</span><span class="n">chr</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">IRanges</span><span class="p">(</span><span class="n">start</span><span class="p">(</span><span class="n">gffgene</span><span class="p">),</span> <span class="n">end</span><span class="p">(</span><span class="n">gffgene</span><span class="p">))))</span>
+<span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">values</span><span class="p">(</span><span class="n">gffgene</span><span class="p">)[,</span><span class="s2">"locus_tag"</span><span class="p">]</span>
+<span class="n">pos</span> <span class="o">&lt;-</span> <span class="n">values</span><span class="p">(</span><span class="n">gffgene</span><span class="p">[</span><span class="n">strand</span><span class="p">(</span><span class="n">gffgene</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"+"</span><span class="p">])[,</span><span class="s2">"locus_tag"</span><span class="p">]</span>
+<span class="n">p1</span> <span class="o">&lt;-</span> <span class="n">translate</span><span class="p">(</span><span class="n">gene</span><span class="p">[</span><span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">)</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">pos</span><span class="p">])</span>
+<span class="n">names</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">[</span><span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">)</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">pos</span><span class="p">])</span>
+<span class="n">neg</span> <span class="o">&lt;-</span> <span class="n">values</span><span class="p">(</span><span class="n">gffgene</span><span class="p">[</span><span class="n">strand</span><span class="p">(</span><span class="n">gffgene</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"-"</span><span class="p">])[,</span><span class="s2">"locus_tag"</span><span class="p">]</span>
+<span class="n">p2</span> <span class="o">&lt;-</span> <span class="n">translate</span><span class="p">(</span><span class="n">reverseComplement</span><span class="p">(</span><span class="n">gene</span><span class="p">[</span><span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">)</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">neg</span><span class="p">]))</span>
+<span class="n">names</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">[</span><span class="n">names</span><span class="p">(</span><span class="n">gene</span><span class="p">)</span> <span class="o">%</span><span class="k">in</span><span class="o">%</span> <span class="n">neg</span><span class="p">])</span>
+<span class="n">writeXStringSet</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">),</span> <span class="s2">"./data/mypep.fasta"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h2 id="homework-submission">Homework submission</h2>
 <p>Submit the homework results in one well structured and annotated R script to the instructor. The script should include instructions on how to use the functions.</p>
@@ -3599,12 +3599,11 @@ writeXStringSet(c(p1, p2), "./data/mypep.fasta")
 
 <h1 id="session-info">Session Info</h1>
 
-<p><code class="highlighter-rouge">r
-sessionInfo()
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sessionInfo</span><span class="p">()</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## R version 3.2.4 Revised (2016-03-16 r70336)
+<div class="highlighter-rouge"><pre class="highlight"><code>## R version 3.2.4 Revised (2016-03-16 r70336)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 14.04.4 LTS
 ## 
@@ -3643,7 +3642,8 @@ sessionInfo()
 ## [45] brew_1.0-6             rjson_0.2.15           lambda.r_1.1.7         RColorBrewer_1.1-2    
 ## [49] tools_3.2.4            Category_2.36.0        survival_2.38-3        yaml_2.1.13           
 ## [53] colorspace_1.2-6       knitr_1.12
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="references">References</h1>
 
@@ -3663,7 +3663,7 @@ sessionInfo()
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
- Site last generated: Jun 21, 2016 <br />
+ Site last generated: Aug 11, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

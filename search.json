@@ -869,7 +869,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_01.html",
+"url": "../mydoc/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -880,7 +880,7 @@
 "title": "HW1 - Online Databases and Software",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_01.html",
+"url": "../vignettes/06_Homework/mydoc_homework_01.html",
 "summary": ""
 },
 
@@ -913,7 +913,7 @@
 "title": "HW3 - Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_homework_03.html",
+"url": "../vignettes/06_Homework/mydoc_homework_03.html",
 "summary": ""
 },
 
@@ -924,18 +924,7 @@
 "title": "HW3 - Introduction to R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/06_Homework/mydoc_homework_03.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "HW4 - Pairwise Alignments",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_homework_04.html",
+"url": "../mydoc/mydoc_homework_03.html",
 "summary": ""
 },
 
@@ -954,11 +943,11 @@
 
 
 {
-"title": "Internal Resources",
+"title": "HW4 - Pairwise Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_internal.html",
-"summary": "This page provides a link to password protected resources that are only accessible to students of this class."
+"url": "../mydoc/mydoc_homework_04.html",
+"summary": ""
 },
 
 
@@ -976,11 +965,11 @@
 
 
 {
-"title": "Student Paper Presentations",
+"title": "Internal Resources",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_paper_presentations.html",
-"summary": ""
+"url": "../mydoc/mydoc_internal.html",
+"summary": "This page provides a link to password protected resources that are only accessible to students of this class."
 },
 
 
@@ -998,10 +987,10 @@
 
 
 {
-"title": "Overview of Course Projects",
+"title": "Student Paper Presentations",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_00.html",
+"url": "../mydoc/mydoc_paper_presentations.html",
 "summary": ""
 },
 
@@ -1020,10 +1009,10 @@
 
 
 {
-"title": "ChIP-Seq1 - Motif Prediction",
+"title": "Overview of Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_01.html",
+"url": "../mydoc/mydoc_project_00.html",
 "summary": ""
 },
 
@@ -1035,6 +1024,17 @@
 "tags": "",
 "keywords": "",
 "url": "../mydoc/mydoc_project_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "ChIP-Seq1 - Motif Prediction",
+"tags": "",
+"keywords": "",
+"url": "../vignettes/17_Projects/mydoc_project_01.html",
 "summary": ""
 },
 
@@ -1111,7 +1111,7 @@
 "title": "VAR-Seq1 - Comparison of Variant Callers",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_05.html",
+"url": "../vignettes/17_Projects/mydoc_project_05.html",
 "summary": ""
 },
 
@@ -1122,7 +1122,7 @@
 "title": "VAR-Seq1 - Comparison of Variant Callers",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_05.html",
+"url": "../mydoc/mydoc_project_05.html",
 "summary": ""
 },
 
@@ -1155,7 +1155,7 @@
 "title": "Data Management for Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/17_Projects/mydoc_project_07.html",
+"url": "../mydoc/mydoc_project_07.html",
 "summary": ""
 },
 
@@ -1166,18 +1166,7 @@
 "title": "Data Management for Course Projects",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_project_07.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Course Schedule",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_schedule.html",
+"url": "../vignettes/17_Projects/mydoc_project_07.html",
 "summary": ""
 },
 
@@ -1196,10 +1185,10 @@
 
 
 {
-"title": "Course Introduction",
+"title": "Course Schedule",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_01.html",
+"url": "../mydoc/mydoc_schedule.html",
 "summary": ""
 },
 
@@ -1211,6 +1200,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_01.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Course Introduction",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_01.html",
 "summary": ""
 },
 
@@ -1331,7 +1331,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_07.html",
+"url": "../vignettes/04_Slides/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1342,7 +1342,7 @@
 "title": "Programming in R",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_07.html",
+"url": "../mydoc/mydoc_slides_07.html",
 "summary": ""
 },
 
@@ -1375,7 +1375,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_09.html",
+"url": "../mydoc/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1386,7 +1386,7 @@
 "title": "Short Read Alignments",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_09.html",
+"url": "../vignettes/04_Slides/mydoc_slides_09.html",
 "summary": ""
 },
 
@@ -1441,7 +1441,7 @@
 "title": "Introduction to NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_12.html",
+"url": "../vignettes/04_Slides/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1452,18 +1452,7 @@
 "title": "Introduction to NGS Workflows",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_12.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "ChIP-Seq Overview",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_13.html",
+"url": "../mydoc/mydoc_slides_12.html",
 "summary": ""
 },
 
@@ -1475,6 +1464,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_13.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "ChIP-Seq Overview",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_13.html",
 "summary": ""
 },
 
@@ -1529,7 +1529,7 @@
 "title": "Gene Annotation, Ontologies and Enrichment Methods",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_16.html",
+"url": "../mydoc/mydoc_slides_16.html",
 "summary": ""
 },
 
@@ -1540,18 +1540,7 @@
 "title": "Gene Annotation, Ontologies and Enrichment Methods",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_16.html",
-"summary": ""
-},
-
-
-
-
-{
-"title": "Cluster Analysis",
-"tags": "",
-"keywords": "",
-"url": "../mydoc/mydoc_slides_17.html",
+"url": "../vignettes/04_Slides/mydoc_slides_16.html",
 "summary": ""
 },
 
@@ -1563,6 +1552,17 @@
 "tags": "",
 "keywords": "",
 "url": "../vignettes/04_Slides/mydoc_slides_17.html",
+"summary": ""
+},
+
+
+
+
+{
+"title": "Cluster Analysis",
+"tags": "",
+"keywords": "",
+"url": "../mydoc/mydoc_slides_17.html",
 "summary": ""
 },
 
@@ -1595,7 +1595,7 @@
 "title": "Introduction to Phylogenetics",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/04_Slides/mydoc_slides_19.html",
+"url": "../mydoc/mydoc_slides_19.html",
 "summary": ""
 },
 
@@ -1606,7 +1606,7 @@
 "title": "Introduction to Phylogenetics",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_slides_19.html",
+"url": "../vignettes/04_Slides/mydoc_slides_19.html",
 "summary": ""
 },
 
@@ -1628,7 +1628,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/01_Home/mydoc_syllabus.html",
+"url": "../mydoc/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -1639,7 +1639,7 @@
 "title": "Syllabus - GEN242",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_syllabus.html",
+"url": "../vignettes/01_Home/mydoc_syllabus.html",
 "summary": ""
 },
 
@@ -2145,7 +2145,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
+"url": "../mydoc/mydoc_tutorial_01.html",
 "summary": ""
 },
 
@@ -2156,7 +2156,7 @@
 "title": "GitHub Introduction",
 "tags": "",
 "keywords": "",
-"url": "../mydoc/mydoc_tutorial_01.html",
+"url": "../vignettes/05_Tutorials/mydoc_tutorial_01.html",
 "summary": ""
 },
 

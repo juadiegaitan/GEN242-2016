@@ -1874,26 +1874,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <h4 id="using-hclust-and-heatmap2">Using <code class="highlighter-rouge">hclust</code> and <code class="highlighter-rouge">heatmap.2</code></h4>
 
-<p><code class="highlighter-rouge">r
-library(gplots) 
-y &lt;- matrix(rnorm(500), 100, 5, dimnames=list(paste("g", 1:100, sep=""), paste("t", 1:5, sep=""))) 
-heatmap.2(y) # Shortcut to final result
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">gplots</span><span class="p">)</span> 
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">500</span><span class="p">),</span> <span class="m">100</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"g"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">),</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span> 
+<span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1"># Shortcut to final result
+</span></code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/hclust_heatmap_example-1.png" alt="" /><!-- --></p>
 
 <h4 id="stepwise-approach-with-tree-cutting">Stepwise Approach with Tree Cutting</h4>
 
-<p><code class="highlighter-rouge">r
-## Row- and column-wise clustering 
-hr &lt;- hclust(as.dist(1-cor(t(y), method="pearson")), method="complete")
-hc &lt;- hclust(as.dist(1-cor(y, method="spearman")), method="complete") 
-## Tree cutting
-mycl &lt;- cutree(hr, h=max(hr$height)/1.5); mycolhc &lt;- rainbow(length(unique(mycl)), start=0.1, end=0.9); mycolhc &lt;- mycolhc[as.vector(mycl)] 
-## Plot heatmap 
-mycol &lt;- colorpanel(40, "darkblue", "yellow", "white") # or try redgreen(75)
-heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol, scale="row", density.info="none", trace="none", RowSideColors=mycolhc) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">## Row- and column-wise clustering 
+</span><span class="n">hr</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">cor</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"pearson"</span><span class="p">)),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"complete"</span><span class="p">)</span>
+<span class="n">hc</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">cor</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"spearman"</span><span class="p">)),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"complete"</span><span class="p">)</span> 
+<span class="c1">## Tree cutting
+</span><span class="n">mycl</span> <span class="o">&lt;-</span> <span class="n">cutree</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">hr</span><span class="o">$</span><span class="n">height</span><span class="p">)</span><span class="o">/</span><span class="m">1.5</span><span class="p">);</span> <span class="n">mycolhc</span> <span class="o">&lt;-</span> <span class="n">rainbow</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">unique</span><span class="p">(</span><span class="n">mycl</span><span class="p">)),</span> <span class="n">start</span><span class="o">=</span><span class="m">0.1</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="m">0.9</span><span class="p">);</span> <span class="n">mycolhc</span> <span class="o">&lt;-</span> <span class="n">mycolhc</span><span class="p">[</span><span class="n">as.vector</span><span class="p">(</span><span class="n">mycl</span><span class="p">)]</span> 
+<span class="c1">## Plot heatmap 
+</span><span class="n">mycol</span> <span class="o">&lt;-</span> <span class="n">colorpanel</span><span class="p">(</span><span class="m">40</span><span class="p">,</span> <span class="s2">"darkblue"</span><span class="p">,</span> <span class="s2">"yellow"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">)</span> <span class="c1"># or try redgreen(75)
+</span><span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">Rowv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">Colv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hc</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="n">mycol</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">"row"</span><span class="p">,</span> <span class="n">density.info</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">trace</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">RowSideColors</span><span class="o">=</span><span class="n">mycolhc</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/hclust_heatmap_example_setpwise-1.png" alt="" /><!-- --></p>
 
@@ -1914,13 +1914,12 @@ heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol, scale="r
 
 <h3 id="examples-1">Examples</h3>
 
-<p><code class="highlighter-rouge">r
-km &lt;- kmeans(t(scale(t(y))), 3)
-km$cluster 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">km</span> <span class="o">&lt;-</span> <span class="n">kmeans</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">y</span><span class="p">))),</span> <span class="m">3</span><span class="p">)</span>
+<span class="n">km</span><span class="o">$</span><span class="n">cluster</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
+<div class="highlighter-rouge"><pre class="highlight"><code>##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
 ##    2    2    2    2    3    1    2    1    2    2    1    1    2    3    2    2    1    3    2    1 
 ##  g21  g22  g23  g24  g25  g26  g27  g28  g29  g30  g31  g32  g33  g34  g35  g36  g37  g38  g39  g40 
 ##    3    2    1    2    1    1    3    1    2    2    3    3    2    1    3    2    2    2    1    1 
@@ -1930,7 +1929,8 @@ km$cluster
 ##    1    2    1    1    1    2    2    2    2    3    2    2    1    2    3    2    3    2    1    3 
 ##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
 ##    2    2    2    2    1    2    3    1    1    2    1    2    2    3    1    1    2    3    2    2
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="fuzzy-c-means-clustering">Fuzzy C-Means Clustering</h2>
 
@@ -1945,26 +1945,25 @@ km$cluster
 
 <h4 id="fuzzy-clustering-with-fanny">Fuzzy Clustering with <code class="highlighter-rouge">fanny</code></h4>
 
-<p><code class="highlighter-rouge">r
-library(cluster) # Loads the cluster library.
-fannyy &lt;- fanny(y, k=4, metric = "euclidean", memb.exp = 1.2)
-round(fannyy$membership, 2)[1:4,]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span> <span class="c1"># Loads the cluster library.
+</span><span class="n">fannyy</span> <span class="o">&lt;-</span> <span class="n">fanny</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="m">4</span><span class="p">,</span> <span class="n">metric</span> <span class="o">=</span> <span class="s2">"euclidean"</span><span class="p">,</span> <span class="n">memb.exp</span> <span class="o">=</span> <span class="m">1.2</span><span class="p">)</span>
+<span class="n">round</span><span class="p">(</span><span class="n">fannyy</span><span class="o">$</span><span class="n">membership</span><span class="p">,</span> <span class="m">2</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##    [,1] [,2] [,3] [,4]
+<div class="highlighter-rouge"><pre class="highlight"><code>##    [,1] [,2] [,3] [,4]
 ## g1 0.81 0.05 0.04 0.10
 ## g2 0.92 0.02 0.01 0.04
 ## g3 0.72 0.11 0.03 0.14
 ## g4 0.01 0.95 0.01 0.02
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-fannyy$clustering 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fannyy</span><span class="o">$</span><span class="n">clustering</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
+<div class="highlighter-rouge"><pre class="highlight"><code>##   g1   g2   g3   g4   g5   g6   g7   g8   g9  g10  g11  g12  g13  g14  g15  g16  g17  g18  g19  g20 
 ##    1    1    1    2    2    3    2    3    2    2    4    3    4    4    2    2    3    1    1    1 
 ##  g21  g22  g23  g24  g25  g26  g27  g28  g29  g30  g31  g32  g33  g34  g35  g36  g37  g38  g39  g40 
 ##    3    2    3    1    2    3    3    4    4    4    3    2    1    1    4    2    1    2    3    2 
@@ -1974,7 +1973,8 @@ fannyy$clustering
 ##    1    1    4    3    1    4    2    2    2    4    2    1    3    1    3    4    1    1    3    3 
 ##  g81  g82  g83  g84  g85  g86  g87  g88  g89  g90  g91  g92  g93  g94  g95  g96  g97  g98  g99 g100 
 ##    2    1    2    4    4    1    3    2    4    4    3    4    1    3    3    2    1    3    2    1
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="principal-component-analysis-pca">Principal Component Analysis (PCA)</h2>
 
@@ -2004,23 +2004,23 @@ fannyy$clustering
 
 <h3 id="example">Example</h3>
 
-<p><code class="highlighter-rouge">r
-pca &lt;- prcomp(y, scale=T)
-summary(pca) # Prints variance summary for all principal components
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">pca</span> <span class="o">&lt;-</span> <span class="n">prcomp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
+<span class="n">summary</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span> <span class="c1"># Prints variance summary for all principal components
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## Importance of components:
+<div class="highlighter-rouge"><pre class="highlight"><code>## Importance of components:
 ##                          PC1    PC2    PC3    PC4    PC5
 ## Standard deviation     1.098 1.0351 1.0023 0.9646 0.8879
 ## Proportion of Variance 0.241 0.2143 0.2009 0.1861 0.1577
 ## Cumulative Proportion  0.241 0.4553 0.6562 0.8423 1.0000
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-plot(pca$x, pch=20, col="blue", type="n") # To plot dots, drop type="n"
-text(pca$x, rownames(pca$x), cex=0.8)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">,</span> <span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">type</span><span class="o">=</span><span class="s2">"n"</span><span class="p">)</span> <span class="c1"># To plot dots, drop type="n"
+</span><span class="n">text</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">,</span> <span class="n">rownames</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">),</span> <span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/pca_example-1.png" alt="" /><!-- -->
 1st and 2nd principal components explain x% of variance in data.</p>
@@ -2037,11 +2037,11 @@ text(pca$x, rownames(pca$x), cex=0.8)
 
 <p>The following example performs MDS analysis with <code class="highlighter-rouge">cmdscale</code> on the geographic distances among European cities.</p>
 
-<p><code class="highlighter-rouge">r
-loc &lt;- cmdscale(eurodist) 
-plot(loc[,1], -loc[,2], type="n", xlab="", ylab="", main="cmdscale(eurodist)")
-text(loc[,1], -loc[,2], rownames(loc), cex=0.8) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">loc</span> <span class="o">&lt;-</span> <span class="n">cmdscale</span><span class="p">(</span><span class="n">eurodist</span><span class="p">)</span> 
+<span class="n">plot</span><span class="p">(</span><span class="n">loc</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="o">-</span><span class="n">loc</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"n"</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span><span class="s2">"cmdscale(eurodist)"</span><span class="p">)</span>
+<span class="n">text</span><span class="p">(</span><span class="n">loc</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="o">-</span><span class="n">loc</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">rownames</span><span class="p">(</span><span class="n">loc</span><span class="p">),</span> <span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/mds_example-1.png" alt="" /><!-- --></p>
 
@@ -2068,32 +2068,32 @@ text(loc[,1], -loc[,2], rownames(loc), cex=0.8)
 
 <p>The following imports the <code class="highlighter-rouge">cindex()</code> function and computes the Jaccard Index for two sample clusters.</p>
 
-<p><code class="highlighter-rouge">r
-source("http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/clusterIndex.R") 
-library(cluster); y &lt;- matrix(rnorm(5000), 1000, 5, dimnames=list(paste("g", 1:1000, sep=""), paste("t", 1:5, sep=""))); clarax &lt;- clara(y, 49); clV1 &lt;- clarax$clustering; clarax &lt;- clara(y, 50); clV2 &lt;- clarax$clustering 
-ci &lt;- cindex(clV1=clV1, clV2=clV2, self=FALSE, minSZ=1, method="jaccard")
-ci[2:3] # Returns Jaccard index and variables used to compute it 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">source</span><span class="p">(</span><span class="s2">"http://faculty.ucr.edu/~tgirke/Documents/R_BioCond/My_R_Scripts/clusterIndex.R"</span><span class="p">)</span> 
+<span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">);</span> <span class="n">y</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">5000</span><span class="p">),</span> <span class="m">1000</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"g"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">1000</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">),</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)));</span> <span class="n">clarax</span> <span class="o">&lt;-</span> <span class="n">clara</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="m">49</span><span class="p">);</span> <span class="n">clV1</span> <span class="o">&lt;-</span> <span class="n">clarax</span><span class="o">$</span><span class="n">clustering</span><span class="p">;</span> <span class="n">clarax</span> <span class="o">&lt;-</span> <span class="n">clara</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="m">50</span><span class="p">);</span> <span class="n">clV2</span> <span class="o">&lt;-</span> <span class="n">clarax</span><span class="o">$</span><span class="n">clustering</span> 
+<span class="n">ci</span> <span class="o">&lt;-</span> <span class="n">cindex</span><span class="p">(</span><span class="n">clV1</span><span class="o">=</span><span class="n">clV1</span><span class="p">,</span> <span class="n">clV2</span><span class="o">=</span><span class="n">clV2</span><span class="p">,</span> <span class="n">self</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">minSZ</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"jaccard"</span><span class="p">)</span>
+<span class="n">ci</span><span class="p">[</span><span class="m">2</span><span class="o">:</span><span class="m">3</span><span class="p">]</span> <span class="c1"># Returns Jaccard index and variables used to compute it 
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## $variables
+<div class="highlighter-rouge"><pre class="highlight"><code>## $variables
 ##     a     b     c 
 ##  3888  9559 10128 
 ## 
 ## $Jaccard_Index
 ## [1] 0.1649205
-</code></p>
+</code></pre>
+</div>
 
 <h4 id="clustering-cluster-sets-with-jaccard-index">Clustering cluster sets with Jaccard index</h4>
 
 <p>The following example shows how one can cluster entire cluster result sets. First, 10 sample cluster results are created with Clara using k-values from 3 to 12. The results are stored as named clustering vectors in a list object. Then a nested sapply loop is used to generate a similarity matrix of Jaccard Indices for the clustering results. After converting the result into a distance matrix, hierarchical clustering is performed with \Rfunction{hclust}.}</p>
 
-<p><code class="highlighter-rouge">r
-clVlist &lt;- lapply(3:12, function(x) clara(y[1:30, ], k=x)$clustering); names(clVlist) &lt;- paste("k", "=", 3:12)
-d &lt;- sapply(names(clVlist), function(x) sapply(names(clVlist), function(y) cindex(clV1=clVlist[[y]], clV2=clVlist[[x]], method="jaccard")[[3]]))
-hv &lt;- hclust(as.dist(1-d))
-plot(as.dendrogram(hv), edgePar=list(col=3, lwd=4), horiz=T, main="Similarities of 10 Clara Clustering Results for k: 3-12") 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">clVlist</span> <span class="o">&lt;-</span> <span class="n">lapply</span><span class="p">(</span><span class="m">3</span><span class="o">:</span><span class="m">12</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">clara</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">30</span><span class="p">,</span> <span class="p">],</span> <span class="n">k</span><span class="o">=</span><span class="n">x</span><span class="p">)</span><span class="o">$</span><span class="n">clustering</span><span class="p">);</span> <span class="n">names</span><span class="p">(</span><span class="n">clVlist</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="s2">"k"</span><span class="p">,</span> <span class="s2">"="</span><span class="p">,</span> <span class="m">3</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">clVlist</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">sapply</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">clVlist</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="n">cindex</span><span class="p">(</span><span class="n">clV1</span><span class="o">=</span><span class="n">clVlist</span><span class="p">[[</span><span class="n">y</span><span class="p">]],</span> <span class="n">clV2</span><span class="o">=</span><span class="n">clVlist</span><span class="p">[[</span><span class="n">x</span><span class="p">]],</span> <span class="n">method</span><span class="o">=</span><span class="s2">"jaccard"</span><span class="p">)[[</span><span class="m">3</span><span class="p">]]))</span>
+<span class="n">hv</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">d</span><span class="p">))</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hv</span><span class="p">),</span> <span class="n">edgePar</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">4</span><span class="p">),</span> <span class="n">horiz</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span><span class="s2">"Similarities of 10 Clara Clustering Results for k: 3-12"</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/jaccard_index_clustering-1.png" alt="" /><!-- --></p>
 
@@ -2108,101 +2108,101 @@ plot(as.dendrogram(hv), edgePar=list(col=3, lwd=4), horiz=T, main="Similarities 
 
 <h3 id="scaling">Scaling</h3>
 
-<p><code class="highlighter-rouge">r
-## Sample data set
-set.seed(1410)
-y &lt;- matrix(rnorm(50), 10, 5, dimnames=list(paste("g", 1:10, sep=""), 
-            paste("t", 1:5, sep="")))
-dim(y)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">## Sample data set
+</span><span class="n">set.seed</span><span class="p">(</span><span class="m">1410</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="n">matrix</span><span class="p">(</span><span class="n">rnorm</span><span class="p">(</span><span class="m">50</span><span class="p">),</span> <span class="m">10</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="n">dimnames</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">paste</span><span class="p">(</span><span class="s2">"g"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">),</span> 
+            <span class="n">paste</span><span class="p">(</span><span class="s2">"t"</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)))</span>
+<span class="n">dim</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] 10  5
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] 10  5
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-## Scaling
-yscaled &lt;- t(scale(t(y))) # Centers and scales y row-wise
-apply(yscaled, 1, sd)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">## Scaling
+</span><span class="n">yscaled</span> <span class="o">&lt;-</span> <span class="n">t</span><span class="p">(</span><span class="n">scale</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span> <span class="c1"># Centers and scales y row-wise
+</span><span class="n">apply</span><span class="p">(</span><span class="n">yscaled</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">sd</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
+<div class="highlighter-rouge"><pre class="highlight"><code>##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
 ##   1   1   1   1   1   1   1   1   1   1
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="distance-matrices">Distance Matrices</h2>
 
 <h3 id="euclidean-distance-matrix">Euclidean distance matrix</h3>
 
-<p><code class="highlighter-rouge">r
-dist(y[1:4,], method = "euclidean")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">dist</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,],</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">"euclidean"</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##          g1       g2       g3
+<div class="highlighter-rouge"><pre class="highlight"><code>##          g1       g2       g3
 ## g2 4.793697                  
 ## g3 4.932658 6.354978         
 ## g4 4.033789 4.788508 1.671968
-</code></p>
+</code></pre>
+</div>
 
 <h3 id="correlation-based-distance-matrix">Correlation-based distance matrix</h3>
 
 <p>Correlation matrix</p>
 
-<p><code class="highlighter-rouge">r
-c &lt;- cor(t(y), method="pearson") 
-as.matrix(c)[1:4,1:4]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">c</span> <span class="o">&lt;-</span> <span class="n">cor</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"pearson"</span><span class="p">)</span> 
+<span class="n">as.matrix</span><span class="p">(</span><span class="n">c</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##             g1         g2          g3         g4
+<div class="highlighter-rouge"><pre class="highlight"><code>##             g1         g2          g3         g4
 ## g1  1.00000000 -0.2965885 -0.00206139 -0.4042011
 ## g2 -0.29658847  1.0000000 -0.91661118 -0.4512912
 ## g3 -0.00206139 -0.9166112  1.00000000  0.7435892
 ## g4 -0.40420112 -0.4512912  0.74358925  1.0000000
-</code></p>
+</code></pre>
+</div>
 
 <p>Correlation-based distance matrix</p>
 
-<p><code class="highlighter-rouge">r
-d &lt;- as.dist(1-c)
-as.matrix(d)[1:4,1:4]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">d</span> <span class="o">&lt;-</span> <span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">c</span><span class="p">)</span>
+<span class="n">as.matrix</span><span class="p">(</span><span class="n">d</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##          g1       g2        g3        g4
+<div class="highlighter-rouge"><pre class="highlight"><code>##          g1       g2        g3        g4
 ## g1 0.000000 1.296588 1.0020614 1.4042011
 ## g2 1.296588 0.000000 1.9166112 1.4512912
 ## g3 1.002061 1.916611 0.0000000 0.2564108
 ## g4 1.404201 1.451291 0.2564108 0.0000000
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="hierarchical-clustering-with-hclust">Hierarchical Clustering with <code class="highlighter-rouge">hclust</code></h2>
 
 <p>Hierarchical clustering with complete linkage and basic tree plotting</p>
 
-<p><code class="highlighter-rouge">r
-hr &lt;- hclust(d, method = "complete", members=NULL)
-names(hr)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">hr</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s2">"complete"</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">hr</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "merge"       "height"      "order"       "labels"      "method"      "call"       
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "merge"       "height"      "order"       "labels"      "method"      "call"       
 ## [7] "dist.method"
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-par(mfrow = c(1, 2)); plot(hr, hang = 0.1); plot(hr, hang = -1) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">par</span><span class="p">(</span><span class="n">mfrow</span> <span class="o">=</span> <span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">));</span> <span class="n">plot</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">hang</span> <span class="o">=</span> <span class="m">0.1</span><span class="p">);</span> <span class="n">plot</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">hang</span> <span class="o">=</span> <span class="m">-1</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/hclust1-1.png" alt="" /><!-- --></p>
 
 <h3 id="tree-plotting-i">Tree plotting I</h3>
 
-<p><code class="highlighter-rouge">r
-plot(as.dendrogram(hr), edgePar=list(col=3, lwd=4), horiz=T) 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">plot</span><span class="p">(</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">edgePar</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="m">3</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">4</span><span class="p">),</span> <span class="n">horiz</span><span class="o">=</span><span class="n">T</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/hclust_plot_tree1-1.png" alt="" /><!-- --></p>
 
@@ -2210,11 +2210,11 @@ plot(as.dendrogram(hr), edgePar=list(col=3, lwd=4), horiz=T)
 
 <p>The <code class="highlighter-rouge">ape</code> library provides more advanced features for tree plotting</p>
 
-<p><code class="highlighter-rouge">r
-library(ape) 
-plot.phylo(as.phylo(hr), type="p", edge.col=4, edge.width=2, 
-           show.node.label=TRUE, no.margin=TRUE)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">ape</span><span class="p">)</span> 
+<span class="n">plot.phylo</span><span class="p">(</span><span class="n">as.phylo</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s2">"p"</span><span class="p">,</span> <span class="n">edge.col</span><span class="o">=</span><span class="m">4</span><span class="p">,</span> <span class="n">edge.width</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> 
+           <span class="n">show.node.label</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">no.margin</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/hclust_plot_tree2-1.png" alt="" /><!-- --></p>
 
@@ -2222,39 +2222,39 @@ plot.phylo(as.phylo(hr), type="p", edge.col=4, edge.width=2,
 
 <p>Accessing information in <em>hclust</em> objects</p>
 
-<p><code class="highlighter-rouge">r
-hr
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">hr</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## 
+<div class="highlighter-rouge"><pre class="highlight"><code>## 
 ## Call:
 ## hclust(d = d, method = "complete", members = NULL)
 ## 
 ## Cluster method   : complete 
 ## Number of objects: 10
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-## Print row labels in the order they appear in the tree
-hr$labels[hr$order] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">## Print row labels in the order they appear in the tree
+</span><span class="n">hr</span><span class="o">$</span><span class="n">labels</span><span class="p">[</span><span class="n">hr</span><span class="o">$</span><span class="n">order</span><span class="p">]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  [1] "g10" "g3"  "g4"  "g2"  "g9"  "g6"  "g7"  "g1"  "g5"  "g8"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>##  [1] "g10" "g3"  "g4"  "g2"  "g9"  "g6"  "g7"  "g1"  "g5"  "g8"
+</code></pre>
+</div>
 
 <p>Tree cutting with <code class="highlighter-rouge">cutree</code></p>
 
-<p><code class="highlighter-rouge">r
-mycl &lt;- cutree(hr, h=max(hr$height)/2)
-mycl[hr$labels[hr$order]] 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">mycl</span> <span class="o">&lt;-</span> <span class="n">cutree</span><span class="p">(</span><span class="n">hr</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">hr</span><span class="o">$</span><span class="n">height</span><span class="p">)</span><span class="o">/</span><span class="m">2</span><span class="p">)</span>
+<span class="n">mycl</span><span class="p">[</span><span class="n">hr</span><span class="o">$</span><span class="n">labels</span><span class="p">[</span><span class="n">hr</span><span class="o">$</span><span class="n">order</span><span class="p">]]</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## g10  g3  g4  g2  g9  g6  g7  g1  g5  g8 
+<div class="highlighter-rouge"><pre class="highlight"><code>## g10  g3  g4  g2  g9  g6  g7  g1  g5  g8 
 ##   3   3   3   2   2   5   5   1   4   4
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="heatmaps">Heatmaps</h2>
 
@@ -2262,10 +2262,10 @@ mycl[hr$labels[hr$order]]
 
 <p>All in one step: clustering and heatmap plotting</p>
 
-<p><code class="highlighter-rouge">r
-library(gplots)
-heatmap.2(y, col=redgreen(75))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">gplots</span><span class="p">)</span>
+<span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="n">redgreen</span><span class="p">(</span><span class="m">75</span><span class="p">))</span>
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/heatmap2a-1.png" alt="" /><!-- --></p>
 
@@ -2273,10 +2273,10 @@ heatmap.2(y, col=redgreen(75))
 
 <p>All in one step: clustering and heatmap plotting</p>
 
-<p><code class="highlighter-rouge">r
-library(pheatmap); library("RColorBrewer")
-pheatmap(y, color=brewer.pal(9,"Blues"))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">pheatmap</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="s2">"RColorBrewer"</span><span class="p">)</span>
+<span class="n">pheatmap</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">brewer.pal</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="s2">"Blues"</span><span class="p">))</span>
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/pheatmap-1.png" alt="" /><!-- --></p>
 
@@ -2284,13 +2284,13 @@ pheatmap(y, color=brewer.pal(9,"Blues"))
 
 <p>Customizes row and column clustering and shows tree cutting result in row color bar. Additional color schemes can be found <a href="http://manuals.bioinformatics.ucr.edu/home/R\_BioCondManual\#clustering\_hc\_submap">here</a>.</p>
 
-<p><code class="highlighter-rouge">r
-hc &lt;- hclust(as.dist(1-cor(y, method="spearman")), method="complete")
-mycol &lt;- colorpanel(40, "darkblue", "yellow", "white")
-heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
-          scale="row", density.info="none", trace="none", 
-          RowSideColors=as.character(mycl))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">hc</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">as.dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">cor</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"spearman"</span><span class="p">)),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"complete"</span><span class="p">)</span>
+<span class="n">mycol</span> <span class="o">&lt;-</span> <span class="n">colorpanel</span><span class="p">(</span><span class="m">40</span><span class="p">,</span> <span class="s2">"darkblue"</span><span class="p">,</span> <span class="s2">"yellow"</span><span class="p">,</span> <span class="s2">"white"</span><span class="p">)</span>
+<span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">Rowv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">Colv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hc</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="n">mycol</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="s2">"row"</span><span class="p">,</span> <span class="n">density.info</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">trace</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> 
+          <span class="n">RowSideColors</span><span class="o">=</span><span class="n">as.character</span><span class="p">(</span><span class="n">mycl</span><span class="p">))</span>
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/heatmap2_custom-1.png" alt="" /><!-- --></p>
 
@@ -2298,22 +2298,22 @@ heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
 
 <p>Runs K-means clustering with PAM (partitioning around medoids) algorithm and shows result in color bar of hierarchical clustering result from before.</p>
 
-<p><code class="highlighter-rouge">r
-library(cluster)
-pamy &lt;- pam(d, 4)
-(kmcol &lt;- pamy$clustering)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="n">pamy</span> <span class="o">&lt;-</span> <span class="n">pam</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span>
+<span class="p">(</span><span class="n">kmcol</span> <span class="o">&lt;-</span> <span class="n">pamy</span><span class="o">$</span><span class="n">clustering</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
+<div class="highlighter-rouge"><pre class="highlight"><code>##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
 ##   1   2   3   3   4   4   4   4   2   3
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
-          scale="row", density.info="none", trace="none", 
-          RowSideColors=as.character(kmcol))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">heatmap.2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">Rowv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hr</span><span class="p">),</span> <span class="n">Colv</span><span class="o">=</span><span class="n">as.dendrogram</span><span class="p">(</span><span class="n">hc</span><span class="p">),</span> <span class="n">col</span><span class="o">=</span><span class="n">mycol</span><span class="p">,</span>
+          <span class="n">scale</span><span class="o">=</span><span class="s2">"row"</span><span class="p">,</span> <span class="n">density.info</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">trace</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> 
+          <span class="n">RowSideColors</span><span class="o">=</span><span class="n">as.character</span><span class="p">(</span><span class="n">kmcol</span><span class="p">))</span>
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/kmeans2-1.png" alt="" /><!-- --></p>
 
@@ -2321,52 +2321,52 @@ heatmap.2(y, Rowv=as.dendrogram(hr), Colv=as.dendrogram(hc), col=mycol,
 
 <p>Performs k-means fuzzy clustering</p>
 
-<p><code class="highlighter-rouge">r
-library(cluster)
-fannyy &lt;- fanny(d, k=4, memb.exp = 1.5)
-round(fannyy$membership, 2)[1:4,]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="n">fannyy</span> <span class="o">&lt;-</span> <span class="n">fanny</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="m">4</span><span class="p">,</span> <span class="n">memb.exp</span> <span class="o">=</span> <span class="m">1.5</span><span class="p">)</span>
+<span class="n">round</span><span class="p">(</span><span class="n">fannyy</span><span class="o">$</span><span class="n">membership</span><span class="p">,</span> <span class="m">2</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##    [,1] [,2] [,3] [,4]
+<div class="highlighter-rouge"><pre class="highlight"><code>##    [,1] [,2] [,3] [,4]
 ## g1 1.00 0.00 0.00 0.00
 ## g2 0.00 0.99 0.00 0.00
 ## g3 0.02 0.01 0.95 0.03
 ## g4 0.00 0.00 0.99 0.01
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-fannyy$clustering 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">fannyy</span><span class="o">$</span><span class="n">clustering</span> 
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
+<div class="highlighter-rouge"><pre class="highlight"><code>##  g1  g2  g3  g4  g5  g6  g7  g8  g9 g10 
 ##   1   2   3   3   4   4   4   4   2   3
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-## Returns multiple cluster memberships for coefficient above a certain 
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">## Returns multiple cluster memberships for coefficient above a certain 
 ## value (here &gt;0.1)
-fannyyMA &lt;- round(fannyy$membership, 2) &gt; 0.10 
-apply(fannyyMA, 1, function(x) paste(which(x), collapse="_"))
-</code></p>
+</span><span class="n">fannyyMA</span> <span class="o">&lt;-</span> <span class="n">round</span><span class="p">(</span><span class="n">fannyy</span><span class="o">$</span><span class="n">membership</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0.10</span> 
+<span class="n">apply</span><span class="p">(</span><span class="n">fannyyMA</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">paste</span><span class="p">(</span><span class="n">which</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">collapse</span><span class="o">=</span><span class="s2">"_"</span><span class="p">))</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##    g1    g2    g3    g4    g5    g6    g7    g8    g9   g10 
+<div class="highlighter-rouge"><pre class="highlight"><code>##    g1    g2    g3    g4    g5    g6    g7    g8    g9   g10 
 ##   "1"   "2"   "3"   "3"   "4"   "4"   "4" "2_4"   "2"   "3"
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="multidimensional-scaling-mds-1">Multidimensional Scaling (MDS)</h2>
 
 <p>Performs MDS analysis on the geographic distances between European cities</p>
 
-<p><code class="highlighter-rouge">r
-loc &lt;- cmdscale(eurodist) 
-## Plots the MDS results in 2D plot. The minus is required in this example to 
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">loc</span> <span class="o">&lt;-</span> <span class="n">cmdscale</span><span class="p">(</span><span class="n">eurodist</span><span class="p">)</span> 
+<span class="c1">## Plots the MDS results in 2D plot. The minus is required in this example to 
 ## flip the plotting orientation.
-plot(loc[,1], -loc[,2], type="n", xlab="", ylab="", main="cmdscale(eurodist)")
-text(loc[,1], -loc[,2], rownames(loc), cex=0.8) 
-</code></p>
+</span><span class="n">plot</span><span class="p">(</span><span class="n">loc</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="o">-</span><span class="n">loc</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"n"</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">main</span><span class="o">=</span><span class="s2">"cmdscale(eurodist)"</span><span class="p">)</span>
+<span class="n">text</span><span class="p">(</span><span class="n">loc</span><span class="p">[,</span><span class="m">1</span><span class="p">],</span> <span class="o">-</span><span class="n">loc</span><span class="p">[,</span><span class="m">2</span><span class="p">],</span> <span class="n">rownames</span><span class="p">(</span><span class="n">loc</span><span class="p">),</span> <span class="n">cex</span><span class="o">=</span><span class="m">0.8</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/cmdscale2-1.png" alt="" /><!-- --></p>
 
@@ -2374,31 +2374,31 @@ text(loc[,1], -loc[,2], rownames(loc), cex=0.8)
 
 <p>Performs PCA analysis after scaling the data. It returns a list with class <code class="highlighter-rouge">prcomp</code> that contains five components: (1) the standard deviations (sdev) of the principal components, (2) the matrix of eigenvectors (rotation), (3) the principal component data (x), (4) the centering (center) and (5) scaling (scale) used.</p>
 
-<p><code class="highlighter-rouge">r
-library(scatterplot3d)
-pca &lt;- prcomp(y, scale=TRUE)
-names(pca)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">scatterplot3d</span><span class="p">)</span>
+<span class="n">pca</span> <span class="o">&lt;-</span> <span class="n">prcomp</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<span class="n">names</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## [1] "sdev"     "rotation" "center"   "scale"    "x"
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>## [1] "sdev"     "rotation" "center"   "scale"    "x"
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-summary(pca) # Prints variance summary for all principal components.
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">summary</span><span class="p">(</span><span class="n">pca</span><span class="p">)</span> <span class="c1"># Prints variance summary for all principal components.
+</span></code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## Importance of components:
+<div class="highlighter-rouge"><pre class="highlight"><code>## Importance of components:
 ##                           PC1    PC2    PC3     PC4    PC5
 ## Standard deviation     1.3611 1.1777 1.0420 0.69264 0.4416
 ## Proportion of Variance 0.3705 0.2774 0.2172 0.09595 0.0390
 ## Cumulative Proportion  0.3705 0.6479 0.8650 0.96100 1.0000
-</code></p>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-scatterplot3d(pca$x[,1:3], pch=20, color="blue") 
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">scatterplot3d</span><span class="p">(</span><span class="n">pca</span><span class="o">$</span><span class="n">x</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">3</span><span class="p">],</span> <span class="n">pch</span><span class="o">=</span><span class="m">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">)</span> 
+</code></pre>
+</div>
 
 <p><img src="Rclustering_files/figure-html/pca2-1.png" alt="" /><!-- --></p>
 
@@ -2408,12 +2408,11 @@ scatterplot3d(pca$x[,1:3], pch=20, color="blue")
 
 <h1 id="version-information">Version Information</h1>
 
-<p><code class="highlighter-rouge">r
-sessionInfo()
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sessionInfo</span><span class="p">()</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## R version 3.3.0 (2016-05-03)
+<div class="highlighter-rouge"><pre class="highlight"><code>## R version 3.3.0 (2016-05-03)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 14.04.4 LTS
 ## 
@@ -2436,7 +2435,8 @@ sessionInfo()
 ## [11] grid_3.3.0         nlme_3.1-127       gtable_0.2.0       KernSmooth_2.23-15 htmltools_0.3.5   
 ## [16] gtools_3.5.0       yaml_2.1.13        digest_0.6.9       formatR_1.3        bitops_1.0-6      
 ## [21] evaluate_0.9       rmarkdown_0.9.6    gdata_2.17.0       stringi_1.0-1      scales_0.4.0
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="references">References</h1>
 
@@ -2455,7 +2455,7 @@ sessionInfo()
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
- Site last generated: Jun 21, 2016 <br />
+ Site last generated: Aug 11, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>

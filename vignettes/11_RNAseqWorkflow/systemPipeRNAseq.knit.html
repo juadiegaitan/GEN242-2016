@@ -1758,13 +1758,13 @@ into the user’s current working directory. At the moment, the package includes
 workflow templates for RNA-Seq, ChIP-Seq, VAR-Seq and Ribo-Seq. Templates for
 additional NGS applications will be provided in the future.</p>
 
-<p><code class="highlighter-rouge">r
-library(systemPipeRdata)
-genWorkenvir(workflow="rnaseq")
-setwd("rnaseq")
-download.file("https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd", "systemPipeRNAseq.Rmd")
-</code>
-Now open the R markdown script <code class="highlighter-rouge">systemPipeRNAseq.Rmd</code>in your R IDE (<em>e.g.</em> vim-r or RStudio) and 
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">systemPipeRdata</span><span class="p">)</span>
+<span class="n">genWorkenvir</span><span class="p">(</span><span class="n">workflow</span><span class="o">=</span><span class="s2">"rnaseq"</span><span class="p">)</span>
+<span class="n">setwd</span><span class="p">(</span><span class="s2">"rnaseq"</span><span class="p">)</span>
+<span class="n">download.file</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/tgirke/GEN242/master/vignettes/11_RNAseqWorkflow/systemPipeRNAseq.Rmd"</span><span class="p">,</span> <span class="s2">"systemPipeRNAseq.Rmd"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>Now open the R markdown script <code class="highlighter-rouge">systemPipeRNAseq.Rmd</code>in your R IDE (<em>e.g.</em> vim-r or RStudio) and 
 run the workflow as outlined below.</p>
 
 <h2 id="required-packages-and-resources">Required packages and resources</h2>
@@ -1772,28 +1772,27 @@ run the workflow as outlined below.</p>
 <p>The <code class="highlighter-rouge">systemPipeR</code> package needs to be loaded to perform the analysis steps shown in
 this report [@Girke2014-oy].</p>
 
-<p><code class="highlighter-rouge">r
-library(systemPipeR)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">systemPipeR</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p>If applicable load custom functions not provided by</p>
 
-<p><code class="highlighter-rouge">r
-source("systemPipeRNAseq_Fct.R")
-</code>
-## Experiment definition provided by <code class="highlighter-rouge">targets</code> file</p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">source</span><span class="p">(</span><span class="s2">"systemPipeRNAseq_Fct.R"</span><span class="p">)</span>
+</code></pre>
+</div>
+<p>## Experiment definition provided by <code class="highlighter-rouge">targets</code> file</p>
 
 <p>The <code class="highlighter-rouge">targets</code> file defines all FASTQ files and sample
 comparisons of the analysis workflow.</p>
 
-<p><code class="highlighter-rouge">r
-targetspath &lt;- system.file("extdata", "targets.txt", package="systemPipeR")
-targets &lt;- read.delim(targetspath, comment.char = "#")[,1:4]
-targets
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">targetspath</span> <span class="o">&lt;-</span> <span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span> <span class="s2">"targets.txt"</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s2">"systemPipeR"</span><span class="p">)</span>
+<span class="n">targets</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="n">targetspath</span><span class="p">,</span> <span class="n">comment.char</span> <span class="o">=</span> <span class="s2">"#"</span><span class="p">)[,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
+<span class="n">targets</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##                    FileName SampleName Factor SampleLong
+<div class="highlighter-rouge"><pre class="highlight"><code>##                    FileName SampleName Factor SampleLong
 ## 1  ./data/SRR446027_1.fastq        M1A     M1  Mock.1h.A
 ## 2  ./data/SRR446028_1.fastq        M1B     M1  Mock.1h.B
 ## 3  ./data/SRR446029_1.fastq        A1A     A1   Avr.1h.A
@@ -1812,7 +1811,8 @@ targets
 ## 16 ./data/SRR446042_1.fastq       A12B    A12  Avr.12h.B
 ## 17 ./data/SRR446043_1.fastq       V12A    V12  Vir.12h.A
 ## 18 ./data/SRR446044_1.fastq       V12B    V12  Vir.12h.B
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="read-preprocessing">Read preprocessing</h1>
 
@@ -1829,12 +1829,12 @@ The new targets file can be used for the next workflow step with an updated
 <code class="highlighter-rouge">SYSargs</code> instance, <em>e.g.</em> running the NGS alignments using the
 trimmed FASTQ files.</p>
 
-<p><code class="highlighter-rouge">r
-args &lt;- systemArgs(sysma="param/trim.param", mytargets="targets.txt")
-preprocessReads(args=args, Fct="trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)",
-                batchsize=100000, overwrite=TRUE, compress=TRUE)
-writeTargetsout(x=args, file="targets_trim.txt", overwrite=TRUE)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/trim.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets.txt"</span><span class="p">)</span>
+<span class="n">preprocessReads</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">Fct</span><span class="o">=</span><span class="s2">"trimLRPatterns(Rpattern='GCCCGGGTAA', subject=fq)"</span><span class="p">,</span>
+                <span class="n">batchsize</span><span class="o">=</span><span class="m">100000</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">compress</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<span class="n">writeTargetsout</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"targets_trim.txt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h2 id="fastq-quality-report">FASTQ quality report</h2>
 
@@ -1845,13 +1845,13 @@ diversity, length and occurrence distribution of reads, number of reads
 above quality cutoffs and mean quality distribution. The results are
 written to a PDF file named <code class="highlighter-rouge">fastqReport.pdf</code>.</p>
 
-<p><code class="highlighter-rouge">r
-args &lt;- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
-fqlist &lt;- seeFastq(fastq=infile1(args), batchsize=100000, klength=8)
-pdf("./results/fastqReport.pdf", height=18, width=4*length(fqlist))
-seeFastqPlot(fqlist)
-dev.off()
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/tophat.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets.txt"</span><span class="p">)</span>
+<span class="n">fqlist</span> <span class="o">&lt;-</span> <span class="n">seeFastq</span><span class="p">(</span><span class="n">fastq</span><span class="o">=</span><span class="n">infile1</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">batchsize</span><span class="o">=</span><span class="m">100000</span><span class="p">,</span> <span class="n">klength</span><span class="o">=</span><span class="m">8</span><span class="p">)</span>
+<span class="n">pdf</span><span class="p">(</span><span class="s2">"./results/fastqReport.pdf"</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="m">18</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">4</span><span class="o">*</span><span class="n">length</span><span class="p">(</span><span class="n">fqlist</span><span class="p">))</span>
+<span class="n">seeFastqPlot</span><span class="p">(</span><span class="n">fqlist</span><span class="p">)</span>
+<span class="n">dev.off</span><span class="p">()</span>
+</code></pre>
+</div>
 
 <p><img src="fastqReport.png" alt="" /></p>
 <div align="center">Figure 1: FASTQ quality report for 18 samples</div>
@@ -1865,50 +1865,50 @@ dev.off()
 genome sequence using <code class="highlighter-rouge">Bowtie2/TopHat2</code> [@Kim2013-vg; @Langmead2012-bs]. The parameter 
 settings of the aligner are defined in the <code class="highlighter-rouge">tophat.param</code> file.</p>
 
-<p><code class="highlighter-rouge">r
-args &lt;- systemArgs(sysma="param/tophat.param", mytargets="targets.txt")
-sysargs(args)[1] # Command-line parameters for first FASTQ file
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">args</span> <span class="o">&lt;-</span> <span class="n">systemArgs</span><span class="p">(</span><span class="n">sysma</span><span class="o">=</span><span class="s2">"param/tophat.param"</span><span class="p">,</span> <span class="n">mytargets</span><span class="o">=</span><span class="s2">"targets.txt"</span><span class="p">)</span>
+<span class="n">sysargs</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">]</span> <span class="c1"># Command-line parameters for first FASTQ file
+</span></code></pre>
+</div>
 
 <p>Submission of alignment jobs to compute cluster, here using 72 CPU cores
 (18 <code class="highlighter-rouge">qsub</code> processes each with 4 CPU cores).</p>
 
-<p><code class="highlighter-rouge">r
-moduleload(modules(args))
-system("bowtie2-build ./data/tair10.fasta ./data/tair10.fasta")
-resources &lt;- list(walltime="20:00:00", nodes=paste0("1:ppn=", cores(args)), memory="10gb")
-reg &lt;- clusterRun(args, conffile=".BatchJobs.R", template="torque.tmpl", Njobs=18, runid="01", 
-                  resourceList=resources)
-waitForJobs(reg)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">moduleload</span><span class="p">(</span><span class="n">modules</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+<span class="n">system</span><span class="p">(</span><span class="s2">"bowtie2-build ./data/tair10.fasta ./data/tair10.fasta"</span><span class="p">)</span>
+<span class="n">resources</span> <span class="o">&lt;-</span> <span class="n">list</span><span class="p">(</span><span class="n">walltime</span><span class="o">=</span><span class="s2">"20:00:00"</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="n">paste0</span><span class="p">(</span><span class="s2">"1:ppn="</span><span class="p">,</span> <span class="n">cores</span><span class="p">(</span><span class="n">args</span><span class="p">)),</span> <span class="n">memory</span><span class="o">=</span><span class="s2">"10gb"</span><span class="p">)</span>
+<span class="n">reg</span> <span class="o">&lt;-</span> <span class="n">clusterRun</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">conffile</span><span class="o">=</span><span class="s2">".BatchJobs.R"</span><span class="p">,</span> <span class="n">template</span><span class="o">=</span><span class="s2">"torque.tmpl"</span><span class="p">,</span> <span class="n">Njobs</span><span class="o">=</span><span class="m">18</span><span class="p">,</span> <span class="n">runid</span><span class="o">=</span><span class="s2">"01"</span><span class="p">,</span> 
+                  <span class="n">resourceList</span><span class="o">=</span><span class="n">resources</span><span class="p">)</span>
+<span class="n">waitForJobs</span><span class="p">(</span><span class="n">reg</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p>Check whether all BAM files have been created</p>
 
-<p><code class="highlighter-rouge">r
-file.exists(outpaths(args))
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">file.exists</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+</code></pre>
+</div>
 
 <h2 id="read-and-alignment-stats">Read and alignment stats</h2>
 
 <p>The following provides an overview of the number of reads in each sample
 and how many of them aligned to the reference.</p>
 
-<p><code class="highlighter-rouge">r
-read_statsDF &lt;- alignStats(args=args) 
-write.table(read_statsDF, "results/alignStats.xls", row.names=FALSE, quote=FALSE, sep="\t")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">read_statsDF</span> <span class="o">&lt;-</span> <span class="n">alignStats</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span> 
+<span class="n">write.table</span><span class="p">(</span><span class="n">read_statsDF</span><span class="p">,</span> <span class="s2">"results/alignStats.xls"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">r
-read.table(system.file("extdata", "alignStats.xls", package="systemPipeR"), header=TRUE)[1:4,]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">read.table</span><span class="p">(</span><span class="n">system.file</span><span class="p">(</span><span class="s2">"extdata"</span><span class="p">,</span> <span class="s2">"alignStats.xls"</span><span class="p">,</span> <span class="n">package</span><span class="o">=</span><span class="s2">"systemPipeR"</span><span class="p">),</span> <span class="n">header</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-##   FileName Nreads2x Nalign Perc_Aligned Nalign_Primary Perc_Aligned_Primary
+<div class="highlighter-rouge"><pre class="highlight"><code>##   FileName Nreads2x Nalign Perc_Aligned Nalign_Primary Perc_Aligned_Primary
 ## 1      M1A   192918 177961     92.24697         177961             92.24697
 ## 2      M1B   197484 159378     80.70426         159378             80.70426
 ## 3      A1A   189870 176055     92.72397         176055             92.72397
 ## 4      A1B   188854 147768     78.24457         147768             78.24457
-</code></p>
+</code></pre>
+</div>
 
 <h2 id="create-symbolic-links-for-viewing-bam-files-in-igv">Create symbolic links for viewing BAM files in IGV</h2>
 
@@ -1916,11 +1916,11 @@ read.table(system.file("extdata", "alignStats.xls", package="systemPipeR"), head
 genome browser such as IGV. The corresponding URLs are written to a file
 with a path specified under <code class="highlighter-rouge">urlfile</code> in the <code class="highlighter-rouge">results</code> directory.</p>
 
-<p><code class="highlighter-rouge">r
-symLink2bam(sysargs=args, htmldir=c("~/.html/", "somedir/"), 
-            urlbase="http://biocluster.ucr.edu/~tgirke/", 
-	        urlfile="./results/IGVurl.txt")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">symLink2bam</span><span class="p">(</span><span class="n">sysargs</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">htmldir</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"~/.html/"</span><span class="p">,</span> <span class="s2">"somedir/"</span><span class="p">),</span> 
+            <span class="n">urlbase</span><span class="o">=</span><span class="s2">"http://biocluster.ucr.edu/~tgirke/"</span><span class="p">,</span> 
+	        <span class="n">urlfile</span><span class="o">=</span><span class="s2">"./results/IGVurl.txt"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h1 id="read-quantification-per-annotation-range">Read quantification per annotation range</h1>
 
@@ -1936,37 +1936,37 @@ RPKM table (<code class="highlighter-rouge">rpkmDFeByg.xls</code>) are written
 to separate files in the directory of this project. Parallelization is
 achieved with the <code class="highlighter-rouge">BiocParallel</code> package, here using 8 CPU cores.</p>
 
-<p><code class="highlighter-rouge">r
-library("GenomicFeatures"); library(BiocParallel)
-txdb &lt;- makeTxDbFromGFF(file="data/tair10.gff", format="gff", dataSource="TAIR", organism="Arabidopsis thaliana")
-saveDb(txdb, file="./data/tair10.sqlite")
-txdb &lt;- loadDb("./data/tair10.sqlite")
-(align &lt;- readGAlignments(outpaths(args)[1])) # Demonstrates how to read bam file into R
-eByg &lt;- exonsBy(txdb, by=c("gene"))
-bfl &lt;- BamFileList(outpaths(args), yieldSize=50000, index=character())
-multicoreParam &lt;- MulticoreParam(workers=2); register(multicoreParam); registered()
-counteByg &lt;- bplapply(bfl, function(x) summarizeOverlaps(eByg, x, mode="Union", 
-                                               ignore.strand=TRUE, 
-                                               inter.feature=FALSE, 
-                                               singleEnd=TRUE)) 
-countDFeByg &lt;- sapply(seq(along=counteByg), function(x) assays(counteByg[[x]])$counts)
-rownames(countDFeByg) &lt;- names(rowRanges(counteByg[[1]])); colnames(countDFeByg) &lt;- names(bfl)
-rpkmDFeByg &lt;- apply(countDFeByg, 2, function(x) returnRPKM(counts=x, ranges=eByg))
-write.table(countDFeByg, "results/countDFeByg.xls", col.names=NA, quote=FALSE, sep="\t")
-write.table(rpkmDFeByg, "results/rpkmDFeByg.xls", col.names=NA, quote=FALSE, sep="\t")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="s2">"GenomicFeatures"</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">BiocParallel</span><span class="p">)</span>
+<span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">makeTxDbFromGFF</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"data/tair10.gff"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"gff"</span><span class="p">,</span> <span class="n">dataSource</span><span class="o">=</span><span class="s2">"TAIR"</span><span class="p">,</span> <span class="n">organism</span><span class="o">=</span><span class="s2">"Arabidopsis thaliana"</span><span class="p">)</span>
+<span class="n">saveDb</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"./data/tair10.sqlite"</span><span class="p">)</span>
+<span class="n">txdb</span> <span class="o">&lt;-</span> <span class="n">loadDb</span><span class="p">(</span><span class="s2">"./data/tair10.sqlite"</span><span class="p">)</span>
+<span class="p">(</span><span class="n">align</span> <span class="o">&lt;-</span> <span class="n">readGAlignments</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">)[</span><span class="m">1</span><span class="p">]))</span> <span class="c1"># Demonstrates how to read bam file into R
+</span><span class="n">eByg</span> <span class="o">&lt;-</span> <span class="n">exonsBy</span><span class="p">(</span><span class="n">txdb</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"gene"</span><span class="p">))</span>
+<span class="n">bfl</span> <span class="o">&lt;-</span> <span class="n">BamFileList</span><span class="p">(</span><span class="n">outpaths</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">yieldSize</span><span class="o">=</span><span class="m">50000</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">character</span><span class="p">())</span>
+<span class="n">multicoreParam</span> <span class="o">&lt;-</span> <span class="n">MulticoreParam</span><span class="p">(</span><span class="n">workers</span><span class="o">=</span><span class="m">2</span><span class="p">);</span> <span class="n">register</span><span class="p">(</span><span class="n">multicoreParam</span><span class="p">);</span> <span class="n">registered</span><span class="p">()</span>
+<span class="n">counteByg</span> <span class="o">&lt;-</span> <span class="n">bplapply</span><span class="p">(</span><span class="n">bfl</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">summarizeOverlaps</span><span class="p">(</span><span class="n">eByg</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"Union"</span><span class="p">,</span> 
+                                               <span class="n">ignore.strand</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> 
+                                               <span class="n">inter.feature</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> 
+                                               <span class="n">singleEnd</span><span class="o">=</span><span class="n">TRUE</span><span class="p">))</span> 
+<span class="n">countDFeByg</span> <span class="o">&lt;-</span> <span class="n">sapply</span><span class="p">(</span><span class="n">seq</span><span class="p">(</span><span class="n">along</span><span class="o">=</span><span class="n">counteByg</span><span class="p">),</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">assays</span><span class="p">(</span><span class="n">counteByg</span><span class="p">[[</span><span class="n">x</span><span class="p">]])</span><span class="o">$</span><span class="n">counts</span><span class="p">)</span>
+<span class="n">rownames</span><span class="p">(</span><span class="n">countDFeByg</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">names</span><span class="p">(</span><span class="n">rowRanges</span><span class="p">(</span><span class="n">counteByg</span><span class="p">[[</span><span class="m">1</span><span class="p">]]));</span> <span class="n">colnames</span><span class="p">(</span><span class="n">countDFeByg</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">names</span><span class="p">(</span><span class="n">bfl</span><span class="p">)</span>
+<span class="n">rpkmDFeByg</span> <span class="o">&lt;-</span> <span class="n">apply</span><span class="p">(</span><span class="n">countDFeByg</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">returnRPKM</span><span class="p">(</span><span class="n">counts</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">ranges</span><span class="o">=</span><span class="n">eByg</span><span class="p">))</span>
+<span class="n">write.table</span><span class="p">(</span><span class="n">countDFeByg</span><span class="p">,</span> <span class="s2">"results/countDFeByg.xls"</span><span class="p">,</span> <span class="n">col.names</span><span class="o">=</span><span class="n">NA</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span>
+<span class="n">write.table</span><span class="p">(</span><span class="n">rpkmDFeByg</span><span class="p">,</span> <span class="s2">"results/rpkmDFeByg.xls"</span><span class="p">,</span> <span class="n">col.names</span><span class="o">=</span><span class="n">NA</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p>Sample of data slice of count table</p>
 
-<p><code class="highlighter-rouge">r
-read.delim("results/countDFeByg.xls", row.names=1, check.names=FALSE)[1:4,1:5]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">read.delim</span><span class="p">(</span><span class="s2">"results/countDFeByg.xls"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">check.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]</span>
+</code></pre>
+</div>
 
 <p>Sample of data slice of RPKM table</p>
 
-<p><code class="highlighter-rouge">r
-read.delim("results/rpkmDFeByg.xls", row.names=1, check.names=FALSE)[1:4,1:4]
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">read.delim</span><span class="p">(</span><span class="s2">"results/rpkmDFeByg.xls"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">check.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span>
+</code></pre>
+</div>
 
 <p>Note, for most statistical differential expression or abundance analysis
 methods, such as <code class="highlighter-rouge">edgeR</code> or <code class="highlighter-rouge">DESeq2</code>, the raw count values should be used as input. The
@@ -1982,17 +1982,17 @@ transformation to a distance matrix, hierarchical clustering is performed with
 the <code class="highlighter-rouge">hclust</code> function and the result is plotted as a dendrogram
 (also see file <code class="highlighter-rouge">sample_tree.pdf</code>).</p>
 
-<p><code class="highlighter-rouge">r
-library(DESeq2, quietly=TRUE); library(ape,  warn.conflicts=FALSE)
-countDF &lt;- as.matrix(read.table("./results/countDFeByg.xls"))
-colData &lt;- data.frame(row.names=targetsin(args)$SampleName, condition=targetsin(args)$Factor)
-dds &lt;- DESeqDataSetFromMatrix(countData = countDF, colData = colData, design = ~ condition)
-d &lt;- cor(assay(rlog(dds)), method="spearman")
-hc &lt;- hclust(dist(1-d))
-pdf("results/sample_tree.pdf")
-plot.phylo(as.phylo(hc), type="p", edge.col="blue", edge.width=2, show.node.label=TRUE, no.margin=TRUE)
-dev.off()
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">DESeq2</span><span class="p">,</span> <span class="n">quietly</span><span class="o">=</span><span class="n">TRUE</span><span class="p">);</span> <span class="n">library</span><span class="p">(</span><span class="n">ape</span><span class="p">,</span>  <span class="n">warn.conflicts</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+<span class="n">countDF</span> <span class="o">&lt;-</span> <span class="n">as.matrix</span><span class="p">(</span><span class="n">read.table</span><span class="p">(</span><span class="s2">"./results/countDFeByg.xls"</span><span class="p">))</span>
+<span class="n">colData</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">row.names</span><span class="o">=</span><span class="n">targetsin</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">$</span><span class="n">SampleName</span><span class="p">,</span> <span class="n">condition</span><span class="o">=</span><span class="n">targetsin</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">$</span><span class="n">Factor</span><span class="p">)</span>
+<span class="n">dds</span> <span class="o">&lt;-</span> <span class="n">DESeqDataSetFromMatrix</span><span class="p">(</span><span class="n">countData</span> <span class="o">=</span> <span class="n">countDF</span><span class="p">,</span> <span class="n">colData</span> <span class="o">=</span> <span class="n">colData</span><span class="p">,</span> <span class="n">design</span> <span class="o">=</span> <span class="o">~</span> <span class="n">condition</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">&lt;-</span> <span class="n">cor</span><span class="p">(</span><span class="n">assay</span><span class="p">(</span><span class="n">rlog</span><span class="p">(</span><span class="n">dds</span><span class="p">)),</span> <span class="n">method</span><span class="o">=</span><span class="s2">"spearman"</span><span class="p">)</span>
+<span class="n">hc</span> <span class="o">&lt;-</span> <span class="n">hclust</span><span class="p">(</span><span class="n">dist</span><span class="p">(</span><span class="m">1</span><span class="o">-</span><span class="n">d</span><span class="p">))</span>
+<span class="n">pdf</span><span class="p">(</span><span class="s2">"results/sample_tree.pdf"</span><span class="p">)</span>
+<span class="n">plot.phylo</span><span class="p">(</span><span class="n">as.phylo</span><span class="p">(</span><span class="n">hc</span><span class="p">),</span> <span class="n">type</span><span class="o">=</span><span class="s2">"p"</span><span class="p">,</span> <span class="n">edge.col</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">edge.width</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">show.node.label</span><span class="o">=</span><span class="n">TRUE</span><span class="p">,</span> <span class="n">no.margin</span><span class="o">=</span><span class="n">TRUE</span><span class="p">)</span>
+<span class="n">dev.off</span><span class="p">()</span>
+</code></pre>
+</div>
 
 <p><img src="sample_tree.png" alt="" /></p>
 <div align="center">Figure 2: Correlation dendrogram of samples</div>
@@ -2007,25 +2007,25 @@ comparisons used by this analysis are defined in the header lines of the
 
 <h2 id="run-edger">Run <code class="highlighter-rouge">edgeR</code></h2>
 
-<p><code class="highlighter-rouge">r
-library(edgeR)
-countDF &lt;- read.delim("results/countDFeByg.xls", row.names=1, check.names=FALSE) 
-targets &lt;- read.delim("targets.txt", comment="#")
-cmp &lt;- readComp(file="targets.txt", format="matrix", delim="-")
-edgeDF &lt;- run_edgeR(countDF=countDF, targets=targets, cmp=cmp[[1]], independent=FALSE, mdsplot="")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">edgeR</span><span class="p">)</span>
+<span class="n">countDF</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="s2">"results/countDFeByg.xls"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">check.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> 
+<span class="n">targets</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="s2">"targets.txt"</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s2">"#"</span><span class="p">)</span>
+<span class="n">cmp</span> <span class="o">&lt;-</span> <span class="n">readComp</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"targets.txt"</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s2">"matrix"</span><span class="p">,</span> <span class="n">delim</span><span class="o">=</span><span class="s2">"-"</span><span class="p">)</span>
+<span class="n">edgeDF</span> <span class="o">&lt;-</span> <span class="n">run_edgeR</span><span class="p">(</span><span class="n">countDF</span><span class="o">=</span><span class="n">countDF</span><span class="p">,</span> <span class="n">targets</span><span class="o">=</span><span class="n">targets</span><span class="p">,</span> <span class="n">cmp</span><span class="o">=</span><span class="n">cmp</span><span class="p">[[</span><span class="m">1</span><span class="p">]],</span> <span class="n">independent</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">mdsplot</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p>Add gene descriptions</p>
 
-<p><code class="highlighter-rouge">r
-library("biomaRt")
-m &lt;- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
-desc &lt;- getBM(attributes=c("tair_locus", "description"), mart=m)
-desc &lt;- desc[!duplicated(desc[,1]),]
-descv &lt;- as.character(desc[,2]); names(descv) &lt;- as.character(desc[,1])
-edgeDF &lt;- data.frame(edgeDF, Desc=descv[rownames(edgeDF)], check.names=FALSE)
-write.table(edgeDF, "./results/edgeRglm_allcomp.xls", quote=FALSE, sep="\t", col.names = NA)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="s2">"biomaRt"</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="n">useMart</span><span class="p">(</span><span class="s2">"plants_mart"</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="s2">"athaliana_eg_gene"</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span>
+<span class="n">desc</span> <span class="o">&lt;-</span> <span class="n">getBM</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"tair_locus"</span><span class="p">,</span> <span class="s2">"description"</span><span class="p">),</span> <span class="n">mart</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+<span class="n">desc</span> <span class="o">&lt;-</span> <span class="n">desc</span><span class="p">[</span><span class="o">!</span><span class="n">duplicated</span><span class="p">(</span><span class="n">desc</span><span class="p">[,</span><span class="m">1</span><span class="p">]),]</span>
+<span class="n">descv</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">desc</span><span class="p">[,</span><span class="m">2</span><span class="p">]);</span> <span class="n">names</span><span class="p">(</span><span class="n">descv</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">desc</span><span class="p">[,</span><span class="m">1</span><span class="p">])</span>
+<span class="n">edgeDF</span> <span class="o">&lt;-</span> <span class="n">data.frame</span><span class="p">(</span><span class="n">edgeDF</span><span class="p">,</span> <span class="n">Desc</span><span class="o">=</span><span class="n">descv</span><span class="p">[</span><span class="n">rownames</span><span class="p">(</span><span class="n">edgeDF</span><span class="p">)],</span> <span class="n">check.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+<span class="n">write.table</span><span class="p">(</span><span class="n">edgeDF</span><span class="p">,</span> <span class="s2">"./results/edgeRglm_allcomp.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">,</span> <span class="n">col.names</span> <span class="o">=</span> <span class="n">NA</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h2 id="plot-deg-results">Plot DEG results</h2>
 
@@ -2033,13 +2033,13 @@ write.table(edgeDF, "./results/edgeRglm_allcomp.xls", quote=FALSE, sep="\t", col
 definition of <em>up</em> and <em>down</em> is given in the corresponding help
 file. To open it, type <code class="highlighter-rouge">?filterDEGs</code> in the R console.</p>
 
-<p><code class="highlighter-rouge">r
-edgeDF &lt;- read.delim("results/edgeRglm_allcomp.xls", row.names=1, check.names=FALSE) 
-pdf("results/DEGcounts.pdf")
-DEG_list &lt;- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=20))
-dev.off()
-write.table(DEG_list$Summary, "./results/DEGcounts.xls", quote=FALSE, sep="\t", row.names=FALSE)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">edgeDF</span> <span class="o">&lt;-</span> <span class="n">read.delim</span><span class="p">(</span><span class="s2">"results/edgeRglm_allcomp.xls"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="m">1</span><span class="p">,</span> <span class="n">check.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span> 
+<span class="n">pdf</span><span class="p">(</span><span class="s2">"results/DEGcounts.pdf"</span><span class="p">)</span>
+<span class="n">DEG_list</span> <span class="o">&lt;-</span> <span class="n">filterDEGs</span><span class="p">(</span><span class="n">degDF</span><span class="o">=</span><span class="n">edgeDF</span><span class="p">,</span> <span class="n">filter</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">Fold</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">FDR</span><span class="o">=</span><span class="m">20</span><span class="p">))</span>
+<span class="n">dev.off</span><span class="p">()</span>
+<span class="n">write.table</span><span class="p">(</span><span class="n">DEG_list</span><span class="o">$</span><span class="n">Summary</span><span class="p">,</span> <span class="s2">"./results/DEGcounts.xls"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><img src="DEGcounts.png" alt="" /></p>
 <div align="center">Figure 3: Up and down regulated DEGs with FDR of 1%</div>
@@ -2053,13 +2053,13 @@ feature is the possiblity to combine the counts from several Venn
 comparisons with the same number of sample sets in a single Venn diagram
 (here for 4 up and down DEG sets).</p>
 
-<p><code class="highlighter-rouge">r
-vennsetup &lt;- overLapper(DEG_list$Up[6:9], type="vennsets")
-vennsetdown &lt;- overLapper(DEG_list$Down[6:9], type="vennsets")
-pdf("results/vennplot.pdf")
-vennPlot(list(vennsetup, vennsetdown), mymain="", mysub="", colmode=2, ccol=c("blue", "red"))
-dev.off()
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">vennsetup</span> <span class="o">&lt;-</span> <span class="n">overLapper</span><span class="p">(</span><span class="n">DEG_list</span><span class="o">$</span><span class="n">Up</span><span class="p">[</span><span class="m">6</span><span class="o">:</span><span class="m">9</span><span class="p">],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"vennsets"</span><span class="p">)</span>
+<span class="n">vennsetdown</span> <span class="o">&lt;-</span> <span class="n">overLapper</span><span class="p">(</span><span class="n">DEG_list</span><span class="o">$</span><span class="n">Down</span><span class="p">[</span><span class="m">6</span><span class="o">:</span><span class="m">9</span><span class="p">],</span> <span class="n">type</span><span class="o">=</span><span class="s2">"vennsets"</span><span class="p">)</span>
+<span class="n">pdf</span><span class="p">(</span><span class="s2">"results/vennplot.pdf"</span><span class="p">)</span>
+<span class="n">vennPlot</span><span class="p">(</span><span class="n">list</span><span class="p">(</span><span class="n">vennsetup</span><span class="p">,</span> <span class="n">vennsetdown</span><span class="p">),</span> <span class="n">mymain</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">mysub</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">colmode</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">ccol</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"red"</span><span class="p">))</span>
+<span class="n">dev.off</span><span class="p">()</span>
+</code></pre>
+</div>
 
 <p><img src="vennplot.png" alt="" /></p>
 <div align="center">Figure 4: Venn Diagram for 4 Up and Down DEG Sets</div>
@@ -2078,23 +2078,23 @@ For each annotation this relatively slow preprocessing step needs to be
 performed only once. Subsequently, the preprocessed data can be loaded
 with the <code class="highlighter-rouge">load</code> function as shown in the next subsection.</p>
 
-<p><code class="highlighter-rouge">r
-library("biomaRt")
-listMarts() # To choose BioMart database
-listMarts(host="plants.ensembl.org")
-m &lt;- useMart("plants_mart", host="plants.ensembl.org")
-listDatasets(m)
-m &lt;- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
-listAttributes(m) # Choose data types you want to download
-go &lt;- getBM(attributes=c("go_accession", "tair_locus", "go_namespace_1003"), mart=m)
-go &lt;- go[go[,3]!="",]; go[,3] &lt;- as.character(go[,3])
-go[go[,3]=="molecular_function", 3] &lt;- "F"; go[go[,3]=="biological_process", 3] &lt;- "P"; go[go[,3]=="cellular_component", 3] &lt;- "C"
-go[1:4,]
-dir.create("./data/GO")
-write.table(go, "data/GO/GOannotationsBiomart_mod.txt", quote=FALSE, row.names=FALSE, col.names=FALSE, sep="\t")
-catdb &lt;- makeCATdb(myfile="data/GO/GOannotationsBiomart_mod.txt", lib=NULL, org="", colno=c(1,2,3), idconv=NULL)
-save(catdb, file="data/GO/catdb.RData")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="s2">"biomaRt"</span><span class="p">)</span>
+<span class="n">listMarts</span><span class="p">()</span> <span class="c1"># To choose BioMart database
+</span><span class="n">listMarts</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="n">useMart</span><span class="p">(</span><span class="s2">"plants_mart"</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span>
+<span class="n">listDatasets</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="n">useMart</span><span class="p">(</span><span class="s2">"plants_mart"</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="s2">"athaliana_eg_gene"</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span>
+<span class="n">listAttributes</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="c1"># Choose data types you want to download
+</span><span class="n">go</span> <span class="o">&lt;-</span> <span class="n">getBM</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"go_accession"</span><span class="p">,</span> <span class="s2">"tair_locus"</span><span class="p">,</span> <span class="s2">"go_namespace_1003"</span><span class="p">),</span> <span class="n">mart</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+<span class="n">go</span> <span class="o">&lt;-</span> <span class="n">go</span><span class="p">[</span><span class="n">go</span><span class="p">[,</span><span class="m">3</span><span class="p">]</span><span class="o">!=</span><span class="s2">""</span><span class="p">,];</span> <span class="n">go</span><span class="p">[,</span><span class="m">3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">go</span><span class="p">[,</span><span class="m">3</span><span class="p">])</span>
+<span class="n">go</span><span class="p">[</span><span class="n">go</span><span class="p">[,</span><span class="m">3</span><span class="p">]</span><span class="o">==</span><span class="s2">"molecular_function"</span><span class="p">,</span> <span class="m">3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">"F"</span><span class="p">;</span> <span class="n">go</span><span class="p">[</span><span class="n">go</span><span class="p">[,</span><span class="m">3</span><span class="p">]</span><span class="o">==</span><span class="s2">"biological_process"</span><span class="p">,</span> <span class="m">3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">"P"</span><span class="p">;</span> <span class="n">go</span><span class="p">[</span><span class="n">go</span><span class="p">[,</span><span class="m">3</span><span class="p">]</span><span class="o">==</span><span class="s2">"cellular_component"</span><span class="p">,</span> <span class="m">3</span><span class="p">]</span> <span class="o">&lt;-</span> <span class="s2">"C"</span>
+<span class="n">go</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">,]</span>
+<span class="n">dir.create</span><span class="p">(</span><span class="s2">"./data/GO"</span><span class="p">)</span>
+<span class="n">write.table</span><span class="p">(</span><span class="n">go</span><span class="p">,</span> <span class="s2">"data/GO/GOannotationsBiomart_mod.txt"</span><span class="p">,</span> <span class="n">quote</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">row.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">col.names</span><span class="o">=</span><span class="n">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">"\t"</span><span class="p">)</span>
+<span class="n">catdb</span> <span class="o">&lt;-</span> <span class="n">makeCATdb</span><span class="p">(</span><span class="n">myfile</span><span class="o">=</span><span class="s2">"data/GO/GOannotationsBiomart_mod.txt"</span><span class="p">,</span> <span class="n">lib</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">org</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">colno</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> <span class="n">idconv</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span>
+<span class="n">save</span><span class="p">(</span><span class="n">catdb</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"data/GO/catdb.RData"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h2 id="batch-go-term-enrichment-analysis">Batch GO term enrichment analysis</h2>
 
@@ -2108,21 +2108,21 @@ it returns only the GO terms specified under the <code class="highlighter-rouge"
 example shows how a GO slim vector for a specific organism can be obtained from
 BioMart.</p>
 
-<p><code class="highlighter-rouge">r
-library("biomaRt")
-load("data/GO/catdb.RData")
-DEG_list &lt;- filterDEGs(degDF=edgeDF, filter=c(Fold=2, FDR=50), plot=FALSE)
-up_down &lt;- DEG_list$UporDown; names(up_down) &lt;- paste(names(up_down), "_up_down", sep="")
-up &lt;- DEG_list$Up; names(up) &lt;- paste(names(up), "_up", sep="")
-down &lt;- DEG_list$Down; names(down) &lt;- paste(names(down), "_down", sep="")
-DEGlist &lt;- c(up_down, up, down)
-DEGlist &lt;- DEGlist[sapply(DEGlist, length) &gt; 0]
-BatchResult &lt;- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="all", id_type="gene", CLSZ=2, cutoff=0.9, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
-library("biomaRt")
-m &lt;- useMart("plants_mart", dataset="athaliana_eg_gene", host="plants.ensembl.org")
-goslimvec &lt;- as.character(getBM(attributes=c("goslim_goa_accession"), mart=m)[,1])
-BatchResultslim &lt;- GOCluster_Report(catdb=catdb, setlist=DEGlist, method="slim", id_type="gene", myslimv=goslimvec, CLSZ=10, cutoff=0.01, gocats=c("MF", "BP", "CC"), recordSpecGO=NULL)
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="s2">"biomaRt"</span><span class="p">)</span>
+<span class="n">load</span><span class="p">(</span><span class="s2">"data/GO/catdb.RData"</span><span class="p">)</span>
+<span class="n">DEG_list</span> <span class="o">&lt;-</span> <span class="n">filterDEGs</span><span class="p">(</span><span class="n">degDF</span><span class="o">=</span><span class="n">edgeDF</span><span class="p">,</span> <span class="n">filter</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="n">Fold</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">FDR</span><span class="o">=</span><span class="m">50</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="n">FALSE</span><span class="p">)</span>
+<span class="n">up_down</span> <span class="o">&lt;-</span> <span class="n">DEG_list</span><span class="o">$</span><span class="n">UporDown</span><span class="p">;</span> <span class="n">names</span><span class="p">(</span><span class="n">up_down</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">up_down</span><span class="p">),</span> <span class="s2">"_up_down"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">up</span> <span class="o">&lt;-</span> <span class="n">DEG_list</span><span class="o">$</span><span class="n">Up</span><span class="p">;</span> <span class="n">names</span><span class="p">(</span><span class="n">up</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">up</span><span class="p">),</span> <span class="s2">"_up"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">down</span> <span class="o">&lt;-</span> <span class="n">DEG_list</span><span class="o">$</span><span class="n">Down</span><span class="p">;</span> <span class="n">names</span><span class="p">(</span><span class="n">down</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="n">paste</span><span class="p">(</span><span class="n">names</span><span class="p">(</span><span class="n">down</span><span class="p">),</span> <span class="s2">"_down"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">""</span><span class="p">)</span>
+<span class="n">DEGlist</span> <span class="o">&lt;-</span> <span class="n">c</span><span class="p">(</span><span class="n">up_down</span><span class="p">,</span> <span class="n">up</span><span class="p">,</span> <span class="n">down</span><span class="p">)</span>
+<span class="n">DEGlist</span> <span class="o">&lt;-</span> <span class="n">DEGlist</span><span class="p">[</span><span class="n">sapply</span><span class="p">(</span><span class="n">DEGlist</span><span class="p">,</span> <span class="n">length</span><span class="p">)</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">]</span>
+<span class="n">BatchResult</span> <span class="o">&lt;-</span> <span class="n">GOCluster_Report</span><span class="p">(</span><span class="n">catdb</span><span class="o">=</span><span class="n">catdb</span><span class="p">,</span> <span class="n">setlist</span><span class="o">=</span><span class="n">DEGlist</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"all"</span><span class="p">,</span> <span class="n">id_type</span><span class="o">=</span><span class="s2">"gene"</span><span class="p">,</span> <span class="n">CLSZ</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="m">0.9</span><span class="p">,</span> <span class="n">gocats</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"MF"</span><span class="p">,</span> <span class="s2">"BP"</span><span class="p">,</span> <span class="s2">"CC"</span><span class="p">),</span> <span class="n">recordSpecGO</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span>
+<span class="n">library</span><span class="p">(</span><span class="s2">"biomaRt"</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">&lt;-</span> <span class="n">useMart</span><span class="p">(</span><span class="s2">"plants_mart"</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="s2">"athaliana_eg_gene"</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="s2">"plants.ensembl.org"</span><span class="p">)</span>
+<span class="n">goslimvec</span> <span class="o">&lt;-</span> <span class="n">as.character</span><span class="p">(</span><span class="n">getBM</span><span class="p">(</span><span class="n">attributes</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"goslim_goa_accession"</span><span class="p">),</span> <span class="n">mart</span><span class="o">=</span><span class="n">m</span><span class="p">)[,</span><span class="m">1</span><span class="p">])</span>
+<span class="n">BatchResultslim</span> <span class="o">&lt;-</span> <span class="n">GOCluster_Report</span><span class="p">(</span><span class="n">catdb</span><span class="o">=</span><span class="n">catdb</span><span class="p">,</span> <span class="n">setlist</span><span class="o">=</span><span class="n">DEGlist</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"slim"</span><span class="p">,</span> <span class="n">id_type</span><span class="o">=</span><span class="s2">"gene"</span><span class="p">,</span> <span class="n">myslimv</span><span class="o">=</span><span class="n">goslimvec</span><span class="p">,</span> <span class="n">CLSZ</span><span class="o">=</span><span class="m">10</span><span class="p">,</span> <span class="n">cutoff</span><span class="o">=</span><span class="m">0.01</span><span class="p">,</span> <span class="n">gocats</span><span class="o">=</span><span class="n">c</span><span class="p">(</span><span class="s2">"MF"</span><span class="p">,</span> <span class="s2">"BP"</span><span class="p">,</span> <span class="s2">"CC"</span><span class="p">),</span> <span class="n">recordSpecGO</span><span class="o">=</span><span class="n">NULL</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <h2 id="plot-batch-go-term-results">Plot batch GO term results</h2>
 
@@ -2132,13 +2132,13 @@ the results from different DEG sets in the same bar plot. Plotting
 single sample sets is achieved by subsetting the input data frame as
 shown in the first line of the following example.</p>
 
-<p><code class="highlighter-rouge">r
-gos &lt;- BatchResultslim[grep("M6-V6_up_down", BatchResultslim$CLID), ]
-gos &lt;- BatchResultslim
-pdf("GOslimbarplotMF.pdf", height=8, width=10); goBarplot(gos, gocat="MF"); dev.off()
-goBarplot(gos, gocat="BP")
-goBarplot(gos, gocat="CC")
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">gos</span> <span class="o">&lt;-</span> <span class="n">BatchResultslim</span><span class="p">[</span><span class="n">grep</span><span class="p">(</span><span class="s2">"M6-V6_up_down"</span><span class="p">,</span> <span class="n">BatchResultslim</span><span class="o">$</span><span class="n">CLID</span><span class="p">),</span> <span class="p">]</span>
+<span class="n">gos</span> <span class="o">&lt;-</span> <span class="n">BatchResultslim</span>
+<span class="n">pdf</span><span class="p">(</span><span class="s2">"GOslimbarplotMF.pdf"</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="m">8</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="m">10</span><span class="p">);</span> <span class="n">goBarplot</span><span class="p">(</span><span class="n">gos</span><span class="p">,</span> <span class="n">gocat</span><span class="o">=</span><span class="s2">"MF"</span><span class="p">);</span> <span class="n">dev.off</span><span class="p">()</span>
+<span class="n">goBarplot</span><span class="p">(</span><span class="n">gos</span><span class="p">,</span> <span class="n">gocat</span><span class="o">=</span><span class="s2">"BP"</span><span class="p">)</span>
+<span class="n">goBarplot</span><span class="p">(</span><span class="n">gos</span><span class="p">,</span> <span class="n">gocat</span><span class="o">=</span><span class="s2">"CC"</span><span class="p">)</span>
+</code></pre>
+</div>
 
 <p><img src="GOslimbarplotMF.png" alt="" /></p>
 <div align="center">Figure 5: GO Slim Barplot for MF Ontology</div>
@@ -2151,14 +2151,14 @@ transformed expression matrix subsetted by the DEGs identified in the above
 differential expression analysis. It uses a Pearson correlation-based distance
 measure and complete linkage for cluster joining.</p>
 
-<p><code class="highlighter-rouge">r
-library(pheatmap)
-geneids &lt;- unique(as.character(unlist(DEG_list[[1]])))
-y &lt;- assay(rlog(dds))[geneids, ]
-pdf("heatmap1.pdf")
-pheatmap(y, scale="row", clustering_distance_rows="correlation", clustering_distance_cols="correlation")
-dev.off()
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">library</span><span class="p">(</span><span class="n">pheatmap</span><span class="p">)</span>
+<span class="n">geneids</span> <span class="o">&lt;-</span> <span class="n">unique</span><span class="p">(</span><span class="n">as.character</span><span class="p">(</span><span class="n">unlist</span><span class="p">(</span><span class="n">DEG_list</span><span class="p">[[</span><span class="m">1</span><span class="p">]])))</span>
+<span class="n">y</span> <span class="o">&lt;-</span> <span class="n">assay</span><span class="p">(</span><span class="n">rlog</span><span class="p">(</span><span class="n">dds</span><span class="p">))[</span><span class="n">geneids</span><span class="p">,</span> <span class="p">]</span>
+<span class="n">pdf</span><span class="p">(</span><span class="s2">"heatmap1.pdf"</span><span class="p">)</span>
+<span class="n">pheatmap</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="s2">"row"</span><span class="p">,</span> <span class="n">clustering_distance_rows</span><span class="o">=</span><span class="s2">"correlation"</span><span class="p">,</span> <span class="n">clustering_distance_cols</span><span class="o">=</span><span class="s2">"correlation"</span><span class="p">)</span>
+<span class="n">dev.off</span><span class="p">()</span>
+</code></pre>
+</div>
 
 <p><img src="heatmap1.png" alt="" /></p>
 <div align="center">Figure 6: Heat Map with Hierarchical Clustering Dendrograms of DEGs</div>
@@ -2166,12 +2166,11 @@ dev.off()
 
 <h1 id="version-information">Version Information</h1>
 
-<p><code class="highlighter-rouge">r
-sessionInfo()
-</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">sessionInfo</span><span class="p">()</span>
+</code></pre>
+</div>
 
-<p><code class="highlighter-rouge">
-## R version 3.2.5 (2016-04-14)
+<div class="highlighter-rouge"><pre class="highlight"><code>## R version 3.2.5 (2016-04-14)
 ## Platform: x86_64-pc-linux-gnu (64-bit)
 ## Running under: Ubuntu 14.04.4 LTS
 ## 
@@ -2209,7 +2208,8 @@ sessionInfo()
 ## [49] brew_1.0-6             rjson_0.2.15           lambda.r_1.1.7         RColorBrewer_1.1-2    
 ## [53] tools_3.2.5            Category_2.36.0        survival_2.38-3        yaml_2.1.13           
 ## [57] AnnotationDbi_1.32.0   colorspace_1.2-6       knitr_1.12
-</code></p>
+</code></pre>
+</div>
 
 <h1 id="funding">Funding</h1>
 
@@ -2232,7 +2232,7 @@ sessionInfo()
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 UC Riverside. All rights reserved. <br />
- Site last generated: Jun 21, 2016 <br />
+ Site last generated: Aug 11, 2016 <br />
 <p><img src="../common_images/company_logo.png/></p>
                 </div>
             </div>
